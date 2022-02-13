@@ -2,10 +2,10 @@
 name = "solana-clap-utils"
 version = "1.10.0"
 description = "Solana utilities for the clap"
-authors = ["Solana Maintainers <maintainers@solana.foundation>"]
-repository = "https://github.com/solana-labs/solana"
+authors = ["RENEC Maintainers <dev@remitano.com>"]
+repository = "https://github.com/remitano/renec"
 license = "Apache-2.0"
-homepage = "https://solana.com/"
+homepage = "https://remitano.com/"
 documentation = "https://docs.rs/solana-clap-utils"
 edition = "2021"
 

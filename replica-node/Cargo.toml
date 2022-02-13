@@ -1,13 +1,13 @@
 [package]
-authors = ["Solana Maintainers <maintainers@solana.foundation>"]
+authors = ["RENEC Maintainers <dev@remitano.com>"]
 edition = "2021"
 name = "solana-replica-node"
 description = "Solana replication node"
 version = "1.10.0"
-repository = "https://github.com/solana-labs/solana"
+repository = "https://github.com/remitano/renec"
 license = "Apache-2.0"
-homepage = "https://solana.com/"
-documentation = "https://docs.rs/solana-validator"
+homepage = "https://remitano.com/"
+documentation = "https://docs.rs/renec-validator"
 
 [dependencies]
 clap = "2.33.1"
@@ -28,7 +28,7 @@ solana-sdk = { path = "../sdk", version = "=1.10.0" }
 solana-send-transaction-service = { path = "../send-transaction-service", version = "=1.10.0" }
 solana-streamer = { path = "../streamer", version = "=1.10.0" }
 solana-version = { path = "../version", version = "=1.10.0" }
-solana-validator = { path = "../validator", version = "=1.10.0" }
+renec-validator = { path = "../validator", version = "=1.10.0" }
 
 [dev-dependencies]
 serial_test = "0.5.1"

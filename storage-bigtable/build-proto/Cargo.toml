@@ -2,11 +2,11 @@
 authors = ["Solana Maintainers <maintainers@solana.com>"]
 description = "Blockchain, Rebuilt for Scale"
 edition = "2021"
-homepage = "https://solana.com/"
+homepage = "https://remitano.com/"
 license = "Apache-2.0"
 name = "proto"
 publish = false
-repository = "https://github.com/solana-labs/solana"
+repository = "https://github.com/remitano/renec"
 version = "1.10.0"
 
 [workspace]

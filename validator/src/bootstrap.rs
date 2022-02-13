@@ -617,7 +617,7 @@ mod without_incremental_snapshots {
                 )
                 .unwrap_or_else(|err| {
                     // Consider failures here to be more likely due to user error (eg,
-                    // incorrect `solana-validator` command-line arguments) rather than the
+                    // incorrect `renec-validator` command-line arguments) rather than the
                     // RPC node failing.
                     //
                     // Power users can always use the `--no-check-vote-account` option to
@@ -957,7 +957,7 @@ mod with_incremental_snapshots {
                     )
                     .unwrap_or_else(|err| {
                         // Consider failures here to be more likely due to user error (eg,
-                        // incorrect `solana-validator` command-line arguments) rather than the
+                        // incorrect `renec-validator` command-line arguments) rather than the
                         // RPC node failing.
                         //
                         // Power users can always use the `--no-check-vote-account` option to

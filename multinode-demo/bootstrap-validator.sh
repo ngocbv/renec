@@ -16,7 +16,7 @@ fi
 if [[ -n $SOLANA_CUDA ]]; then
   program=$solana_validator_cuda
 else
-  program=$solana_validator
+  program=$renec_validator
 fi
 
 no_restart=0
