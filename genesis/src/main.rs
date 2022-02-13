@@ -146,7 +146,7 @@ fn main() -> Result<(), Box<dyn error::Error>> {
 
     let matches = App::new(crate_name!())
         .about(crate_description!())
-        .version(solana_version::version!())
+        .version(renec_version::version!())
         .arg(
             Arg::with_name("creation_time")
                 .long("creation-time")

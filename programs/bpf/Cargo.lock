@@ -3167,7 +3167,7 @@ dependencies = [
  "solana-net-utils",
  "solana-sdk",
  "solana-transaction-status",
- "solana-version",
+ "renec-version",
  "solana-vote-program",
  "thiserror",
  "tokio",
@@ -3213,7 +3213,7 @@ dependencies = [
  "solana-logger 1.10.0",
  "solana-metrics",
  "solana-sdk",
- "solana-version",
+ "renec-version",
  "spl-memo",
  "thiserror",
  "tokio",
@@ -3333,7 +3333,7 @@ dependencies = [
  "socket2",
  "solana-logger 1.10.0",
  "solana-sdk",
- "solana-version",
+ "renec-version",
  "tokio",
  "url",
 ]
@@ -3692,7 +3692,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "solana-version"
+name = "renec-version"
 version = "1.10.0"
 dependencies = [
  "log",

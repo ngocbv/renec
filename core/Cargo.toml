@@ -76,7 +76,7 @@ serial_test = "0.5.1"
 solana-logger = { path = "../logger", version = "=1.10.0" }
 solana-program-runtime = { path = "../program-runtime", version = "=1.10.0" }
 solana-stake-program = { path = "../programs/stake", version = "=1.10.0" }
-solana-version = { path = "../version", version = "=1.10.0" }
+renec-version = { path = "../version", version = "=1.10.0" }
 static_assertions = "1.1.0"
 systemstat = "0.1.10"
 

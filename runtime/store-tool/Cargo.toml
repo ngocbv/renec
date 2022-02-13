@@ -12,7 +12,7 @@ publish = false
 [dependencies]
 log = { version = "0.4.14" }
 solana-logger = { path = "../../logger", version = "=1.10.0" }
-solana-version = { path = "../../version", version = "=1.10.0" }
+renec-version = { path = "../../version", version = "=1.10.0" }
 solana-runtime = { path = "..", version = "=1.10.0" }
 clap = "2.33.1"
 

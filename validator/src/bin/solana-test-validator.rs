@@ -64,7 +64,7 @@ fn main() {
 
     let matches = App::new("solana-test-validator")
         .about("Test Validator")
-        .version(solana_version::version!())
+        .version(renec_version::version!())
         .arg({
             let arg = Arg::with_name("config_file")
                 .short("C")
@@ -394,7 +394,7 @@ fn main() {
     };
     let _logger_thread = redirect_stderr_to_file(logfile);
 
-    info!("{} {}", crate_name!(), solana_version::version!());
+    info!("{} {}", crate_name!(), renec_version::version!());
     info!("Starting validator with: {:#?}", std::env::args_os());
     solana_core::validator::report_target_features();
 
