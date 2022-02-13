@@ -5,7 +5,7 @@ use {
     bincode::deserialize,
     serde_json::json,
     solana_sdk::{instruction::CompiledInstruction, message::AccountKeys},
-    solana_vote_program::vote_instruction::VoteInstruction,
+    renec_vote_program::vote_instruction::VoteInstruction,
 };
 
 pub fn parse_vote(
@@ -187,7 +187,7 @@ mod test {
     use {
         super::*,
         solana_sdk::{hash::Hash, message::Message, pubkey::Pubkey},
-        solana_vote_program::{
+        renec_vote_program::{
             vote_instruction,
             vote_state::{Vote, VoteAuthorize, VoteInit},
         },

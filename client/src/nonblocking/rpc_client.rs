@@ -47,7 +47,7 @@ use {
         EncodedConfirmedBlock, EncodedConfirmedTransactionWithStatusMeta, TransactionStatus,
         UiConfirmedBlock, UiTransactionEncoding,
     },
-    solana_vote_program::vote_state::MAX_LOCKOUT_HISTORY,
+    renec_vote_program::vote_state::MAX_LOCKOUT_HISTORY,
     std::{
         cmp::min,
         net::SocketAddr,

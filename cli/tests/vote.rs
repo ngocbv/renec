@@ -18,7 +18,7 @@ use {
     },
     solana_streamer::socket::SocketAddrSpace,
     solana_test_validator::TestValidator,
-    solana_vote_program::vote_state::{VoteAuthorize, VoteState, VoteStateVersions},
+    renec_vote_program::vote_state::{VoteAuthorize, VoteState, VoteStateVersions},
 };
 
 #[test]

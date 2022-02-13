@@ -376,7 +376,7 @@ pub mod test {
             tower1_7_14::{SavedTower1_7_14, Tower1_7_14},
         },
         solana_sdk::{hash::Hash, signature::Keypair},
-        solana_vote_program::vote_state::{
+        renec_vote_program::vote_state::{
             BlockTimestamp, Lockout, Vote, VoteState, VoteTransaction, MAX_LOCKOUT_HISTORY,
         },
         tempfile::TempDir,

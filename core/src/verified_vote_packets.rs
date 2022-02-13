@@ -180,7 +180,7 @@ mod tests {
         crossbeam_channel::unbounded,
         solana_perf::packet::Packet,
         solana_sdk::slot_hashes::MAX_ENTRIES,
-        solana_vote_program::vote_state::Vote,
+        renec_vote_program::vote_state::Vote,
     };
 
     #[test]

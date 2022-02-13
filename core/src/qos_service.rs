@@ -388,7 +388,7 @@ mod tests {
             signature::{Keypair, Signer},
             system_transaction,
         },
-        solana_vote_program::vote_transaction,
+        renec_vote_program::vote_transaction,
     };
 
     #[test]

@@ -71,7 +71,7 @@ use {
         socket::SocketAddrSpace,
         streamer::{PacketBatchReceiver, PacketBatchSender},
     },
-    solana_vote_program::vote_state::MAX_LOCKOUT_HISTORY,
+    renec_vote_program::vote_state::MAX_LOCKOUT_HISTORY,
     std::{
         borrow::Cow,
         collections::{hash_map::Entry, HashMap, HashSet, VecDeque},
@@ -3071,7 +3071,7 @@ mod tests {
         rand_chacha::ChaChaRng,
         solana_ledger::shred::Shredder,
         solana_sdk::signature::{Keypair, Signer},
-        solana_vote_program::{vote_instruction, vote_state::Vote},
+        renec_vote_program::{vote_instruction, vote_state::Vote},
         std::{
             iter::repeat_with,
             net::{IpAddr, Ipv4Addr, Ipv6Addr, SocketAddrV4},

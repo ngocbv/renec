@@ -92,7 +92,7 @@ use {
     },
     solana_send_transaction_service::send_transaction_service,
     solana_streamer::socket::SocketAddrSpace,
-    solana_vote_program::vote_state::VoteState,
+    renec_vote_program::vote_state::VoteState,
     std::{
         collections::{HashMap, HashSet},
         net::SocketAddr,

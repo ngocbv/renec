@@ -415,7 +415,7 @@ mod tests {
                     } else if *pubkey == invalid_stake_state_pubkey() {
                         AccountSharedData::new(0, 0, &id())
                     } else if *pubkey == invalid_vote_state_pubkey() {
-                        AccountSharedData::new(0, 0, &solana_vote_program::id())
+                        AccountSharedData::new(0, 0, &renec_vote_program::id())
                     } else if *pubkey == spoofed_stake_state_pubkey() {
                         AccountSharedData::new(0, 0, &spoofed_stake_program_id())
                     } else {
@@ -623,7 +623,7 @@ mod tests {
         let stake_history_account =
             account::create_account_shared_data_for_test(&StakeHistory::default());
         let vote_address = Pubkey::new_unique();
-        let vote_account = AccountSharedData::new(0, 0, &solana_vote_program::id());
+        let vote_account = AccountSharedData::new(0, 0, &renec_vote_program::id());
         let clock_address = sysvar::clock::id();
         let clock_account =
             account::create_account_shared_data_for_test(&sysvar::clock::Clock::default());

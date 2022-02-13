@@ -85,7 +85,7 @@ use {
         Reward, RewardType, TransactionConfirmationStatus, TransactionStatus, UiConfirmedBlock,
         UiTransactionEncoding,
     },
-    solana_vote_program::vote_state::{VoteState, MAX_LOCKOUT_HISTORY},
+    renec_vote_program::vote_state::{VoteState, MAX_LOCKOUT_HISTORY},
     spl_token::{
         solana_program::program_pack::Pack,
         state::{Account as TokenAccount, Mint},
@@ -4399,7 +4399,7 @@ pub mod tests {
             EncodedConfirmedBlock, EncodedTransaction, EncodedTransactionWithStatusMeta,
             TransactionDetails, UiMessage,
         },
-        solana_vote_program::{
+        renec_vote_program::{
             vote_instruction,
             vote_state::{BlockTimestamp, Vote, VoteInit, VoteStateVersions, MAX_LOCKOUT_HISTORY},
         },

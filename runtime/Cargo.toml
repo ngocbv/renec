@@ -49,7 +49,7 @@ solana-program-runtime = { path = "../program-runtime", version = "=1.10.0" }
 solana-rayon-threadlimit = { path = "../rayon-threadlimit", version = "=1.10.0" }
 solana-sdk = { path = "../sdk", version = "=1.10.0" }
 solana-stake-program = { path = "../programs/stake", version = "=1.10.0" }
-solana-vote-program = { path = "../programs/vote", version = "=1.10.0" }
+renec-vote-program = { path = "../programs/vote", version = "=1.10.0" }
 solana-zk-token-proof-program = { path = "../programs/zk-token-proof", version = "=1.10.0" }
 solana-zk-token-sdk = { path = "../zk-token-sdk", version = "=1.10.0" }
 symlink = "0.1.0"

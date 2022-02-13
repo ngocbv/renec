@@ -23,7 +23,7 @@ use {
         },
     },
     solana_stake_program::stake_state,
-    solana_vote_program::vote_state::VoteState,
+    renec_vote_program::vote_state::VoteState,
     std::{
         collections::HashMap,
         sync::{Arc, RwLock, RwLockReadGuard},
@@ -50,13 +50,13 @@ impl StakesCache {
     }
 
     pub fn is_stake(account: &AccountSharedData) -> bool {
-        solana_vote_program::check_id(account.owner())
+        renec_vote_program::check_id(account.owner())
             || stake::program::check_id(account.owner())
                 && account.data().len() >= std::mem::size_of::<StakeState>()
     }
 
     pub fn check_and_store(&self, pubkey: &Pubkey, account: &AccountSharedData) {
-        if solana_vote_program::check_id(account.owner()) {
+        if renec_vote_program::check_id(account.owner()) {
             let new_vote_account = if account.lamports() != 0
                 && VoteState::is_correct_size_and_initialized(account.data())
             {
@@ -362,7 +362,7 @@ pub mod tests {
         rayon::ThreadPoolBuilder,
         solana_sdk::{account::WritableAccount, pubkey::Pubkey, rent::Rent},
         solana_stake_program::stake_state,
-        solana_vote_program::vote_state::{self, VoteState, VoteStateVersions},
+        renec_vote_program::vote_state::{self, VoteState, VoteStateVersions},
     };
 
     //  set up some dummies for a staked node     ((     vote      )  (     stake     ))

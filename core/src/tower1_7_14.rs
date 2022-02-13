@@ -5,7 +5,7 @@ use solana_sdk::{
     pubkey::Pubkey,
     signature::{Signature, Signer},
 };
-use solana_vote_program::vote_state::{BlockTimestamp, Vote, VoteState};
+use renec_vote_program::vote_state::{BlockTimestamp, Vote, VoteState};
 
 #[frozen_abi(digest = "7phMrqmBo2D3rXPdhBj8CpjRvvmx9qgpcU4cDGkL3W9q")]
 #[derive(Clone, Serialize, Deserialize, Debug, PartialEq, AbiExample)]

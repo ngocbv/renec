@@ -238,7 +238,7 @@ mod tests {
             system_transaction,
             transaction::{DisabledAddressLoader, VersionedTransaction},
         },
-        solana_vote_program::vote_transaction,
+        renec_vote_program::vote_transaction,
         std::{cmp, sync::Arc},
     };
 

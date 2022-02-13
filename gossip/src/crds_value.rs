@@ -691,7 +691,7 @@ mod test {
             signature::{Keypair, Signer},
             timing::timestamp,
         },
-        solana_vote_program::{vote_instruction, vote_state},
+        renec_vote_program::{vote_instruction, vote_state},
         std::{cmp::Ordering, iter::repeat_with},
     };
 

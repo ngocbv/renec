@@ -16,7 +16,7 @@ use {
         sysvar,
         transaction_context::{InstructionAccount, TransactionContext},
     },
-    solana_vote_program::{
+    renec_vote_program::{
         vote_instruction::VoteInstruction,
         vote_state::{
             self, Vote, VoteInit, VoteState, VoteStateUpdate, VoteStateVersions,
@@ -68,7 +68,7 @@ fn create_components(num_initial_votes: Slot) -> VoteComponents {
         Account {
             lamports: 1,
             data: vote_account_data,
-            owner: solana_vote_program::id(),
+            owner: renec_vote_program::id(),
             executable: false,
             rent_epoch: 0,
         }
@@ -125,7 +125,7 @@ fn do_bench_process_vote_instruction(bencher: &mut Bencher, feature: Option<Pubk
     .unwrap();
 
     let instruction = Instruction {
-        program_id: solana_vote_program::id(),
+        program_id: renec_vote_program::id(),
         data: vote_ix_data,
         accounts: vec![
             AccountMeta::new(vote_pubkey, false),
@@ -164,7 +164,7 @@ fn do_bench_process_vote_instruction(bencher: &mut Bencher, feature: Option<Pubk
                     authority_pubkey,
                     AccountSharedData::from(authority_account.clone()),
                 ),
-                (solana_vote_program::id(), AccountSharedData::default()),
+                (renec_vote_program::id(), AccountSharedData::default()),
             ],
             1,
             1,
@@ -177,7 +177,7 @@ fn do_bench_process_vote_instruction(bencher: &mut Bencher, feature: Option<Pubk
             .unwrap();
 
         let first_instruction_account = 1;
-        assert!(solana_vote_program::vote_processor::process_instruction(
+        assert!(renec_vote_program::vote_processor::process_instruction(
             first_instruction_account,
             &instruction.data,
             &mut invoke_context

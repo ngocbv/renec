@@ -134,7 +134,7 @@ use {
     solana_stake_program::stake_state::{
         self, InflationPointCalculationEvent, PointValue, StakeState,
     },
-    solana_vote_program::vote_state::{VoteState, VoteStateVersions},
+    renec_vote_program::vote_state::{VoteState, VoteStateVersions},
     std::{
         borrow::Cow,
         cell::RefCell,
@@ -2566,7 +2566,7 @@ impl Bank {
                     } else {
                         let vote_account = match self.get_account_with_fixed_root(vote_pubkey) {
                             Some(vote_account) => {
-                                if vote_account.owner() != &solana_vote_program::id() {
+                                if vote_account.owner() != &renec_vote_program::id() {
                                     invalid_vote_keys
                                         .insert(*vote_pubkey, InvalidCacheEntryReason::WrongOwner);
                                     return;
@@ -2604,7 +2604,7 @@ impl Bank {
                             stake_pubkey,
                             &InflationPointCalculationEvent::Delegation(
                                 *delegation,
-                                solana_vote_program::id(),
+                                renec_vote_program::id(),
                             ),
                         ));
                     }
@@ -6748,7 +6748,7 @@ pub(crate) mod tests {
             transaction::MAX_TX_ACCOUNT_LOCKS,
             transaction_context::InstructionContext,
         },
-        solana_vote_program::{
+        renec_vote_program::{
             vote_instruction,
             vote_state::{
                 self, BlockTimestamp, Vote, VoteInit, VoteState, VoteStateVersions,
@@ -11255,13 +11255,13 @@ pub(crate) mod tests {
             bank.last_blockhash(),
         );
 
-        let vote_loader_account = bank.get_account(&solana_vote_program::id()).unwrap();
+        let vote_loader_account = bank.get_account(&renec_vote_program::id()).unwrap();
         bank.add_builtin(
-            "solana_vote_program",
-            &solana_vote_program::id(),
+            "renec_vote_program",
+            &renec_vote_program::id(),
             mock_vote_processor,
         );
-        let new_vote_loader_account = bank.get_account(&solana_vote_program::id()).unwrap();
+        let new_vote_loader_account = bank.get_account(&renec_vote_program::id()).unwrap();
         // Vote loader account should not be updated since it was included in the genesis config.
         assert_eq!(vote_loader_account.data(), new_vote_loader_account.data());
         assert_eq!(
@@ -12583,7 +12583,7 @@ pub(crate) mod tests {
         ];
 
         let instruction =
-            Instruction::new_with_bincode(solana_vote_program::id(), &10, account_metas);
+            Instruction::new_with_bincode(renec_vote_program::id(), &10, account_metas);
         let mut tx = Transaction::new_signed_with_payer(
             &[instruction],
             Some(&mint_keypair.pubkey()),
@@ -12595,12 +12595,12 @@ pub(crate) mod tests {
 
         bank.add_builtin(
             "mock_vote",
-            &solana_vote_program::id(),
+            &renec_vote_program::id(),
             mock_ok_vote_processor,
         );
         let result = bank.process_transaction(&tx);
         assert_eq!(result, Ok(()));
-        let account = bank.get_account(&solana_vote_program::id()).unwrap();
+        let account = bank.get_account(&renec_vote_program::id()).unwrap();
         info!("account: {:?}", account);
         assert!(account.executable());
     }
@@ -12649,12 +12649,12 @@ pub(crate) mod tests {
 
         bank.add_builtin(
             "mock_vote",
-            &solana_vote_program::id(),
+            &renec_vote_program::id(),
             mock_ok_vote_processor,
         );
 
         let instruction =
-            Instruction::new_with_bincode(solana_vote_program::id(), &10, account_metas);
+            Instruction::new_with_bincode(renec_vote_program::id(), &10, account_metas);
         let mut tx = Transaction::new_signed_with_payer(
             &[instruction],
             Some(&mint_keypair.pubkey()),
@@ -12683,12 +12683,12 @@ pub(crate) mod tests {
 
         bank.add_builtin(
             "mock_vote",
-            &solana_vote_program::id(),
+            &renec_vote_program::id(),
             mock_ok_vote_processor,
         );
 
         let instruction =
-            Instruction::new_with_bincode(solana_vote_program::id(), &10, account_metas);
+            Instruction::new_with_bincode(renec_vote_program::id(), &10, account_metas);
         let mut tx = Transaction::new_signed_with_payer(
             &[instruction],
             Some(&mint_keypair.pubkey()),
@@ -12720,12 +12720,12 @@ pub(crate) mod tests {
 
         bank.add_builtin(
             "mock_vote",
-            &solana_vote_program::id(),
+            &renec_vote_program::id(),
             mock_ok_vote_processor,
         );
 
         let instruction =
-            Instruction::new_with_bincode(solana_vote_program::id(), &10, account_metas);
+            Instruction::new_with_bincode(renec_vote_program::id(), &10, account_metas);
         let mut tx = Transaction::new_signed_with_payer(
             &[instruction],
             Some(&mint_keypair.pubkey()),
@@ -12740,7 +12740,7 @@ pub(crate) mod tests {
         );
         assert_eq!(tx.message.account_keys.len(), 4);
         tx.message.account_keys.clear();
-        tx.message.account_keys.push(solana_vote_program::id());
+        tx.message.account_keys.push(renec_vote_program::id());
         tx.message.account_keys.push(mint_keypair.pubkey());
         tx.message.account_keys.push(from_pubkey);
         tx.message.account_keys.push(to_pubkey);
@@ -12777,12 +12777,12 @@ pub(crate) mod tests {
 
         bank.add_builtin(
             "mock_vote",
-            &solana_vote_program::id(),
+            &renec_vote_program::id(),
             mock_ok_vote_processor,
         );
 
         let instruction =
-            Instruction::new_with_bincode(solana_vote_program::id(), &10, account_metas);
+            Instruction::new_with_bincode(renec_vote_program::id(), &10, account_metas);
         let mut tx = Transaction::new_signed_with_payer(
             &[instruction],
             Some(&mint_keypair.pubkey()),

@@ -9,7 +9,7 @@ use {
         commitment::{BlockCommitment, BlockCommitmentCache, CommitmentSlots, VOTE_THRESHOLD_SIZE},
     },
     solana_sdk::clock::Slot,
-    solana_vote_program::vote_state::VoteState,
+    renec_vote_program::vote_state::VoteState,
     std::{
         cmp::max,
         collections::HashMap,
@@ -258,7 +258,7 @@ mod tests {
         },
         solana_sdk::{account::Account, pubkey::Pubkey, signature::Signer},
         solana_stake_program::stake_state,
-        solana_vote_program::{
+        renec_vote_program::{
             vote_state::{self, VoteStateVersions},
             vote_transaction,
         },

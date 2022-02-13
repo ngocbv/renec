@@ -10,7 +10,7 @@ use {
         system_program, system_transaction,
         transaction::Transaction,
     },
-    solana_vote_program::vote_transaction,
+    renec_vote_program::vote_transaction,
 };
 
 pub fn test_tx() -> Transaction {

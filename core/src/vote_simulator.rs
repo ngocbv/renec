@@ -23,7 +23,7 @@ use {
         },
     },
     solana_sdk::{clock::Slot, hash::Hash, pubkey::Pubkey, signature::Signer},
-    solana_vote_program::vote_transaction,
+    renec_vote_program::vote_transaction,
     std::{
         collections::{HashMap, HashSet},
         sync::{Arc, RwLock},

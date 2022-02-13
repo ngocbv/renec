@@ -21,7 +21,7 @@ use {
         signature::Keypair,
         slot_history::{Check, SlotHistory},
     },
-    solana_vote_program::{
+    renec_vote_program::{
         vote_instruction,
         vote_state::{
             BlockTimestamp, Lockout, Vote, VoteState, VoteStateUpdate, VoteTransaction,
@@ -1386,7 +1386,7 @@ pub mod test {
             signature::Signer,
             slot_history::SlotHistory,
         },
-        solana_vote_program::vote_state::{Vote, VoteStateVersions, MAX_LOCKOUT_HISTORY},
+        renec_vote_program::vote_state::{Vote, VoteStateVersions, MAX_LOCKOUT_HISTORY},
         std::{
             collections::{HashMap, VecDeque},
             fs::{remove_file, OpenOptions},

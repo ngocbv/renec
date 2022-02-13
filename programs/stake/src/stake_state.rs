@@ -26,7 +26,7 @@ use {
         },
         stake_history::{StakeHistory, StakeHistoryEntry},
     },
-    solana_vote_program::vote_state::{VoteState, VoteStateVersions},
+    renec_vote_program::vote_state::{VoteState, VoteStateVersions},
     std::{collections::HashSet, convert::TryFrom},
 };
 
@@ -535,7 +535,7 @@ impl<'a> StakeAccount for KeyedAccount<'a> {
         config: &Config,
         signers: &HashSet<Pubkey>,
     ) -> Result<(), InstructionError> {
-        if vote_account.owner()? != solana_vote_program::id() {
+        if vote_account.owner()? != renec_vote_program::id() {
             return Err(InstructionError::IncorrectProgramId);
         }
 
@@ -1306,7 +1306,7 @@ mod tests {
             system_program,
             transaction_context::TransactionContext,
         },
-        solana_vote_program::vote_state,
+        renec_vote_program::vote_state,
         std::{cell::RefCell, iter::FromIterator},
     };
 

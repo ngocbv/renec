@@ -323,7 +323,7 @@ fn check_vote_account(
         .value
         .ok_or_else(|| format!("vote account does not exist: {}", vote_account_address))?;
 
-    if vote_account.owner != solana_vote_program::id() {
+    if vote_account.owner != renec_vote_program::id() {
         return Err(format!(
             "not a vote account (owned by {}): {}",
             vote_account.owner, vote_account_address
@@ -336,7 +336,7 @@ fn check_vote_account(
         .value
         .ok_or_else(|| format!("identity account does not exist: {}", identity_pubkey))?;
 
-    let vote_state = solana_vote_program::vote_state::VoteState::from(&vote_account);
+    let vote_state = renec_vote_program::vote_state::VoteState::from(&vote_account);
     if let Some(vote_state) = vote_state {
         if vote_state.authorized_voters().is_empty() {
             return Err("Vote account not yet initialized".to_string());

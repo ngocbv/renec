@@ -51,7 +51,7 @@ solana-send-transaction-service = { path = "../send-transaction-service", versio
 solana-streamer = { path = "../streamer", version = "=1.10.0" }
 solana-test-validator = { path = "../test-validator", version = "=1.10.0" }
 renec-version = { path = "../version", version = "=1.10.0" }
-solana-vote-program = { path = "../programs/vote", version = "=1.10.0" }
+renec-vote-program = { path = "../programs/vote", version = "=1.10.0" }
 symlink = "0.1.0"
 
 [target.'cfg(not(target_env = "msvc"))'.dependencies]

@@ -1833,7 +1833,7 @@ mod tests {
         },
         solana_streamer::{recvmmsg::recv_mmsg, socket::SocketAddrSpace},
         solana_transaction_status::{TransactionStatusMeta, VersionedTransactionWithStatusMeta},
-        solana_vote_program::vote_transaction,
+        renec_vote_program::vote_transaction,
         std::{
             borrow::Cow,
             net::SocketAddr,

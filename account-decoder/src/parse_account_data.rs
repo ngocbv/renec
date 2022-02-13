@@ -21,7 +21,7 @@ lazy_static! {
     static ref STAKE_PROGRAM_ID: Pubkey = stake::program::id();
     static ref SYSTEM_PROGRAM_ID: Pubkey = system_program::id();
     static ref SYSVAR_PROGRAM_ID: Pubkey = sysvar::id();
-    static ref VOTE_PROGRAM_ID: Pubkey = solana_vote_program::id();
+    static ref VOTE_PROGRAM_ID: Pubkey = renec_vote_program::id();
     pub static ref PARSABLE_PROGRAM_IDS: HashMap<Pubkey, ParsableAccount> = {
         let mut m = HashMap::new();
         m.insert(
@@ -121,7 +121,7 @@ mod test {
             state::{Data, Versions},
             State,
         },
-        solana_vote_program::vote_state::{VoteState, VoteStateVersions},
+        renec_vote_program::vote_state::{VoteState, VoteStateVersions},
     };
 
     #[test]
@@ -137,7 +137,7 @@ mod test {
         VoteState::serialize(&versioned, &mut vote_account_data).unwrap();
         let parsed = parse_account_data(
             &account_pubkey,
-            &solana_vote_program::id(),
+            &renec_vote_program::id(),
             &vote_account_data,
             None,
         )

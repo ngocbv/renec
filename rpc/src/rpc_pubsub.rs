@@ -612,7 +612,7 @@ mod tests {
             transaction::{self, Transaction},
         },
         solana_stake_program::stake_state,
-        solana_vote_program::vote_state::Vote,
+        renec_vote_program::vote_state::Vote,
         std::{
             sync::{
                 atomic::{AtomicBool, AtomicU64},

@@ -1332,7 +1332,7 @@ mod tests {
                 &[&key],
                 &[key1, key2],
                 Hash::default(),
-                vec![solana_vote_program::id(), Pubkey::new_unique()],
+                vec![renec_vote_program::id(), Pubkey::new_unique()],
                 vec![
                     CompiledInstruction::new(3, &(), vec![0, 1]),
                     CompiledInstruction::new(4, &(), vec![0, 2]),

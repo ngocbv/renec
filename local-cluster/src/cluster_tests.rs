@@ -32,7 +32,7 @@ use {
         transport::TransportError,
     },
     solana_streamer::socket::SocketAddrSpace,
-    solana_vote_program::vote_transaction,
+    renec_vote_program::vote_transaction,
     std::{
         collections::{HashMap, HashSet},
         net::SocketAddr,

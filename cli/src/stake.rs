@@ -47,7 +47,7 @@ use {
         sysvar::{clock, stake_history},
         transaction::Transaction,
     },
-    solana_vote_program::vote_state::VoteState,
+    renec_vote_program::vote_state::VoteState,
     std::{ops::Deref, sync::Arc},
 };
 
