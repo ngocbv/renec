@@ -4208,7 +4208,7 @@ pub mod tests {
 
     #[test]
     fn test_create_new_ledger() {
-        solana_logger::setup();
+        renec_logger::setup();
         let mint_total = 1_000_000_000_000;
         let GenesisConfigInfo { genesis_config, .. } = create_genesis_config(mint_total);
         let (ledger_path, _blockhash) = create_new_tmp_ledger_auto_delete!(&genesis_config);
@@ -4250,7 +4250,7 @@ pub mod tests {
 
     #[test]
     fn test_write_entries() {
-        solana_logger::setup();
+        renec_logger::setup();
         let ledger_path = get_tmp_ledger_path_auto_delete!();
         let blockstore = Blockstore::open(ledger_path.path()).unwrap();
 
@@ -5652,7 +5652,7 @@ pub mod tests {
 
     #[test]
     pub fn test_should_insert_data_shred() {
-        solana_logger::setup();
+        renec_logger::setup();
         let (mut shreds, _) = make_slot_entries(0, 0, 200);
         let ledger_path = get_tmp_ledger_path_auto_delete!();
         let blockstore = Blockstore::open(ledger_path.path()).unwrap();
@@ -5995,7 +5995,7 @@ pub mod tests {
 
     #[test]
     pub fn test_insert_multiple_is_last() {
-        solana_logger::setup();
+        renec_logger::setup();
         let (shreds, _) = make_slot_entries(0, 0, 20);
         let num_shreds = shreds.len() as u64;
         let ledger_path = get_tmp_ledger_path_auto_delete!();
@@ -6966,7 +6966,7 @@ pub mod tests {
         simulate_compaction: bool,
         simulate_ledger_cleanup_service: bool,
     ) {
-        solana_logger::setup();
+        renec_logger::setup();
 
         let ledger_path = get_tmp_ledger_path_auto_delete!();
         let blockstore = Blockstore::open(ledger_path.path()).unwrap();
@@ -8679,7 +8679,7 @@ pub mod tests {
 
     #[test]
     fn erasure_multiple_config() {
-        solana_logger::setup();
+        renec_logger::setup();
         let slot = 1;
         let parent = 0;
         let num_txs = 20;
@@ -8718,7 +8718,7 @@ pub mod tests {
 
     #[test]
     fn test_large_num_coding() {
-        solana_logger::setup();
+        renec_logger::setup();
         let slot = 1;
         let (_data_shreds, mut coding_shreds, leader_schedule_cache) =
             setup_erasure_shreds(slot, 0, 100);

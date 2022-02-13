@@ -20,7 +20,7 @@ renec-genesis = { path = "../genesis", version = "=1.10.0" }
 solana-client = { path = "../client", version = "=1.10.0" }
 solana-faucet = { path = "../faucet", version = "=1.10.0" }
 solana-gossip = { path = "../gossip", version = "=1.10.0" }
-solana-logger = { path = "../logger", version = "=1.10.0" }
+renec-logger = { path = "../logger", version = "=1.10.0" }
 solana-metrics = { path = "../metrics", version = "=1.10.0" }
 solana-measure = { path = "../measure", version = "=1.10.0" }
 solana-net-utils = { path = "../net-utils", version = "=1.10.0" }

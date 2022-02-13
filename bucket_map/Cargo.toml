@@ -22,7 +22,7 @@ modular-bitfield = "0.11.2"
 [dev-dependencies]
 fs_extra = "1.2.0"
 rayon = "1.5.0"
-solana-logger = { path = "../logger", version = "=1.10.0" }
+renec-logger = { path = "../logger", version = "=1.10.0" }
 
 [lib]
 crate-type = ["lib"]

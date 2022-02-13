@@ -1641,7 +1641,7 @@ mod tests {
 
     #[test]
     fn test_process_instruction_accounts_data_meter() {
-        solana_logger::setup();
+        renec_logger::setup();
 
         let program_key = Pubkey::new_unique();
         let user_account_data_len = 123;

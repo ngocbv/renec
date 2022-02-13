@@ -38,7 +38,7 @@ solana-faucet = { path = "../faucet", version = "=1.10.0" }
 renec-genesis-utils = { path = "../genesis-utils", version = "=1.10.0" }
 solana-gossip = { path = "../gossip", version = "=1.10.0" }
 solana-ledger = { path = "../ledger", version = "=1.10.0" }
-solana-logger = { path = "../logger", version = "=1.10.0" }
+renec-logger = { path = "../logger", version = "=1.10.0" }
 solana-metrics = { path = "../metrics", version = "=1.10.0" }
 solana-net-utils = { path = "../net-utils", version = "=1.10.0" }
 solana-perf = { path = "../perf", version = "=1.10.0" }

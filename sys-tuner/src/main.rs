@@ -97,7 +97,7 @@ fn tune_kernel_udp_buffers_and_vmmap() {
 
 #[cfg(unix)]
 fn main() {
-    solana_logger::setup();
+    renec_logger::setup();
     let matches = App::new(crate_name!())
         .about(crate_description!())
         .version(renec_version::version!())

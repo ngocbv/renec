@@ -316,7 +316,7 @@ mod test {
 
     #[test]
     fn test_quic_server_multiple_streams() {
-        solana_logger::setup();
+        renec_logger::setup();
         let s = UdpSocket::bind("127.0.0.1:0").unwrap();
         let exit = Arc::new(AtomicBool::new(false));
         let (sender, receiver) = unbounded();
@@ -371,7 +371,7 @@ mod test {
 
     #[test]
     fn test_quic_server_multiple_writes() {
-        solana_logger::setup();
+        renec_logger::setup();
         let s = UdpSocket::bind("127.0.0.1:0").unwrap();
         let exit = Arc::new(AtomicBool::new(false));
         let (sender, receiver) = unbounded();

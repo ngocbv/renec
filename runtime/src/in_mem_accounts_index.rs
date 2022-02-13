@@ -1077,7 +1077,7 @@ mod tests {
 
     #[test]
     fn test_should_remove_from_mem() {
-        solana_logger::setup();
+        renec_logger::setup();
         let bucket = new_for_test::<u64>();
         let mut startup = false;
         let mut current_age = 0;
@@ -1241,7 +1241,7 @@ mod tests {
 
     #[test]
     fn test_age() {
-        solana_logger::setup();
+        renec_logger::setup();
         let test = new_for_test::<u64>();
         assert!(test.get_should_age(test.storage.current_age()));
         assert_eq!(test.storage.count_ages_flushed(), 0);

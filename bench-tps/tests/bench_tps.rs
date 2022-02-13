@@ -22,7 +22,7 @@ use {
 fn test_bench_tps_local_cluster(config: Config) {
     let native_instruction_processors = vec![];
 
-    solana_logger::setup();
+    renec_logger::setup();
     const NUM_NODES: usize = 1;
     let cluster = LocalCluster::new(
         &mut ClusterConfig {

@@ -958,7 +958,7 @@ mod test {
             crate::serve_repair::ShredRepairType,
             std::net::{IpAddr, Ipv4Addr},
         };
-        solana_logger::setup();
+        renec_logger::setup();
         let (common, coding) = Shredder::new_coding_shred_header(
             5, // slot
             5, // index

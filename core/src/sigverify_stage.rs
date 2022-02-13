@@ -365,7 +365,7 @@ mod tests {
 
     #[test]
     fn test_packet_discard() {
-        solana_logger::setup();
+        renec_logger::setup();
         let mut batch = PacketBatch::default();
         batch.packets.resize(10, Packet::default());
         batch.packets[3].meta.addr = std::net::IpAddr::from([1u16; 8]);

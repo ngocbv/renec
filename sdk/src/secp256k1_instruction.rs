@@ -251,7 +251,7 @@ pub mod test {
 
     #[test]
     fn test_invalid_offsets() {
-        solana_logger::setup();
+        renec_logger::setup();
 
         let mut instruction_data = vec![0u8; DATA_START];
         let offsets = SecpSignatureOffsets::default();
@@ -387,7 +387,7 @@ pub mod test {
 
     #[test]
     fn test_count_is_zero_but_sig_data_exists() {
-        solana_logger::setup();
+        renec_logger::setup();
 
         let mut instruction_data = vec![0u8; DATA_START];
         let offsets = SecpSignatureOffsets::default();
@@ -410,7 +410,7 @@ pub mod test {
 
     #[test]
     fn test_secp256k1() {
-        solana_logger::setup();
+        renec_logger::setup();
         let offsets = SecpSignatureOffsets::default();
         assert_eq!(
             bincode::serialized_size(&offsets).unwrap() as usize,

@@ -7632,7 +7632,7 @@ pub mod tests {
 
     #[test]
     fn test_accountsdb_scan_snapshot_stores() {
-        solana_logger::setup();
+        renec_logger::setup();
         let (storages, raw_expected) = sample_storages_and_accounts();
 
         let bins = 1;
@@ -7862,7 +7862,7 @@ pub mod tests {
 
     #[test]
     fn test_accountsdb_calculate_accounts_hash_without_index_simple() {
-        solana_logger::setup();
+        renec_logger::setup();
 
         let (storages, _size, _slot_expected) = sample_storage();
         let result = AccountsDb::calculate_accounts_hash_without_index(
@@ -7882,7 +7882,7 @@ pub mod tests {
 
     #[test]
     fn test_accountsdb_calculate_accounts_hash_without_index() {
-        solana_logger::setup();
+        renec_logger::setup();
 
         let (storages, raw_expected) = sample_storages_and_accounts();
         let expected_hash =
@@ -7918,7 +7918,7 @@ pub mod tests {
 
     #[test]
     fn test_accountsdb_scan_account_storage_no_bank() {
-        solana_logger::setup();
+        renec_logger::setup();
 
         let expected = 1;
         let tf = crate::append_vec::test_utils::get_append_vec_path(
@@ -7978,7 +7978,7 @@ pub mod tests {
 
     #[test]
     fn test_accountsdb_scan_account_storage_no_bank_one_slot() {
-        solana_logger::setup();
+        renec_logger::setup();
 
         let expected = 1;
         let tf = crate::append_vec::test_utils::get_append_vec_path(
@@ -8050,7 +8050,7 @@ pub mod tests {
 
     #[test]
     fn test_accountsdb_scan_multiple_account_storage_no_bank_one_slot() {
-        solana_logger::setup();
+        renec_logger::setup();
 
         let slot_expected: Slot = 0;
         let tf = crate::append_vec::test_utils::get_append_vec_path(
@@ -8102,7 +8102,7 @@ pub mod tests {
 
     #[test]
     fn test_accountsdb_add_root() {
-        solana_logger::setup();
+        renec_logger::setup();
         let db = AccountsDb::new(Vec::new(), &ClusterType::Development);
         let key = Pubkey::default();
         let account0 = AccountSharedData::new(1, 0, &key);
@@ -8118,7 +8118,7 @@ pub mod tests {
 
     #[test]
     fn test_accountsdb_latest_ancestor() {
-        solana_logger::setup();
+        renec_logger::setup();
         let db = AccountsDb::new(Vec::new(), &ClusterType::Development);
         let key = Pubkey::default();
         let account0 = AccountSharedData::new(1, 0, &key);
@@ -8153,7 +8153,7 @@ pub mod tests {
 
     #[test]
     fn test_accountsdb_latest_ancestor_with_root() {
-        solana_logger::setup();
+        renec_logger::setup();
         let db = AccountsDb::new(Vec::new(), &ClusterType::Development);
         let key = Pubkey::default();
         let account0 = AccountSharedData::new(1, 0, &key);
@@ -8179,7 +8179,7 @@ pub mod tests {
 
     #[test]
     fn test_accountsdb_root_one_slot() {
-        solana_logger::setup();
+        renec_logger::setup();
         let db = AccountsDb::new(Vec::new(), &ClusterType::Development);
 
         let key = Pubkey::default();
@@ -8274,7 +8274,7 @@ pub mod tests {
 
     #[test]
     fn test_accountsdb_count_stores() {
-        solana_logger::setup();
+        renec_logger::setup();
         let db = AccountsDb::new_single_for_tests();
 
         let mut pubkeys: Vec<Pubkey> = vec![];
@@ -8412,7 +8412,7 @@ pub mod tests {
 
     #[test]
     fn test_remove_unrooted_slot_snapshot() {
-        solana_logger::setup();
+        renec_logger::setup();
         let unrooted_slot = 9;
         let unrooted_bank_id = 9;
         let db = AccountsDb::new(Vec::new(), &ClusterType::Development);
@@ -8718,7 +8718,7 @@ pub mod tests {
 
     #[test]
     fn test_lazy_gc_slot() {
-        solana_logger::setup();
+        renec_logger::setup();
         //This test is pedantic
         //A slot is purged when a non root bank is cleaned up.  If a slot is behind root but it is
         //not root, it means we are retaining dead banks.
@@ -8794,7 +8794,7 @@ pub mod tests {
 
     #[test]
     fn test_clean_zero_lamport_and_dead_slot() {
-        solana_logger::setup();
+        renec_logger::setup();
 
         let accounts = AccountsDb::new(Vec::new(), &ClusterType::Development);
         let pubkey1 = solana_sdk::pubkey::new_rand();
@@ -8851,7 +8851,7 @@ pub mod tests {
 
     #[test]
     fn test_clean_multiple_zero_lamport_decrements_index_ref_count() {
-        solana_logger::setup();
+        renec_logger::setup();
 
         let accounts = AccountsDb::new(Vec::new(), &ClusterType::Development);
         let pubkey1 = solana_sdk::pubkey::new_rand();
@@ -8896,7 +8896,7 @@ pub mod tests {
 
     #[test]
     fn test_clean_zero_lamport_and_old_roots() {
-        solana_logger::setup();
+        renec_logger::setup();
 
         let accounts = AccountsDb::new(Vec::new(), &ClusterType::Development);
         let pubkey = solana_sdk::pubkey::new_rand();
@@ -8939,7 +8939,7 @@ pub mod tests {
 
     #[test]
     fn test_clean_old_with_normal_account() {
-        solana_logger::setup();
+        renec_logger::setup();
 
         let accounts = AccountsDb::new(Vec::new(), &ClusterType::Development);
         let pubkey = solana_sdk::pubkey::new_rand();
@@ -8967,7 +8967,7 @@ pub mod tests {
 
     #[test]
     fn test_clean_old_with_zero_lamport_account() {
-        solana_logger::setup();
+        renec_logger::setup();
 
         let accounts = AccountsDb::new(Vec::new(), &ClusterType::Development);
         let pubkey1 = solana_sdk::pubkey::new_rand();
@@ -9001,7 +9001,7 @@ pub mod tests {
 
     #[test]
     fn test_clean_old_with_both_normal_and_zero_lamport_accounts() {
-        solana_logger::setup();
+        renec_logger::setup();
 
         let mut accounts = AccountsDb::new_with_config_for_tests(
             Vec::new(),
@@ -9144,7 +9144,7 @@ pub mod tests {
 
     #[test]
     fn test_clean_max_slot_zero_lamport_account() {
-        solana_logger::setup();
+        renec_logger::setup();
 
         let accounts = AccountsDb::new(Vec::new(), &ClusterType::Development);
         let pubkey = solana_sdk::pubkey::new_rand();
@@ -9187,7 +9187,7 @@ pub mod tests {
 
     #[test]
     fn test_uncleaned_roots_with_account() {
-        solana_logger::setup();
+        renec_logger::setup();
 
         let accounts = AccountsDb::new(Vec::new(), &ClusterType::Development);
         let pubkey = solana_sdk::pubkey::new_rand();
@@ -9207,7 +9207,7 @@ pub mod tests {
 
     #[test]
     fn test_uncleaned_roots_with_no_account() {
-        solana_logger::setup();
+        renec_logger::setup();
 
         let accounts = AccountsDb::new(Vec::new(), &ClusterType::Development);
 
@@ -9224,7 +9224,7 @@ pub mod tests {
 
     #[test]
     fn test_accounts_db_serialize1() {
-        solana_logger::setup();
+        renec_logger::setup();
         let accounts = AccountsDb::new_single_for_tests();
         let mut pubkeys: Vec<Pubkey> = vec![];
 
@@ -9360,7 +9360,7 @@ pub mod tests {
 
     #[test]
     fn test_accounts_db_purge_keep_live() {
-        solana_logger::setup();
+        renec_logger::setup();
         let some_lamport = 223;
         let zero_lamport = 0;
         let no_data = 0;
@@ -9439,7 +9439,7 @@ pub mod tests {
 
     #[test]
     fn test_accounts_db_purge1() {
-        solana_logger::setup();
+        renec_logger::setup();
         let some_lamport = 223;
         let zero_lamport = 0;
         let no_data = 0;
@@ -9498,7 +9498,7 @@ pub mod tests {
 
     #[test]
     fn test_accounts_db_serialize_zero_and_free() {
-        solana_logger::setup();
+        renec_logger::setup();
 
         let some_lamport = 223;
         let zero_lamport = 0;
@@ -9614,7 +9614,7 @@ pub mod tests {
 
     #[test]
     fn test_accounts_purge_chained_purge_before_snapshot_restore() {
-        solana_logger::setup();
+        renec_logger::setup();
         with_chained_zero_lamport_accounts(|accounts, current_slot| {
             accounts.clean_accounts(None, false, None);
             reconstruct_accounts_db_via_serialization(&accounts, current_slot)
@@ -9623,7 +9623,7 @@ pub mod tests {
 
     #[test]
     fn test_accounts_purge_chained_purge_after_snapshot_restore() {
-        solana_logger::setup();
+        renec_logger::setup();
         with_chained_zero_lamport_accounts(|accounts, current_slot| {
             let accounts = reconstruct_accounts_db_via_serialization(&accounts, current_slot);
             accounts.print_accounts_stats("after_reconstruct");
@@ -9679,7 +9679,7 @@ pub mod tests {
 
     #[test]
     fn test_accountsdb_scan_accounts() {
-        solana_logger::setup();
+        renec_logger::setup();
         let db = AccountsDb::new(Vec::new(), &ClusterType::Development);
         let key = Pubkey::default();
         let key0 = solana_sdk::pubkey::new_rand();
@@ -9716,7 +9716,7 @@ pub mod tests {
 
     #[test]
     fn test_cleanup_key_not_removed() {
-        solana_logger::setup();
+        renec_logger::setup();
         let db = AccountsDb::new_single_for_tests();
 
         let key = Pubkey::default();
@@ -9751,7 +9751,7 @@ pub mod tests {
 
     #[test]
     fn test_store_large_account() {
-        solana_logger::setup();
+        renec_logger::setup();
         let db = AccountsDb::new(Vec::new(), &ClusterType::Development);
 
         let key = Pubkey::default();
@@ -9863,7 +9863,7 @@ pub mod tests {
 
     #[test]
     fn test_bank_hash_stats() {
-        solana_logger::setup();
+        renec_logger::setup();
         let db = AccountsDb::new(Vec::new(), &ClusterType::Development);
 
         let key = Pubkey::default();
@@ -9890,7 +9890,7 @@ pub mod tests {
 
     #[test]
     fn test_calculate_accounts_hash_check_hash_mismatch() {
-        solana_logger::setup();
+        renec_logger::setup();
         let db = AccountsDb::new(Vec::new(), &ClusterType::Development);
 
         let key = solana_sdk::pubkey::new_rand();
@@ -9920,7 +9920,7 @@ pub mod tests {
 
     #[test]
     fn test_calculate_accounts_hash_check_hash() {
-        solana_logger::setup();
+        renec_logger::setup();
         let db = AccountsDb::new(Vec::new(), &ClusterType::Development);
 
         let key = solana_sdk::pubkey::new_rand();
@@ -9948,7 +9948,7 @@ pub mod tests {
     #[test]
     fn test_verify_bank_hash() {
         use BankHashVerificationError::*;
-        solana_logger::setup();
+        renec_logger::setup();
         let db = AccountsDb::new(Vec::new(), &ClusterType::Development);
 
         let key = solana_sdk::pubkey::new_rand();
@@ -9990,7 +9990,7 @@ pub mod tests {
     #[test]
     fn test_verify_bank_capitalization() {
         use BankHashVerificationError::*;
-        solana_logger::setup();
+        renec_logger::setup();
         let db = AccountsDb::new(Vec::new(), &ClusterType::Development);
 
         let key = solana_sdk::pubkey::new_rand();
@@ -10029,7 +10029,7 @@ pub mod tests {
 
     #[test]
     fn test_verify_bank_hash_no_account() {
-        solana_logger::setup();
+        renec_logger::setup();
         let db = AccountsDb::new(Vec::new(), &ClusterType::Development);
 
         let some_slot: Slot = 0;
@@ -10050,7 +10050,7 @@ pub mod tests {
     #[test]
     fn test_verify_bank_hash_bad_account_hash() {
         use BankHashVerificationError::*;
-        solana_logger::setup();
+        renec_logger::setup();
         let db = AccountsDb::new(Vec::new(), &ClusterType::Development);
 
         let key = Pubkey::default();
@@ -10079,7 +10079,7 @@ pub mod tests {
 
     #[test]
     fn test_storage_finder() {
-        solana_logger::setup();
+        renec_logger::setup();
         let db = AccountsDb::new_sized(Vec::new(), 16 * 1024);
         let key = solana_sdk::pubkey::new_rand();
         let lamports = 100;
@@ -10235,7 +10235,7 @@ pub mod tests {
 
     #[test]
     fn test_accounts_purge_long_chained_after_snapshot_restore() {
-        solana_logger::setup();
+        renec_logger::setup();
         let old_lamport = 223;
         let zero_lamport = 0;
         let no_data = 0;
@@ -10406,7 +10406,7 @@ pub mod tests {
 
     #[test]
     fn test_full_clean_refcount() {
-        solana_logger::setup();
+        renec_logger::setup();
 
         // Setup 3 scenarios which try to differentiate between pubkey1 being in an
         // Available slot or a Full slot which would cause a different reset behavior
@@ -10425,7 +10425,7 @@ pub mod tests {
 
     #[test]
     fn test_accounts_clean_after_snapshot_restore_then_old_revives() {
-        solana_logger::setup();
+        renec_logger::setup();
         let old_lamport = 223;
         let zero_lamport = 0;
         let no_data = 0;
@@ -10627,7 +10627,7 @@ pub mod tests {
 
     #[test]
     fn test_shrink_stale_slots_processed() {
-        solana_logger::setup();
+        renec_logger::setup();
 
         for startup in &[false, true] {
             let accounts = AccountsDb::new_single_for_tests();
@@ -10697,7 +10697,7 @@ pub mod tests {
 
     #[test]
     fn test_shrink_candidate_slots() {
-        solana_logger::setup();
+        renec_logger::setup();
 
         let accounts = AccountsDb::new_single_for_tests();
 
@@ -10757,7 +10757,7 @@ pub mod tests {
     #[test]
     fn test_select_candidates_by_total_usage_no_candidates() {
         // no input candidates -- none should be selected
-        solana_logger::setup();
+        renec_logger::setup();
         let accounts = AccountsDb::new_single_for_tests();
         let candidates: ShrinkCandidates = HashMap::new();
 
@@ -10771,7 +10771,7 @@ pub mod tests {
     #[test]
     fn test_select_candidates_by_total_usage_3_way_split_condition() {
         // three candidates, one selected for shrink, one is put back to the candidate list and one is ignored
-        solana_logger::setup();
+        renec_logger::setup();
         let accounts = AccountsDb::new_single_for_tests();
         let mut candidates: ShrinkCandidates = HashMap::new();
 
@@ -10847,7 +10847,7 @@ pub mod tests {
     #[test]
     fn test_select_candidates_by_total_usage_2_way_split_condition() {
         // three candidates, 2 are selected for shrink, one is ignored
-        solana_logger::setup();
+        renec_logger::setup();
         let accounts = AccountsDb::new_single_for_tests();
         let mut candidates: ShrinkCandidates = HashMap::new();
 
@@ -10920,7 +10920,7 @@ pub mod tests {
     #[test]
     fn test_select_candidates_by_total_usage_all_clean() {
         // 2 candidates, they must be selected to achieve the target alive ratio
-        solana_logger::setup();
+        renec_logger::setup();
         let accounts = AccountsDb::new_single_for_tests();
         let mut candidates: ShrinkCandidates = HashMap::new();
 
@@ -10982,7 +10982,7 @@ pub mod tests {
 
     #[test]
     fn test_shrink_stale_slots_skipped() {
-        solana_logger::setup();
+        renec_logger::setup();
 
         let mut accounts = AccountsDb::new_single_for_tests();
         accounts.caching_enabled = false;
@@ -11044,7 +11044,7 @@ pub mod tests {
 
     #[test]
     fn test_delete_dependencies() {
-        solana_logger::setup();
+        renec_logger::setup();
         let accounts_index = AccountsIndex::default_for_tests();
         let key0 = Pubkey::new_from_array([0u8; 32]);
         let key1 = Pubkey::new_from_array([1u8; 32]);
@@ -11186,7 +11186,7 @@ pub mod tests {
 
     #[test]
     fn test_store_overhead() {
-        solana_logger::setup();
+        renec_logger::setup();
         let accounts = AccountsDb::new_single_for_tests();
         let account = AccountSharedData::default();
         let pubkey = solana_sdk::pubkey::new_rand();
@@ -11202,7 +11202,7 @@ pub mod tests {
 
     #[test]
     fn test_store_clean_after_shrink() {
-        solana_logger::setup();
+        renec_logger::setup();
         let accounts = AccountsDb::new_with_config_for_tests(
             vec![],
             &ClusterType::Development,
@@ -11251,7 +11251,7 @@ pub mod tests {
 
     #[test]
     fn test_store_reuse() {
-        solana_logger::setup();
+        renec_logger::setup();
         let accounts = AccountsDb::new_sized(vec![], 4096);
 
         let size = 100;
@@ -11335,7 +11335,7 @@ pub mod tests {
     #[test]
     #[should_panic(expected = "We've run out of storage ids!")]
     fn test_reuse_append_vec_id() {
-        solana_logger::setup();
+        renec_logger::setup();
         let db = AccountsDb::new(Vec::new(), &ClusterType::Development);
         let zero_lamport_account =
             AccountSharedData::new(0, 0, AccountSharedData::default().owner());
@@ -12467,7 +12467,7 @@ pub mod tests {
 
     #[test]
     fn test_partial_clean() {
-        solana_logger::setup();
+        renec_logger::setup();
         let db = AccountsDb::new(Vec::new(), &ClusterType::Development);
         let account_key1 = Pubkey::new_unique();
         let account_key2 = Pubkey::new_unique();
@@ -12531,7 +12531,7 @@ pub mod tests {
 
     #[test]
     fn test_recycle_stores_expiration() {
-        solana_logger::setup();
+        renec_logger::setup();
 
         let common_store_path = Path::new("");
         let common_slot_id = 12;
@@ -12644,7 +12644,7 @@ pub mod tests {
     }
 
     fn do_test_load_account_and_cache_flush_race(with_retry: bool) {
-        solana_logger::setup();
+        renec_logger::setup();
 
         let caching_enabled = true;
         let mut db = AccountsDb::new_with_config_for_tests(
@@ -13002,7 +13002,7 @@ pub mod tests {
 
     #[test]
     fn test_collect_uncleaned_slots_up_to_slot() {
-        solana_logger::setup();
+        renec_logger::setup();
         let db = AccountsDb::new(Vec::new(), &ClusterType::Development);
 
         let slot1 = 11;
@@ -13032,7 +13032,7 @@ pub mod tests {
 
     #[test]
     fn test_remove_uncleaned_slots_and_collect_pubkeys() {
-        solana_logger::setup();
+        renec_logger::setup();
         let db = AccountsDb::new(Vec::new(), &ClusterType::Development);
 
         let slot1 = 11;
@@ -13090,7 +13090,7 @@ pub mod tests {
 
     #[test]
     fn test_remove_uncleaned_slots_and_collect_pubkeys_up_to_slot() {
-        solana_logger::setup();
+        renec_logger::setup();
         let db = AccountsDb::new(Vec::new(), &ClusterType::Development);
 
         let slot1 = 11;
@@ -13130,7 +13130,7 @@ pub mod tests {
 
     #[test]
     fn test_shrink_productive() {
-        solana_logger::setup();
+        renec_logger::setup();
         let s1 = AccountStorageEntry::new(Path::new("."), 0, 0, 1024);
         let stores = vec![Arc::new(s1)];
         assert!(!AccountsDb::is_shrinking_productive(0, &stores));
@@ -13155,7 +13155,7 @@ pub mod tests {
 
     #[test]
     fn test_is_candidate_for_shrink() {
-        solana_logger::setup();
+        renec_logger::setup();
 
         let mut accounts = AccountsDb::new_single_for_tests();
         let common_store_path = Path::new("");
@@ -13365,7 +13365,7 @@ pub mod tests {
     ///     - ensure Account1 *has* been purged
     #[test]
     fn test_clean_accounts_with_last_full_snapshot_slot() {
-        solana_logger::setup();
+        renec_logger::setup();
         let accounts_db = AccountsDb::new_single_for_tests();
         let pubkey = solana_sdk::pubkey::new_rand();
         let owner = solana_sdk::pubkey::new_rand();
@@ -13403,7 +13403,7 @@ pub mod tests {
 
     #[test]
     fn test_filter_zero_lamport_clean_for_incremental_snapshots() {
-        solana_logger::setup();
+        renec_logger::setup();
         let slot = 10;
 
         struct TestParameters {

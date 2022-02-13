@@ -50,7 +50,7 @@ pub fn redirect_stderr_to_file(logfile: Option<String>) -> Option<JoinHandle<()>
     let filter = "solana=info";
     match logfile {
         None => {
-            solana_logger::setup_with_default(filter);
+            renec_logger::setup_with_default(filter);
             None
         }
         Some(logfile) => {
@@ -64,7 +64,7 @@ pub fn redirect_stderr_to_file(logfile: Option<String>) -> Option<JoinHandle<()>
                             exit(1);
                         });
 
-                solana_logger::setup_with_default(filter);
+                renec_logger::setup_with_default(filter);
                 redirect_stderr(&logfile);
                 Some(std::thread::spawn(move || {
                     for signal in signals.forever() {
@@ -79,7 +79,7 @@ pub fn redirect_stderr_to_file(logfile: Option<String>) -> Option<JoinHandle<()>
             #[cfg(not(unix))]
             {
                 println!("logrotate is not supported on this platform");
-                solana_logger::setup_file_with_default(&logfile, filter);
+                renec_logger::setup_file_with_default(&logfile, filter);
                 None
             }
         }

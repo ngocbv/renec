@@ -62,7 +62,7 @@ fn post_rpc(request: Value, rpc_url: &str) -> Value {
 
 #[test]
 fn test_rpc_send_tx() {
-    solana_logger::setup();
+    renec_logger::setup();
 
     let alice = Keypair::new();
     let test_validator =
@@ -133,7 +133,7 @@ fn test_rpc_send_tx() {
 
 #[test]
 fn test_rpc_invalid_requests() {
-    solana_logger::setup();
+    renec_logger::setup();
 
     let alice = Keypair::new();
     let test_validator =
@@ -166,7 +166,7 @@ fn test_rpc_invalid_requests() {
 
 #[test]
 fn test_rpc_slot_updates() {
-    solana_logger::setup();
+    renec_logger::setup();
 
     let test_validator =
         TestValidator::with_no_fees(Pubkey::new_unique(), None, SocketAddrSpace::Unspecified);
@@ -231,7 +231,7 @@ fn test_rpc_slot_updates() {
 
 #[test]
 fn test_rpc_subscriptions() {
-    solana_logger::setup();
+    renec_logger::setup();
 
     let alice = Keypair::new();
     let test_validator =
@@ -438,7 +438,7 @@ fn test_tpu_send_transaction() {
 
 #[test]
 fn deserialize_rpc_error() -> ClientResult<()> {
-    solana_logger::setup();
+    renec_logger::setup();
 
     let alice = Keypair::new();
     let validator = TestValidator::with_no_fees(alice.pubkey(), None, SocketAddrSpace::Unspecified);

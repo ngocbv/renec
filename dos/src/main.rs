@@ -148,7 +148,7 @@ fn run_dos(
 }
 
 fn main() {
-    solana_logger::setup_with_default("solana=info");
+    renec_logger::setup_with_default("solana=info");
     let matches = App::new(crate_name!())
         .about(crate_description!())
         .version(renec_version::version!())
@@ -315,7 +315,7 @@ pub mod test {
     #[test]
     #[ignore]
     fn test_dos_local_cluster() {
-        solana_logger::setup();
+        renec_logger::setup();
         let num_nodes = 1;
         let cluster =
             LocalCluster::new_with_equal_stakes(num_nodes, 100, 3, SocketAddrSpace::Unspecified);

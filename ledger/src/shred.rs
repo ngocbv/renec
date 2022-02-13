@@ -2003,7 +2003,7 @@ pub mod tests {
 
     #[test]
     fn test_shred_offsets() {
-        solana_logger::setup();
+        renec_logger::setup();
         let mut packet = Packet::default();
         let shred = Shred::new_from_data(1, 3, 0, None, true, true, 0, 0, 0);
         shred.copy_to_packet(&mut packet);

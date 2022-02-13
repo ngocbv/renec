@@ -852,7 +852,7 @@ fn main() {
 
     const DEFAULT_ROOT_COUNT: &str = "1";
     const DEFAULT_MAX_SLOTS_ROOT_REPAIR: &str = "2000";
-    solana_logger::setup_with_default("solana=info");
+    renec_logger::setup_with_default("solana=info");
 
     let starting_slot_arg = Arg::with_name("starting_slot")
         .long("starting-slot")

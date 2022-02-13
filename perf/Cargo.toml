@@ -38,7 +38,7 @@ name = "solana_perf"
 
 [dev-dependencies]
 matches = "0.1.9"
-solana-logger = { path = "../logger", version = "=1.10.0" }
+renec-logger = { path = "../logger", version = "=1.10.0" }
 
 [[bench]]
 name = "sigverify"

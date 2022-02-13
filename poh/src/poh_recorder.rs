@@ -1404,7 +1404,7 @@ mod tests {
 
     #[test]
     fn test_reset_to_new_value() {
-        solana_logger::setup();
+        renec_logger::setup();
 
         let ledger_path = get_tmp_ledger_path!();
         {
@@ -1499,7 +1499,7 @@ mod tests {
 
     #[test]
     fn test_poh_recorder_record_sets_start_slot() {
-        solana_logger::setup();
+        renec_logger::setup();
         let ledger_path = get_tmp_ledger_path!();
         {
             let blockstore = Blockstore::open(&ledger_path)
@@ -1550,7 +1550,7 @@ mod tests {
 
     #[test]
     fn test_reached_leader_tick() {
-        solana_logger::setup();
+        renec_logger::setup();
 
         let ledger_path = get_tmp_ledger_path!();
         {
@@ -1614,7 +1614,7 @@ mod tests {
 
     #[test]
     fn test_reached_leader_slot() {
-        solana_logger::setup();
+        renec_logger::setup();
 
         let ledger_path = get_tmp_ledger_path!();
         {

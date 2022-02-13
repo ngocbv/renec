@@ -34,7 +34,7 @@ assert_matches = "1.5.0"
 gag = "1.0.0"
 serial_test = "0.5.1"
 solana-download-utils = { path = "../download-utils", version = "=1.10.0" }
-solana-logger = { path = "../logger", version = "=1.10.0" }
+renec-logger = { path = "../logger", version = "=1.10.0" }
 
 [package.metadata.docs.rs]
 targets = ["x86_64-unknown-linux-gnu"]

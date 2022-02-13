@@ -131,7 +131,7 @@ where
 }
 
 fn test_accounts_serialize_style(serde_style: SerdeStyle) {
-    solana_logger::setup();
+    renec_logger::setup();
     let (_accounts_dir, paths) = get_temp_accounts_paths(4).unwrap();
     let accounts = Accounts::new_with_config_for_tests(
         paths,
@@ -179,7 +179,7 @@ fn test_accounts_serialize_style(serde_style: SerdeStyle) {
 }
 
 fn test_bank_serialize_style(serde_style: SerdeStyle) {
-    solana_logger::setup();
+    renec_logger::setup();
     let (genesis_config, _) = create_genesis_config(500);
     let bank0 = Arc::new(Bank::new_for_tests(&genesis_config));
     let bank1 = Bank::new_from_parent(&bank0, &Pubkey::default(), 1);

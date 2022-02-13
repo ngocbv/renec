@@ -107,7 +107,7 @@ fn bytes_as_usize(bytes: &[u8]) -> usize {
 
 #[allow(clippy::cognitive_complexity)]
 fn main() {
-    solana_logger::setup();
+    renec_logger::setup();
 
     let matches = App::new(crate_name!())
         .about(crate_description!())

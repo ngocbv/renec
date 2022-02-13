@@ -51,7 +51,7 @@ fn load_accounts(path: &Path) -> Result<Input> {
 }
 
 fn main() {
-    solana_logger::setup();
+    renec_logger::setup();
     let matches = App::new("Solana BPF CLI")
         .version(crate_version!())
         .author("Solana Maintainers <maintainers@solana.foundation>")

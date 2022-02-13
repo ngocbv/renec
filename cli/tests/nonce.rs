@@ -239,7 +239,7 @@ fn full_battery_tests(
 #[allow(clippy::redundant_closure)]
 fn test_create_account_with_seed() {
     const ONE_SIG_FEE: f64 = 0.000005;
-    solana_logger::setup();
+    renec_logger::setup();
     let mint_keypair = Keypair::new();
     let mint_pubkey = mint_keypair.pubkey();
     let faucet_addr = run_local_faucet(mint_keypair, None);

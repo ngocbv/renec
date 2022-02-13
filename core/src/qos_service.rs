@@ -393,7 +393,7 @@ mod tests {
 
     #[test]
     fn test_compute_transaction_costs() {
-        solana_logger::setup();
+        renec_logger::setup();
 
         // make a vec of txs
         let keypair = Keypair::new();
@@ -433,7 +433,7 @@ mod tests {
 
     #[test]
     fn test_select_transactions_per_cost() {
-        solana_logger::setup();
+        renec_logger::setup();
         let GenesisConfigInfo { genesis_config, .. } = create_genesis_config(10);
         let bank = Arc::new(Bank::new_for_tests(&genesis_config));
         let cost_model = Arc::new(RwLock::new(CostModel::default()));

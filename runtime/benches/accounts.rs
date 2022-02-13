@@ -121,7 +121,7 @@ fn test_accounts_hash_bank_hash(bencher: &mut Bencher) {
 
 #[bench]
 fn test_update_accounts_hash(bencher: &mut Bencher) {
-    solana_logger::setup();
+    renec_logger::setup();
     let accounts = Accounts::new_with_config_for_benches(
         vec![PathBuf::from("update_accounts_hash")],
         &ClusterType::Development,
@@ -139,7 +139,7 @@ fn test_update_accounts_hash(bencher: &mut Bencher) {
 
 #[bench]
 fn test_accounts_delta_hash(bencher: &mut Bencher) {
-    solana_logger::setup();
+    renec_logger::setup();
     let accounts = Accounts::new_with_config_for_benches(
         vec![PathBuf::from("accounts_delta_hash")],
         &ClusterType::Development,
@@ -156,7 +156,7 @@ fn test_accounts_delta_hash(bencher: &mut Bencher) {
 
 #[bench]
 fn bench_delete_dependencies(bencher: &mut Bencher) {
-    solana_logger::setup();
+    renec_logger::setup();
     let accounts = Accounts::new_with_config_for_benches(
         vec![PathBuf::from("accounts_delete_deps")],
         &ClusterType::Development,

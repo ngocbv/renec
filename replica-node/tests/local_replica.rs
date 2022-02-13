@@ -157,7 +157,7 @@ fn setup_snapshot_validator_config(
 }
 
 fn test_local_cluster_start_and_exit_with_config(socket_addr_space: SocketAddrSpace) {
-    solana_logger::setup();
+    renec_logger::setup();
     const NUM_NODES: usize = 1;
     let mut config = ClusterConfig {
         validator_configs: make_identical_validator_configs(
@@ -182,7 +182,7 @@ fn test_replica_bootstrap() {
 
     test_local_cluster_start_and_exit_with_config(socket_addr_space);
 
-    solana_logger::setup_with_default(RUST_LOG_FILTER);
+    renec_logger::setup_with_default(RUST_LOG_FILTER);
     // First set up the cluster with 1 node
     let snapshot_interval_slots = 50;
     let num_account_paths = 3;

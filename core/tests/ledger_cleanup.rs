@@ -301,7 +301,7 @@ mod tests {
     /// -- --exact --nocapture
     #[test]
     fn test_ledger_cleanup_compaction() {
-        solana_logger::setup_with("error,ledger_cleanup::tests=info");
+        renec_logger::setup_with("error,ledger_cleanup::tests=info");
 
         let ledger_path = get_tmp_ledger_path!();
         let config = get_benchmark_config();

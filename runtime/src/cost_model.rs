@@ -252,7 +252,7 @@ mod tests {
     };
 
     fn test_setup() -> (Keypair, Hash) {
-        solana_logger::setup();
+        renec_logger::setup();
         let GenesisConfigInfo {
             genesis_config,
             mint_keypair,
@@ -286,7 +286,7 @@ mod tests {
 
     #[test]
     fn test_iterating_instruction_cost_by_program_keys() {
-        solana_logger::setup();
+        renec_logger::setup();
         let mut testee = CostModel::default();
 
         let mut test_key_and_cost = HashMap::<Pubkey, u64>::new();

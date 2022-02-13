@@ -638,7 +638,7 @@ pub mod test {
 
     #[test]
     fn test_broadcast_ledger() {
-        solana_logger::setup();
+        renec_logger::setup();
         let ledger_path = get_tmp_ledger_path!();
 
         {
