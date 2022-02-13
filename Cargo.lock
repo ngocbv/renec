@@ -3867,6 +3867,37 @@ dependencies = [
 ]
 
 [[package]]
+name = "renec-genesis"
+version = "1.10.0"
+dependencies = [
+ "base64 0.12.3",
+ "clap 2.33.3",
+ "serde",
+ "serde_json",
+ "serde_yaml",
+ "solana-clap-utils",
+ "solana-cli-config",
+ "solana-entry",
+ "solana-ledger",
+ "solana-logger 1.10.0",
+ "solana-runtime",
+ "solana-sdk",
+ "solana-stake-program",
+ "solana-version",
+ "solana-vote-program",
+ "tempfile",
+]
+
+[[package]]
+name = "renec-genesis-utils"
+version = "1.10.0"
+dependencies = [
+ "solana-download-utils",
+ "solana-runtime",
+ "solana-sdk",
+]
+
+[[package]]
 name = "reqwest"
 version = "0.11.6"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -4691,13 +4722,13 @@ dependencies = [
  "crossbeam-channel",
  "log 0.4.14",
  "rayon",
+ "renec-genesis",
  "serde_json",
  "serde_yaml",
  "serial_test",
  "solana-client",
  "solana-core",
  "solana-faucet",
- "solana-genesis",
  "solana-gossip",
  "solana-local-cluster",
  "solana-logger 1.10.0",
@@ -5172,37 +5203,6 @@ dependencies = [
  "quote 1.0.10",
  "rustc_version 0.4.0",
  "syn 1.0.81",
-]
-
-[[package]]
-name = "solana-genesis"
-version = "1.10.0"
-dependencies = [
- "base64 0.12.3",
- "clap 2.33.3",
- "serde",
- "serde_json",
- "serde_yaml",
- "solana-clap-utils",
- "solana-cli-config",
- "solana-entry",
- "solana-ledger",
- "solana-logger 1.10.0",
- "solana-runtime",
- "solana-sdk",
- "solana-stake-program",
- "solana-version",
- "solana-vote-program",
- "tempfile",
-]
-
-[[package]]
-name = "solana-genesis-utils"
-version = "1.10.0"
-dependencies = [
- "solana-download-utils",
- "solana-runtime",
- "solana-sdk",
 ]
 
 [[package]]
@@ -5778,11 +5778,11 @@ dependencies = [
  "crossbeam-channel",
  "log 0.4.14",
  "rand 0.7.3",
+ "renec-genesis-utils",
  "serial_test",
  "solana-clap-utils",
  "solana-core",
  "solana-download-utils",
- "solana-genesis-utils",
  "solana-gossip",
  "solana-ledger",
  "solana-local-cluster",
@@ -6286,6 +6286,7 @@ dependencies = [
  "log 0.4.14",
  "num_cpus",
  "rand 0.7.3",
+ "renec-genesis-utils",
  "serde",
  "serde_json",
  "signal-hook",
@@ -6296,7 +6297,6 @@ dependencies = [
  "solana-download-utils",
  "solana-entry",
  "solana-faucet",
- "solana-genesis-utils",
  "solana-gossip",
  "solana-ledger",
  "solana-logger 1.10.0",
