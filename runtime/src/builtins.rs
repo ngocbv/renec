@@ -69,7 +69,7 @@ fn genesis_builtins() -> Vec<Builtin> {
         Builtin::new(
             "secp256k1_program",
             solana_sdk::secp256k1_program::id(),
-            solana_secp256k1_program::process_instruction,
+            renec_secp256k1_program::process_instruction,
         ),
     ]
 }

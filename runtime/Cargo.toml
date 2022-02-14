@@ -47,7 +47,7 @@ solana-measure = { path = "../measure", version = "=1.8.14" }
 solana-metrics = { path = "../metrics", version = "=1.8.14" }
 solana-rayon-threadlimit = { path = "../rayon-threadlimit", version = "=1.8.14" }
 solana-sdk = { path = "../sdk", version = "=1.8.14" }
-solana-secp256k1-program = { path = "../programs/secp256k1", version = "=1.8.14" }
+renec-secp256k1-program = { path = "../programs/secp256k1", version = "=1.8.14" }
 renec-stake-program = { path = "../programs/stake", version = "=1.8.14" }
 renec-vote-program = { path = "../programs/vote", version = "=1.8.14" }
 symlink = "0.1.0"

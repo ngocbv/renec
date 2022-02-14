@@ -3573,7 +3573,7 @@ dependencies = [
  "solana-metrics",
  "solana-rayon-threadlimit",
  "solana-sdk",
- "solana-secp256k1-program",
+ "renec-secp256k1-program",
  "renec-stake-program",
  "renec-vote-program",
  "symlink",
@@ -3659,7 +3659,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "solana-secp256k1-program"
+name = "renec-secp256k1-program"
 version = "1.8.14"
 dependencies = [
  "solana-sdk",
