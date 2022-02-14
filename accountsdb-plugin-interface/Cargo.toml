@@ -1,12 +1,12 @@
 [package]
-authors = ["Solana Maintainers <maintainers@solana.foundation>"]
+authors = ["RENEC Maintainers <dev@remitano.com>"]
 edition = "2018"
 name = "solana-accountsdb-plugin-interface"
 description = "The Solana AccountsDb plugin interface."
 version = "1.8.14"
-repository = "https://github.com/solana-labs/solana"
+repository = "https://github.com/remitano/renec"
 license = "Apache-2.0"
-homepage = "https://solana.com/"
+homepage = "https://remitano.com/"
 documentation = "https://docs.rs/solana-accountsdb-plugin-interface"
 
 [dependencies]

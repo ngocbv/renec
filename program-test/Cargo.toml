@@ -1,10 +1,10 @@
 [package]
-authors = ["Solana Maintainers <maintainers@solana.foundation>"]
+authors = ["RENEC Maintainers <dev@remitano.com>"]
 description = "Solana Program Test Framework"
 edition = "2018"
 license = "Apache-2.0"
 name = "solana-program-test"
-repository = "https://github.com/solana-labs/solana"
+repository = "https://github.com/remitano/renec"
 version = "1.8.14"
 
 [dependencies]
