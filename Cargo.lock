@@ -3606,6 +3606,17 @@ dependencies = [
 ]
 
 [[package]]
+name = "renec-ed25519-program"
+version = "1.8.14"
+dependencies = [
+ "bytemuck",
+ "ed25519-dalek",
+ "rand 0.7.3",
+ "renec-logger",
+ "solana-sdk",
+]
+
+[[package]]
 name = "renec-exchange-program"
 version = "1.8.14"
 dependencies = [
@@ -4957,17 +4968,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "solana-ed25519-program"
-version = "1.8.14"
-dependencies = [
- "bytemuck",
- "ed25519-dalek",
- "rand 0.7.3",
- "renec-logger",
- "solana-sdk",
-]
-
-[[package]]
 name = "solana-faucet"
 version = "1.8.14"
 dependencies = [
@@ -5635,6 +5635,7 @@ dependencies = [
  "rand 0.7.3",
  "rayon",
  "regex",
+ "renec-ed25519-program",
  "renec-logger",
  "renec-secp256k1-program",
  "renec-stake-program",
@@ -5645,7 +5646,6 @@ dependencies = [
  "solana-bloom",
  "solana-compute-budget-program",
  "solana-config-program",
- "solana-ed25519-program",
  "solana-frozen-abi 1.8.14",
  "solana-frozen-abi-macro 1.8.14",
  "solana-measure",

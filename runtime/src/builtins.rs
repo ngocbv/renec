@@ -103,7 +103,7 @@ fn feature_builtins() -> Vec<(Builtin, Pubkey, ActivationType)> {
             Builtin::new(
                 "ed25519_program",
                 solana_sdk::ed25519_program::id(),
-                solana_ed25519_program::process_instruction,
+                renec_ed25519_program::process_instruction,
             ),
             feature_set::ed25519_program_enabled::id(),
             ActivationType::NewProgram,

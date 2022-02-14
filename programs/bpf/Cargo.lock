@@ -3237,7 +3237,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "solana-ed25519-program"
+name = "renec-ed25519-program"
 version = "1.8.14"
 dependencies = [
  "solana-sdk",
@@ -3565,7 +3565,7 @@ dependencies = [
  "solana-bloom",
  "solana-compute-budget-program",
  "solana-config-program",
- "solana-ed25519-program",
+ "renec-ed25519-program",
  "solana-frozen-abi 1.8.14",
  "solana-frozen-abi-macro 1.8.14",
  "renec-logger 1.8.14",
