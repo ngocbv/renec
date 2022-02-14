@@ -3606,6 +3606,29 @@ dependencies = [
 ]
 
 [[package]]
+name = "renec-bpf-loader-program"
+version = "1.8.14"
+dependencies = [
+ "bincode",
+ "byteorder",
+ "curve25519-dalek 3.0.0",
+ "libsecp256k1",
+ "log 0.4.14",
+ "num-derive",
+ "num-traits",
+ "rand 0.7.3",
+ "rand_core 0.6.2",
+ "rustversion",
+ "sha3",
+ "solana-measure",
+ "solana-metrics",
+ "solana-runtime",
+ "solana-sdk",
+ "solana_rbpf",
+ "thiserror",
+]
+
+[[package]]
 name = "renec-compute-budget-program"
 version = "1.8.14"
 dependencies = [
@@ -4647,29 +4670,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "solana-bpf-loader-program"
-version = "1.8.14"
-dependencies = [
- "bincode",
- "byteorder",
- "curve25519-dalek 3.0.0",
- "libsecp256k1",
- "log 0.4.14",
- "num-derive",
- "num-traits",
- "rand 0.7.3",
- "rand_core 0.6.2",
- "rustversion",
- "sha3",
- "solana-measure",
- "solana-metrics",
- "solana-runtime",
- "solana-sdk",
- "solana_rbpf",
- "thiserror",
-]
-
-[[package]]
 name = "solana-cargo-build-bpf"
 version = "1.8.14"
 dependencies = [
@@ -4727,6 +4727,7 @@ dependencies = [
  "log 0.4.14",
  "num-traits",
  "pretty-hex",
+ "renec-bpf-loader-program",
  "renec-config-program",
  "renec-logger",
  "renec-version",
@@ -4737,7 +4738,6 @@ dependencies = [
  "serde_derive",
  "serde_json",
  "solana-account-decoder",
- "solana-bpf-loader-program",
  "solana-clap-utils",
  "solana-cli-config",
  "solana-cli-output",
@@ -5169,6 +5169,7 @@ dependencies = [
  "rand_chacha 0.2.2",
  "rayon",
  "reed-solomon-erasure",
+ "renec-bpf-loader-program",
  "renec-logger",
  "renec-vote-program",
  "rocksdb",
@@ -5177,7 +5178,6 @@ dependencies = [
  "serde_bytes",
  "sha2",
  "solana-account-decoder",
- "solana-bpf-loader-program",
  "solana-frozen-abi 1.8.14",
  "solana-frozen-abi-macro 1.8.14",
  "solana-measure",
@@ -5513,13 +5513,13 @@ dependencies = [
  "chrono-humanize",
  "log 0.4.14",
  "mio 0.7.6",
+ "renec-bpf-loader-program",
  "renec-logger",
  "renec-vote-program",
  "serde",
  "serde_derive",
  "solana-banks-client",
  "solana-banks-server",
- "solana-bpf-loader-program",
  "solana-runtime",
  "solana-sdk",
  "thiserror",

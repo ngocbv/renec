@@ -2781,7 +2781,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "solana-bpf-loader-program"
+name = "renec-bpf-loader-program"
 version = "1.8.14"
 dependencies = [
  "bincode",
@@ -2812,7 +2812,7 @@ dependencies = [
  "miow 0.2.2",
  "net2",
  "solana-account-decoder",
- "solana-bpf-loader-program",
+ "renec-bpf-loader-program",
  "solana-cli-output",
  "renec-logger 1.8.14",
  "solana-measure",
@@ -3495,7 +3495,7 @@ dependencies = [
  "serde_derive",
  "solana-banks-client",
  "solana-banks-server",
- "solana-bpf-loader-program",
+ "renec-bpf-loader-program",
  "renec-logger 1.8.14",
  "solana-runtime",
  "solana-sdk",

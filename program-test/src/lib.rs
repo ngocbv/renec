@@ -68,7 +68,7 @@ use {
 pub mod programs;
 
 #[macro_use]
-extern crate solana_bpf_loader_program;
+extern crate renec_bpf_loader_program;
 
 /// Errors from the program test environment
 #[derive(Error, Debug, PartialEq)]
@@ -771,7 +771,7 @@ impl ProgramTest {
             add_builtin!(solana_bpf_loader_program_with_jit!());
             add_builtin!(solana_bpf_loader_upgradeable_program_with_jit!());
         } else {
-            add_builtin!(solana_bpf_loader_program!());
+            add_builtin!(renec_bpf_loader_program!());
             add_builtin!(solana_bpf_loader_upgradeable_program!());
         }
 

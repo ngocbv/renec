@@ -1,7 +1,7 @@
 use clap::{crate_version, App, Arg};
 use serde::{Deserialize, Serialize};
 use serde_json::Result;
-use solana_bpf_loader_program::{
+use renec_bpf_loader_program::{
     create_vm, serialization::serialize_parameters, syscalls::register_syscalls, BpfError,
     ThisInstructionMeter,
 };
