@@ -45,7 +45,7 @@ solana-sdk = { path = "../sdk", version = "=1.8.14" }
 solana-streamer = { path = "../streamer", version = "=1.8.14" }
 solana-storage-bigtable = { path = "../storage-bigtable", version = "=1.8.14" }
 solana-transaction-status = { path = "../transaction-status", version = "=1.8.14" }
-solana-version = { path = "../version", version = "=1.8.14" }
+renec-version = { path = "../version", version = "=1.8.14" }
 solana-vote-program = { path = "../programs/vote", version = "=1.8.14" }
 spl-token = { version = "=3.2.0", features = ["no-entrypoint"] }
 stream-cancel = "0.8.1"

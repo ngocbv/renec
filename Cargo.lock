@@ -3623,7 +3623,7 @@ dependencies = [
  "solana-runtime",
  "solana-sdk",
  "solana-stake-program",
- "solana-version",
+ "renec-version",
  "solana-vote-program",
  "tempfile",
 ]
@@ -3679,7 +3679,7 @@ dependencies = [
  "solana-runtime",
  "solana-sdk",
  "solana-streamer",
- "solana-version",
+ "renec-version",
  "solana-vote-program",
  "symlink",
  "tikv-jemallocator",
@@ -4272,7 +4272,7 @@ dependencies = [
  "solana-measure",
  "solana-runtime",
  "solana-sdk",
- "solana-version",
+ "renec-version",
 ]
 
 [[package]]
@@ -4297,7 +4297,7 @@ dependencies = [
  "solana-sdk",
  "solana-streamer",
  "solana-transaction-status",
- "solana-version",
+ "renec-version",
  "spl-token",
 ]
 
@@ -4371,7 +4371,7 @@ dependencies = [
  "solana-runtime",
  "solana-sdk",
  "solana-streamer",
- "solana-version",
+ "renec-version",
 ]
 
 [[package]]
@@ -4449,7 +4449,7 @@ dependencies = [
  "solana-runtime",
  "solana-sdk",
  "solana-streamer",
- "solana-version",
+ "renec-version",
 ]
 
 [[package]]
@@ -4461,7 +4461,7 @@ dependencies = [
  "solana-logger 1.8.14",
  "solana-net-utils",
  "solana-streamer",
- "solana-version",
+ "renec-version",
 ]
 
 [[package]]
@@ -4489,7 +4489,7 @@ dependencies = [
  "solana-runtime",
  "solana-sdk",
  "solana-streamer",
- "solana-version",
+ "renec-version",
 ]
 
 [[package]]
@@ -4610,7 +4610,7 @@ dependencies = [
  "solana-sdk",
  "solana-streamer",
  "solana-transaction-status",
- "solana-version",
+ "renec-version",
  "solana-vote-program",
  "solana_rbpf",
  "spl-memo",
@@ -4682,7 +4682,7 @@ dependencies = [
  "solana-net-utils",
  "solana-sdk",
  "solana-transaction-status",
- "solana-version",
+ "renec-version",
  "solana-vote-program",
  "thiserror",
  "tokio",
@@ -4780,7 +4780,7 @@ dependencies = [
  "solana-stake-program",
  "solana-streamer",
  "solana-transaction-status",
- "solana-version",
+ "renec-version",
  "solana-vote-program",
  "spl-token",
  "symlink",
@@ -4834,7 +4834,7 @@ dependencies = [
  "solana-runtime",
  "solana-sdk",
  "solana-streamer",
- "solana-version",
+ "renec-version",
 ]
 
 [[package]]
@@ -4894,7 +4894,7 @@ dependencies = [
  "solana-logger 1.8.14",
  "solana-metrics",
  "solana-sdk",
- "solana-version",
+ "renec-version",
  "spl-memo",
  "thiserror",
  "tokio",
@@ -4998,7 +4998,7 @@ dependencies = [
  "solana-runtime",
  "solana-sdk",
  "solana-streamer",
- "solana-version",
+ "renec-version",
  "solana-vote-program",
  "thiserror",
 ]
@@ -5028,7 +5028,7 @@ dependencies = [
  "solana-config-program",
  "solana-logger 1.8.14",
  "solana-sdk",
- "solana-version",
+ "renec-version",
  "tar",
  "tempfile",
  "url 2.2.0",
@@ -5048,7 +5048,7 @@ dependencies = [
  "solana-cli-config",
  "solana-remote-wallet",
  "solana-sdk",
- "solana-version",
+ "renec-version",
  "tiny-bip39",
 ]
 
@@ -5140,7 +5140,7 @@ dependencies = [
  "solana-stake-program",
  "solana-storage-bigtable",
  "solana-transaction-status",
- "solana-version",
+ "renec-version",
  "solana-vote-program",
  "tempfile",
  "tokio",
@@ -5188,7 +5188,7 @@ dependencies = [
  "serde_json",
  "solana-clap-utils",
  "solana-logger 1.8.14",
- "solana-version",
+ "renec-version",
 ]
 
 [[package]]
@@ -5230,7 +5230,7 @@ dependencies = [
  "solana-measure",
  "solana-runtime",
  "solana-sdk",
- "solana-version",
+ "renec-version",
 ]
 
 [[package]]
@@ -5284,7 +5284,7 @@ dependencies = [
  "solana-clap-utils",
  "solana-logger 1.8.14",
  "solana-sdk",
- "solana-version",
+ "renec-version",
  "tokio",
  "url 2.2.0",
 ]
@@ -5359,7 +5359,7 @@ dependencies = [
  "solana-measure",
  "solana-perf",
  "solana-sdk",
- "solana-version",
+ "renec-version",
 ]
 
 [[package]]
@@ -5530,7 +5530,7 @@ dependencies = [
  "solana-storage-bigtable",
  "solana-streamer",
  "solana-transaction-status",
- "solana-version",
+ "renec-version",
  "solana-vote-program",
  "spl-token",
  "stream-cancel",
@@ -5780,7 +5780,7 @@ dependencies = [
  "solana-measure",
  "solana-runtime",
  "solana-sdk",
- "solana-version",
+ "renec-version",
 ]
 
 [[package]]
@@ -5809,7 +5809,7 @@ dependencies = [
  "nix 0.20.2",
  "solana-clap-utils",
  "solana-logger 1.8.14",
- "solana-version",
+ "renec-version",
  "sysctl",
  "unix_socket2",
  "users",
@@ -5842,7 +5842,7 @@ dependencies = [
  "solana-sdk",
  "solana-streamer",
  "solana-transaction-status",
- "solana-version",
+ "renec-version",
  "spl-associated-token-account",
  "spl-token",
  "tempfile",
@@ -5883,7 +5883,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "solana-version"
+name = "renec-version"
 version = "1.8.14"
 dependencies = [
  "log 0.4.14",
@@ -5930,7 +5930,7 @@ dependencies = [
  "solana-metrics",
  "solana-notifier",
  "solana-sdk",
- "solana-version",
+ "renec-version",
 ]
 
 [[package]]

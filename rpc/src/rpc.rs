@@ -2441,7 +2441,7 @@ pub mod rpc_minimal {
 
         fn get_version(&self, _: Self::Metadata) -> Result<RpcVersionInfo> {
             debug!("get_version rpc request received");
-            let version = solana_version::Version::default();
+            let version = renec_version::Version::default();
             Ok(RpcVersionInfo {
                 solana_core: version.to_string(),
                 feature_set: Some(version.feature_set),
@@ -6097,7 +6097,7 @@ pub mod tests {
 
         let req = r#"{"jsonrpc":"2.0","id":1,"method":"getVersion"}"#;
         let res = io.handle_request_sync(req, meta);
-        let version = solana_version::Version::default();
+        let version = renec_version::Version::default();
         let expected = json!({
             "jsonrpc": "2.0",
             "result": {

@@ -564,7 +564,7 @@ fn feature_activation_allowed(
     rpc_client: &RpcClient,
     quiet: bool,
 ) -> Result<(bool, Option<CliClusterFeatureSets>), ClientError> {
-    let my_feature_set = solana_version::Version::default().feature_set;
+    let my_feature_set = renec_version::Version::default().feature_set;
 
     let feature_set_stats = feature_set_stats(rpc_client)?;
 

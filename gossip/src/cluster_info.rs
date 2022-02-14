@@ -1168,7 +1168,7 @@ impl ClusterInfo {
             .collect()
     }
 
-    pub fn get_node_version(&self, pubkey: &Pubkey) -> Option<solana_version::Version> {
+    pub fn get_node_version(&self, pubkey: &Pubkey) -> Option<renec_version::Version> {
         let gossip = self.gossip.read().unwrap();
         let version = gossip.crds.get(&CrdsValueLabel::Version(*pubkey));
         if let Some(version) = version.and_then(|v| v.value.version()) {

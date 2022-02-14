@@ -40,7 +40,7 @@ solana-rayon-threadlimit = { path = "../rayon-threadlimit", version = "=1.8.14" 
 solana-runtime = { path = "../runtime", version = "=1.8.14" }
 solana-streamer = { path = "../streamer", version = "=1.8.14" }
 solana-sdk = { path = "../sdk", version = "=1.8.14" }
-solana-version = { path = "../version", version = "=1.8.14" }
+renec-version = { path = "../version", version = "=1.8.14" }
 solana-vote-program = { path = "../programs/vote", version = "=1.8.14" }
 solana-bloom = { path = "../bloom", version = "=1.8.14" }
 thiserror = "1.0"

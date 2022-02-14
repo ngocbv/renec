@@ -44,7 +44,7 @@ solana_rbpf = "=0.2.21"
 solana-remote-wallet = { path = "../remote-wallet", version = "=1.8.14" }
 solana-sdk = { path = "../sdk", version = "=1.8.14" }
 solana-transaction-status = { path = "../transaction-status", version = "=1.8.14" }
-solana-version = { path = "../version", version = "=1.8.14" }
+renec-version = { path = "../version", version = "=1.8.14" }
 solana-vote-program = { path = "../programs/vote", version = "=1.8.14" }
 spl-memo = { version = "=3.0.1", features = ["no-entrypoint"] }
 thiserror = "1.0.21"

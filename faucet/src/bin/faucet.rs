@@ -23,7 +23,7 @@ async fn main() {
     solana_metrics::set_panic_hook("faucet");
     let matches = App::new(crate_name!())
         .about(crate_description!())
-        .version(solana_version::version!())
+        .version(renec_version::version!())
         .arg(
             Arg::with_name("keypair")
                 .short("k")
