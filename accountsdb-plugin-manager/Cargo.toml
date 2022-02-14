@@ -7,7 +7,7 @@ version = "1.8.14"
 repository = "https://github.com/remitano/renec"
 license = "Apache-2.0"
 homepage = "https://remitano.com/"
-documentation = "https://docs.rs/solana-validator"
+documentation = "https://docs.rs/renec-validator"
 
 [dependencies]
 bs58 = "0.4.0"

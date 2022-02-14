@@ -95,7 +95,7 @@ else
     solana-log-analyzer
     solana-net-shaper
     solana-sys-tuner
-    solana-validator
+    renec-validator
   )
 
   # Speed up net.sh deploys by excluding unused binaries

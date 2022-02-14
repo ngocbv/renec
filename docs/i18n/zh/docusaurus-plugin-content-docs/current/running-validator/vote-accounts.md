@@ -40,7 +40,7 @@ _Vote Authority（投票授权）_密钥对用于签名验证节点节点要提�
 
 创建投票帐户时可以设置投票权限。  如果未提供，则默认为：为其分配与验证节点身份相同的名称。 稍后可以使用[vote-authorize-voter](../cli/usage.md#solana-vote-authorize-voter)命令更改投票权限。
 
-每个epoch最多可以更改一次投票权限。  如果使用[vote-authorize-voter](../cli/usage.md#solana-vote-authorize-voter)更改了权限，则该权限直到下一个epoch开始时才生效。 为了支持投票签名的平稳过渡，`solana-validator`允许多次指定`authorized-voter`参数。  这样，当网络到达验证节点的投票权限，帐户更改的边界时，验证节点进程就可以继续成功进行投票。
+每个epoch最多可以更改一次投票权限。  如果使用[vote-authorize-voter](../cli/usage.md#solana-vote-authorize-voter)更改了权限，则该权限直到下一个epoch开始时才生效。 为了支持投票签名的平稳过渡，`renec-validator`允许多次指定`authorized-voter`参数。  这样，当网络到达验证节点的投票权限，帐户更改的边界时，验证节点进程就可以继续成功进行投票。
 
 ### 提现授权
 
@@ -81,15 +81,15 @@ _Commission（佣金）_是验证节点获得网络奖励的百分比，该百�
 4. 使用用于`--identity`参数的新身份密钥对重新启动验证节点。
 
 ### 投票帐户授权的投票者
-更改_vote authority_密钥对只能在epoch边界进行，并且需要对`solana-validator`进行一些附加参数以实现无缝迁移。
+更改_vote authority_密钥对只能在epoch边界进行，并且需要对`renec-validator`进行一些附加参数以实现无缝迁移。
 
 1. 运行`solana epoch-info`。  如果当前epoch中没有剩余时间，请考虑等待下一个时，以使您的验证节点有足够的时间重新启动并跟上。
 2. 创建新的投票授权密钥对，即`solana-keygen new -o ~/new-vote-authority.json`。
 3. 对于当前的_vote authority_密钥对，可通过运行`solana vote-account ~/vote-account-keypair.json`来确定。  它可能是验证节点的身份帐户(默认) 或其他一些密钥对。  以下步骤假定 `~/validator-keypair.json` 是该密钥对。
 4. 运行`solana vote-authorize-voter ~/vote-account-keypair.json ~/validator-keypair.json ~/new-vote-authority.json`。 新的投票授权计划在下一个epoch开始生效。
-5. 现在需要用旧的和新的投票授权密钥对重新启动`solana-validator`，以便它可以在下一个epoch平稳过渡。 在重新启动时添加两个参数：`--authorized-voter ~/validator-keypair.json，
+5. 现在需要用旧的和新的投票授权密钥对重新启动`renec-validator`，以便它可以在下一个epoch平稳过渡。 在重新启动时添加两个参数：`--authorized-voter ~/validator-keypair.json，
 --authorized-voter ~/new-vote-authority.json`
-6. 集群到达下一个epoch后，请删除`--authorized-voter ~/validator-keypair.json`参数，并重新启动`Solana-validator`，因为不再需要旧的投票授权密钥对。
+6. 集群到达下一个epoch后，请删除`--authorized-voter ~/validator-keypair.json`参数，并重新启动`renec-validator`，因为不再需要旧的投票授权密钥对。
 
 
 ### 投票帐户授权提款人

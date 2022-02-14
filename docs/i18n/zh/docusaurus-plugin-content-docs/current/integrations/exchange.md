@@ -21,7 +21,7 @@ Solana 节点需要较高的计算力来处理我们的快速区块和高 TPS �
 2. 启动验证节点时至少使用以下参数：
 
 ```bash
-solana-validator \
+renec-validator \
   --ledger <LEDGER_PATH> \
   --entrypoint <CLUSTER_ENTRYPOINT> \
   --expected-genesis-hash <EXPECTED_GENESIS_HASH> \
@@ -35,9 +35,9 @@ solana-validator \
 
 自定义 `--ledger` 到您所需的账本存储位置， `--rpc-port` 到您想要显示的端口。
 
-`--entrypoint` and `--experted-genesis-hash` 参数都针对您正在加入的集群。 [主网 Beta 的当前参数](../clusters.md#example-solana-validator-command-line-2)
+`--entrypoint` and `--experted-genesis-hash` 参数都针对您正在加入的集群。 [主网 Beta 的当前参数](../clusters.md#example-renec-validator-command-line-2)
 
-`--limit-ledger-size` 参数允许您指定保留节点的多少个账本 [shreds](../terminology.md#shred) 在磁盘上。 如果您没有配置该参数，验证节点将保留整个账本直到磁盘空间满了为止。  保持账本磁盘使用量的默认值小于 500GB。  如果需要，可以通过添加参数到 `--limit-ledger-size` 来增加或减少磁盘的使用。 查看 `solana-validator --help` 来配置 `--limit-ledger-size` 所使用的默认限制值。  关于选择一个普通限制值的更多信息请参看 [这里](https://github.com/solana-labs/solana/blob/583cec922b6107e0f85c7e14cb5e642bc7dfb340/core/src/ledger_cleanup_service.rs#L15-L26).
+`--limit-ledger-size` 参数允许您指定保留节点的多少个账本 [shreds](../terminology.md#shred) 在磁盘上。 如果您没有配置该参数，验证节点将保留整个账本直到磁盘空间满了为止。  保持账本磁盘使用量的默认值小于 500GB。  如果需要，可以通过添加参数到 `--limit-ledger-size` 来增加或减少磁盘的使用。 查看 `renec-validator --help` 来配置 `--limit-ledger-size` 所使用的默认限制值。  关于选择一个普通限制值的更多信息请参看 [这里](https://github.com/solana-labs/solana/blob/583cec922b6107e0f85c7e14cb5e642bc7dfb340/core/src/ledger_cleanup_service.rs#L15-L26).
 
 指定一个或多个 `--trusted-validator` 参数可以保护您免遭恶意快照的攻击。 [更多关于使用可信验证程序启动的值](../running-validator/validator-start.md#trusted-validators)
 
@@ -50,7 +50,7 @@ solana-validator \
 
 我们建议将每个节点配置退出时自动重启，以确保尽可能少地丢失数据。 把 Solana 软件运行为一个系统服务是很好的选择。
 
-对于监控，我们提供[`solana-watchtower`](https://github.com/solana-labs/solana/blob/master/watchtower/README.md)，它可以监视您的验证节点，并且通过 `solana-validator` 检测节点是否不健康。 它可以直接配置 Slack、Telegram 、Discord 或 Twillio 来提醒您。 详情请运行 `solana-watchtower --help`。
+对于监控，我们提供[`solana-watchtower`](https://github.com/solana-labs/solana/blob/master/watchtower/README.md)，它可以监视您的验证节点，并且通过 `renec-validator` 检测节点是否不健康。 它可以直接配置 Slack、Telegram 、Discord 或 Twillio 来提醒您。 详情请运行 `solana-watchtower --help`。
 
 ```bash
 solana-watchtower --validator-identity <YOUR VALIDATOR IDENTITY>
@@ -66,7 +66,7 @@ solana-watchtower --validator-identity <YOUR VALIDATOR IDENTITY>
 
 ### 账本持续性
 
-默认情况下，您的每个节点都通过可信验证节点提供的快照启动。 这个快照反映了区块链当前的状态，但不包含完整的历史帐本。 如果您的一个节点退出并且通过新的快照启动，那么该节点上的账本中可能会出现一段缺失。 为了防止该问题， 将 `--no-snapshot-fetch` 参数添加到您的 `solana-validator` 命令，来接收历史账本数据（而不是快照）。
+默认情况下，您的每个节点都通过可信验证节点提供的快照启动。 这个快照反映了区块链当前的状态，但不包含完整的历史帐本。 如果您的一个节点退出并且通过新的快照启动，那么该节点上的账本中可能会出现一段缺失。 为了防止该问题， 将 `--no-snapshot-fetch` 参数添加到您的 `renec-validator` 命令，来接收历史账本数据（而不是快照）。
 
 不要在初次启动时通过 `--no-snapshot-fetch` 参数，因为它不可能追溯到创世区块去启动节点。  相反，您需要先启动快照，然后添加 `--no-snapshot-quetch` 参数来重启。
 
