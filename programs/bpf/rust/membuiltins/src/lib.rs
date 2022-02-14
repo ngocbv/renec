@@ -4,7 +4,7 @@
 #![feature(rustc_private)]
 
 extern crate compiler_builtins;
-use solana_bpf_rust_mem::{run_mem_tests, MemOps};
+use renec_bpf_rust_mem::{run_mem_tests, MemOps};
 use solana_program::{custom_panic_default, entrypoint::SUCCESS};
 
 #[no_mangle]
