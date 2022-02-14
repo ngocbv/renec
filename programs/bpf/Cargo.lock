@@ -3195,7 +3195,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "solana-compute-budget-program"
+name = "renec-compute-budget-program"
 version = "1.8.14"
 dependencies = [
  "solana-sdk",
@@ -3563,7 +3563,7 @@ dependencies = [
  "serde",
  "serde_derive",
  "solana-bloom",
- "solana-compute-budget-program",
+ "renec-compute-budget-program",
  "renec-config-program",
  "renec-ed25519-program",
  "solana-frozen-abi 1.8.14",

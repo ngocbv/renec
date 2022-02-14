@@ -3606,6 +3606,13 @@ dependencies = [
 ]
 
 [[package]]
+name = "renec-compute-budget-program"
+version = "1.8.14"
+dependencies = [
+ "solana-sdk",
+]
+
+[[package]]
 name = "renec-config-program"
 version = "1.8.14"
 dependencies = [
@@ -4821,13 +4828,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "solana-compute-budget-program"
-version = "1.8.14"
-dependencies = [
- "solana-sdk",
-]
-
-[[package]]
 name = "solana-core"
 version = "1.8.14"
 dependencies = [
@@ -5635,6 +5635,7 @@ dependencies = [
  "rand 0.7.3",
  "rayon",
  "regex",
+ "renec-compute-budget-program",
  "renec-config-program",
  "renec-ed25519-program",
  "renec-logger",
@@ -5645,7 +5646,6 @@ dependencies = [
  "serde",
  "serde_derive",
  "solana-bloom",
- "solana-compute-budget-program",
  "solana-frozen-abi 1.8.14",
  "solana-frozen-abi-macro 1.8.14",
  "solana-measure",
