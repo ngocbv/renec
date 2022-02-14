@@ -5,7 +5,7 @@ use {
     },
     bincode::deserialize,
     serde_json::Value,
-    solana_config_program::{get_config_data, ConfigKeys},
+    renec_config_program::{get_config_data, ConfigKeys},
     solana_sdk::{
         pubkey::Pubkey,
         stake::config::{self as stake_config, Config as StakeConfig},
@@ -93,7 +93,7 @@ pub struct UiConfig<T> {
 mod test {
     use {
         super::*, crate::validator_info::ValidatorInfo, serde_json::json,
-        solana_config_program::create_config_account, solana_sdk::account::ReadableAccount,
+        renec_config_program::create_config_account, solana_sdk::account::ReadableAccount,
     };
 
     #[test]

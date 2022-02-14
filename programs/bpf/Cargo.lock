@@ -2710,7 +2710,7 @@ dependencies = [
  "serde",
  "serde_derive",
  "serde_json",
- "solana-config-program",
+ "renec-config-program",
  "solana-sdk",
  "renec-vote-program",
  "spl-token",
@@ -3202,7 +3202,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "solana-config-program"
+name = "renec-config-program"
 version = "1.8.14"
 dependencies = [
  "bincode",
@@ -3564,7 +3564,7 @@ dependencies = [
  "serde_derive",
  "solana-bloom",
  "solana-compute-budget-program",
- "solana-config-program",
+ "renec-config-program",
  "renec-ed25519-program",
  "solana-frozen-abi 1.8.14",
  "solana-frozen-abi-macro 1.8.14",
@@ -3676,7 +3676,7 @@ dependencies = [
  "rustc_version 0.2.3",
  "serde",
  "serde_derive",
- "solana-config-program",
+ "renec-config-program",
  "solana-frozen-abi 1.8.14",
  "solana-frozen-abi-macro 1.8.14",
  "solana-metrics",

@@ -63,8 +63,8 @@ fn genesis_builtins() -> Vec<Builtin> {
         ),
         Builtin::new(
             "config_program",
-            solana_config_program::id(),
-            with_program_logging!(solana_config_program::config_processor::process_instruction),
+            renec_config_program::id(),
+            with_program_logging!(renec_config_program::config_processor::process_instruction),
         ),
         Builtin::new(
             "secp256k1_program",

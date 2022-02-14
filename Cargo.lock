@@ -3606,6 +3606,20 @@ dependencies = [
 ]
 
 [[package]]
+name = "renec-config-program"
+version = "1.8.14"
+dependencies = [
+ "bincode",
+ "chrono",
+ "log 0.4.14",
+ "rand_core 0.6.2",
+ "renec-logger",
+ "serde",
+ "serde_derive",
+ "solana-sdk",
+]
+
+[[package]]
 name = "renec-ed25519-program"
 version = "1.8.14"
 dependencies = [
@@ -3707,12 +3721,12 @@ dependencies = [
  "num-derive",
  "num-traits",
  "proptest",
+ "renec-config-program",
  "renec-logger",
  "renec-vote-program",
  "rustc_version 0.2.3",
  "serde",
  "serde_derive",
- "solana-config-program",
  "solana-frozen-abi 1.8.14",
  "solana-frozen-abi-macro 1.8.14",
  "solana-metrics",
@@ -4364,11 +4378,11 @@ dependencies = [
  "bs58 0.3.1",
  "bv",
  "lazy_static",
+ "renec-config-program",
  "renec-vote-program",
  "serde",
  "serde_derive",
  "serde_json",
- "solana-config-program",
  "solana-sdk",
  "spl-token",
  "thiserror",
@@ -4706,6 +4720,7 @@ dependencies = [
  "log 0.4.14",
  "num-traits",
  "pretty-hex",
+ "renec-config-program",
  "renec-logger",
  "renec-version",
  "renec-vote-program",
@@ -4720,7 +4735,6 @@ dependencies = [
  "solana-cli-config",
  "solana-cli-output",
  "solana-client",
- "solana-config-program",
  "solana-core",
  "solana-faucet",
  "solana-net-utils",
@@ -4810,20 +4824,6 @@ dependencies = [
 name = "solana-compute-budget-program"
 version = "1.8.14"
 dependencies = [
- "solana-sdk",
-]
-
-[[package]]
-name = "solana-config-program"
-version = "1.8.14"
-dependencies = [
- "bincode",
- "chrono",
- "log 0.4.14",
- "rand_core 0.6.2",
- "renec-logger",
- "serde",
- "serde_derive",
  "solana-sdk",
 ]
 
@@ -5106,6 +5106,7 @@ dependencies = [
  "indicatif",
  "lazy_static",
  "nix 0.20.2",
+ "renec-config-program",
  "renec-logger",
  "renec-version",
  "reqwest",
@@ -5115,7 +5116,6 @@ dependencies = [
  "serde_yaml",
  "solana-clap-utils",
  "solana-client",
- "solana-config-program",
  "solana-sdk",
  "tar",
  "tempfile",
@@ -5246,13 +5246,13 @@ dependencies = [
  "log 0.4.14",
  "rand 0.7.3",
  "rayon",
+ "renec-config-program",
  "renec-exchange-program",
  "renec-logger",
  "renec-stake-program",
  "renec-vote-program",
  "serial_test",
  "solana-client",
- "solana-config-program",
  "solana-core",
  "solana-download-utils",
  "solana-faucet",
@@ -5635,6 +5635,7 @@ dependencies = [
  "rand 0.7.3",
  "rayon",
  "regex",
+ "renec-config-program",
  "renec-ed25519-program",
  "renec-logger",
  "renec-secp256k1-program",
@@ -5645,7 +5646,6 @@ dependencies = [
  "serde_derive",
  "solana-bloom",
  "solana-compute-budget-program",
- "solana-config-program",
  "solana-frozen-abi 1.8.14",
  "solana-frozen-abi-macro 1.8.14",
  "solana-measure",
