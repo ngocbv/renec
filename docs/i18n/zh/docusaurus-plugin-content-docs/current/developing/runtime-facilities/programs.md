@@ -34,7 +34,7 @@ Solana包含少量内置程序，这些程序是运行验证程序节点所必�
 创建投票账户并对区块进行投票
 
 - 程序ID：`Vote111111111111111111111111111111111111111`
-- 说明：[VoteInstruction](https://docs.rs/solana-vote-program/VERSION_FOR_DOCS_RS/solana_vote_program/vote_instruction/enum.VoteInstruction.html)
+- 说明：[VoteInstruction](https://docs.rs/renec-vote-program/VERSION_FOR_DOCS_RS/renec_vote_program/vote_instruction/enum.VoteInstruction.html)
 
 ## BPF加载程序
 

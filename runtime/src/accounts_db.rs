@@ -58,7 +58,7 @@ use {
         pubkey::Pubkey,
         timing::AtomicInterval,
     },
-    solana_vote_program::vote_state::MAX_LOCKOUT_HISTORY,
+    renec_vote_program::vote_state::MAX_LOCKOUT_HISTORY,
     std::{
         borrow::{Borrow, Cow},
         boxed::Box,
@@ -7279,7 +7279,7 @@ pub mod tests {
         for t in 0..num_vote {
             let pubkey = solana_sdk::pubkey::new_rand();
             let account =
-                AccountSharedData::new((num + t + 1) as u64, space, &solana_vote_program::id());
+                AccountSharedData::new((num + t + 1) as u64, space, &renec_vote_program::id());
             pubkeys.push(pubkey);
             let ancestors = vec![(slot, 0)].into_iter().collect();
             assert!(accounts

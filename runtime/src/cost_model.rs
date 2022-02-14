@@ -484,7 +484,7 @@ mod tests {
             .is_some());
         assert!(cost_model
             .instruction_execution_cost_table
-            .get_cost(&solana_vote_program::id())
+            .get_cost(&renec_vote_program::id())
             .is_some());
     }
 }

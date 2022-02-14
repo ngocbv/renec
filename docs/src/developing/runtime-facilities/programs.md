@@ -48,7 +48,7 @@ validators.
 Create and manage accounts that track validator voting state and rewards.
 
 - Program id: `Vote111111111111111111111111111111111111111`
-- Instructions: [VoteInstruction](https://docs.rs/solana-vote-program/VERSION_FOR_DOCS_RS/solana_vote_program/vote_instruction/enum.VoteInstruction.html)
+- Instructions: [VoteInstruction](https://docs.rs/renec-vote-program/VERSION_FOR_DOCS_RS/renec_vote_program/vote_instruction/enum.VoteInstruction.html)
 
 ## BPF Loader
 

@@ -24,7 +24,7 @@ solana-measure = { path = "../measure", version = "=1.8.14" }
 solana-metrics = { path = "../metrics", version = "=1.8.14" }
 solana-sdk = { path = "../sdk", version = "=1.8.14" }
 solana-runtime = { path = "../runtime", version = "=1.8.14" }
-solana-vote-program = { path = "../programs/vote", version = "=1.8.14" }
+renec-vote-program = { path = "../programs/vote", version = "=1.8.14" }
 spl-associated-token-account = { version = "=1.0.3", features = ["no-entrypoint"] }
 spl-memo = { version = "=3.0.1", features = ["no-entrypoint"] }
 spl-token = { version = "=3.2.0", features = ["no-entrypoint"] }

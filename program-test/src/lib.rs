@@ -45,7 +45,7 @@ use {
             rent, Sysvar,
         },
     },
-    solana_vote_program::vote_state::{VoteState, VoteStateVersions},
+    renec_vote_program::vote_state::{VoteState, VoteStateVersions},
     std::{
         cell::RefCell,
         collections::HashMap,

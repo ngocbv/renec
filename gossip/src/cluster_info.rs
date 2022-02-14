@@ -69,7 +69,7 @@ use {
         socket::SocketAddrSpace,
         streamer::{PacketBatchReceiver, PacketBatchSender},
     },
-    solana_vote_program::{
+    renec_vote_program::{
         vote_state::MAX_LOCKOUT_HISTORY, vote_transaction::parse_vote_transaction,
     },
     std::{
@@ -3056,7 +3056,7 @@ mod tests {
         rand_chacha::ChaChaRng,
         solana_ledger::shred::Shredder,
         solana_sdk::signature::{Keypair, Signer},
-        solana_vote_program::{vote_instruction, vote_state::Vote},
+        renec_vote_program::{vote_instruction, vote_state::Vote},
         std::{
             iter::repeat_with,
             net::{IpAddr, Ipv4Addr, Ipv6Addr, SocketAddrV4},

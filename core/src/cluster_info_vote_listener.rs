@@ -42,7 +42,7 @@ use {
         slot_hashes,
         transaction::Transaction,
     },
-    solana_vote_program::{self, vote_state::Vote, vote_transaction},
+    renec_vote_program::{self, vote_state::Vote, vote_transaction},
     std::{
         collections::{HashMap, HashSet},
         iter::repeat,
@@ -823,7 +823,7 @@ mod tests {
             pubkey::Pubkey,
             signature::{Keypair, Signature, Signer},
         },
-        solana_vote_program::vote_state::Vote,
+        renec_vote_program::vote_state::Vote,
         std::{collections::BTreeSet, iter::repeat_with, sync::Arc},
     };
 

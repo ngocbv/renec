@@ -59,7 +59,7 @@ use {
         timing::timestamp,
         transaction::Transaction,
     },
-    solana_vote_program::vote_state::Vote,
+    renec_vote_program::vote_state::Vote,
     std::{
         collections::{BTreeMap, HashMap, HashSet},
         result,
@@ -2667,7 +2667,7 @@ mod tests {
         },
         solana_streamer::socket::SocketAddrSpace,
         solana_transaction_status::TransactionWithStatusMeta,
-        solana_vote_program::{
+        renec_vote_program::{
             vote_state::{VoteState, VoteStateVersions},
             vote_transaction,
         },

@@ -1408,7 +1408,7 @@ pub mod tests {
             system_transaction,
             transaction::{Transaction, TransactionError},
         },
-        solana_vote_program::{
+        renec_vote_program::{
             self,
             vote_state::{VoteState, VoteStateVersions, MAX_LOCKOUT_HISTORY},
             vote_transaction,
@@ -3599,7 +3599,7 @@ pub mod tests {
                         let mut vote_account = AccountSharedData::new(
                             1,
                             VoteState::size_of(),
-                            &solana_vote_program::id(),
+                            &renec_vote_program::id(),
                         );
                         let versioned = VoteStateVersions::new_current(vote_state);
                         VoteState::serialize(&versioned, vote_account.data_as_mut_slice()).unwrap();

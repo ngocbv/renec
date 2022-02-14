@@ -12,7 +12,7 @@ use {
         system_program,
     },
     solana_stake_program::stake_state,
-    solana_vote_program::vote_state,
+    renec_vote_program::vote_state,
     std::borrow::Borrow,
 };
 

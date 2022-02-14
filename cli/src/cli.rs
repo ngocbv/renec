@@ -32,7 +32,7 @@ use {
         stake::{instruction::LockupArgs, state::Lockup},
         transaction::{Transaction, TransactionError},
     },
-    solana_vote_program::vote_state::VoteAuthorize,
+    renec_vote_program::vote_state::VoteAuthorize,
     std::{collections::HashMap, error, io::stdout, str::FromStr, sync::Arc, time::Duration},
     thiserror::Error,
 };
@@ -1888,7 +1888,7 @@ mod tests {
         let from_str = from_pubkey.unwrap().to_string();
         for (name, program_id) in &[
             ("STAKE", stake::program::id()),
-            ("VOTE", solana_vote_program::id()),
+            ("VOTE", renec_vote_program::id()),
             ("NONCE", system_program::id()),
         ] {
             let test_create_address_with_seed = test_commands.clone().get_matches_from(vec![

@@ -2712,7 +2712,7 @@ dependencies = [
  "serde_json",
  "solana-config-program",
  "solana-sdk",
- "solana-vote-program",
+ "renec-vote-program",
  "spl-token",
  "thiserror",
  "zstd",
@@ -3158,7 +3158,7 @@ dependencies = [
  "solana-client",
  "solana-sdk",
  "solana-transaction-status",
- "solana-vote-program",
+ "renec-vote-program",
  "spl-memo",
 ]
 
@@ -3187,7 +3187,7 @@ dependencies = [
  "solana-sdk",
  "solana-transaction-status",
  "renec-version",
- "solana-vote-program",
+ "renec-vote-program",
  "thiserror",
  "tokio",
  "tungstenite",
@@ -3407,7 +3407,7 @@ dependencies = [
  "solana-metrics",
  "solana-rayon-threadlimit",
  "solana-sdk",
- "solana-vote-program",
+ "renec-vote-program",
 ]
 
 [[package]]
@@ -3499,7 +3499,7 @@ dependencies = [
  "renec-logger 1.8.14",
  "solana-runtime",
  "solana-sdk",
- "solana-vote-program",
+ "renec-vote-program",
  "thiserror",
  "tokio",
 ]
@@ -3575,7 +3575,7 @@ dependencies = [
  "solana-sdk",
  "solana-secp256k1-program",
  "solana-stake-program",
- "solana-vote-program",
+ "renec-vote-program",
  "symlink",
  "tar",
  "tempfile",
@@ -3681,7 +3681,7 @@ dependencies = [
  "solana-frozen-abi-macro 1.8.14",
  "solana-metrics",
  "solana-sdk",
- "solana-vote-program",
+ "renec-vote-program",
  "thiserror",
 ]
 
@@ -3703,7 +3703,7 @@ dependencies = [
  "solana-metrics",
  "solana-runtime",
  "solana-sdk",
- "solana-vote-program",
+ "renec-vote-program",
  "spl-associated-token-account",
  "spl-memo",
  "spl-token",
@@ -3725,7 +3725,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "solana-vote-program"
+name = "renec-vote-program"
 version = "1.8.14"
 dependencies = [
  "bincode",

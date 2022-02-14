@@ -34,7 +34,7 @@ use {
         transaction::Transaction,
     },
     solana_streamer::socket::SocketAddrSpace,
-    solana_vote_program::{vote_instruction, vote_state::Vote},
+    renec_vote_program::{vote_instruction, vote_state::Vote},
     std::{
         collections::{BTreeSet, HashSet},
         path::Path,

@@ -48,7 +48,7 @@ use {
         system_program,
     },
     solana_stake_program::stake_state::{self, PointValue},
-    solana_vote_program::{
+    renec_vote_program::{
         self,
         vote_state::{self, VoteState},
     },
@@ -2138,7 +2138,7 @@ fn main() {
 
                             // Delete existing vote accounts
                             for (address, mut account) in bank
-                                .get_program_accounts(&solana_vote_program::id())
+                                .get_program_accounts(&renec_vote_program::id())
                                 .unwrap()
                                 .into_iter()
                             {

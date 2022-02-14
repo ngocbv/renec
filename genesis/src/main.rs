@@ -35,7 +35,7 @@ use {
         system_program, timing,
     },
     solana_stake_program::stake_state,
-    solana_vote_program::vote_state::{self, VoteState},
+    renec_vote_program::vote_state::{self, VoteState},
     std::{
         collections::HashMap,
         error,

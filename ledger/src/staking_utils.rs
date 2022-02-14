@@ -73,7 +73,7 @@ pub(crate) mod tests {
             sysvar::stake_history::{self, StakeHistory},
             transaction::Transaction,
         },
-        solana_vote_program::{
+        renec_vote_program::{
             vote_instruction,
             vote_state::{VoteInit, VoteState, VoteStateVersions},
         },

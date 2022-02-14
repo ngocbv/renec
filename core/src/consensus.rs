@@ -19,7 +19,7 @@ use {
         signature::{Keypair, Signature, Signer},
         slot_history::{Check, SlotHistory},
     },
-    solana_vote_program::{
+    renec_vote_program::{
         vote_instruction,
         vote_state::{BlockTimestamp, Lockout, Vote, VoteState, MAX_LOCKOUT_HISTORY},
     },
@@ -1381,7 +1381,7 @@ pub mod test {
             signature::Signer,
             slot_history::SlotHistory,
         },
-        solana_vote_program::{
+        renec_vote_program::{
             vote_state::{Vote, VoteStateVersions, MAX_LOCKOUT_HISTORY},
             vote_transaction,
         },

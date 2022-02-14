@@ -537,7 +537,7 @@ mod tests {
             signature::{Keypair, Signer},
             sysvar::epoch_schedule::EpochSchedule,
         },
-        solana_vote_program::vote_state::BlockTimestamp,
+        renec_vote_program::vote_state::BlockTimestamp,
     };
 
     #[test]

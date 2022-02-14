@@ -50,7 +50,7 @@ use {
         system_program, system_transaction,
     },
     solana_streamer::socket::SocketAddrSpace,
-    solana_vote_program::vote_state::MAX_LOCKOUT_HISTORY,
+    renec_vote_program::vote_state::MAX_LOCKOUT_HISTORY,
     std::{
         collections::{HashMap, HashSet},
         fs,
@@ -516,7 +516,7 @@ fn test_mainnet_beta_cluster_type() {
         &solana_config_program::id(),
         &solana_sdk::system_program::id(),
         &solana_sdk::stake::program::id(),
-        &solana_vote_program::id(),
+        &renec_vote_program::id(),
         &solana_sdk::bpf_loader_deprecated::id(),
         &solana_sdk::bpf_loader::id(),
     ]

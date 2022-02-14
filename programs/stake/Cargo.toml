@@ -20,7 +20,7 @@ solana-frozen-abi = { path = "../../frozen-abi", version = "=1.8.14" }
 solana-frozen-abi-macro = { path = "../../frozen-abi/macro", version = "=1.8.14" }
 solana-metrics = { path = "../../metrics", version = "=1.8.14" }
 solana-sdk = { path = "../../sdk", version = "=1.8.14" }
-solana-vote-program = { path = "../vote", version = "=1.8.14" }
+renec-vote-program = { path = "../vote", version = "=1.8.14" }
 solana-config-program = { path = "../config", version = "=1.8.14" }
 thiserror = "1.0"
 

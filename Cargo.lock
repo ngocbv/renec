@@ -3624,7 +3624,8 @@ dependencies = [
  "solana-runtime",
  "solana-sdk",
  "solana-stake-program",
- "solana-vote-program",
+ "renec-version",
+ "renec-vote-program",
  "tempfile",
 ]
 
@@ -3703,6 +3704,8 @@ dependencies = [
  "solana-sdk",
  "solana-streamer",
  "solana-vote-program",
+ "renec-version",
+ "renec-vote-program",
  "symlink",
  "tikv-jemallocator",
 ]
@@ -4289,7 +4292,7 @@ dependencies = [
  "serde_json",
  "solana-config-program",
  "solana-sdk",
- "solana-vote-program",
+ "renec-vote-program",
  "spl-token",
  "thiserror",
  "zstd",
@@ -4647,7 +4650,8 @@ dependencies = [
  "solana-sdk",
  "solana-streamer",
  "solana-transaction-status",
- "solana-vote-program",
+ "renec-version",
+ "renec-vote-program",
  "solana_rbpf",
  "spl-memo",
  "tempfile",
@@ -4687,7 +4691,7 @@ dependencies = [
  "solana-client",
  "solana-sdk",
  "solana-transaction-status",
- "solana-vote-program",
+ "renec-vote-program",
  "spl-memo",
 ]
 
@@ -4719,7 +4723,8 @@ dependencies = [
  "solana-net-utils",
  "solana-sdk",
  "solana-transaction-status",
- "solana-vote-program",
+ "renec-version",
+ "renec-vote-program",
  "thiserror",
  "tokio",
  "tungstenite",
@@ -4817,7 +4822,8 @@ dependencies = [
  "solana-stake-program",
  "solana-streamer",
  "solana-transaction-status",
- "solana-vote-program",
+ "renec-version",
+ "renec-vote-program",
  "spl-token",
  "symlink",
  "sys-info",
@@ -5035,7 +5041,8 @@ dependencies = [
  "solana-runtime",
  "solana-sdk",
  "solana-streamer",
- "solana-vote-program",
+ "renec-version",
+ "renec-vote-program",
  "thiserror",
 ]
 
@@ -5137,7 +5144,7 @@ dependencies = [
  "solana-storage-bigtable",
  "solana-storage-proto",
  "solana-transaction-status",
- "solana-vote-program",
+ "renec-vote-program",
  "tempfile",
  "thiserror",
  "tokio",
@@ -5177,7 +5184,8 @@ dependencies = [
  "solana-stake-program",
  "solana-storage-bigtable",
  "solana-transaction-status",
- "solana-vote-program",
+ "renec-version",
+ "renec-vote-program",
  "tempfile",
  "tokio",
 ]
@@ -5210,7 +5218,7 @@ dependencies = [
  "solana-sdk",
  "solana-stake-program",
  "solana-streamer",
- "solana-vote-program",
+ "renec-vote-program",
  "tempfile",
 ]
 
@@ -5335,7 +5343,7 @@ dependencies = [
  "solana-metrics",
  "solana-rayon-threadlimit",
  "solana-sdk",
- "solana-vote-program",
+ "renec-vote-program",
 ]
 
 [[package]]
@@ -5469,7 +5477,7 @@ dependencies = [
  "solana-bpf-loader-program",
  "solana-runtime",
  "solana-sdk",
- "solana-vote-program",
+ "renec-vote-program",
  "thiserror",
  "tokio",
 ]
@@ -5545,7 +5553,8 @@ dependencies = [
  "solana-storage-bigtable",
  "solana-streamer",
  "solana-transaction-status",
- "solana-vote-program",
+ "renec-version",
+ "renec-vote-program",
  "spl-token",
  "stream-cancel",
  "symlink",
@@ -5599,7 +5608,7 @@ dependencies = [
  "solana-sdk",
  "solana-secp256k1-program",
  "solana-stake-program",
- "solana-vote-program",
+ "renec-vote-program",
  "symlink",
  "tar",
  "tempfile",
@@ -5735,7 +5744,7 @@ dependencies = [
  "solana-frozen-abi-macro 1.8.14",
  "solana-metrics",
  "solana-sdk",
- "solana-vote-program",
+ "renec-vote-program",
  "thiserror",
 ]
 
@@ -5881,7 +5890,7 @@ dependencies = [
  "solana-metrics",
  "solana-runtime",
  "solana-sdk",
- "solana-vote-program",
+ "renec-vote-program",
  "spl-associated-token-account",
  "spl-memo",
  "spl-token",
@@ -5897,7 +5906,21 @@ dependencies = [
 ]
 
 [[package]]
-name = "solana-vote-program"
+name = "renec-version"
+version = "1.8.14"
+dependencies = [
+ "log 0.4.14",
+ "rustc_version 0.2.3",
+ "serde",
+ "serde_derive",
+ "solana-frozen-abi 1.8.14",
+ "solana-frozen-abi-macro 1.8.14",
+ "renec-logger 1.8.14",
+ "solana-sdk",
+]
+
+[[package]]
+name = "renec-vote-program"
 version = "1.8.14"
 dependencies = [
  "bincode",

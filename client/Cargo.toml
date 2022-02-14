@@ -31,7 +31,7 @@ solana-net-utils = { path = "../net-utils", version = "=1.8.14" }
 solana-sdk = { path = "../sdk", version = "=1.8.14" }
 solana-transaction-status = { path = "../transaction-status", version = "=1.8.14" }
 renec-version = { path = "../version", version = "=1.8.14" }
-solana-vote-program = { path = "../programs/vote", version = "=1.8.14" }
+renec-vote-program = { path = "../programs/vote", version = "=1.8.14" }
 thiserror = "1.0"
 tokio = { version = "1", features = ["full"] }
 tungstenite = "0.10.1"
