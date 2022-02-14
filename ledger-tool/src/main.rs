@@ -47,7 +47,7 @@ use {
         stake::{self, state::StakeState},
         system_program,
     },
-    solana_stake_program::stake_state::{self, PointValue},
+    renec_stake_program::stake_state::{self, PointValue},
     renec_vote_program::{
         self,
         vote_state::{self, VoteState},
@@ -2445,7 +2445,7 @@ fn main() {
                                 new_credits_observed: Option<u64>,
                                 skipped_reasons: String,
                             }
-                            use solana_stake_program::stake_state::InflationPointCalculationEvent;
+                            use renec_stake_program::stake_state::InflationPointCalculationEvent;
                             let stake_calculation_details: DashMap<Pubkey, CalculationDetail> =
                                 DashMap::new();
                             let last_point_value = Arc::new(RwLock::new(None));

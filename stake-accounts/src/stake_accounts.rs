@@ -291,7 +291,7 @@ mod tests {
             signature::{Keypair, Signer},
             stake::state::StakeState,
         },
-        solana_stake_program::stake_state,
+        renec_stake_program::stake_state,
     };
 
     fn create_bank(lamports: u64) -> (Bank, Keypair, u64) {

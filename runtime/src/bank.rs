@@ -120,7 +120,7 @@ use {
         timing::years_as_slots,
         transaction::{self, Result, Transaction, TransactionError},
     },
-    solana_stake_program::stake_state::{
+    renec_stake_program::stake_state::{
         self, Delegation, InflationPointCalculationEvent, PointValue, StakeState,
     },
     renec_vote_program::{
@@ -2176,7 +2176,7 @@ impl Bank {
 
                     let stake_delegation = match self.get_account_with_fixed_root(stake_pubkey) {
                         Some(stake_account) => {
-                            if stake_account.owner() != &solana_stake_program::id() {
+                            if stake_account.owner() != &renec_stake_program::id() {
                                 invalid_stake_keys
                                     .insert(*stake_pubkey, InvalidCacheEntryReason::WrongOwner);
                                 return;

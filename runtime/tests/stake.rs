@@ -18,7 +18,7 @@ use {
         },
         sysvar::{self, stake_history::StakeHistory},
     },
-    solana_stake_program::stake_state,
+    renec_stake_program::stake_state,
     renec_vote_program::{
         vote_instruction,
         vote_state::{Vote, VoteInit, VoteState, VoteStateVersions},

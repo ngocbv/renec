@@ -3623,7 +3623,7 @@ dependencies = [
  "solana-ledger",
  "solana-runtime",
  "solana-sdk",
- "solana-stake-program",
+ "renec-stake-program",
  "renec-version",
  "renec-vote-program",
  "tempfile",
@@ -4819,7 +4819,7 @@ dependencies = [
  "solana-rpc",
  "solana-runtime",
  "solana-sdk",
- "solana-stake-program",
+ "renec-stake-program",
  "solana-streamer",
  "solana-transaction-status",
  "renec-version",
@@ -5181,7 +5181,7 @@ dependencies = [
  "solana-measure",
  "solana-runtime",
  "solana-sdk",
- "solana-stake-program",
+ "renec-stake-program",
  "solana-storage-bigtable",
  "solana-transaction-status",
  "renec-version",
@@ -5216,7 +5216,7 @@ dependencies = [
  "solana-rpc",
  "solana-runtime",
  "solana-sdk",
- "solana-stake-program",
+ "renec-stake-program",
  "solana-streamer",
  "renec-vote-program",
  "tempfile",
@@ -5549,7 +5549,7 @@ dependencies = [
  "solana-rayon-threadlimit",
  "solana-runtime",
  "solana-sdk",
- "solana-stake-program",
+ "renec-stake-program",
  "solana-storage-bigtable",
  "solana-streamer",
  "solana-transaction-status",
@@ -5607,7 +5607,7 @@ dependencies = [
  "solana-rayon-threadlimit",
  "solana-sdk",
  "solana-secp256k1-program",
- "solana-stake-program",
+ "renec-stake-program",
  "renec-vote-program",
  "symlink",
  "tar",
@@ -5723,11 +5723,11 @@ dependencies = [
  "solana-remote-wallet",
  "solana-runtime",
  "solana-sdk",
- "solana-stake-program",
+ "renec-stake-program",
 ]
 
 [[package]]
-name = "solana-stake-program"
+name = "renec-stake-program"
 version = "1.8.14"
 dependencies = [
  "bincode",

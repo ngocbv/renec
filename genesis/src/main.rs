@@ -34,7 +34,7 @@ use {
         stake::state::StakeState,
         system_program, timing,
     },
-    solana_stake_program::stake_state,
+    renec_stake_program::stake_state,
     renec_vote_program::vote_state::{self, VoteState},
     std::{
         collections::HashMap,
@@ -574,7 +574,7 @@ fn main() -> Result<(), Box<dyn error::Error>> {
         );
     }
 
-    solana_stake_program::add_genesis_accounts(&mut genesis_config);
+    renec_stake_program::add_genesis_accounts(&mut genesis_config);
     if genesis_config.cluster_type == ClusterType::Development {
         solana_runtime::genesis_utils::activate_all_features(&mut genesis_config);
     }

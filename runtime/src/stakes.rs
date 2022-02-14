@@ -19,7 +19,7 @@ use {
         },
         stake_history::StakeHistory,
     },
-    solana_stake_program::stake_state,
+    renec_stake_program::stake_state,
     renec_vote_program::vote_state::VoteState,
     std::{
         collections::HashMap,
@@ -355,7 +355,7 @@ pub mod tests {
         super::*,
         rayon::ThreadPoolBuilder,
         solana_sdk::{account::WritableAccount, pubkey::Pubkey, rent::Rent},
-        solana_stake_program::stake_state,
+        renec_stake_program::stake_state,
         renec_vote_program::vote_state::{self, VoteState, VoteStateVersions},
     };
 

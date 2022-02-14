@@ -3574,7 +3574,7 @@ dependencies = [
  "solana-rayon-threadlimit",
  "solana-sdk",
  "solana-secp256k1-program",
- "solana-stake-program",
+ "renec-stake-program",
  "renec-vote-program",
  "symlink",
  "tar",
@@ -3666,7 +3666,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "solana-stake-program"
+name = "renec-stake-program"
 version = "1.8.14"
 dependencies = [
  "bincode",
