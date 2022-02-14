@@ -1,13 +1,13 @@
 [package]
 authors = ["RENEC Maintainers <dev@remitano.com>"]
 edition = "2018"
-name = "solana-genesis"
+name = "renec-genesis"
 description = "Blockchain, Rebuilt for Scale"
 version = "1.8.14"
 repository = "https://github.com/remitano/renec"
 license = "Apache-2.0"
 homepage = "https://remitano.com/"
-documentation = "https://docs.rs/solana-genesis"
+documentation = "https://docs.rs/renec-genesis"
 
 [dependencies]
 base64 = "0.12.3"
@@ -29,11 +29,11 @@ solana-vote-program = { path = "../programs/vote", version = "=1.8.14" }
 tempfile = "3.1.0"
 
 [[bin]]
-name = "solana-genesis"
+name = "renec-genesis"
 path = "src/main.rs"
 
 [lib]
-name = "solana_genesis"
+name = "renec_genesis"
 
 [package.metadata.docs.rs]
 targets = ["x86_64-unknown-linux-gnu"]

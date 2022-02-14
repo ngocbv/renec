@@ -29,7 +29,7 @@ use {
         },
     },
     solana_download_utils::{download_snapshot, DownloadProgressRecord},
-    solana_genesis_utils::download_then_check_genesis_hash,
+    renec_genesis_utils::download_then_check_genesis_hash,
     solana_gossip::{
         cluster_info::{ClusterInfo, Node, VALIDATOR_PORT_RANGE},
         contact_info::ContactInfo,

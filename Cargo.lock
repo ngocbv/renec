@@ -3606,6 +3606,38 @@ dependencies = [
 ]
 
 [[package]]
+name = "renec-genesis"
+version = "1.8.14"
+dependencies = [
+ "base64 0.12.3",
+ "chrono",
+ "clap",
+ "serde",
+ "serde_json",
+ "serde_yaml",
+ "solana-clap-utils",
+ "solana-cli-config",
+ "solana-exchange-program",
+ "solana-ledger",
+ "solana-logger 1.8.14",
+ "solana-runtime",
+ "solana-sdk",
+ "solana-stake-program",
+ "solana-version",
+ "solana-vote-program",
+ "tempfile",
+]
+
+[[package]]
+name = "renec-genesis-utils"
+version = "1.8.14"
+dependencies = [
+ "solana-download-utils",
+ "solana-runtime",
+ "solana-sdk",
+]
+
+[[package]]
 name = "reqwest"
 version = "0.11.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -4353,6 +4385,7 @@ dependencies = [
  "num-traits",
  "rand 0.7.3",
  "rayon",
+ "renec-genesis",
  "serde_json",
  "serde_yaml",
  "solana-clap-utils",
@@ -4360,7 +4393,6 @@ dependencies = [
  "solana-core",
  "solana-exchange-program",
  "solana-faucet",
- "solana-genesis",
  "solana-gossip",
  "solana-local-cluster",
  "solana-logger 1.8.14",
@@ -4392,6 +4424,7 @@ dependencies = [
  "clap",
  "log 0.4.14",
  "rayon",
+ "renec-genesis",
  "serde_json",
  "serde_yaml",
  "serial_test",
@@ -4399,7 +4432,6 @@ dependencies = [
  "solana-client",
  "solana-core",
  "solana-faucet",
- "solana-genesis",
  "solana-gossip",
  "solana-local-cluster",
  "solana-logger 1.8.14",
@@ -4878,38 +4910,6 @@ dependencies = [
  "quote 1.0.9",
  "rustc_version 0.2.3",
  "syn 1.0.60",
-]
-
-[[package]]
-name = "solana-genesis"
-version = "1.8.14"
-dependencies = [
- "base64 0.12.3",
- "chrono",
- "clap",
- "serde",
- "serde_json",
- "serde_yaml",
- "solana-clap-utils",
- "solana-cli-config",
- "solana-exchange-program",
- "solana-ledger",
- "solana-logger 1.8.14",
- "solana-runtime",
- "solana-sdk",
- "solana-stake-program",
- "solana-version",
- "solana-vote-program",
- "tempfile",
-]
-
-[[package]]
-name = "solana-genesis-utils"
-version = "1.8.14"
-dependencies = [
- "solana-download-utils",
- "solana-runtime",
- "solana-sdk",
 ]
 
 [[package]]
@@ -5855,6 +5855,7 @@ dependencies = [
  "log 0.4.14",
  "num_cpus",
  "rand 0.7.3",
+ "renec-genesis-utils",
  "serde",
  "serde_json",
  "signal-hook",
@@ -5864,7 +5865,6 @@ dependencies = [
  "solana-core",
  "solana-download-utils",
  "solana-faucet",
- "solana-genesis-utils",
  "solana-gossip",
  "solana-ledger",
  "solana-logger 1.8.14",
