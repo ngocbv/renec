@@ -14,7 +14,7 @@ use {
             is_pubkey_or_keypair, is_rfc3339_datetime, is_slot, is_valid_percentage,
         },
     },
-    solana_genesis::{genesis_accounts::add_genesis_accounts, Base64Account},
+    renec_genesis::{genesis_accounts::add_genesis_accounts, Base64Account},
     solana_ledger::{
         blockstore::create_new_ledger, blockstore_db::AccessType, poh::compute_hashes_per_tick,
     },
