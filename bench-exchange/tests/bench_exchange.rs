@@ -2,8 +2,8 @@ use {
     log::*,
     solana_bench_exchange::bench::{airdrop_lamports, do_bench_exchange, Config},
     solana_core::validator::ValidatorConfig,
-    solana_exchange_program::{
-        exchange_processor::process_instruction, id, solana_exchange_program,
+    renec_exchange_program::{
+        exchange_processor::process_instruction, id, renec_exchange_program,
     },
     solana_faucet::faucet::run_local_faucet_with_port,
     solana_gossip::gossip_service::{discover_cluster, get_multi_client},
@@ -54,7 +54,7 @@ fn test_exchange_local_cluster() {
                 &ValidatorConfig::default(),
                 NUM_NODES,
             ),
-            native_instruction_processors: [solana_exchange_program!()].to_vec(),
+            native_instruction_processors: [renec_exchange_program!()].to_vec(),
             ..ClusterConfig::default()
         },
         SocketAddrSpace::Unspecified,

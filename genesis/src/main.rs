@@ -2,7 +2,7 @@
 #![allow(clippy::integer_arithmetic)]
 
 #[macro_use]
-extern crate solana_exchange_program;
+extern crate renec_exchange_program;
 
 use {
     clap::{crate_description, crate_name, value_t, value_t_or_exit, App, Arg, ArgMatches},
@@ -497,7 +497,7 @@ fn main() -> Result<(), Box<dyn error::Error>> {
     );
 
     let native_instruction_processors = if cluster_type == ClusterType::Development {
-        vec![solana_exchange_program!()]
+        vec![renec_exchange_program!()]
     } else {
         vec![]
     };

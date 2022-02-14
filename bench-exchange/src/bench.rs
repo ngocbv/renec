@@ -9,7 +9,7 @@ use {
     rayon::prelude::*,
     solana_client::perf_utils::{sample_txs, SampleStats},
     solana_core::gen_keys::GenKeys,
-    solana_exchange_program::{exchange_instruction, exchange_state::*, id},
+    renec_exchange_program::{exchange_instruction, exchange_state::*, id},
     solana_faucet::faucet::request_airdrop_transaction,
     renec_genesis::Base64Account,
     solana_metrics::datapoint_info,
