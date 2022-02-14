@@ -2426,7 +2426,7 @@ mod tests {
 
     #[test]
     fn huge_clean() {
-        solana_logger::setup();
+        renec_logger::setup();
         let accounts = Accounts::new_with_config(
             Vec::new(),
             &ClusterType::Development,
@@ -2475,7 +2475,7 @@ mod tests {
 
     #[test]
     fn test_instructions() {
-        solana_logger::setup();
+        renec_logger::setup();
         let accounts = Accounts::new_with_config(
             Vec::new(),
             &ClusterType::Development,

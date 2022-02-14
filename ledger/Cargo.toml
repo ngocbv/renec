@@ -39,7 +39,7 @@ solana-bpf-loader-program = { path = "../programs/bpf_loader", version = "=1.8.1
 solana-frozen-abi = { path = "../frozen-abi", version = "=1.8.14" }
 solana-frozen-abi-macro = { path = "../frozen-abi/macro", version = "=1.8.14" }
 solana-transaction-status = { path = "../transaction-status", version = "=1.8.14" }
-solana-logger = { path = "../logger", version = "=1.8.14" }
+renec-logger = { path = "../logger", version = "=1.8.14" }
 solana-measure = { path = "../measure", version = "=1.8.14" }
 solana-merkle-tree = { path = "../merkle-tree", version = "=1.8.14" }
 solana-metrics = { path = "../metrics", version = "=1.8.14" }

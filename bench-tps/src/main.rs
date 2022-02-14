@@ -20,7 +20,7 @@ use {
 pub const NUM_SIGNATURES_FOR_TXS: u64 = 100_000 * 60 * 60 * 24 * 7;
 
 fn main() {
-    solana_logger::setup_with_default("solana=info");
+    renec_logger::setup_with_default("solana=info");
     solana_metrics::set_panic_hook("bench-tps");
 
     let matches = cli::build_args(renec_version::version!()).get_matches();

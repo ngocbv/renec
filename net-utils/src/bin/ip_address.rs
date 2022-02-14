@@ -1,7 +1,7 @@
 use clap::{App, Arg};
 
 fn main() {
-    solana_logger::setup();
+    renec_logger::setup();
     let matches = App::new("solana-ip-address")
         .version(renec_version::version!())
         .arg(

@@ -273,7 +273,7 @@ mod tests {
 
     #[test]
     fn test_max_hashes() {
-        solana_logger::setup();
+        renec_logger::setup();
         use {std::path::PathBuf, tempfile::TempDir};
         let keypair = Keypair::new();
 

@@ -5,7 +5,7 @@ use {
 };
 
 fn main() {
-    solana_logger::setup_with_default("solana=info");
+    renec_logger::setup_with_default("solana=info");
     let matches = App::new(crate_name!())
         .about(crate_description!())
         .version(renec_version::version!())

@@ -28,7 +28,7 @@ miow = "0.2.2"
 net2 = "0.2.37"
 solana-bpf-loader-program = { path = "../bpf_loader", version = "=1.8.14" }
 solana-cli-output = { path = "../../cli-output", version = "=1.8.14" }
-solana-logger = { path = "../../logger", version = "=1.8.14" }
+renec-logger = { path = "../../logger", version = "=1.8.14" }
 solana-measure = { path = "../../measure", version = "=1.8.14" }
 solana_rbpf = "=0.2.21"
 solana-runtime = { path = "../../runtime", version = "=1.8.14" }

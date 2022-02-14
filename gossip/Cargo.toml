@@ -31,7 +31,7 @@ solana-client = { path = "../client", version = "=1.8.14" }
 solana-frozen-abi = { path = "../frozen-abi", version = "=1.8.14" }
 solana-frozen-abi-macro = { path = "../frozen-abi/macro", version = "=1.8.14" }
 solana-ledger = { path = "../ledger", version = "=1.8.14" }
-solana-logger = { path = "../logger", version = "=1.8.14" }
+renec-logger = { path = "../logger", version = "=1.8.14" }
 solana-measure = { path = "../measure", version = "=1.8.14" }
 solana-metrics = { path = "../metrics", version = "=1.8.14" }
 solana-net-utils = { path = "../net-utils", version = "=1.8.14" }

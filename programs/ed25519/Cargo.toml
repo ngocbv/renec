@@ -16,7 +16,7 @@ solana-sdk = { path = "../../sdk", version = "=1.8.14" }
 bytemuck = { version = "1.7.2", features = ["derive"] }
 ed25519-dalek = "=1.0.1"
 rand = "0.7.0"
-solana-logger = { path = "../../logger", version = "=1.8.14" }
+renec-logger = { path = "../../logger", version = "=1.8.14" }
 
 [lib]
 crate-type = ["lib"]

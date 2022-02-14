@@ -3085,7 +3085,7 @@ mod tests {
 
     #[test]
     fn test_handle_pull() {
-        solana_logger::setup();
+        renec_logger::setup();
         let node = Node::new_localhost();
         let cluster_info = Arc::new(ClusterInfo::new(
             node.info,

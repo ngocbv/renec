@@ -23,7 +23,7 @@ use {
 #[test]
 #[ignore]
 fn test_exchange_local_cluster() {
-    solana_logger::setup();
+    renec_logger::setup();
 
     const NUM_NODES: usize = 1;
 
@@ -103,7 +103,7 @@ fn test_exchange_local_cluster() {
 
 #[test]
 fn test_exchange_bank_client() {
-    solana_logger::setup();
+    renec_logger::setup();
     let (genesis_config, identity) = create_genesis_config(100_000_000_000_000);
     let mut bank = Bank::new(&genesis_config);
     bank.add_builtin("exchange_program", id(), process_instruction);

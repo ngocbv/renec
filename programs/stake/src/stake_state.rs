@@ -2101,7 +2101,7 @@ mod tests {
 
     #[test]
     fn test_stop_activating_after_deactivation() {
-        solana_logger::setup();
+        renec_logger::setup();
         let stake = Delegation {
             stake: 1_000,
             activation_epoch: 0,

@@ -7,7 +7,7 @@ use {
 };
 
 fn main() {
-    solana_logger::setup();
+    renec_logger::setup();
 
     let matches = App::new(crate_name!())
         .about(crate_description!())

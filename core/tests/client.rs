@@ -44,7 +44,7 @@ use {
 
 #[test]
 fn test_rpc_client() {
-    solana_logger::setup();
+    renec_logger::setup();
 
     let alice = Keypair::new();
     let test_validator =

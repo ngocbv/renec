@@ -72,7 +72,7 @@ mod common;
 // stalling the network.
 
 fn test_fork_choice_refresh_old_votes() {
-    solana_logger::setup_with_default(RUST_LOG_FILTER);
+    renec_logger::setup_with_default(RUST_LOG_FILTER);
     let max_switch_threshold_failure_pct = 1.0 - 2.0 * SWITCH_FORK_THRESHOLD;
     let total_stake = 100;
     let max_failures_stake = (max_switch_threshold_failure_pct * total_stake as f64) as u64;
@@ -405,7 +405,7 @@ fn test_duplicate_shreds_broadcast_leader() {
 #[test]
 #[serial]
 fn test_switch_threshold_uses_gossip_votes() {
-    solana_logger::setup_with_default(RUST_LOG_FILTER);
+    renec_logger::setup_with_default(RUST_LOG_FILTER);
     let total_stake = 100;
 
     // Minimum stake needed to generate a switching proof

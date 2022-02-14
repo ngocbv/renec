@@ -1317,7 +1317,7 @@ mod tests {
     where
         F: Fn(&Bank),
     {
-        solana_logger::setup();
+        renec_logger::setup();
 
         let alice_keypair = Keypair::new();
         let bob_keypair = Keypair::new();

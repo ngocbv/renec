@@ -547,7 +547,7 @@ mod tests {
 
     #[test]
     fn test_skip_repair() {
-        solana_logger::setup();
+        renec_logger::setup();
         let GenesisConfigInfo { genesis_config, .. } = create_genesis_config(123);
         let (ledger_path, _blockhash) = create_new_tmp_ledger!(&genesis_config);
         let blockstore = Blockstore::open(&ledger_path).unwrap();

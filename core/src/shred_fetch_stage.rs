@@ -233,7 +233,7 @@ mod tests {
 
     #[test]
     fn test_data_code_same_index() {
-        solana_logger::setup();
+        renec_logger::setup();
         let mut shreds_received = LruCache::new(DEFAULT_LRU_SIZE);
         let mut packet = Packet::default();
         let mut stats = ShredFetchStats::default();
@@ -287,7 +287,7 @@ mod tests {
 
     #[test]
     fn test_shred_filter() {
-        solana_logger::setup();
+        renec_logger::setup();
         let mut shreds_received = LruCache::new(DEFAULT_LRU_SIZE);
         let mut packet = Packet::default();
         let mut stats = ShredFetchStats::default();

@@ -24,7 +24,7 @@ use {
 };
 
 fn run_bench_packet_discard(num_ips: usize, bencher: &mut Bencher) {
-    solana_logger::setup();
+    renec_logger::setup();
     let len = 30 * 1000;
     let chunk_size = 1024;
     let tx = test_tx();
@@ -114,7 +114,7 @@ fn bench_packet_discard_mixed_senders(bencher: &mut Bencher) {
 
 #[bench]
 fn bench_sigverify_stage(bencher: &mut Bencher) {
-    solana_logger::setup();
+    renec_logger::setup();
     let (packet_s, packet_r) = channel();
     let (verified_s, verified_r) = unbounded();
     let verifier = TransactionSigVerifier::default();

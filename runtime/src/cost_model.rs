@@ -205,7 +205,7 @@ mod tests {
     };
 
     fn test_setup() -> (Keypair, Hash) {
-        solana_logger::setup();
+        renec_logger::setup();
         let GenesisConfigInfo {
             genesis_config,
             mint_keypair,

@@ -8,7 +8,7 @@ use {
 
 #[test]
 fn test_process_distribute_with_rpc_client() {
-    solana_logger::setup();
+    renec_logger::setup();
 
     let mint_keypair = Keypair::new();
     let test_validator =

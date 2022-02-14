@@ -954,7 +954,7 @@ mod tests {
 
     #[test]
     fn test_decompile_instructions() {
-        solana_logger::setup();
+        renec_logger::setup();
         let program_id0 = Pubkey::new_unique();
         let program_id1 = Pubkey::new_unique();
         let id0 = Pubkey::new_unique();
@@ -988,7 +988,7 @@ mod tests {
 
     #[test]
     fn test_decompile_instructions_out_of_bounds() {
-        solana_logger::setup();
+        renec_logger::setup();
         let program_id0 = Pubkey::new_unique();
         let id0 = Pubkey::new_unique();
         let id1 = Pubkey::new_unique();

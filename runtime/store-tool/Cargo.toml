@@ -11,7 +11,7 @@ publish = false
 
 [dependencies]
 log = { version = "0.4.11" }
-solana-logger = { path = "../../logger", version = "=1.8.14" }
+renec-logger = { path = "../../logger", version = "=1.8.14" }
 renec-version = { path = "../../version", version = "=1.8.14" }
 solana-measure = { path = "../../measure", version = "=1.8.14" }
 solana-runtime = { path = "..", version = "=1.8.14" }

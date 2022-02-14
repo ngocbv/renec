@@ -532,7 +532,7 @@ fn run_accounts_bench(
 }
 
 fn main() {
-    solana_logger::setup_with_default("solana=info");
+    renec_logger::setup_with_default("solana=info");
     let matches = App::new(crate_name!())
         .about(crate_description!())
         .version(renec_version::version!())
@@ -715,7 +715,7 @@ pub mod test {
 
     #[test]
     fn test_accounts_cluster_bench() {
-        solana_logger::setup();
+        renec_logger::setup();
         let validator_config = ValidatorConfig::default();
         let num_nodes = 1;
         let mut config = ClusterConfig {

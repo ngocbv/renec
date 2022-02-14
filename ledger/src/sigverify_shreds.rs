@@ -464,7 +464,7 @@ pub mod tests {
     };
 
     fn run_test_sigverify_shred_cpu(slot: Slot) {
-        solana_logger::setup();
+        renec_logger::setup();
         let mut packet = Packet::default();
         let mut shred = Shred::new_from_data(
             slot,
@@ -510,7 +510,7 @@ pub mod tests {
     }
 
     fn run_test_sigverify_shreds_cpu(slot: Slot) {
-        solana_logger::setup();
+        renec_logger::setup();
         let mut batches = [PacketBatch::default()];
         let mut shred = Shred::new_from_data(
             slot,
@@ -563,7 +563,7 @@ pub mod tests {
     }
 
     fn run_test_sigverify_shreds_gpu(slot: Slot) {
-        solana_logger::setup();
+        renec_logger::setup();
         let recycler_cache = RecyclerCache::default();
 
         let mut batches = [PacketBatch::default()];
@@ -627,7 +627,7 @@ pub mod tests {
     }
 
     fn run_test_sigverify_shreds_sign_gpu(slot: Slot) {
-        solana_logger::setup();
+        renec_logger::setup();
         let recycler_cache = RecyclerCache::default();
 
         let mut packet_batch = PacketBatch::default();
@@ -677,7 +677,7 @@ pub mod tests {
     }
 
     fn run_test_sigverify_shreds_sign_cpu(slot: Slot) {
-        solana_logger::setup();
+        renec_logger::setup();
 
         let mut batches = [PacketBatch::default()];
         let keypair = Keypair::new();

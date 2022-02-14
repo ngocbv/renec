@@ -137,7 +137,7 @@ pub(crate) mod tests {
 
     #[test]
     fn test_epoch_stakes_and_lockouts() {
-        solana_logger::setup();
+        renec_logger::setup();
         let stake = bootstrap_validator_stake_lamports();
         let leader_stake = Stake {
             delegation: Delegation {

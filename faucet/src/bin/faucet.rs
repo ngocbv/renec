@@ -19,7 +19,7 @@ use {
 async fn main() {
     let default_keypair = solana_cli_config::Config::default().keypair_path;
 
-    solana_logger::setup_with_default("solana=info");
+    renec_logger::setup_with_default("solana=info");
     solana_metrics::set_panic_hook("faucet");
     let matches = App::new(crate_name!())
         .about(crate_description!())

@@ -6181,7 +6181,7 @@ pub(crate) mod tests {
 
     #[test]
     fn test_credit_debit_rent_no_side_effect_on_hash() {
-        solana_logger::setup();
+        renec_logger::setup();
 
         let (mut genesis_config, _mint_keypair) = create_genesis_config(10);
         let keypair1: Keypair = Keypair::new();
@@ -6554,7 +6554,7 @@ pub(crate) mod tests {
 
     #[test]
     fn test_rent_distribution() {
-        solana_logger::setup();
+        renec_logger::setup();
 
         let bootstrap_validator_pubkey = solana_sdk::pubkey::new_rand();
         let bootstrap_validator_stake_lamports = 30;
@@ -6804,7 +6804,7 @@ pub(crate) mod tests {
 
     #[test]
     fn test_distribute_rent_to_validators_overflow() {
-        solana_logger::setup();
+        renec_logger::setup();
 
         // These values are taken from the real cluster (testnet)
         const RENT_TO_BE_DISTRIBUTED: u64 = 120_525;
@@ -6887,7 +6887,7 @@ pub(crate) mod tests {
     #[test]
     #[allow(clippy::cognitive_complexity)]
     fn test_rent_complex() {
-        solana_logger::setup();
+        renec_logger::setup();
         let mock_program_id = Pubkey::new(&[2u8; 32]);
 
         let (mut genesis_config, _mint_keypair) = create_genesis_config(10);
@@ -7307,7 +7307,7 @@ pub(crate) mod tests {
 
     #[test]
     fn test_rent_eager_under_fixed_cycle_for_development() {
-        solana_logger::setup();
+        renec_logger::setup();
         let leader_pubkey = solana_sdk::pubkey::new_rand();
         let leader_lamports = 3;
         let mut genesis_config =
@@ -7591,7 +7591,7 @@ pub(crate) mod tests {
 
     #[test]
     fn test_rent_eager_pubkey_range_not_dividable() {
-        solana_logger::setup();
+        renec_logger::setup();
 
         let test_map = map_to_test_bad_range();
         let range = Bank::pubkey_range_from_partition((0, 0, 3));
@@ -7645,7 +7645,7 @@ pub(crate) mod tests {
 
     #[test]
     fn test_rent_eager_pubkey_range_gap() {
-        solana_logger::setup();
+        renec_logger::setup();
 
         let test_map = map_to_test_bad_range();
         let range = Bank::pubkey_range_from_partition((120, 1023, 12345));
@@ -7689,7 +7689,7 @@ pub(crate) mod tests {
 
     #[test]
     fn test_rent_eager_collect_rent_in_partition() {
-        solana_logger::setup();
+        renec_logger::setup();
 
         let (mut genesis_config, _mint_keypair) = create_genesis_config(1);
         activate_all_features(&mut genesis_config);
@@ -7775,7 +7775,7 @@ pub(crate) mod tests {
 
     #[test]
     fn test_rent_eager_collect_rent_zero_lamport_deterministic() {
-        solana_logger::setup();
+        renec_logger::setup();
 
         let (genesis_config, _mint_keypair) = create_genesis_config(1);
 
@@ -7834,7 +7834,7 @@ pub(crate) mod tests {
 
     #[test]
     fn test_bank_update_vote_stake_rewards() {
-        solana_logger::setup();
+        renec_logger::setup();
 
         // create a bank that ticks really slowly...
         let bank0 = Arc::new(Bank::new(&GenesisConfig {
@@ -8063,7 +8063,7 @@ pub(crate) mod tests {
 
     #[test]
     fn test_bank_update_rewards_determinism() {
-        solana_logger::setup();
+        renec_logger::setup();
 
         // The same reward should be distributed given same credits
         let expected_capitalization = do_test_bank_update_rewards_determinism();
@@ -8078,7 +8078,7 @@ pub(crate) mod tests {
     // Test that purging 0 lamports accounts works.
     #[test]
     fn test_purge_empty_accounts() {
-        solana_logger::setup();
+        renec_logger::setup();
         let (genesis_config, mint_keypair) = create_genesis_config(500_000);
         let parent = Arc::new(Bank::new(&genesis_config));
         let mut bank = parent;
@@ -8255,7 +8255,7 @@ pub(crate) mod tests {
 
     #[test]
     fn test_account_not_found() {
-        solana_logger::setup();
+        renec_logger::setup();
         let (genesis_config, mint_keypair) = create_genesis_config(0);
         let bank = Bank::new(&genesis_config);
         let keypair = Keypair::new();
@@ -8290,7 +8290,7 @@ pub(crate) mod tests {
 
     #[test]
     fn test_transfer_to_newb() {
-        solana_logger::setup();
+        renec_logger::setup();
         let (genesis_config, mint_keypair) = create_genesis_config(10_000);
         let bank = Bank::new(&genesis_config);
         let pubkey = solana_sdk::pubkey::new_rand();
@@ -8300,7 +8300,7 @@ pub(crate) mod tests {
 
     #[test]
     fn test_transfer_to_sysvar() {
-        solana_logger::setup();
+        renec_logger::setup();
         let (genesis_config, mint_keypair) = create_genesis_config(10_000);
         let bank = Arc::new(Bank::new(&genesis_config));
 
@@ -8402,7 +8402,7 @@ pub(crate) mod tests {
 
     #[test]
     fn test_bank_tx_fee() {
-        solana_logger::setup();
+        renec_logger::setup();
 
         let arbitrary_transfer_amount = 42;
         let mint = arbitrary_transfer_amount * 100;
@@ -8508,7 +8508,7 @@ pub(crate) mod tests {
 
     #[test]
     fn test_bank_blockhash_fee_schedule() {
-        //solana_logger::setup();
+        //renec_logger::setup();
 
         let leader = solana_sdk::pubkey::new_rand();
         let GenesisConfigInfo {
@@ -8957,7 +8957,7 @@ pub(crate) mod tests {
 
     #[test]
     fn test_bank_hash_internal_state_verify() {
-        solana_logger::setup();
+        renec_logger::setup();
         let (genesis_config, mint_keypair) = create_genesis_config(2_000);
         let bank0 = Bank::new(&genesis_config);
 
@@ -9001,7 +9001,7 @@ pub(crate) mod tests {
 
     #[test]
     fn test_verify_snapshot_bank() {
-        solana_logger::setup();
+        renec_logger::setup();
         let pubkey = solana_sdk::pubkey::new_rand();
         let (genesis_config, mint_keypair) = create_genesis_config(2_000);
         let bank = Bank::new(&genesis_config);
@@ -9018,7 +9018,7 @@ pub(crate) mod tests {
     // Test that two bank forks with the same accounts should not hash to the same value.
     #[test]
     fn test_bank_hash_internal_state_same_account_different_fork() {
-        solana_logger::setup();
+        renec_logger::setup();
         let (genesis_config, mint_keypair) = create_genesis_config(2_000);
         let bank0 = Arc::new(Bank::new(&genesis_config));
         let initial_state = bank0.hash_internal_state();
@@ -9066,7 +9066,7 @@ pub(crate) mod tests {
 
     #[test]
     fn test_hash_internal_state_error() {
-        solana_logger::setup();
+        renec_logger::setup();
         let (genesis_config, mint_keypair) = create_genesis_config(100);
         let bank = Bank::new(&genesis_config);
         let key0 = solana_sdk::pubkey::new_rand();
@@ -9104,7 +9104,7 @@ pub(crate) mod tests {
     /// Verifies that last ids and accounts are correctly referenced from parent
     #[test]
     fn test_bank_squash() {
-        solana_logger::setup();
+        renec_logger::setup();
         let (genesis_config, mint_keypair) = create_genesis_config(2);
         let key1 = Keypair::new();
         let key2 = Keypair::new();
@@ -9180,7 +9180,7 @@ pub(crate) mod tests {
 
     #[test]
     fn test_bank_get_account_in_parent_after_squash2() {
-        solana_logger::setup();
+        renec_logger::setup();
         let (genesis_config, mint_keypair) = create_genesis_config(500);
         let bank0 = Arc::new(Bank::new(&genesis_config));
 
@@ -9502,7 +9502,7 @@ pub(crate) mod tests {
 
     #[test]
     fn test_zero_signatures() {
-        solana_logger::setup();
+        renec_logger::setup();
         let (genesis_config, mint_keypair) = create_genesis_config(500);
         let mut bank = Bank::new(&genesis_config);
         bank.fee_calculator.lamports_per_signature = 2;
@@ -9903,7 +9903,7 @@ pub(crate) mod tests {
 
     #[test]
     fn test_status_cache_ancestors() {
-        solana_logger::setup();
+        renec_logger::setup();
         let (genesis_config, _mint_keypair) = create_genesis_config(500);
         let parent = Arc::new(Bank::new(&genesis_config));
         let bank1 = Arc::new(new_from_parent(&parent));
@@ -10185,7 +10185,7 @@ pub(crate) mod tests {
                 );
             });
         }
-        solana_logger::setup();
+        renec_logger::setup();
         let (mut genesis_config, _) = create_genesis_config(100_000_000_000_000);
         add_lotsa_stake_accounts(&mut genesis_config);
         let mut bank = std::sync::Arc::new(Bank::new(&genesis_config));
@@ -10546,7 +10546,7 @@ pub(crate) mod tests {
 
     #[test]
     fn test_nonce_authority() {
-        solana_logger::setup();
+        renec_logger::setup();
         let (mut bank, _mint_keypair, custodian_keypair, nonce_keypair) =
             setup_nonce_with_bank(10_000_000, |_| {}, 5_000_000, 250_000, None).unwrap();
         let alice_keypair = Keypair::new();
@@ -10600,7 +10600,7 @@ pub(crate) mod tests {
 
     #[test]
     fn test_nonce_payer() {
-        solana_logger::setup();
+        renec_logger::setup();
         let nonce_starting_balance = 250_000;
         let (mut bank, _mint_keypair, custodian_keypair, nonce_keypair) =
             setup_nonce_with_bank(10_000_000, |_| {}, 5_000_000, nonce_starting_balance, None)
@@ -10928,7 +10928,7 @@ pub(crate) mod tests {
 
     #[test]
     fn test_account_ids_after_program_ids() {
-        solana_logger::setup();
+        renec_logger::setup();
         let (genesis_config, mint_keypair) = create_genesis_config(500);
         let mut bank = Bank::new(&genesis_config);
 
@@ -10993,7 +10993,7 @@ pub(crate) mod tests {
 
     #[test]
     fn test_duplicate_account_key() {
-        solana_logger::setup();
+        renec_logger::setup();
         let (genesis_config, mint_keypair) = create_genesis_config(500);
         let mut bank = Bank::new(&genesis_config);
 
@@ -11027,7 +11027,7 @@ pub(crate) mod tests {
 
     #[test]
     fn test_program_id_as_payer() {
-        solana_logger::setup();
+        renec_logger::setup();
         let (genesis_config, mint_keypair) = create_genesis_config(500);
         let mut bank = Bank::new(&genesis_config);
 
@@ -11122,7 +11122,7 @@ pub(crate) mod tests {
 
     #[test]
     fn test_fuzz_instructions() {
-        solana_logger::setup();
+        renec_logger::setup();
         use rand::{thread_rng, Rng};
         let (genesis_config, _mint_keypair) = create_genesis_config(1_000_000_000);
         let mut bank = Bank::new(&genesis_config);
@@ -11277,7 +11277,7 @@ pub(crate) mod tests {
 
     #[test]
     fn test_bank_hash_consistency() {
-        solana_logger::setup();
+        renec_logger::setup();
 
         let mut genesis_config = GenesisConfig::new(
             &[(
@@ -11395,7 +11395,7 @@ pub(crate) mod tests {
 
     #[test]
     fn test_shrink_candidate_slots_cached() {
-        solana_logger::setup();
+        renec_logger::setup();
 
         let (genesis_config, _mint_keypair) = create_genesis_config(1_000_000_000);
         let pubkey0 = solana_sdk::pubkey::new_rand();
@@ -11470,7 +11470,7 @@ pub(crate) mod tests {
 
     #[test]
     fn test_process_stale_slot_with_budget() {
-        solana_logger::setup();
+        renec_logger::setup();
 
         let (genesis_config, _mint_keypair) = create_genesis_config(1_000_000_000);
         let pubkey1 = solana_sdk::pubkey::new_rand();
@@ -11518,7 +11518,7 @@ pub(crate) mod tests {
 
     #[test]
     fn test_upgrade_epoch() {
-        solana_logger::setup();
+        renec_logger::setup();
         let GenesisConfigInfo {
             mut genesis_config,
             mint_keypair,
@@ -11831,7 +11831,7 @@ pub(crate) mod tests {
 
     #[test]
     fn test_reconfigure_token2_native_mint() {
-        solana_logger::setup();
+        renec_logger::setup();
 
         let mut genesis_config =
             create_genesis_config_with_leader(5, &solana_sdk::pubkey::new_rand(), 0).genesis_config;
@@ -11893,7 +11893,7 @@ pub(crate) mod tests {
 
     #[test]
     fn test_ensure_no_storage_rewards_pool() {
-        solana_logger::setup();
+        renec_logger::setup();
 
         let mut genesis_config =
             create_genesis_config_with_leader(5, &solana_sdk::pubkey::new_rand(), 0).genesis_config;
@@ -12080,7 +12080,7 @@ pub(crate) mod tests {
 
     #[test]
     fn test_bank_executor_cache() {
-        solana_logger::setup();
+        renec_logger::setup();
 
         let (genesis_config, _) = create_genesis_config(1);
         let bank = Bank::new(&genesis_config);
@@ -12165,7 +12165,7 @@ pub(crate) mod tests {
 
     #[test]
     fn test_bank_executor_cow() {
-        solana_logger::setup();
+        renec_logger::setup();
 
         let (genesis_config, _) = create_genesis_config(1);
         let root = Arc::new(Bank::new(&genesis_config));
@@ -12376,7 +12376,7 @@ pub(crate) mod tests {
     // this test can be removed after rent_for_sysvars activation on mainnet-beta
     #[test]
     fn test_no_deletion_due_to_rent_upon_rent_for_sysvar_activation() {
-        solana_logger::setup();
+        renec_logger::setup();
 
         let (mut genesis_config, _mint_keypair) = create_genesis_config(0);
         let feature_balance =
@@ -12410,7 +12410,7 @@ pub(crate) mod tests {
     // this test can be removed after rent_for_sysvars activation on mainnet-beta
     #[test]
     fn test_rent_for_sysvars_adjustment_minimum_genesis_set() {
-        solana_logger::setup();
+        renec_logger::setup();
 
         let (mut genesis_config, _mint_keypair) = create_genesis_config(0);
         let feature_balance =
@@ -12482,7 +12482,7 @@ pub(crate) mod tests {
     // this test can be removed after rent_for_sysvars activation on mainnet-beta
     #[test]
     fn test_rent_for_sysvars_adjustment_full_set() {
-        solana_logger::setup();
+        renec_logger::setup();
 
         let (mut genesis_config, _mint_keypair) = create_genesis_config(0);
         let feature_balance =
@@ -13976,7 +13976,7 @@ pub(crate) mod tests {
 
     #[test]
     fn test_transfer_sysvar() {
-        solana_logger::setup();
+        renec_logger::setup();
         let GenesisConfigInfo {
             genesis_config,
             mint_keypair,
@@ -14044,13 +14044,13 @@ pub(crate) mod tests {
 
     #[test]
     fn test_clean_dropped_unrooted_frozen_banks() {
-        solana_logger::setup();
+        renec_logger::setup();
         do_test_clean_dropped_unrooted_banks(FreezeBank1::Yes);
     }
 
     #[test]
     fn test_clean_dropped_unrooted_unfrozen_banks() {
-        solana_logger::setup();
+        renec_logger::setup();
         do_test_clean_dropped_unrooted_banks(FreezeBank1::No);
     }
 
@@ -14182,7 +14182,7 @@ pub(crate) mod tests {
 
     #[test]
     fn test_compute_budget_program_noop() {
-        solana_logger::setup();
+        renec_logger::setup();
         let GenesisConfigInfo {
             mut genesis_config,
             mint_keypair,
@@ -14236,7 +14236,7 @@ pub(crate) mod tests {
 
     #[test]
     fn test_compute_request_instruction() {
-        solana_logger::setup();
+        renec_logger::setup();
         let GenesisConfigInfo {
             genesis_config,
             mint_keypair,

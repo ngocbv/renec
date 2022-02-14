@@ -203,7 +203,7 @@ fn get_cluster_info(
 }
 
 fn main() -> Result<(), Box<dyn error::Error>> {
-    solana_logger::setup_with_default("solana=info");
+    renec_logger::setup_with_default("solana=info");
     solana_metrics::set_panic_hook("watchtower");
 
     let config = get_config();

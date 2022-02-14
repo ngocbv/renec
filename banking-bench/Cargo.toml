@@ -18,7 +18,7 @@ solana-core = { path = "../core", version = "=1.8.14" }
 solana-clap-utils = { path = "../clap-utils", version = "=1.8.14" }
 solana-gossip = { path = "../gossip", version = "=1.8.14" }
 solana-ledger = { path = "../ledger", version = "=1.8.14" }
-solana-logger = { path = "../logger", version = "=1.8.14" }
+renec-logger = { path = "../logger", version = "=1.8.14" }
 solana-measure = { path = "../measure", version = "=1.8.14" }
 solana-perf = { path = "../perf", version = "=1.8.14" }
 solana-poh = { path = "../poh", version = "=1.8.14" }
