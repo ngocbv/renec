@@ -425,7 +425,7 @@ fn print_confirmed_tx(name: &str, confirmed_tx: ConfirmedTransaction) {
 #[test]
 #[cfg(any(feature = "bpf_c", feature = "bpf_rust"))]
 fn test_program_bpf_sanity() {
-    solana_logger::setup();
+    renec_logger::setup();
 
     let mut programs = Vec::new();
     #[cfg(feature = "bpf_c")]
@@ -503,7 +503,7 @@ fn test_program_bpf_sanity() {
 #[test]
 #[cfg(any(feature = "bpf_c", feature = "bpf_rust"))]
 fn test_program_bpf_loader_deprecated() {
-    solana_logger::setup();
+    renec_logger::setup();
 
     let mut programs = Vec::new();
     #[cfg(feature = "bpf_c")]
@@ -543,7 +543,7 @@ fn test_program_bpf_loader_deprecated() {
 
 #[test]
 fn test_program_bpf_duplicate_accounts() {
-    solana_logger::setup();
+    renec_logger::setup();
 
     let mut programs = Vec::new();
     #[cfg(feature = "bpf_c")]
@@ -643,7 +643,7 @@ fn test_program_bpf_duplicate_accounts() {
 
 #[test]
 fn test_program_bpf_error_handling() {
-    solana_logger::setup();
+    renec_logger::setup();
 
     let mut programs = Vec::new();
     #[cfg(feature = "bpf_c")]
@@ -747,7 +747,7 @@ fn test_program_bpf_error_handling() {
 #[test]
 #[cfg(any(feature = "bpf_c", feature = "bpf_rust"))]
 fn test_return_data_and_log_data_syscall() {
-    solana_logger::setup();
+    renec_logger::setup();
 
     let mut programs = Vec::new();
     #[cfg(feature = "bpf_c")]
@@ -795,7 +795,7 @@ fn test_return_data_and_log_data_syscall() {
 
 #[test]
 fn test_program_bpf_invoke_sanity() {
-    solana_logger::setup();
+    renec_logger::setup();
 
     const TEST_SUCCESS: u8 = 1;
     const TEST_PRIVILEGE_ESCALATION_SIGNER: u8 = 2;
@@ -1241,7 +1241,7 @@ fn test_program_bpf_caller_has_access_to_cpi_program() {
 #[cfg(feature = "bpf_rust")]
 #[test]
 fn test_program_bpf_ro_modify() {
-    solana_logger::setup();
+    renec_logger::setup();
 
     let GenesisConfigInfo {
         genesis_config,
@@ -1300,7 +1300,7 @@ fn test_program_bpf_ro_modify() {
 fn test_program_bpf_call_depth() {
     use solana_sdk::process_instruction::BpfComputeBudget;
 
-    solana_logger::setup();
+    renec_logger::setup();
 
     let GenesisConfigInfo {
         genesis_config,
@@ -1338,7 +1338,7 @@ fn test_program_bpf_call_depth() {
 #[cfg(feature = "bpf_rust")]
 #[test]
 fn test_program_bpf_compute_budget() {
-    solana_logger::setup();
+    renec_logger::setup();
 
     let GenesisConfigInfo {
         genesis_config,
@@ -1371,7 +1371,7 @@ fn test_program_bpf_compute_budget() {
 
 #[test]
 fn assert_instruction_count() {
-    solana_logger::setup();
+    renec_logger::setup();
 
     let mut programs = Vec::new();
     #[cfg(feature = "bpf_c")]
@@ -1440,7 +1440,7 @@ fn assert_instruction_count() {
 #[cfg(any(feature = "bpf_rust"))]
 #[test]
 fn test_program_bpf_instruction_introspection() {
-    solana_logger::setup();
+    renec_logger::setup();
 
     let GenesisConfigInfo {
         genesis_config,
@@ -1511,7 +1511,7 @@ fn test_program_bpf_instruction_introspection() {
 fn test_program_bpf_test_use_latest_executor() {
     use solana_sdk::{loader_instruction, system_instruction};
 
-    solana_logger::setup();
+    renec_logger::setup();
 
     let GenesisConfigInfo {
         genesis_config,
@@ -1608,7 +1608,7 @@ fn test_program_bpf_test_use_latest_executor() {
 fn test_program_bpf_test_use_latest_executor2() {
     use solana_sdk::{loader_instruction, system_instruction};
 
-    solana_logger::setup();
+    renec_logger::setup();
 
     let GenesisConfigInfo {
         genesis_config,
@@ -1738,7 +1738,7 @@ fn test_program_bpf_test_use_latest_executor2() {
 #[cfg(feature = "bpf_rust")]
 #[test]
 fn test_program_bpf_upgrade() {
-    solana_logger::setup();
+    renec_logger::setup();
 
     let GenesisConfigInfo {
         genesis_config,
@@ -1833,7 +1833,7 @@ fn test_program_bpf_upgrade() {
 #[cfg(feature = "bpf_rust")]
 #[test]
 fn test_program_bpf_upgrade_and_invoke_in_same_tx() {
-    solana_logger::setup();
+    renec_logger::setup();
 
     let GenesisConfigInfo {
         genesis_config,
@@ -1914,7 +1914,7 @@ fn test_program_bpf_upgrade_and_invoke_in_same_tx() {
 #[cfg(feature = "bpf_rust")]
 #[test]
 fn test_program_bpf_invoke_upgradeable_via_cpi() {
-    solana_logger::setup();
+    renec_logger::setup();
 
     let GenesisConfigInfo {
         genesis_config,
@@ -2019,7 +2019,7 @@ fn test_program_bpf_invoke_upgradeable_via_cpi() {
 #[test]
 #[cfg(any(feature = "bpf_c", feature = "bpf_rust"))]
 fn test_program_bpf_disguised_as_bpf_loader() {
-    solana_logger::setup();
+    renec_logger::setup();
 
     let mut programs = Vec::new();
     #[cfg(feature = "bpf_c")]
@@ -2062,7 +2062,7 @@ fn test_program_bpf_disguised_as_bpf_loader() {
 #[test]
 #[cfg(feature = "bpf_c")]
 fn test_program_bpf_c_dup() {
-    solana_logger::setup();
+    renec_logger::setup();
 
     let GenesisConfigInfo {
         genesis_config,
@@ -2094,7 +2094,7 @@ fn test_program_bpf_c_dup() {
 #[cfg(feature = "bpf_rust")]
 #[test]
 fn test_program_bpf_upgrade_via_cpi() {
-    solana_logger::setup();
+    renec_logger::setup();
 
     let GenesisConfigInfo {
         genesis_config,
@@ -2209,7 +2209,7 @@ fn test_program_bpf_upgrade_via_cpi() {
 #[cfg(feature = "bpf_rust")]
 #[test]
 fn test_program_bpf_upgrade_self_via_cpi() {
-    solana_logger::setup();
+    renec_logger::setup();
 
     let GenesisConfigInfo {
         genesis_config,
@@ -2299,7 +2299,7 @@ fn test_program_bpf_upgrade_self_via_cpi() {
 #[cfg(feature = "bpf_rust")]
 #[test]
 fn test_program_bpf_set_upgrade_authority_via_cpi() {
-    solana_logger::setup();
+    renec_logger::setup();
 
     let GenesisConfigInfo {
         genesis_config,
@@ -2392,7 +2392,7 @@ fn test_program_upgradeable_locks() {
         buffer_keypair: &Keypair,
         program_keypair: &Keypair,
     ) -> (Arc<Bank>, Transaction, Transaction) {
-        solana_logger::setup();
+        renec_logger::setup();
 
         let GenesisConfigInfo {
             genesis_config,
@@ -2527,7 +2527,7 @@ fn test_program_upgradeable_locks() {
 #[cfg(feature = "bpf_rust")]
 #[test]
 fn test_program_bpf_finalize() {
-    solana_logger::setup();
+    renec_logger::setup();
 
     let GenesisConfigInfo {
         genesis_config,
@@ -2589,7 +2589,7 @@ fn test_program_bpf_finalize() {
 #[cfg(feature = "bpf_rust")]
 #[test]
 fn test_program_bpf_ro_account_modify() {
-    solana_logger::setup();
+    renec_logger::setup();
 
     let GenesisConfigInfo {
         genesis_config,

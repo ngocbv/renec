@@ -29,7 +29,7 @@ use {
         },
     },
     solana_download_utils::{download_snapshot, DownloadProgressRecord},
-    solana_genesis_utils::download_then_check_genesis_hash,
+    renec_genesis_utils::download_then_check_genesis_hash,
     solana_gossip::{
         cluster_info::{ClusterInfo, Node, VALIDATOR_PORT_RANGE},
         contact_info::ContactInfo,
@@ -59,7 +59,7 @@ use {
         signature::{Keypair, Signer},
     },
     solana_streamer::socket::SocketAddrSpace,
-    solana_validator::{
+    renec_validator::{
         admin_rpc_service, dashboard::Dashboard, ledger_lockfile, lock_ledger,
         new_spinner_progress_bar, println_name_value, redirect_stderr_to_file,
     },
@@ -594,7 +594,7 @@ fn check_vote_account(
         .value
         .ok_or_else(|| format!("vote account does not exist: {}", vote_account_address))?;
 
-    if vote_account.owner != solana_vote_program::id() {
+    if vote_account.owner != renec_vote_program::id() {
         return Err(format!(
             "not a vote account (owned by {}): {}",
             vote_account.owner, vote_account_address
@@ -607,7 +607,7 @@ fn check_vote_account(
         .value
         .ok_or_else(|| format!("identity account does not exist: {}", identity_pubkey))?;
 
-    let vote_state = solana_vote_program::vote_state::VoteState::from(&vote_account);
+    let vote_state = renec_vote_program::vote_state::VoteState::from(&vote_account);
     if let Some(vote_state) = vote_state {
         if vote_state.authorized_voters().is_empty() {
             return Err("Vote account not yet initialized".to_string());
@@ -990,7 +990,7 @@ fn rpc_bootstrap(
                 )
                 .unwrap_or_else(|err| {
                     // Consider failures here to be more likely due to user error (eg,
-                    // incorrect `solana-validator` command-line arguments) rather than the
+                    // incorrect `renec-validator` command-line arguments) rather than the
                     // RPC node failing.
                     //
                     // Power users can always use the `--no-check-vote-account` option to
@@ -1078,7 +1078,7 @@ pub fn main() {
     let default_accounts_shrink_ratio = &DEFAULT_ACCOUNTS_SHRINK_RATIO.to_string();
 
     let matches = App::new(crate_name!()).about(crate_description!())
-        .version(solana_version::version!())
+        .version(renec_version::version!())
         .setting(AppSettings::VersionlessSubcommands)
         .setting(AppSettings::InferSubcommands)
         .arg(
@@ -1198,7 +1198,7 @@ pub fn main() {
                 .long("rpc-port")
                 .value_name("PORT")
                 .takes_value(true)
-                .validator(solana_validator::port_validator)
+                .validator(renec_validator::port_validator)
                 .help("Enable JSON RPC on this port, and the next port for the RPC websocket"),
         )
         .arg(
@@ -1349,7 +1349,7 @@ pub fn main() {
                 .value_name("MIN_PORT-MAX_PORT")
                 .takes_value(true)
                 .default_value(default_dynamic_port_range)
-                .validator(solana_validator::port_range_validator)
+                .validator(renec_validator::port_range_validator)
                 .help("Range to use for dynamically assigned ports"),
         )
         .arg(
@@ -2272,7 +2272,7 @@ pub fn main() {
         let logfile = matches
             .value_of("logfile")
             .map(|s| s.into())
-            .unwrap_or_else(|| format!("solana-validator-{}.log", identity_keypair.pubkey()));
+            .unwrap_or_else(|| format!("renec-validator-{}.log", identity_keypair.pubkey()));
 
         if logfile == "-" {
             None
@@ -2284,7 +2284,7 @@ pub fn main() {
     let use_progress_bar = logfile.is_none();
     let _logger_thread = redirect_stderr_to_file(logfile);
 
-    info!("{} {}", crate_name!(), solana_version::version!());
+    info!("{} {}", crate_name!(), renec_version::version!());
     info!("Starting validator with: {:#?}", std::env::args_os());
 
     let cuda = matches.is_present("cuda");

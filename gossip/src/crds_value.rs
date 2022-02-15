@@ -18,7 +18,7 @@ use {
         timing::timestamp,
         transaction::Transaction,
     },
-    solana_vote_program::vote_transaction::parse_vote_transaction,
+    renec_vote_program::vote_transaction::parse_vote_transaction,
     std::{
         borrow::{Borrow, Cow},
         cmp::Ordering,
@@ -364,7 +364,7 @@ impl<'de> Deserialize<'de> for Vote {
 pub struct LegacyVersion {
     pub from: Pubkey,
     pub wallclock: u64,
-    pub version: solana_version::LegacyVersion,
+    pub version: renec_version::LegacyVersion,
 }
 
 impl Sanitize for LegacyVersion {
@@ -379,7 +379,7 @@ impl Sanitize for LegacyVersion {
 pub struct Version {
     pub from: Pubkey,
     pub wallclock: u64,
-    pub version: solana_version::Version,
+    pub version: renec_version::Version,
 }
 
 impl Sanitize for Version {
@@ -395,7 +395,7 @@ impl Version {
         Self {
             from,
             wallclock: timestamp(),
-            version: solana_version::Version::default(),
+            version: renec_version::Version::default(),
         }
     }
 
@@ -404,7 +404,7 @@ impl Version {
         Self {
             from: pubkey.unwrap_or_else(pubkey::new_rand),
             wallclock: new_rand_timestamp(rng),
-            version: solana_version::Version {
+            version: renec_version::Version {
                 major: rng.gen(),
                 minor: rng.gen(),
                 patch: rng.gen(),
@@ -736,7 +736,7 @@ mod test {
             signature::{Keypair, Signer},
             timing::timestamp,
         },
-        solana_vote_program::{vote_instruction, vote_state},
+        renec_vote_program::{vote_instruction, vote_state},
         std::{cmp::Ordering, iter::repeat_with},
     };
 

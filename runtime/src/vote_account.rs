@@ -9,7 +9,7 @@ use {
         instruction::InstructionError,
         pubkey::Pubkey,
     },
-    solana_vote_program::vote_state::VoteState,
+    renec_vote_program::vote_state::VoteState,
     std::{
         cmp::Ordering,
         collections::{hash_map::Entry, HashMap},
@@ -324,7 +324,7 @@ mod tests {
         bincode::Options,
         rand::Rng,
         solana_sdk::{pubkey::Pubkey, sysvar::clock::Clock},
-        solana_vote_program::vote_state::{VoteInit, VoteStateVersions},
+        renec_vote_program::vote_state::{VoteInit, VoteStateVersions},
         std::iter::repeat_with,
     };
 

@@ -16,7 +16,7 @@ use {
         system_program,
         timing::years_as_slots,
     },
-    solana_stake_program::stake_state::create_lockup_stake_account,
+    renec_stake_program::stake_state::create_lockup_stake_account,
 };
 
 #[derive(Debug)]

@@ -345,7 +345,7 @@ mod tests {
                     })
                 } else if meta.pubkey == invalid_vote_state_pubkey() {
                     AccountSharedData::from(Account {
-                        owner: solana_vote_program::id(),
+                        owner: renec_vote_program::id(),
                         ..Account::default()
                     })
                 } else if meta.pubkey == spoofed_stake_state_pubkey() {
@@ -694,7 +694,7 @@ mod tests {
         let mut bad_vote_account = create_default_account();
         bad_vote_account
             .get_mut()
-            .set_owner(solana_vote_program::id());
+            .set_owner(renec_vote_program::id());
         let clock_address = sysvar::clock::id();
         let clock_account = RefCell::new(account::create_account_shared_data_for_test(
             &sysvar::clock::Clock::default(),

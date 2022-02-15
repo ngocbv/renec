@@ -537,7 +537,7 @@ mod tests {
             signature::{Keypair, Signer},
             sysvar::epoch_schedule::EpochSchedule,
         },
-        solana_vote_program::vote_state::BlockTimestamp,
+        renec_vote_program::vote_state::BlockTimestamp,
     };
 
     #[test]
@@ -625,7 +625,7 @@ mod tests {
 
     #[test]
     fn test_bank_forks_different_set_root() {
-        solana_logger::setup();
+        renec_logger::setup();
         let leader_keypair = Keypair::new();
         let GenesisConfigInfo {
             mut genesis_config,

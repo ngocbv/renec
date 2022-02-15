@@ -490,7 +490,7 @@ pub fn process_instruction(
 ) -> Result<(), InstructionError> {
     let keyed_accounts = invoke_context.get_keyed_accounts()?;
 
-    solana_logger::setup();
+    renec_logger::setup();
     match limited_deserialize::<ExchangeInstruction>(data)? {
         ExchangeInstruction::AccountRequest => {
             ExchangeProcessor::do_account_request(keyed_accounts)
@@ -582,7 +582,7 @@ mod test {
     #[test]
     #[rustfmt::skip]
     fn test_calculate_swap() {
-        solana_logger::setup();
+        renec_logger::setup();
 
         try_calc(1,     50,     2,   50,    1,  0, 0, 50,   50, Tokens::new(   0, 0, 0, 0)).unwrap_err();
         try_calc(1,     50,     1,    0,    1,  0, 0, 50,   50, Tokens::new(   0, 0, 0, 0)).unwrap_err();
@@ -692,7 +692,7 @@ mod test {
 
     #[test]
     fn test_exchange_new_account() {
-        solana_logger::setup();
+        renec_logger::setup();
         let (bank, mint_keypair) = create_bank(10_000);
         let (client, owner) = create_client(bank, mint_keypair);
 
@@ -711,7 +711,7 @@ mod test {
 
     #[test]
     fn test_exchange_new_account_not_unallocated() {
-        solana_logger::setup();
+        renec_logger::setup();
         let (bank, mint_keypair) = create_bank(10_000);
         let (client, owner) = create_client(bank, mint_keypair);
 
@@ -724,7 +724,7 @@ mod test {
 
     #[test]
     fn test_exchange_new_transfer_request() {
-        solana_logger::setup();
+        renec_logger::setup();
         let (bank, mint_keypair) = create_bank(10_000);
         let (client, owner) = create_client(bank, mint_keypair);
 
@@ -755,7 +755,7 @@ mod test {
 
     #[test]
     fn test_exchange_new_trade_request() {
-        solana_logger::setup();
+        renec_logger::setup();
         let (bank, mint_keypair) = create_bank(10_000);
         let (client, owner) = create_client(bank, mint_keypair);
 
@@ -796,7 +796,7 @@ mod test {
 
     #[test]
     fn test_exchange_new_swap_request() {
-        solana_logger::setup();
+        renec_logger::setup();
         let (bank, mint_keypair) = create_bank(10_000);
         let (client, owner) = create_client(bank, mint_keypair);
 
@@ -863,7 +863,7 @@ mod test {
 
     #[test]
     fn test_exchange_trade_to_token_account() {
-        solana_logger::setup();
+        renec_logger::setup();
         let (bank, mint_keypair) = create_bank(10_000);
         let (client, owner) = create_client(bank, mint_keypair);
 

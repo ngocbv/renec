@@ -254,7 +254,7 @@ pub mod tests {
 
     #[test]
     fn test_read_only_accounts_cache_drop() {
-        solana_logger::setup();
+        renec_logger::setup();
         let cache = ReadOnlyAccountsCache::new_test(100);
         let stop = cache.stop.clone();
         drop(cache);
@@ -263,7 +263,7 @@ pub mod tests {
 
     #[test]
     fn test_read_only_accounts_cache() {
-        solana_logger::setup();
+        renec_logger::setup();
         let per_account_size = ReadOnlyAccountsCache::per_account_size();
         let data_size = 100;
         let max = data_size + per_account_size;

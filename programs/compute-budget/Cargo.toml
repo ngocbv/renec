@@ -2,10 +2,10 @@
 name = "solana-compute-budget-program"
 description = "Solana Compute Budget program"
 version = "1.8.14"
-homepage = "https://solana.com/"
+homepage = "https://remitano.com/"
 documentation = "https://docs.rs/solana-compute-budget-program"
-repository = "https://github.com/solana-labs/solana"
-authors = ["Solana Maintainers <maintainers@solana.foundation>"]
+repository = "https://github.com/remitano/renec"
+authors = ["RENEC Maintainers <dev@remitano.com>"]
 license = "Apache-2.0"
 edition = "2018"
 

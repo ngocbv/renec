@@ -1,6 +1,6 @@
 use {
     serde::{Deserialize, Serialize},
-    solana_config_program::ConfigState,
+    renec_config_program::ConfigState,
     solana_sdk::{
         hash::Hash,
         pubkey::Pubkey,

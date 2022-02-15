@@ -1,11 +1,11 @@
 [package]
-authors = ["Solana Maintainers <maintainers@solana.foundation>"]
+authors = ["RENEC Maintainers <dev@remitano.com>"]
 edition = "2018"
 name = "solana-banking-bench"
 version = "1.8.14"
-repository = "https://github.com/solana-labs/solana"
+repository = "https://github.com/remitano/renec"
 license = "Apache-2.0"
-homepage = "https://solana.com/"
+homepage = "https://remitano.com/"
 publish = false
 
 [dependencies]
@@ -18,14 +18,14 @@ solana-core = { path = "../core", version = "=1.8.14" }
 solana-clap-utils = { path = "../clap-utils", version = "=1.8.14" }
 solana-gossip = { path = "../gossip", version = "=1.8.14" }
 solana-ledger = { path = "../ledger", version = "=1.8.14" }
-solana-logger = { path = "../logger", version = "=1.8.14" }
+renec-logger = { path = "../logger", version = "=1.8.14" }
 solana-measure = { path = "../measure", version = "=1.8.14" }
 solana-perf = { path = "../perf", version = "=1.8.14" }
 solana-poh = { path = "../poh", version = "=1.8.14" }
 solana-runtime = { path = "../runtime", version = "=1.8.14" }
 solana-streamer = { path = "../streamer", version = "=1.8.14" }
 solana-sdk = { path = "../sdk", version = "=1.8.14" }
-solana-version = { path = "../version", version = "=1.8.14" }
+renec-version = { path = "../version", version = "=1.8.14" }
 
 [package.metadata.docs.rs]
 targets = ["x86_64-unknown-linux-gnu"]

@@ -2,9 +2,9 @@
 name = "solana-frozen-abi"
 version = "1.8.14"
 description = "Solana Frozen ABI"
-authors = ["Solana Maintainers <maintainers@solana.foundation>"]
-repository = "https://github.com/solana-labs/solana"
-homepage = "https://solana.com/"
+authors = ["RENEC Maintainers <dev@remitano.com>"]
+repository = "https://github.com/remitano/renec"
+homepage = "https://remitano.com/"
 documentation = "https://docs.rs/solana-frozen-abi"
 license = "Apache-2.0"
 edition = "2018"
@@ -20,7 +20,7 @@ solana-frozen-abi-macro = { path = "macro", version = "=1.8.14" }
 thiserror = "1.0"
 
 [target.'cfg(not(target_arch = "bpf"))'.dependencies]
-solana-logger = { path = "../logger", version = "=1.8.14" }
+renec-logger = { path = "../logger", version = "=1.8.14" }
 generic-array = { version = "0.14.3", default-features = false, features = ["serde", "more_lengths"]}
 memmap2 = "0.1.0"
 

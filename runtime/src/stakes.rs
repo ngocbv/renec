@@ -19,8 +19,8 @@ use {
         },
         stake_history::StakeHistory,
     },
-    solana_stake_program::stake_state,
-    solana_vote_program::vote_state::VoteState,
+    renec_stake_program::stake_state,
+    renec_vote_program::vote_state::VoteState,
     std::{
         collections::HashMap,
         sync::{Arc, RwLock, RwLockReadGuard},
@@ -47,7 +47,7 @@ impl StakesCache {
     }
 
     pub fn is_stake(account: &AccountSharedData) -> bool {
-        solana_vote_program::check_id(account.owner())
+        renec_vote_program::check_id(account.owner())
             || stake::program::check_id(account.owner())
                 && account.data().len() >= std::mem::size_of::<StakeState>()
     }
@@ -253,7 +253,7 @@ impl Stakes {
         account: &AccountSharedData,
         remove_delegation_on_inactive: bool,
     ) {
-        if solana_vote_program::check_id(account.owner()) {
+        if renec_vote_program::check_id(account.owner()) {
             // unconditionally remove existing at first; there is no dependent calculated state for
             // votes, not like stakes (stake codepath maintains calculated stake value grouped by
             // delegated vote pubkey)
@@ -355,8 +355,8 @@ pub mod tests {
         super::*,
         rayon::ThreadPoolBuilder,
         solana_sdk::{account::WritableAccount, pubkey::Pubkey, rent::Rent},
-        solana_stake_program::stake_state,
-        solana_vote_program::vote_state::{self, VoteState, VoteStateVersions},
+        renec_stake_program::stake_state,
+        renec_vote_program::vote_state::{self, VoteState, VoteStateVersions},
     };
 
     //  set up some dummies for a staked node     ((     vote      )  (     stake     ))

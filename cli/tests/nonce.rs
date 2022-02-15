@@ -218,7 +218,7 @@ fn full_battery_tests(
 
 #[test]
 fn test_create_account_with_seed() {
-    solana_logger::setup();
+    renec_logger::setup();
     let mint_keypair = Keypair::new();
     let mint_pubkey = mint_keypair.pubkey();
     let faucet_addr = run_local_faucet(mint_keypair, None);

@@ -2,10 +2,10 @@
 name = "solana-faucet"
 version = "1.8.14"
 description = "Solana Faucet"
-authors = ["Solana Maintainers <maintainers@solana.foundation>"]
-repository = "https://github.com/solana-labs/solana"
+authors = ["RENEC Maintainers <dev@remitano.com>"]
+repository = "https://github.com/remitano/renec"
 license = "Apache-2.0"
-homepage = "https://solana.com/"
+homepage = "https://remitano.com/"
 documentation = "https://docs.rs/solana-faucet"
 edition = "2018"
 
@@ -18,10 +18,10 @@ serde = "1.0.122"
 serde_derive = "1.0.103"
 solana-clap-utils = { path = "../clap-utils", version = "=1.8.14" }
 solana-cli-config = { path = "../cli-config", version = "=1.8.14" }
-solana-logger = { path = "../logger", version = "=1.8.14" }
+renec-logger = { path = "../logger", version = "=1.8.14" }
 solana-metrics = { path = "../metrics", version = "=1.8.14" }
 solana-sdk = { path = "../sdk", version = "=1.8.14" }
-solana-version = { path = "../version", version = "=1.8.14" }
+renec-version = { path = "../version", version = "=1.8.14" }
 spl-memo = { version = "=3.0.1", features = ["no-entrypoint"] }
 thiserror = "1.0"
 tokio = { version = "1", features = ["full"] }

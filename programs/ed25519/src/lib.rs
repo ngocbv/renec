@@ -27,7 +27,7 @@ pub mod test {
 
     #[test]
     fn test_ed25519() {
-        solana_logger::setup();
+        renec_logger::setup();
 
         let privkey = ed25519_dalek::Keypair::generate(&mut thread_rng());
         let message_arr = b"hello";

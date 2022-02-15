@@ -4,9 +4,9 @@ use {
 };
 
 fn main() {
-    solana_logger::setup();
+    renec_logger::setup();
     let matches = App::new("solana-ip-address-server")
-        .version(solana_version::version!())
+        .version(renec_version::version!())
         .arg(
             Arg::with_name("port")
                 .index(1)

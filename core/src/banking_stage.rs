@@ -1686,7 +1686,7 @@ mod tests {
         },
         solana_streamer::{recvmmsg::recv_mmsg, socket::SocketAddrSpace},
         solana_transaction_status::TransactionWithStatusMeta,
-        solana_vote_program::vote_transaction,
+        renec_vote_program::vote_transaction,
         std::{
             net::SocketAddr,
             path::Path,
@@ -1746,7 +1746,7 @@ mod tests {
 
     #[test]
     fn test_banking_stage_tick() {
-        solana_logger::setup();
+        renec_logger::setup();
         let GenesisConfigInfo {
             mut genesis_config, ..
         } = create_genesis_config(2);
@@ -1819,7 +1819,7 @@ mod tests {
 
     #[test]
     fn test_banking_stage_entries_only() {
-        solana_logger::setup();
+        renec_logger::setup();
         let GenesisConfigInfo {
             genesis_config,
             mint_keypair,
@@ -1940,7 +1940,7 @@ mod tests {
 
     #[test]
     fn test_banking_stage_entryfication() {
-        solana_logger::setup();
+        renec_logger::setup();
         // In this attack we'll demonstrate that a verifier can interpret the ledger
         // differently if either the server doesn't signal the ledger to add an
         // Entry OR if the verifier tries to parallelize across multiple Entries.
@@ -2046,7 +2046,7 @@ mod tests {
 
     #[test]
     fn test_bank_record_transactions() {
-        solana_logger::setup();
+        renec_logger::setup();
 
         let GenesisConfigInfo {
             genesis_config,
@@ -2311,7 +2311,7 @@ mod tests {
 
     #[test]
     fn test_bank_process_and_record_transactions() {
-        solana_logger::setup();
+        renec_logger::setup();
         let GenesisConfigInfo {
             genesis_config,
             mint_keypair,
@@ -2442,7 +2442,7 @@ mod tests {
 
     #[test]
     fn test_bank_process_and_record_transactions_account_in_use() {
-        solana_logger::setup();
+        renec_logger::setup();
         let GenesisConfigInfo {
             genesis_config,
             mint_keypair,
@@ -2513,7 +2513,7 @@ mod tests {
 
     #[test]
     fn test_filter_valid_packets() {
-        solana_logger::setup();
+        renec_logger::setup();
 
         let mut packet_batches = (0..16)
             .map(|packets_id| {
@@ -2554,7 +2554,7 @@ mod tests {
 
     #[test]
     fn test_process_transactions_returns_unprocessed_txs() {
-        solana_logger::setup();
+        renec_logger::setup();
         let GenesisConfigInfo {
             genesis_config,
             mint_keypair,
@@ -2620,7 +2620,7 @@ mod tests {
 
     #[test]
     fn test_write_persist_transaction_status() {
-        solana_logger::setup();
+        renec_logger::setup();
         let GenesisConfigInfo {
             genesis_config,
             mint_keypair,
@@ -2964,7 +2964,7 @@ mod tests {
 
     #[test]
     fn test_forwarder_budget() {
-        solana_logger::setup();
+        renec_logger::setup();
         // Create `PacketBatch` with 1 unprocessed packet
         let packet = Packet::from_data(None, &[0]).unwrap();
         let single_packet_batch = PacketBatch::new(vec![packet]);
@@ -3036,7 +3036,7 @@ mod tests {
 
     #[test]
     fn test_handle_forwarding() {
-        solana_logger::setup();
+        renec_logger::setup();
 
         const FWD_PACKET: u8 = 1;
         let forwarded_packet = {
@@ -3150,7 +3150,7 @@ mod tests {
 
     #[test]
     fn test_push_unprocessed_batch_limit() {
-        solana_logger::setup();
+        renec_logger::setup();
         // Create `PacketBatch` with 2 unprocessed packets
         let new_packet_batch = PacketBatch::new(vec![Packet::default(); 2]);
         let mut unprocessed_packets: UnprocessedPacketBatches =

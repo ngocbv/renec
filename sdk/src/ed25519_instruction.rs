@@ -209,7 +209,7 @@ pub mod test {
 
     #[test]
     fn test_invalid_offsets() {
-        solana_logger::setup();
+        renec_logger::setup();
 
         let mut instruction_data = vec![0u8; DATA_START];
         let offsets = Ed25519SignatureOffsets::default();

@@ -32,7 +32,7 @@ use {
         stake::{instruction::LockupArgs, state::Lockup},
         transaction::{Transaction, TransactionError},
     },
-    solana_vote_program::vote_state::VoteAuthorize,
+    renec_vote_program::vote_state::VoteAuthorize,
     std::{collections::HashMap, error, io::stdout, str::FromStr, sync::Arc, time::Duration},
     thiserror::Error,
 };
@@ -640,7 +640,7 @@ pub fn parse_command(
             get_clap_app(
                 crate_name!(),
                 crate_description!(),
-                solana_version::version!(),
+                renec_version::version!(),
             )
             .gen_completions_to("solana", shell_choice, &mut stdout());
             std::process::exit(0);
@@ -1888,7 +1888,7 @@ mod tests {
         let from_str = from_pubkey.unwrap().to_string();
         for (name, program_id) in &[
             ("STAKE", stake::program::id()),
-            ("VOTE", solana_vote_program::id()),
+            ("VOTE", renec_vote_program::id()),
             ("NONCE", system_program::id()),
         ] {
             let test_create_address_with_seed = test_commands.clone().get_matches_from(vec![
@@ -2331,7 +2331,7 @@ mod tests {
 
     #[test]
     fn test_cli_deploy() {
-        solana_logger::setup();
+        renec_logger::setup();
         let mut pathbuf = PathBuf::from(env!("CARGO_MANIFEST_DIR"));
         pathbuf.push("tests");
         pathbuf.push("fixtures");

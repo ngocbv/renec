@@ -11,8 +11,8 @@ use {
         stake::state::StakeState,
         system_program,
     },
-    solana_stake_program::stake_state,
-    solana_vote_program::vote_state,
+    renec_stake_program::stake_state,
+    renec_vote_program::vote_state,
     std::borrow::Borrow,
 };
 
@@ -233,7 +233,7 @@ pub fn create_genesis_config_with_leader_ex(
         ..GenesisConfig::default()
     };
 
-    solana_stake_program::add_genesis_accounts(&mut genesis_config);
+    renec_stake_program::add_genesis_accounts(&mut genesis_config);
     if genesis_config.cluster_type == ClusterType::Development {
         activate_all_features(&mut genesis_config);
     }

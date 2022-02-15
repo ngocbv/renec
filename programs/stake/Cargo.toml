@@ -1,12 +1,12 @@
 [package]
-name = "solana-stake-program"
+name = "renec-stake-program"
 version = "1.8.14"
-description = "Solana Stake program"
-authors = ["Solana Maintainers <maintainers@solana.foundation>"]
-repository = "https://github.com/solana-labs/solana"
+description = "RENEC Stake program"
+authors = ["RENEC Maintainers <dev@remitano.com>"]
+repository = "https://github.com/remitano/renec"
 license = "Apache-2.0"
-homepage = "https://solana.com/"
-documentation = "https://docs.rs/solana-stake-program"
+homepage = "https://remitano.com/"
+documentation = "https://docs.rs/renec-stake-program"
 edition = "2018"
 
 [dependencies]
@@ -20,20 +20,20 @@ solana-frozen-abi = { path = "../../frozen-abi", version = "=1.8.14" }
 solana-frozen-abi-macro = { path = "../../frozen-abi/macro", version = "=1.8.14" }
 solana-metrics = { path = "../../metrics", version = "=1.8.14" }
 solana-sdk = { path = "../../sdk", version = "=1.8.14" }
-solana-vote-program = { path = "../vote", version = "=1.8.14" }
-solana-config-program = { path = "../config", version = "=1.8.14" }
+renec-vote-program = { path = "../vote", version = "=1.8.14" }
+renec-config-program = { path = "../config", version = "=1.8.14" }
 thiserror = "1.0"
 
 [dev-dependencies]
 proptest = "1.0"
-solana-logger = { path = "../../logger", version = "=1.8.14" }
+renec-logger = { path = "../../logger", version = "=1.8.14" }
 
 [build-dependencies]
 rustc_version = "0.2"
 
 [lib]
 crate-type = ["lib"]
-name = "solana_stake_program"
+name = "renec_stake_program"
 
 [package.metadata.docs.rs]
 targets = ["x86_64-unknown-linux-gnu"]

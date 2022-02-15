@@ -21,7 +21,7 @@ use {
         stake::{instruction::LockupArgs, state::Lockup},
         transaction::Transaction,
     },
-    solana_stake_program::stake_state,
+    renec_stake_program::stake_state,
     std::{env, error::Error},
 };
 

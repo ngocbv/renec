@@ -36,8 +36,8 @@ lazy_static! {
         (native_loader::id(), COMPUTE_UNIT_TO_US_RATIO * 2),
         (solana_sdk::stake::config::id(), COMPUTE_UNIT_TO_US_RATIO * 2),
         (solana_sdk::stake::program::id(), COMPUTE_UNIT_TO_US_RATIO * 25),
-        (solana_config_program::id(), COMPUTE_UNIT_TO_US_RATIO * 15),
-        (solana_vote_program::id(), COMPUTE_UNIT_TO_US_RATIO * 70),
+        (renec_config_program::id(), COMPUTE_UNIT_TO_US_RATIO * 15),
+        (renec_vote_program::id(), COMPUTE_UNIT_TO_US_RATIO * 70),
         // secp256k1 is executed in banking stage, it should cost similar to sigverify
         (secp256k1_program::id(), COMPUTE_UNIT_TO_US_RATIO * 24),
         (system_program::id(), COMPUTE_UNIT_TO_US_RATIO * 5),
