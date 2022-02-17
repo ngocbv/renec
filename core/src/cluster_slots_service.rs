@@ -2,7 +2,7 @@ use {
     crate::cluster_slots::ClusterSlots,
     crossbeam_channel::{Receiver, RecvTimeoutError, Sender},
     renec_gossip::cluster_info::ClusterInfo,
-    solana_ledger::blockstore::Blockstore,
+    renec_ledger::blockstore::Blockstore,
     solana_measure::measure::Measure,
     solana_runtime::bank_forks::BankForks,
     solana_sdk::clock::Slot,

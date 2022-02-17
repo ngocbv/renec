@@ -30,7 +30,7 @@ use {
         crds_gossip_pull::CRDS_GOSSIP_PULL_CRDS_TIMEOUT_MS,
         gossip_service::GossipService,
     },
-    solana_ledger::{
+    renec_ledger::{
         bank_forks_utils,
         blockstore::{Blockstore, BlockstoreSignals, CompletedSlotsReceiver, PurgeType},
         blockstore_db::BlockstoreRecoveryMode,
@@ -1644,7 +1644,7 @@ pub fn is_snapshot_config_invalid(
 mod tests {
     use {
         super::*,
-        solana_ledger::{create_new_tmp_ledger, genesis_utils::create_genesis_config_with_leader},
+        renec_ledger::{create_new_tmp_ledger, genesis_utils::create_genesis_config_with_leader},
         solana_sdk::{genesis_config::create_genesis_config, poh_config::PohConfig},
         std::fs::remove_dir_all,
     };
@@ -1692,7 +1692,7 @@ mod tests {
     fn test_backup_and_clear_blockstore() {
         use std::time::Instant;
         renec_logger::setup();
-        use solana_ledger::{blockstore, entry, get_tmp_ledger_path};
+        use renec_ledger::{blockstore, entry, get_tmp_ledger_path};
         let blockstore_path = get_tmp_ledger_path!();
         {
             let blockstore = Blockstore::open(&blockstore_path).unwrap();

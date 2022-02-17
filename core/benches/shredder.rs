@@ -6,7 +6,7 @@ extern crate test;
 use {
     rand::seq::SliceRandom,
     raptorq::{Decoder, Encoder},
-    solana_ledger::{
+    renec_ledger::{
         entry::{create_ticks, Entry},
         shred::{
             max_entries_per_n_shred, max_ticks_per_n_shreds, ProcessShredsStats, Shred, Shredder,

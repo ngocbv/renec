@@ -1,6 +1,6 @@
 use {
     super::*,
-    solana_ledger::{entry::Entry, shred::Shredder},
+    renec_ledger::{entry::Entry, shred::Shredder},
     solana_sdk::{hash::Hash, signature::Keypair},
 };
 

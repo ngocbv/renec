@@ -4,7 +4,7 @@ use {
     crate::poh_recorder::{PohRecorder, Record},
     crossbeam_channel::Receiver,
     log::*,
-    solana_ledger::poh::Poh,
+    renec_ledger::poh::Poh,
     solana_measure::measure::Measure,
     solana_sdk::poh_config::PohConfig,
     std::{
@@ -359,7 +359,7 @@ mod tests {
         super::*,
         crate::poh_recorder::WorkingBank,
         rand::{thread_rng, Rng},
-        solana_ledger::{
+        renec_ledger::{
             blockstore::Blockstore,
             genesis_utils::{create_genesis_config, GenesisConfigInfo},
             get_tmp_ledger_path,

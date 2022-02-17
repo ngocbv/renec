@@ -6,7 +6,7 @@ mod tests {
     use {
         log::*,
         renec_core::ledger_cleanup_service::LedgerCleanupService,
-        solana_ledger::{
+        renec_ledger::{
             blockstore::{make_many_slot_entries, Blockstore},
             get_tmp_ledger_path,
             shred::Shred,

@@ -8,7 +8,7 @@ use {
         validator::ValidatorConfig,
     },
     renec_gossip::gossip_service::discover_cluster,
-    solana_ledger::{
+    renec_ledger::{
         ancestor_iterator::AncestorIterator,
         blockstore::{Blockstore, PurgeType},
         blockstore_db::AccessType,

@@ -3,7 +3,7 @@
 use {
     crate::packet_hasher::PacketHasher,
     lru::LruCache,
-    solana_ledger::shred::{get_shred_slot_index_type, ShredFetchStats},
+    renec_ledger::shred::{get_shred_slot_index_type, ShredFetchStats},
     solana_perf::{
         cuda_runtime::PinnedVec,
         packet::{Packet, PacketBatchRecycler},
@@ -228,7 +228,7 @@ impl ShredFetchStage {
 mod tests {
     use {
         super::*,
-        solana_ledger::{blockstore::MAX_DATA_SHREDS_PER_SLOT, shred::Shred},
+        renec_ledger::{blockstore::MAX_DATA_SHREDS_PER_SLOT, shred::Shred},
     };
 
     #[test]
@@ -267,7 +267,7 @@ mod tests {
             &hasher,
         );
         assert!(!packet.meta.discard);
-        let coding = solana_ledger::shred::Shredder::generate_coding_shreds(
+        let coding = renec_ledger::shred::Shredder::generate_coding_shreds(
             &[shred],
             false, // is_last_in_slot
         );

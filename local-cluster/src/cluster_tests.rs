@@ -12,7 +12,7 @@ use {
         cluster_info::VALIDATOR_PORT_RANGE, contact_info::ContactInfo,
         gossip_service::discover_cluster,
     },
-    solana_ledger::{
+    renec_ledger::{
         blockstore::Blockstore,
         entry::{Entry, EntrySlice},
     },

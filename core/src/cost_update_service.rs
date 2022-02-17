@@ -4,7 +4,7 @@
 //! table to blockstore.
 
 use {
-    solana_ledger::blockstore::Blockstore,
+    renec_ledger::blockstore::Blockstore,
     solana_measure::measure::Measure,
     solana_runtime::{bank::Bank, cost_model::CostModel},
     solana_sdk::{execute_timings::ExecuteTimings, timing::timestamp},

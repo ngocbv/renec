@@ -7,7 +7,7 @@ use {
     itertools::Itertools,
     retain_mut::RetainMut,
     renec_gossip::{cluster_info::ClusterInfo, contact_info::ContactInfo},
-    solana_ledger::{blockstore_processor::TransactionStatusSender, entry::hash_transactions},
+    renec_ledger::{blockstore_processor::TransactionStatusSender, entry::hash_transactions},
     solana_measure::measure::Measure,
     solana_metrics::{inc_new_counter_debug, inc_new_counter_info},
     solana_perf::{
@@ -1661,7 +1661,7 @@ mod tests {
         crossbeam_channel::unbounded,
         itertools::Itertools,
         renec_gossip::{cluster_info::Node, contact_info::ContactInfo},
-        solana_ledger::{
+        renec_ledger::{
             blockstore::{entries_to_test_shreds, Blockstore},
             entry::{next_entry, Entry, EntrySlice},
             genesis_utils::{create_genesis_config, GenesisConfigInfo},

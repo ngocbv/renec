@@ -17,7 +17,7 @@ use {
         contact_info::ContactInfo,
         weighted_shuffle::weighted_best,
     },
-    solana_ledger::{
+    renec_ledger::{
         blockstore::Blockstore,
         shred::{Nonce, Shred},
     },
@@ -643,7 +643,7 @@ mod tests {
         super::*,
         crate::{repair_response, result::Error},
         renec_gossip::{socketaddr, socketaddr_any},
-        solana_ledger::{
+        renec_ledger::{
             blockstore::make_many_slot_entries,
             blockstore_processor::fill_blockstore_slot_with_ticks,
             get_tmp_ledger_path,

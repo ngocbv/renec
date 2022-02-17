@@ -13,7 +13,7 @@ edition = "2018"
 core_affinity = "0.5.10"
 crossbeam-channel = "0.4"
 log = "0.4.11"
-solana-ledger = { path = "../ledger", version = "=1.8.14" }
+renec-ledger = { path = "../ledger", version = "=1.8.14" }
 solana-measure = { path = "../measure", version = "=1.8.14" }
 solana-metrics = { path = "../metrics", version = "=1.8.14" }
 solana-runtime = { path = "../runtime", version = "=1.8.14" }

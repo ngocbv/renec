@@ -17,7 +17,7 @@ use {
     rayon::{prelude::*, ThreadPool, ThreadPoolBuilder},
     renec_client::rpc_response::SlotUpdate,
     renec_gossip::cluster_info::{ClusterInfo, DATA_PLANE_FANOUT},
-    solana_ledger::{
+    renec_ledger::{
         blockstore::Blockstore,
         leader_schedule_cache::LeaderScheduleCache,
         shred::{Shred, ShredType},
@@ -534,7 +534,7 @@ mod tests {
     use {
         super::*,
         renec_gossip::contact_info::ContactInfo,
-        solana_ledger::{
+        renec_ledger::{
             blockstore_processor::{process_blockstore, ProcessOptions},
             create_new_tmp_ledger,
             genesis_utils::{create_genesis_config, GenesisConfigInfo},

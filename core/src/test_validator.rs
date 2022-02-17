@@ -6,7 +6,7 @@ use {
         gossip_service::discover_cluster,
         socketaddr,
     },
-    solana_ledger::{blockstore::create_new_ledger, create_new_tmp_ledger},
+    renec_ledger::{blockstore::create_new_ledger, create_new_tmp_ledger},
     solana_net_utils::PortRange,
     solana_rpc::rpc::JsonRpcConfig,
     solana_runtime::{
@@ -421,7 +421,7 @@ impl TestValidator {
                     config
                         .max_genesis_archive_unpacked_size
                         .unwrap_or(MAX_GENESIS_ARCHIVE_UNPACKED_SIZE),
-                    solana_ledger::blockstore_db::AccessType::PrimaryOnly,
+                    renec_ledger::blockstore_db::AccessType::PrimaryOnly,
                 )
                 .map_err(|err| {
                     format!(

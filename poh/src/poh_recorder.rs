@@ -17,7 +17,7 @@ use {
         unbounded, Receiver as CrossbeamReceiver, RecvTimeoutError, Sender as CrossbeamSender,
     },
     log::*,
-    solana_ledger::{
+    renec_ledger::{
         blockstore::Blockstore, entry::Entry, leader_schedule_cache::LeaderScheduleCache, poh::Poh,
     },
     solana_runtime::bank::Bank,
@@ -779,7 +779,7 @@ mod tests {
     use {
         super::*,
         bincode::serialize,
-        solana_ledger::{
+        renec_ledger::{
             blockstore::Blockstore,
             blockstore_meta::SlotMeta,
             genesis_utils::{create_genesis_config, GenesisConfigInfo},

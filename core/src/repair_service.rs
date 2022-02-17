@@ -13,7 +13,7 @@ use {
     crossbeam_channel::{Receiver as CrossbeamReceiver, Sender as CrossbeamSender},
     lru::LruCache,
     renec_gossip::cluster_info::ClusterInfo,
-    solana_ledger::{
+    renec_ledger::{
         blockstore::{Blockstore, SlotMeta},
         shred::Nonce,
     },
@@ -717,7 +717,7 @@ mod test {
         super::*,
         crossbeam_channel::unbounded,
         renec_gossip::{cluster_info::Node, contact_info::ContactInfo},
-        solana_ledger::{
+        renec_ledger::{
             blockstore::{
                 make_chaining_slot_entries, make_many_slot_entries, make_slot_entries, Blockstore,
             },

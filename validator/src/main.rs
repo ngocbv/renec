@@ -35,7 +35,7 @@ use {
         contact_info::ContactInfo,
         gossip_service::GossipService,
     },
-    solana_ledger::blockstore_db::BlockstoreRecoveryMode,
+    renec_ledger::blockstore_db::BlockstoreRecoveryMode,
     solana_perf::recycler::enable_recycler_warming,
     solana_poh::poh_service,
     solana_rpc::{rpc::JsonRpcConfig, rpc_pubsub_service::PubSubConfig, send_transaction_service},
@@ -2822,7 +2822,7 @@ pub fn main() {
     solana_metrics::set_host_id(identity_keypair.pubkey().to_string());
     solana_metrics::set_panic_hook("validator");
 
-    solana_ledger::entry::init_poh();
+    renec_ledger::entry::init_poh();
     solana_runtime::snapshot_utils::remove_tmp_snapshot_archives(&snapshot_output_dir);
 
     let should_check_duplicate_instance = !matches.is_present("no_duplicate_instance_check");

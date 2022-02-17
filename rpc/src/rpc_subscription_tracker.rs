@@ -555,7 +555,7 @@ mod tests {
     use {
         super::*,
         crate::rpc_pubsub_service::PubSubConfig,
-        solana_ledger::genesis_utils::{create_genesis_config, GenesisConfigInfo},
+        renec_ledger::genesis_utils::{create_genesis_config, GenesisConfigInfo},
         solana_runtime::bank::Bank,
         std::str::FromStr,
     };

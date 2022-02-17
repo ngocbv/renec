@@ -27,7 +27,7 @@ serde_yaml = "0.8.13"
 renec-clap-utils = { path = "../clap-utils", version = "=1.8.14" }
 renec-cli-output = { path = "../cli-output", version = "=1.8.14" }
 renec-core = { path = "../core", version = "=1.8.14" }
-solana-ledger = { path = "../ledger", version = "=1.8.14" }
+renec-ledger = { path = "../ledger", version = "=1.8.14" }
 renec-logger = { path = "../logger", version = "=1.8.14" }
 solana-measure = { path = "../measure", version = "=1.8.14" }
 solana-runtime = { path = "../runtime", version = "=1.8.14" }

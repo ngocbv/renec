@@ -16,7 +16,7 @@ use {
     regex::Regex,
     renec_client::rpc_cache::LargestAccountsCache,
     renec_gossip::cluster_info::ClusterInfo,
-    solana_ledger::{
+    renec_ledger::{
         bigtable_upload_service::BigTableUploadService, blockstore::Blockstore,
         leader_schedule_cache::LeaderScheduleCache,
     },
@@ -487,7 +487,7 @@ mod tests {
             crds::GossipRoute,
             crds_value::{CrdsData, CrdsValue, SnapshotHash},
         },
-        solana_ledger::{
+        renec_ledger::{
             genesis_utils::{create_genesis_config, GenesisConfigInfo},
             get_tmp_ledger_path,
         },

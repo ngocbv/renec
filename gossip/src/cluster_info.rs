@@ -37,7 +37,7 @@ use {
     rand::{seq::SliceRandom, thread_rng, CryptoRng, Rng},
     rayon::{prelude::*, ThreadPool, ThreadPoolBuilder},
     serde::ser::Serialize,
-    solana_ledger::shred::Shred,
+    renec_ledger::shred::Shred,
     solana_measure::measure::Measure,
     solana_metrics::{inc_new_counter_debug, inc_new_counter_error},
     solana_net_utils::{
@@ -3054,7 +3054,7 @@ mod tests {
         itertools::izip,
         rand::{seq::SliceRandom, SeedableRng},
         rand_chacha::ChaChaRng,
-        solana_ledger::shred::Shredder,
+        renec_ledger::shred::Shredder,
         solana_sdk::signature::{Keypair, Signer},
         renec_vote_program::{vote_instruction, vote_state::Vote},
         std::{

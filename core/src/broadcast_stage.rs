@@ -17,7 +17,7 @@ use {
     },
     itertools::Itertools,
     renec_gossip::cluster_info::{ClusterInfo, ClusterInfoError},
-    solana_ledger::{blockstore::Blockstore, shred::Shred},
+    renec_ledger::{blockstore::Blockstore, shred::Shred},
     solana_measure::measure::Measure,
     solana_metrics::{inc_new_counter_error, inc_new_counter_info},
     solana_poh::poh_recorder::WorkingBankEntry,
@@ -454,7 +454,7 @@ pub mod test {
         super::*,
         crossbeam_channel::unbounded,
         renec_gossip::cluster_info::{ClusterInfo, Node},
-        solana_ledger::{
+        renec_ledger::{
             blockstore::{make_slot_entries, Blockstore},
             entry::create_ticks,
             genesis_utils::{create_genesis_config, GenesisConfigInfo},

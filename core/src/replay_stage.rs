@@ -27,7 +27,7 @@ use {
     },
     renec_client::rpc_response::SlotUpdate,
     renec_gossip::cluster_info::ClusterInfo,
-    solana_ledger::{
+    renec_ledger::{
         block_error::BlockError,
         blockstore::Blockstore,
         blockstore_processor::{self, BlockstoreProcessorError, TransactionStatusSender},
@@ -2634,7 +2634,7 @@ mod tests {
         },
         crossbeam_channel::unbounded,
         renec_gossip::{cluster_info::Node, crds::Cursor},
-        solana_ledger::{
+        renec_ledger::{
             blockstore::{entries_to_test_shreds, make_slot_entries, BlockstoreError},
             create_new_tmp_ledger,
             entry::{self, Entry},

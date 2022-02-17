@@ -1,7 +1,7 @@
 #![allow(clippy::implicit_hasher)]
 use {
     crate::{sigverify, sigverify_stage::SigVerifier},
-    solana_ledger::{
+    renec_ledger::{
         leader_schedule_cache::LeaderScheduleCache, shred::Shred,
         sigverify_shreds::verify_shreds_gpu,
     },
@@ -65,7 +65,7 @@ impl SigVerifier for ShredSigVerifier {
 pub mod tests {
     use {
         super::*,
-        solana_ledger::{
+        renec_ledger::{
             genesis_utils::create_genesis_config_with_leader,
             shred::{Shred, Shredder},
         },

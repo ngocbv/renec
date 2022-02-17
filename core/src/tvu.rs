@@ -27,7 +27,7 @@ use {
     },
     crossbeam_channel::unbounded,
     renec_gossip::cluster_info::ClusterInfo,
-    solana_ledger::{
+    renec_ledger::{
         blockstore::Blockstore, blockstore_processor::TransactionStatusSender,
         leader_schedule_cache::LeaderScheduleCache,
     },
@@ -381,7 +381,7 @@ pub mod tests {
         super::*,
         serial_test::serial,
         renec_gossip::cluster_info::{ClusterInfo, Node},
-        solana_ledger::{
+        renec_ledger::{
             blockstore::BlockstoreSignals,
             create_new_tmp_ledger,
             genesis_utils::{create_genesis_config, GenesisConfigInfo},

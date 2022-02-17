@@ -37,7 +37,7 @@ renec-download-utils = { path = "../download-utils", version = "=1.8.14" }
 renec-faucet = { path = "../faucet", version = "=1.8.14" }
 renec-genesis-utils = { path = "../genesis-utils", version = "=1.8.14" }
 renec-gossip = { path = "../gossip", version = "=1.8.14" }
-solana-ledger = { path = "../ledger", version = "=1.8.14" }
+renec-ledger = { path = "../ledger", version = "=1.8.14" }
 renec-logger = { path = "../logger", version = "=1.8.14" }
 solana-metrics = { path = "../metrics", version = "=1.8.14" }
 solana-net-utils = { path = "../net-utils", version = "=1.8.14" }

@@ -7,7 +7,7 @@ use {
     rayon::prelude::*,
     renec_core::banking_stage::BankingStage,
     renec_gossip::cluster_info::{ClusterInfo, Node},
-    solana_ledger::{
+    renec_ledger::{
         blockstore::Blockstore,
         genesis_utils::{create_genesis_config, GenesisConfigInfo},
         get_tmp_ledger_path,

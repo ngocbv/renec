@@ -25,7 +25,7 @@ use {
     },
     renec_download_utils::download_snapshot,
     renec_gossip::{cluster_info::VALIDATOR_PORT_RANGE, gossip_service::discover_cluster},
-    solana_ledger::{ancestor_iterator::AncestorIterator, blockstore::Blockstore},
+    renec_ledger::{ancestor_iterator::AncestorIterator, blockstore::Blockstore},
     solana_local_cluster::{
         cluster::{Cluster, ClusterValidatorInfo},
         cluster_tests,

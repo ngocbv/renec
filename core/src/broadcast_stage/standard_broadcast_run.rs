@@ -8,7 +8,7 @@ use {
     crate::{
         broadcast_stage::broadcast_utils::UnfinishedSlotInfo, cluster_nodes::ClusterNodesCache,
     },
-    solana_ledger::{
+    renec_ledger::{
         entry::Entry,
         shred::{
             ProcessShredsStats, Shred, Shredder, MAX_DATA_SHREDS_PER_FEC_BLOCK,
@@ -514,7 +514,7 @@ mod test {
     use {
         super::*,
         renec_gossip::cluster_info::{ClusterInfo, Node},
-        solana_ledger::{
+        renec_ledger::{
             blockstore::Blockstore, entry::create_ticks, genesis_utils::create_genesis_config,
             get_tmp_ledger_path, shred::max_ticks_per_n_shreds,
         },

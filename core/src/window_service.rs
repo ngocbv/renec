@@ -15,7 +15,7 @@ use {
     },
     rayon::{prelude::*, ThreadPool},
     renec_gossip::cluster_info::ClusterInfo,
-    solana_ledger::{
+    renec_ledger::{
         blockstore::{self, Blockstore, BlockstoreInsertionMetrics, MAX_DATA_SHREDS_PER_SLOT},
         leader_schedule_cache::LeaderScheduleCache,
         shred::{Nonce, Shred, ShredType},
@@ -714,7 +714,7 @@ mod test {
     use {
         super::*,
         renec_gossip::contact_info::ContactInfo,
-        solana_ledger::{
+        renec_ledger::{
             blockstore::{make_many_slot_entries, Blockstore},
             entry::{create_ticks, Entry},
             genesis_utils::create_genesis_config_with_leader,

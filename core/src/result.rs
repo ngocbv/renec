@@ -2,7 +2,7 @@
 
 use {
     renec_gossip::{cluster_info, gossip_error::GossipError},
-    solana_ledger::blockstore,
+    renec_ledger::blockstore,
 };
 
 #[derive(Debug)]
