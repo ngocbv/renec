@@ -91,7 +91,7 @@ else
     renec-gossip
     renec-install
     renec-keygen
-    solana-ledger-tool
+    renec-ledger-tool
     renec-log-analyzer
     solana-net-shaper
     renec-sys-tuner

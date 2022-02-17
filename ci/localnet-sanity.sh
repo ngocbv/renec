@@ -271,7 +271,7 @@ verifyLedger() {
     echo "--- $ledger ledger verification"
     (
       set -x
-      $solana_ledger_tool --ledger "$SOLANA_CONFIG_DIR"/$ledger verify
+      $renec_ledger_tool --ledger "$SOLANA_CONFIG_DIR"/$ledger verify
     ) || flag_error
   done
 }

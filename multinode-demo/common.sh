@@ -68,7 +68,7 @@ renec_validator_cuda="$renec_validator --cuda"
 renec_genesis=$(solana_program genesis)
 renec_gossip=$(solana_program gossip)
 renec_keygen=$(solana_program keygen)
-solana_ledger_tool=$(solana_program ledger-tool)
+renec_ledger_tool=$(solana_program ledger-tool)
 solana_cli=$(solana_program)
 
 export RUST_BACKTRACE=1
