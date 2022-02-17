@@ -3742,6 +3742,25 @@ dependencies = [
 ]
 
 [[package]]
+name = "renec-banks-client"
+version = "1.8.14"
+dependencies = [
+ "bincode",
+ "borsh",
+ "borsh-derive",
+ "futures 0.3.8",
+ "mio 0.7.6",
+ "solana-banks-interface",
+ "solana-banks-server",
+ "solana-program 1.8.14",
+ "solana-runtime",
+ "solana-sdk",
+ "tarpc",
+ "tokio",
+ "tokio-serde",
+]
+
+[[package]]
 name = "renec-bpf-loader-program"
 version = "1.8.14"
 dependencies = [
@@ -4577,7 +4596,7 @@ name = "soketto"
 version = "0.6.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "a74e48087dbeed4833785c2f3352b59140095dc192dce966a3bfc155020a439f"
-dependencies = [
+derenec-banks-interface
  "base64 0.13.0",
  "bytes 1.0.1",
  "futures 0.3.8",
@@ -4588,26 +4607,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "renec-banks-client"
-version = "1.8.14"
-dependencies = [
- "bincode",
- "borsh",
- "borsh-derive",
- "futures 0.3.8",
- "mio 0.7.6",
- "solana-banks-interface",
- "solana-banks-server",
- "solana-program 1.8.14",
- "solana-runtime",
- "solana-sdk",
- "tarpc",
- "tokio",
- "tokio-serde",
-]
-
-[[package]]
-name = "solana-banks-interface"
+name = "renec-banks-interface"
 version = "1.8.14"
 dependencies = [
  "mio 0.7.6",
@@ -4625,7 +4625,7 @@ dependencies = [
  "futures 0.3.8",
  "log 0.4.14",
  "mio 0.7.6",
- "solana-banks-interface",
+ "renec-banks-interface",
  "solana-metrics",
  "solana-runtime",
  "solana-sdk",
@@ -5529,12 +5529,12 @@ dependencies = [
  "chrono-humanize",
  "log 0.4.14",
  "mio 0.7.6",
+ "renec-banks-client",
  "renec-bpf-loader-program",
  "renec-logger",
  "renec-vote-program",
  "serde",
  "serde_derive",
- "renec-banks-client",
  "solana-banks-server",
  "solana-runtime",
  "solana-sdk",

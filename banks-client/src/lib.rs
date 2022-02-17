@@ -5,11 +5,11 @@
 //! but they are undocumented, may change over time, and are generally more
 //! cumbersome to use.
 
-pub use solana_banks_interface::{BanksClient as TarpcClient, TransactionStatus};
+pub use renec_banks_interface::{BanksClient as TarpcClient, TransactionStatus};
 use {
     borsh::BorshDeserialize,
     futures::{future::join_all, Future, FutureExt},
-    solana_banks_interface::{BanksRequest, BanksResponse},
+    renec_banks_interface::{BanksRequest, BanksResponse},
     solana_program::{
         clock::{Clock, Slot},
         fee_calculator::FeeCalculator,

@@ -14,7 +14,7 @@ bincode = "1.3.1"
 futures = "0.3"
 log = "0.4.11"
 mio = "0.7.6"
-solana-banks-interface = { path = "../banks-interface", version = "=1.8.14" }
+renec-banks-interface = { path = "../banks-interface", version = "=1.8.14" }
 solana-runtime = { path = "../runtime", version = "=1.8.14" }
 solana-sdk = { path = "../sdk", version = "=1.8.14" }
 solana-metrics = { path = "../metrics", version = "=1.8.14" }

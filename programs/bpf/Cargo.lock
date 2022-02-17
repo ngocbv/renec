@@ -2727,7 +2727,7 @@ dependencies = [
  "borsh-derive",
  "futures",
  "mio",
- "solana-banks-interface",
+ "renec-banks-interface",
  "solana-program 1.8.14",
  "solana-sdk",
  "tarpc",
@@ -2736,7 +2736,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "solana-banks-interface"
+name = "renec-banks-interface"
 version = "1.8.14"
 dependencies = [
  "mio",
@@ -2753,7 +2753,7 @@ dependencies = [
  "futures",
  "log",
  "mio",
- "solana-banks-interface",
+ "renec-banks-interface",
  "solana-metrics",
  "solana-runtime",
  "solana-sdk",

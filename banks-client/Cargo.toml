@@ -15,7 +15,7 @@ borsh = "0.9.0"
 borsh-derive = "0.9.0"
 futures = "0.3"
 mio = "0.7.6"
-solana-banks-interface = { path = "../banks-interface", version = "=1.8.14" }
+renec-banks-interface = { path = "../banks-interface", version = "=1.8.14" }
 solana-program = { path = "../sdk/program", version = "=1.8.14" }
 solana-sdk = { path = "../sdk", version = "=1.8.14" }
 tarpc = { version = "0.24.1", features = ["full"] }
