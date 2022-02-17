@@ -2,14 +2,14 @@
 #![allow(clippy::integer_arithmetic)]
 
 // Export types so test clients can limit their solana crate dependencies
-pub use solana_banks_client::BanksClient;
+pub use renec_banks_client::BanksClient;
 // Export tokio for test clients
 pub use tokio;
 use {
     async_trait::async_trait,
     chrono_humanize::{Accuracy, HumanTime, Tense},
     log::*,
-    solana_banks_client::start_client,
+    renec_banks_client::start_client,
     solana_banks_server::banks_server::start_local_server,
     solana_runtime::{
         bank::{Bank, Builtin},
