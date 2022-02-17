@@ -93,7 +93,7 @@ else
     renec-keygen
     renec-ledger-tool
     renec-log-analyzer
-    solana-net-shaper
+    renec-net-shaper
     renec-sys-tuner
     renec-validator
   )

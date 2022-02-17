@@ -3985,6 +3985,7 @@ dependencies = [
  "renec-ledger",
  "renec-logger",
  "renec-measure",
+ "renec-merkle-tree",
  "renec-stake-program",
  "renec-version",
  "renec-vote-program",
@@ -3996,7 +3997,6 @@ dependencies = [
  "serde_derive",
  "serde_json",
  "serial_test",
- "renec-merkle-tree",
  "solana-metrics",
  "solana-net-utils",
  "solana-perf",
@@ -4313,13 +4313,13 @@ dependencies = [
  "renec-frozen-abi-macro",
  "renec-logger",
  "renec-measure",
+ "renec-merkle-tree",
  "renec-vote-program",
  "rocksdb",
  "rustc_version 0.2.3",
  "serde",
  "serde_bytes",
  "sha2",
- "renec-merkle-tree",
  "solana-metrics",
  "solana-perf",
  "solana-rayon-threadlimit",
@@ -4446,6 +4446,28 @@ dependencies = [
  "renec-version",
  "solana-runtime",
  "solana-sdk",
+]
+
+[[package]]
+name = "renec-merkle-tree"
+version = "1.8.14"
+dependencies = [
+ "fast-math",
+ "hex",
+ "matches",
+ "solana-program 1.8.14",
+]
+
+[[package]]
+name = "renec-net-shaper"
+version = "1.8.14"
+dependencies = [
+ "clap",
+ "rand 0.7.3",
+ "renec-clap-utils",
+ "renec-logger",
+ "serde",
+ "serde_json",
 ]
 
 [[package]]
@@ -5316,16 +5338,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "renec-merkle-tree"
-version = "1.8.14"
-dependencies = [
- "fast-math",
- "hex",
- "matches",
- "solana-program 1.8.14",
-]
-
-[[package]]
 name = "solana-metrics"
 version = "1.8.14"
 dependencies = [
@@ -5337,18 +5349,6 @@ dependencies = [
  "reqwest",
  "serial_test",
  "solana-sdk",
-]
-
-[[package]]
-name = "solana-net-shaper"
-version = "1.8.14"
-dependencies = [
- "clap",
- "rand 0.7.3",
- "renec-clap-utils",
- "renec-logger",
- "serde",
- "serde_json",
 ]
 
 [[package]]
