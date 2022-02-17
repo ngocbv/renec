@@ -23,7 +23,7 @@ use {
     renec_measure::measure::Measure,
     solana_metrics::{inc_new_counter_debug, inc_new_counter_error},
     renec_perf::packet::{Packet, PacketBatch},
-    solana_rayon_threadlimit::get_thread_count,
+    renec_rayon_threadlimit::get_thread_count,
     solana_runtime::{bank::Bank, bank_forks::BankForks},
     solana_sdk::{clock::Slot, packet::PACKET_DATA_SIZE, pubkey::Pubkey},
     std::{

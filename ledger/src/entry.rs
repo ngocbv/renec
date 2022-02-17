@@ -14,7 +14,7 @@ use {
     renec_merkle_tree::MerkleTree,
     solana_metrics::*,
     renec_perf::{cuda_runtime::PinnedVec, perf_libs, recycler::Recycler},
-    solana_rayon_threadlimit::get_thread_count,
+    renec_rayon_threadlimit::get_thread_count,
     solana_runtime::hashed_transaction::HashedTransaction,
     solana_sdk::{
         feature_set::{self, FeatureSet},

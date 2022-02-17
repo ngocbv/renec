@@ -3405,7 +3405,7 @@ dependencies = [
  "renec-bloom",
  "renec-logger 1.8.14",
  "solana-metrics",
- "solana-rayon-threadlimit",
+ "renec-rayon-threadlimit",
  "solana-sdk",
  "renec-vote-program",
 ]
@@ -3505,7 +3505,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "solana-rayon-threadlimit"
+name = "renec-rayon-threadlimit"
 version = "1.8.14"
 dependencies = [
  "lazy_static",
@@ -3571,7 +3571,7 @@ dependencies = [
  "renec-logger 1.8.14",
  "renec-measure",
  "solana-metrics",
- "solana-rayon-threadlimit",
+ "renec-rayon-threadlimit",
  "solana-sdk",
  "renec-secp256k1-program",
  "renec-stake-program",

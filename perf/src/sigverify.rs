@@ -17,7 +17,7 @@ use {
     rand::{thread_rng, Rng},
     rayon::ThreadPool,
     solana_metrics::inc_new_counter_debug,
-    solana_rayon_threadlimit::get_thread_count,
+    renec_rayon_threadlimit::get_thread_count,
     solana_sdk::{
         hash::Hash, message::MESSAGE_HEADER_LENGTH, pubkey::Pubkey, short_vec::decode_shortu16_len,
         signature::Signature,

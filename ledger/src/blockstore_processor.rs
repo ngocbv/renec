@@ -17,7 +17,7 @@ use {
     rayon::{prelude::*, ThreadPool},
     renec_measure::measure::Measure,
     solana_metrics::{datapoint_error, inc_new_counter_debug},
-    solana_rayon_threadlimit::get_thread_count,
+    renec_rayon_threadlimit::get_thread_count,
     solana_runtime::{
         accounts_db::AccountShrinkThreshold,
         accounts_index::AccountSecondaryIndexes,

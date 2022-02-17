@@ -51,7 +51,7 @@ use {
             PacketBatchRecycler, PACKET_DATA_SIZE,
         },
     },
-    solana_rayon_threadlimit::get_thread_count,
+    renec_rayon_threadlimit::get_thread_count,
     solana_runtime::bank_forks::BankForks,
     solana_sdk::{
         clock::{Slot, DEFAULT_MS_PER_SLOT, DEFAULT_SLOTS_PER_EPOCH},

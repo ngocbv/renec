@@ -23,7 +23,7 @@ serde = "1.0.126"
 renec-logger = { path = "../logger", version = "=1.8.14" }
 solana-metrics = { path = "../metrics", version = "=1.8.14" }
 solana-sdk = { path = "../sdk", version = "=1.8.14" }
-solana-rayon-threadlimit = { path = "../rayon-threadlimit", version = "=1.8.14" }
+renec-rayon-threadlimit = { path = "../rayon-threadlimit", version = "=1.8.14" }
 renec-bloom = { path = "../bloom", version = "=1.8.14" }
 renec-vote-program = { path = "../programs/vote", version = "=1.8.14" }
 

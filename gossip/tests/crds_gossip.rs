@@ -15,7 +15,7 @@ use {
         crds_value::{CrdsData, CrdsValue, CrdsValueLabel},
         ping_pong::PingCache,
     },
-    solana_rayon_threadlimit::get_thread_count,
+    renec_rayon_threadlimit::get_thread_count,
     solana_sdk::{
         hash::hash,
         pubkey::Pubkey,

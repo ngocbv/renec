@@ -49,7 +49,7 @@ use {
     rayon::{prelude::*, ThreadPool},
     serde::{Deserialize, Serialize},
     renec_measure::measure::Measure,
-    solana_rayon_threadlimit::get_thread_count,
+    renec_rayon_threadlimit::get_thread_count,
     solana_sdk::{
         account::{AccountSharedData, ReadableAccount},
         clock::{BankId, Epoch, Slot},

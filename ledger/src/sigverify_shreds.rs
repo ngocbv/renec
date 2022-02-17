@@ -17,7 +17,7 @@ use {
         recycler_cache::RecyclerCache,
         sigverify::{self, count_packets_in_batches, TxOffset},
     },
-    solana_rayon_threadlimit::get_thread_count,
+    renec_rayon_threadlimit::get_thread_count,
     solana_sdk::{
         clock::Slot,
         pubkey::Pubkey,

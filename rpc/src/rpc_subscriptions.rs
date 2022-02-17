@@ -23,7 +23,7 @@ use {
         },
     },
     renec_measure::measure::Measure,
-    solana_rayon_threadlimit::get_thread_count,
+    renec_rayon_threadlimit::get_thread_count,
     solana_runtime::{
         bank::{Bank, TransactionLogInfo},
         bank_forks::BankForks,

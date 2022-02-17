@@ -3989,6 +3989,7 @@ dependencies = [
  "renec-net-utils",
  "renec-perf",
  "renec-poh",
+ "renec-program-test",
  "renec-stake-program",
  "renec-version",
  "renec-vote-program",
@@ -4001,8 +4002,7 @@ dependencies = [
  "serde_json",
  "serial_test",
  "solana-metrics",
- "renec-program-test",
- "solana-rayon-threadlimit",
+ "renec-rayon-threadlimit",
  "solana-rpc",
  "solana-runtime",
  "solana-sdk",
@@ -4222,7 +4222,7 @@ dependencies = [
  "serde_derive",
  "serial_test",
  "solana-metrics",
- "solana-rayon-threadlimit",
+ "renec-rayon-threadlimit",
  "solana-runtime",
  "solana-sdk",
  "solana-streamer",
@@ -4322,7 +4322,7 @@ dependencies = [
  "serde_bytes",
  "sha2",
  "solana-metrics",
- "solana-rayon-threadlimit",
+ "renec-rayon-threadlimit",
  "solana-runtime",
  "solana-sdk",
  "solana-storage-bigtable",
@@ -4396,7 +4396,7 @@ dependencies = [
  "renec-stake-program",
  "renec-vote-program",
  "serial_test",
- "solana-rayon-threadlimit",
+ "renec-rayon-threadlimit",
  "solana-rpc",
  "solana-runtime",
  "solana-sdk",
@@ -4521,7 +4521,7 @@ dependencies = [
  "renec-vote-program",
  "serde",
  "solana-metrics",
- "solana-rayon-threadlimit",
+ "renec-rayon-threadlimit",
  "solana-sdk",
 ]
 
@@ -4561,6 +4561,31 @@ dependencies = [
  "renec-perf",
  "renec-version",
  "solana-sdk",
+]
+
+[[package]]
+name = "renec-program-test"
+version = "1.8.14"
+dependencies = [
+ "assert_matches",
+ "async-trait",
+ "base64 0.12.3",
+ "bincode",
+ "chrono",
+ "chrono-humanize",
+ "log 0.4.14",
+ "mio 0.7.6",
+ "renec-banks-client",
+ "renec-banks-server",
+ "renec-bpf-loader-program",
+ "renec-logger",
+ "renec-vote-program",
+ "serde",
+ "serde_derive",
+ "solana-runtime",
+ "solana-sdk",
+ "thiserror",
+ "tokio",
 ]
 
 [[package]]
@@ -5518,32 +5543,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "renec-program-test"
-version = "1.8.14"
-dependencies = [
- "assert_matches",
- "async-trait",
- "base64 0.12.3",
- "bincode",
- "chrono",
- "chrono-humanize",
- "log 0.4.14",
- "mio 0.7.6",
- "renec-banks-client",
- "renec-banks-server",
- "renec-bpf-loader-program",
- "renec-logger",
- "renec-vote-program",
- "serde",
- "serde_derive",
- "solana-runtime",
- "solana-sdk",
- "thiserror",
- "tokio",
-]
-
-[[package]]
-name = "solana-rayon-threadlimit"
+name = "renec-rayon-threadlimit"
 version = "1.8.14"
 dependencies = [
  "lazy_static",
@@ -5608,7 +5608,7 @@ dependencies = [
  "serial_test",
  "soketto",
  "solana-metrics",
- "solana-rayon-threadlimit",
+ "renec-rayon-threadlimit",
  "solana-runtime",
  "solana-sdk",
  "solana-storage-bigtable",
@@ -5666,7 +5666,7 @@ dependencies = [
  "serde",
  "serde_derive",
  "solana-metrics",
- "solana-rayon-threadlimit",
+ "renec-rayon-threadlimit",
  "solana-sdk",
  "symlink",
  "tar",
@@ -5868,9 +5868,9 @@ dependencies = [
  "renec-client",
  "renec-core",
  "renec-logger",
+ "renec-program-test",
  "renec-version",
  "serde",
- "renec-program-test",
  "solana-remote-wallet",
  "solana-runtime",
  "solana-sdk",

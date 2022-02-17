@@ -72,7 +72,7 @@ renec-vote-program = { path = "../programs/vote", version = "=1.8.14" }
 spl-token-v2-0 = { package = "spl-token", version = "=3.2.0", features = ["no-entrypoint"] }
 tempfile = "3.1.0"
 thiserror = "1.0"
-solana-rayon-threadlimit = { path = "../rayon-threadlimit", version = "=1.8.14" }
+renec-rayon-threadlimit = { path = "../rayon-threadlimit", version = "=1.8.14" }
 sys-info = "0.9.1"
 trees = "0.2.1"
 
