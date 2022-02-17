@@ -1,6 +1,6 @@
 [package]
 authors = ["RENEC Maintainers <dev@remitano.com>"]
-description = "Solana Program Test Framework"
+description = "RENEC Program Test Framework"
 edition = "2018"
 license = "Apache-2.0"
 name = "solana-program-test"

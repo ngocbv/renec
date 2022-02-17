@@ -1,7 +1,7 @@
 [package]
 name = "solana-net-utils"
 version = "1.8.14"
-description = "Solana Network Utilities"
+description = "RENEC Network Utilities"
 authors = ["RENEC Maintainers <dev@remitano.com>"]
 repository = "https://github.com/remitano/renec"
 license = "Apache-2.0"

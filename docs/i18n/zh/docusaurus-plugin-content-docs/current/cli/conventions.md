@@ -25,7 +25,7 @@ solana <COMMAND> --help
 例如，显示钱包地址(也称为密钥)，CLI 帮助文档显示：
 
 ```bash
-solana-keygen pubkey <KEYPAIR>
+renec-keygen pubkey <KEYPAIR>
 ```
 
 下面我们来展示根据钱包类型来解决应该在 `<KEYPAIR>` 中插入什么的问题。
@@ -37,7 +37,7 @@ solana-keygen pubkey <KEYPAIR>
 显示纸钱包的钱包地址：
 
 ```bash
-solana-keygen pubkey
+renec-keygen pubkey
 ```
 
 #### 文件系统钱包
@@ -47,7 +47,7 @@ solana-keygen pubkey
 例如，如果文件系统密钥对文件位置是 `/home/solana/my_wallet.json`，请输入来显示地址：
 
 ```bash
-solana-keygen pubkey /home/solana/my_wallet.json
+renec-keygen pubkey /home/solana/my_wallet.json
 ```
 
 #### 硬软件钱包
@@ -55,5 +55,5 @@ solana-keygen pubkey /home/solana/my_wallet.json
 如果您选择了硬件钱包，请使用您的 [密钥对链接](../wallet-guide/hardware-wallets.md#specify-a-hardware-wallet-key)，比如 `blap://ledger?key=0`。
 
 ```bash
-solana-keygen pubkey usb://ledger?key=0
+renec-keygen pubkey usb://ledger?key=0
 ```
