@@ -4491,6 +4491,15 @@ dependencies = [
 ]
 
 [[package]]
+name = "renec-notifier"
+version = "1.8.14"
+dependencies = [
+ "log 0.4.14",
+ "reqwest",
+ "serde_json",
+]
+
+[[package]]
 name = "renec-secp256k1-program"
 version = "1.8.14"
 dependencies = [
@@ -5372,15 +5381,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "solana-notifier"
-version = "1.8.14"
-dependencies = [
- "log 0.4.14",
- "reqwest",
- "serde_json",
-]
-
-[[package]]
 name = "solana-perf"
 version = "1.8.14"
 dependencies = [
@@ -5927,9 +5927,9 @@ dependencies = [
  "renec-cli-output",
  "renec-client",
  "renec-logger",
+ "renec-notifier",
  "renec-version",
  "solana-metrics",
- "solana-notifier",
  "solana-sdk",
 ]
 
