@@ -28,16 +28,16 @@ bootstrapInstall "edge"
 solana-install-init --version
 solana-install-init edge
 solana-gossip --version
-solana-dos --version
+renec-dos --version
 
 killall solana-gossip || true
 solana-gossip spy --gossip-port 8001 > "$logDir"/gossip.log 2>&1 &
 solanaGossipPid=$!
 echo "solana-gossip pid: $solanaGossipPid"
 sleep 5
-solana-dos --mode gossip --data-type random --data-size 1232 &
+renec-dos --mode gossip --data-type random --data-size 1232 &
 dosPid=$!
-echo "solana-dos pid: $dosPid"
+echo "renec-dos pid: $dosPid"
 
 pass=true
 
@@ -49,7 +49,7 @@ while ((SECONDS < 600)); do
     break
   fi
   if ! kill -0 $dosPid; then
-    echo "solana-dos is no longer running after $SECONDS seconds"
+    echo "renec-dos is no longer running after $SECONDS seconds"
     pass=false
     break
   fi

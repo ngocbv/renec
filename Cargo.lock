@@ -4984,7 +4984,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "solana-dos"
+name = "renec-dos"
 version = "1.8.14"
 dependencies = [
  "bincode",

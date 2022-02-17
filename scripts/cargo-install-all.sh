@@ -103,7 +103,7 @@ else
     BINS+=(
       cargo-build-bpf
       cargo-test-bpf
-      solana-dos
+      renec-dos
       solana-install-init
       solana-stake-accounts
       solana-test-validator
