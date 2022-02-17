@@ -14,7 +14,7 @@ use {
     crossbeam_channel::{Receiver, RecvTimeoutError, SendError, Sender},
     rayon::prelude::*,
     serde::Serialize,
-    solana_account_decoder::{parse_token::spl_token_id, UiAccount, UiAccountEncoding},
+    renec_account_decoder::{parse_token::spl_token_id, UiAccount, UiAccountEncoding},
     solana_client::{
         rpc_filter::RpcFilterType,
         rpc_response::{

@@ -34,7 +34,7 @@ solana_rbpf = "=0.2.21"
 solana-runtime = { path = "../../runtime", version = "=1.8.14" }
 solana-sdk = { path = "../../sdk", version = "=1.8.14" }
 solana-transaction-status = { path = "../../transaction-status", version = "=1.8.14" }
-solana-account-decoder = { path = "../../account-decoder", version = "=1.8.14" }
+renec-account-decoder = { path = "../../account-decoder", version = "=1.8.14" }
 
 
 [[bench]]

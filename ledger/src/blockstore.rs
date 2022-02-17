@@ -3904,7 +3904,7 @@ pub mod tests {
         bincode::serialize,
         itertools::Itertools,
         rand::{seq::SliceRandom, thread_rng},
-        solana_account_decoder::parse_token::UiTokenAmount,
+        renec_account_decoder::parse_token::UiTokenAmount,
         solana_runtime::bank::{Bank, RewardType},
         solana_sdk::{
             hash::{self, hash, Hash},

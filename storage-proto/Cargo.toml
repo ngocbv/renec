@@ -15,7 +15,7 @@ bs58 = "0.3.1"
 prost = "0.8.0"
 serde = "1.0.122"
 serde_derive = "1.0.103"
-solana-account-decoder = { path = "../account-decoder", version = "=1.8.14" }
+renec-account-decoder = { path = "../account-decoder", version = "=1.8.14" }
 solana-sdk = { path = "../sdk", version = "=1.8.14" }
 solana-transaction-status = { path = "../transaction-status", version = "=1.8.14" }
 

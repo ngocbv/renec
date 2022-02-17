@@ -9,7 +9,7 @@ use {
         spend_utils::{resolve_spend_tx_and_check_account_balances, SpendAmount},
     },
     clap::{value_t_or_exit, App, Arg, ArgMatches, SubCommand},
-    solana_account_decoder::{UiAccount, UiAccountEncoding},
+    renec_account_decoder::{UiAccount, UiAccountEncoding},
     solana_clap_utils::{
         fee_payer::*,
         input_parsers::*,

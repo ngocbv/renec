@@ -3606,6 +3606,27 @@ dependencies = [
 ]
 
 [[package]]
+name = "renec-account-decoder"
+version = "1.8.14"
+dependencies = [
+ "Inflector",
+ "base64 0.12.3",
+ "bincode",
+ "bs58 0.3.1",
+ "bv",
+ "lazy_static",
+ "renec-config-program",
+ "renec-vote-program",
+ "serde",
+ "serde_derive",
+ "serde_json",
+ "solana-sdk",
+ "spl-token",
+ "thiserror",
+ "zstd",
+]
+
+[[package]]
 name = "renec-bpf-loader-program"
 version = "1.8.14"
 dependencies = [
@@ -4452,27 +4473,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "solana-account-decoder"
-version = "1.8.14"
-dependencies = [
- "Inflector",
- "base64 0.12.3",
- "bincode",
- "bs58 0.3.1",
- "bv",
- "lazy_static",
- "renec-config-program",
- "renec-vote-program",
- "serde",
- "serde_derive",
- "serde_json",
- "solana-sdk",
- "spl-token",
- "thiserror",
- "zstd",
-]
-
-[[package]]
 name = "solana-accounts-bench"
 version = "1.8.14"
 dependencies = [
@@ -4496,10 +4496,10 @@ dependencies = [
  "log 0.4.14",
  "rand 0.7.3",
  "rayon",
+ "renec-account-decoder",
  "renec-faucet",
  "renec-logger",
  "renec-version",
- "solana-account-decoder",
  "solana-clap-utils",
  "solana-client",
  "solana-core",
@@ -4780,6 +4780,7 @@ dependencies = [
  "log 0.4.14",
  "num-traits",
  "pretty-hex",
+ "renec-account-decoder",
  "renec-bpf-loader-program",
  "renec-config-program",
  "renec-faucet",
@@ -4791,7 +4792,6 @@ dependencies = [
  "serde",
  "serde_derive",
  "serde_json",
- "solana-account-decoder",
  "solana-clap-utils",
  "solana-cli-config",
  "solana-cli-output",
@@ -4833,11 +4833,11 @@ dependencies = [
  "console 0.14.1",
  "humantime",
  "indicatif",
+ "renec-account-decoder",
  "renec-vote-program",
  "serde",
  "serde_derive",
  "serde_json",
- "solana-account-decoder",
  "solana-clap-utils",
  "solana-client",
  "solana-sdk",
@@ -4860,6 +4860,7 @@ dependencies = [
  "log 0.4.14",
  "net2",
  "rayon",
+ "renec-account-decoder",
  "renec-faucet",
  "renec-logger",
  "renec-version",
@@ -4869,7 +4870,6 @@ dependencies = [
  "serde",
  "serde_derive",
  "serde_json",
- "solana-account-decoder",
  "solana-clap-utils",
  "solana-net-utils",
  "solana-sdk",
@@ -4916,6 +4916,7 @@ dependencies = [
  "rand_core 0.6.2",
  "raptorq",
  "rayon",
+ "renec-account-decoder",
  "renec-logger",
  "renec-stake-program",
  "renec-version",
@@ -4928,7 +4929,6 @@ dependencies = [
  "serde_derive",
  "serde_json",
  "serial_test",
- "solana-account-decoder",
  "solana-accountsdb-plugin-manager",
  "solana-banks-server",
  "solana-bloom",
@@ -5185,6 +5185,7 @@ dependencies = [
  "rand_chacha 0.2.2",
  "rayon",
  "reed-solomon-erasure",
+ "renec-account-decoder",
  "renec-bpf-loader-program",
  "renec-logger",
  "renec-vote-program",
@@ -5193,7 +5194,6 @@ dependencies = [
  "serde",
  "serde_bytes",
  "sha2",
- "solana-account-decoder",
  "solana-frozen-abi 1.8.14",
  "solana-frozen-abi-macro 1.8.14",
  "solana-measure",
@@ -5589,6 +5589,7 @@ dependencies = [
  "log 0.4.14",
  "rayon",
  "regex",
+ "renec-account-decoder",
  "renec-faucet",
  "renec-logger",
  "renec-stake-program",
@@ -5599,7 +5600,6 @@ dependencies = [
  "serde_json",
  "serial_test",
  "soketto",
- "solana-account-decoder",
  "solana-client",
  "solana-gossip",
  "solana-ledger",
@@ -5811,9 +5811,9 @@ dependencies = [
  "bs58 0.3.1",
  "enum-iterator",
  "prost",
+ "renec-account-decoder",
  "serde",
  "serde_derive",
- "solana-account-decoder",
  "solana-sdk",
  "solana-transaction-status",
  "tonic-build",
@@ -5862,10 +5862,10 @@ dependencies = [
  "indexmap",
  "indicatif",
  "pickledb",
+ "renec-account-decoder",
  "renec-logger",
  "renec-version",
  "serde",
- "solana-account-decoder",
  "solana-clap-utils",
  "solana-cli-config",
  "solana-client",
@@ -5892,11 +5892,11 @@ dependencies = [
  "bs58 0.3.1",
  "lazy_static",
  "log 0.4.14",
+ "renec-account-decoder",
  "renec-vote-program",
  "serde",
  "serde_derive",
  "serde_json",
- "solana-account-decoder",
  "solana-measure",
  "solana-metrics",
  "solana-runtime",

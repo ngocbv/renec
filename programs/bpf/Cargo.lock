@@ -2698,7 +2698,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "solana-account-decoder"
+name = "renec-account-decoder"
 version = "1.8.14"
 dependencies = [
  "Inflector",
@@ -2811,7 +2811,7 @@ dependencies = [
  "log",
  "miow 0.2.2",
  "net2",
- "solana-account-decoder",
+ "renec-account-decoder",
  "renec-bpf-loader-program",
  "solana-cli-output",
  "renec-logger 1.8.14",
@@ -3153,7 +3153,7 @@ dependencies = [
  "serde",
  "serde_derive",
  "serde_json",
- "solana-account-decoder",
+ "renec-account-decoder",
  "solana-clap-utils",
  "solana-client",
  "solana-sdk",
@@ -3180,7 +3180,7 @@ dependencies = [
  "serde",
  "serde_derive",
  "serde_json",
- "solana-account-decoder",
+ "renec-account-decoder",
  "solana-clap-utils",
  "renec-faucet",
  "solana-net-utils",
@@ -3698,7 +3698,7 @@ dependencies = [
  "serde",
  "serde_derive",
  "serde_json",
- "solana-account-decoder",
+ "renec-account-decoder",
  "solana-measure",
  "solana-metrics",
  "solana-runtime",

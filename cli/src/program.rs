@@ -9,7 +9,7 @@ use {
     bip39::{Language, Mnemonic, MnemonicType, Seed},
     clap::{App, AppSettings, Arg, ArgMatches, SubCommand},
     log::*,
-    solana_account_decoder::{UiAccountEncoding, UiDataSliceConfig},
+    renec_account_decoder::{UiAccountEncoding, UiDataSliceConfig},
     renec_bpf_loader_program::{syscalls::register_syscalls, BpfError, ThisInstructionMeter},
     solana_clap_utils::{self, input_parsers::*, input_validators::*, keypair::*},
     solana_cli_output::{

@@ -127,7 +127,7 @@ mod tests {
         },
         clap::App,
         serde_json::{self, json},
-        solana_account_decoder::{UiAccount, UiAccountEncoding},
+        renec_account_decoder::{UiAccount, UiAccountEncoding},
         solana_sdk::{account::Account, hash::hash, nonce, system_program},
         std::collections::HashMap,
     };

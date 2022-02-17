@@ -4,7 +4,7 @@ use {
     log::*,
     rand::{thread_rng, Rng},
     rayon::prelude::*,
-    solana_account_decoder::parse_token::spl_token_pubkey,
+    renec_account_decoder::parse_token::spl_token_pubkey,
     solana_clap_utils::input_parsers::pubkey_of,
     solana_client::rpc_client::RpcClient,
     renec_faucet::faucet::{request_airdrop_transaction, FAUCET_PORT},

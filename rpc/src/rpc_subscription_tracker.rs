@@ -1,7 +1,7 @@
 use {
     crate::rpc_subscriptions::{NotificationEntry, RpcNotification, TimestampedNotificationEntry},
     dashmap::{mapref::entry::Entry as DashEntry, DashMap},
-    solana_account_decoder::{UiAccountEncoding, UiDataSliceConfig},
+    renec_account_decoder::{UiAccountEncoding, UiDataSliceConfig},
     solana_client::rpc_filter::RpcFilterType,
     solana_metrics::{CounterToken, TokenCounter},
     solana_runtime::{

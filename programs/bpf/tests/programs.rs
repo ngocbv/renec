@@ -5,7 +5,7 @@ extern crate renec_bpf_loader_program;
 
 use itertools::izip;
 use log::{log_enabled, trace, Level::Trace};
-use solana_account_decoder::parse_bpf_loader::{
+use renec_account_decoder::parse_bpf_loader::{
     parse_bpf_upgradeable_loader, BpfUpgradeableLoaderAccountType,
 };
 use renec_bpf_loader_program::{
