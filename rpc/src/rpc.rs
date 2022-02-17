@@ -31,7 +31,7 @@ use {
         },
         rpc_response::{Response as RpcResponse, *},
     },
-    solana_faucet::faucet::request_airdrop_transaction,
+    renec_faucet::faucet::request_airdrop_transaction,
     solana_gossip::{cluster_info::ClusterInfo, contact_info::ContactInfo},
     solana_ledger::{
         blockstore::{Blockstore, SignatureInfosForAddress},

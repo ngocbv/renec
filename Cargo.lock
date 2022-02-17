@@ -3678,6 +3678,27 @@ dependencies = [
 ]
 
 [[package]]
+name = "renec-faucet"
+version = "1.8.14"
+dependencies = [
+ "bincode",
+ "byteorder",
+ "clap",
+ "log 0.4.14",
+ "renec-logger",
+ "renec-version",
+ "serde",
+ "serde_derive",
+ "solana-clap-utils",
+ "solana-cli-config",
+ "solana-metrics",
+ "solana-sdk",
+ "spl-memo",
+ "thiserror",
+ "tokio",
+]
+
+[[package]]
 name = "renec-genesis"
 version = "1.8.14"
 dependencies = [
@@ -3817,6 +3838,7 @@ dependencies = [
  "log 0.4.14",
  "num_cpus",
  "rand 0.7.3",
+ "renec-faucet",
  "renec-genesis-utils",
  "renec-logger",
  "renec-version",
@@ -3829,7 +3851,6 @@ dependencies = [
  "solana-client",
  "solana-core",
  "solana-download-utils",
- "solana-faucet",
  "solana-gossip",
  "solana-ledger",
  "solana-metrics",
@@ -4475,13 +4496,13 @@ dependencies = [
  "log 0.4.14",
  "rand 0.7.3",
  "rayon",
+ "renec-faucet",
  "renec-logger",
  "renec-version",
  "solana-account-decoder",
  "solana-clap-utils",
  "solana-client",
  "solana-core",
- "solana-faucet",
  "solana-gossip",
  "solana-local-cluster",
  "solana-measure",
@@ -4626,6 +4647,7 @@ dependencies = [
  "rand 0.7.3",
  "rayon",
  "renec-exchange-program",
+ "renec-faucet",
  "renec-genesis",
  "renec-logger",
  "renec-version",
@@ -4634,7 +4656,6 @@ dependencies = [
  "solana-clap-utils",
  "solana-client",
  "solana-core",
- "solana-faucet",
  "solana-gossip",
  "solana-local-cluster",
  "solana-metrics",
@@ -4664,6 +4685,7 @@ dependencies = [
  "clap",
  "log 0.4.14",
  "rayon",
+ "renec-faucet",
  "renec-genesis",
  "renec-logger",
  "renec-version",
@@ -4673,7 +4695,6 @@ dependencies = [
  "solana-clap-utils",
  "solana-client",
  "solana-core",
- "solana-faucet",
  "solana-gossip",
  "solana-local-cluster",
  "solana-measure",
@@ -4761,6 +4782,7 @@ dependencies = [
  "pretty-hex",
  "renec-bpf-loader-program",
  "renec-config-program",
+ "renec-faucet",
  "renec-logger",
  "renec-version",
  "renec-vote-program",
@@ -4775,7 +4797,6 @@ dependencies = [
  "solana-cli-output",
  "solana-client",
  "solana-core",
- "solana-faucet",
  "solana-net-utils",
  "solana-remote-wallet",
  "solana-sdk",
@@ -4839,6 +4860,7 @@ dependencies = [
  "log 0.4.14",
  "net2",
  "rayon",
+ "renec-faucet",
  "renec-logger",
  "renec-version",
  "renec-vote-program",
@@ -4849,7 +4871,6 @@ dependencies = [
  "serde_json",
  "solana-account-decoder",
  "solana-clap-utils",
- "solana-faucet",
  "solana-net-utils",
  "solana-sdk",
  "solana-transaction-status",
@@ -4997,27 +5018,6 @@ dependencies = [
  "solana-runtime",
  "solana-sdk",
  "tar",
-]
-
-[[package]]
-name = "solana-faucet"
-version = "1.8.14"
-dependencies = [
- "bincode",
- "byteorder",
- "clap",
- "log 0.4.14",
- "renec-logger",
- "renec-version",
- "serde",
- "serde_derive",
- "solana-clap-utils",
- "solana-cli-config",
- "solana-metrics",
- "solana-sdk",
- "spl-memo",
- "thiserror",
- "tokio",
 ]
 
 [[package]]
@@ -5264,6 +5264,7 @@ dependencies = [
  "rayon",
  "renec-config-program",
  "renec-exchange-program",
+ "renec-faucet",
  "renec-logger",
  "renec-stake-program",
  "renec-vote-program",
@@ -5271,7 +5272,6 @@ dependencies = [
  "solana-client",
  "solana-core",
  "solana-download-utils",
- "solana-faucet",
  "solana-gossip",
  "solana-ledger",
  "solana-rayon-threadlimit",
@@ -5589,6 +5589,7 @@ dependencies = [
  "log 0.4.14",
  "rayon",
  "regex",
+ "renec-faucet",
  "renec-logger",
  "renec-stake-program",
  "renec-version",
@@ -5600,7 +5601,6 @@ dependencies = [
  "soketto",
  "solana-account-decoder",
  "solana-client",
- "solana-faucet",
  "solana-gossip",
  "solana-ledger",
  "solana-measure",

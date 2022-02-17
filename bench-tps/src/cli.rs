@@ -1,6 +1,6 @@
 use {
     clap::{crate_description, crate_name, App, Arg, ArgMatches},
-    solana_faucet::faucet::FAUCET_PORT,
+    renec_faucet::faucet::FAUCET_PORT,
     solana_sdk::{
         fee_calculator::FeeRateGovernor,
         pubkey::Pubkey,

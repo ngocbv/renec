@@ -62,7 +62,7 @@ else
 fi
 
 solana_bench_tps=$(solana_program bench-tps)
-solana_faucet=$(solana_program faucet)
+renec_faucet=$(solana_program faucet)
 renec_validator=$(solana_program validator)
 renec_validator_cuda="$renec_validator --cuda"
 renec_genesis=$(solana_program genesis)

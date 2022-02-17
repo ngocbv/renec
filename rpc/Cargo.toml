@@ -32,7 +32,7 @@ serde_json = "1.0.56"
 soketto = "0.6"
 solana-account-decoder = { path = "../account-decoder", version = "=1.8.14" }
 solana-client = { path = "../client", version = "=1.8.14" }
-solana-faucet = { path = "../faucet", version = "=1.8.14" }
+renec-faucet = { path = "../faucet", version = "=1.8.14" }
 solana-gossip = { path = "../gossip", version = "=1.8.14" }
 solana-ledger = { path = "../ledger", version = "=1.8.14" }
 solana-measure = { path = "../measure", version = "=1.8.14" }

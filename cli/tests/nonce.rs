@@ -11,7 +11,7 @@ use {
         rpc_client::RpcClient,
     },
     solana_core::test_validator::TestValidator,
-    solana_faucet::faucet::run_local_faucet,
+    renec_faucet::faucet::run_local_faucet,
     solana_sdk::{
         commitment_config::CommitmentConfig,
         hash::Hash,
