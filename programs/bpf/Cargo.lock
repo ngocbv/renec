@@ -2746,7 +2746,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "solana-banks-server"
+name = "renec-banks-server"
 version = "1.8.14"
 dependencies = [
  "bincode",
@@ -3494,7 +3494,7 @@ dependencies = [
  "serde",
  "serde_derive",
  "renec-banks-client",
- "solana-banks-server",
+ "renec-banks-server",
  "renec-bpf-loader-program",
  "renec-logger 1.8.14",
  "solana-runtime",

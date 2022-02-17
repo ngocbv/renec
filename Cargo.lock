@@ -3751,7 +3751,7 @@ dependencies = [
  "futures 0.3.8",
  "mio 0.7.6",
  "solana-banks-interface",
- "solana-banks-server",
+ "renec-banks-server",
  "solana-program 1.8.14",
  "solana-runtime",
  "solana-sdk",
@@ -4618,7 +4618,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "solana-banks-server"
+name = "renec-banks-server"
 version = "1.8.14"
 dependencies = [
  "bincode",
@@ -4930,7 +4930,7 @@ dependencies = [
  "serde_derive",
  "serde_json",
  "serial_test",
- "solana-banks-server",
+ "renec-banks-server",
  "solana-bloom",
  "solana-clap-utils",
  "solana-client",
@@ -5535,7 +5535,7 @@ dependencies = [
  "renec-vote-program",
  "serde",
  "serde_derive",
- "solana-banks-server",
+ "renec-banks-server",
  "solana-runtime",
  "solana-sdk",
  "thiserror",

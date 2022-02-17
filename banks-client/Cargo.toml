@@ -24,7 +24,7 @@ tokio-serde = { version = "0.8", features = ["bincode"] }
 
 [dev-dependencies]
 solana-runtime = { path = "../runtime", version = "=1.8.14" }
-solana-banks-server = { path = "../banks-server", version = "=1.8.14" }
+renec-banks-server = { path = "../banks-server", version = "=1.8.14" }
 
 [lib]
 crate-type = ["lib"]
