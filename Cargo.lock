@@ -4041,6 +4041,43 @@ dependencies = [
 ]
 
 [[package]]
+name = "renec-dos"
+version = "1.8.14"
+dependencies = [
+ "bincode",
+ "clap",
+ "log 0.4.14",
+ "rand 0.7.3",
+ "rayon",
+ "renec-clap-utils",
+ "renec-client",
+ "renec-core",
+ "renec-logger",
+ "renec-version",
+ "solana-gossip",
+ "solana-ledger",
+ "solana-net-utils",
+ "solana-perf",
+ "solana-runtime",
+ "solana-sdk",
+ "solana-streamer",
+]
+
+[[package]]
+name = "renec-download-utils"
+version = "1.8.14"
+dependencies = [
+ "bzip2",
+ "console 0.14.1",
+ "indicatif",
+ "log 0.4.14",
+ "reqwest",
+ "solana-runtime",
+ "solana-sdk",
+ "tar",
+]
+
+[[package]]
 name = "renec-ed25519-program"
 version = "1.8.14"
 dependencies = [
@@ -4116,7 +4153,7 @@ dependencies = [
 name = "renec-genesis-utils"
 version = "1.8.14"
 dependencies = [
- "solana-download-utils",
+ "renec-download-utils",
  "solana-runtime",
  "solana-sdk",
 ]
@@ -4233,6 +4270,7 @@ dependencies = [
  "renec-cli-config",
  "renec-client",
  "renec-core",
+ "renec-download-utils",
  "renec-faucet",
  "renec-genesis-utils",
  "renec-logger",
@@ -4241,7 +4279,6 @@ dependencies = [
  "serde",
  "serde_json",
  "signal-hook",
- "solana-download-utils",
  "solana-gossip",
  "solana-ledger",
  "solana-metrics",
@@ -4920,8 +4957,8 @@ dependencies = [
  "cargo_metadata",
  "clap",
  "regex",
+ "renec-download-utils",
  "serial_test",
- "solana-download-utils",
  "solana-sdk",
  "tar",
 ]
@@ -4981,43 +5018,6 @@ dependencies = [
  "thiserror",
  "tiny-bip39",
  "url 2.2.0",
-]
-
-[[package]]
-name = "renec-dos"
-version = "1.8.14"
-dependencies = [
- "bincode",
- "clap",
- "log 0.4.14",
- "rand 0.7.3",
- "rayon",
- "renec-clap-utils",
- "renec-client",
- "renec-core",
- "renec-logger",
- "renec-version",
- "solana-gossip",
- "solana-ledger",
- "solana-net-utils",
- "solana-perf",
- "solana-runtime",
- "solana-sdk",
- "solana-streamer",
-]
-
-[[package]]
-name = "solana-download-utils"
-version = "1.8.14"
-dependencies = [
- "bzip2",
- "console 0.14.1",
- "indicatif",
- "log 0.4.14",
- "reqwest",
- "solana-runtime",
- "solana-sdk",
- "tar",
 ]
 
 [[package]]
@@ -5265,13 +5265,13 @@ dependencies = [
  "renec-client",
  "renec-config-program",
  "renec-core",
+ "renec-download-utils",
  "renec-exchange-program",
  "renec-faucet",
  "renec-logger",
  "renec-stake-program",
  "renec-vote-program",
  "serial_test",
- "solana-download-utils",
  "solana-gossip",
  "solana-ledger",
  "solana-rayon-threadlimit",
