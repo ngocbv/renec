@@ -4019,6 +4019,28 @@ dependencies = [
 ]
 
 [[package]]
+name = "renec-crate-features"
+version = "1.8.14"
+dependencies = [
+ "backtrace",
+ "bytes 0.4.12",
+ "cc",
+ "curve25519-dalek 2.1.0",
+ "ed25519-dalek",
+ "either",
+ "lazy_static",
+ "libc",
+ "rand_chacha 0.2.2",
+ "regex-syntax",
+ "reqwest",
+ "ring",
+ "serde",
+ "syn 0.15.44",
+ "syn 1.0.60",
+ "winapi 0.3.9",
+]
+
+[[package]]
 name = "renec-ed25519-program"
 version = "1.8.14"
 dependencies = [
@@ -4962,28 +4984,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "solana-crate-features"
-version = "1.8.14"
-dependencies = [
- "backtrace",
- "bytes 0.4.12",
- "cc",
- "curve25519-dalek 2.1.0",
- "ed25519-dalek",
- "either",
- "lazy_static",
- "libc",
- "rand_chacha 0.2.2",
- "regex-syntax",
- "reqwest",
- "ring",
- "serde",
- "syn 0.15.44",
- "syn 1.0.60",
- "winapi 0.3.9",
-]
-
-[[package]]
 name = "solana-dos"
 version = "1.8.14"
 dependencies = [
@@ -5717,6 +5717,7 @@ dependencies = [
  "rand 0.7.3",
  "rand_chacha 0.2.2",
  "rand_core 0.6.2",
+ "renec-crate-features",
  "renec-logger",
  "rustc_version 0.2.3",
  "rustversion",
@@ -5726,7 +5727,6 @@ dependencies = [
  "serde_json",
  "sha2",
  "sha3",
- "solana-crate-features",
  "solana-frozen-abi 1.8.14",
  "solana-frozen-abi-macro 1.8.14",
  "solana-program 1.8.14",

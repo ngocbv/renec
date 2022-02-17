@@ -3215,7 +3215,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "solana-crate-features"
+name = "renec-crate-features"
 version = "1.8.14"
 dependencies = [
  "backtrace",
@@ -3624,7 +3624,7 @@ dependencies = [
  "serde_json",
  "sha2",
  "sha3",
- "solana-crate-features",
+ "renec-crate-features",
  "solana-frozen-abi 1.8.14",
  "solana-frozen-abi-macro 1.8.14",
  "renec-logger 1.8.14",
