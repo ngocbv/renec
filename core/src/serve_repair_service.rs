@@ -1,7 +1,7 @@
 use {
     crate::serve_repair::ServeRepair,
     renec_ledger::blockstore::Blockstore,
-    solana_perf::recycler::Recycler,
+    renec_perf::recycler::Recycler,
     solana_streamer::{socket::SocketAddrSpace, streamer},
     std::{
         net::UdpSocket,

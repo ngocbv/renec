@@ -88,7 +88,7 @@ fn run_dos(
             data.resize(data_size, 0);
         }
         "transaction" => {
-            let tx = solana_perf::test_tx::test_tx();
+            let tx = renec_perf::test_tx::test_tx();
             info!("{:?}", tx);
             data = bincode::serialize(&tx).unwrap();
         }

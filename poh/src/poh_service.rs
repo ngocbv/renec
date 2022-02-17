@@ -366,7 +366,7 @@ mod tests {
             leader_schedule_cache::LeaderScheduleCache,
         },
         renec_measure::measure::Measure,
-        solana_perf::test_tx::test_tx,
+        renec_perf::test_tx::test_tx,
         solana_runtime::bank::Bank,
         solana_sdk::{clock, hash::hash, pubkey::Pubkey, timing},
         std::time::Duration,

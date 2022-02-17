@@ -19,7 +19,7 @@ renec-measure = { path = "../measure", version = "=1.8.14" }
 renec-logger = { path = "../logger", version = "=1.8.14" }
 libc = "0.2.81"
 nix = "0.20.0"
-solana-perf = { path = "../perf", version = "=1.8.14" }
+renec-perf = { path = "../perf", version = "=1.8.14" }
 
 [dev-dependencies]
 

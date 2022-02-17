@@ -3734,7 +3734,7 @@ dependencies = [
  "renec-logger",
  "renec-measure",
  "renec-version",
- "solana-perf",
+ "renec-perf",
  "solana-poh",
  "solana-runtime",
  "solana-sdk",
@@ -3836,7 +3836,7 @@ dependencies = [
  "chrono",
  "clap",
  "rpassword",
- "solana-perf",
+ "renec-perf",
  "solana-remote-wallet",
  "solana-sdk",
  "tempfile",
@@ -3999,7 +3999,7 @@ dependencies = [
  "serde_json",
  "serial_test",
  "solana-metrics",
- "solana-perf",
+ "renec-perf",
  "solana-poh",
  "solana-program-test",
  "solana-rayon-threadlimit",
@@ -4057,7 +4057,7 @@ dependencies = [
  "renec-logger",
  "renec-net-utils",
  "renec-version",
- "solana-perf",
+ "renec-perf",
  "solana-runtime",
  "solana-sdk",
  "solana-streamer",
@@ -4221,7 +4221,7 @@ dependencies = [
  "serde_derive",
  "serial_test",
  "solana-metrics",
- "solana-perf",
+ "renec-perf",
  "solana-rayon-threadlimit",
  "solana-runtime",
  "solana-sdk",
@@ -4321,7 +4321,7 @@ dependencies = [
  "serde_bytes",
  "sha2",
  "solana-metrics",
- "solana-perf",
+ "renec-perf",
  "solana-rayon-threadlimit",
  "solana-runtime",
  "solana-sdk",
@@ -4586,7 +4586,7 @@ dependencies = [
  "serde_json",
  "signal-hook",
  "solana-metrics",
- "solana-perf",
+ "renec-perf",
  "solana-poh",
  "solana-rpc",
  "solana-runtime",
@@ -5381,7 +5381,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "solana-perf"
+name = "renec-perf"
 version = "1.8.14"
 dependencies = [
  "ahash 0.7.6",
@@ -5421,7 +5421,7 @@ dependencies = [
  "renec-measure",
  "renec-sys-tuner",
  "solana-metrics",
- "solana-perf",
+ "renec-perf",
  "solana-runtime",
  "solana-sdk",
  "thiserror",
@@ -5440,7 +5440,7 @@ dependencies = [
  "renec-logger",
  "renec-measure",
  "renec-version",
- "solana-perf",
+ "renec-perf",
  "solana-sdk",
 ]
 
@@ -5606,7 +5606,7 @@ dependencies = [
  "serial_test",
  "soketto",
  "solana-metrics",
- "solana-perf",
+ "renec-perf",
  "solana-poh",
  "solana-rayon-threadlimit",
  "solana-runtime",
@@ -5843,7 +5843,7 @@ dependencies = [
  "renec-logger",
  "renec-measure",
  "solana-metrics",
- "solana-perf",
+ "renec-perf",
  "solana-sdk",
  "thiserror",
 ]

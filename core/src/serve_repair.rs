@@ -23,7 +23,7 @@ use {
     },
     renec_measure::measure::Measure,
     solana_metrics::inc_new_counter_debug,
-    solana_perf::packet::{limited_deserialize, PacketBatch, PacketBatchRecycler},
+    renec_perf::packet::{limited_deserialize, PacketBatch, PacketBatchRecycler},
     solana_sdk::{
         clock::Slot,
         pubkey::Pubkey,
@@ -649,7 +649,7 @@ mod tests {
             get_tmp_ledger_path,
             shred::{max_ticks_per_n_shreds, Shred},
         },
-        solana_perf::packet::Packet,
+        renec_perf::packet::Packet,
         solana_sdk::{hash::Hash, pubkey::Pubkey, signature::Keypair, timing::timestamp},
         solana_streamer::socket::SocketAddrSpace,
     };

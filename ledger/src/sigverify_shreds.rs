@@ -10,7 +10,7 @@ use {
     },
     sha2::{Digest, Sha512},
     solana_metrics::inc_new_counter_debug,
-    solana_perf::{
+    renec_perf::{
         cuda_runtime::PinnedVec,
         packet::{limited_deserialize, Packet, PacketBatch},
         perf_libs,

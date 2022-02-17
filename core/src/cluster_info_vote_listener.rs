@@ -21,7 +21,7 @@ use {
     renec_ledger::blockstore::Blockstore,
     renec_measure::measure::Measure,
     solana_metrics::inc_new_counter_debug,
-    solana_perf::packet::{self, PacketBatch},
+    renec_perf::packet::{self, PacketBatch},
     solana_poh::poh_recorder::PohRecorder,
     solana_rpc::{
         optimistically_confirmed_bank_tracker::{BankNotification, BankNotificationSender},
@@ -808,7 +808,7 @@ impl ClusterInfoVoteListener {
 mod tests {
     use {
         super::*,
-        solana_perf::packet,
+        renec_perf::packet,
         solana_rpc::optimistically_confirmed_bank_tracker::OptimisticallyConfirmedBank,
         solana_runtime::{
             bank::Bank,

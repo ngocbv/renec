@@ -14,7 +14,7 @@ use {
             SIZE_OF_DATA_SHRED_PAYLOAD,
         },
     },
-    solana_perf::test_tx,
+    renec_perf::test_tx,
     solana_sdk::{hash::Hash, signature::Keypair},
     std::sync::Arc,
     test::Bencher,

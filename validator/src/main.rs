@@ -36,7 +36,7 @@ use {
         gossip_service::GossipService,
     },
     renec_ledger::blockstore_db::BlockstoreRecoveryMode,
-    solana_perf::recycler::enable_recycler_warming,
+    renec_perf::recycler::enable_recycler_warming,
     solana_poh::poh_service,
     solana_rpc::{rpc::JsonRpcConfig, rpc_pubsub_service::PubSubConfig, send_transaction_service},
     solana_runtime::{
@@ -2289,7 +2289,7 @@ pub fn main() {
 
     let cuda = matches.is_present("cuda");
     if cuda {
-        solana_perf::perf_libs::init_cuda();
+        renec_perf::perf_libs::init_cuda();
         enable_recycler_warming();
     }
 

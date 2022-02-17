@@ -363,7 +363,7 @@ where
             value, err
         )
     })?;
-    if solana_perf::thread::is_renice_allowed(adjustment) {
+    if renec_perf::thread::is_renice_allowed(adjustment) {
         Ok(())
     } else {
         Err(String::from(

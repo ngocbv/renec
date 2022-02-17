@@ -3118,7 +3118,7 @@ dependencies = [
  "chrono",
  "clap",
  "rpassword",
- "solana-perf",
+ "renec-perf",
  "solana-remote-wallet",
  "solana-sdk",
  "thiserror",
@@ -3386,7 +3386,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "solana-perf"
+name = "renec-perf"
 version = "1.8.14"
 dependencies = [
  "ahash 0.7.6",

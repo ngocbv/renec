@@ -6,7 +6,7 @@ use renec_ledger::entry::{create_ticks, init_poh, EntrySlice, VerifyRecyclers};
 use {
     clap::{crate_description, crate_name, value_t, App, Arg},
     renec_measure::measure::Measure,
-    solana_perf::perf_libs,
+    renec_perf::perf_libs,
     solana_sdk::hash::hash,
 };
 

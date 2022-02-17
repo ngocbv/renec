@@ -6,7 +6,7 @@ use {
         result::{Error, Result},
     },
     solana_metrics::{inc_new_counter_debug, inc_new_counter_info},
-    solana_perf::{packet::PacketBatchRecycler, recycler::Recycler},
+    renec_perf::{packet::PacketBatchRecycler, recycler::Recycler},
     solana_poh::poh_recorder::PohRecorder,
     solana_sdk::{clock::DEFAULT_TICKS_PER_SLOT, packet::Packet},
     solana_streamer::streamer::{self, PacketBatchReceiver, PacketBatchSender},

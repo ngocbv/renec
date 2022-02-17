@@ -1,6 +1,6 @@
 //! The `validator` module hosts all the validator microservices.
 
-pub use solana_perf::report_target_features;
+pub use renec_perf::report_target_features;
 use {
     crate::{
         broadcast_stage::BroadcastStageType,
@@ -345,7 +345,7 @@ impl Validator {
             info!("entrypoint: {:?}", cluster_entrypoint);
         }
 
-        if solana_perf::perf_libs::api().is_some() {
+        if renec_perf::perf_libs::api().is_some() {
             info!("Initializing sigverify, this could take a while...");
         } else {
             info!("Initializing sigverify...");

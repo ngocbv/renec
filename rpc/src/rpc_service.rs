@@ -21,7 +21,7 @@ use {
         leader_schedule_cache::LeaderScheduleCache,
     },
     solana_metrics::inc_new_counter_info,
-    solana_perf::thread::renice_this_thread,
+    renec_perf::thread::renice_this_thread,
     solana_poh::poh_recorder::PohRecorder,
     solana_runtime::{
         bank_forks::{BankForks, SnapshotConfig},

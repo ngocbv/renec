@@ -40,7 +40,7 @@ use {
         leader_schedule_cache::LeaderScheduleCache,
     },
     solana_metrics::inc_new_counter_info,
-    solana_perf::packet::PACKET_DATA_SIZE,
+    renec_perf::packet::PACKET_DATA_SIZE,
     solana_runtime::{
         accounts::AccountAddressFilter,
         accounts_index::{AccountIndex, AccountSecondaryIndexes, IndexKey},

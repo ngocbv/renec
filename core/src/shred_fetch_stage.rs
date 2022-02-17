@@ -4,7 +4,7 @@ use {
     crate::packet_hasher::PacketHasher,
     lru::LruCache,
     renec_ledger::shred::{get_shred_slot_index_type, ShredFetchStats},
-    solana_perf::{
+    renec_perf::{
         cuda_runtime::PinnedVec,
         packet::{Packet, PacketBatchRecycler},
         recycler::Recycler,

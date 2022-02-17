@@ -20,7 +20,7 @@ renec-gossip = { path = "../gossip", version = "=1.8.14" }
 renec-ledger = { path = "../ledger", version = "=1.8.14" }
 renec-logger = { path = "../logger", version = "=1.8.14" }
 renec-measure = { path = "../measure", version = "=1.8.14" }
-solana-perf = { path = "../perf", version = "=1.8.14" }
+renec-perf = { path = "../perf", version = "=1.8.14" }
 solana-poh = { path = "../poh", version = "=1.8.14" }
 solana-runtime = { path = "../runtime", version = "=1.8.14" }
 solana-streamer = { path = "../streamer", version = "=1.8.14" }
