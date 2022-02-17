@@ -3627,6 +3627,48 @@ dependencies = [
 ]
 
 [[package]]
+name = "renec-accounts-bench"
+version = "1.8.14"
+dependencies = [
+ "clap",
+ "crossbeam-channel 0.4.4",
+ "log 0.4.14",
+ "rand 0.7.3",
+ "rayon",
+ "renec-logger",
+ "renec-version",
+ "solana-measure",
+ "solana-runtime",
+ "solana-sdk",
+]
+
+[[package]]
+name = "renec-accounts-cluster-bench"
+version = "1.8.14"
+dependencies = [
+ "clap",
+ "log 0.4.14",
+ "rand 0.7.3",
+ "rayon",
+ "renec-account-decoder",
+ "renec-faucet",
+ "renec-logger",
+ "renec-version",
+ "solana-clap-utils",
+ "solana-client",
+ "solana-core",
+ "solana-gossip",
+ "solana-local-cluster",
+ "solana-measure",
+ "solana-net-utils",
+ "solana-runtime",
+ "solana-sdk",
+ "solana-streamer",
+ "solana-transaction-status",
+ "spl-token",
+]
+
+[[package]]
 name = "renec-bpf-loader-program"
 version = "1.8.14"
 dependencies = [
@@ -4470,48 +4512,6 @@ dependencies = [
  "log 0.4.14",
  "rand 0.8.3",
  "sha-1 0.9.7",
-]
-
-[[package]]
-name = "solana-accounts-bench"
-version = "1.8.14"
-dependencies = [
- "clap",
- "crossbeam-channel 0.4.4",
- "log 0.4.14",
- "rand 0.7.3",
- "rayon",
- "renec-logger",
- "renec-version",
- "solana-measure",
- "solana-runtime",
- "solana-sdk",
-]
-
-[[package]]
-name = "solana-accounts-cluster-bench"
-version = "1.8.14"
-dependencies = [
- "clap",
- "log 0.4.14",
- "rand 0.7.3",
- "rayon",
- "renec-account-decoder",
- "renec-faucet",
- "renec-logger",
- "renec-version",
- "solana-clap-utils",
- "solana-client",
- "solana-core",
- "solana-gossip",
- "solana-local-cluster",
- "solana-measure",
- "solana-net-utils",
- "solana-runtime",
- "solana-sdk",
- "solana-streamer",
- "solana-transaction-status",
- "spl-token",
 ]
 
 [[package]]
