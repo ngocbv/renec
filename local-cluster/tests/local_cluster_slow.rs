@@ -20,7 +20,7 @@ use {
         gossip_service::discover_cluster,
     },
     renec_ledger::ancestor_iterator::AncestorIterator,
-    solana_local_cluster::{
+    renec_local_cluster::{
         cluster::{Cluster, ClusterValidatorInfo},
         local_cluster::{ClusterConfig, LocalCluster},
         validator_configs::*,

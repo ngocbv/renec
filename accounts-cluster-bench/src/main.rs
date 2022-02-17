@@ -706,7 +706,7 @@ pub mod test {
     use {
         super::*,
         renec_core::validator::ValidatorConfig,
-        solana_local_cluster::{
+        renec_local_cluster::{
             local_cluster::{ClusterConfig, LocalCluster},
             validator_configs::make_identical_validator_configs,
         },

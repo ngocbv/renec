@@ -12,7 +12,7 @@ use {
     renec_ledger::{
         ancestor_iterator::AncestorIterator, blockstore::Blockstore, blockstore_db::AccessType,
     },
-    solana_local_cluster::{
+    renec_local_cluster::{
         cluster::Cluster,
         local_cluster::{ClusterConfig, LocalCluster},
         validator_configs::*,

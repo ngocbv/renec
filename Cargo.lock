@@ -3656,9 +3656,9 @@ dependencies = [
  "renec-core",
  "renec-faucet",
  "renec-gossip",
+ "renec-local-cluster",
  "renec-logger",
  "renec-version",
- "solana-local-cluster",
  "solana-measure",
  "solana-net-utils",
  "solana-runtime",
@@ -4370,6 +4370,38 @@ dependencies = [
  "solana-transaction-status",
  "tempfile",
  "tokio",
+]
+
+[[package]]
+name = "renec-local-cluster"
+version = "1.8.14"
+dependencies = [
+ "assert_matches",
+ "crossbeam-channel 0.4.4",
+ "fs_extra",
+ "gag",
+ "itertools 0.9.0",
+ "log 0.4.14",
+ "rand 0.7.3",
+ "rayon",
+ "renec-client",
+ "renec-config-program",
+ "renec-core",
+ "renec-download-utils",
+ "renec-exchange-program",
+ "renec-faucet",
+ "renec-gossip",
+ "renec-ledger",
+ "renec-logger",
+ "renec-stake-program",
+ "renec-vote-program",
+ "serial_test",
+ "solana-rayon-threadlimit",
+ "solana-rpc",
+ "solana-runtime",
+ "solana-sdk",
+ "solana-streamer",
+ "tempfile",
 ]
 
 [[package]]
@@ -5095,11 +5127,11 @@ dependencies = [
  "renec-faucet",
  "renec-genesis",
  "renec-gossip",
+ "renec-local-cluster",
  "renec-logger",
  "renec-version",
  "serde_json",
  "serde_yaml",
- "solana-local-cluster",
  "solana-metrics",
  "solana-net-utils",
  "solana-runtime",
@@ -5133,12 +5165,12 @@ dependencies = [
  "renec-faucet",
  "renec-genesis",
  "renec-gossip",
+ "renec-local-cluster",
  "renec-logger",
  "renec-version",
  "serde_json",
  "serde_yaml",
  "serial_test",
- "solana-local-cluster",
  "solana-measure",
  "solana-metrics",
  "solana-net-utils",
@@ -5248,38 +5280,6 @@ dependencies = [
  "quote 1.0.9",
  "rustc_version 0.2.3",
  "syn 1.0.60",
-]
-
-[[package]]
-name = "solana-local-cluster"
-version = "1.8.14"
-dependencies = [
- "assert_matches",
- "crossbeam-channel 0.4.4",
- "fs_extra",
- "gag",
- "itertools 0.9.0",
- "log 0.4.14",
- "rand 0.7.3",
- "rayon",
- "renec-client",
- "renec-config-program",
- "renec-core",
- "renec-download-utils",
- "renec-exchange-program",
- "renec-faucet",
- "renec-gossip",
- "renec-ledger",
- "renec-logger",
- "renec-stake-program",
- "renec-vote-program",
- "serial_test",
- "solana-rayon-threadlimit",
- "solana-rpc",
- "solana-runtime",
- "solana-sdk",
- "solana-streamer",
- "tempfile",
 ]
 
 [[package]]
