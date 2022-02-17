@@ -94,7 +94,7 @@ else
     solana-ledger-tool
     renec-log-analyzer
     solana-net-shaper
-    solana-sys-tuner
+    renec-sys-tuner
     renec-validator
   )
 
