@@ -3119,7 +3119,7 @@ dependencies = [
  "clap",
  "rpassword",
  "renec-perf",
- "solana-remote-wallet",
+ "renec-remote-wallet",
  "solana-sdk",
  "thiserror",
  "tiny-bip39",
@@ -3513,7 +3513,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "solana-remote-wallet"
+name = "renec-remote-wallet"
 version = "1.8.14"
 dependencies = [
  "base32",

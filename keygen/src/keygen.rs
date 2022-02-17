@@ -15,7 +15,7 @@ use {
         ArgConstant, DisplayError,
     },
     renec_cli_config::{Config, CONFIG_FILE},
-    solana_remote_wallet::remote_wallet::RemoteWalletManager,
+    renec_remote_wallet::remote_wallet::RemoteWalletManager,
     solana_sdk::{
         instruction::{AccountMeta, Instruction},
         message::Message,

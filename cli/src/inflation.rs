@@ -10,7 +10,7 @@ use {
         CliEpochRewardshMetadata, CliInflation, CliKeyedEpochReward, CliKeyedEpochRewards,
     },
     renec_client::rpc_client::RpcClient,
-    solana_remote_wallet::remote_wallet::RemoteWalletManager,
+    renec_remote_wallet::remote_wallet::RemoteWalletManager,
     solana_sdk::{clock::Epoch, pubkey::Pubkey},
     std::sync::Arc,
 };

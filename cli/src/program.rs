@@ -25,7 +25,7 @@ use {
         tpu_client::{TpuClient, TpuClientConfig},
     },
     solana_rbpf::{elf::Executable, verifier, vm::Config},
-    solana_remote_wallet::remote_wallet::RemoteWalletManager,
+    renec_remote_wallet::remote_wallet::RemoteWalletManager,
     solana_sdk::{
         account::Account,
         account_utils::StateMut,

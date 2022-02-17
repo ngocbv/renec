@@ -3836,8 +3836,8 @@ dependencies = [
  "chrono",
  "clap",
  "renec-perf",
+ "renec-remote-wallet",
  "rpassword",
- "solana-remote-wallet",
  "solana-sdk",
  "tempfile",
  "thiserror",
@@ -3990,6 +3990,7 @@ dependencies = [
  "renec-perf",
  "renec-poh",
  "renec-program-test",
+ "renec-rayon-threadlimit",
  "renec-stake-program",
  "renec-version",
  "renec-vote-program",
@@ -4002,7 +4003,6 @@ dependencies = [
  "serde_json",
  "serial_test",
  "solana-metrics",
- "renec-rayon-threadlimit",
  "solana-rpc",
  "solana-runtime",
  "solana-sdk",
@@ -4214,6 +4214,7 @@ dependencies = [
  "renec-measure",
  "renec-net-utils",
  "renec-perf",
+ "renec-rayon-threadlimit",
  "renec-version",
  "renec-vote-program",
  "rustc_version 0.2.3",
@@ -4222,7 +4223,6 @@ dependencies = [
  "serde_derive",
  "serial_test",
  "solana-metrics",
- "renec-rayon-threadlimit",
  "solana-runtime",
  "solana-sdk",
  "solana-streamer",
@@ -4272,8 +4272,8 @@ dependencies = [
  "num_cpus",
  "renec-clap-utils",
  "renec-cli-config",
+ "renec-remote-wallet",
  "renec-version",
- "solana-remote-wallet",
  "solana-sdk",
  "tiny-bip39",
 ]
@@ -4315,6 +4315,7 @@ dependencies = [
  "renec-measure",
  "renec-merkle-tree",
  "renec-perf",
+ "renec-rayon-threadlimit",
  "renec-vote-program",
  "rocksdb",
  "rustc_version 0.2.3",
@@ -4322,7 +4323,6 @@ dependencies = [
  "serde_bytes",
  "sha2",
  "solana-metrics",
- "renec-rayon-threadlimit",
  "solana-runtime",
  "solana-sdk",
  "solana-storage-bigtable",
@@ -4393,10 +4393,10 @@ dependencies = [
  "renec-gossip",
  "renec-ledger",
  "renec-logger",
+ "renec-rayon-threadlimit",
  "renec-stake-program",
  "renec-vote-program",
  "serial_test",
- "renec-rayon-threadlimit",
  "solana-rpc",
  "solana-runtime",
  "solana-sdk",
@@ -4518,10 +4518,10 @@ dependencies = [
  "rayon",
  "renec-bloom",
  "renec-logger",
+ "renec-rayon-threadlimit",
  "renec-vote-program",
  "serde",
  "solana-metrics",
- "renec-rayon-threadlimit",
  "solana-sdk",
 ]
 
@@ -4586,6 +4586,33 @@ dependencies = [
  "solana-sdk",
  "thiserror",
  "tokio",
+]
+
+[[package]]
+name = "renec-rayon-threadlimit"
+version = "1.8.14"
+dependencies = [
+ "lazy_static",
+ "num_cpus",
+]
+
+[[package]]
+name = "renec-remote-wallet"
+version = "1.8.14"
+dependencies = [
+ "base32",
+ "console 0.14.1",
+ "dialoguer",
+ "hidapi",
+ "log 0.4.14",
+ "num-derive",
+ "num-traits",
+ "parking_lot 0.10.2",
+ "qstring",
+ "semver 0.9.0",
+ "solana-sdk",
+ "thiserror",
+ "uriparse",
 ]
 
 [[package]]
@@ -5393,6 +5420,7 @@ dependencies = [
  "renec-faucet",
  "renec-logger",
  "renec-net-utils",
+ "renec-remote-wallet",
  "renec-version",
  "renec-vote-program",
  "reqwest",
@@ -5400,7 +5428,6 @@ dependencies = [
  "serde",
  "serde_derive",
  "serde_json",
- "solana-remote-wallet",
  "solana-sdk",
  "solana-streamer",
  "solana-transaction-status",
@@ -5543,33 +5570,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "renec-rayon-threadlimit"
-version = "1.8.14"
-dependencies = [
- "lazy_static",
- "num_cpus",
-]
-
-[[package]]
-name = "solana-remote-wallet"
-version = "1.8.14"
-dependencies = [
- "base32",
- "console 0.14.1",
- "dialoguer",
- "hidapi",
- "log 0.4.14",
- "num-derive",
- "num-traits",
- "parking_lot 0.10.2",
- "qstring",
- "semver 0.9.0",
- "solana-sdk",
- "thiserror",
- "uriparse",
-]
-
-[[package]]
 name = "solana-rpc"
 version = "1.8.14"
 dependencies = [
@@ -5599,6 +5599,7 @@ dependencies = [
  "renec-net-utils",
  "renec-perf",
  "renec-poh",
+ "renec-rayon-threadlimit",
  "renec-stake-program",
  "renec-version",
  "renec-vote-program",
@@ -5608,7 +5609,6 @@ dependencies = [
  "serial_test",
  "soketto",
  "solana-metrics",
- "renec-rayon-threadlimit",
  "solana-runtime",
  "solana-sdk",
  "solana-storage-bigtable",
@@ -5659,6 +5659,7 @@ dependencies = [
  "renec-frozen-abi-macro",
  "renec-logger",
  "renec-measure",
+ "renec-rayon-threadlimit",
  "renec-secp256k1-program",
  "renec-stake-program",
  "renec-vote-program",
@@ -5666,7 +5667,6 @@ dependencies = [
  "serde",
  "serde_derive",
  "solana-metrics",
- "renec-rayon-threadlimit",
  "solana-sdk",
  "symlink",
  "tar",
@@ -5768,8 +5768,8 @@ dependencies = [
  "renec-clap-utils",
  "renec-cli-config",
  "renec-client",
+ "renec-remote-wallet",
  "renec-stake-program",
- "solana-remote-wallet",
  "solana-runtime",
  "solana-sdk",
 ]
@@ -5869,9 +5869,9 @@ dependencies = [
  "renec-core",
  "renec-logger",
  "renec-program-test",
+ "renec-remote-wallet",
  "renec-version",
  "serde",
- "solana-remote-wallet",
  "solana-runtime",
  "solana-sdk",
  "solana-streamer",

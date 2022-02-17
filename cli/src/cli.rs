@@ -20,7 +20,7 @@ use {
             RpcLargestAccountsFilter, RpcSendTransactionConfig, RpcTransactionLogsFilter,
         },
     },
-    solana_remote_wallet::remote_wallet::RemoteWalletManager,
+    renec_remote_wallet::remote_wallet::RemoteWalletManager,
     solana_sdk::{
         clock::{Epoch, Slot},
         commitment_config::CommitmentConfig,
