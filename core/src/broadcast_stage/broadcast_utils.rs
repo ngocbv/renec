@@ -1,7 +1,7 @@
 use {
     crate::result::Result,
     renec_ledger::{entry::Entry, shred::Shred},
-    solana_poh::poh_recorder::WorkingBankEntry,
+    renec_poh::poh_recorder::WorkingBankEntry,
     solana_runtime::bank::Bank,
     solana_sdk::clock::Slot,
     std::{

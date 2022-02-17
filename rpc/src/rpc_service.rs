@@ -22,7 +22,7 @@ use {
     },
     solana_metrics::inc_new_counter_info,
     renec_perf::thread::renice_this_thread,
-    solana_poh::poh_recorder::PohRecorder,
+    renec_poh::poh_recorder::PohRecorder,
     solana_runtime::{
         bank_forks::{BankForks, SnapshotConfig},
         commitment::BlockCommitmentCache,

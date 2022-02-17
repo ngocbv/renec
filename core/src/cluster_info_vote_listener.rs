@@ -22,7 +22,7 @@ use {
     renec_measure::measure::Measure,
     solana_metrics::inc_new_counter_debug,
     renec_perf::packet::{self, PacketBatch},
-    solana_poh::poh_recorder::PohRecorder,
+    renec_poh::poh_recorder::PohRecorder,
     solana_rpc::{
         optimistically_confirmed_bank_tracker::{BankNotification, BankNotificationSender},
         rpc_subscriptions::RpcSubscriptions,

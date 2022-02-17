@@ -41,7 +41,7 @@ use {
     },
     renec_measure::measure::Measure,
     solana_metrics::datapoint_info,
-    solana_poh::{
+    renec_poh::{
         poh_recorder::{PohRecorder, GRACE_TICKS_FACTOR, MAX_GRACE_SLOTS},
         poh_service::{self, PohService},
     },

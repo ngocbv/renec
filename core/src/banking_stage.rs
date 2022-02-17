@@ -16,7 +16,7 @@ use {
         packet::{limited_deserialize, Packet, PacketBatch, PACKETS_PER_BATCH},
         perf_libs,
     },
-    solana_poh::poh_recorder::{PohRecorder, PohRecorderError, TransactionRecorder},
+    renec_poh::poh_recorder::{PohRecorder, PohRecorderError, TransactionRecorder},
     solana_runtime::{
         accounts_db::ErrorCounters,
         bank::{Bank, TransactionBalancesSet, TransactionCheckResult, TransactionExecutionResult},
@@ -1669,7 +1669,7 @@ mod tests {
             leader_schedule_cache::LeaderScheduleCache,
         },
         renec_perf::packet::to_packet_batches,
-        solana_poh::{
+        renec_poh::{
             poh_recorder::{create_test_recorder, Record, WorkingBank, WorkingBankEntry},
             poh_service::PohService,
         },

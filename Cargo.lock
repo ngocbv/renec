@@ -3733,9 +3733,9 @@ dependencies = [
  "renec-ledger",
  "renec-logger",
  "renec-measure",
- "renec-version",
  "renec-perf",
- "solana-poh",
+ "renec-poh",
+ "renec-version",
  "solana-runtime",
  "solana-sdk",
  "solana-streamer",
@@ -3835,8 +3835,8 @@ version = "1.8.14"
 dependencies = [
  "chrono",
  "clap",
- "rpassword",
  "renec-perf",
+ "rpassword",
  "solana-remote-wallet",
  "solana-sdk",
  "tempfile",
@@ -3987,6 +3987,8 @@ dependencies = [
  "renec-measure",
  "renec-merkle-tree",
  "renec-net-utils",
+ "renec-perf",
+ "renec-poh",
  "renec-stake-program",
  "renec-version",
  "renec-vote-program",
@@ -3999,8 +4001,6 @@ dependencies = [
  "serde_json",
  "serial_test",
  "solana-metrics",
- "renec-perf",
- "solana-poh",
  "solana-program-test",
  "solana-rayon-threadlimit",
  "solana-rpc",
@@ -4056,8 +4056,8 @@ dependencies = [
  "renec-ledger",
  "renec-logger",
  "renec-net-utils",
- "renec-version",
  "renec-perf",
+ "renec-version",
  "solana-runtime",
  "solana-sdk",
  "solana-streamer",
@@ -4213,6 +4213,7 @@ dependencies = [
  "renec-logger",
  "renec-measure",
  "renec-net-utils",
+ "renec-perf",
  "renec-version",
  "renec-vote-program",
  "rustc_version 0.2.3",
@@ -4221,7 +4222,6 @@ dependencies = [
  "serde_derive",
  "serial_test",
  "solana-metrics",
- "renec-perf",
  "solana-rayon-threadlimit",
  "solana-runtime",
  "solana-sdk",
@@ -4314,6 +4314,7 @@ dependencies = [
  "renec-logger",
  "renec-measure",
  "renec-merkle-tree",
+ "renec-perf",
  "renec-vote-program",
  "rocksdb",
  "rustc_version 0.2.3",
@@ -4321,7 +4322,6 @@ dependencies = [
  "serde_bytes",
  "sha2",
  "solana-metrics",
- "renec-perf",
  "solana-rayon-threadlimit",
  "solana-runtime",
  "solana-sdk",
@@ -4500,6 +4500,70 @@ dependencies = [
 ]
 
 [[package]]
+name = "renec-perf"
+version = "1.8.14"
+dependencies = [
+ "ahash 0.7.6",
+ "bincode",
+ "caps",
+ "curve25519-dalek 2.1.0",
+ "dlopen",
+ "dlopen_derive",
+ "lazy_static",
+ "libc",
+ "log 0.4.14",
+ "matches",
+ "nix 0.20.2",
+ "rand 0.7.3",
+ "rayon",
+ "renec-bloom",
+ "renec-logger",
+ "renec-vote-program",
+ "serde",
+ "solana-metrics",
+ "solana-rayon-threadlimit",
+ "solana-sdk",
+]
+
+[[package]]
+name = "renec-poh"
+version = "1.8.14"
+dependencies = [
+ "bincode",
+ "core_affinity",
+ "crossbeam-channel 0.4.4",
+ "log 0.4.14",
+ "matches",
+ "rand 0.7.3",
+ "renec-ledger",
+ "renec-logger",
+ "renec-measure",
+ "renec-perf",
+ "renec-sys-tuner",
+ "solana-metrics",
+ "solana-runtime",
+ "solana-sdk",
+ "thiserror",
+]
+
+[[package]]
+name = "renec-poh-bench"
+version = "1.8.14"
+dependencies = [
+ "clap",
+ "log 0.4.14",
+ "rand 0.7.3",
+ "rayon",
+ "renec-clap-utils",
+ "renec-ledger",
+ "renec-logger",
+ "renec-measure",
+ "renec-perf",
+ "renec-version",
+ "solana-sdk",
+]
+
+[[package]]
 name = "renec-secp256k1-program"
 version = "1.8.14"
 dependencies = [
@@ -4580,14 +4644,14 @@ dependencies = [
  "renec-ledger",
  "renec-logger",
  "renec-net-utils",
+ "renec-perf",
+ "renec-poh",
  "renec-version",
  "renec-vote-program",
  "serde",
  "serde_json",
  "signal-hook",
  "solana-metrics",
- "renec-perf",
- "solana-poh",
  "solana-rpc",
  "solana-runtime",
  "solana-sdk",
@@ -5381,70 +5445,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "renec-perf"
-version = "1.8.14"
-dependencies = [
- "ahash 0.7.6",
- "bincode",
- "caps",
- "curve25519-dalek 2.1.0",
- "dlopen",
- "dlopen_derive",
- "lazy_static",
- "libc",
- "log 0.4.14",
- "matches",
- "nix 0.20.2",
- "rand 0.7.3",
- "rayon",
- "renec-bloom",
- "renec-logger",
- "renec-vote-program",
- "serde",
- "solana-metrics",
- "solana-rayon-threadlimit",
- "solana-sdk",
-]
-
-[[package]]
-name = "solana-poh"
-version = "1.8.14"
-dependencies = [
- "bincode",
- "core_affinity",
- "crossbeam-channel 0.4.4",
- "log 0.4.14",
- "matches",
- "rand 0.7.3",
- "renec-ledger",
- "renec-logger",
- "renec-measure",
- "renec-sys-tuner",
- "solana-metrics",
- "renec-perf",
- "solana-runtime",
- "solana-sdk",
- "thiserror",
-]
-
-[[package]]
-name = "solana-poh-bench"
-version = "1.8.14"
-dependencies = [
- "clap",
- "log 0.4.14",
- "rand 0.7.3",
- "rayon",
- "renec-clap-utils",
- "renec-ledger",
- "renec-logger",
- "renec-measure",
- "renec-version",
- "renec-perf",
- "solana-sdk",
-]
-
-[[package]]
 name = "solana-program"
 version = "1.7.6"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -5597,6 +5597,8 @@ dependencies = [
  "renec-logger",
  "renec-measure",
  "renec-net-utils",
+ "renec-perf",
+ "renec-poh",
  "renec-stake-program",
  "renec-version",
  "renec-vote-program",
@@ -5606,8 +5608,6 @@ dependencies = [
  "serial_test",
  "soketto",
  "solana-metrics",
- "renec-perf",
- "solana-poh",
  "solana-rayon-threadlimit",
  "solana-runtime",
  "solana-sdk",
@@ -5842,8 +5842,8 @@ dependencies = [
  "nix 0.20.2",
  "renec-logger",
  "renec-measure",
- "solana-metrics",
  "renec-perf",
+ "solana-metrics",
  "solana-sdk",
  "thiserror",
 ]

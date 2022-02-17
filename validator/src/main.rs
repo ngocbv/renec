@@ -37,7 +37,7 @@ use {
     },
     renec_ledger::blockstore_db::BlockstoreRecoveryMode,
     renec_perf::recycler::enable_recycler_warming,
-    solana_poh::poh_service,
+    renec_poh::poh_service,
     solana_rpc::{rpc::JsonRpcConfig, rpc_pubsub_service::PubSubConfig, send_transaction_service},
     solana_runtime::{
         accounts_db::{

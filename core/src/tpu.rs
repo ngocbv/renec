@@ -16,7 +16,7 @@ use {
     crossbeam_channel::unbounded,
     renec_gossip::cluster_info::ClusterInfo,
     renec_ledger::{blockstore::Blockstore, blockstore_processor::TransactionStatusSender},
-    solana_poh::poh_recorder::{PohRecorder, WorkingBankEntry},
+    renec_poh::poh_recorder::{PohRecorder, WorkingBankEntry},
     solana_rpc::{
         optimistically_confirmed_bank_tracker::BankNotificationSender,
         rpc_subscriptions::RpcSubscriptions,
