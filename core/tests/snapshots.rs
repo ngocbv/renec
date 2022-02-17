@@ -41,7 +41,7 @@ mod tests {
         fs_extra::dir::CopyOptions,
         itertools::Itertools,
         renec_core::snapshot_packager_service::{PendingSnapshotPackage, SnapshotPackagerService},
-        solana_gossip::{cluster_info::ClusterInfo, contact_info::ContactInfo},
+        renec_gossip::{cluster_info::ClusterInfo, contact_info::ContactInfo},
         solana_runtime::{
             accounts_background_service::{AbsRequestSender, SnapshotRequestHandler},
             accounts_db,

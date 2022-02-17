@@ -16,7 +16,7 @@ use {
         Sender as CrossbeamSender,
     },
     itertools::Itertools,
-    solana_gossip::cluster_info::{ClusterInfo, ClusterInfoError},
+    renec_gossip::cluster_info::{ClusterInfo, ClusterInfoError},
     solana_ledger::{blockstore::Blockstore, shred::Shred},
     solana_measure::measure::Measure,
     solana_metrics::{inc_new_counter_error, inc_new_counter_info},
@@ -453,7 +453,7 @@ pub mod test {
     use {
         super::*,
         crossbeam_channel::unbounded,
-        solana_gossip::cluster_info::{ClusterInfo, Node},
+        renec_gossip::cluster_info::{ClusterInfo, Node},
         solana_ledger::{
             blockstore::{make_slot_entries, Blockstore},
             entry::create_ticks,

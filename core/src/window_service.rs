@@ -14,7 +14,7 @@ use {
         unbounded, Receiver as CrossbeamReceiver, RecvTimeoutError, Sender as CrossbeamSender,
     },
     rayon::{prelude::*, ThreadPool},
-    solana_gossip::cluster_info::ClusterInfo,
+    renec_gossip::cluster_info::ClusterInfo,
     solana_ledger::{
         blockstore::{self, Blockstore, BlockstoreInsertionMetrics, MAX_DATA_SHREDS_PER_SLOT},
         leader_schedule_cache::LeaderScheduleCache,
@@ -713,7 +713,7 @@ impl WindowService {
 mod test {
     use {
         super::*,
-        solana_gossip::contact_info::ContactInfo,
+        renec_gossip::contact_info::ContactInfo,
         solana_ledger::{
             blockstore::{make_many_slot_entries, Blockstore},
             entry::{create_ticks, Entry},

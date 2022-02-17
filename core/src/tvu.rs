@@ -26,7 +26,7 @@ use {
         voting_service::VotingService,
     },
     crossbeam_channel::unbounded,
-    solana_gossip::cluster_info::ClusterInfo,
+    renec_gossip::cluster_info::ClusterInfo,
     solana_ledger::{
         blockstore::Blockstore, blockstore_processor::TransactionStatusSender,
         leader_schedule_cache::LeaderScheduleCache,
@@ -380,7 +380,7 @@ pub mod tests {
     use {
         super::*,
         serial_test::serial,
-        solana_gossip::cluster_info::{ClusterInfo, Node},
+        renec_gossip::cluster_info::{ClusterInfo, Node},
         solana_ledger::{
             blockstore::BlockstoreSignals,
             create_new_tmp_ledger,

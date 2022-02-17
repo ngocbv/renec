@@ -8,7 +8,7 @@ use {
     renec_clap_utils::input_parsers::pubkey_of,
     renec_client::rpc_client::RpcClient,
     renec_faucet::faucet::{request_airdrop_transaction, FAUCET_PORT},
-    solana_gossip::gossip_service::discover,
+    renec_gossip::gossip_service::discover,
     solana_measure::measure::Measure,
     solana_runtime::inline_spl_token,
     solana_sdk::{

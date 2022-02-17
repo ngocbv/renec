@@ -2,7 +2,7 @@
 use {
     rayon::{iter::ParallelIterator, prelude::*},
     serial_test::serial,
-    solana_gossip::{
+    renec_gossip::{
         cluster_info::{compute_retransmit_peers, ClusterInfo},
         contact_info::ContactInfo,
         deprecated::{shuffle_peers_and_index, sorted_retransmit_peers_and_stakes},

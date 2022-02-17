@@ -21,7 +21,7 @@ use {
     crossbeam_channel::{bounded, unbounded},
     rand::{thread_rng, Rng},
     renec_accountsdb_plugin_manager::accountsdb_plugin_service::AccountsDbPluginService,
-    solana_gossip::{
+    renec_gossip::{
         cluster_info::{
             ClusterInfo, Node, DEFAULT_CONTACT_DEBUG_INTERVAL_MILLIS,
             DEFAULT_CONTACT_SAVE_INTERVAL_MILLIS,

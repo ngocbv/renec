@@ -89,7 +89,7 @@ for v in "${otherVersions[@]}"; do
   echo "--- Looking for bootstrap validator on gossip"
   (
     set -x
-    "$SOLANA_BIN"/solana-gossip spy \
+    "$SOLANA_BIN"/renec-gossip spy \
       --entrypoint 127.0.0.1:8001 \
       --num-nodes-exactly 1 \
       --timeout 30
@@ -119,7 +119,7 @@ for v in "${otherVersions[@]}"; do
       --entrypoint 127.0.0.1:8001 \
       -o - 2>&1 | tee $logDir/$v.log \
     "
-    "$SOLANA_BIN"/solana-gossip spy \
+    "$SOLANA_BIN"/renec-gossip spy \
       --entrypoint 127.0.0.1:8001 \
       --num-nodes-exactly $nodeCount \
       --timeout 30

@@ -6,7 +6,7 @@ use {
         exchange_processor::process_instruction, id, renec_exchange_program,
     },
     renec_faucet::faucet::run_local_faucet_with_port,
-    solana_gossip::gossip_service::{discover_cluster, get_multi_client},
+    renec_gossip::gossip_service::{discover_cluster, get_multi_client},
     solana_local_cluster::{
         local_cluster::{ClusterConfig, LocalCluster},
         validator_configs::make_identical_validator_configs,

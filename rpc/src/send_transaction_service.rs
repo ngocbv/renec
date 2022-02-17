@@ -1,7 +1,7 @@
 // TODO: Merge this implementation with the one at `banks-server/src/send_transaction_service.rs`
 use {
     log::*,
-    solana_gossip::cluster_info::ClusterInfo,
+    renec_gossip::cluster_info::ClusterInfo,
     solana_metrics::{datapoint_warn, inc_new_counter_info},
     solana_poh::poh_recorder::PohRecorder,
     solana_runtime::{bank::Bank, bank_forks::BankForks},
@@ -373,7 +373,7 @@ impl SendTransactionService {
 mod test {
     use {
         super::*,
-        solana_gossip::contact_info::ContactInfo,
+        renec_gossip::contact_info::ContactInfo,
         solana_ledger::{
             blockstore::Blockstore, get_tmp_ledger_path, leader_schedule_cache::LeaderScheduleCache,
         },

@@ -8,7 +8,7 @@ use {
     rayon::prelude::*,
     renec_client::thin_client::create_client,
     renec_core::consensus::VOTE_THRESHOLD_DEPTH,
-    solana_gossip::{
+    renec_gossip::{
         cluster_info::VALIDATOR_PORT_RANGE, contact_info::ContactInfo,
         gossip_service::discover_cluster,
     },

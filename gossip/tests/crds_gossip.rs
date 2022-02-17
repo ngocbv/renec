@@ -4,7 +4,7 @@ use {
     log::*,
     rayon::{prelude::*, ThreadPool, ThreadPoolBuilder},
     serial_test::serial,
-    solana_gossip::{
+    renec_gossip::{
         cluster_info,
         contact_info::ContactInfo,
         crds::GossipRoute,

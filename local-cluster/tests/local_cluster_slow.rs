@@ -14,7 +14,7 @@ use {
         consensus::SWITCH_FORK_THRESHOLD,
         validator::ValidatorConfig,
     },
-    solana_gossip::{
+    renec_gossip::{
         cluster_info,
         crds_value::{self, CrdsData, CrdsValue},
         gossip_service::discover_cluster,

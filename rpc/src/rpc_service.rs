@@ -15,7 +15,7 @@ use {
     },
     regex::Regex,
     renec_client::rpc_cache::LargestAccountsCache,
-    solana_gossip::cluster_info::ClusterInfo,
+    renec_gossip::cluster_info::ClusterInfo,
     solana_ledger::{
         bigtable_upload_service::BigTableUploadService, blockstore::Blockstore,
         leader_schedule_cache::LeaderScheduleCache,
@@ -482,7 +482,7 @@ mod tests {
     use {
         super::*,
         crate::rpc::create_validator_exit,
-        solana_gossip::{
+        renec_gossip::{
             contact_info::ContactInfo,
             crds::GossipRoute,
             crds_value::{CrdsData, CrdsValue, SnapshotHash},

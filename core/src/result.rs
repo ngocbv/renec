@@ -1,7 +1,7 @@
 //! The `result` module exposes a Result type that propagates one of many different Error types.
 
 use {
-    solana_gossip::{cluster_info, gossip_error::GossipError},
+    renec_gossip::{cluster_info, gossip_error::GossipError},
     solana_ledger::blockstore,
 };
 

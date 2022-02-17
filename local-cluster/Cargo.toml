@@ -23,7 +23,7 @@ renec-client = { path = "../client", version = "=1.8.14" }
 renec-download-utils = { path = "../download-utils", version = "=1.8.14" }
 renec-exchange-program = { path = "../programs/exchange", version = "=1.8.14" }
 renec-faucet = { path = "../faucet", version = "=1.8.14" }
-solana-gossip = { path = "../gossip", version = "=1.8.14" }
+renec-gossip = { path = "../gossip", version = "=1.8.14" }
 solana-ledger = { path = "../ledger", version = "=1.8.14" }
 renec-logger = { path = "../logger", version = "=1.8.14" }
 solana-rayon-threadlimit = { path = "../rayon-threadlimit", version = "=1.8.14" }

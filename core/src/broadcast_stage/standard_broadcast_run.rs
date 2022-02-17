@@ -513,7 +513,7 @@ impl BroadcastRun for StandardBroadcastRun {
 mod test {
     use {
         super::*,
-        solana_gossip::cluster_info::{ClusterInfo, Node},
+        renec_gossip::cluster_info::{ClusterInfo, Node},
         solana_ledger::{
             blockstore::Blockstore, entry::create_ticks, genesis_utils::create_genesis_config,
             get_tmp_ledger_path, shred::max_ticks_per_n_shreds,

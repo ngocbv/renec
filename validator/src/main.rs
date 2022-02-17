@@ -30,7 +30,7 @@ use {
     },
     renec_download_utils::{download_snapshot, DownloadProgressRecord},
     renec_genesis_utils::download_then_check_genesis_hash,
-    solana_gossip::{
+    renec_gossip::{
         cluster_info::{ClusterInfo, Node, VALIDATOR_PORT_RANGE},
         contact_info::ContactInfo,
         gossip_service::GossipService,

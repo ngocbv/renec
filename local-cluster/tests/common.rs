@@ -7,7 +7,7 @@ use {
         consensus::{Tower, SWITCH_FORK_THRESHOLD},
         validator::ValidatorConfig,
     },
-    solana_gossip::gossip_service::discover_cluster,
+    renec_gossip::gossip_service::discover_cluster,
     solana_ledger::{
         ancestor_iterator::AncestorIterator,
         blockstore::{Blockstore, PurgeType},

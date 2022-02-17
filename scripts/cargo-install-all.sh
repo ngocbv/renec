@@ -88,7 +88,7 @@ else
     solana-bench-exchange
     solana-bench-tps
     renec-faucet
-    solana-gossip
+    renec-gossip
     solana-install
     renec-keygen
     solana-ledger-tool

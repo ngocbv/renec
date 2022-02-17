@@ -9,7 +9,7 @@ use {
     rand::{thread_rng, Rng},
     rayon::prelude::*,
     renec_core::banking_stage::{BankingStage, BankingStageStats},
-    solana_gossip::cluster_info::{ClusterInfo, Node},
+    renec_gossip::cluster_info::{ClusterInfo, Node},
     solana_ledger::{
         blockstore::Blockstore,
         blockstore_processor::process_entries,

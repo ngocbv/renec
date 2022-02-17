@@ -26,7 +26,7 @@ use {
         window_service::DuplicateSlotReceiver,
     },
     renec_client::rpc_response::SlotUpdate,
-    solana_gossip::cluster_info::ClusterInfo,
+    renec_gossip::cluster_info::ClusterInfo,
     solana_ledger::{
         block_error::BlockError,
         blockstore::Blockstore,
@@ -2633,7 +2633,7 @@ mod tests {
             replay_stage::ReplayStage,
         },
         crossbeam_channel::unbounded,
-        solana_gossip::{cluster_info::Node, crds::Cursor},
+        renec_gossip::{cluster_info::Node, crds::Cursor},
         solana_ledger::{
             blockstore::{entries_to_test_shreds, make_slot_entries, BlockstoreError},
             create_new_tmp_ledger,

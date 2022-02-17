@@ -6,7 +6,7 @@ extern crate test;
 use {
     log::*,
     renec_core::retransmit_stage::retransmitter,
-    solana_gossip::{
+    renec_gossip::{
         cluster_info::{ClusterInfo, Node},
         contact_info::ContactInfo,
     },

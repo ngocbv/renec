@@ -1,7 +1,7 @@
 use {
     crate::cluster_slots::ClusterSlots,
     crossbeam_channel::{Receiver, RecvTimeoutError, Sender},
-    solana_gossip::cluster_info::ClusterInfo,
+    renec_gossip::cluster_info::ClusterInfo,
     solana_ledger::blockstore::Blockstore,
     solana_measure::measure::Measure,
     solana_runtime::bank_forks::BankForks,
@@ -181,7 +181,7 @@ impl ClusterSlotsService {
 mod test {
     use {
         super::*,
-        solana_gossip::{cluster_info::Node, crds_value::CrdsValueLabel},
+        renec_gossip::{cluster_info::Node, crds_value::CrdsValueLabel},
         solana_sdk::{pubkey::Pubkey, signature::Keypair},
         solana_streamer::socket::SocketAddrSpace,
     };

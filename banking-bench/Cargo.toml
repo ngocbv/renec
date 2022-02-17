@@ -16,7 +16,7 @@ rand = "0.7.0"
 rayon = "1.5.0"
 renec-core = { path = "../core", version = "=1.8.14" }
 renec-clap-utils = { path = "../clap-utils", version = "=1.8.14" }
-solana-gossip = { path = "../gossip", version = "=1.8.14" }
+renec-gossip = { path = "../gossip", version = "=1.8.14" }
 solana-ledger = { path = "../ledger", version = "=1.8.14" }
 renec-logger = { path = "../logger", version = "=1.8.14" }
 solana-measure = { path = "../measure", version = "=1.8.14" }

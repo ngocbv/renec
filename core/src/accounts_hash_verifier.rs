@@ -7,7 +7,7 @@
 use {
     crate::snapshot_packager_service::PendingSnapshotPackage,
     rayon::ThreadPool,
-    solana_gossip::cluster_info::{ClusterInfo, MAX_SNAPSHOT_HASHES},
+    renec_gossip::cluster_info::{ClusterInfo, MAX_SNAPSHOT_HASHES},
     solana_runtime::{
         accounts_db,
         snapshot_package::{AccountsPackage, AccountsPackagePre, AccountsPackageReceiver},
@@ -221,7 +221,7 @@ impl AccountsHashVerifier {
 mod tests {
     use {
         super::*,
-        solana_gossip::{cluster_info::make_accounts_hashes_message, contact_info::ContactInfo},
+        renec_gossip::{cluster_info::make_accounts_hashes_message, contact_info::ContactInfo},
         solana_runtime::{bank_forks::ArchiveFormat, snapshot_utils::SnapshotVersion},
         solana_sdk::{
             hash::hash,

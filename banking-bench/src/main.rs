@@ -6,7 +6,7 @@ use {
     rand::{thread_rng, Rng},
     rayon::prelude::*,
     renec_core::banking_stage::BankingStage,
-    solana_gossip::cluster_info::{ClusterInfo, Node},
+    renec_gossip::cluster_info::{ClusterInfo, Node},
     solana_ledger::{
         blockstore::Blockstore,
         genesis_utils::{create_genesis_config, GenesisConfigInfo},

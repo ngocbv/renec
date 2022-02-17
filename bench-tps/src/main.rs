@@ -6,7 +6,7 @@ use {
         cli,
     },
     renec_genesis::Base64Account,
-    solana_gossip::gossip_service::{discover_cluster, get_client, get_multi_client},
+    renec_gossip::gossip_service::{discover_cluster, get_client, get_multi_client},
     solana_sdk::{
         fee_calculator::FeeRateGovernor,
         signature::{Keypair, Signer},

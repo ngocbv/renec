@@ -1,5 +1,5 @@
 use {
-    solana_gossip::cluster_info::{ClusterInfo, MAX_SNAPSHOT_HASHES},
+    renec_gossip::cluster_info::{ClusterInfo, MAX_SNAPSHOT_HASHES},
     solana_perf::thread::renice_this_thread,
     solana_runtime::{snapshot_package::AccountsPackage, snapshot_utils},
     solana_sdk::{clock::Slot, hash::Hash},

@@ -5,7 +5,7 @@ use {
     rand::{thread_rng, Rng},
     renec_client::rpc_client::RpcClient,
     renec_core::serve_repair::RepairProtocol,
-    solana_gossip::{contact_info::ContactInfo, gossip_service::discover},
+    renec_gossip::{contact_info::ContactInfo, gossip_service::discover},
     solana_sdk::pubkey::Pubkey,
     solana_streamer::socket::SocketAddrSpace,
     std::{

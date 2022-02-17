@@ -16,7 +16,7 @@ use {
     lru::LruCache,
     rayon::{prelude::*, ThreadPool, ThreadPoolBuilder},
     renec_client::rpc_response::SlotUpdate,
-    solana_gossip::cluster_info::{ClusterInfo, DATA_PLANE_FANOUT},
+    renec_gossip::cluster_info::{ClusterInfo, DATA_PLANE_FANOUT},
     solana_ledger::{
         blockstore::Blockstore,
         leader_schedule_cache::LeaderScheduleCache,
@@ -533,7 +533,7 @@ impl RetransmitStage {
 mod tests {
     use {
         super::*,
-        solana_gossip::contact_info::ContactInfo,
+        renec_gossip::contact_info::ContactInfo,
         solana_ledger::{
             blockstore_processor::{process_blockstore, ProcessOptions},
             create_new_tmp_ledger,

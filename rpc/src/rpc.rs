@@ -32,7 +32,7 @@ use {
         rpc_response::{Response as RpcResponse, *},
     },
     renec_faucet::faucet::request_airdrop_transaction,
-    solana_gossip::{cluster_info::ClusterInfo, contact_info::ContactInfo},
+    renec_gossip::{cluster_info::ClusterInfo, contact_info::ContactInfo},
     solana_ledger::{
         blockstore::{Blockstore, SignatureInfosForAddress},
         blockstore_db::BlockstoreError,
@@ -4111,7 +4111,7 @@ pub mod tests {
         jsonrpc_core::{futures, ErrorCode, MetaIoHandler, Output, Response, Value},
         jsonrpc_core_client::transports::local,
         renec_client::rpc_filter::{Memcmp, MemcmpEncodedBytes},
-        solana_gossip::{contact_info::ContactInfo, socketaddr},
+        renec_gossip::{contact_info::ContactInfo, socketaddr},
         solana_ledger::{
             blockstore_meta::PerfSample,
             blockstore_processor::fill_blockstore_slot_with_ticks,

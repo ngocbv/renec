@@ -14,7 +14,7 @@ use {
         Sender as CrossbeamSender,
     },
     log::*,
-    solana_gossip::{
+    renec_gossip::{
         cluster_info::{ClusterInfo, GOSSIP_SLEEP_MILLIS},
         crds::Cursor,
     },

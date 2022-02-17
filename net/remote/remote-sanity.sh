@@ -64,7 +64,7 @@ local|tar|skip)
   PATH="$HOME"/.cargo/bin:"$PATH"
   export USE_INSTALL=1
   solana_cli=solana
-  solana_gossip=solana-gossip
+  renec_gossip=renec-gossip
   solana_install=solana-install
   ;;
 *)
@@ -97,7 +97,7 @@ echo "--- $sanityTargetIp: node count ($numSanityNodes expected)"
     nodeArg="num-nodes-exactly"
   fi
 
-  $solana_gossip --allow-private-addr spy --entrypoint "$sanityTargetIp:8001" \
+  $renec_gossip --allow-private-addr spy --entrypoint "$sanityTargetIp:8001" \
     --$nodeArg "$numSanityNodes" --timeout 60 \
 )
 

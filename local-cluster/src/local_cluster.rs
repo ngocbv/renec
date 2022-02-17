@@ -8,7 +8,7 @@ use {
     log::*,
     renec_client::thin_client::{create_client, ThinClient},
     renec_core::validator::{Validator, ValidatorConfig, ValidatorStartProgress},
-    solana_gossip::{
+    renec_gossip::{
         cluster_info::{Node, VALIDATOR_PORT_RANGE},
         contact_info::ContactInfo,
         gossip_service::discover_cluster,

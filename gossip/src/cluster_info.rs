@@ -1704,7 +1704,7 @@ impl ClusterInfo {
             .build()
             .unwrap();
         Builder::new()
-            .name("solana-gossip".to_string())
+            .name("renec-gossip".to_string())
             .spawn(move || {
                 let mut last_push = timestamp();
                 let mut last_contact_info_trace = timestamp();

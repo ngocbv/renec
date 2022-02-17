@@ -33,7 +33,7 @@ soketto = "0.6"
 renec-account-decoder = { path = "../account-decoder", version = "=1.8.14" }
 renec-client = { path = "../client", version = "=1.8.14" }
 renec-faucet = { path = "../faucet", version = "=1.8.14" }
-solana-gossip = { path = "../gossip", version = "=1.8.14" }
+renec-gossip = { path = "../gossip", version = "=1.8.14" }
 solana-ledger = { path = "../ledger", version = "=1.8.14" }
 solana-measure = { path = "../measure", version = "=1.8.14" }
 solana-metrics = { path = "../metrics", version = "=1.8.14" }
