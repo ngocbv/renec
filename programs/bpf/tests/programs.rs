@@ -14,7 +14,7 @@ use renec_bpf_loader_program::{
     syscalls::register_syscalls,
     BpfError, ThisInstructionMeter,
 };
-use solana_cli_output::display::println_transaction;
+use renec_cli_output::display::println_transaction;
 use solana_rbpf::{
     elf::Executable,
     static_analysis::Analysis,

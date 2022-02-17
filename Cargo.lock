@@ -4794,7 +4794,7 @@ dependencies = [
  "serde_json",
  "renec-clap-utils",
  "renec-cli-config",
- "solana-cli-output",
+ "renec-cli-output",
  "solana-client",
  "solana-core",
  "solana-net-utils",
@@ -4823,7 +4823,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "solana-cli-output"
+name = "renec-cli-output"
 version = "1.8.14"
 dependencies = [
  "Inflector",
@@ -5238,7 +5238,7 @@ dependencies = [
  "serde_yaml",
  "signal-hook",
  "renec-clap-utils",
- "solana-cli-output",
+ "renec-cli-output",
  "solana-core",
  "solana-ledger",
  "solana-measure",
@@ -5926,7 +5926,7 @@ dependencies = [
  "renec-version",
  "renec-clap-utils",
  "renec-cli-config",
- "solana-cli-output",
+ "renec-cli-output",
  "solana-client",
  "solana-metrics",
  "solana-notifier",

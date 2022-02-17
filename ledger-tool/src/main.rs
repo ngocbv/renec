@@ -142,7 +142,7 @@ fn output_entry(
                     })
                     .map(|transaction_status| transaction_status.into());
 
-                solana_cli_output::display::println_transaction(
+                renec_cli_output::display::println_transaction(
                     transaction,
                     &transaction_status,
                     "      ",
