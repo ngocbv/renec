@@ -4706,7 +4706,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "solana-bloom"
+name = "renec-bloom"
 version = "1.8.14"
 dependencies = [
  "bv",
@@ -4931,7 +4931,7 @@ dependencies = [
  "serde_json",
  "serial_test",
  "renec-banks-server",
- "solana-bloom",
+ "renec-bloom",
  "solana-clap-utils",
  "solana-client",
  "solana-frozen-abi 1.8.14",
@@ -5106,7 +5106,7 @@ dependencies = [
  "serde_bytes",
  "serde_derive",
  "serial_test",
- "solana-bloom",
+ "renec-bloom",
  "solana-clap-utils",
  "solana-client",
  "solana-frozen-abi 1.8.14",
@@ -5400,7 +5400,7 @@ dependencies = [
  "renec-logger",
  "renec-vote-program",
  "serde",
- "solana-bloom",
+ "renec-bloom",
  "solana-metrics",
  "solana-rayon-threadlimit",
  "solana-sdk",
@@ -5661,7 +5661,7 @@ dependencies = [
  "rustc_version 0.2.3",
  "serde",
  "serde_derive",
- "solana-bloom",
+ "renec-bloom",
  "solana-frozen-abi 1.8.14",
  "solana-frozen-abi-macro 1.8.14",
  "solana-measure",

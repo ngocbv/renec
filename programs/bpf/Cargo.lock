@@ -2764,7 +2764,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "solana-bloom"
+name = "renec-bloom"
 version = "1.8.14"
 dependencies = [
  "bv",
@@ -3402,7 +3402,7 @@ dependencies = [
  "rand 0.7.3",
  "rayon",
  "serde",
- "solana-bloom",
+ "renec-bloom",
  "renec-logger 1.8.14",
  "solana-metrics",
  "solana-rayon-threadlimit",
@@ -3562,7 +3562,7 @@ dependencies = [
  "rustc_version 0.2.3",
  "serde",
  "serde_derive",
- "solana-bloom",
+ "renec-bloom",
  "renec-compute-budget-program",
  "renec-config-program",
  "renec-ed25519-program",
