@@ -26,11 +26,11 @@ implementation for the PostgreSQL database.
 - [`renec-accountsdb-plugin-interface`] &mdash; This crate defines the plugin
 interfaces.
 
-- [`solana-accountsdb-plugin-postgres`] &mdash; The crate for the referential
+- [`renec-accountsdb-plugin-postgres`] &mdash; The crate for the referential
 plugin implementation for the PostgreSQL database.
 
 [`renec-accountsdb-plugin-interface`]: https://docs.rs/renec-accountsdb-plugin-interface
-[`solana-accountsdb-plugin-postgres`]: https://docs.rs/solana-accountsdb-plugin-postgres
+[`renec-accountsdb-plugin-postgres`]: https://docs.rs/renec-accountsdb-plugin-postgres
 
 
 The Plugin Interface
@@ -123,7 +123,7 @@ For more details, please refer to the Rust documentation in
 Example PostgreSQL Plugin
 =========================
 
-The [`solana-accountsdb-plugin-postgres`] crate implements a plugin storing
+The [`renec-accountsdb-plugin-postgres`] crate implements a plugin storing
 account data to a PostgreSQL database to illustrate how a plugin can be
 developed.
 
@@ -137,7 +137,7 @@ configuration file looks like the following:
 
 ```
 {
-	"libpath": "/solana/target/release/libsolana_accountsdb_plugin_postgres.so",
+	"libpath": "/solana/target/release/librenec_accountsdb_plugin_postgres.so",
 	"host": "postgres-server",
 	"user": "solana",
 	"port": 5433,

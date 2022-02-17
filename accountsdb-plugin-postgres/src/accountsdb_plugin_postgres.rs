@@ -91,7 +91,7 @@ impl AccountsDbPlugin for AccountsDbPluginPostgres {
     /// # Examples
     ///
     /// {
-    ///    "libpath": "/home/solana/target/release/libsolana_accountsdb_plugin_postgres.so",
+    ///    "libpath": "/home/solana/target/release/librenec_accountsdb_plugin_postgres.so",
     ///    "host": "host_foo",
     ///    "user": "solana",
     ///    "threads": 10,

@@ -1,8 +1,8 @@
 [package]
 authors = ["RENEC Maintainers <dev@remitano.com>"]
 edition = "2018"
-name = "solana-accountsdb-plugin-postgres"
-description = "The Solana AccountsDb plugin for PostgreSQL database."
+name = "renec-accountsdb-plugin-postgres"
+description = "The RENEC AccountsDb plugin for PostgreSQL database."
 version = "1.8.14"
 repository = "https://github.com/remitano/renec"
 license = "Apache-2.0"
