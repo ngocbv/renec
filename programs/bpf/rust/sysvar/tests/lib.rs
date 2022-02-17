@@ -1,5 +1,5 @@
 use renec_bpf_rust_sysvar::process_instruction;
-use solana_program_test::*;
+use renec_program_test::*;
 use solana_sdk::{
     instruction::{AccountMeta, Instruction},
     pubkey::Pubkey,

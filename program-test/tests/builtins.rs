@@ -1,5 +1,5 @@
 use {
-    solana_program_test::ProgramTest,
+    renec_program_test::ProgramTest,
     solana_sdk::{
         bpf_loader_upgradeable::{self, UpgradeableLoaderState},
         signature::{Keypair, Signer},

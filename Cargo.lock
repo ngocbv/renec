@@ -4001,7 +4001,7 @@ dependencies = [
  "serde_json",
  "serial_test",
  "solana-metrics",
- "solana-program-test",
+ "renec-program-test",
  "solana-rayon-threadlimit",
  "solana-rpc",
  "solana-runtime",
@@ -5518,7 +5518,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "solana-program-test"
+name = "renec-program-test"
 version = "1.8.14"
 dependencies = [
  "assert_matches",
@@ -5870,7 +5870,7 @@ dependencies = [
  "renec-logger",
  "renec-version",
  "serde",
- "solana-program-test",
+ "renec-program-test",
  "solana-remote-wallet",
  "solana-runtime",
  "solana-sdk",

@@ -1,6 +1,6 @@
 use {
     renec_banks_client::BanksClient,
-    solana_program_test::{processor, ProgramTest},
+    renec_program_test::{processor, ProgramTest},
     solana_sdk::{
         account_info::AccountInfo,
         entrypoint::ProgramResult,

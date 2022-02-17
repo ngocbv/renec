@@ -66,7 +66,7 @@ $ cargo build-bpf
 
 通过直接行使程序功能，可以通过传统的`cargo test`机制对Solana程序进行单元测试。
 
-为了帮助在更接近实时集群的环境中进行测试，开发人员可以使用[`program-test`](https://crates.io/crates/solana-program-test)箱体。  `程序测试`箱体将启动运行时的本地实例，并允许测试发送多个事务，同时在测试期间保持状态。
+为了帮助在更接近实时集群的环境中进行测试，开发人员可以使用[`program-test`](https://crates.io/crates/renec-program-test)箱体。  `程序测试`箱体将启动运行时的本地实例，并允许测试发送多个事务，同时在测试期间保持状态。
 
 有关更多信息，请参见[在sysvar示例中测试](https://github.com/solana-labs/solana-program-library/blob/master/examples/rust/sysvar/tests/functional.rs)，来学习如何包含一条指令syavar帐户由程序发送和处理。
 

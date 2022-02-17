@@ -38,5 +38,5 @@ thiserror = "1.0"
 bincode = "1.3.1"
 renec-core = { path = "../core", version = "=1.8.14" }
 renec-logger = { path = "../logger", version = "=1.8.14" }
-solana-program-test = { path = "../program-test", version = "=1.8.14" }
+renec-program-test = { path = "../program-test", version = "=1.8.14" }
 solana-streamer = { path = "../streamer", version = "=1.8.14" }

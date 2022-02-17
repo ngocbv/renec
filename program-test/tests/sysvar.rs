@@ -1,5 +1,5 @@
 use {
-    solana_program_test::{processor, ProgramTest},
+    renec_program_test::{processor, ProgramTest},
     solana_sdk::{
         account_info::AccountInfo,
         clock::Clock,

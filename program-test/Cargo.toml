@@ -3,7 +3,7 @@ authors = ["RENEC Maintainers <dev@remitano.com>"]
 description = "RENEC Program Test Framework"
 edition = "2018"
 license = "Apache-2.0"
-name = "solana-program-test"
+name = "renec-program-test"
 repository = "https://github.com/remitano/renec"
 version = "1.8.14"
 

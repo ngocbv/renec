@@ -2989,7 +2989,7 @@ name = "renec-bpf-rust-mem"
 version = "1.8.14"
 dependencies = [
  "solana-program 1.8.14",
- "solana-program-test",
+ "renec-program-test",
  "solana-sdk",
 ]
 
@@ -3093,7 +3093,7 @@ name = "renec-bpf-rust-sysvar"
 version = "1.8.14"
 dependencies = [
  "solana-program 1.8.14",
- "solana-program-test",
+ "renec-program-test",
  "solana-sdk",
 ]
 
@@ -3481,7 +3481,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "solana-program-test"
+name = "renec-program-test"
 version = "1.8.14"
 dependencies = [
  "async-trait",

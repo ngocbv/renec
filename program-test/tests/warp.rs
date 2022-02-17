@@ -2,7 +2,7 @@
 use {
     bincode::deserialize,
     renec_banks_client::BanksClient,
-    solana_program_test::{
+    renec_program_test::{
         processor, ProgramTest, ProgramTestBanksClientExt, ProgramTestContext, ProgramTestError,
     },
     solana_sdk::{
