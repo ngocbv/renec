@@ -10,7 +10,7 @@ use {
         spend_utils::{resolve_spend_tx_and_check_account_balance, SpendAmount},
     },
     clap::{App, Arg, ArgMatches, SubCommand},
-    solana_clap_utils::{
+    renec_clap_utils::{
         input_parsers::*,
         input_validators::*,
         keypair::{DefaultSigner, SignerIndex},

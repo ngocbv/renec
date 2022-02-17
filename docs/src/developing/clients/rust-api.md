@@ -21,11 +21,11 @@ Some important crates:
 - [`solana-client`] &mdash; For interacting with a Solana node via the
   [JSON RPC API](jsonrpc-api).
 
-- [`solana-clap-utils`] &mdash; Routines for setting up a CLI, using [`clap`],
+- [`renec-clap-utils`] &mdash; Routines for setting up a CLI, using [`clap`],
   as used by the main Solana CLI.
 
 [`solana-program`]: https://docs.rs/solana-program
 [`solana-sdk`]: https://docs.rs/solana-sdk
 [`solana-client`]: https://docs.rs/solana-client
-[`solana-clap-utils`]: https://docs.rs/solana-clap-utils
+[`renec-clap-utils`]: https://docs.rs/renec-clap-utils
 [`clap`]: https://docs.rs/clap

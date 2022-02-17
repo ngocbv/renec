@@ -6,7 +6,7 @@ use {
     clap::{value_t, value_t_or_exit, App, AppSettings, Arg, ArgMatches, SubCommand},
     console::{style, Emoji},
     serde::{Deserialize, Serialize},
-    solana_clap_utils::{
+    renec_clap_utils::{
         input_parsers::*,
         input_validators::*,
         keypair::DefaultSigner,

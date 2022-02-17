@@ -10,7 +10,7 @@ use {
     },
     clap::{value_t_or_exit, App, Arg, ArgMatches, SubCommand},
     renec_account_decoder::{UiAccount, UiAccountEncoding},
-    solana_clap_utils::{
+    renec_clap_utils::{
         fee_payer::*,
         input_parsers::*,
         input_validators::*,

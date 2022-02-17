@@ -6,7 +6,7 @@ use {
     clap::{App, AppSettings, Arg, ArgMatches, SubCommand},
     console::style,
     serde::{Deserialize, Deserializer, Serialize, Serializer},
-    solana_clap_utils::{input_parsers::*, input_validators::*, keypair::*},
+    renec_clap_utils::{input_parsers::*, input_validators::*, keypair::*},
     solana_cli_output::{QuietDisplay, VerboseDisplay},
     solana_client::{client_error::ClientError, rpc_client::RpcClient},
     solana_remote_wallet::remote_wallet::RemoteWalletManager,

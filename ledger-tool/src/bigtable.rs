@@ -6,7 +6,7 @@ use {
     },
     log::info,
     serde_json::json,
-    solana_clap_utils::{
+    renec_clap_utils::{
         input_parsers::pubkey_of,
         input_validators::{is_slot, is_valid_pubkey},
     },

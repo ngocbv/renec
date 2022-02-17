@@ -32,7 +32,7 @@ serde_derive = "1.0.103"
 serde_json = "1.0.56"
 renec-account-decoder = { path = "../account-decoder", version = "=1.8.14" }
 renec-bpf-loader-program = { path = "../programs/bpf_loader", version = "=1.8.14" }
-solana-clap-utils = { path = "../clap-utils", version = "=1.8.14" }
+renec-clap-utils = { path = "../clap-utils", version = "=1.8.14" }
 solana-cli-config = { path = "../cli-config", version = "=1.8.14" }
 solana-cli-output = { path = "../cli-output", version = "=1.8.14" }
 solana-client = { path = "../client", version = "=1.8.14" }

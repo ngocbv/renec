@@ -11,7 +11,7 @@ use {
         stake::check_current_authority,
     },
     clap::{value_t_or_exit, App, Arg, ArgMatches, SubCommand},
-    solana_clap_utils::{
+    renec_clap_utils::{
         fee_payer::{fee_payer_arg, FEE_PAYER_ARG},
         input_parsers::*,
         input_validators::*,

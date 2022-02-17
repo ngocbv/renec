@@ -11,7 +11,7 @@ use {
     log::*,
     renec_account_decoder::{UiAccountEncoding, UiDataSliceConfig},
     renec_bpf_loader_program::{syscalls::register_syscalls, BpfError, ThisInstructionMeter},
-    solana_clap_utils::{self, input_parsers::*, input_validators::*, keypair::*},
+    renec_clap_utils::{self, input_parsers::*, input_validators::*, keypair::*},
     solana_cli_output::{
         CliProgram, CliProgramAccountType, CliProgramAuthority, CliProgramBuffer, CliProgramId,
         CliUpgradeableBuffer, CliUpgradeableBuffers, CliUpgradeableProgram,

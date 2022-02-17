@@ -3112,7 +3112,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "solana-clap-utils"
+name = "renec-clap-utils"
 version = "1.8.14"
 dependencies = [
  "chrono",
@@ -3154,7 +3154,7 @@ dependencies = [
  "serde_derive",
  "serde_json",
  "renec-account-decoder",
- "solana-clap-utils",
+ "renec-clap-utils",
  "solana-client",
  "solana-sdk",
  "solana-transaction-status",
@@ -3181,7 +3181,7 @@ dependencies = [
  "serde_derive",
  "serde_json",
  "renec-account-decoder",
- "solana-clap-utils",
+ "renec-clap-utils",
  "renec-faucet",
  "solana-net-utils",
  "solana-sdk",
@@ -3253,7 +3253,7 @@ dependencies = [
  "log",
  "serde",
  "serde_derive",
- "solana-clap-utils",
+ "renec-clap-utils",
  "solana-cli-config",
  "renec-logger 1.8.14",
  "solana-metrics",
@@ -3377,7 +3377,7 @@ dependencies = [
  "serde",
  "serde_derive",
  "socket2 0.3.17",
- "solana-clap-utils",
+ "renec-clap-utils",
  "renec-logger 1.8.14",
  "solana-sdk",
  "renec-version",
