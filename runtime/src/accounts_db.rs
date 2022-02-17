@@ -1309,7 +1309,7 @@ pub fn make_min_priority_thread_pool() -> ThreadPool {
 }
 
 #[cfg(all(test, RUSTC_WITH_SPECIALIZATION))]
-impl solana_frozen_abi::abi_example::AbiExample for AccountsDb {
+impl renec_frozen_abi::abi_example::AbiExample for AccountsDb {
     fn example() -> Self {
         let accounts_db = AccountsDb::new_single();
         let key = Pubkey::default();

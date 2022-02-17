@@ -1,5 +1,5 @@
 #[cfg(all(test, RUSTC_WITH_SPECIALIZATION))]
-use solana_frozen_abi::abi_example::IgnoreAsHelper;
+use renec_frozen_abi::abi_example::IgnoreAsHelper;
 use {
     super::{common::UnusedAccounts, *},
     crate::{ancestors::AncestorsForSerialization, stakes::StakesCache},
@@ -31,7 +31,7 @@ impl SerializableStorage for SerializableAccountStorageEntry {
 }
 
 #[cfg(all(test, RUSTC_WITH_SPECIALIZATION))]
-impl solana_frozen_abi::abi_example::IgnoreAsHelper for SerializableAccountStorageEntry {}
+impl renec_frozen_abi::abi_example::IgnoreAsHelper for SerializableAccountStorageEntry {}
 
 impl From<&AccountStorageEntry> for SerializableAccountStorageEntry {
     fn from(rhs: &AccountStorageEntry) -> Self {

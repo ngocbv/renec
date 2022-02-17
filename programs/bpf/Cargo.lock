@@ -2775,8 +2775,8 @@ dependencies = [
  "rustc_version 0.4.0",
  "serde",
  "serde_derive",
- "solana-frozen-abi 1.8.14",
- "solana-frozen-abi-macro 1.8.14",
+ "renec-frozen-abi 1.8.14",
+ "renec-frozen-abi-macro 1.8.14",
  "solana-sdk",
 ]
 
@@ -3265,7 +3265,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "solana-frozen-abi"
+name = "renec-frozen-abi"
 version = "1.7.6"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "b0b98d31e0662fedf3a1ee30919c655713874d578e19e65affe46109b1b927f9"
@@ -3279,13 +3279,13 @@ dependencies = [
  "serde",
  "serde_derive",
  "sha2",
- "solana-frozen-abi-macro 1.7.6",
+ "renec-frozen-abi-macro 1.7.6",
  "renec-logger 1.7.6",
  "thiserror",
 ]
 
 [[package]]
-name = "solana-frozen-abi"
+name = "renec-frozen-abi"
 version = "1.8.14"
 dependencies = [
  "bs58 0.3.1",
@@ -3297,13 +3297,13 @@ dependencies = [
  "serde",
  "serde_derive",
  "sha2",
- "solana-frozen-abi-macro 1.8.14",
+ "renec-frozen-abi-macro 1.8.14",
  "renec-logger 1.8.14",
  "thiserror",
 ]
 
 [[package]]
-name = "solana-frozen-abi-macro"
+name = "renec-frozen-abi-macro"
 version = "1.7.6"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "ceac6e8ad1a784c92ff5f3d6ad68a8d664d389b08055b674c38b2b9abb69e6d4"
@@ -3315,7 +3315,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "solana-frozen-abi-macro"
+name = "renec-frozen-abi-macro"
 version = "1.8.14"
 dependencies = [
  "proc-macro2 1.0.24",
@@ -3438,8 +3438,8 @@ dependencies = [
  "serde_derive",
  "sha2",
  "sha3",
- "solana-frozen-abi 1.7.6",
- "solana-frozen-abi-macro 1.7.6",
+ "renec-frozen-abi 1.7.6",
+ "renec-frozen-abi-macro 1.7.6",
  "renec-logger 1.7.6",
  "solana-sdk-macro 1.7.6",
  "thiserror",
@@ -3473,8 +3473,8 @@ dependencies = [
  "serde_derive",
  "sha2",
  "sha3",
- "solana-frozen-abi 1.8.14",
- "solana-frozen-abi-macro 1.8.14",
+ "renec-frozen-abi 1.8.14",
+ "renec-frozen-abi-macro 1.8.14",
  "renec-logger 1.8.14",
  "solana-sdk-macro 1.8.14",
  "thiserror",
@@ -3566,8 +3566,8 @@ dependencies = [
  "renec-compute-budget-program",
  "renec-config-program",
  "renec-ed25519-program",
- "solana-frozen-abi 1.8.14",
- "solana-frozen-abi-macro 1.8.14",
+ "renec-frozen-abi 1.8.14",
+ "renec-frozen-abi-macro 1.8.14",
  "renec-logger 1.8.14",
  "solana-measure",
  "solana-metrics",
@@ -3625,8 +3625,8 @@ dependencies = [
  "sha2",
  "sha3",
  "renec-crate-features",
- "solana-frozen-abi 1.8.14",
- "solana-frozen-abi-macro 1.8.14",
+ "renec-frozen-abi 1.8.14",
+ "renec-frozen-abi-macro 1.8.14",
  "renec-logger 1.8.14",
  "solana-program 1.8.14",
  "solana-sdk-macro 1.8.14",
@@ -3677,8 +3677,8 @@ dependencies = [
  "serde",
  "serde_derive",
  "renec-config-program",
- "solana-frozen-abi 1.8.14",
- "solana-frozen-abi-macro 1.8.14",
+ "renec-frozen-abi 1.8.14",
+ "renec-frozen-abi-macro 1.8.14",
  "solana-metrics",
  "solana-sdk",
  "renec-vote-program",
@@ -3718,8 +3718,8 @@ dependencies = [
  "rustc_version 0.2.3",
  "serde",
  "serde_derive",
- "solana-frozen-abi 1.8.14",
- "solana-frozen-abi-macro 1.8.14",
+ "renec-frozen-abi 1.8.14",
+ "renec-frozen-abi-macro 1.8.14",
  "renec-logger 1.8.14",
  "solana-sdk",
 ]
@@ -3735,8 +3735,8 @@ dependencies = [
  "rustc_version 0.2.3",
  "serde",
  "serde_derive",
- "solana-frozen-abi 1.8.14",
- "solana-frozen-abi-macro 1.8.14",
+ "renec-frozen-abi 1.8.14",
+ "renec-frozen-abi-macro 1.8.14",
  "renec-logger 1.8.14",
  "solana-metrics",
  "solana-sdk",

@@ -40,8 +40,8 @@ renec-config-program = { path = "../programs/config", version = "=1.8.14" }
 renec-compute-budget-program = { path = "../programs/compute-budget", version = "=1.8.14" }
 renec-bloom = { path = "../bloom", version = "=1.8.14" }
 renec-ed25519-program = { path = "../programs/ed25519", version = "=1.8.14" }
-solana-frozen-abi = { path = "../frozen-abi", version = "=1.8.14" }
-solana-frozen-abi-macro = { path = "../frozen-abi/macro", version = "=1.8.14" }
+renec-frozen-abi = { path = "../frozen-abi", version = "=1.8.14" }
+renec-frozen-abi-macro = { path = "../frozen-abi/macro", version = "=1.8.14" }
 renec-logger = { path = "../logger", version = "=1.8.14" }
 solana-measure = { path = "../measure", version = "=1.8.14" }
 solana-metrics = { path = "../metrics", version = "=1.8.14" }
