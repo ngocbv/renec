@@ -5303,7 +5303,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "solana-merkle-root-bench"
+name = "renec-merkle-root-bench"
 version = "1.8.14"
 dependencies = [
  "clap",
