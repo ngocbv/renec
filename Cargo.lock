@@ -3845,7 +3845,7 @@ dependencies = [
  "serde",
  "serde_derive",
  "renec-clap-utils",
- "solana-cli-config",
+ "renec-cli-config",
  "solana-metrics",
  "solana-sdk",
  "spl-memo",
@@ -3869,7 +3869,7 @@ dependencies = [
  "serde_json",
  "serde_yaml",
  "renec-clap-utils",
- "solana-cli-config",
+ "renec-cli-config",
  "solana-ledger",
  "solana-runtime",
  "solana-sdk",
@@ -3895,7 +3895,7 @@ dependencies = [
  "num_cpus",
  "renec-version",
  "renec-clap-utils",
- "solana-cli-config",
+ "renec-cli-config",
  "solana-remote-wallet",
  "solana-sdk",
  "tiny-bip39",
@@ -4002,7 +4002,7 @@ dependencies = [
  "serde_json",
  "signal-hook",
  "renec-clap-utils",
- "solana-cli-config",
+ "renec-cli-config",
  "solana-client",
  "solana-core",
  "solana-download-utils",
@@ -4793,7 +4793,7 @@ dependencies = [
  "serde_derive",
  "serde_json",
  "renec-clap-utils",
- "solana-cli-config",
+ "renec-cli-config",
  "solana-cli-output",
  "solana-client",
  "solana-core",
@@ -4811,7 +4811,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "solana-cli-config"
+name = "renec-cli-config"
 version = "1.8.14"
 dependencies = [
  "dirs-next",
@@ -5767,7 +5767,7 @@ dependencies = [
  "clap",
  "renec-stake-program",
  "renec-clap-utils",
- "solana-cli-config",
+ "renec-cli-config",
  "solana-client",
  "solana-remote-wallet",
  "solana-runtime",
@@ -5867,7 +5867,7 @@ dependencies = [
  "renec-version",
  "serde",
  "renec-clap-utils",
- "solana-cli-config",
+ "renec-cli-config",
  "solana-client",
  "solana-core",
  "solana-program-test",
@@ -5925,7 +5925,7 @@ dependencies = [
  "renec-logger",
  "renec-version",
  "renec-clap-utils",
- "solana-cli-config",
+ "renec-cli-config",
  "solana-cli-output",
  "solana-client",
  "solana-metrics",
