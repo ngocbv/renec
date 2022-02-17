@@ -1,5 +1,5 @@
 use {
-    solana_client::rpc_client::RpcClient,
+    renec_client::rpc_client::RpcClient,
     solana_core::test_validator::TestValidator,
     solana_sdk::signature::{Keypair, Signer},
     solana_streamer::socket::SocketAddrSpace,

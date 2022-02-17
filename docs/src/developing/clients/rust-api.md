@@ -18,7 +18,7 @@ Some important crates:
   [`solana-program`] and adds more APIs on top of that. Most Solana programs
   that do not run on-chain will import this.
 
-- [`solana-client`] &mdash; For interacting with a Solana node via the
+- [`renec-client`] &mdash; For interacting with a Solana node via the
   [JSON RPC API](jsonrpc-api).
 
 - [`renec-clap-utils`] &mdash; Routines for setting up a CLI, using [`clap`],
@@ -26,6 +26,6 @@ Some important crates:
 
 [`solana-program`]: https://docs.rs/solana-program
 [`solana-sdk`]: https://docs.rs/solana-sdk
-[`solana-client`]: https://docs.rs/solana-client
+[`renec-client`]: https://docs.rs/renec-client
 [`renec-clap-utils`]: https://docs.rs/renec-clap-utils
 [`clap`]: https://docs.rs/clap

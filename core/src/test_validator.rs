@@ -1,6 +1,6 @@
 use {
     crate::validator::{Validator, ValidatorConfig, ValidatorStartProgress},
-    solana_client::rpc_client::RpcClient,
+    renec_client::rpc_client::RpcClient,
     solana_gossip::{
         cluster_info::{ClusterInfo, Node},
         gossip_service::discover_cluster,

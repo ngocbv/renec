@@ -6,7 +6,7 @@ use {
     rayon::prelude::*,
     renec_account_decoder::parse_token::spl_token_pubkey,
     renec_clap_utils::input_parsers::pubkey_of,
-    solana_client::rpc_client::RpcClient,
+    renec_client::rpc_client::RpcClient,
     renec_faucet::faucet::{request_airdrop_transaction, FAUCET_PORT},
     solana_gossip::gossip_service::discover,
     solana_measure::measure::Measure,

@@ -6,7 +6,7 @@ use {
         contact_info::ContactInfo,
     },
     rand::{thread_rng, Rng},
-    solana_client::thin_client::{create_client, ThinClient},
+    renec_client::thin_client::{create_client, ThinClient},
     solana_perf::recycler::Recycler,
     solana_runtime::bank_forks::BankForks,
     solana_sdk::{

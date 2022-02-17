@@ -3,7 +3,7 @@ use {
     clap::{crate_description, crate_name, value_t, value_t_or_exit, App, Arg},
     log::*,
     rand::{thread_rng, Rng},
-    solana_client::rpc_client::RpcClient,
+    renec_client::rpc_client::RpcClient,
     solana_core::serve_repair::RepairProtocol,
     solana_gossip::{contact_info::ContactInfo, gossip_service::discover},
     solana_sdk::pubkey::Pubkey,

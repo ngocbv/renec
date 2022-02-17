@@ -11,7 +11,7 @@ use {
     renec_cli_output::{
         display::println_name_value, CliSignature, CliValidatorsSortOrder, OutputFormat,
     },
-    solana_client::{
+    renec_client::{
         blockhash_query::BlockhashQuery,
         client_error::{ClientError, Result as ClientResult},
         nonce_utils,
@@ -1682,7 +1682,7 @@ mod tests {
     use {
         super::*,
         serde_json::{json, Value},
-        solana_client::{
+        renec_client::{
             blockhash_query,
             mock_sender::SIGNATURE,
             rpc_request::RpcRequest,

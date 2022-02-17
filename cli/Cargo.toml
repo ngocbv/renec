@@ -35,7 +35,7 @@ renec-bpf-loader-program = { path = "../programs/bpf_loader", version = "=1.8.14
 renec-clap-utils = { path = "../clap-utils", version = "=1.8.14" }
 renec-cli-config = { path = "../cli-config", version = "=1.8.14" }
 renec-cli-output = { path = "../cli-output", version = "=1.8.14" }
-solana-client = { path = "../client", version = "=1.8.14" }
+renec-client = { path = "../client", version = "=1.8.14" }
 renec-config-program = { path = "../programs/config", version = "=1.8.14" }
 renec-faucet = { path = "../faucet", version = "=1.8.14" }
 renec-logger = { path = "../logger", version = "=1.8.14" }

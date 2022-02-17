@@ -1,6 +1,6 @@
 use {
     solana_cli::cli::{process_command, CliCommand, CliConfig},
-    solana_client::rpc_client::RpcClient,
+    renec_client::rpc_client::RpcClient,
     solana_core::test_validator::TestValidator,
     renec_faucet::faucet::run_local_faucet,
     solana_sdk::{

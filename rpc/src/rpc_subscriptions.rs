@@ -15,7 +15,7 @@ use {
     rayon::prelude::*,
     serde::Serialize,
     renec_account_decoder::{parse_token::spl_token_id, UiAccount, UiAccountEncoding},
-    solana_client::{
+    renec_client::{
         rpc_filter::RpcFilterType,
         rpc_response::{
             ProcessedSignatureResult, ReceivedSignatureResult, Response, RpcKeyedAccount,
@@ -1008,7 +1008,7 @@ pub(crate) mod tests {
             rpc_pubsub_service,
         },
         serial_test::serial,
-        solana_client::rpc_config::{
+        renec_client::rpc_config::{
             RpcAccountInfoConfig, RpcProgramAccountsConfig, RpcSignatureSubscribeConfig,
             RpcTransactionLogsFilter,
         },

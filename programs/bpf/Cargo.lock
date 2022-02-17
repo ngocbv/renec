@@ -3155,7 +3155,7 @@ dependencies = [
  "serde_json",
  "renec-account-decoder",
  "renec-clap-utils",
- "solana-client",
+ "renec-client",
  "solana-sdk",
  "solana-transaction-status",
  "renec-vote-program",
@@ -3163,7 +3163,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "solana-client"
+name = "renec-client"
 version = "1.8.14"
 dependencies = [
  "base64 0.13.0",

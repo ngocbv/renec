@@ -16,7 +16,7 @@ use {
         parse_token::{spl_token_id, token_amount_to_ui_amount, UiTokenAmount},
         UiAccount, UiAccountEncoding, UiDataSliceConfig, MAX_BASE58_BYTES,
     },
-    solana_client::{
+    renec_client::{
         rpc_cache::LargestAccountsCache,
         rpc_config::*,
         rpc_custom_error::RpcCustomError,
@@ -4110,7 +4110,7 @@ pub mod tests {
         bincode::deserialize,
         jsonrpc_core::{futures, ErrorCode, MetaIoHandler, Output, Response, Value},
         jsonrpc_core_client::transports::local,
-        solana_client::rpc_filter::{Memcmp, MemcmpEncodedBytes},
+        renec_client::rpc_filter::{Memcmp, MemcmpEncodedBytes},
         solana_gossip::{contact_info::ContactInfo, socketaddr},
         solana_ledger::{
             blockstore_meta::PerfSample,

@@ -1,6 +1,6 @@
 use {
     crate::rpc_subscriptions::RpcSubscriptions,
-    solana_client::rpc_response::SlotUpdate,
+    renec_client::rpc_response::SlotUpdate,
     solana_ledger::blockstore::CompletedSlotsReceiver,
     solana_sdk::timing::timestamp,
     std::{

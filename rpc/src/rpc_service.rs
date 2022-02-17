@@ -14,7 +14,7 @@ use {
         RequestMiddlewareAction, ServerBuilder,
     },
     regex::Regex,
-    solana_client::rpc_cache::LargestAccountsCache,
+    renec_client::rpc_cache::LargestAccountsCache,
     solana_gossip::cluster_info::ClusterInfo,
     solana_ledger::{
         bigtable_upload_service::BigTableUploadService, blockstore::Blockstore,

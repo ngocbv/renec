@@ -6,7 +6,7 @@ use {
         test_utils::{check_ready, check_recent_balance},
     },
     renec_cli_output::{parse_sign_only_reply_string, OutputFormat},
-    solana_client::{
+    renec_client::{
         blockhash_query::{self, BlockhashQuery},
         nonce_utils,
         rpc_client::RpcClient,

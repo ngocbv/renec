@@ -6,7 +6,7 @@ use log::*;
 use {
     rand::{thread_rng, Rng},
     rayon::prelude::*,
-    solana_client::thin_client::create_client,
+    renec_client::thin_client::create_client,
     solana_core::consensus::VOTE_THRESHOLD_DEPTH,
     solana_gossip::{
         cluster_info::VALIDATOR_PORT_RANGE, contact_info::ContactInfo,

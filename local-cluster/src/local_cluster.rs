@@ -6,7 +6,7 @@ use {
     },
     itertools::izip,
     log::*,
-    solana_client::thin_client::{create_client, ThinClient},
+    renec_client::thin_client::{create_client, ThinClient},
     solana_core::validator::{Validator, ValidatorConfig, ValidatorStartProgress},
     solana_gossip::{
         cluster_info::{Node, VALIDATOR_PORT_RANGE},

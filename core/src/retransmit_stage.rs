@@ -15,7 +15,7 @@ use {
     crossbeam_channel::{Receiver, Sender},
     lru::LruCache,
     rayon::{prelude::*, ThreadPool, ThreadPoolBuilder},
-    solana_client::rpc_response::SlotUpdate,
+    renec_client::rpc_response::SlotUpdate,
     solana_gossip::cluster_info::{ClusterInfo, DATA_PLANE_FANOUT},
     solana_ledger::{
         blockstore::Blockstore,
