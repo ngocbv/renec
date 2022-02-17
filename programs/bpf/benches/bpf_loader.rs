@@ -12,7 +12,7 @@ use renec_bpf_loader_program::{
 };
 use renec_measure::measure::Measure;
 use solana_rbpf::{elf::Executable, vm::{Config, InstructionMeter, SyscallRegistry}};
-use solana_runtime::{
+use renec_runtime::{
     bank::Bank,
     bank_client::BankClient,
     genesis_utils::{create_genesis_config, GenesisConfigInfo},

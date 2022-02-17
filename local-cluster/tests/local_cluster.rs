@@ -32,7 +32,7 @@ use {
         local_cluster::{ClusterConfig, LocalCluster},
         validator_configs::*,
     },
-    solana_runtime::{
+    renec_runtime::{
         bank_forks::{ArchiveFormat, SnapshotConfig},
         snapshot_utils,
     },
@@ -561,11 +561,11 @@ fn generate_frozen_account_panic(mut cluster: LocalCluster, frozen_account: Arc<
     );
 
     // Reset the frozen account panic signal
-    solana_runtime::accounts_db::FROZEN_ACCOUNT_PANIC.store(false, Ordering::Relaxed);
+    renec_runtime::accounts_db::FROZEN_ACCOUNT_PANIC.store(false, Ordering::Relaxed);
 
     // Wait for the frozen account panic signal
     let mut i = 0;
-    while !solana_runtime::accounts_db::FROZEN_ACCOUNT_PANIC.load(Ordering::Relaxed) {
+    while !renec_runtime::accounts_db::FROZEN_ACCOUNT_PANIC.load(Ordering::Relaxed) {
         // Transfer from frozen account
         let (blockhash, _fee_calculator, _last_valid_slot) = client
             .get_recent_blockhash_with_commitment(CommitmentConfig::processed())

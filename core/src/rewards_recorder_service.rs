@@ -1,7 +1,7 @@
 use {
     crossbeam_channel::{Receiver, RecvTimeoutError, Sender},
     renec_ledger::blockstore::Blockstore,
-    solana_runtime::bank::RewardInfo,
+    renec_runtime::bank::RewardInfo,
     solana_sdk::{clock::Slot, pubkey::Pubkey},
     solana_transaction_status::Reward,
     std::{

@@ -928,7 +928,7 @@ pub fn generate_and_fund_keypairs<T: 'static + Client + Send + Sync>(
 mod tests {
     use {
         super::*,
-        solana_runtime::{bank::Bank, bank_client::BankClient},
+        renec_runtime::{bank::Bank, bank_client::BankClient},
         solana_sdk::{
             client::SyncClient, fee_calculator::FeeRateGovernor,
             genesis_config::create_genesis_config,

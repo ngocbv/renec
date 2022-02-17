@@ -58,7 +58,7 @@ use {
         send_transaction_service,
         transaction_status_service::TransactionStatusService,
     },
-    solana_runtime::{
+    renec_runtime::{
         accounts_db::AccountShrinkThreshold,
         accounts_index::AccountSecondaryIndexes,
         accounts_update_notifier_interface::AccountsUpdateNotifier,
@@ -1274,12 +1274,12 @@ fn new_banks_from_ledger(
         ));
         bank_forks.set_root(
             warp_slot,
-            &solana_runtime::accounts_background_service::AbsRequestSender::default(),
+            &renec_runtime::accounts_background_service::AbsRequestSender::default(),
             Some(warp_slot),
         );
         leader_schedule_cache.set_root(&bank_forks.root_bank());
 
-        let archive_file = solana_runtime::snapshot_utils::bank_to_snapshot_archive(
+        let archive_file = renec_runtime::snapshot_utils::bank_to_snapshot_archive(
             ledger_path,
             &bank_forks.root_bank(),
             None,

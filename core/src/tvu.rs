@@ -36,7 +36,7 @@ use {
         max_slots::MaxSlots, optimistically_confirmed_bank_tracker::BankNotificationSender,
         rpc_subscriptions::RpcSubscriptions,
     },
-    solana_runtime::{
+    renec_runtime::{
         accounts_background_service::{
             AbsRequestHandler, AbsRequestSender, AccountsBackgroundService, SnapshotRequestHandler,
         },
@@ -388,7 +388,7 @@ pub mod tests {
         },
         renec_poh::poh_recorder::create_test_recorder,
         renec_rpc::optimistically_confirmed_bank_tracker::OptimisticallyConfirmedBank,
-        solana_runtime::bank::Bank,
+        renec_runtime::bank::Bank,
         solana_sdk::signature::{Keypair, Signer},
         solana_streamer::socket::SocketAddrSpace,
         std::sync::atomic::Ordering,

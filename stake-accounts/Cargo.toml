@@ -19,7 +19,7 @@ solana-sdk = { path = "../sdk", version = "=1.8.14" }
 renec-stake-program = { path = "../programs/stake", version = "=1.8.14" }
 
 [dev-dependencies]
-solana-runtime = { path = "../runtime", version = "=1.8.14" }
+renec-runtime = { path = "../runtime", version = "=1.8.14" }
 
 [package.metadata.docs.rs]
 targets = ["x86_64-unknown-linux-gnu"]

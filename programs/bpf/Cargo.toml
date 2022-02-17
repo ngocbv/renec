@@ -31,7 +31,7 @@ renec-cli-output = { path = "../../cli-output", version = "=1.8.14" }
 renec-logger = { path = "../../logger", version = "=1.8.14" }
 renec-measure = { path = "../../measure", version = "=1.8.14" }
 solana_rbpf = "=0.2.21"
-solana-runtime = { path = "../../runtime", version = "=1.8.14" }
+renec-runtime = { path = "../../runtime", version = "=1.8.14" }
 solana-sdk = { path = "../../sdk", version = "=1.8.14" }
 solana-transaction-status = { path = "../../transaction-status", version = "=1.8.14" }
 renec-account-decoder = { path = "../../account-decoder", version = "=1.8.14" }

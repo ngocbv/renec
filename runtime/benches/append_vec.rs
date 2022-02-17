@@ -3,7 +3,7 @@ extern crate test;
 
 use {
     rand::{thread_rng, Rng},
-    solana_runtime::append_vec::{
+    renec_runtime::append_vec::{
         test_utils::{create_test_account, get_append_vec_path},
         AppendVec,
     },

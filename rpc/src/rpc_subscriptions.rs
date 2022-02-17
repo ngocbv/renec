@@ -24,7 +24,7 @@ use {
     },
     renec_measure::measure::Measure,
     renec_rayon_threadlimit::get_thread_count,
-    solana_runtime::{
+    renec_runtime::{
         bank::{Bank, TransactionLogInfo},
         bank_forks::BankForks,
         commitment::{BlockCommitmentCache, CommitmentSlots},
@@ -1012,7 +1012,7 @@ pub(crate) mod tests {
             RpcAccountInfoConfig, RpcProgramAccountsConfig, RpcSignatureSubscribeConfig,
             RpcTransactionLogsFilter,
         },
-        solana_runtime::{
+        renec_runtime::{
             commitment::BlockCommitment,
             genesis_utils::{create_genesis_config, GenesisConfigInfo},
         },

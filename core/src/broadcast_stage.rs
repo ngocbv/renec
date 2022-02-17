@@ -21,7 +21,7 @@ use {
     renec_measure::measure::Measure,
     solana_metrics::{inc_new_counter_error, inc_new_counter_info},
     renec_poh::poh_recorder::WorkingBankEntry,
-    solana_runtime::{bank::Bank, bank_forks::BankForks},
+    renec_runtime::{bank::Bank, bank_forks::BankForks},
     solana_sdk::{
         clock::Slot,
         pubkey::Pubkey,
@@ -461,7 +461,7 @@ pub mod test {
             get_tmp_ledger_path,
             shred::{max_ticks_per_n_shreds, ProcessShredsStats, Shredder},
         },
-        solana_runtime::bank::Bank,
+        renec_runtime::bank::Bank,
         solana_sdk::{
             hash::Hash,
             pubkey::Pubkey,

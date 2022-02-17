@@ -20,7 +20,7 @@ use solana_rbpf::{
     static_analysis::Analysis,
     vm::{Config, Tracer},
 };
-use solana_runtime::{
+use renec_runtime::{
     bank::{Bank, NonceRollbackInfo, TransactionBalancesSet, TransactionResults},
     bank_client::BankClient,
     genesis_utils::{create_genesis_config, GenesisConfigInfo},

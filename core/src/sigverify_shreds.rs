@@ -6,7 +6,7 @@ use {
         sigverify_shreds::verify_shreds_gpu,
     },
     renec_perf::{self, packet::PacketBatch, recycler_cache::RecyclerCache},
-    solana_runtime::bank_forks::BankForks,
+    renec_runtime::bank_forks::BankForks,
     std::{
         collections::{HashMap, HashSet},
         sync::{Arc, RwLock},
@@ -70,7 +70,7 @@ pub mod tests {
             shred::{Shred, Shredder},
         },
         renec_perf::packet::Packet,
-        solana_runtime::bank::Bank,
+        renec_runtime::bank::Bank,
         solana_sdk::signature::{Keypair, Signer},
     };
 

@@ -2755,7 +2755,7 @@ dependencies = [
  "mio",
  "renec-banks-interface",
  "solana-metrics",
- "solana-runtime",
+ "renec-runtime",
  "solana-sdk",
  "tarpc",
  "tokio",
@@ -2794,7 +2794,7 @@ dependencies = [
  "sha3",
  "renec-measure",
  "solana-metrics",
- "solana-runtime",
+ "renec-runtime",
  "solana-sdk",
  "solana_rbpf",
  "thiserror",
@@ -2816,7 +2816,7 @@ dependencies = [
  "renec-cli-output",
  "renec-logger 1.8.14",
  "renec-measure",
- "solana-runtime",
+ "renec-runtime",
  "solana-sdk",
  "solana-transaction-status",
  "solana_rbpf",
@@ -3497,7 +3497,7 @@ dependencies = [
  "renec-banks-server",
  "renec-bpf-loader-program",
  "renec-logger 1.8.14",
- "solana-runtime",
+ "renec-runtime",
  "solana-sdk",
  "renec-vote-program",
  "thiserror",
@@ -3532,7 +3532,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "solana-runtime"
+name = "renec-runtime"
 version = "1.8.14"
 dependencies = [
  "arrayref",
@@ -3701,7 +3701,7 @@ dependencies = [
  "renec-account-decoder",
  "renec-measure",
  "solana-metrics",
- "solana-runtime",
+ "renec-runtime",
  "solana-sdk",
  "renec-vote-program",
  "spl-associated-token-account",

@@ -12,7 +12,7 @@ edition = "2018"
 [dependencies]
 solana-sdk = { path = "../sdk", version = "=1.8.14" }
 renec-download-utils = { path = "../download-utils", version = "=1.8.14" }
-solana-runtime = { path = "../runtime", version = "=1.8.14" }
+renec-runtime = { path = "../runtime", version = "=1.8.14" }
 
 [lib]
 crate-type = ["lib"]

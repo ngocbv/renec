@@ -367,7 +367,7 @@ mod tests {
         },
         renec_measure::measure::Measure,
         renec_perf::test_tx::test_tx,
-        solana_runtime::bank::Bank,
+        renec_runtime::bank::Bank,
         solana_sdk::{clock, hash::hash, pubkey::Pubkey, timing},
         std::time::Duration,
     };

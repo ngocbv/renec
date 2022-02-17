@@ -1,5 +1,5 @@
 use {
-    solana_runtime::bank::Bank,
+    renec_runtime::bank::Bank,
     solana_sdk::{genesis_config::create_genesis_config, hash::hash},
     std::{sync::Arc, thread::Builder},
 };

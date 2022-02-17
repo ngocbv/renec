@@ -8,7 +8,7 @@ use {
     rand::{thread_rng, Rng},
     renec_client::thin_client::{create_client, ThinClient},
     renec_perf::recycler::Recycler,
-    solana_runtime::bank_forks::BankForks,
+    renec_runtime::bank_forks::BankForks,
     solana_sdk::{
         pubkey::Pubkey,
         signature::{Keypair, Signer},

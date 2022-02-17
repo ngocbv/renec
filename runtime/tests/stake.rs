@@ -1,6 +1,6 @@
 #![allow(clippy::integer_arithmetic)]
 use {
-    solana_runtime::{
+    renec_runtime::{
         bank::Bank,
         bank_client::BankClient,
         genesis_utils::{create_genesis_config_with_leader, GenesisConfigInfo},

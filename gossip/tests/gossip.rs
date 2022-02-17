@@ -10,7 +10,7 @@ use {
         gossip_service::GossipService,
     },
     renec_perf::packet::Packet,
-    solana_runtime::bank_forks::BankForks,
+    renec_runtime::bank_forks::BankForks,
     solana_sdk::{
         hash::Hash,
         pubkey::Pubkey,
@@ -249,7 +249,7 @@ pub fn cluster_info_scale() {
     use {
         renec_measure::measure::Measure,
         renec_perf::test_tx::test_tx,
-        solana_runtime::{
+        renec_runtime::{
             bank::Bank,
             genesis_utils::{create_genesis_config_with_vote_accounts, ValidatorVoteKeypairs},
         },

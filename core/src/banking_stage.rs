@@ -17,7 +17,7 @@ use {
         perf_libs,
     },
     renec_poh::poh_recorder::{PohRecorder, PohRecorderError, TransactionRecorder},
-    solana_runtime::{
+    renec_runtime::{
         accounts_db::ErrorCounters,
         bank::{Bank, TransactionBalancesSet, TransactionCheckResult, TransactionExecutionResult},
         bank_utils,
@@ -1674,7 +1674,7 @@ mod tests {
             poh_service::PohService,
         },
         renec_rpc::transaction_status_service::TransactionStatusService,
-        solana_runtime::cost_model::CostModel,
+        renec_runtime::cost_model::CostModel,
         solana_sdk::{
             hash::Hash,
             instruction::InstructionError,

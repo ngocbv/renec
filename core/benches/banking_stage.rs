@@ -19,7 +19,7 @@ use {
     },
     renec_perf::{packet::to_packet_batches, test_tx::test_tx},
     renec_poh::poh_recorder::{create_test_recorder, WorkingBankEntry},
-    solana_runtime::{bank::Bank, cost_model::CostModel},
+    renec_runtime::{bank::Bank, cost_model::CostModel},
     solana_sdk::{
         genesis_config::GenesisConfig,
         hash::Hash,

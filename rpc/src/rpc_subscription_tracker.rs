@@ -4,7 +4,7 @@ use {
     renec_account_decoder::{UiAccountEncoding, UiDataSliceConfig},
     renec_client::rpc_filter::RpcFilterType,
     solana_metrics::{CounterToken, TokenCounter},
-    solana_runtime::{
+    renec_runtime::{
         bank::{TransactionLogCollectorConfig, TransactionLogCollectorFilter},
         bank_forks::BankForks,
     },
@@ -556,7 +556,7 @@ mod tests {
         super::*,
         crate::rpc_pubsub_service::PubSubConfig,
         renec_ledger::genesis_utils::{create_genesis_config, GenesisConfigInfo},
-        solana_runtime::bank::Bank,
+        renec_runtime::bank::Bank,
         std::str::FromStr,
     };
 

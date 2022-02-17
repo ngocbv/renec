@@ -18,7 +18,7 @@ use {
     renec_measure::measure::Measure,
     solana_metrics::{datapoint_error, inc_new_counter_debug},
     renec_rayon_threadlimit::get_thread_count,
-    solana_runtime::{
+    renec_runtime::{
         accounts_db::AccountShrinkThreshold,
         accounts_index::AccountSecondaryIndexes,
         accounts_update_notifier_interface::AccountsUpdateNotifier,
@@ -1395,7 +1395,7 @@ pub mod tests {
         crossbeam_channel::unbounded,
         matches::assert_matches,
         rand::{thread_rng, Rng},
-        solana_runtime::genesis_utils::{
+        renec_runtime::genesis_utils::{
             self, create_genesis_config_with_vote_accounts, ValidatorVoteKeypairs,
         },
         solana_sdk::{

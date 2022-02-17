@@ -5,7 +5,7 @@ use {
     clap::{crate_description, crate_name, value_t, App, Arg},
     rayon::prelude::*,
     renec_measure::measure::Measure,
-    solana_runtime::{
+    renec_runtime::{
         accounts::{create_test_accounts, update_accounts_bench, Accounts},
         accounts_db::AccountShrinkThreshold,
         accounts_index::AccountSecondaryIndexes,

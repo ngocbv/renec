@@ -374,7 +374,7 @@ mod tests {
     use {
         super::*,
         crate::optimistically_confirmed_bank_tracker::OptimisticallyConfirmedBank,
-        solana_runtime::{
+        renec_runtime::{
             bank::Bank,
             bank_forks::BankForks,
             commitment::BlockCommitmentCache,

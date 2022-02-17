@@ -41,7 +41,7 @@ use {
     },
     solana_metrics::inc_new_counter_info,
     renec_perf::packet::PACKET_DATA_SIZE,
-    solana_runtime::{
+    renec_runtime::{
         accounts::AccountAddressFilter,
         accounts_index::{AccountIndex, AccountSecondaryIndexes, IndexKey},
         bank::Bank,
@@ -4117,7 +4117,7 @@ pub mod tests {
             blockstore_processor::fill_blockstore_slot_with_ticks,
             genesis_utils::{create_genesis_config, GenesisConfigInfo},
         },
-        solana_runtime::{
+        renec_runtime::{
             accounts_background_service::AbsRequestSender, commitment::BlockCommitment,
             non_circulating_supply::non_circulating_accounts,
         },

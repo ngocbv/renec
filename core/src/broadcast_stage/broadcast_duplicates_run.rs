@@ -5,7 +5,7 @@ use {
         entry::{create_ticks, Entry, EntrySlice},
         shred::Shredder,
     },
-    solana_runtime::blockhash_queue::BlockhashQueue,
+    renec_runtime::blockhash_queue::BlockhashQueue,
     solana_sdk::{
         fee_calculator::FeeCalculator,
         hash::Hash,

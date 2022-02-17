@@ -3,7 +3,7 @@ use {
     renec_measure::measure::Measure,
     solana_metrics::datapoint_info,
     renec_rpc::rpc_subscriptions::RpcSubscriptions,
-    solana_runtime::{
+    renec_runtime::{
         bank::Bank,
         commitment::{BlockCommitment, BlockCommitmentCache, CommitmentSlots, VOTE_THRESHOLD_SIZE},
     },
@@ -254,7 +254,7 @@ mod tests {
     use {
         super::*,
         renec_ledger::genesis_utils::{create_genesis_config, GenesisConfigInfo},
-        solana_runtime::{
+        renec_runtime::{
             accounts_background_service::AbsRequestSender,
             bank_forks::BankForks,
             genesis_utils::{create_genesis_config_with_vote_accounts, ValidatorVoteKeypairs},

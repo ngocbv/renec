@@ -313,7 +313,7 @@ fn main() {
             exit(1);
         })
     }
-    solana_runtime::snapshot_utils::remove_tmp_snapshot_archives(&ledger_path);
+    renec_runtime::snapshot_utils::remove_tmp_snapshot_archives(&ledger_path);
 
     let validator_log_symlink = ledger_path.join("validator.log");
 
