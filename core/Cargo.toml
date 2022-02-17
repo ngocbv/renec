@@ -45,7 +45,7 @@ serde = "1.0.122"
 serde_bytes = "0.11"
 serde_derive = "1.0.103"
 renec-account-decoder = { path = "../account-decoder", version = "=1.8.14" }
-solana-accountsdb-plugin-manager = { path = "../accountsdb-plugin-manager", version = "=1.8.14" }
+renec-accountsdb-plugin-manager = { path = "../accountsdb-plugin-manager", version = "=1.8.14" }
 solana-banks-server = { path = "../banks-server", version = "=1.8.14" }
 solana-clap-utils = { path = "../clap-utils", version = "=1.8.14" }
 solana-bloom = { path = "../bloom", version = "=1.8.14" }

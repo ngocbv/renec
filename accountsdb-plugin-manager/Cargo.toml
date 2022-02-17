@@ -1,8 +1,8 @@
 [package]
 authors = ["RENEC Maintainers <dev@remitano.com>"]
 edition = "2018"
-name = "solana-accountsdb-plugin-manager"
-description = "The Solana AccountsDb plugin manager."
+name = "renec-accountsdb-plugin-manager"
+description = "The RENEC AccountsDb plugin manager."
 version = "1.8.14"
 repository = "https://github.com/remitano/renec"
 license = "Apache-2.0"
