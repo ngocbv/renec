@@ -9,7 +9,7 @@ use {
     log::*,
     serde_derive::{Deserialize, Serialize},
     serde_json,
-    solana_accountsdb_plugin_interface::accountsdb_plugin_interface::{
+    renec_accountsdb_plugin_interface::accountsdb_plugin_interface::{
         AccountsDbPlugin, AccountsDbPluginError, ReplicaAccountInfoVersions, Result, SlotStatus,
     },
     solana_metrics::*,

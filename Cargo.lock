@@ -3669,6 +3669,14 @@ dependencies = [
 ]
 
 [[package]]
+name = "renec-accountsdb-plugin-interface"
+version = "1.8.14"
+dependencies = [
+ "log 0.4.14",
+ "thiserror",
+]
+
+[[package]]
 name = "renec-bpf-loader-program"
 version = "1.8.14"
 dependencies = [
@@ -4515,14 +4523,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "solana-accountsdb-plugin-interface"
-version = "1.8.14"
-dependencies = [
- "log 0.4.14",
- "thiserror",
-]
-
-[[package]]
 name = "solana-accountsdb-plugin-manager"
 version = "1.8.14"
 dependencies = [
@@ -4530,11 +4530,11 @@ dependencies = [
  "crossbeam-channel 0.4.4",
  "libloading 0.7.0",
  "log 0.4.14",
+ "renec-accountsdb-plugin-interface",
  "renec-logger",
  "serde",
  "serde_derive",
  "serde_json",
- "solana-accountsdb-plugin-interface",
  "solana-measure",
  "solana-metrics",
  "solana-rpc",
@@ -4552,11 +4552,11 @@ dependencies = [
  "crossbeam-channel 0.5.0",
  "log 0.4.14",
  "postgres",
+ "renec-accountsdb-plugin-interface",
  "renec-logger",
  "serde",
  "serde_derive",
  "serde_json",
- "solana-accountsdb-plugin-interface",
  "solana-measure",
  "solana-metrics",
  "solana-sdk",

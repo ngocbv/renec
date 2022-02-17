@@ -9,7 +9,7 @@ use {
     crossbeam_channel::{bounded, Receiver, RecvTimeoutError, Sender},
     log::*,
     postgres::{Client, NoTls, Statement},
-    solana_accountsdb_plugin_interface::accountsdb_plugin_interface::{
+    renec_accountsdb_plugin_interface::accountsdb_plugin_interface::{
         AccountsDbPluginError, ReplicaAccountInfo, SlotStatus,
     },
     solana_measure::measure::Measure,
