@@ -5,7 +5,7 @@ use {
     crossbeam_channel::Receiver,
     log::*,
     renec_ledger::poh::Poh,
-    solana_measure::measure::Measure,
+    renec_measure::measure::Measure,
     solana_sdk::poh_config::PohConfig,
     std::{
         sync::{
@@ -365,7 +365,7 @@ mod tests {
             get_tmp_ledger_path,
             leader_schedule_cache::LeaderScheduleCache,
         },
-        solana_measure::measure::Measure,
+        renec_measure::measure::Measure,
         solana_perf::test_tx::test_tx,
         solana_runtime::bank::Bank,
         solana_sdk::{clock, hash::hash, pubkey::Pubkey, timing},

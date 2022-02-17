@@ -10,7 +10,7 @@ use {
     rand::{thread_rng, Rng},
     rayon::{prelude::*, ThreadPool},
     serde::{Deserialize, Serialize},
-    solana_measure::measure::Measure,
+    renec_measure::measure::Measure,
     solana_merkle_tree::MerkleTree,
     solana_metrics::*,
     solana_perf::{cuda_runtime::PinnedVec, perf_libs, recycler::Recycler},

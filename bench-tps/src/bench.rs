@@ -5,7 +5,7 @@ use {
     renec_client::perf_utils::{sample_txs, SampleStats},
     renec_core::gen_keys::GenKeys,
     renec_faucet::faucet::request_airdrop_transaction,
-    solana_measure::measure::Measure,
+    renec_measure::measure::Measure,
     solana_metrics::{self, datapoint_info},
     solana_sdk::{
         client::Client,

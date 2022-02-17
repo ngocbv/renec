@@ -3,7 +3,7 @@ use renec_frozen_abi::abi_example::IgnoreAsHelper;
 use {
     super::{common::UnusedAccounts, *},
     crate::{ancestors::AncestorsForSerialization, stakes::StakesCache},
-    solana_measure::measure::Measure,
+    renec_measure::measure::Measure,
     std::{cell::RefCell, sync::RwLock},
 };
 

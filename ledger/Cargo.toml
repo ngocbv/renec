@@ -40,7 +40,7 @@ renec-frozen-abi = { path = "../frozen-abi", version = "=1.8.14" }
 renec-frozen-abi-macro = { path = "../frozen-abi/macro", version = "=1.8.14" }
 solana-transaction-status = { path = "../transaction-status", version = "=1.8.14" }
 renec-logger = { path = "../logger", version = "=1.8.14" }
-solana-measure = { path = "../measure", version = "=1.8.14" }
+renec-measure = { path = "../measure", version = "=1.8.14" }
 solana-merkle-tree = { path = "../merkle-tree", version = "=1.8.14" }
 solana-metrics = { path = "../metrics", version = "=1.8.14" }
 solana-perf = { path = "../perf", version = "=1.8.14" }

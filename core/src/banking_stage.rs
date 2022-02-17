@@ -8,7 +8,7 @@ use {
     retain_mut::RetainMut,
     renec_gossip::{cluster_info::ClusterInfo, contact_info::ContactInfo},
     renec_ledger::{blockstore_processor::TransactionStatusSender, entry::hash_transactions},
-    solana_measure::measure::Measure,
+    renec_measure::measure::Measure,
     solana_metrics::{inc_new_counter_debug, inc_new_counter_info},
     solana_perf::{
         cuda_runtime::PinnedVec,

@@ -9,7 +9,7 @@ use {
     renec_client::rpc_client::RpcClient,
     renec_faucet::faucet::{request_airdrop_transaction, FAUCET_PORT},
     renec_gossip::gossip_service::discover,
-    solana_measure::measure::Measure,
+    renec_measure::measure::Measure,
     solana_runtime::inline_spl_token,
     solana_sdk::{
         commitment_config::CommitmentConfig,

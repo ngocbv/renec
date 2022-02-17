@@ -9,7 +9,7 @@ use {
     crate::sigverify,
     crossbeam_channel::{SendError, Sender as CrossbeamSender},
     itertools::Itertools,
-    solana_measure::measure::Measure,
+    renec_measure::measure::Measure,
     solana_perf::packet::PacketBatch,
     solana_perf::sigverify::Deduper,
     solana_sdk::timing,

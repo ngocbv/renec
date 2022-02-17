@@ -8,7 +8,7 @@ use {
     bv::BitVec,
     log::*,
     ouroboros::self_referencing,
-    solana_measure::measure::Measure,
+    renec_measure::measure::Measure,
     solana_sdk::{
         clock::{BankId, Slot},
         pubkey::{Pubkey, PUBKEY_BYTES},

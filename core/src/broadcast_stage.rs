@@ -18,7 +18,7 @@ use {
     itertools::Itertools,
     renec_gossip::cluster_info::{ClusterInfo, ClusterInfoError},
     renec_ledger::{blockstore::Blockstore, shred::Shred},
-    solana_measure::measure::Measure,
+    renec_measure::measure::Measure,
     solana_metrics::{inc_new_counter_error, inc_new_counter_info},
     solana_poh::poh_recorder::WorkingBankEntry,
     solana_runtime::{bank::Bank, bank_forks::BankForks},

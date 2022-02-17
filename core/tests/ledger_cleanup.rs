@@ -11,7 +11,7 @@ mod tests {
             get_tmp_ledger_path,
             shred::Shred,
         },
-        solana_measure::measure::Measure,
+        renec_measure::measure::Measure,
         std::{
             collections::VecDeque,
             str::FromStr,

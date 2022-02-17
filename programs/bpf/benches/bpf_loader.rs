@@ -10,7 +10,7 @@ use renec_bpf_loader_program::{
     create_vm, serialization::serialize_parameters, syscalls::register_syscalls, BpfError,
     ThisInstructionMeter,
 };
-use solana_measure::measure::Measure;
+use renec_measure::measure::Measure;
 use solana_rbpf::{elf::Executable, vm::{Config, InstructionMeter, SyscallRegistry}};
 use solana_runtime::{
     bank::Bank,

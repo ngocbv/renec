@@ -12,7 +12,7 @@ use {
         genesis_utils::{create_genesis_config, GenesisConfigInfo},
         get_tmp_ledger_path,
     },
-    solana_measure::measure::Measure,
+    renec_measure::measure::Measure,
     solana_perf::packet::to_packet_batches,
     solana_poh::poh_recorder::{create_test_recorder, PohRecorder, WorkingBankEntry},
     solana_runtime::{

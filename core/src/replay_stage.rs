@@ -34,7 +34,7 @@ use {
         entry::VerifyRecyclers,
         leader_schedule_cache::LeaderScheduleCache,
     },
-    solana_measure::measure::Measure,
+    renec_measure::measure::Measure,
     solana_metrics::inc_new_counter_info,
     solana_poh::poh_recorder::{PohRecorder, GRACE_TICKS_FACTOR, MAX_GRACE_SLOTS},
     solana_rpc::{

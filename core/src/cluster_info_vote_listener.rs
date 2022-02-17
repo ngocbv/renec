@@ -19,7 +19,7 @@ use {
         crds::Cursor,
     },
     renec_ledger::blockstore::Blockstore,
-    solana_measure::measure::Measure,
+    renec_measure::measure::Measure,
     solana_metrics::inc_new_counter_debug,
     solana_perf::packet::{self, PacketBatch},
     solana_poh::poh_recorder::PohRecorder,

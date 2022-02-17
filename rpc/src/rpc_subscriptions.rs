@@ -22,7 +22,7 @@ use {
             RpcLogsResponse, RpcResponseContext, RpcSignatureResult, RpcVote, SlotInfo, SlotUpdate,
         },
     },
-    solana_measure::measure::Measure,
+    renec_measure::measure::Measure,
     solana_rayon_threadlimit::get_thread_count,
     solana_runtime::{
         bank::{Bank, TransactionLogInfo},
