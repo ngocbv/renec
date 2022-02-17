@@ -3183,7 +3183,7 @@ dependencies = [
  "renec-account-decoder",
  "renec-clap-utils",
  "renec-faucet",
- "solana-net-utils",
+ "renec-net-utils",
  "solana-sdk",
  "solana-transaction-status",
  "renec-version",
@@ -3366,7 +3366,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "solana-net-utils"
+name = "renec-net-utils"
 version = "1.8.14"
 dependencies = [
  "bincode",

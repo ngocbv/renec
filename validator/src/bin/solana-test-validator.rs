@@ -205,7 +205,7 @@ fn main() {
                 .long("gossip-host")
                 .value_name("HOST")
                 .takes_value(true)
-                .validator(solana_net_utils::is_host)
+                .validator(renec_net_utils::is_host)
                 .help(
                     "Gossip DNS name or IP address for the validator to advertise in gossip \
                        [default: 127.0.0.1]",
@@ -227,7 +227,7 @@ fn main() {
                 .long("bind-address")
                 .value_name("HOST")
                 .takes_value(true)
-                .validator(solana_net_utils::is_host)
+                .validator(renec_net_utils::is_host)
                 .default_value("0.0.0.0")
                 .help("IP address to bind the validator ports [default: 0.0.0.0]"),
         )
@@ -369,20 +369,20 @@ fn main() {
     let faucet_port = value_t_or_exit!(matches, "faucet_port", u16);
     let slots_per_epoch = value_t!(matches, "slots_per_epoch", Slot).ok();
     let gossip_host = matches.value_of("gossip_host").map(|gossip_host| {
-        solana_net_utils::parse_host(gossip_host).unwrap_or_else(|err| {
+        renec_net_utils::parse_host(gossip_host).unwrap_or_else(|err| {
             eprintln!("Failed to parse --gossip-host: {}", err);
             exit(1);
         })
     });
     let gossip_port = value_t!(matches, "gossip_port", u16).ok();
     let dynamic_port_range = matches.value_of("dynamic_port_range").map(|port_range| {
-        solana_net_utils::parse_port_range(port_range).unwrap_or_else(|| {
+        renec_net_utils::parse_port_range(port_range).unwrap_or_else(|| {
             eprintln!("Failed to parse --dynamic-port-range");
             exit(1);
         })
     });
     let bind_address = matches.value_of("bind_address").map(|bind_address| {
-        solana_net_utils::parse_host(bind_address).unwrap_or_else(|err| {
+        renec_net_utils::parse_host(bind_address).unwrap_or_else(|err| {
             eprintln!("Failed to parse --bind-address: {}", err);
             exit(1);
         })

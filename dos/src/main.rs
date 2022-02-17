@@ -222,7 +222,7 @@ fn main() {
 
     let mut entrypoint_addr = SocketAddr::from(([127, 0, 0, 1], 8001));
     if let Some(addr) = matches.value_of("entrypoint") {
-        entrypoint_addr = solana_net_utils::parse_host_port(addr).unwrap_or_else(|e| {
+        entrypoint_addr = renec_net_utils::parse_host_port(addr).unwrap_or_else(|e| {
             eprintln!("failed to parse entrypoint address: {}", e);
             exit(1)
         });

@@ -539,7 +539,7 @@ mod tests {
             create_new_tmp_ledger,
             genesis_utils::{create_genesis_config, GenesisConfigInfo},
         },
-        solana_net_utils::find_available_port_in_range,
+        renec_net_utils::find_available_port_in_range,
         solana_sdk::signature::Keypair,
         solana_streamer::socket::SocketAddrSpace,
         std::net::{IpAddr, Ipv4Addr},

@@ -19,7 +19,7 @@ renec-core = { path = "../core", version = "=1.8.14" }
 renec-gossip = { path = "../gossip", version = "=1.8.14" }
 renec-ledger = { path = "../ledger", version = "=1.8.14" }
 renec-logger = { path = "../logger", version = "=1.8.14" }
-solana-net-utils = { path = "../net-utils", version = "=1.8.14" }
+renec-net-utils = { path = "../net-utils", version = "=1.8.14" }
 solana-perf = { path = "../perf", version = "=1.8.14" }
 solana-runtime = { path = "../runtime", version = "=1.8.14" }
 solana-sdk = { path = "../sdk", version = "=1.8.14" }

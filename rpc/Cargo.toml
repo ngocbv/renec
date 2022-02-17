@@ -56,7 +56,7 @@ tokio-util = { version = "0.6", features = ["codec", "compat"] }
 [dev-dependencies]
 serial_test = "0.4.0"
 renec-logger = { path = "../logger", version = "=1.8.14" }
-solana-net-utils = { path = "../net-utils", version = "=1.8.14" }
+renec-net-utils = { path = "../net-utils", version = "=1.8.14" }
 renec-stake-program = { path = "../programs/stake", version = "=1.8.14" }
 symlink = "0.1.0"
 

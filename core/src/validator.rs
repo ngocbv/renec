@@ -272,7 +272,7 @@ pub struct Validator {
     poh_service: PohService,
     tpu: Tpu,
     tvu: Tvu,
-    ip_echo_server: Option<solana_net_utils::IpEchoServer>,
+    ip_echo_server: Option<renec_net_utils::IpEchoServer>,
     accountsdb_plugin_service: Option<AccountsDbPluginService>,
     pub cluster_info: Arc<ClusterInfo>,
 }
@@ -647,7 +647,7 @@ impl Validator {
         }
         let ip_echo_server = match node.sockets.ip_echo {
             None => None,
-            Some(tcp_listener) => Some(solana_net_utils::ip_echo_server(
+            Some(tcp_listener) => Some(renec_net_utils::ip_echo_server(
                 tcp_listener,
                 Some(node.info.shred_version),
             )),

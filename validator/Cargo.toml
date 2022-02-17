@@ -40,7 +40,7 @@ renec-gossip = { path = "../gossip", version = "=1.8.14" }
 renec-ledger = { path = "../ledger", version = "=1.8.14" }
 renec-logger = { path = "../logger", version = "=1.8.14" }
 solana-metrics = { path = "../metrics", version = "=1.8.14" }
-solana-net-utils = { path = "../net-utils", version = "=1.8.14" }
+renec-net-utils = { path = "../net-utils", version = "=1.8.14" }
 solana-perf = { path = "../perf", version = "=1.8.14" }
 solana-poh = { path = "../poh", version = "=1.8.14" }
 solana-rpc = { path = "../rpc", version = "=1.8.14" }
