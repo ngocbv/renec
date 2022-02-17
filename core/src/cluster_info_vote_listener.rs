@@ -23,7 +23,7 @@ use {
     solana_metrics::inc_new_counter_debug,
     renec_perf::packet::{self, PacketBatch},
     renec_poh::poh_recorder::PohRecorder,
-    solana_rpc::{
+    renec_rpc::{
         optimistically_confirmed_bank_tracker::{BankNotification, BankNotificationSender},
         rpc_subscriptions::RpcSubscriptions,
     },
@@ -809,7 +809,7 @@ mod tests {
     use {
         super::*,
         renec_perf::packet,
-        solana_rpc::optimistically_confirmed_bank_tracker::OptimisticallyConfirmedBank,
+        renec_rpc::optimistically_confirmed_bank_tracker::OptimisticallyConfirmedBank,
         solana_runtime::{
             bank::Bank,
             commitment::BlockCommitmentCache,

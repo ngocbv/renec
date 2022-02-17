@@ -45,7 +45,7 @@ use {
         poh_recorder::{PohRecorder, GRACE_TICKS_FACTOR, MAX_GRACE_SLOTS},
         poh_service::{self, PohService},
     },
-    solana_rpc::{
+    renec_rpc::{
         max_slots::MaxSlots,
         optimistically_confirmed_bank_tracker::{
             OptimisticallyConfirmedBank, OptimisticallyConfirmedBankTracker,

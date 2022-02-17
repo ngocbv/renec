@@ -7,7 +7,7 @@ use {
     crossbeam_channel::Receiver,
     log::*,
     serde_json,
-    solana_rpc::optimistically_confirmed_bank_tracker::BankNotification,
+    renec_rpc::optimistically_confirmed_bank_tracker::BankNotification,
     solana_runtime::accounts_update_notifier_interface::AccountsUpdateNotifier,
     std::{
         fs::File,

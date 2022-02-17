@@ -17,7 +17,7 @@ use {
     renec_gossip::cluster_info::ClusterInfo,
     renec_ledger::{blockstore::Blockstore, blockstore_processor::TransactionStatusSender},
     renec_poh::poh_recorder::{PohRecorder, WorkingBankEntry},
-    solana_rpc::{
+    renec_rpc::{
         optimistically_confirmed_bank_tracker::BankNotificationSender,
         rpc_subscriptions::RpcSubscriptions,
     },

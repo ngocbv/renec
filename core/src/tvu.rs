@@ -32,7 +32,7 @@ use {
         leader_schedule_cache::LeaderScheduleCache,
     },
     renec_poh::poh_recorder::PohRecorder,
-    solana_rpc::{
+    renec_rpc::{
         max_slots::MaxSlots, optimistically_confirmed_bank_tracker::BankNotificationSender,
         rpc_subscriptions::RpcSubscriptions,
     },
@@ -387,7 +387,7 @@ pub mod tests {
             genesis_utils::{create_genesis_config, GenesisConfigInfo},
         },
         renec_poh::poh_recorder::create_test_recorder,
-        solana_rpc::optimistically_confirmed_bank_tracker::OptimisticallyConfirmedBank,
+        renec_rpc::optimistically_confirmed_bank_tracker::OptimisticallyConfirmedBank,
         solana_runtime::bank::Bank,
         solana_sdk::signature::{Keypair, Signer},
         solana_streamer::socket::SocketAddrSpace,

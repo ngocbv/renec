@@ -10,7 +10,7 @@ use {
     },
     renec_client::rpc_client::RpcClient,
     renec_faucet::faucet::{run_local_faucet_with_port, FAUCET_PORT},
-    solana_rpc::rpc::JsonRpcConfig,
+    renec_rpc::rpc::JsonRpcConfig,
     solana_sdk::{
         account::AccountSharedData,
         clock::Slot,

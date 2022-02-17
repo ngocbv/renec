@@ -3691,7 +3691,7 @@ dependencies = [
  "serde_derive",
  "serde_json",
  "solana-metrics",
- "solana-rpc",
+ "renec-rpc",
  "solana-runtime",
  "solana-sdk",
  "thiserror",
@@ -4003,7 +4003,7 @@ dependencies = [
  "serde_json",
  "serial_test",
  "solana-metrics",
- "solana-rpc",
+ "renec-rpc",
  "solana-runtime",
  "solana-sdk",
  "solana-streamer",
@@ -4397,7 +4397,7 @@ dependencies = [
  "renec-stake-program",
  "renec-vote-program",
  "serial_test",
- "solana-rpc",
+ "renec-rpc",
  "solana-runtime",
  "solana-sdk",
  "solana-streamer",
@@ -4704,7 +4704,7 @@ dependencies = [
  "serde_json",
  "signal-hook",
  "solana-metrics",
- "solana-rpc",
+ "renec-rpc",
  "solana-runtime",
  "solana-sdk",
  "solana-streamer",
@@ -5570,7 +5570,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "solana-rpc"
+name = "renec-rpc"
 version = "1.8.14"
 dependencies = [
  "base64 0.12.3",

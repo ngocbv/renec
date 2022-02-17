@@ -37,7 +37,7 @@ use {
     renec_measure::measure::Measure,
     solana_metrics::inc_new_counter_info,
     renec_poh::poh_recorder::{PohRecorder, GRACE_TICKS_FACTOR, MAX_GRACE_SLOTS},
-    solana_rpc::{
+    renec_rpc::{
         optimistically_confirmed_bank_tracker::{BankNotification, BankNotificationSender},
         rpc_subscriptions::RpcSubscriptions,
     },
@@ -2645,7 +2645,7 @@ mod tests {
                 SIZE_OF_COMMON_SHRED_HEADER, SIZE_OF_DATA_SHRED_HEADER, SIZE_OF_DATA_SHRED_PAYLOAD,
             },
         },
-        solana_rpc::{
+        renec_rpc::{
             optimistically_confirmed_bank_tracker::OptimisticallyConfirmedBank,
             rpc::create_test_transactions_and_populate_blockstore,
         },

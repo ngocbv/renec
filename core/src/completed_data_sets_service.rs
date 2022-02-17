@@ -4,7 +4,7 @@ use {
         blockstore::{Blockstore, CompletedDataSetInfo},
         entry::Entry,
     },
-    solana_rpc::{max_slots::MaxSlots, rpc_subscriptions::RpcSubscriptions},
+    renec_rpc::{max_slots::MaxSlots, rpc_subscriptions::RpcSubscriptions},
     solana_sdk::signature::Signature,
     std::{
         sync::{

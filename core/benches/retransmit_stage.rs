@@ -110,7 +110,7 @@ fn bench_retransmitter(bencher: &mut Bencher) {
         leader_schedule_cache,
         cluster_info,
         shreds_receiver,
-        Arc::default(), // solana_rpc::max_slots::MaxSlots
+        Arc::default(), // renec_rpc::max_slots::MaxSlots
         None,
     );
 

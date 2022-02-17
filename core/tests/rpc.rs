@@ -15,7 +15,7 @@ use {
         tpu_client::{TpuClient, TpuClientConfig},
     },
     renec_core::test_validator::TestValidator,
-    solana_rpc::rpc_pubsub::gen_client::Client as PubsubClient,
+    renec_rpc::rpc_pubsub::gen_client::Client as PubsubClient,
     solana_sdk::{
         commitment_config::CommitmentConfig,
         hash::Hash,

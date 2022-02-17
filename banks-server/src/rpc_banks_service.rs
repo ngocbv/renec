@@ -81,7 +81,7 @@ impl RpcBanksService {
         let block_commitment_cache = block_commitment_cache.clone();
         let exit = exit.clone();
         let thread_hdl = Builder::new()
-            .name("solana-rpc-banks".to_string())
+            .name("renec-rpc-banks".to_string())
             .spawn(move || {
                 Self::run(
                     listen_addr,

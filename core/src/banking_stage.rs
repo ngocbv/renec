@@ -1673,7 +1673,7 @@ mod tests {
             poh_recorder::{create_test_recorder, Record, WorkingBank, WorkingBankEntry},
             poh_service::PohService,
         },
-        solana_rpc::transaction_status_service::TransactionStatusService,
+        renec_rpc::transaction_status_service::TransactionStatusService,
         solana_runtime::cost_model::CostModel,
         solana_sdk::{
             hash::Hash,

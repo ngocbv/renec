@@ -38,7 +38,7 @@ use {
     renec_ledger::blockstore_db::BlockstoreRecoveryMode,
     renec_perf::recycler::enable_recycler_warming,
     renec_poh::poh_service,
-    solana_rpc::{rpc::JsonRpcConfig, rpc_pubsub_service::PubSubConfig, send_transaction_service},
+    renec_rpc::{rpc::JsonRpcConfig, rpc_pubsub_service::PubSubConfig, send_transaction_service},
     solana_runtime::{
         accounts_db::{
             AccountShrinkThreshold, DEFAULT_ACCOUNTS_SHRINK_OPTIMIZE_TOTAL_SPACE,

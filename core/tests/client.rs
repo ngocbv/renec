@@ -8,7 +8,7 @@ use {
         rpc_response::SlotInfo,
     },
     renec_core::test_validator::TestValidator,
-    solana_rpc::{
+    renec_rpc::{
         optimistically_confirmed_bank_tracker::OptimisticallyConfirmedBank,
         rpc_pubsub_service::{PubSubConfig, PubSubService},
         rpc_subscriptions::RpcSubscriptions,
