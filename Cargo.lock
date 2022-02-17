@@ -3636,8 +3636,8 @@ dependencies = [
  "rand 0.7.3",
  "rayon",
  "renec-logger",
- "renec-version",
  "renec-measure",
+ "renec-version",
  "solana-runtime",
  "solana-sdk",
 ]
@@ -3658,8 +3658,8 @@ dependencies = [
  "renec-gossip",
  "renec-local-cluster",
  "renec-logger",
- "renec-version",
  "renec-measure",
+ "renec-version",
  "solana-net-utils",
  "solana-runtime",
  "solana-sdk",
@@ -3686,10 +3686,10 @@ dependencies = [
  "log 0.4.14",
  "renec-accountsdb-plugin-interface",
  "renec-logger",
+ "renec-measure",
  "serde",
  "serde_derive",
  "serde_json",
- "renec-measure",
  "solana-metrics",
  "solana-rpc",
  "solana-runtime",
@@ -3708,10 +3708,10 @@ dependencies = [
  "postgres",
  "renec-accountsdb-plugin-interface",
  "renec-logger",
+ "renec-measure",
  "serde",
  "serde_derive",
  "serde_json",
- "renec-measure",
  "solana-metrics",
  "solana-sdk",
  "thiserror",
@@ -3732,8 +3732,8 @@ dependencies = [
  "renec-gossip",
  "renec-ledger",
  "renec-logger",
- "renec-version",
  "renec-measure",
+ "renec-version",
  "solana-perf",
  "solana-poh",
  "solana-runtime",
@@ -3819,9 +3819,9 @@ dependencies = [
  "num-traits",
  "rand 0.7.3",
  "rand_core 0.6.2",
+ "renec-measure",
  "rustversion",
  "sha3",
- "renec-measure",
  "solana-metrics",
  "solana-runtime",
  "solana-sdk",
@@ -3984,6 +3984,7 @@ dependencies = [
  "renec-gossip",
  "renec-ledger",
  "renec-logger",
+ "renec-measure",
  "renec-stake-program",
  "renec-version",
  "renec-vote-program",
@@ -3995,8 +3996,7 @@ dependencies = [
  "serde_derive",
  "serde_json",
  "serial_test",
- "renec-measure",
- "solana-merkle-tree",
+ "renec-merkle-tree",
  "solana-metrics",
  "solana-net-utils",
  "solana-perf",
@@ -4211,6 +4211,7 @@ dependencies = [
  "renec-frozen-abi-macro",
  "renec-ledger",
  "renec-logger",
+ "renec-measure",
  "renec-version",
  "renec-vote-program",
  "rustc_version 0.2.3",
@@ -4218,7 +4219,6 @@ dependencies = [
  "serde_bytes",
  "serde_derive",
  "serial_test",
- "renec-measure",
  "solana-metrics",
  "solana-net-utils",
  "solana-perf",
@@ -4312,14 +4312,14 @@ dependencies = [
  "renec-frozen-abi",
  "renec-frozen-abi-macro",
  "renec-logger",
+ "renec-measure",
  "renec-vote-program",
  "rocksdb",
  "rustc_version 0.2.3",
  "serde",
  "serde_bytes",
  "sha2",
- "renec-measure",
- "solana-merkle-tree",
+ "renec-merkle-tree",
  "solana-metrics",
  "solana-perf",
  "solana-rayon-threadlimit",
@@ -4356,6 +4356,7 @@ dependencies = [
  "renec-core",
  "renec-ledger",
  "renec-logger",
+ "renec-measure",
  "renec-stake-program",
  "renec-version",
  "renec-vote-program",
@@ -4363,7 +4364,6 @@ dependencies = [
  "serde_json",
  "serde_yaml",
  "signal-hook",
- "renec-measure",
  "solana-runtime",
  "solana-sdk",
  "solana-storage-bigtable",
@@ -4424,6 +4424,28 @@ dependencies = [
  "env_logger",
  "lazy_static",
  "log 0.4.14",
+]
+
+[[package]]
+name = "renec-measure"
+version = "1.8.14"
+dependencies = [
+ "log 0.4.14",
+ "solana-metrics",
+ "solana-sdk",
+]
+
+[[package]]
+name = "renec-merkle-root-bench"
+version = "1.8.14"
+dependencies = [
+ "clap",
+ "log 0.4.14",
+ "renec-logger",
+ "renec-measure",
+ "renec-version",
+ "solana-runtime",
+ "solana-sdk",
 ]
 
 [[package]]
@@ -5167,11 +5189,11 @@ dependencies = [
  "renec-gossip",
  "renec-local-cluster",
  "renec-logger",
+ "renec-measure",
  "renec-version",
  "serde_json",
  "serde_yaml",
  "serial_test",
- "renec-measure",
  "solana-metrics",
  "solana-net-utils",
  "solana-runtime",
@@ -5294,29 +5316,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "renec-measure"
-version = "1.8.14"
-dependencies = [
- "log 0.4.14",
- "solana-metrics",
- "solana-sdk",
-]
-
-[[package]]
-name = "renec-merkle-root-bench"
-version = "1.8.14"
-dependencies = [
- "clap",
- "log 0.4.14",
- "renec-logger",
- "renec-version",
- "renec-measure",
- "solana-runtime",
- "solana-sdk",
-]
-
-[[package]]
-name = "solana-merkle-tree"
+name = "renec-merkle-tree"
 version = "1.8.14"
 dependencies = [
  "fast-math",
@@ -5418,8 +5418,8 @@ dependencies = [
  "rand 0.7.3",
  "renec-ledger",
  "renec-logger",
- "renec-sys-tuner",
  "renec-measure",
+ "renec-sys-tuner",
  "solana-metrics",
  "solana-perf",
  "solana-runtime",
@@ -5438,8 +5438,8 @@ dependencies = [
  "renec-clap-utils",
  "renec-ledger",
  "renec-logger",
- "renec-version",
  "renec-measure",
+ "renec-version",
  "solana-perf",
  "solana-sdk",
 ]
@@ -5595,6 +5595,7 @@ dependencies = [
  "renec-gossip",
  "renec-ledger",
  "renec-logger",
+ "renec-measure",
  "renec-stake-program",
  "renec-version",
  "renec-vote-program",
@@ -5603,7 +5604,6 @@ dependencies = [
  "serde_json",
  "serial_test",
  "soketto",
- "renec-measure",
  "solana-metrics",
  "solana-net-utils",
  "solana-perf",
@@ -5658,13 +5658,13 @@ dependencies = [
  "renec-frozen-abi",
  "renec-frozen-abi-macro",
  "renec-logger",
+ "renec-measure",
  "renec-secp256k1-program",
  "renec-stake-program",
  "renec-vote-program",
  "rustc_version 0.2.3",
  "serde",
  "serde_derive",
- "renec-measure",
  "solana-metrics",
  "solana-rayon-threadlimit",
  "solana-sdk",
@@ -5826,8 +5826,8 @@ dependencies = [
  "clap",
  "log 0.4.14",
  "renec-logger",
- "renec-version",
  "renec-measure",
+ "renec-version",
  "solana-runtime",
  "solana-sdk",
 ]
@@ -5893,11 +5893,11 @@ dependencies = [
  "lazy_static",
  "log 0.4.14",
  "renec-account-decoder",
+ "renec-measure",
  "renec-vote-program",
  "serde",
  "serde_derive",
  "serde_json",
- "renec-measure",
  "solana-metrics",
  "solana-runtime",
  "solana-sdk",

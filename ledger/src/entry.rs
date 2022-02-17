@@ -11,7 +11,7 @@ use {
     rayon::{prelude::*, ThreadPool},
     serde::{Deserialize, Serialize},
     renec_measure::measure::Measure,
-    solana_merkle_tree::MerkleTree,
+    renec_merkle_tree::MerkleTree,
     solana_metrics::*,
     solana_perf::{cuda_runtime::PinnedVec, perf_libs, recycler::Recycler},
     solana_rayon_threadlimit::get_thread_count,
