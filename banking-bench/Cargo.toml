@@ -14,7 +14,7 @@ crossbeam-channel = "0.4"
 log = "0.4.11"
 rand = "0.7.0"
 rayon = "1.5.0"
-solana-core = { path = "../core", version = "=1.8.14" }
+renec-core = { path = "../core", version = "=1.8.14" }
 renec-clap-utils = { path = "../clap-utils", version = "=1.8.14" }
 solana-gossip = { path = "../gossip", version = "=1.8.14" }
 solana-ledger = { path = "../ledger", version = "=1.8.14" }

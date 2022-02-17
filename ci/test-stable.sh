@@ -87,7 +87,7 @@ test-stable-perf)
     rm -rf target/perf-libs
     ./fetch-perf-libs.sh
 
-    # Force CUDA for solana-core unit tests
+    # Force CUDA for renec-core unit tests
     export TEST_PERF_LIBS_CUDA=1
 
     # Force CUDA in ci/localnet-sanity.sh
@@ -95,7 +95,7 @@ test-stable-perf)
   fi
 
   _ "$cargo" stable build --bins ${V:+--verbose}
-  _ "$cargo" stable test --package solana-perf --package solana-ledger --package solana-core --lib ${V:+--verbose} -- --nocapture
+  _ "$cargo" stable test --package solana-perf --package solana-ledger --package renec-core --lib ${V:+--verbose} -- --nocapture
   _ "$cargo" stable run --manifest-path poh-bench/Cargo.toml ${V:+--verbose} -- --hashes-per-tick 10
   ;;
 test-local-cluster)

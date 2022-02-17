@@ -6,7 +6,7 @@ use {
     },
     renec_cli_output::OutputFormat,
     renec_client::rpc_client::RpcClient,
-    solana_core::test_validator::TestValidator,
+    renec_core::test_validator::TestValidator,
     renec_faucet::faucet::run_local_faucet,
     solana_sdk::{
         account_utils::StateMut,

@@ -2443,7 +2443,7 @@ pub mod rpc_minimal {
             debug!("get_version rpc request received");
             let version = renec_version::Version::default();
             Ok(RpcVersionInfo {
-                solana_core: version.to_string(),
+                renec_core: version.to_string(),
                 feature_set: Some(version.feature_set),
             })
         }
@@ -6101,7 +6101,7 @@ pub mod tests {
         let expected = json!({
             "jsonrpc": "2.0",
             "result": {
-                "solana-core": version.to_string(),
+                "renec-core": version.to_string(),
                 "feature-set": version.feature_set,
             },
             "id": 1

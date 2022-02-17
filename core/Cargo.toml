@@ -1,9 +1,9 @@
 [package]
-name = "solana-core"
+name = "renec-core"
 description = "Blockchain, Rebuilt for Scale"
 version = "1.8.14"
 homepage = "https://remitano.com/"
-documentation = "https://docs.rs/solana-core"
+documentation = "https://docs.rs/renec-core"
 readme = "../README.md"
 repository = "https://github.com/remitano/renec"
 authors = ["RENEC Maintainers <dev@remitano.com>"]
@@ -11,7 +11,7 @@ license = "Apache-2.0"
 edition = "2018"
 
 [badges]
-codecov = { repository = "solana-labs/solana", branch = "master", service = "github" }
+codecov = { repository = "remitano/renec", branch = "master", service = "github" }
 
 [dependencies]
 ahash = "0.6.1"

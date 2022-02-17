@@ -1214,7 +1214,7 @@ pub fn test_process_distribute_stake_with_client(client: &RpcClient, sender_keyp
 mod tests {
     use {
         super::*,
-        solana_core::test_validator::TestValidator,
+        renec_core::test_validator::TestValidator,
         solana_sdk::{
             signature::{read_keypair_file, write_keypair_file, Signer},
             stake::instruction::StakeInstruction,

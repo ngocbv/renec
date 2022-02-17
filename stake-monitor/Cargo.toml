@@ -28,7 +28,7 @@ renec-version = { path = "../version", version = "=1.8.14" }
 [dev-dependencies]
 serial_test = "0.4.0"
 solana-local-cluster = { path = "../local-cluster", version = "=1.8.14" }
-solana-core = { path = "../core", version = "=1.8.14" }
+renec-core = { path = "../core", version = "=1.8.14" }
 tempfile = "3.1.0"
 
 [[bin]]

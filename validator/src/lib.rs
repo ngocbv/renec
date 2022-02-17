@@ -12,7 +12,7 @@ use {
     },
 };
 pub use {
-    solana_core::test_validator, solana_gossip::cluster_info::MINIMUM_VALIDATOR_PORT_RANGE_WIDTH,
+    renec_core::test_validator, solana_gossip::cluster_info::MINIMUM_VALIDATOR_PORT_RANGE_WIDTH,
 };
 
 pub mod admin_rpc_service;

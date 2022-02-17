@@ -1,7 +1,7 @@
 use {
     log::*,
     solana_bench_exchange::bench::{airdrop_lamports, do_bench_exchange, Config},
-    solana_core::validator::ValidatorConfig,
+    renec_core::validator::ValidatorConfig,
     renec_exchange_program::{
         exchange_processor::process_instruction, id, renec_exchange_program,
     },

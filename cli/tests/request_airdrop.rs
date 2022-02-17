@@ -1,7 +1,7 @@
 use {
     solana_cli::cli::{process_command, CliCommand, CliConfig},
     renec_client::rpc_client::RpcClient,
-    solana_core::test_validator::TestValidator,
+    renec_core::test_validator::TestValidator,
     renec_faucet::faucet::run_local_faucet,
     solana_sdk::{
         commitment_config::CommitmentConfig,

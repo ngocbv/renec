@@ -1,11 +1,11 @@
 #![feature(test)]
 
-extern crate solana_core;
+extern crate renec_core;
 extern crate test;
 
 use {
     log::*,
-    solana_core::retransmit_stage::retransmitter,
+    renec_core::retransmit_stage::retransmitter,
     solana_gossip::{
         cluster_info::{ClusterInfo, Node},
         contact_info::ContactInfo,
