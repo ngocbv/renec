@@ -5,7 +5,7 @@
 
 #[deprecated(
     since = "1.7.2",
-    note = "Please use `solana_sdk::stake::state` or `solana_program::stake::state` instead"
+    note = "Please use `solana_sdk::stake::state` or `renec_program::stake::state` instead"
 )]
 pub use solana_sdk::stake::state::*;
 use {

@@ -7,7 +7,7 @@ extern crate self as solana_sdk;
 
 #[cfg(feature = "full")]
 pub use signer::signers;
-pub use solana_program::*;
+pub use renec_program::*;
 
 pub mod account;
 pub mod account_utils;
@@ -84,7 +84,7 @@ pub use renec_sdk_macro::declare_id;
 ///
 /// ```
 /// use std::str::FromStr;
-/// use solana_program::{pubkey, pubkey::Pubkey};
+/// use renec_program::{pubkey, pubkey::Pubkey};
 ///
 /// static ID: Pubkey = pubkey!("My11111111111111111111111111111111111111111");
 ///

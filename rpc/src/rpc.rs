@@ -79,6 +79,7 @@ use {
     },
     renec_vote_program::vote_state::{VoteState, MAX_LOCKOUT_HISTORY},
     spl_token::{
+        // Rebuild https://github.com/solana-labs/solana-program-library first before change to renec_program
         solana_program::program_pack::Pack,
         state::{Account as TokenAccount, Mint},
     },
@@ -2745,7 +2746,7 @@ pub mod rpc_full {
         ) -> Result<RpcResponse<RpcBlockProduction>>;
 
         // SPL Token-specific RPC endpoints
-        // See https://github.com/solana-labs/solana-program-library/releases/tag/token-v2.0.0 for
+        // See https://github.com/solana-labs/renec-program-library/releases/tag/token-v2.0.0 for
         // program details
 
         #[rpc(meta, name = "getTokenAccountBalance")]

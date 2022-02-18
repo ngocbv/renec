@@ -10,7 +10,7 @@ use {
     borsh::BorshDeserialize,
     futures::{future::join_all, Future, FutureExt},
     renec_banks_interface::{BanksRequest, BanksResponse},
-    solana_program::{
+    renec_program::{
         clock::{Clock, Slot},
         fee_calculator::FeeCalculator,
         hash::Hash,

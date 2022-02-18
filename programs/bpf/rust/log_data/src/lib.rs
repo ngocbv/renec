@@ -2,7 +2,7 @@
 
 #![cfg(feature = "program")]
 
-use solana_program::{
+use renec_program::{
     account_info::AccountInfo, entrypoint, entrypoint::ProgramResult, log::sol_log_data,
     program::set_return_data, pubkey::Pubkey,
 };

@@ -10,7 +10,7 @@ documentation = "https://docs.rs/renec-bpf-rust-call-depth"
 edition = "2018"
 
 [dependencies]
-solana-program = { path = "../../../../sdk/program", version = "=1.8.14" }
+renec-program = { path = "../../../../sdk/program", version = "=1.8.14" }
 
 [lib]
 crate-type = ["cdylib"]

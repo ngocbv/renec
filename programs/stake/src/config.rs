@@ -2,7 +2,7 @@
 //!  carries variables that the stake program cares about
 #[deprecated(
     since = "1.7.2",
-    note = "Please use `solana_sdk::stake::config` or `solana_program::stake::config` instead"
+    note = "Please use `solana_sdk::stake::config` or `renec_program::stake::config` instead"
 )]
 pub use solana_sdk::stake::config::*;
 use {

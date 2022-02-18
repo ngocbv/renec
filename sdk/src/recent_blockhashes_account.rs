@@ -6,7 +6,7 @@ use {
         },
         clock::INITIAL_RENT_EPOCH,
     },
-    solana_program::sysvar::recent_blockhashes::{
+    renec_program::sysvar::recent_blockhashes::{
         IntoIterSorted, IterItem, RecentBlockhashes, MAX_ENTRIES,
     },
     std::{collections::BinaryHeap, iter::FromIterator},
@@ -65,7 +65,7 @@ mod tests {
         super::*,
         crate::account::from_account,
         rand::{seq::SliceRandom, thread_rng},
-        solana_program::{
+        renec_program::{
             fee_calculator::FeeCalculator,
             hash::{Hash, HASH_BYTES},
             sysvar::recent_blockhashes::Entry,

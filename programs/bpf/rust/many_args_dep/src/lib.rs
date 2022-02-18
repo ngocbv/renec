@@ -1,7 +1,7 @@
 //! Solana Rust-based BPF program utility functions and types
 
-extern crate solana_program;
-use solana_program::msg;
+extern crate renec_program;
+use renec_program::msg;
 
 pub fn many_args(
     arg1: u64,

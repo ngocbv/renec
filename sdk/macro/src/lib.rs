@@ -84,7 +84,7 @@ struct ProgramSdkPubkey(proc_macro2::TokenStream);
 
 impl Parse for ProgramSdkPubkey {
     fn parse(input: ParseStream) -> Result<Self> {
-        parse_id(input, quote! { ::solana_program::pubkey::Pubkey }).map(Self)
+        parse_id(input, quote! { ::renec_program::pubkey::Pubkey }).map(Self)
     }
 }
 
@@ -113,13 +113,13 @@ struct ProgramSdkId(proc_macro2::TokenStream);
 
 impl Parse for ProgramSdkId {
     fn parse(input: ParseStream) -> Result<Self> {
-        parse_id(input, quote! { ::solana_program::pubkey::Pubkey }).map(Self)
+        parse_id(input, quote! { ::renec_program::pubkey::Pubkey }).map(Self)
     }
 }
 
 impl ToTokens for ProgramSdkId {
     fn to_tokens(&self, tokens: &mut proc_macro2::TokenStream) {
-        id_to_tokens(&self.0, quote! { ::solana_program::pubkey::Pubkey }, tokens)
+        id_to_tokens(&self.0, quote! { ::renec_program::pubkey::Pubkey }, tokens)
     }
 }
 

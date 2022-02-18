@@ -25,7 +25,7 @@ if [[ $(uname) != Linux ]]; then
 fi
 
 if [[ -n $USE_INSTALL || ! -f "$SOLANA_ROOT"/Cargo.toml ]]; then
-  solana_program() {
+  renec_program() {
     declare program="$1"
     if [[ -z $program ]]; then
       printf "solana"
@@ -34,7 +34,7 @@ if [[ -n $USE_INSTALL || ! -f "$SOLANA_ROOT"/Cargo.toml ]]; then
     fi
   }
 else
-  solana_program() {
+  renec_program() {
     declare program="$1"
     declare crate="$program"
     if [[ -z $program ]]; then
@@ -61,15 +61,15 @@ else
   }
 fi
 
-solana_bench_tps=$(solana_program bench-tps)
-renec_faucet=$(solana_program faucet)
-renec_validator=$(solana_program validator)
+solana_bench_tps=$(renec_program bench-tps)
+renec_faucet=$(renec_program faucet)
+renec_validator=$(renec_program validator)
 renec_validator_cuda="$renec_validator --cuda"
-renec_genesis=$(solana_program genesis)
-renec_gossip=$(solana_program gossip)
-renec_keygen=$(solana_program keygen)
-renec_ledger_tool=$(solana_program ledger-tool)
-solana_cli=$(solana_program)
+renec_genesis=$(renec_program genesis)
+renec_gossip=$(renec_program gossip)
+renec_keygen=$(renec_program keygen)
+renec_ledger_tool=$(renec_program ledger-tool)
+solana_cli=$(renec_program)
 
 export RUST_BACKTRACE=1
 

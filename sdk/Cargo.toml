@@ -13,7 +13,7 @@ edition = "2018"
 [features]
 # "program" feature is a legacy feature retained to support v1.3 and older
 # programs.  New development should not use this feature.  Instead use the
-# solana-program crate
+# renec-program crate
 program = []
 
 default = [
@@ -79,7 +79,7 @@ renec-crate-features = { path = "../crate-features", version = "=1.8.14", option
 renec-logger = { path = "../logger", version = "=1.8.14", optional = true }
 renec-frozen-abi = { path = "../frozen-abi", version = "=1.8.14" }
 renec-frozen-abi-macro = { path = "../frozen-abi/macro", version = "=1.8.14" }
-solana-program = { path = "program", version = "=1.8.14" }
+renec-program = { path = "program", version = "=1.8.14" }
 renec-sdk-macro = { path = "macro", version = "=1.8.14" }
 thiserror = "1.0"
 uriparse = "0.6.3"

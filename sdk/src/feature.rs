@@ -1,5 +1,5 @@
 use crate::account::{AccountSharedData, ReadableAccount, WritableAccount};
-pub use solana_program::feature::*;
+pub use renec_program::feature::*;
 
 pub fn from_account<T: ReadableAccount>(account: &T) -> Option<Feature> {
     if account.owner() != &id() {

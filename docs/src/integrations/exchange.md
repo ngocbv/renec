@@ -702,8 +702,8 @@ scheme and that _only_ deposits from ATA addresses be accepted.
 
 Monitoring for deposit transactions should follow the [block polling](#poll-for-blocks)
 method described above. Each new block should be scanned for successful transactions
-issuing SPL Token [Transfer](https://github.com/solana-labs/solana-program-library/blob/fc0d6a2db79bd6499f04b9be7ead0c400283845e/token/program/src/instruction.rs#L105)
-or [TransferChecked](https://github.com/solana-labs/solana-program-library/blob/fc0d6a2db79bd6499f04b9be7ead0c400283845e/token/program/src/instruction.rs#L268)
+issuing SPL Token [Transfer](https://github.com/solana-labs/renec-program-library/blob/fc0d6a2db79bd6499f04b9be7ead0c400283845e/token/program/src/instruction.rs#L105)
+or [TransferChecked](https://github.com/solana-labs/renec-program-library/blob/fc0d6a2db79bd6499f04b9be7ead0c400283845e/token/program/src/instruction.rs#L268)
 instructions referencing user accounts. It is possible that a transfer is initiated
 by a smart contract via [Cross Program Invocation](/developing/programming-model/calling-between-programs#cross-program-invocations),
 so [inner instructions](/terminology#inner-instruction) must be checked as well.
@@ -721,7 +721,7 @@ Additionally this address must be owned by the System Program and have no accoun
 
 From the withdrawal address, the [Associated Token Account](https://spl.solana.com/associated-token-account)
 (ATA) for the correct mint is derived and the transfer issued to that account via a
-[TransferChecked](https://github.com/solana-labs/solana-program-library/blob/fc0d6a2db79bd6499f04b9be7ead0c400283845e/token/program/src/instruction.rs#L268)
+[TransferChecked](https://github.com/solana-labs/renec-program-library/blob/fc0d6a2db79bd6499f04b9be7ead0c400283845e/token/program/src/instruction.rs#L268)
 instruction. Note that it is possible that the ATA address does not yet exist, at which point the
 exchange should fund the account on behalf of the user. For SPL Token v2
 accounts, funding the withdrawal account will require 0.00203928 SOL (2,039,280

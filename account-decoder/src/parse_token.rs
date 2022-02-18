@@ -5,6 +5,7 @@ use {
     },
     solana_sdk::pubkey::Pubkey,
     spl_token::{
+        // Rebuild https://github.com/solana-labs/solana-program-library first before change to renec_program
         solana_program::{
             program_option::COption, program_pack::Pack, pubkey::Pubkey as SplTokenPubkey,
         },

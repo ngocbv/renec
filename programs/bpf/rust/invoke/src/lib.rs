@@ -2,10 +2,10 @@
 
 #![allow(unreachable_code)]
 
-extern crate solana_program;
+extern crate renec_program;
 
 use renec_bpf_rust_invoked::instruction::*;
-use solana_program::{
+use renec_program::{
     account_info::AccountInfo,
     entrypoint,
     entrypoint::{ProgramResult, MAX_PERMITTED_DATA_INCREASE},
@@ -99,7 +99,7 @@ fn process_instruction(
                 let from_lamports = accounts[FROM_INDEX].lamports();
                 let to_lamports = accounts[DERIVED_KEY1_INDEX].lamports();
                 assert_eq!(accounts[DERIVED_KEY1_INDEX].data_len(), 0);
-                assert!(solana_program::system_program::check_id(
+                assert!(renec_program::system_program::check_id(
                     accounts[DERIVED_KEY1_INDEX].owner
                 ));
 

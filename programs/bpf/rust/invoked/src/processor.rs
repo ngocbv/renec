@@ -3,7 +3,7 @@
 #![cfg(feature = "program")]
 
 use crate::instruction::*;
-use solana_program::{
+use renec_program::{
     account_info::AccountInfo,
     bpf_loader, entrypoint,
     entrypoint::{ProgramResult, MAX_PERMITTED_DATA_INCREASE},
@@ -251,7 +251,7 @@ fn process_instruction(
                 let from_lamports = accounts[FROM_INDEX].lamports();
                 let to_lamports = accounts[DERIVED_KEY2_INDEX].lamports();
                 assert_eq!(accounts[DERIVED_KEY2_INDEX].data_len(), 0);
-                assert!(solana_program::system_program::check_id(
+                assert!(renec_program::system_program::check_id(
                     accounts[DERIVED_KEY2_INDEX].owner
                 ));
 

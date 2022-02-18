@@ -128,4 +128,4 @@ $ make dump_<program name>
 
 ## 示例 {#examples}
 
-[Solana 程序库github](https://github.com/solana-labs/solana-program-library/tree/master/examples/c)代码库包含了 C 语言的例子集合。
+[Solana 程序库github](https://github.com/solana-labs/renec-program-library/tree/master/examples/c)代码库包含了 C 语言的例子集合。

@@ -1,7 +1,7 @@
 //! Example Rust-based BPF upgradeable program
 
-extern crate solana_program;
-use solana_program::{
+extern crate renec_program;
+use renec_program::{
     account_info::AccountInfo,
     entrypoint,
     entrypoint::ProgramResult,

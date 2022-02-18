@@ -3752,8 +3752,8 @@ dependencies = [
  "mio 0.7.6",
  "renec-banks-interface",
  "renec-banks-server",
+ "renec-program",
  "renec-runtime",
- "solana-program 1.8.14",
  "solana-sdk",
  "tarpc",
  "tokio",
@@ -4477,7 +4477,7 @@ dependencies = [
  "fast-math",
  "hex",
  "matches",
- "solana-program 1.8.14",
+ "renec-program",
 ]
 
 [[package]]
@@ -4583,6 +4583,44 @@ dependencies = [
  "renec-perf",
  "renec-version",
  "solana-sdk",
+]
+
+[[package]]
+name = "renec-program"
+version = "1.8.14"
+dependencies = [
+ "assert_matches",
+ "base64 0.13.0",
+ "bincode",
+ "blake3",
+ "borsh",
+ "borsh-derive",
+ "bs58 0.3.1",
+ "bv",
+ "bytemuck",
+ "curve25519-dalek 2.1.0",
+ "hex",
+ "itertools 0.9.0",
+ "lazy_static",
+ "libsecp256k1",
+ "log 0.4.14",
+ "num-derive",
+ "num-traits",
+ "rand 0.7.3",
+ "renec-frozen-abi",
+ "renec-frozen-abi-macro",
+ "renec-logger",
+ "renec-sdk-macro",
+ "rustc_version 0.2.3",
+ "rustversion",
+ "serde",
+ "serde_bytes",
+ "serde_derive",
+ "serde_json",
+ "sha2",
+ "sha3",
+ "static_assertions",
+ "thiserror",
 ]
 
 [[package]]
@@ -4741,6 +4779,17 @@ dependencies = [
  "tempfile",
  "thiserror",
  "zstd",
+]
+
+[[package]]
+name = "renec-sdk-macro"
+version = "1.8.14"
+dependencies = [
+ "bs58 0.3.1",
+ "proc-macro2 1.0.24",
+ "quote 1.0.9",
+ "rustversion",
+ "syn 1.0.60",
 ]
 
 [[package]]
@@ -5633,45 +5682,7 @@ dependencies = [
  "solana-frozen-abi",
  "solana-frozen-abi-macro",
  "solana-logger",
- "renec-sdk-macro 1.7.6",
- "thiserror",
-]
-
-[[package]]
-name = "solana-program"
-version = "1.8.14"
-dependencies = [
- "assert_matches",
- "base64 0.13.0",
- "bincode",
- "blake3",
- "borsh",
- "borsh-derive",
- "bs58 0.3.1",
- "bv",
- "bytemuck",
- "curve25519-dalek 2.1.0",
- "hex",
- "itertools 0.9.0",
- "lazy_static",
- "libsecp256k1",
- "log 0.4.14",
- "num-derive",
- "num-traits",
- "rand 0.7.3",
- "renec-frozen-abi",
- "renec-frozen-abi-macro",
- "renec-logger",
- "rustc_version 0.2.3",
- "rustversion",
- "serde",
- "serde_bytes",
- "serde_derive",
- "serde_json",
- "sha2",
- "sha3",
- "renec-sdk-macro 1.8.14",
- "static_assertions",
+ "solana-sdk-macro",
  "thiserror",
 ]
 
@@ -5721,6 +5732,8 @@ dependencies = [
  "renec-frozen-abi",
  "renec-frozen-abi-macro",
  "renec-logger",
+ "renec-program",
+ "renec-sdk-macro",
  "rustc_version 0.2.3",
  "rustversion",
  "serde",
@@ -5729,29 +5742,16 @@ dependencies = [
  "serde_json",
  "sha2",
  "sha3",
- "solana-program 1.8.14",
- "renec-sdk-macro 1.8.14",
  "thiserror",
  "tiny-bip39",
  "uriparse",
 ]
 
 [[package]]
-name = "renec-sdk-macro"
+name = "solana-sdk-macro"
 version = "1.7.6"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "84710ce45a21cccd9f2b09d8e9aad529080bb2540f27b1253874b6e732b465b9"
-dependencies = [
- "bs58 0.3.1",
- "proc-macro2 1.0.24",
- "quote 1.0.9",
- "rustversion",
- "syn 1.0.60",
-]
-
-[[package]]
-name = "renec-sdk-macro"
-version = "1.8.14"
 dependencies = [
  "bs58 0.3.1",
  "proc-macro2 1.0.24",
@@ -5964,7 +5964,7 @@ version = "1.0.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "393e2240d521c3dd770806bff25c2c00d761ac962be106e14e22dd912007f428"
 dependencies = [
- "solana-program 1.7.6",
+ "solana-program",
  "spl-token",
 ]
 
@@ -5974,7 +5974,7 @@ version = "3.0.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "bd0dc6f70db6bacea7ff25870b016a65ba1d1b6013536f08e4fd79a8f9005325"
 dependencies = [
- "solana-program 1.7.6",
+ "solana-program",
 ]
 
 [[package]]
@@ -5987,7 +5987,7 @@ dependencies = [
  "num-derive",
  "num-traits",
  "num_enum",
- "solana-program 1.7.6",
+ "solana-program",
  "thiserror",
 ]
 

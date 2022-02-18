@@ -90,7 +90,7 @@ pub const HEAP_LENGTH: usize = 32 * 1024;
 /// #[cfg(not(feature = "no-entrypoint"))]
 /// pub mod entrypoint {
 ///
-///     use solana_program::{
+///     use renec_program::{
 ///         account_info::AccountInfo,
 ///         entrypoint,
 ///         entrypoint::ProgramResult,

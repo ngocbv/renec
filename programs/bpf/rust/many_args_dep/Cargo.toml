@@ -10,7 +10,7 @@ documentation = "https://docs.rs/renec-bpf-rust-many-args-dep"
 edition = "2018"
 
 [dependencies]
-solana-program = { path = "../../../../sdk/program", version = "=1.8.14" }
+renec-program = { path = "../../../../sdk/program", version = "=1.8.14" }
 
 [package.metadata.docs.rs]
 targets = ["x86_64-unknown-linux-gnu"]

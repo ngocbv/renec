@@ -10,7 +10,7 @@ edition = "2018"
 publish = false
 
 [dependencies]
-solana-program = { path = "../../../../program", version = "=1.8.14" }
+renec-program = { path = "../../../../program", version = "=1.8.14" }
 
 [lib]
 crate-type = ["cdylib"]

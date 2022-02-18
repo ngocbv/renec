@@ -7,7 +7,7 @@ use {
         nonce_account::create_account,
         process_instruction::InvokeContext,
     },
-    solana_program::{
+    renec_program::{
         instruction::{checked_add, InstructionError},
         nonce::{self, state::Versions, State},
         pubkey::Pubkey,
@@ -308,7 +308,7 @@ mod test {
             system_instruction::SystemError,
             sysvar::recent_blockhashes::create_test_recent_blockhashes,
         },
-        solana_program::hash::Hash,
+        renec_program::hash::Hash,
     };
 
     #[test]

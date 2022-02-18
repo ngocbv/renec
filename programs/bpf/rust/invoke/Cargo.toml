@@ -11,7 +11,7 @@ edition = "2018"
 
 [dependencies]
 renec-bpf-rust-invoked = { path = "../invoked", default-features = false }
-solana-program = { path = "../../../../sdk/program", version = "=1.8.14" }
+renec-program = { path = "../../../../sdk/program", version = "=1.8.14" }
 
 [lib]
 crate-type = ["cdylib"]
