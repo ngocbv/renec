@@ -8,7 +8,7 @@ use {
     serde::{Deserialize, Serialize},
     renec_core::validator::ValidatorStartProgress,
     renec_gossip::{cluster_info::ClusterInfo, contact_info::ContactInfo},
-    solana_sdk::{
+    renec_sdk::{
         exit::Exit,
         signature::{read_keypair_file, Keypair, Signer},
     },

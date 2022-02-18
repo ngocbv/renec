@@ -7,7 +7,7 @@ use {
             MAX_DATA_SHREDS_PER_FEC_BLOCK, SIZE_OF_DATA_SHRED_PAYLOAD,
         },
     },
-    solana_sdk::{
+    renec_sdk::{
         clock::Slot,
         hash::Hash,
         signature::{Keypair, Signer},

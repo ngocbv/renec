@@ -1,6 +1,6 @@
 use {
     renec_program_test::{processor, ProgramTest},
-    solana_sdk::{
+    renec_sdk::{
         account_info::{next_account_info, AccountInfo},
         entrypoint::ProgramResult,
         instruction::{AccountMeta, Instruction},

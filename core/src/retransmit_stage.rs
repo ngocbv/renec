@@ -27,7 +27,7 @@ use {
     renec_rayon_threadlimit::get_thread_count,
     renec_rpc::{max_slots::MaxSlots, rpc_subscriptions::RpcSubscriptions},
     renec_runtime::{bank::Bank, bank_forks::BankForks},
-    solana_sdk::{clock::Slot, epoch_schedule::EpochSchedule, pubkey::Pubkey, timing::timestamp},
+    renec_sdk::{clock::Slot, epoch_schedule::EpochSchedule, pubkey::Pubkey, timing::timestamp},
     std::{
         collections::{BTreeSet, HashMap, HashSet},
         net::UdpSocket,
@@ -540,7 +540,7 @@ mod tests {
             genesis_utils::{create_genesis_config, GenesisConfigInfo},
         },
         renec_net_utils::find_available_port_in_range,
-        solana_sdk::signature::Keypair,
+        renec_sdk::signature::Keypair,
         solana_streamer::socket::SocketAddrSpace,
         std::net::{IpAddr, Ipv4Addr},
     };
@@ -561,7 +561,7 @@ mod tests {
         let leader_schedule_cache = Arc::new(cached_leader_schedule);
         let bank_forks = Arc::new(RwLock::new(bank_forks));
 
-        let mut me = ContactInfo::new_localhost(&solana_sdk::pubkey::new_rand(), 0);
+        let mut me = ContactInfo::new_localhost(&renec_sdk::pubkey::new_rand(), 0);
         let ip_addr = IpAddr::V4(Ipv4Addr::new(0, 0, 0, 0));
         let port = find_available_port_in_range(ip_addr, (8000, 10000)).unwrap();
         let me_retransmit = UdpSocket::bind(format!("127.0.0.1:{}", port)).unwrap();
@@ -576,7 +576,7 @@ mod tests {
         // This fixes the order of nodes returned by shuffle_peers_and_index,
         // and makes turbine retransmit tree deterministic for the purpose of
         // the test.
-        let other = std::iter::repeat_with(solana_sdk::pubkey::new_rand)
+        let other = std::iter::repeat_with(renec_sdk::pubkey::new_rand)
             .find(|pk| me.id < *pk)
             .unwrap();
         let other = ContactInfo::new_localhost(&other, 0);

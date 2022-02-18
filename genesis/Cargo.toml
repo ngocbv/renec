@@ -22,7 +22,7 @@ renec-exchange-program = { path = "../programs/exchange", version = "=1.8.14" }
 renec-ledger = { path = "../ledger", version = "=1.8.14" }
 renec-logger = { path = "../logger", version = "=1.8.14" }
 renec-runtime = { path = "../runtime", version = "=1.8.14" }
-solana-sdk = { path = "../sdk", version = "=1.8.14" }
+renec-sdk = { path = "../sdk", version = "=1.8.14" }
 renec-stake-program = { path = "../programs/stake", version = "=1.8.14" }
 renec-version = { path = "../version", version = "=1.8.14" }
 renec-vote-program = { path = "../programs/vote", version = "=1.8.14" }

@@ -4,7 +4,7 @@ use {
     indicatif::{ProgressBar, ProgressStyle},
     log::*,
     renec_runtime::{bank_forks::ArchiveFormat, snapshot_utils},
-    solana_sdk::{clock::Slot, genesis_config::DEFAULT_GENESIS_ARCHIVE, hash::Hash},
+    renec_sdk::{clock::Slot, genesis_config::DEFAULT_GENESIS_ARCHIVE, hash::Hash},
     std::{
         fs::{self, File},
         io::{self, Read},

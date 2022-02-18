@@ -18,7 +18,7 @@ use renec_runtime::{
     genesis_utils::{create_genesis_config, GenesisConfigInfo},
     loader_utils::load_program,
 };
-use solana_sdk::{
+use renec_sdk::{
     account::AccountSharedData,
     bpf_loader,
     client::SyncClient,
@@ -205,13 +205,13 @@ fn bench_create_vm(bencher: &mut Bencher) {
     let accounts = [RefCell::new(AccountSharedData::new(
         1,
         10000001,
-        &solana_sdk::pubkey::new_rand(),
+        &renec_sdk::pubkey::new_rand(),
     ))];
-    let keys = [solana_sdk::pubkey::new_rand()];
+    let keys = [renec_sdk::pubkey::new_rand()];
     let keyed_accounts: Vec<_> = keys
         .iter()
         .zip(&accounts)
-        .map(|(key, account)| solana_sdk::keyed_account::KeyedAccount::new(&key, false, &account))
+        .map(|(key, account)| renec_sdk::keyed_account::KeyedAccount::new(&key, false, &account))
         .collect();
     let instruction_data = vec![0u8];
 
@@ -222,7 +222,7 @@ fn bench_create_vm(bencher: &mut Bencher) {
     let keyed_accounts = invoke_context.get_keyed_accounts().unwrap();
     let mut serialized = serialize_parameters(
         &bpf_loader::id(),
-        &solana_sdk::pubkey::new_rand(),
+        &renec_sdk::pubkey::new_rand(),
         keyed_accounts,
         &instruction_data,
     )
@@ -256,13 +256,13 @@ fn bench_instruction_count_tuner(_bencher: &mut Bencher) {
     let accounts = [RefCell::new(AccountSharedData::new(
         1,
         10000001,
-        &solana_sdk::pubkey::new_rand(),
+        &renec_sdk::pubkey::new_rand(),
     ))];
-    let keys = [solana_sdk::pubkey::new_rand()];
+    let keys = [renec_sdk::pubkey::new_rand()];
     let keyed_accounts: Vec<_> = keys
         .iter()
         .zip(&accounts)
-        .map(|(key, account)| solana_sdk::keyed_account::KeyedAccount::new(&key, false, &account))
+        .map(|(key, account)| renec_sdk::keyed_account::KeyedAccount::new(&key, false, &account))
         .collect();
     let instruction_data = vec![0u8];
 
@@ -273,7 +273,7 @@ fn bench_instruction_count_tuner(_bencher: &mut Bencher) {
     let keyed_accounts = invoke_context.get_keyed_accounts().unwrap();
     let mut serialized = serialize_parameters(
         &bpf_loader::id(),
-        &solana_sdk::pubkey::new_rand(),
+        &renec_sdk::pubkey::new_rand(),
         keyed_accounts,
         &instruction_data,
     )

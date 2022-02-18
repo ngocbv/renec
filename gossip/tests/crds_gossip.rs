@@ -16,7 +16,7 @@ use {
         ping_pong::PingCache,
     },
     renec_rayon_threadlimit::get_thread_count,
-    solana_sdk::{
+    renec_sdk::{
         hash::hash,
         pubkey::Pubkey,
         signature::{Keypair, Signer},

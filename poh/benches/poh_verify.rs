@@ -3,7 +3,7 @@ extern crate test;
 
 use {
     renec_ledger::entry::{next_entry_mut, Entry, EntrySlice},
-    solana_sdk::{
+    renec_sdk::{
         hash::{hash, Hash},
         signature::{Keypair, Signer},
         system_transaction,

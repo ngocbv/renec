@@ -11,7 +11,7 @@ use {
         crds_gossip_pull::{CrdsFilter, CrdsGossipPull},
         crds_value::CrdsValue,
     },
-    solana_sdk::hash,
+    renec_sdk::hash,
     test::Bencher,
 };
 

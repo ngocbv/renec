@@ -12,9 +12,9 @@ Some important crates:
 
 - [`renec-program`] &mdash; Imported by programs running on Solana, compiled
   to BPF. This crate contains many fundamental data types and is re-exported from
-  [`solana-sdk`], which cannot be imported from a Solana program.
+  [`renec-sdk`], which cannot be imported from a Solana program.
 
-- [`solana-sdk`] &mdash; The basic off-chain SDK, it re-exports
+- [`renec-sdk`] &mdash; The basic off-chain SDK, it re-exports
   [`renec-program`] and adds more APIs on top of that. Most Solana programs
   that do not run on-chain will import this.
 
@@ -25,7 +25,7 @@ Some important crates:
   as used by the main Solana CLI.
 
 [`renec-program`]: https://docs.rs/renec-program
-[`solana-sdk`]: https://docs.rs/solana-sdk
+[`renec-sdk`]: https://docs.rs/renec-sdk
 [`renec-client`]: https://docs.rs/renec-client
 [`renec-clap-utils`]: https://docs.rs/renec-clap-utils
 [`clap`]: https://docs.rs/clap

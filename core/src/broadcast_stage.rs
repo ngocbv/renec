@@ -22,7 +22,7 @@ use {
     solana_metrics::{inc_new_counter_error, inc_new_counter_info},
     renec_poh::poh_recorder::WorkingBankEntry,
     renec_runtime::{bank::Bank, bank_forks::BankForks},
-    solana_sdk::{
+    renec_sdk::{
         clock::Slot,
         pubkey::Pubkey,
         timing::{timestamp, AtomicInterval},
@@ -462,7 +462,7 @@ pub mod test {
             shred::{max_ticks_per_n_shreds, ProcessShredsStats, Shredder},
         },
         renec_runtime::bank::Bank,
-        solana_sdk::{
+        renec_sdk::{
             hash::Hash,
             pubkey::Pubkey,
             signature::{Keypair, Signer},

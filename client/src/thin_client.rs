@@ -7,7 +7,7 @@ use {
     crate::{rpc_client::RpcClient, rpc_config::RpcProgramAccountsConfig, rpc_response::Response},
     bincode::{serialize_into, serialized_size},
     log::*,
-    solana_sdk::{
+    renec_sdk::{
         account::Account,
         client::{AsyncClient, Client, SyncClient},
         clock::{Slot, MAX_PROCESSING_AGE},

@@ -5,7 +5,7 @@ use {
         blockstore_meta::DuplicateSlotProof,
         shred::{Shred, ShredError, ShredType},
     },
-    solana_sdk::{
+    renec_sdk::{
         clock::Slot,
         pubkey::Pubkey,
         sanitize::{Sanitize, SanitizeError},
@@ -284,7 +284,7 @@ pub(crate) mod tests {
         super::*,
         rand::Rng,
         renec_ledger::{entry::Entry, shred::Shredder},
-        solana_sdk::{
+        renec_sdk::{
             hash,
             signature::{Keypair, Signer},
             system_transaction,

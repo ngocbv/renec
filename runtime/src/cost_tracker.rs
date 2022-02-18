@@ -5,7 +5,7 @@
 //!
 use {
     crate::{block_cost_limits::*, cost_model::TransactionCost},
-    solana_sdk::{clock::Slot, pubkey::Pubkey, transaction::Transaction},
+    renec_sdk::{clock::Slot, pubkey::Pubkey, transaction::Transaction},
     std::collections::HashMap,
 };
 
@@ -160,7 +160,7 @@ mod tests {
             bank::Bank,
             genesis_utils::{create_genesis_config, GenesisConfigInfo},
         },
-        solana_sdk::{
+        renec_sdk::{
             hash::Hash,
             signature::{Keypair, Signer},
             system_transaction,

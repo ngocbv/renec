@@ -21,7 +21,7 @@ use {
     },
     log::*,
     rand::{thread_rng, Rng},
-    solana_sdk::{
+    renec_sdk::{
         account::{Account, AccountSharedData, ReadableAccount, WritableAccount},
         account_utils::StateMut,
         bpf_loader_upgradeable::{self, UpgradeableLoaderState},
@@ -229,7 +229,7 @@ impl Accounts {
                         payer_index = Some(i);
                     }
 
-                    if solana_sdk::sysvar::instructions::check_id(key)
+                    if renec_sdk::sysvar::instructions::check_id(key)
                         && feature_set.is_active(&feature_set::instructions_sysvar_enabled::id())
                     {
                         Self::construct_instructions_account(message, demote_program_write_locks)
@@ -886,7 +886,7 @@ impl Accounts {
         txs: impl Iterator<Item = &'a Transaction>,
         demote_program_write_locks: bool,
     ) -> Vec<Result<()>> {
-        use solana_sdk::sanitize::Sanitize;
+        use renec_sdk::sanitize::Sanitize;
         let keys: Vec<Result<_>> = txs
             .map(|tx| {
                 tx.sanitize().map_err(TransactionError::from)?;
@@ -1136,7 +1136,7 @@ pub fn create_test_accounts(
     slot: Slot,
 ) {
     for t in 0..num {
-        let pubkey = solana_sdk::pubkey::new_rand();
+        let pubkey = renec_sdk::pubkey::new_rand();
         let account =
             AccountSharedData::new((t + 1) as u64, 0, AccountSharedData::default().owner());
         accounts.store_slow_uncached(slot, &pubkey, &account);
@@ -1159,7 +1159,7 @@ mod tests {
     use {
         super::*,
         crate::rent_collector::RentCollector,
-        solana_sdk::{
+        renec_sdk::{
             account::{AccountSharedData, WritableAccount},
             epoch_schedule::EpochSchedule,
             fee_calculator::FeeCalculator,
@@ -1356,7 +1356,7 @@ mod tests {
         let keypair = Keypair::new();
         let key0 = keypair.pubkey();
 
-        let account = AccountSharedData::new(1, 1, &solana_sdk::pubkey::new_rand()); // <-- owner is not the system program
+        let account = AccountSharedData::new(1, 1, &renec_sdk::pubkey::new_rand()); // <-- owner is not the system program
         accounts.push((key0, account));
 
         let instructions = vec![CompiledInstruction::new(1, &(), vec![0])];
@@ -1736,13 +1736,13 @@ mod tests {
         );
 
         // Load accounts owned by various programs into AccountsDb
-        let pubkey0 = solana_sdk::pubkey::new_rand();
+        let pubkey0 = renec_sdk::pubkey::new_rand();
         let account0 = AccountSharedData::new(1, 0, &Pubkey::new(&[2; 32]));
         accounts.store_slow_uncached(0, &pubkey0, &account0);
-        let pubkey1 = solana_sdk::pubkey::new_rand();
+        let pubkey1 = renec_sdk::pubkey::new_rand();
         let account1 = AccountSharedData::new(1, 0, &Pubkey::new(&[2; 32]));
         accounts.store_slow_uncached(0, &pubkey1, &account1);
-        let pubkey2 = solana_sdk::pubkey::new_rand();
+        let pubkey2 = renec_sdk::pubkey::new_rand();
         let account2 = AccountSharedData::new(1, 0, &Pubkey::new(&[3; 32]));
         accounts.store_slow_uncached(0, &pubkey2, &account2);
 
@@ -2011,7 +2011,7 @@ mod tests {
         assert_eq!(
             accounts.load_executable_accounts(
                 &ancestors,
-                &solana_sdk::pubkey::new_rand(),
+                &renec_sdk::pubkey::new_rand(),
                 &mut error_counters
             ),
             Err(TransactionError::ProgramAccountNotFound)
@@ -2305,7 +2305,7 @@ mod tests {
     fn test_collect_accounts_to_store() {
         let keypair0 = Keypair::new();
         let keypair1 = Keypair::new();
-        let pubkey = solana_sdk::pubkey::new_rand();
+        let pubkey = renec_sdk::pubkey::new_rand();
         let account0 = AccountSharedData::new(1, 0, &Pubkey::default());
         let account1 = AccountSharedData::new(2, 0, &Pubkey::default());
         let account2 = AccountSharedData::new(3, 0, &Pubkey::default());
@@ -2439,7 +2439,7 @@ mod tests {
         let zero_account = AccountSharedData::new(0, 0, AccountSharedData::default().owner());
         info!("storing..");
         for i in 0..2_000 {
-            let pubkey = solana_sdk::pubkey::new_rand();
+            let pubkey = renec_sdk::pubkey::new_rand();
             let account =
                 AccountSharedData::new((i + 1) as u64, 0, AccountSharedData::default().owner());
             accounts.store_slow_uncached(i, &pubkey, &account);
@@ -2485,12 +2485,12 @@ mod tests {
             None,
         );
 
-        let instructions_key = solana_sdk::sysvar::instructions::id();
+        let instructions_key = renec_sdk::sysvar::instructions::id();
         let keypair = Keypair::new();
         let instructions = vec![CompiledInstruction::new(1, &(), vec![0, 1])];
         let tx = Transaction::new_with_compiled_instructions(
             &[&keypair],
-            &[solana_sdk::pubkey::new_rand(), instructions_key],
+            &[renec_sdk::pubkey::new_rand(), instructions_key],
             Hash::default(),
             vec![native_loader::id()],
             instructions,

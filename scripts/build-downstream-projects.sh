@@ -23,8 +23,8 @@ update_solana_dependencies() {
 
   sed -i -e "s#\(renec-program = \"\)[^\"]*\(\"\)#\1=$solana_ver\2#g" "${tomls[@]}" || return $?
   sed -i -e "s#\(renec-program-test = \"\)[^\"]*\(\"\)#\1=$solana_ver\2#g" "${tomls[@]}" || return $?
-  sed -i -e "s#\(solana-sdk = \"\).*\(\"\)#\1=$solana_ver\2#g" "${tomls[@]}" || return $?
-  sed -i -e "s#\(solana-sdk = { version = \"\)[^\"]*\(\"\)#\1=$solana_ver\2#g" "${tomls[@]}" || return $?
+  sed -i -e "s#\(renec-sdk = \"\).*\(\"\)#\1=$solana_ver\2#g" "${tomls[@]}" || return $?
+  sed -i -e "s#\(renec-sdk = { version = \"\)[^\"]*\(\"\)#\1=$solana_ver\2#g" "${tomls[@]}" || return $?
   sed -i -e "s#\(renec-client = \"\)[^\"]*\(\"\)#\1=$solana_ver\2#g" "${tomls[@]}" || return $?
   sed -i -e "s#\(renec-client = { version = \"\)[^\"]*\(\"\)#\1=$solana_ver\2#g" "${tomls[@]}" || return $?
 }
@@ -35,7 +35,7 @@ patch_crates_io() {
 renec-client = { path = "$solana_dir/client" }
 renec-program = { path = "$solana_dir/sdk/program" }
 renec-program-test = { path = "$solana_dir/program-test" }
-solana-sdk = { path = "$solana_dir/sdk" }
+renec-sdk = { path = "$solana_dir/sdk" }
 EOF
 }
 

@@ -1,7 +1,7 @@
 use {
     renec_banks_client::BanksClient,
     renec_program_test::{processor, ProgramTest},
-    solana_sdk::{
+    renec_sdk::{
         account_info::AccountInfo,
         entrypoint::ProgramResult,
         hash::Hash,

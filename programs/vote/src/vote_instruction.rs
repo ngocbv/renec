@@ -10,7 +10,7 @@ use {
     num_derive::{FromPrimitive, ToPrimitive},
     serde_derive::{Deserialize, Serialize},
     solana_metrics::inc_new_counter_info,
-    solana_sdk::{
+    renec_sdk::{
         decode_error::DecodeError,
         feature_set,
         hash::Hash,
@@ -314,7 +314,7 @@ fn verify_rent_exemption(
 /// This method facilitates a transition from fetching sysvars from keyed
 /// accounts to fetching from the sysvar cache without breaking consensus. In
 /// order to keep consistent behavior, it continues to enforce the same checks
-/// as `solana_sdk::keyed_account::from_keyed_account` despite dynamically
+/// as `renec_sdk::keyed_account::from_keyed_account` despite dynamically
 /// loading them instead of deserializing from account data.
 fn get_sysvar_with_keyed_account_check<S: Sysvar>(
     keyed_account: &KeyedAccount,
@@ -420,7 +420,7 @@ mod tests {
     use {
         super::*,
         bincode::serialize,
-        solana_sdk::{
+        renec_sdk::{
             account::{self, Account, AccountSharedData},
             process_instruction::MockInvokeContext,
             rent::Rent,

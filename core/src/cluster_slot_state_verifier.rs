@@ -3,7 +3,7 @@ use {
         fork_choice::ForkChoice, heaviest_subtree_fork_choice::HeaviestSubtreeForkChoice,
         progress_map::ProgressMap,
     },
-    solana_sdk::{clock::Slot, hash::Hash},
+    renec_sdk::{clock::Slot, hash::Hash},
     std::collections::{BTreeMap, BTreeSet},
 };
 

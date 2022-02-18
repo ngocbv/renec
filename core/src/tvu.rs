@@ -46,7 +46,7 @@ use {
         cost_model::CostModel,
         vote_sender_types::ReplayVoteSender,
     },
-    solana_sdk::{
+    renec_sdk::{
         pubkey::Pubkey,
         signature::{Keypair, Signer},
     },
@@ -389,7 +389,7 @@ pub mod tests {
         renec_poh::poh_recorder::create_test_recorder,
         renec_rpc::optimistically_confirmed_bank_tracker::OptimisticallyConfirmedBank,
         renec_runtime::bank::Bank,
-        solana_sdk::signature::{Keypair, Signer},
+        renec_sdk::signature::{Keypair, Signer},
         solana_streamer::socket::SocketAddrSpace,
         std::sync::atomic::Ordering,
     };

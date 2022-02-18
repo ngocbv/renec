@@ -6,7 +6,7 @@ use {
     renec_client::rpc_client::RpcClient,
     renec_core::serve_repair::RepairProtocol,
     renec_gossip::{contact_info::ContactInfo, gossip_service::discover},
-    solana_sdk::pubkey::Pubkey,
+    renec_sdk::pubkey::Pubkey,
     solana_streamer::socket::SocketAddrSpace,
     std::{
         net::{SocketAddr, UdpSocket},
@@ -19,7 +19,7 @@ use {
 fn get_repair_contact(nodes: &[ContactInfo]) -> ContactInfo {
     let source = thread_rng().gen_range(0, nodes.len());
     let mut contact = nodes[source].clone();
-    contact.id = solana_sdk::pubkey::new_rand();
+    contact.id = renec_sdk::pubkey::new_rand();
     contact
 }
 
@@ -271,12 +271,12 @@ fn main() {
 
 #[cfg(test)]
 pub mod test {
-    use {super::*, solana_sdk::timing::timestamp};
+    use {super::*, renec_sdk::timing::timestamp};
 
     #[test]
     fn test_dos() {
         let nodes = [ContactInfo::new_localhost(
-            &solana_sdk::pubkey::new_rand(),
+            &renec_sdk::pubkey::new_rand(),
             timestamp(),
         )];
         let entrypoint_addr = nodes[0].gossip;

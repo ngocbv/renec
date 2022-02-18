@@ -5,7 +5,7 @@ extern crate test;
 use {
     log::*,
     renec_runtime::message_processor::PreAccount,
-    solana_sdk::{
+    renec_sdk::{
         account::AccountSharedData, execute_timings::ExecuteDetailsTimings, pubkey, rent::Rent,
     },
     test::Bencher,

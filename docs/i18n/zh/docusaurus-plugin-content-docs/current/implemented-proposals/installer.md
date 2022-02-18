@@ -70,7 +70,7 @@ $ renec-install run renec-validator ...  # <-- runs a validator, restarting it a
 更新的压缩包本身在其他地方托管，不在链上，可以从指定的 `download_url` 获取。
 
 ```text
-use solana_sdk::signature::Signature;
+use renec_sdk::signature::Signature;
 
 /// Information required to download and apply a given update
 pub struct UpdateManifest {

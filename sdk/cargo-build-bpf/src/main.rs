@@ -5,7 +5,7 @@ use {
     },
     regex::Regex,
     renec_download_utils::download_file,
-    solana_sdk::signature::{write_keypair_file, Keypair},
+    renec_sdk::signature::{write_keypair_file, Keypair},
     std::{
         collections::{HashMap, HashSet},
         env,
@@ -428,7 +428,7 @@ fn build_bpf_package(config: &Config, target_directory: &Path, package: &cargo_m
         }
     };
 
-    let legacy_program_feature_present = package.name == "solana-sdk";
+    let legacy_program_feature_present = package.name == "renec-sdk";
     let root_package_dir = &package.manifest_path.parent().unwrap_or_else(|| {
         eprintln!(
             "Unable to get directory of {}",

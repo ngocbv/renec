@@ -10,7 +10,7 @@ use {
         vm::{EbpfVm, SyscallObject, SyscallRegistry},
     },
     renec_runtime::message_processor::MessageProcessor,
-    solana_sdk::{
+    renec_sdk::{
         account::{Account, AccountSharedData, ReadableAccount},
         account_info::AccountInfo,
         account_utils::StateMut,
@@ -894,7 +894,7 @@ fn translate_and_check_program_address_inputs<'a>(
 }
 
 fn is_native_id(seeds: &[&[u8]], program_id: &Pubkey) -> bool {
-    use solana_sdk::{config, feature, secp256k1_program, stake, system_program, vote};
+    use renec_sdk::{config, feature, secp256k1_program, stake, system_program, vote};
     // Does more than just check native ids in order to emulate the same failure
     // signature that `compute_program_address` had before the removal of the
     // check.
@@ -2769,7 +2769,7 @@ mod tests {
         solana_rbpf::{
             ebpf::HOST_ALIGN, memory_region::MemoryRegion, user_error::UserError, vm::Config,
         },
-        solana_sdk::{
+        renec_sdk::{
             bpf_loader,
             fee_calculator::FeeCalculator,
             hash::hashv,
@@ -2843,7 +2843,7 @@ mod tests {
     #[test]
     fn test_translate_type() {
         // Pubkey
-        let pubkey = solana_sdk::pubkey::new_rand();
+        let pubkey = renec_sdk::pubkey::new_rand();
         let addr = &pubkey as *const _ as u64;
         let config = Config::default();
         let memory_mapping = MemoryMapping::new::<UserError>(
@@ -2867,9 +2867,9 @@ mod tests {
 
         // Instruction
         let instruction = Instruction::new_with_bincode(
-            solana_sdk::pubkey::new_rand(),
+            renec_sdk::pubkey::new_rand(),
             &"foobar",
-            vec![AccountMeta::new(solana_sdk::pubkey::new_rand(), false)],
+            vec![AccountMeta::new(renec_sdk::pubkey::new_rand(), false)],
         );
         let addr = &instruction as *const _ as u64;
         let mut memory_mapping = MemoryMapping::new::<UserError>(
@@ -3017,7 +3017,7 @@ mod tests {
         .is_err());
 
         // Pubkeys
-        let mut data = vec![solana_sdk::pubkey::new_rand(); 5];
+        let mut data = vec![renec_sdk::pubkey::new_rand(); 5];
         let addr = data.as_ptr() as *const _ as u64;
         let memory_mapping = MemoryMapping::new::<UserError>(
             vec![
@@ -3042,7 +3042,7 @@ mod tests {
         )
         .unwrap();
         assert_eq!(data, translated_data);
-        data[0] = solana_sdk::pubkey::new_rand(); // Both should point to same place
+        data[0] = renec_sdk::pubkey::new_rand(); // Both should point to same place
         assert_eq!(data, translated_data);
     }
 

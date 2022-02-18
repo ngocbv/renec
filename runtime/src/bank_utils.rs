@@ -5,7 +5,7 @@ use {
         hashed_transaction::HashedTransaction,
         vote_sender_types::ReplayVoteSender,
     },
-    solana_sdk::{pubkey::Pubkey, signature::Signer},
+    renec_sdk::{pubkey::Pubkey, signature::Signer},
     renec_vote_program::vote_transaction,
 };
 

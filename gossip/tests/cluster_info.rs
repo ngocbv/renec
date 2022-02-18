@@ -7,7 +7,7 @@ use {
         contact_info::ContactInfo,
         deprecated::{shuffle_peers_and_index, sorted_retransmit_peers_and_stakes},
     },
-    solana_sdk::{pubkey::Pubkey, signer::keypair::Keypair},
+    renec_sdk::{pubkey::Pubkey, signer::keypair::Keypair},
     solana_streamer::socket::SocketAddrSpace,
     std::{
         collections::{HashMap, HashSet},
@@ -79,7 +79,7 @@ fn run_simulation(stakes: &[u64], fanout: usize) {
     let timeout = 60 * 5;
 
     // describe the leader
-    let leader_info = ContactInfo::new_localhost(&solana_sdk::pubkey::new_rand(), 0);
+    let leader_info = ContactInfo::new_localhost(&renec_sdk::pubkey::new_rand(), 0);
     let cluster_info = ClusterInfo::new(
         leader_info.clone(),
         Arc::new(Keypair::new()),
@@ -106,7 +106,7 @@ fn run_simulation(stakes: &[u64], fanout: usize) {
         chunk.iter().for_each(|i| {
             //distribute neighbors across threads to maximize parallel compute
             let batch_ix = *i as usize % batches.len();
-            let node = ContactInfo::new_localhost(&solana_sdk::pubkey::new_rand(), 0);
+            let node = ContactInfo::new_localhost(&renec_sdk::pubkey::new_rand(), 0);
             staked_nodes.insert(node.id, stakes[*i - 1]);
             cluster_info.insert_info(node.clone());
             let (s, r) = channel();

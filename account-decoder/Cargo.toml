@@ -20,7 +20,7 @@ serde = "1.0.122"
 serde_derive = "1.0.103"
 serde_json = "1.0.56"
 renec-config-program = { path = "../programs/config", version = "=1.8.14" }
-solana-sdk = { path = "../sdk", version = "=1.8.14" }
+renec-sdk = { path = "../sdk", version = "=1.8.14" }
 renec-vote-program = { path = "../programs/vote", version = "=1.8.14" }
 spl-token = { version = "=3.2.0", features = ["no-entrypoint"] }
 thiserror = "1.0"

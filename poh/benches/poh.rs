@@ -6,7 +6,7 @@ extern crate test;
 use {
     renec_ledger::poh::Poh,
     renec_poh::poh_service::DEFAULT_HASHES_PER_BATCH,
-    solana_sdk::hash::Hash,
+    renec_sdk::hash::Hash,
     std::sync::{
         atomic::{AtomicBool, Ordering},
         Arc, Mutex,

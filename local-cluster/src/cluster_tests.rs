@@ -16,7 +16,7 @@ use {
         blockstore::Blockstore,
         entry::{Entry, EntrySlice},
     },
-    solana_sdk::{
+    renec_sdk::{
         client::SyncClient,
         clock::{self, Slot, NUM_CONSECUTIVE_LEADER_SLOTS},
         commitment_config::CommitmentConfig,

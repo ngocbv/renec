@@ -69,7 +69,7 @@ use {
     renec_perf::packet::{limited_deserialize, Packet},
     renec_rayon_threadlimit::get_thread_count,
     renec_runtime::bank::Bank,
-    solana_sdk::{
+    renec_sdk::{
         clock::Slot,
         feature_set,
         hash::{hashv, Hash},
@@ -1146,7 +1146,7 @@ pub mod tests {
         bincode::serialized_size,
         matches::assert_matches,
         rand::{seq::SliceRandom, Rng},
-        solana_sdk::{
+        renec_sdk::{
             hash::{self, hash},
             shred_version, system_transaction,
         },

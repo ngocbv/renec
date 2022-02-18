@@ -4,7 +4,7 @@ use {
         shred::{Nonce, SIZE_OF_NONCE},
     },
     renec_perf::packet::limited_deserialize,
-    solana_sdk::{clock::Slot, packet::Packet},
+    renec_sdk::{clock::Slot, packet::Packet},
     std::{io, net::SocketAddr},
 };
 
@@ -56,7 +56,7 @@ mod test {
             shred::{Shred, Shredder},
             sigverify_shreds::verify_shred_cpu,
         },
-        solana_sdk::signature::{Keypair, Signer},
+        renec_sdk::signature::{Keypair, Signer},
         std::{
             collections::HashMap,
             net::{IpAddr, Ipv4Addr},

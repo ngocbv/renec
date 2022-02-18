@@ -1,7 +1,7 @@
 use {
     renec_download_utils::download_genesis_if_missing,
     renec_runtime::hardened_unpack::unpack_genesis_archive,
-    solana_sdk::{
+    renec_sdk::{
         genesis_config::{GenesisConfig, DEFAULT_GENESIS_ARCHIVE},
         hash::Hash,
     },

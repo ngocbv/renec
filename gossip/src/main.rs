@@ -10,7 +10,7 @@ use {
         input_validators::{is_keypair_or_ask_keyword, is_port, is_pubkey},
     },
     renec_gossip::{contact_info::ContactInfo, gossip_service::discover},
-    solana_sdk::pubkey::Pubkey,
+    renec_sdk::pubkey::Pubkey,
     solana_streamer::socket::SocketAddrSpace,
     std::{
         error,

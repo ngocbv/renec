@@ -1,6 +1,6 @@
 use {
     crate::bank::Bank,
-    solana_sdk::{
+    renec_sdk::{
         account::Account,
         client::{AsyncClient, Client, SyncClient},
         commitment_config::CommitmentConfig,
@@ -311,7 +311,7 @@ impl BankClient {
 mod tests {
     use {
         super::*,
-        solana_sdk::{genesis_config::create_genesis_config, instruction::AccountMeta},
+        renec_sdk::{genesis_config::create_genesis_config, instruction::AccountMeta},
     };
 
     #[test]
@@ -325,7 +325,7 @@ mod tests {
         let bank_client = BankClient::new(bank);
 
         // Create 2-2 Multisig Transfer instruction.
-        let bob_pubkey = solana_sdk::pubkey::new_rand();
+        let bob_pubkey = renec_sdk::pubkey::new_rand();
         let mut transfer_instruction = system_instruction::transfer(&john_pubkey, &bob_pubkey, 42);
         transfer_instruction
             .accounts

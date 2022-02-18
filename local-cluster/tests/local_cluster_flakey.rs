@@ -17,7 +17,7 @@ use {
         local_cluster::{ClusterConfig, LocalCluster},
         validator_configs::*,
     },
-    solana_sdk::signature::{Keypair, Signer},
+    renec_sdk::signature::{Keypair, Signer},
     solana_streamer::socket::SocketAddrSpace,
     std::{
         sync::Arc,

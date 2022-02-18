@@ -8,7 +8,7 @@ use {
         accounts_db::AccountInfo,
         accounts_index::{AccountSecondaryIndexes, AccountsIndex},
     },
-    solana_sdk::pubkey::{self, Pubkey},
+    renec_sdk::pubkey::{self, Pubkey},
     test::Bencher,
 };
 

@@ -1,7 +1,7 @@
 use {
     crate::{StoredExtendedRewards, StoredTransactionStatusMeta},
     renec_account_decoder::parse_token::{real_number_string_trimmed, UiTokenAmount},
-    solana_sdk::{
+    renec_sdk::{
         hash::Hash,
         instruction::{CompiledInstruction, InstructionError},
         message::{Message, MessageHeader},

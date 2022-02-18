@@ -28,7 +28,7 @@ use {
         vm::{Config, EbpfVm, InstructionMeter},
     },
     renec_runtime::message_processor::MessageProcessor,
-    solana_sdk::{
+    renec_sdk::{
         account::{ReadableAccount, WritableAccount},
         account_utils::State,
         bpf_loader, bpf_loader_deprecated,
@@ -59,8 +59,8 @@ use {
     thiserror::Error,
 };
 
-solana_sdk::declare_builtin!(
-    solana_sdk::bpf_loader::ID,
+renec_sdk::declare_builtin!(
+    renec_sdk::bpf_loader::ID,
     renec_bpf_loader_program,
     renec_bpf_loader_program::process_instruction
 );
@@ -508,7 +508,7 @@ fn process_loader_upgradeable_instruction(
             let signers = [&[new_program_id.as_ref(), &[bump_seed]]]
                 .iter()
                 .map(|seeds| Pubkey::create_program_address(*seeds, caller_program_id))
-                .collect::<Result<Vec<Pubkey>, solana_sdk::pubkey::PubkeyError>>()?;
+                .collect::<Result<Vec<Pubkey>, renec_sdk::pubkey::PubkeyError>>()?;
             MessageProcessor::native_invoke(
                 invoke_context,
                 instruction,
@@ -1092,7 +1092,7 @@ mod tests {
         rand::Rng,
         solana_rbpf::vm::SyscallRegistry,
         renec_runtime::{bank::Bank, bank_client::BankClient},
-        solana_sdk::{
+        renec_sdk::{
             account::{
                 create_account_shared_data_for_test as create_account_for_test, AccountSharedData,
             },
@@ -1173,7 +1173,7 @@ mod tests {
     #[test]
     fn test_bpf_loader_write() {
         let program_id = bpf_loader::id();
-        let program_key = solana_sdk::pubkey::new_rand();
+        let program_key = renec_sdk::pubkey::new_rand();
         let program_account = AccountSharedData::new_ref(1, 0, &program_id);
         let keyed_accounts = vec![KeyedAccount::new(&program_key, false, &program_account)];
         let instruction_data = bincode::serialize(&LoaderInstruction::Write {
@@ -1234,7 +1234,7 @@ mod tests {
     #[test]
     fn test_bpf_loader_finalize() {
         let program_id = bpf_loader::id();
-        let program_key = solana_sdk::pubkey::new_rand();
+        let program_key = renec_sdk::pubkey::new_rand();
         let mut file = File::open("test_elfs/noop_aligned.so").expect("file open failed");
         let mut elf = Vec::new();
         let rent = Rent::default();
@@ -1293,7 +1293,7 @@ mod tests {
     #[test]
     fn test_bpf_loader_invoke_main() {
         let program_id = bpf_loader::id();
-        let program_key = solana_sdk::pubkey::new_rand();
+        let program_key = renec_sdk::pubkey::new_rand();
 
         // Create program account
         let mut file = File::open("test_elfs/noop_aligned.so").expect("file open failed");
@@ -1346,7 +1346,7 @@ mod tests {
         );
 
         // Case: With duplicate accounts
-        let duplicate_key = solana_sdk::pubkey::new_rand();
+        let duplicate_key = renec_sdk::pubkey::new_rand();
         let parameter_account = AccountSharedData::new_ref(1, 0, &program_id);
         let keyed_accounts = vec![
             KeyedAccount::new(&program_key, false, &program_account),
@@ -1389,7 +1389,7 @@ mod tests {
     #[test]
     fn test_bpf_loader_serialize_unaligned() {
         let program_id = bpf_loader_deprecated::id();
-        let program_key = solana_sdk::pubkey::new_rand();
+        let program_key = renec_sdk::pubkey::new_rand();
 
         // Create program account
         let mut file = File::open("test_elfs/noop_unaligned.so").expect("file open failed");
@@ -1413,7 +1413,7 @@ mod tests {
         );
 
         // Case: With duplicate accounts
-        let duplicate_key = solana_sdk::pubkey::new_rand();
+        let duplicate_key = renec_sdk::pubkey::new_rand();
         let parameter_account = AccountSharedData::new_ref(1, 0, &program_id);
         let mut keyed_accounts = vec![KeyedAccount::new(&program_key, false, &program_account)];
         keyed_accounts.push(KeyedAccount::new(&duplicate_key, false, &parameter_account));
@@ -1431,7 +1431,7 @@ mod tests {
     #[test]
     fn test_bpf_loader_serialize_aligned() {
         let program_id = bpf_loader::id();
-        let program_key = solana_sdk::pubkey::new_rand();
+        let program_key = renec_sdk::pubkey::new_rand();
 
         // Create program account
         let mut file = File::open("test_elfs/noop_aligned.so").expect("file open failed");
@@ -1455,7 +1455,7 @@ mod tests {
         );
 
         // Case: With duplicate accounts
-        let duplicate_key = solana_sdk::pubkey::new_rand();
+        let duplicate_key = renec_sdk::pubkey::new_rand();
         let parameter_account = AccountSharedData::new_ref(1, 0, &program_id);
         let mut keyed_accounts = vec![KeyedAccount::new(&program_key, false, &program_account)];
         keyed_accounts.push(KeyedAccount::new(&duplicate_key, false, &parameter_account));
@@ -3666,8 +3666,8 @@ mod tests {
     #[test]
     #[ignore]
     fn test_fuzz() {
-        let program_id = solana_sdk::pubkey::new_rand();
-        let program_key = solana_sdk::pubkey::new_rand();
+        let program_id = renec_sdk::pubkey::new_rand();
+        let program_key = renec_sdk::pubkey::new_rand();
 
         // Create program account
         let mut file = File::open("test_elfs/noop_aligned.so").expect("file open failed");

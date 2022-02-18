@@ -2,7 +2,7 @@ use {
     clap::{crate_description, crate_name, value_t, App, Arg, ArgMatches},
     renec_core::gen_keys::GenKeys,
     renec_faucet::faucet::FAUCET_PORT,
-    solana_sdk::signature::{read_keypair_file, Keypair},
+    renec_sdk::signature::{read_keypair_file, Keypair},
     std::{net::SocketAddr, process::exit, time::Duration},
 };
 

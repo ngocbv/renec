@@ -397,7 +397,7 @@ pub mod tests {
             get_tmp_ledger_path,
         },
         bincode::serialize,
-        solana_sdk::{
+        renec_sdk::{
             hash::{hash, Hash},
             message::Message,
         },

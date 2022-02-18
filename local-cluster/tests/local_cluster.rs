@@ -36,7 +36,7 @@ use {
         bank_forks::{ArchiveFormat, SnapshotConfig},
         snapshot_utils,
     },
-    solana_sdk::{
+    renec_sdk::{
         account::AccountSharedData,
         client::{AsyncClient, SyncClient},
         clock::{self, Slot, DEFAULT_TICKS_PER_SLOT, MAX_PROCESSING_AGE},
@@ -214,7 +214,7 @@ fn test_local_cluster_signature_subscribe() {
 
     let mut transaction = system_transaction::transfer(
         &cluster.funding_keypair,
-        &solana_sdk::pubkey::new_rand(),
+        &renec_sdk::pubkey::new_rand(),
         10,
         blockhash,
     );
@@ -514,11 +514,11 @@ fn test_mainnet_beta_cluster_type() {
     // Programs that are available at epoch 0
     for program_id in [
         &renec_config_program::id(),
-        &solana_sdk::system_program::id(),
-        &solana_sdk::stake::program::id(),
+        &renec_sdk::system_program::id(),
+        &renec_sdk::stake::program::id(),
         &renec_vote_program::id(),
-        &solana_sdk::bpf_loader_deprecated::id(),
-        &solana_sdk::bpf_loader::id(),
+        &renec_sdk::bpf_loader_deprecated::id(),
+        &renec_sdk::bpf_loader::id(),
     ]
     .iter()
     {
@@ -534,7 +534,7 @@ fn test_mainnet_beta_cluster_type() {
     }
 
     // Programs that are not available at epoch 0
-    for program_id in [&solana_sdk::bpf_loader_upgradeable::id()].iter() {
+    for program_id in [&renec_sdk::bpf_loader_upgradeable::id()].iter() {
         assert_eq!(
             (
                 program_id,
@@ -574,7 +574,7 @@ fn generate_frozen_account_panic(mut cluster: LocalCluster, frozen_account: Arc<
             .async_transfer(
                 1,
                 &frozen_account,
-                &solana_sdk::pubkey::new_rand(),
+                &renec_sdk::pubkey::new_rand(),
                 blockhash,
             )
             .unwrap();
@@ -597,7 +597,7 @@ fn generate_frozen_account_panic(mut cluster: LocalCluster, frozen_account: Arc<
 fn test_frozen_account_from_genesis() {
     renec_logger::setup_with_default(RUST_LOG_FILTER);
     let validator_identity =
-        Arc::new(solana_sdk::signature::keypair_from_seed(&[0u8; 32]).unwrap());
+        Arc::new(renec_sdk::signature::keypair_from_seed(&[0u8; 32]).unwrap());
 
     let mut config = ClusterConfig {
         validator_keys: Some(vec![(validator_identity.clone(), true)]),
@@ -621,7 +621,7 @@ fn test_frozen_account_from_genesis() {
 fn test_frozen_account_from_snapshot() {
     renec_logger::setup_with_default(RUST_LOG_FILTER);
     let validator_identity =
-        Arc::new(solana_sdk::signature::keypair_from_seed(&[0u8; 32]).unwrap());
+        Arc::new(renec_sdk::signature::keypair_from_seed(&[0u8; 32]).unwrap());
 
     let mut snapshot_test_config = setup_snapshot_validator_config(5, 1);
     // Freeze the validator identity account
@@ -1635,10 +1635,10 @@ fn test_hard_fork_invalidates_tower() {
     // setup hard fork at slot < a previously rooted slot!
     let hard_fork_slot = min_root - 5;
     let hard_fork_slots = Some(vec![hard_fork_slot]);
-    let mut hard_forks = solana_sdk::hard_forks::HardForks::default();
+    let mut hard_forks = renec_sdk::hard_forks::HardForks::default();
     hard_forks.register(hard_fork_slot);
 
-    let expected_shred_version = solana_sdk::shred_version::compute_shred_version(
+    let expected_shred_version = renec_sdk::shred_version::compute_shred_version(
         &cluster.lock().unwrap().genesis_config.hash(),
         Some(&hard_forks),
     );

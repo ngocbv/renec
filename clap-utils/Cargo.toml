@@ -14,7 +14,7 @@ clap = "2.33.0"
 rpassword = "4.0"
 renec-perf = { path = "../perf", version = "=1.8.14" }
 renec-remote-wallet = { path = "../remote-wallet", version = "=1.8.14" }
-solana-sdk = { path = "../sdk", version = "=1.8.14" }
+renec-sdk = { path = "../sdk", version = "=1.8.14" }
 thiserror = "1.0.21"
 tiny-bip39 = "0.8.1"
 uriparse = "0.6.3"

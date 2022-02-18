@@ -18,7 +18,7 @@ use {
         sigverify::{self, count_packets_in_batches, TxOffset},
     },
     renec_rayon_threadlimit::get_thread_count,
-    solana_sdk::{
+    renec_sdk::{
         clock::Slot,
         pubkey::Pubkey,
         signature::{Keypair, Signature, Signer},
@@ -252,7 +252,7 @@ pub fn verify_shreds_gpu(
     out.set_pinnable();
     elems.push(perf_libs::Elems {
         #[allow(clippy::cast_ptr_alignment)]
-        elems: pubkeys.as_ptr() as *const solana_sdk::packet::Packet,
+        elems: pubkeys.as_ptr() as *const renec_sdk::packet::Packet,
         num: num_packets as u32,
     });
 
@@ -389,7 +389,7 @@ pub fn sign_shreds_gpu(
     signatures_out.resize(total_sigs * sig_size, 0);
     elems.push(perf_libs::Elems {
         #[allow(clippy::cast_ptr_alignment)]
-        elems: pinned_keypair.as_ptr() as *const solana_sdk::packet::Packet,
+        elems: pinned_keypair.as_ptr() as *const renec_sdk::packet::Packet,
         num: num_keypair_packets as u32,
     });
 
@@ -460,7 +460,7 @@ pub mod tests {
     use {
         super::*,
         crate::shred::{Shred, Shredder, SIZE_OF_DATA_SHRED_PAYLOAD},
-        solana_sdk::signature::{Keypair, Signer},
+        renec_sdk::signature::{Keypair, Signer},
     };
 
     fn run_test_sigverify_shred_cpu(slot: Slot) {

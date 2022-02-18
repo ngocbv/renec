@@ -35,7 +35,7 @@ use {
         vote_account::VoteAccount,
         vote_sender_types::ReplayVoteSender,
     },
-    solana_sdk::{
+    renec_sdk::{
         clock::{Slot, MAX_PROCESSING_AGE},
         execute_timings::ExecuteTimings,
         feature_set,
@@ -1398,7 +1398,7 @@ pub mod tests {
         renec_runtime::genesis_utils::{
             self, create_genesis_config_with_vote_accounts, ValidatorVoteKeypairs,
         },
-        solana_sdk::{
+        renec_sdk::{
             account::{AccountSharedData, WritableAccount},
             epoch_schedule::EpochSchedule,
             hash::Hash,
@@ -2115,7 +2115,7 @@ pub mod tests {
     #[test]
     fn test_process_ledger_simple() {
         renec_logger::setup();
-        let leader_pubkey = solana_sdk::pubkey::new_rand();
+        let leader_pubkey = renec_sdk::pubkey::new_rand();
         let mint = 100;
         let hashes_per_tick = 10;
         let GenesisConfigInfo {
@@ -2701,7 +2701,7 @@ pub mod tests {
                     bank.last_blockhash(),
                     1,
                     0,
-                    &solana_sdk::pubkey::new_rand(),
+                    &renec_sdk::pubkey::new_rand(),
                 ));
 
                 next_entry_mut(&mut hash, 0, transactions)
@@ -2862,7 +2862,7 @@ pub mod tests {
             ..
         } = create_genesis_config(11_000);
         let bank = Arc::new(Bank::new(&genesis_config));
-        let pubkey = solana_sdk::pubkey::new_rand();
+        let pubkey = renec_sdk::pubkey::new_rand();
         bank.transfer(1_000, &mint_keypair, &pubkey).unwrap();
         assert_eq!(bank.transaction_count(), 1);
         assert_eq!(bank.get_balance(&pubkey), 1_000);
@@ -3110,7 +3110,7 @@ pub mod tests {
                             bank.last_blockhash(),
                             100,
                             100,
-                            &solana_sdk::pubkey::new_rand(),
+                            &renec_sdk::pubkey::new_rand(),
                         ));
                         transactions
                     })
@@ -3257,14 +3257,14 @@ pub mod tests {
         // Create array of two transactions which throw different errors
         let account_not_found_tx = system_transaction::transfer(
             &keypair,
-            &solana_sdk::pubkey::new_rand(),
+            &renec_sdk::pubkey::new_rand(),
             42,
             bank.last_blockhash(),
         );
         let account_not_found_sig = account_not_found_tx.signatures[0];
         let mut account_loaded_twice = system_transaction::transfer(
             &mint_keypair,
-            &solana_sdk::pubkey::new_rand(),
+            &renec_sdk::pubkey::new_rand(),
             42,
             bank.last_blockhash(),
         );
@@ -3311,7 +3311,7 @@ pub mod tests {
 
         let bank1 = Arc::new(Bank::new_from_parent(
             &bank0,
-            &solana_sdk::pubkey::new_rand(),
+            &renec_sdk::pubkey::new_rand(),
             1,
         ));
 
@@ -3604,7 +3604,7 @@ pub mod tests {
                         let versioned = VoteStateVersions::new_current(vote_state);
                         VoteState::serialize(&versioned, vote_account.data_as_mut_slice()).unwrap();
                         (
-                            solana_sdk::pubkey::new_rand(),
+                            renec_sdk::pubkey::new_rand(),
                             (stake, VoteAccount::from(vote_account)),
                         )
                     })

@@ -10,7 +10,7 @@ use {
     serde::{Deserialize, Serialize},
     renec_client::rpc_client::RpcClient,
     renec_config_program::{config_instruction, get_config_data, ConfigState},
-    solana_sdk::{
+    renec_sdk::{
         hash::{Hash, Hasher},
         message::Message,
         pubkey::Pubkey,

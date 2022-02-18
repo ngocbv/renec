@@ -17,7 +17,7 @@ use {
         commitment::BlockCommitmentCache,
         genesis_utils::{create_genesis_config_with_leader_ex, GenesisConfigInfo},
     },
-    solana_sdk::{
+    renec_sdk::{
         account::{Account, AccountSharedData, ReadableAccount, WritableAccount},
         account_info::AccountInfo,
         clock::{Clock, Slot},
@@ -95,7 +95,7 @@ fn get_invoke_context<'a>() -> &'a mut dyn InvokeContext {
 }
 
 pub fn builtin_process_instruction(
-    process_instruction: solana_sdk::entrypoint::ProcessInstruction,
+    process_instruction: renec_sdk::entrypoint::ProcessInstruction,
     program_id: &Pubkey,
     input: &[u8],
     invoke_context: &mut dyn InvokeContext,
@@ -180,7 +180,7 @@ macro_rules! processor {
         Some(
             |program_id: &Pubkey,
              input: &[u8],
-             invoke_context: &mut dyn solana_sdk::process_instruction::InvokeContext| {
+             invoke_context: &mut dyn renec_sdk::process_instruction::InvokeContext| {
                 $crate::builtin_process_instruction(
                     $process_instruction,
                     program_id,
@@ -217,7 +217,7 @@ fn get_sysvar<T: Default + Sysvar + Sized + serde::de::DeserializeOwned>(
 }
 
 struct SyscallStubs {}
-impl solana_sdk::program_stubs::SyscallStubs for SyscallStubs {
+impl renec_sdk::program_stubs::SyscallStubs for SyscallStubs {
     fn sol_log(&self, message: &str) {
         let invoke_context = get_invoke_context();
         let logger = invoke_context.get_logger();
@@ -621,7 +621,7 @@ impl ProgramTest {
                 Account {
                     lamports: Rent::default().minimum_balance(data.len()).min(1),
                     data,
-                    owner: solana_sdk::bpf_loader::id(),
+                    owner: renec_sdk::bpf_loader::id(),
                     executable: true,
                     rent_epoch: 0,
                 },
@@ -727,7 +727,7 @@ impl ProgramTest {
             static ONCE: Once = Once::new();
 
             ONCE.call_once(|| {
-                solana_sdk::program_stubs::set_syscall_stubs(Box::new(SyscallStubs {}));
+                renec_sdk::program_stubs::set_syscall_stubs(Box::new(SyscallStubs {}));
             });
         }
 

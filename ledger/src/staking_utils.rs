@@ -1,6 +1,6 @@
 use {
     renec_runtime::bank::Bank,
-    solana_sdk::clock::{Epoch, Slot},
+    renec_sdk::clock::{Epoch, Slot},
 };
 
 /// Looks through vote accounts, and finds the latest slot that has achieved
@@ -59,7 +59,7 @@ pub(crate) mod tests {
         },
         rand::Rng,
         renec_runtime::vote_account::{VoteAccount, VoteAccounts},
-        solana_sdk::{
+        renec_sdk::{
             account::{from_account, AccountSharedData},
             clock::Clock,
             instruction::Instruction,
@@ -263,7 +263,7 @@ pub(crate) mod tests {
     #[test]
     fn test_to_staked_nodes() {
         let mut stakes = Vec::new();
-        let node1 = solana_sdk::pubkey::new_rand();
+        let node1 = renec_sdk::pubkey::new_rand();
 
         // Node 1 has stake of 3
         for i in 0..3 {
@@ -280,7 +280,7 @@ pub(crate) mod tests {
         }
 
         // Node 1 has stake of 5
-        let node2 = solana_sdk::pubkey::new_rand();
+        let node2 = renec_sdk::pubkey::new_rand();
 
         stakes.push((
             5,

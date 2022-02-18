@@ -3,7 +3,7 @@ use {
         accounts_db::SnapshotStorages, bank::BankSlotDelta, bank_forks::ArchiveFormat,
         snapshot_utils::SnapshotVersion,
     },
-    solana_sdk::{clock::Slot, genesis_config::ClusterType, hash::Hash},
+    renec_sdk::{clock::Slot, genesis_config::ClusterType, hash::Hash},
     std::{
         path::PathBuf,
         sync::mpsc::{Receiver, SendError, Sender},

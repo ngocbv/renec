@@ -3,7 +3,7 @@
 extern crate serde_derive;
 use {
     serde_derive::{Deserialize, Serialize},
-    solana_sdk::sanitize::Sanitize,
+    renec_sdk::sanitize::Sanitize,
     std::{convert::TryInto, fmt},
 };
 #[macro_use]
@@ -53,7 +53,7 @@ fn compute_commit(sha1: Option<&'static str>) -> Option<u32> {
 impl Default for Version {
     fn default() -> Self {
         let feature_set = u32::from_le_bytes(
-            solana_sdk::feature_set::ID.as_ref()[..4]
+            renec_sdk::feature_set::ID.as_ref()[..4]
                 .try_into()
                 .unwrap(),
         );

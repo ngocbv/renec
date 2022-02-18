@@ -2,7 +2,7 @@ use {
     crate::blockstore::Blockstore,
     log::*,
     renec_measure::measure::Measure,
-    solana_sdk::clock::Slot,
+    renec_sdk::clock::Slot,
     std::{
         collections::HashSet,
         result::Result,

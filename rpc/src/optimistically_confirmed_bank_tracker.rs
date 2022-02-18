@@ -7,7 +7,7 @@ use {
     crossbeam_channel::{Receiver, RecvTimeoutError, Sender},
     renec_client::rpc_response::{SlotTransactionStats, SlotUpdate},
     renec_runtime::{bank::Bank, bank_forks::BankForks},
-    solana_sdk::{clock::Slot, timing::timestamp},
+    renec_sdk::{clock::Slot, timing::timestamp},
     std::{
         collections::HashSet,
         sync::{
@@ -320,7 +320,7 @@ mod tests {
         renec_runtime::{
             accounts_background_service::AbsRequestSender, commitment::BlockCommitmentCache,
         },
-        solana_sdk::pubkey::Pubkey,
+        renec_sdk::pubkey::Pubkey,
     };
 
     #[test]

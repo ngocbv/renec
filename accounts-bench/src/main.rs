@@ -11,7 +11,7 @@ use {
         accounts_index::AccountSecondaryIndexes,
         ancestors::Ancestors,
     },
-    solana_sdk::{genesis_config::ClusterType, pubkey::Pubkey},
+    renec_sdk::{genesis_config::ClusterType, pubkey::Pubkey},
     std::{env, fs, path::PathBuf},
 };
 
@@ -121,7 +121,7 @@ fn main() {
             let results_store = accounts.accounts_db.update_accounts_hash_with_index_option(
                 false,
                 false,
-                solana_sdk::clock::Slot::default(),
+                renec_sdk::clock::Slot::default(),
                 &ancestors,
                 None,
                 false,

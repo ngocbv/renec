@@ -6,7 +6,7 @@ use {
         nonce::*,
         offline::*,
     },
-    solana_sdk::{
+    renec_sdk::{
         commitment_config::CommitmentConfig, fee_calculator::FeeCalculator, hash::Hash,
         pubkey::Pubkey,
     },
@@ -128,7 +128,7 @@ mod tests {
         clap::App,
         serde_json::{self, json},
         renec_account_decoder::{UiAccount, UiAccountEncoding},
-        solana_sdk::{account::Account, hash::hash, nonce, system_program},
+        renec_sdk::{account::Account, hash::hash, nonce, system_program},
         std::collections::HashMap,
     };
 

@@ -20,7 +20,7 @@ use {
     renec_cli_output::CliNonceAccount,
     renec_client::{nonce_utils::*, rpc_client::RpcClient},
     renec_remote_wallet::remote_wallet::RemoteWalletManager,
-    solana_sdk::{
+    renec_sdk::{
         account::Account,
         feature_set::merge_nonce_error_into_system_error,
         hash::Hash,
@@ -655,7 +655,7 @@ mod tests {
     use {
         super::*,
         crate::{clap_app::get_clap_app, cli::parse_command},
-        solana_sdk::{
+        renec_sdk::{
             account::Account,
             account_utils::StateMut,
             fee_calculator::FeeCalculator,
@@ -921,7 +921,7 @@ mod tests {
     #[test]
     fn test_check_nonce_account() {
         let blockhash = Hash::default();
-        let nonce_pubkey = solana_sdk::pubkey::new_rand();
+        let nonce_pubkey = renec_sdk::pubkey::new_rand();
         let data = Versions::new_current(State::Initialized(nonce::state::Data {
             authority: nonce_pubkey,
             blockhash,
@@ -957,7 +957,7 @@ mod tests {
         }
 
         let data = Versions::new_current(State::Initialized(nonce::state::Data {
-            authority: solana_sdk::pubkey::new_rand(),
+            authority: renec_sdk::pubkey::new_rand(),
             blockhash,
             fee_calculator: FeeCalculator::default(),
         }));

@@ -1,4 +1,4 @@
-use solana_sdk::{
+use renec_sdk::{
     instruction::InstructionError, process_instruction::InvokeContext, pubkey::Pubkey,
 };
 

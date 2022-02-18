@@ -4,7 +4,7 @@ use {
         de::{Deserialize, Deserializer},
         ser::{Serialize, Serializer},
     },
-    solana_sdk::{
+    renec_sdk::{
         account::{Account, AccountSharedData},
         instruction::InstructionError,
         pubkey::Pubkey,
@@ -323,7 +323,7 @@ mod tests {
         super::*,
         bincode::Options,
         rand::Rng,
-        solana_sdk::{pubkey::Pubkey, sysvar::clock::Clock},
+        renec_sdk::{pubkey::Pubkey, sysvar::clock::Clock},
         renec_vote_program::vote_state::{VoteInit, VoteStateVersions},
         std::iter::repeat_with,
     };

@@ -11,7 +11,7 @@ use {
     renec_gossip::gossip_service::discover,
     renec_measure::measure::Measure,
     renec_runtime::inline_spl_token,
-    solana_sdk::{
+    renec_sdk::{
         commitment_config::CommitmentConfig,
         message::Message,
         pubkey::Pubkey,
@@ -710,7 +710,7 @@ pub mod test {
             local_cluster::{ClusterConfig, LocalCluster},
             validator_configs::make_identical_validator_configs,
         },
-        solana_sdk::poh_config::PohConfig,
+        renec_sdk::poh_config::PohConfig,
     };
 
     #[test]

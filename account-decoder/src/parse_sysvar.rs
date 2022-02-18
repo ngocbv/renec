@@ -5,7 +5,7 @@ use {
     },
     bincode::deserialize,
     bv::BitVec,
-    solana_sdk::{
+    renec_sdk::{
         clock::{Clock, Epoch, Slot, UnixTimestamp},
         epoch_schedule::EpochSchedule,
         pubkey::Pubkey,
@@ -216,7 +216,7 @@ pub struct UiStakeHistoryEntry {
 mod test {
     use {
         super::*,
-        solana_sdk::{
+        renec_sdk::{
             account::create_account_for_test, fee_calculator::FeeCalculator, hash::Hash,
             sysvar::recent_blockhashes::IterItem,
         },
@@ -324,7 +324,7 @@ mod test {
             }]),
         );
 
-        let bad_pubkey = solana_sdk::pubkey::new_rand();
+        let bad_pubkey = renec_sdk::pubkey::new_rand();
         assert!(parse_sysvar(&stake_history_sysvar.data, &bad_pubkey).is_err());
 
         let bad_data = vec![0; 4];

@@ -2,7 +2,7 @@ use {
     crate::rpc_subscriptions::RpcSubscriptions,
     renec_client::rpc_response::SlotUpdate,
     renec_ledger::blockstore::CompletedSlotsReceiver,
-    solana_sdk::timing::timestamp,
+    renec_sdk::timing::timestamp,
     std::{
         sync::Arc,
         thread::{Builder, JoinHandle},

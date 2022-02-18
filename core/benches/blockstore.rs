@@ -10,7 +10,7 @@ use {
         entry::{create_ticks, Entry},
         get_tmp_ledger_path,
     },
-    solana_sdk::{clock::Slot, hash::Hash},
+    renec_sdk::{clock::Slot, hash::Hash},
     std::path::Path,
     test::Bencher,
 };

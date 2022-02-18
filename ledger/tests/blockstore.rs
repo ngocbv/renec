@@ -3,7 +3,7 @@ use {
         blockstore::{self, Blockstore},
         entry, get_tmp_ledger_path,
     },
-    solana_sdk::hash::Hash,
+    renec_sdk::hash::Hash,
     std::{sync::Arc, thread::Builder},
 };
 

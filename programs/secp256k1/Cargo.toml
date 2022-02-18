@@ -10,7 +10,7 @@ license = "Apache-2.0"
 edition = "2018"
 
 [dependencies]
-solana-sdk = { path = "../../sdk", version = "=1.8.14" }
+renec-sdk = { path = "../../sdk", version = "=1.8.14" }
 
 [dev-dependencies]
 bincode = "1.3.1"

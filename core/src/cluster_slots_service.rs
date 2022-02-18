@@ -5,7 +5,7 @@ use {
     renec_ledger::blockstore::Blockstore,
     renec_measure::measure::Measure,
     renec_runtime::bank_forks::BankForks,
-    solana_sdk::clock::Slot,
+    renec_sdk::clock::Slot,
     std::{
         sync::{
             atomic::{AtomicBool, Ordering},
@@ -182,7 +182,7 @@ mod test {
     use {
         super::*,
         renec_gossip::{cluster_info::Node, crds_value::CrdsValueLabel},
-        solana_sdk::{pubkey::Pubkey, signature::Keypair},
+        renec_sdk::{pubkey::Pubkey, signature::Keypair},
         solana_streamer::socket::SocketAddrSpace,
     };
 

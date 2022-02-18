@@ -44,7 +44,7 @@ test-stable-bpf)
   export PATH="$PWD/target/debug":$PATH
   cargo_build_bpf="$(realpath ./cargo-build-bpf)"
 
-  # BPF solana-sdk legacy compile test
+  # BPF renec-sdk legacy compile test
   "$cargo_build_bpf" --manifest-path sdk/Cargo.toml
 
   # BPF Program unit tests

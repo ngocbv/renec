@@ -1,6 +1,6 @@
 use {
     renec_program_test::ProgramTest,
-    solana_sdk::{
+    renec_sdk::{
         bpf_loader_upgradeable::{self, UpgradeableLoaderState},
         signature::{Keypair, Signer},
         transaction::Transaction,

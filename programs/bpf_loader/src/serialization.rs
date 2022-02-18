@@ -1,7 +1,7 @@
 use {
     byteorder::{ByteOrder, LittleEndian, WriteBytesExt},
     solana_rbpf::{aligned_memory::AlignedMemory, ebpf::HOST_ALIGN},
-    solana_sdk::{
+    renec_sdk::{
         account::{ReadableAccount, WritableAccount},
         bpf_loader_deprecated,
         entrypoint::{BPF_ALIGN_OF_U128, MAX_PERMITTED_DATA_INCREASE},
@@ -287,7 +287,7 @@ pub fn deserialize_parameters_aligned(
 mod tests {
     use {
         super::*,
-        solana_sdk::{
+        renec_sdk::{
             account::{Account, AccountSharedData},
             account_info::AccountInfo,
             bpf_loader,
@@ -302,18 +302,18 @@ mod tests {
 
     #[test]
     fn test_serialize_parameters() {
-        let program_id = solana_sdk::pubkey::new_rand();
-        let dup_key = solana_sdk::pubkey::new_rand();
-        let dup_key2 = solana_sdk::pubkey::new_rand();
+        let program_id = renec_sdk::pubkey::new_rand();
+        let dup_key = renec_sdk::pubkey::new_rand();
+        let dup_key2 = renec_sdk::pubkey::new_rand();
         let keys = vec![
             dup_key,
             dup_key,
-            solana_sdk::pubkey::new_rand(),
-            solana_sdk::pubkey::new_rand(),
+            renec_sdk::pubkey::new_rand(),
+            renec_sdk::pubkey::new_rand(),
             dup_key2,
             dup_key2,
-            solana_sdk::pubkey::new_rand(),
-            solana_sdk::pubkey::new_rand(),
+            renec_sdk::pubkey::new_rand(),
+            renec_sdk::pubkey::new_rand(),
         ];
         let accounts = [
             RefCell::new(AccountSharedData::from(Account {

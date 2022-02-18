@@ -23,7 +23,7 @@ use {
         remote_keypair::generate_remote_keypair,
         remote_wallet::{maybe_wallet_manager, RemoteWalletError, RemoteWalletManager},
     },
-    solana_sdk::{
+    renec_sdk::{
         derivation_path::{DerivationPath, DerivationPathError},
         hash::Hash,
         message::Message,
@@ -207,7 +207,7 @@ impl DefaultSigner {
     /// use clap::{App, Arg, value_t_or_exit};
     /// use renec_clap_utils::keypair::{DefaultSigner, signer_from_path};
     /// use renec_clap_utils::offline::OfflineArgs;
-    /// use solana_sdk::signer::Signer;
+    /// use renec_sdk::signer::Signer;
     ///
     /// let clap_app = App::new("my-program")
     ///     // The argument we'll parse as a signer "path"
@@ -1128,7 +1128,7 @@ mod tests {
         crate::offline::OfflineArgs,
         clap::{value_t_or_exit, App, Arg},
         renec_remote_wallet::{locator::Manufacturer, remote_wallet::initialize_wallet_manager},
-        solana_sdk::{signer::keypair::write_keypair_file, system_instruction},
+        renec_sdk::{signer::keypair::write_keypair_file, system_instruction},
         tempfile::{NamedTempFile, TempDir},
     };
 

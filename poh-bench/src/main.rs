@@ -7,7 +7,7 @@ use {
     clap::{crate_description, crate_name, value_t, App, Arg},
     renec_measure::measure::Measure,
     renec_perf::perf_libs,
-    solana_sdk::hash::hash,
+    renec_sdk::hash::hash,
 };
 
 fn main() {

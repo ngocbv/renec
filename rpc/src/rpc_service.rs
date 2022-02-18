@@ -28,7 +28,7 @@ use {
         commitment::BlockCommitmentCache,
         snapshot_utils,
     },
-    solana_sdk::{
+    renec_sdk::{
         exit::Exit, genesis_config::DEFAULT_GENESIS_DOWNLOAD_PATH, hash::Hash,
         native_token::lamports_to_sol, pubkey::Pubkey,
     },
@@ -496,7 +496,7 @@ mod tests {
             bank_forks::ArchiveFormat,
             snapshot_utils::{SnapshotVersion, DEFAULT_MAX_SNAPSHOTS_TO_RETAIN},
         },
-        solana_sdk::{
+        renec_sdk::{
             genesis_config::{ClusterType, DEFAULT_GENESIS_ARCHIVE},
             signature::Signer,
             signer::keypair::Keypair,
@@ -729,9 +729,9 @@ mod tests {
         let health_check_slot_distance = 123;
         let override_health_check = Arc::new(AtomicBool::new(false));
         let known_validators = vec![
-            solana_sdk::pubkey::new_rand(),
-            solana_sdk::pubkey::new_rand(),
-            solana_sdk::pubkey::new_rand(),
+            renec_sdk::pubkey::new_rand(),
+            renec_sdk::pubkey::new_rand(),
+            renec_sdk::pubkey::new_rand(),
         ];
 
         let health = Arc::new(RpcHealth::new(

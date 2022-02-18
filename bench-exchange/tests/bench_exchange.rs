@@ -12,7 +12,7 @@ use {
         validator_configs::make_identical_validator_configs,
     },
     renec_runtime::{bank::Bank, bank_client::BankClient},
-    solana_sdk::{
+    renec_sdk::{
         genesis_config::create_genesis_config,
         signature::{Keypair, Signer},
     },

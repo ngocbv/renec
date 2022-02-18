@@ -1,4 +1,4 @@
-use solana_sdk::pubkey::Pubkey;
+use renec_sdk::pubkey::Pubkey;
 
 pub(crate) struct PubkeyBinCalculator16 {
     // how many bits from the first 2 bytes to shift away to ignore when calculating bin

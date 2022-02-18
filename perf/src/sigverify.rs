@@ -5,7 +5,7 @@
 //!
 
 #[cfg(test)]
-use solana_sdk::transaction::Transaction;
+use renec_sdk::transaction::Transaction;
 use {
     crate::{
         cuda_runtime::PinnedVec,
@@ -18,7 +18,7 @@ use {
     rayon::ThreadPool,
     solana_metrics::inc_new_counter_debug,
     renec_rayon_threadlimit::get_thread_count,
-    solana_sdk::{
+    renec_sdk::{
         hash::Hash, message::MESSAGE_HEADER_LENGTH, pubkey::Pubkey, short_vec::decode_shortu16_len,
         signature::Signature,
     },
@@ -333,7 +333,7 @@ fn check_for_simple_vote_transaction(
         .ok_or(PacketError::InvalidLen)?;
 
     if &packet.data[instruction_program_id_start..instruction_program_id_end]
-        == solana_sdk::vote::program::id().as_ref()
+        == renec_sdk::vote::program::id().as_ref()
     {
         packet.meta.is_simple_vote_tx = true;
     }
@@ -649,7 +649,7 @@ mod tests {
             test_tx::{test_multisig_tx, test_tx, vote_tx},
         },
         bincode::{deserialize, serialize},
-        solana_sdk::{
+        renec_sdk::{
             instruction::CompiledInstruction,
             message::{Message, MessageHeader},
             signature::{Keypair, Signature},
@@ -805,7 +805,7 @@ mod tests {
     fn test_pubkey_len() {
         // See that the verify cannot walk off the end of the packet
         // trying to index into the account_keys to access pubkey.
-        use solana_sdk::signer::{keypair::Keypair, Signer};
+        use renec_sdk::signer::{keypair::Keypair, Signer};
         renec_logger::setup();
 
         const NUM_SIG: usize = 17;

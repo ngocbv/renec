@@ -1,4 +1,4 @@
-use solana_sdk::message::Message;
+use renec_sdk::message::Message;
 
 #[derive(Clone, Debug, Serialize, Deserialize, PartialEq)]
 #[serde(rename_all = "camelCase")]
@@ -22,14 +22,14 @@ pub fn parse_accounts(message: &Message) -> Vec<ParsedAccount> {
 
 #[cfg(test)]
 mod test {
-    use {super::*, solana_sdk::message::MessageHeader};
+    use {super::*, renec_sdk::message::MessageHeader};
 
     #[test]
     fn test_parse_accounts() {
-        let pubkey0 = solana_sdk::pubkey::new_rand();
-        let pubkey1 = solana_sdk::pubkey::new_rand();
-        let pubkey2 = solana_sdk::pubkey::new_rand();
-        let pubkey3 = solana_sdk::pubkey::new_rand();
+        let pubkey0 = renec_sdk::pubkey::new_rand();
+        let pubkey1 = renec_sdk::pubkey::new_rand();
+        let pubkey2 = renec_sdk::pubkey::new_rand();
+        let pubkey3 = renec_sdk::pubkey::new_rand();
         let message = Message {
             header: MessageHeader {
                 num_required_signatures: 2,

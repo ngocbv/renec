@@ -5,7 +5,7 @@ use {
     log::*,
     memmap2::MmapMut,
     serde::{Deserialize, Serialize},
-    solana_sdk::{
+    renec_sdk::{
         account::{Account, AccountSharedData, ReadableAccount},
         clock::{Epoch, Slot},
         hash::Hash,
@@ -532,7 +532,7 @@ pub mod test_utils {
     use {
         super::StoredMeta,
         rand::{distributions::Alphanumeric, thread_rng, Rng},
-        solana_sdk::{account::AccountSharedData, pubkey::Pubkey},
+        renec_sdk::{account::AccountSharedData, pubkey::Pubkey},
         std::{fs::create_dir_all, path::PathBuf},
     };
 
@@ -581,7 +581,7 @@ pub mod tests {
         super::{test_utils::*, *},
         assert_matches::assert_matches,
         rand::{thread_rng, Rng},
-        solana_sdk::{account::WritableAccount, timing::duration_as_ms},
+        renec_sdk::{account::WritableAccount, timing::duration_as_ms},
         std::time::Instant,
     };
 
@@ -784,7 +784,7 @@ pub mod tests {
         let mut av = AppendVec::new(path, true, 1024 * 1024);
         av.set_no_remove_on_drop();
 
-        let pubkey = solana_sdk::pubkey::new_rand();
+        let pubkey = renec_sdk::pubkey::new_rand();
         let owner = Pubkey::default();
         let data_len = 3_u64;
         let mut account = AccountSharedData::new(0, data_len as usize, &owner);

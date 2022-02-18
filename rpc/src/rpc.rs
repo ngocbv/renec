@@ -51,7 +51,7 @@ use {
         non_circulating_supply::calculate_non_circulating_supply,
         snapshot_utils::get_highest_snapshot_archive_path,
     },
-    solana_sdk::{
+    renec_sdk::{
         account::{AccountSharedData, ReadableAccount},
         account_utils::StateMut,
         clock::{Slot, UnixTimestamp, MAX_RECENT_BLOCKHASHES},
@@ -1566,7 +1566,7 @@ impl JsonRpcRequestProcessor {
         let config = config.unwrap_or_default();
         let bank = self.bank(config.commitment);
         let epoch = config.epoch.unwrap_or_else(|| bank.epoch());
-        if bank.epoch().saturating_sub(epoch) > solana_sdk::stake_history::MAX_ENTRIES as u64 {
+        if bank.epoch().saturating_sub(epoch) > renec_sdk::stake_history::MAX_ENTRIES as u64 {
             return Err(Error::invalid_params(format!(
                 "Invalid param: epoch {:?} is too far in the past",
                 epoch
@@ -1609,7 +1609,7 @@ impl JsonRpcRequestProcessor {
             .get_account(&stake_history::id())
             .ok_or_else(Error::internal_error)?;
         let stake_history =
-            solana_sdk::account::from_account::<StakeHistory, _>(&stake_history_account)
+            renec_sdk::account::from_account::<StakeHistory, _>(&stake_history_account)
                 .ok_or_else(Error::internal_error)?;
 
         let StakeActivationStatus {
@@ -3158,9 +3158,9 @@ pub mod rpc_full {
                 .get_blockhash_last_valid_block_height(&transaction.message.recent_blockhash)
                 .unwrap_or(0);
 
-            let durable_nonce_info = solana_sdk::transaction::uses_durable_nonce(&transaction)
+            let durable_nonce_info = renec_sdk::transaction::uses_durable_nonce(&transaction)
                 .and_then(|nonce_ix| {
-                    solana_sdk::transaction::get_nonce_pubkey_from_instruction(
+                    renec_sdk::transaction::get_nonce_pubkey_from_instruction(
                         nonce_ix,
                         &transaction,
                     )
@@ -3531,7 +3531,7 @@ pub mod rpc_full {
                 }
 
                 let mut entry = block_production.entry(identity).or_default();
-                if slot_history.check(slot) == solana_sdk::slot_history::Check::Found {
+                if slot_history.check(slot) == renec_sdk::slot_history::Check::Found {
                     entry.1 += 1; // Increment blocks_produced
                 }
                 entry.0 += 1; // Increment leader_slots
@@ -4040,16 +4040,16 @@ pub fn create_test_transactions_and_populate_blockstore(
     // Generate transactions for processing
     // Successful transaction
     let success_tx =
-        solana_sdk::system_transaction::transfer(mint_keypair, &keypair1.pubkey(), 2, blockhash);
+        renec_sdk::system_transaction::transfer(mint_keypair, &keypair1.pubkey(), 2, blockhash);
     let success_signature = success_tx.signatures[0];
     let entry_1 = renec_ledger::entry::next_entry(&blockhash, 1, vec![success_tx]);
     // Failed transaction, InstructionError
     let ix_error_tx =
-        solana_sdk::system_transaction::transfer(keypair2, &keypair3.pubkey(), 10, blockhash);
+        renec_sdk::system_transaction::transfer(keypair2, &keypair3.pubkey(), 10, blockhash);
     let ix_error_signature = ix_error_tx.signatures[0];
     let entry_2 = renec_ledger::entry::next_entry(&entry_1.hash, 1, vec![ix_error_tx]);
     // Failed transaction
-    let fail_tx = solana_sdk::system_transaction::transfer(
+    let fail_tx = renec_sdk::system_transaction::transfer(
         mint_keypair,
         &keypair2.pubkey(),
         2,
@@ -4122,7 +4122,7 @@ pub mod tests {
             accounts_background_service::AbsRequestSender, commitment::BlockCommitment,
             non_circulating_supply::non_circulating_accounts,
         },
-        solana_sdk::{
+        renec_sdk::{
             account::Account,
             clock::MAX_RECENT_BLOCKHASHES,
             fee_calculator::DEFAULT_BURN_PERCENT,
@@ -4347,7 +4347,7 @@ pub mod tests {
 
     #[test]
     fn test_rpc_request_processor_new() {
-        let bob_pubkey = solana_sdk::pubkey::new_rand();
+        let bob_pubkey = renec_sdk::pubkey::new_rand();
         let genesis = create_genesis_config(100);
         let bank = Arc::new(Bank::new(&genesis.genesis_config));
         bank.transfer(20, &genesis.mint_keypair, &bob_pubkey)
@@ -4416,7 +4416,7 @@ pub mod tests {
 
     #[test]
     fn test_rpc_get_cluster_nodes() {
-        let bob_pubkey = solana_sdk::pubkey::new_rand();
+        let bob_pubkey = renec_sdk::pubkey::new_rand();
         let RpcHandler {
             io,
             meta,
@@ -4443,7 +4443,7 @@ pub mod tests {
 
     #[test]
     fn test_rpc_get_recent_performance_samples() {
-        let bob_pubkey = solana_sdk::pubkey::new_rand();
+        let bob_pubkey = renec_sdk::pubkey::new_rand();
         let RpcHandler { io, meta, .. } = start_rpc_handler_with_tx(&bob_pubkey);
 
         let req = r#"{"jsonrpc":"2.0","id":1,"method":"getRecentPerformanceSamples"}"#;
@@ -4472,7 +4472,7 @@ pub mod tests {
 
     #[test]
     fn test_rpc_get_recent_performance_samples_invalid_limit() {
-        let bob_pubkey = solana_sdk::pubkey::new_rand();
+        let bob_pubkey = renec_sdk::pubkey::new_rand();
         let RpcHandler { io, meta, .. } = start_rpc_handler_with_tx(&bob_pubkey);
 
         let req =
@@ -4498,7 +4498,7 @@ pub mod tests {
 
     #[test]
     fn test_rpc_get_slot_leader() {
-        let bob_pubkey = solana_sdk::pubkey::new_rand();
+        let bob_pubkey = renec_sdk::pubkey::new_rand();
         let RpcHandler {
             io,
             meta,
@@ -4518,7 +4518,7 @@ pub mod tests {
 
     #[test]
     fn test_rpc_get_tx_count() {
-        let bob_pubkey = solana_sdk::pubkey::new_rand();
+        let bob_pubkey = renec_sdk::pubkey::new_rand();
         let genesis = create_genesis_config(10);
         let bank = Arc::new(Bank::new(&genesis.genesis_config));
         // Add 4 transactions
@@ -4548,7 +4548,7 @@ pub mod tests {
 
     #[test]
     fn test_rpc_minimum_ledger_slot() {
-        let bob_pubkey = solana_sdk::pubkey::new_rand();
+        let bob_pubkey = renec_sdk::pubkey::new_rand();
         let RpcHandler { io, meta, .. } = start_rpc_handler_with_tx(&bob_pubkey);
 
         let req = r#"{"jsonrpc":"2.0","id":1,"method":"minimumLedgerSlot"}"#;
@@ -4563,7 +4563,7 @@ pub mod tests {
 
     #[test]
     fn test_get_supply() {
-        let bob_pubkey = solana_sdk::pubkey::new_rand();
+        let bob_pubkey = renec_sdk::pubkey::new_rand();
         let RpcHandler { io, meta, .. } = start_rpc_handler_with_tx(&bob_pubkey);
         let req = r#"{"jsonrpc":"2.0","id":1,"method":"getSupply"}"#;
         let res = io.handle_request_sync(req, meta);
@@ -4588,7 +4588,7 @@ pub mod tests {
 
     #[test]
     fn test_get_supply_exclude_account_list() {
-        let bob_pubkey = solana_sdk::pubkey::new_rand();
+        let bob_pubkey = renec_sdk::pubkey::new_rand();
         let RpcHandler { io, meta, .. } = start_rpc_handler_with_tx(&bob_pubkey);
         let req = r#"{"jsonrpc":"2.0","id":1,"method":"getSupply","params":[{"excludeNonCirculatingAccountsList":true}]}"#;
         let res = io.handle_request_sync(req, meta);
@@ -4603,7 +4603,7 @@ pub mod tests {
 
     #[test]
     fn test_get_largest_accounts() {
-        let bob_pubkey = solana_sdk::pubkey::new_rand();
+        let bob_pubkey = renec_sdk::pubkey::new_rand();
         let RpcHandler {
             io, meta, alice, ..
         } = start_rpc_handler_with_tx(&bob_pubkey);
@@ -4662,7 +4662,7 @@ pub mod tests {
 
     #[test]
     fn test_rpc_get_minimum_balance_for_rent_exemption() {
-        let bob_pubkey = solana_sdk::pubkey::new_rand();
+        let bob_pubkey = renec_sdk::pubkey::new_rand();
         let data_len = 50;
         let RpcHandler { io, meta, bank, .. } = start_rpc_handler_with_tx(&bob_pubkey);
 
@@ -4694,7 +4694,7 @@ pub mod tests {
 
     #[test]
     fn test_rpc_get_inflation() {
-        let bob_pubkey = solana_sdk::pubkey::new_rand();
+        let bob_pubkey = renec_sdk::pubkey::new_rand();
         let RpcHandler { io, meta, bank, .. } = start_rpc_handler_with_tx(&bob_pubkey);
 
         let req = r#"{"jsonrpc":"2.0","id":1,"method":"getInflationGovernor"}"#;
@@ -4740,7 +4740,7 @@ pub mod tests {
 
     #[test]
     fn test_rpc_get_epoch_schedule() {
-        let bob_pubkey = solana_sdk::pubkey::new_rand();
+        let bob_pubkey = renec_sdk::pubkey::new_rand();
         let RpcHandler { io, meta, bank, .. } = start_rpc_handler_with_tx(&bob_pubkey);
 
         let req = r#"{"jsonrpc":"2.0","id":1,"method":"getEpochSchedule"}"#;
@@ -4762,7 +4762,7 @@ pub mod tests {
 
     #[test]
     fn test_rpc_get_leader_schedule() {
-        let bob_pubkey = solana_sdk::pubkey::new_rand();
+        let bob_pubkey = renec_sdk::pubkey::new_rand();
         let RpcHandler { io, meta, bank, .. } = start_rpc_handler_with_tx(&bob_pubkey);
 
         for req in [
@@ -4847,7 +4847,7 @@ pub mod tests {
 
     #[test]
     fn test_rpc_get_slot_leaders() {
-        let bob_pubkey = solana_sdk::pubkey::new_rand();
+        let bob_pubkey = renec_sdk::pubkey::new_rand();
         let RpcHandler { io, meta, bank, .. } = start_rpc_handler_with_tx(&bob_pubkey);
 
         // Test that slot leaders will be returned across epochs
@@ -4903,7 +4903,7 @@ pub mod tests {
 
     #[test]
     fn test_rpc_get_account_info() {
-        let bob_pubkey = solana_sdk::pubkey::new_rand();
+        let bob_pubkey = renec_sdk::pubkey::new_rand();
         let RpcHandler { io, meta, bank, .. } = start_rpc_handler_with_tx(&bob_pubkey);
 
         let req = format!(
@@ -4931,7 +4931,7 @@ pub mod tests {
             .expect("actual response deserialization");
         assert_eq!(expected, result);
 
-        let address = solana_sdk::pubkey::new_rand();
+        let address = renec_sdk::pubkey::new_rand();
         let data = vec![1, 2, 3, 4, 5];
         let mut account = AccountSharedData::new(42, 5, &Pubkey::default());
         account.set_data(data.clone());
@@ -4985,7 +4985,7 @@ pub mod tests {
 
     #[test]
     fn test_rpc_get_multiple_accounts() {
-        let bob_pubkey = solana_sdk::pubkey::new_rand();
+        let bob_pubkey = renec_sdk::pubkey::new_rand();
         let RpcHandler { io, meta, bank, .. } = start_rpc_handler_with_tx(&bob_pubkey);
 
         let address = Pubkey::new(&[9; 32]);
@@ -5112,7 +5112,7 @@ pub mod tests {
             ..
         } = start_rpc_handler_with_tx(&bob.pubkey());
 
-        let new_program_id = solana_sdk::pubkey::new_rand();
+        let new_program_id = renec_sdk::pubkey::new_rand();
         let tx = system_transaction::assign(&bob, blockhash, &new_program_id);
         bank.process_transaction(&tx).unwrap();
         let req = format!(
@@ -5179,7 +5179,7 @@ pub mod tests {
         bank.process_transaction(&tx).unwrap();
 
         let nonce_keypair1 = Keypair::new();
-        let authority = solana_sdk::pubkey::new_rand();
+        let authority = renec_sdk::pubkey::new_rand();
         let instruction = system_instruction::create_nonce_account(
             &alice.pubkey(),
             &nonce_keypair1.pubkey(),
@@ -5329,9 +5329,9 @@ pub mod tests {
             alice,
             bank,
             ..
-        } = start_rpc_handler_with_tx(&solana_sdk::pubkey::new_rand());
+        } = start_rpc_handler_with_tx(&renec_sdk::pubkey::new_rand());
 
-        let bob_pubkey = solana_sdk::pubkey::new_rand();
+        let bob_pubkey = renec_sdk::pubkey::new_rand();
         let mut tx = system_transaction::transfer(&alice, &bob_pubkey, 1234, blockhash);
         let tx_serialized_encoded = bs58::encode(serialize(&tx).unwrap()).into_string();
         tx.signatures[0] = Signature::default();
@@ -5358,7 +5358,7 @@ pub mod tests {
                  ]
             }}"#,
             tx_serialized_encoded,
-            solana_sdk::pubkey::new_rand(),
+            renec_sdk::pubkey::new_rand(),
             bob_pubkey,
         );
         let res = io.handle_request_sync(&req, meta.clone());
@@ -5570,7 +5570,7 @@ pub mod tests {
     #[test]
     #[should_panic]
     fn test_rpc_simulate_transaction_panic_on_unfrozen_bank() {
-        let bob_pubkey = solana_sdk::pubkey::new_rand();
+        let bob_pubkey = renec_sdk::pubkey::new_rand();
         let RpcHandler {
             io,
             meta,
@@ -5596,7 +5596,7 @@ pub mod tests {
 
     #[test]
     fn test_rpc_get_signature_statuses() {
-        let bob_pubkey = solana_sdk::pubkey::new_rand();
+        let bob_pubkey = renec_sdk::pubkey::new_rand();
         let RpcHandler {
             io,
             mut meta,
@@ -5666,7 +5666,7 @@ pub mod tests {
 
     #[test]
     fn test_rpc_get_recent_blockhash() {
-        let bob_pubkey = solana_sdk::pubkey::new_rand();
+        let bob_pubkey = renec_sdk::pubkey::new_rand();
         let RpcHandler {
             io,
             meta,
@@ -5697,7 +5697,7 @@ pub mod tests {
 
     #[test]
     fn test_rpc_get_fees() {
-        let bob_pubkey = solana_sdk::pubkey::new_rand();
+        let bob_pubkey = renec_sdk::pubkey::new_rand();
         let RpcHandler {
             io,
             meta,
@@ -5730,7 +5730,7 @@ pub mod tests {
 
     #[test]
     fn test_rpc_get_fee_calculator_for_blockhash() {
-        let bob_pubkey = solana_sdk::pubkey::new_rand();
+        let bob_pubkey = renec_sdk::pubkey::new_rand();
         let RpcHandler { io, meta, bank, .. } = start_rpc_handler_with_tx(&bob_pubkey);
 
         let (blockhash, fee_calculator) = bank.last_blockhash_with_fee_calculator();
@@ -5778,7 +5778,7 @@ pub mod tests {
 
     #[test]
     fn test_rpc_get_fee_rate_governor() {
-        let bob_pubkey = solana_sdk::pubkey::new_rand();
+        let bob_pubkey = renec_sdk::pubkey::new_rand();
         let RpcHandler { io, meta, .. } = start_rpc_handler_with_tx(&bob_pubkey);
 
         let req = r#"{"jsonrpc":"2.0","id":1,"method":"getFeeRateGovernor"}"#;
@@ -5807,7 +5807,7 @@ pub mod tests {
 
     #[test]
     fn test_rpc_fail_request_airdrop() {
-        let bob_pubkey = solana_sdk::pubkey::new_rand();
+        let bob_pubkey = renec_sdk::pubkey::new_rand();
         let RpcHandler { io, meta, .. } = start_rpc_handler_with_tx(&bob_pubkey);
 
         // Expect internal error because no faucet is available
@@ -5883,7 +5883,7 @@ pub mod tests {
 
         let mut bad_transaction = system_transaction::transfer(
             &mint_keypair,
-            &solana_sdk::pubkey::new_rand(),
+            &renec_sdk::pubkey::new_rand(),
             42,
             Hash::default(),
         );
@@ -5918,7 +5918,7 @@ pub mod tests {
         );
         let mut bad_transaction = system_transaction::transfer(
             &mint_keypair,
-            &solana_sdk::pubkey::new_rand(),
+            &renec_sdk::pubkey::new_rand(),
             42,
             recent_blockhash,
         );
@@ -6003,7 +6003,7 @@ pub mod tests {
 
     #[test]
     fn test_rpc_verify_pubkey() {
-        let pubkey = solana_sdk::pubkey::new_rand();
+        let pubkey = renec_sdk::pubkey::new_rand();
         assert_eq!(verify_pubkey(&pubkey.to_string()).unwrap(), pubkey);
         let bad_pubkey = "a1b2c3d4";
         assert_eq!(
@@ -6016,7 +6016,7 @@ pub mod tests {
     fn test_rpc_verify_signature() {
         let tx = system_transaction::transfer(
             &Keypair::new(),
-            &solana_sdk::pubkey::new_rand(),
+            &renec_sdk::pubkey::new_rand(),
             20,
             hash(&[0]),
         );
@@ -6054,7 +6054,7 @@ pub mod tests {
 
     #[test]
     fn test_rpc_get_identity() {
-        let bob_pubkey = solana_sdk::pubkey::new_rand();
+        let bob_pubkey = renec_sdk::pubkey::new_rand();
         let RpcHandler { io, meta, .. } = start_rpc_handler_with_tx(&bob_pubkey);
 
         let req = r#"{"jsonrpc":"2.0","id":1,"method":"getIdentity"}"#;
@@ -6074,7 +6074,7 @@ pub mod tests {
     }
 
     fn test_basic_slot(method: &str, expected: Slot) {
-        let bob_pubkey = solana_sdk::pubkey::new_rand();
+        let bob_pubkey = renec_sdk::pubkey::new_rand();
         let RpcHandler { io, meta, .. } = start_rpc_handler_with_tx(&bob_pubkey);
 
         let req = format!("{{\"jsonrpc\":\"2.0\",\"id\":1,\"method\":\"{}\"}}", method);
@@ -6093,7 +6093,7 @@ pub mod tests {
 
     #[test]
     fn test_rpc_get_version() {
-        let bob_pubkey = solana_sdk::pubkey::new_rand();
+        let bob_pubkey = renec_sdk::pubkey::new_rand();
         let RpcHandler { io, meta, .. } = start_rpc_handler_with_tx(&bob_pubkey);
 
         let req = r#"{"jsonrpc":"2.0","id":1,"method":"getVersion"}"#;
@@ -6186,7 +6186,7 @@ pub mod tests {
 
     #[test]
     fn test_rpc_get_block_commitment() {
-        let bob_pubkey = solana_sdk::pubkey::new_rand();
+        let bob_pubkey = renec_sdk::pubkey::new_rand();
         let RpcHandler {
             io,
             meta,
@@ -6240,7 +6240,7 @@ pub mod tests {
 
     #[test]
     fn test_get_block() {
-        let bob_pubkey = solana_sdk::pubkey::new_rand();
+        let bob_pubkey = renec_sdk::pubkey::new_rand();
         let RpcHandler {
             io,
             mut meta,
@@ -6351,7 +6351,7 @@ pub mod tests {
 
     #[test]
     fn test_get_block_config() {
-        let bob_pubkey = solana_sdk::pubkey::new_rand();
+        let bob_pubkey = renec_sdk::pubkey::new_rand();
         let RpcHandler {
             io,
             meta,
@@ -6402,7 +6402,7 @@ pub mod tests {
 
     #[test]
     fn test_get_block_production() {
-        let bob_pubkey = solana_sdk::pubkey::new_rand();
+        let bob_pubkey = renec_sdk::pubkey::new_rand();
         let roots = vec![0, 1, 3, 4, 8];
         let RpcHandler {
             io,
@@ -6479,7 +6479,7 @@ pub mod tests {
 
     #[test]
     fn test_get_blocks() {
-        let bob_pubkey = solana_sdk::pubkey::new_rand();
+        let bob_pubkey = renec_sdk::pubkey::new_rand();
         let roots = vec![0, 1, 3, 4, 8];
         let RpcHandler {
             io,
@@ -6556,7 +6556,7 @@ pub mod tests {
 
     #[test]
     fn test_get_blocks_with_limit() {
-        let bob_pubkey = solana_sdk::pubkey::new_rand();
+        let bob_pubkey = renec_sdk::pubkey::new_rand();
         let roots = vec![0, 1, 3, 4, 8];
         let RpcHandler {
             io,
@@ -6616,7 +6616,7 @@ pub mod tests {
 
     #[test]
     fn test_get_block_time() {
-        let bob_pubkey = solana_sdk::pubkey::new_rand();
+        let bob_pubkey = renec_sdk::pubkey::new_rand();
         let RpcHandler {
             io,
             meta,
@@ -6705,7 +6705,7 @@ pub mod tests {
             leader_vote_keypair,
             block_commitment_cache,
             ..
-        } = start_rpc_handler_with_tx(&solana_sdk::pubkey::new_rand());
+        } = start_rpc_handler_with_tx(&renec_sdk::pubkey::new_rand());
 
         assert_eq!(bank.vote_accounts().len(), 1);
 
@@ -6967,7 +6967,7 @@ pub mod tests {
     #[test]
     fn test_token_rpcs() {
         let RpcHandler { io, meta, bank, .. } =
-            start_rpc_handler_with_tx(&solana_sdk::pubkey::new_rand());
+            start_rpc_handler_with_tx(&renec_sdk::pubkey::new_rand());
 
         let mut account_data = vec![0; TokenAccount::get_packed_len()];
         let mint = SplTokenPubkey::new(&[2; 32]);
@@ -6990,7 +6990,7 @@ pub mod tests {
             owner: spl_token_id(),
             ..Account::default()
         });
-        let token_account_pubkey = solana_sdk::pubkey::new_rand();
+        let token_account_pubkey = renec_sdk::pubkey::new_rand();
         bank.store_account(&token_account_pubkey, &token_account);
 
         // Add the mint
@@ -7029,7 +7029,7 @@ pub mod tests {
         // Test non-existent token account
         let req = format!(
             r#"{{"jsonrpc":"2.0","id":1,"method":"getTokenAccountBalance","params":["{}"]}}"#,
-            solana_sdk::pubkey::new_rand(),
+            renec_sdk::pubkey::new_rand(),
         );
         let res = io.handle_request_sync(&req, meta.clone());
         let result: Value = serde_json::from_str(&res.expect("actual response"))
@@ -7055,7 +7055,7 @@ pub mod tests {
         // Test non-existent mint address
         let req = format!(
             r#"{{"jsonrpc":"2.0","id":1,"method":"getTokenSupply","params":["{}"]}}"#,
-            solana_sdk::pubkey::new_rand(),
+            renec_sdk::pubkey::new_rand(),
         );
         let res = io.handle_request_sync(&req, meta.clone());
         let result: Value = serde_json::from_str(&res.expect("actual response"))
@@ -7063,7 +7063,7 @@ pub mod tests {
         assert!(result.get("error").is_some());
 
         // Add another token account with the same owner, delegate, and mint
-        let other_token_account_pubkey = solana_sdk::pubkey::new_rand();
+        let other_token_account_pubkey = renec_sdk::pubkey::new_rand();
         bank.store_account(&other_token_account_pubkey, &token_account);
 
         // Add another token account with the same owner and delegate but different mint
@@ -7086,7 +7086,7 @@ pub mod tests {
             owner: spl_token_id(),
             ..Account::default()
         });
-        let token_with_different_mint_pubkey = solana_sdk::pubkey::new_rand();
+        let token_with_different_mint_pubkey = renec_sdk::pubkey::new_rand();
         bank.store_account(&token_with_different_mint_pubkey, &token_account);
 
         // Test getTokenAccountsByOwner with Token program id returns all accounts, regardless of Mint address
@@ -7167,7 +7167,7 @@ pub mod tests {
                 "params":["{}", {{"programId": "{}"}}]
             }}"#,
             owner,
-            solana_sdk::pubkey::new_rand(),
+            renec_sdk::pubkey::new_rand(),
         );
         let res = io.handle_request_sync(&req, meta.clone());
         let result: Value = serde_json::from_str(&res.expect("actual response"))
@@ -7181,7 +7181,7 @@ pub mod tests {
                 "params":["{}", {{"mint": "{}"}}]
             }}"#,
             owner,
-            solana_sdk::pubkey::new_rand(),
+            renec_sdk::pubkey::new_rand(),
         );
         let res = io.handle_request_sync(&req, meta.clone());
         let result: Value = serde_json::from_str(&res.expect("actual response"))
@@ -7196,7 +7196,7 @@ pub mod tests {
                 "method":"getTokenAccountsByOwner",
                 "params":["{}", {{"programId": "{}"}}]
             }}"#,
-            solana_sdk::pubkey::new_rand(),
+            renec_sdk::pubkey::new_rand(),
             spl_token_id(),
         );
         let res = io.handle_request_sync(&req, meta.clone());
@@ -7250,7 +7250,7 @@ pub mod tests {
                 "params":["{}", {{"programId": "{}"}}]
             }}"#,
             delegate,
-            solana_sdk::pubkey::new_rand(),
+            renec_sdk::pubkey::new_rand(),
         );
         let res = io.handle_request_sync(&req, meta.clone());
         let result: Value = serde_json::from_str(&res.expect("actual response"))
@@ -7264,7 +7264,7 @@ pub mod tests {
                 "params":["{}", {{"mint": "{}"}}]
             }}"#,
             delegate,
-            solana_sdk::pubkey::new_rand(),
+            renec_sdk::pubkey::new_rand(),
         );
         let res = io.handle_request_sync(&req, meta.clone());
         let result: Value = serde_json::from_str(&res.expect("actual response"))
@@ -7279,7 +7279,7 @@ pub mod tests {
                 "method":"getTokenAccountsByDelegate",
                 "params":["{}", {{"programId": "{}"}}]
             }}"#,
-            solana_sdk::pubkey::new_rand(),
+            renec_sdk::pubkey::new_rand(),
             spl_token_id(),
         );
         let res = io.handle_request_sync(&req, meta.clone());
@@ -7327,7 +7327,7 @@ pub mod tests {
             owner: spl_token_id(),
             ..Account::default()
         });
-        let token_with_smaller_balance = solana_sdk::pubkey::new_rand();
+        let token_with_smaller_balance = renec_sdk::pubkey::new_rand();
         bank.store_account(&token_with_smaller_balance, &token_account);
 
         // Test largest token accounts
@@ -7368,7 +7368,7 @@ pub mod tests {
     #[test]
     fn test_token_parsing() {
         let RpcHandler { io, meta, bank, .. } =
-            start_rpc_handler_with_tx(&solana_sdk::pubkey::new_rand());
+            start_rpc_handler_with_tx(&renec_sdk::pubkey::new_rand());
 
         let mut account_data = vec![0; TokenAccount::get_packed_len()];
         let mint = SplTokenPubkey::new(&[2; 32]);
@@ -7391,7 +7391,7 @@ pub mod tests {
             owner: spl_token_id(),
             ..Account::default()
         });
-        let token_account_pubkey = solana_sdk::pubkey::new_rand();
+        let token_account_pubkey = renec_sdk::pubkey::new_rand();
         bank.store_account(&token_account_pubkey, &token_account);
 
         // Add the mint

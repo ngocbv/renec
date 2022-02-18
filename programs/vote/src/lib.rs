@@ -12,4 +12,4 @@ extern crate solana_metrics;
 #[macro_use]
 extern crate renec_frozen_abi_macro;
 
-pub use solana_sdk::vote::program::{check_id, id};
+pub use renec_sdk::vote::program::{check_id, id};

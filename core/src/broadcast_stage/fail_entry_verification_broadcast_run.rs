@@ -2,7 +2,7 @@ use {
     super::*,
     crate::cluster_nodes::ClusterNodesCache,
     renec_ledger::shred::Shredder,
-    solana_sdk::{hash::Hash, signature::Keypair},
+    renec_sdk::{hash::Hash, signature::Keypair},
     std::{thread::sleep, time::Duration},
 };
 

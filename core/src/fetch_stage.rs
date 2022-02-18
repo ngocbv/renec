@@ -8,7 +8,7 @@ use {
     solana_metrics::{inc_new_counter_debug, inc_new_counter_info},
     renec_perf::{packet::PacketBatchRecycler, recycler::Recycler},
     renec_poh::poh_recorder::PohRecorder,
-    solana_sdk::{clock::DEFAULT_TICKS_PER_SLOT, packet::Packet},
+    renec_sdk::{clock::DEFAULT_TICKS_PER_SLOT, packet::Packet},
     solana_streamer::streamer::{self, PacketBatchReceiver, PacketBatchSender},
     std::{
         net::UdpSocket,

@@ -3,7 +3,7 @@ use {
     renec_ledger::{entry::Entry, shred::Shred},
     renec_poh::poh_recorder::WorkingBankEntry,
     renec_runtime::bank::Bank,
-    solana_sdk::clock::Slot,
+    renec_sdk::clock::Slot,
     std::{
         sync::{mpsc::Receiver, Arc},
         time::{Duration, Instant},
@@ -83,7 +83,7 @@ mod tests {
     use {
         super::*,
         renec_ledger::genesis_utils::{create_genesis_config, GenesisConfigInfo},
-        solana_sdk::{
+        renec_sdk::{
             genesis_config::GenesisConfig, pubkey::Pubkey, system_transaction,
             transaction::Transaction,
         },
@@ -99,7 +99,7 @@ mod tests {
         let bank0 = Arc::new(Bank::new(&genesis_config));
         let tx = system_transaction::transfer(
             &mint_keypair,
-            &solana_sdk::pubkey::new_rand(),
+            &renec_sdk::pubkey::new_rand(),
             1,
             genesis_config.hash(),
         );

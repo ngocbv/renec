@@ -12,7 +12,7 @@ use {
     renec_client::{client_error, rpc_client::RpcClient, rpc_response::RpcVoteAccountStatus},
     solana_metrics::{datapoint_error, datapoint_info},
     renec_notifier::Notifier,
-    solana_sdk::{
+    renec_sdk::{
         hash::Hash,
         native_token::{sol_to_lamports, Sol},
         pubkey::Pubkey,

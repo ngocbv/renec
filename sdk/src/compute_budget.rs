@@ -8,7 +8,7 @@ use {
         transaction::{Transaction, TransactionError},
     },
     borsh::{BorshDeserialize, BorshSchema, BorshSerialize},
-    solana_sdk::{
+    renec_sdk::{
         borsh::try_from_slice_unchecked,
         instruction::{Instruction, InstructionError},
     },

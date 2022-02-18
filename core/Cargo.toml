@@ -62,7 +62,7 @@ renec-poh = { path = "../poh", version = "=1.8.14" }
 renec-program-test = { path = "../program-test", version = "=1.8.14" }
 renec-rpc = { path = "../rpc", version = "=1.8.14" }
 renec-runtime = { path = "../runtime", version = "=1.8.14" }
-solana-sdk = { path = "../sdk", version = "=1.8.14" }
+renec-sdk = { path = "../sdk", version = "=1.8.14" }
 renec-frozen-abi = { path = "../frozen-abi", version = "=1.8.14" }
 renec-frozen-abi-macro = { path = "../frozen-abi/macro", version = "=1.8.14" }
 solana-streamer = { path = "../streamer", version = "=1.8.14" }

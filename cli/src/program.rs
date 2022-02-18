@@ -26,7 +26,7 @@ use {
     },
     solana_rbpf::{elf::Executable, verifier, vm::Config},
     renec_remote_wallet::remote_wallet::RemoteWalletManager,
-    solana_sdk::{
+    renec_sdk::{
         account::Account,
         account_utils::StateMut,
         bpf_loader, bpf_loader_deprecated,
@@ -2208,7 +2208,7 @@ mod tests {
         },
         serde_json::Value,
         renec_cli_output::OutputFormat,
-        solana_sdk::signature::write_keypair_file,
+        renec_sdk::signature::write_keypair_file,
     };
 
     fn make_tmp_path(name: &str) -> String {

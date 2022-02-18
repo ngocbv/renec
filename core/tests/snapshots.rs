@@ -52,7 +52,7 @@ mod tests {
             snapshot_utils::{self, SnapshotVersion, DEFAULT_MAX_SNAPSHOTS_TO_RETAIN},
             status_cache::MAX_CACHE_ENTRIES,
         },
-        solana_sdk::{
+        renec_sdk::{
             clock::Slot,
             genesis_config::{ClusterType, GenesisConfig},
             hash::hashv,

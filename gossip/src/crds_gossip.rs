@@ -18,7 +18,7 @@ use {
     itertools::Itertools,
     rayon::ThreadPool,
     renec_ledger::shred::Shred,
-    solana_sdk::{
+    renec_sdk::{
         hash::Hash,
         pubkey::Pubkey,
         signature::{Keypair, Signer},
@@ -363,7 +363,7 @@ mod test {
     use {
         super::*,
         crate::{contact_info::ContactInfo, crds_value::CrdsData},
-        solana_sdk::{hash::hash, timing::timestamp},
+        renec_sdk::{hash::hash, timing::timestamp},
     };
 
     #[test]

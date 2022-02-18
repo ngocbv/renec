@@ -12,7 +12,7 @@ use {
         accounts_db,
         snapshot_package::{AccountsPackage, AccountsPackagePre, AccountsPackageReceiver},
     },
-    solana_sdk::{clock::Slot, hash::Hash, pubkey::Pubkey},
+    renec_sdk::{clock::Slot, hash::Hash, pubkey::Pubkey},
     std::{
         collections::{HashMap, HashSet},
         sync::{
@@ -133,7 +133,7 @@ impl AccountsHashVerifier {
             // For testing, publish an invalid hash to gossip.
             use {
                 rand::{thread_rng, Rng},
-                solana_sdk::hash::extend_and_hash,
+                renec_sdk::hash::extend_and_hash,
             };
             warn!("inserting fault at slot: {}", accounts_package.slot);
             let rand = thread_rng().gen_range(0, 10);
@@ -223,7 +223,7 @@ mod tests {
         super::*,
         renec_gossip::{cluster_info::make_accounts_hashes_message, contact_info::ContactInfo},
         renec_runtime::{bank_forks::ArchiveFormat, snapshot_utils::SnapshotVersion},
-        solana_sdk::{
+        renec_sdk::{
             hash::hash,
             signature::{Keypair, Signer},
         },

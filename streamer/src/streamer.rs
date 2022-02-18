@@ -7,7 +7,7 @@ use {
         recvmmsg::NUM_RCVMMSGS,
         socket::SocketAddrSpace,
     },
-    solana_sdk::timing::timestamp,
+    renec_sdk::timing::timestamp,
     std::{
         net::UdpSocket,
         sync::{
@@ -153,7 +153,7 @@ pub fn recv_batch(recvr: &PacketBatchReceiver) -> Result<(Vec<PacketBatch>, usiz
     Ok((
         packet_batches,
         num_packets,
-        solana_sdk::timing::duration_as_ms(&recv_duration),
+        renec_sdk::timing::duration_as_ms(&recv_duration),
     ))
 }
 

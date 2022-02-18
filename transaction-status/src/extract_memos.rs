@@ -1,16 +1,16 @@
 use {
     crate::parse_instruction::parse_memo_data,
-    solana_sdk::{message::Message, pubkey::Pubkey},
+    renec_sdk::{message::Message, pubkey::Pubkey},
 };
 
 // A helper function to convert spl_memo::v1::id() as spl_sdk::pubkey::Pubkey to
-// solana_sdk::pubkey::Pubkey
+// renec_sdk::pubkey::Pubkey
 pub fn spl_memo_id_v1() -> Pubkey {
     Pubkey::new_from_array(spl_memo::v1::id().to_bytes())
 }
 
 // A helper function to convert spl_memo::id() as spl_sdk::pubkey::Pubkey to
-// solana_sdk::pubkey::Pubkey
+// renec_sdk::pubkey::Pubkey
 pub fn spl_memo_id_v3() -> Pubkey {
     Pubkey::new_from_array(spl_memo::id().to_bytes())
 }
@@ -55,7 +55,7 @@ impl ExtractMemos for Message {
 mod test {
     use {
         super::*,
-        solana_sdk::{hash::Hash, instruction::CompiledInstruction},
+        renec_sdk::{hash::Hash, instruction::CompiledInstruction},
     };
 
     #[test]

@@ -13,7 +13,7 @@ use {
     log::*,
     rand::{thread_rng, Rng},
     renec_measure::measure::Measure,
-    solana_sdk::{
+    renec_sdk::{
         clock::{BankId, Slot},
         hash::Hash,
     },
@@ -461,7 +461,7 @@ mod test {
         super::*,
         crate::genesis_utils::create_genesis_config,
         crossbeam_channel::unbounded,
-        solana_sdk::{account::AccountSharedData, pubkey::Pubkey},
+        renec_sdk::{account::AccountSharedData, pubkey::Pubkey},
     };
 
     #[test]

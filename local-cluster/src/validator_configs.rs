@@ -1,6 +1,6 @@
 use {
     renec_core::validator::ValidatorConfig,
-    solana_sdk::exit::Exit,
+    renec_sdk::exit::Exit,
     std::sync::{Arc, RwLock},
 };
 

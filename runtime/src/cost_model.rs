@@ -7,7 +7,7 @@
 use {
     crate::{block_cost_limits::*, execute_cost_table::ExecuteCostTable},
     log::*,
-    solana_sdk::{pubkey::Pubkey, transaction::Transaction},
+    renec_sdk::{pubkey::Pubkey, transaction::Transaction},
     std::collections::HashMap,
 };
 
@@ -188,7 +188,7 @@ mod tests {
             bank::Bank,
             genesis_utils::{create_genesis_config, GenesisConfigInfo},
         },
-        solana_sdk::{
+        renec_sdk::{
             bpf_loader,
             hash::Hash,
             instruction::CompiledInstruction,
@@ -268,8 +268,8 @@ mod tests {
     fn test_cost_model_transaction_many_transfer_instructions() {
         let (mint_keypair, start_hash) = test_setup();
 
-        let key1 = solana_sdk::pubkey::new_rand();
-        let key2 = solana_sdk::pubkey::new_rand();
+        let key1 = renec_sdk::pubkey::new_rand();
+        let key2 = renec_sdk::pubkey::new_rand();
         let instructions =
             system_instruction::transfer_many(&mint_keypair.pubkey(), &[(key1, 1), (key2, 1)]);
         let message = Message::new(&instructions, Some(&mint_keypair.pubkey()));
@@ -292,10 +292,10 @@ mod tests {
         let (mint_keypair, start_hash) = test_setup();
 
         // construct a transaction with multiple random instructions
-        let key1 = solana_sdk::pubkey::new_rand();
-        let key2 = solana_sdk::pubkey::new_rand();
-        let prog1 = solana_sdk::pubkey::new_rand();
-        let prog2 = solana_sdk::pubkey::new_rand();
+        let key1 = renec_sdk::pubkey::new_rand();
+        let key2 = renec_sdk::pubkey::new_rand();
+        let prog1 = renec_sdk::pubkey::new_rand();
+        let prog2 = renec_sdk::pubkey::new_rand();
         let instructions = vec![
             CompiledInstruction::new(3, &(), vec![0, 1]),
             CompiledInstruction::new(4, &(), vec![0, 2]),
@@ -407,10 +407,10 @@ mod tests {
     fn test_cost_model_can_be_shared_concurrently_with_rwlock() {
         let (mint_keypair, start_hash) = test_setup();
         // construct a transaction with multiple random instructions
-        let key1 = solana_sdk::pubkey::new_rand();
-        let key2 = solana_sdk::pubkey::new_rand();
-        let prog1 = solana_sdk::pubkey::new_rand();
-        let prog2 = solana_sdk::pubkey::new_rand();
+        let key1 = renec_sdk::pubkey::new_rand();
+        let key2 = renec_sdk::pubkey::new_rand();
+        let prog1 = renec_sdk::pubkey::new_rand();
+        let prog2 = renec_sdk::pubkey::new_rand();
         let instructions = vec![
             CompiledInstruction::new(3, &(), vec![0, 1]),
             CompiledInstruction::new(4, &(), vec![0, 2]),

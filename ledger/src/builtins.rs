@@ -3,7 +3,7 @@ use {
         bank::{Builtin, Builtins},
         builtins::ActivationType,
     },
-    solana_sdk::{feature_set, pubkey::Pubkey},
+    renec_sdk::{feature_set, pubkey::Pubkey},
 };
 
 macro_rules! to_builtin {

@@ -6,7 +6,7 @@ extern crate test;
 use {
     renec_core::consensus::Tower,
     renec_runtime::{bank::Bank, bank_forks::BankForks},
-    solana_sdk::{
+    renec_sdk::{
         pubkey::Pubkey,
         signature::{Keypair, Signer},
     },

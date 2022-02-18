@@ -2,7 +2,7 @@ use {
     renec_gossip::cluster_info::ClusterInfo,
     renec_poh::poh_recorder::PohRecorder,
     renec_runtime::bank_forks::BankForks,
-    solana_sdk::{clock::Slot, transaction::Transaction},
+    renec_sdk::{clock::Slot, transaction::Transaction},
     std::{
         sync::{mpsc::Receiver, Arc, Mutex, RwLock},
         thread::{self, Builder, JoinHandle},

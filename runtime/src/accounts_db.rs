@@ -50,7 +50,7 @@ use {
     serde::{Deserialize, Serialize},
     renec_measure::measure::Measure,
     renec_rayon_threadlimit::get_thread_count,
-    solana_sdk::{
+    renec_sdk::{
         account::{AccountSharedData, ReadableAccount},
         clock::{BankId, Epoch, Slot},
         genesis_config::ClusterType,
@@ -3845,7 +3845,7 @@ impl AccountsDb {
         hasher.update(owner.as_ref());
         hasher.update(pubkey.as_ref());
 
-        Hash(<[u8; solana_sdk::hash::HASH_BYTES]>::try_from(hasher.finalize().as_slice()).unwrap())
+        Hash(<[u8; renec_sdk::hash::HASH_BYTES]>::try_from(hasher.finalize().as_slice()).unwrap())
     }
 
     fn bulk_assign_write_version(&self, count: usize) -> StoredMetaWriteVersion {
@@ -6341,7 +6341,7 @@ pub mod tests {
         },
         assert_matches::assert_matches,
         rand::{thread_rng, Rng},
-        solana_sdk::{
+        renec_sdk::{
             account::{
                 accounts_equal, Account, AccountSharedData, ReadableAccount, WritableAccount,
             },
@@ -6765,7 +6765,7 @@ pub mod tests {
 
         let arc = Arc::new(data);
         let storages = vec![vec![arc]];
-        let pubkey = solana_sdk::pubkey::new_rand();
+        let pubkey = renec_sdk::pubkey::new_rand();
         let acc = AccountSharedData::new(1, 48, AccountSharedData::default().owner());
         let sm = StoredMeta {
             data_len: 1,
@@ -6809,7 +6809,7 @@ pub mod tests {
 
         let arc = Arc::new(data);
         let storages = vec![vec![arc]];
-        let pubkey = solana_sdk::pubkey::new_rand();
+        let pubkey = renec_sdk::pubkey::new_rand();
         let acc = AccountSharedData::new(1, 48, AccountSharedData::default().owner());
         let sm = StoredMeta {
             data_len: 1,
@@ -6874,8 +6874,8 @@ pub mod tests {
         );
         let write_version1 = 0;
         let write_version2 = 1;
-        let pubkey1 = solana_sdk::pubkey::new_rand();
-        let pubkey2 = solana_sdk::pubkey::new_rand();
+        let pubkey1 = renec_sdk::pubkey::new_rand();
+        let pubkey2 = renec_sdk::pubkey::new_rand();
         for swap in [false, true].iter() {
             let mut storages = [
                 sample_storage_with_entries(&tf, write_version1, slot_expected, &pubkey1)
@@ -7096,7 +7096,7 @@ pub mod tests {
         create_account(&db, &mut pubkeys, 0, 2, DEFAULT_FILE_SIZE as usize / 3, 0);
         assert!(check_storage(&db, 0, 2));
 
-        let pubkey = solana_sdk::pubkey::new_rand();
+        let pubkey = renec_sdk::pubkey::new_rand();
         let account = AccountSharedData::new(1, DEFAULT_FILE_SIZE as usize / 3, &pubkey);
         db.store_uncached(1, &[(&pubkey, &account)]);
         db.store_uncached(1, &[(&pubkeys[0], &account)]);
@@ -7231,7 +7231,7 @@ pub mod tests {
         let unrooted_slot = 9;
         let unrooted_bank_id = 9;
         let db = AccountsDb::new(Vec::new(), &ClusterType::Development);
-        let key = solana_sdk::pubkey::new_rand();
+        let key = renec_sdk::pubkey::new_rand();
         let account0 = AccountSharedData::new(1, 0, &key);
         db.store_uncached(unrooted_slot, &[(&key, &account0)]);
 
@@ -7239,7 +7239,7 @@ pub mod tests {
         db.remove_unrooted_slots(&[(unrooted_slot, unrooted_bank_id)]);
 
         // Add a new root
-        let key2 = solana_sdk::pubkey::new_rand();
+        let key2 = renec_sdk::pubkey::new_rand();
         let new_root = unrooted_slot + 1;
         db.store_uncached(new_root, &[(&key2, &account0)]);
         db.add_root(new_root);
@@ -7267,7 +7267,7 @@ pub mod tests {
     ) {
         let ancestors = vec![(slot, 0)].into_iter().collect();
         for t in 0..num {
-            let pubkey = solana_sdk::pubkey::new_rand();
+            let pubkey = renec_sdk::pubkey::new_rand();
             let account =
                 AccountSharedData::new((t + 1) as u64, space, AccountSharedData::default().owner());
             pubkeys.push(pubkey);
@@ -7277,7 +7277,7 @@ pub mod tests {
             accounts.store_uncached(slot, &[(&pubkey, &account)]);
         }
         for t in 0..num_vote {
-            let pubkey = solana_sdk::pubkey::new_rand();
+            let pubkey = renec_sdk::pubkey::new_rand();
             let account =
                 AccountSharedData::new((num + t + 1) as u64, space, &renec_vote_program::id());
             pubkeys.push(pubkey);
@@ -7428,7 +7428,7 @@ pub mod tests {
         let accounts = AccountsDb::new_sized(paths, size);
         let mut keys = vec![];
         for i in 0..9 {
-            let key = solana_sdk::pubkey::new_rand();
+            let key = renec_sdk::pubkey::new_rand();
             let account = AccountSharedData::new(i + 1, size as usize / 4, &key);
             accounts.store_uncached(0, &[(&key, &account)]);
             keys.push(key);
@@ -7463,7 +7463,7 @@ pub mod tests {
         let accounts = AccountsDb::new_single();
 
         let status = [AccountStorageStatus::Available, AccountStorageStatus::Full];
-        let pubkey1 = solana_sdk::pubkey::new_rand();
+        let pubkey1 = renec_sdk::pubkey::new_rand();
         let account1 = AccountSharedData::new(1, DEFAULT_FILE_SIZE as usize / 2, &pubkey1);
         accounts.store_uncached(0, &[(&pubkey1, &account1)]);
         {
@@ -7474,7 +7474,7 @@ pub mod tests {
             assert_eq!(r_stores[&0].status(), AccountStorageStatus::Available);
         }
 
-        let pubkey2 = solana_sdk::pubkey::new_rand();
+        let pubkey2 = renec_sdk::pubkey::new_rand();
         let account2 = AccountSharedData::new(1, DEFAULT_FILE_SIZE as usize / 2, &pubkey2);
         accounts.store_uncached(0, &[(&pubkey2, &account2)]);
         {
@@ -7538,7 +7538,7 @@ pub mod tests {
         //A slot is purged when a non root bank is cleaned up.  If a slot is behind root but it is
         //not root, it means we are retaining dead banks.
         let accounts = AccountsDb::new(Vec::new(), &ClusterType::Development);
-        let pubkey = solana_sdk::pubkey::new_rand();
+        let pubkey = renec_sdk::pubkey::new_rand();
         let account = AccountSharedData::new(1, 0, AccountSharedData::default().owner());
         //store an account
         accounts.store_uncached(0, &[(&pubkey, &account)]);
@@ -7612,8 +7612,8 @@ pub mod tests {
         renec_logger::setup();
 
         let accounts = AccountsDb::new(Vec::new(), &ClusterType::Development);
-        let pubkey1 = solana_sdk::pubkey::new_rand();
-        let pubkey2 = solana_sdk::pubkey::new_rand();
+        let pubkey1 = renec_sdk::pubkey::new_rand();
+        let pubkey2 = renec_sdk::pubkey::new_rand();
         let account = AccountSharedData::new(1, 1, AccountSharedData::default().owner());
         let zero_lamport_account =
             AccountSharedData::new(0, 0, AccountSharedData::default().owner());
@@ -7669,8 +7669,8 @@ pub mod tests {
         renec_logger::setup();
 
         let accounts = AccountsDb::new(Vec::new(), &ClusterType::Development);
-        let pubkey1 = solana_sdk::pubkey::new_rand();
-        let pubkey2 = solana_sdk::pubkey::new_rand();
+        let pubkey1 = renec_sdk::pubkey::new_rand();
+        let pubkey2 = renec_sdk::pubkey::new_rand();
         let zero_lamport_account =
             AccountSharedData::new(0, 0, AccountSharedData::default().owner());
 
@@ -7714,7 +7714,7 @@ pub mod tests {
         renec_logger::setup();
 
         let accounts = AccountsDb::new(Vec::new(), &ClusterType::Development);
-        let pubkey = solana_sdk::pubkey::new_rand();
+        let pubkey = renec_sdk::pubkey::new_rand();
         let account = AccountSharedData::new(1, 0, AccountSharedData::default().owner());
         let zero_lamport_account =
             AccountSharedData::new(0, 0, AccountSharedData::default().owner());
@@ -7754,7 +7754,7 @@ pub mod tests {
         renec_logger::setup();
 
         let accounts = AccountsDb::new(Vec::new(), &ClusterType::Development);
-        let pubkey = solana_sdk::pubkey::new_rand();
+        let pubkey = renec_sdk::pubkey::new_rand();
         let account = AccountSharedData::new(1, 0, AccountSharedData::default().owner());
         //store an account
         accounts.store_uncached(0, &[(&pubkey, &account)]);
@@ -7782,8 +7782,8 @@ pub mod tests {
         renec_logger::setup();
 
         let accounts = AccountsDb::new(Vec::new(), &ClusterType::Development);
-        let pubkey1 = solana_sdk::pubkey::new_rand();
-        let pubkey2 = solana_sdk::pubkey::new_rand();
+        let pubkey1 = renec_sdk::pubkey::new_rand();
+        let pubkey2 = renec_sdk::pubkey::new_rand();
         let normal_account = AccountSharedData::new(1, 0, AccountSharedData::default().owner());
         let zero_account = AccountSharedData::new(0, 0, AccountSharedData::default().owner());
         //store an account
@@ -7823,8 +7823,8 @@ pub mod tests {
             AccountShrinkThreshold::default(),
             None,
         );
-        let pubkey1 = solana_sdk::pubkey::new_rand();
-        let pubkey2 = solana_sdk::pubkey::new_rand();
+        let pubkey1 = renec_sdk::pubkey::new_rand();
+        let pubkey2 = renec_sdk::pubkey::new_rand();
 
         // Set up account to be added to secondary index
         let mint_key = Pubkey::new_unique();
@@ -7948,7 +7948,7 @@ pub mod tests {
         renec_logger::setup();
 
         let accounts = AccountsDb::new(Vec::new(), &ClusterType::Development);
-        let pubkey = solana_sdk::pubkey::new_rand();
+        let pubkey = renec_sdk::pubkey::new_rand();
         let account = AccountSharedData::new(1, 0, AccountSharedData::default().owner());
         let zero_account = AccountSharedData::new(0, 0, AccountSharedData::default().owner());
 
@@ -7985,7 +7985,7 @@ pub mod tests {
         renec_logger::setup();
 
         let accounts = AccountsDb::new(Vec::new(), &ClusterType::Development);
-        let pubkey = solana_sdk::pubkey::new_rand();
+        let pubkey = renec_sdk::pubkey::new_rand();
         let account = AccountSharedData::new(1, 0, AccountSharedData::default().owner());
         //store an account
         accounts.store_uncached(0, &[(&pubkey, &account)]);
@@ -8167,10 +8167,10 @@ pub mod tests {
         let owner = *AccountSharedData::default().owner();
 
         let account = AccountSharedData::new(some_lamport, no_data, &owner);
-        let pubkey = solana_sdk::pubkey::new_rand();
+        let pubkey = renec_sdk::pubkey::new_rand();
 
         let account2 = AccountSharedData::new(some_lamport, no_data, &owner);
-        let pubkey2 = solana_sdk::pubkey::new_rand();
+        let pubkey2 = renec_sdk::pubkey::new_rand();
 
         let zero_lamport_account = AccountSharedData::new(zero_lamport, no_data, &owner);
 
@@ -8246,7 +8246,7 @@ pub mod tests {
         let owner = *AccountSharedData::default().owner();
 
         let account = AccountSharedData::new(some_lamport, no_data, &owner);
-        let pubkey = solana_sdk::pubkey::new_rand();
+        let pubkey = renec_sdk::pubkey::new_rand();
 
         let zero_lamport_account = AccountSharedData::new(zero_lamport, no_data, &owner);
 
@@ -8306,14 +8306,14 @@ pub mod tests {
         let owner = *AccountSharedData::default().owner();
 
         let account = AccountSharedData::new(some_lamport, no_data, &owner);
-        let pubkey = solana_sdk::pubkey::new_rand();
+        let pubkey = renec_sdk::pubkey::new_rand();
         let zero_lamport_account = AccountSharedData::new(zero_lamport, no_data, &owner);
 
         let account2 = AccountSharedData::new(some_lamport + 1, no_data, &owner);
-        let pubkey2 = solana_sdk::pubkey::new_rand();
+        let pubkey2 = renec_sdk::pubkey::new_rand();
 
         let filler_account = AccountSharedData::new(some_lamport, no_data, &owner);
-        let filler_account_pubkey = solana_sdk::pubkey::new_rand();
+        let filler_account_pubkey = renec_sdk::pubkey::new_rand();
 
         let accounts = AccountsDb::new_single();
 
@@ -8368,9 +8368,9 @@ pub mod tests {
         let account3 = AccountSharedData::new(some_lamport + 100_002, no_data, &owner);
         let zero_lamport_account = AccountSharedData::new(zero_lamport, no_data, &owner);
 
-        let pubkey = solana_sdk::pubkey::new_rand();
-        let purged_pubkey1 = solana_sdk::pubkey::new_rand();
-        let purged_pubkey2 = solana_sdk::pubkey::new_rand();
+        let pubkey = renec_sdk::pubkey::new_rand();
+        let purged_pubkey1 = renec_sdk::pubkey::new_rand();
+        let purged_pubkey2 = renec_sdk::pubkey::new_rand();
 
         let dummy_account = AccountSharedData::new(dummy_lamport, no_data, &owner);
         let dummy_pubkey = Pubkey::default();
@@ -8450,7 +8450,7 @@ pub mod tests {
                 std::thread::Builder::new()
                     .name("account-writers".to_string())
                     .spawn(move || {
-                        let pubkey = solana_sdk::pubkey::new_rand();
+                        let pubkey = renec_sdk::pubkey::new_rand();
                         let mut account = AccountSharedData::new(1, 0, &pubkey);
                         let mut i = 0;
                         loop {
@@ -8482,12 +8482,12 @@ pub mod tests {
         renec_logger::setup();
         let db = AccountsDb::new(Vec::new(), &ClusterType::Development);
         let key = Pubkey::default();
-        let key0 = solana_sdk::pubkey::new_rand();
+        let key0 = renec_sdk::pubkey::new_rand();
         let account0 = AccountSharedData::new(1, 0, &key);
 
         db.store_uncached(0, &[(&key0, &account0)]);
 
-        let key1 = solana_sdk::pubkey::new_rand();
+        let key1 = renec_sdk::pubkey::new_rand();
         let account1 = AccountSharedData::new(2, 0, &key);
         db.store_uncached(1, &[(&key1, &account1)]);
 
@@ -8518,12 +8518,12 @@ pub mod tests {
         let db = AccountsDb::new_single();
 
         let key = Pubkey::default();
-        let key0 = solana_sdk::pubkey::new_rand();
+        let key0 = renec_sdk::pubkey::new_rand();
         let account0 = AccountSharedData::new(1, 0, &key);
 
         db.store_uncached(0, &[(&key0, &account0)]);
 
-        let key1 = solana_sdk::pubkey::new_rand();
+        let key1 = renec_sdk::pubkey::new_rand();
         let account1 = AccountSharedData::new(2, 0, &key);
         db.store_uncached(1, &[(&key1, &account1)]);
 
@@ -8820,7 +8820,7 @@ pub mod tests {
         renec_logger::setup();
         let db = AccountsDb::new(Vec::new(), &ClusterType::Development);
 
-        let key = solana_sdk::pubkey::new_rand();
+        let key = renec_sdk::pubkey::new_rand();
         let some_data_len = 0;
         let some_slot: Slot = 0;
         let account = AccountSharedData::new(1, some_data_len, &key);
@@ -8850,7 +8850,7 @@ pub mod tests {
         renec_logger::setup();
         let db = AccountsDb::new(Vec::new(), &ClusterType::Development);
 
-        let key = solana_sdk::pubkey::new_rand();
+        let key = renec_sdk::pubkey::new_rand();
         let some_data_len = 0;
         let some_slot: Slot = 0;
         let account = AccountSharedData::new(1, some_data_len, &key);
@@ -8876,7 +8876,7 @@ pub mod tests {
         renec_logger::setup();
         let db = AccountsDb::new(Vec::new(), &ClusterType::Development);
 
-        let key = solana_sdk::pubkey::new_rand();
+        let key = renec_sdk::pubkey::new_rand();
         let some_data_len = 0;
         let some_slot: Slot = 0;
         let account = AccountSharedData::new(1, some_data_len, &key);
@@ -8918,7 +8918,7 @@ pub mod tests {
         renec_logger::setup();
         let db = AccountsDb::new(Vec::new(), &ClusterType::Development);
 
-        let key = solana_sdk::pubkey::new_rand();
+        let key = renec_sdk::pubkey::new_rand();
         let some_data_len = 0;
         let some_slot: Slot = 0;
         let account = AccountSharedData::new(1, some_data_len, &key);
@@ -8932,12 +8932,12 @@ pub mod tests {
             Ok(_)
         );
 
-        let native_account_pubkey = solana_sdk::pubkey::new_rand();
+        let native_account_pubkey = renec_sdk::pubkey::new_rand();
         db.store_uncached(
             some_slot,
             &[(
                 &native_account_pubkey,
-                &solana_sdk::native_loader::create_loadable_account_for_test("foo"),
+                &renec_sdk::native_loader::create_loadable_account_for_test("foo"),
             )],
         );
         db.update_accounts_hash_test(some_slot, &ancestors);
@@ -9006,10 +9006,10 @@ pub mod tests {
     fn test_storage_finder() {
         renec_logger::setup();
         let db = AccountsDb::new_sized(Vec::new(), 16 * 1024);
-        let key = solana_sdk::pubkey::new_rand();
+        let key = renec_sdk::pubkey::new_rand();
         let lamports = 100;
         let data_len = 8190;
-        let account = AccountSharedData::new(lamports, data_len, &solana_sdk::pubkey::new_rand());
+        let account = AccountSharedData::new(lamports, data_len, &renec_sdk::pubkey::new_rand());
         // pre-populate with a smaller empty store
         db.create_and_insert_store(1, 8192, "test_storage_finder");
         db.store_uncached(1, &[(&key, &account)]);
@@ -9107,7 +9107,7 @@ pub mod tests {
     #[should_panic(expected = "double remove of account in slot: 0/store: 0!!")]
     fn test_storage_remove_account_double_remove() {
         let accounts = AccountsDb::new(Vec::new(), &ClusterType::Development);
-        let pubkey = solana_sdk::pubkey::new_rand();
+        let pubkey = renec_sdk::pubkey::new_rand();
         let account = AccountSharedData::new(1, 0, AccountSharedData::default().owner());
         accounts.store_uncached(0, &[(&pubkey, &account)]);
         let storage_entry = accounts
@@ -9138,10 +9138,10 @@ pub mod tests {
         let dummy_account = AccountSharedData::new(99_999_999, no_data, &owner);
         let zero_lamport_account = AccountSharedData::new(zero_lamport, no_data, &owner);
 
-        let pubkey = solana_sdk::pubkey::new_rand();
-        let dummy_pubkey = solana_sdk::pubkey::new_rand();
-        let purged_pubkey1 = solana_sdk::pubkey::new_rand();
-        let purged_pubkey2 = solana_sdk::pubkey::new_rand();
+        let pubkey = renec_sdk::pubkey::new_rand();
+        let dummy_pubkey = renec_sdk::pubkey::new_rand();
+        let purged_pubkey1 = renec_sdk::pubkey::new_rand();
+        let purged_pubkey2 = renec_sdk::pubkey::new_rand();
 
         let mut current_slot = 0;
         let accounts = AccountsDb::new_single();
@@ -9329,9 +9329,9 @@ pub mod tests {
         let dummy_account = AccountSharedData::new(dummy_lamport, no_data, &owner);
         let zero_lamport_account = AccountSharedData::new(zero_lamport, no_data, &owner);
 
-        let pubkey1 = solana_sdk::pubkey::new_rand();
-        let pubkey2 = solana_sdk::pubkey::new_rand();
-        let dummy_pubkey = solana_sdk::pubkey::new_rand();
+        let pubkey1 = renec_sdk::pubkey::new_rand();
+        let pubkey2 = renec_sdk::pubkey::new_rand();
+        let dummy_pubkey = renec_sdk::pubkey::new_rand();
 
         let mut current_slot = 0;
         let accounts = AccountsDb::new_single();
@@ -9525,7 +9525,7 @@ pub mod tests {
 
             let pubkey_count = 100;
             let pubkeys: Vec<_> = (0..pubkey_count)
-                .map(|_| solana_sdk::pubkey::new_rand())
+                .map(|_| renec_sdk::pubkey::new_rand())
                 .collect();
 
             let some_lamport = 223;
@@ -9594,7 +9594,7 @@ pub mod tests {
 
         let pubkey_count = 30000;
         let pubkeys: Vec<_> = (0..pubkey_count)
-            .map(|_| solana_sdk::pubkey::new_rand())
+            .map(|_| renec_sdk::pubkey::new_rand())
             .collect();
 
         let some_lamport = 223;
@@ -9738,7 +9738,7 @@ pub mod tests {
 
         let pubkey_count = 30000;
         let pubkeys: Vec<_> = (0..pubkey_count)
-            .map(|_| solana_sdk::pubkey::new_rand())
+            .map(|_| renec_sdk::pubkey::new_rand())
             .collect();
 
         let some_lamport = 223;
@@ -9915,8 +9915,8 @@ pub mod tests {
 
     #[test]
     fn test_account_balance_for_capitalization_sysvar() {
-        let normal_sysvar = solana_sdk::account::create_account_for_test(
-            &solana_sdk::slot_history::SlotHistory::default(),
+        let normal_sysvar = renec_sdk::account::create_account_for_test(
+            &renec_sdk::slot_history::SlotHistory::default(),
         );
         assert_eq!(normal_sysvar.lamports(), 1);
     }
@@ -9924,7 +9924,7 @@ pub mod tests {
     #[test]
     fn test_account_balance_for_capitalization_native_program() {
         let normal_native_program =
-            solana_sdk::native_loader::create_loadable_account_for_test("foo");
+            renec_sdk::native_loader::create_loadable_account_for_test("foo");
         assert_eq!(normal_native_program.lamports(), 1);
     }
 
@@ -9950,7 +9950,7 @@ pub mod tests {
         renec_logger::setup();
         let accounts = AccountsDb::new_single();
         let account = AccountSharedData::default();
-        let pubkey = solana_sdk::pubkey::new_rand();
+        let pubkey = renec_sdk::pubkey::new_rand();
         accounts.store_uncached(0, &[(&pubkey, &account)]);
         let slot_stores = accounts.storage.get_slot_stores(0).unwrap();
         let mut total_len = 0;
@@ -9974,10 +9974,10 @@ pub mod tests {
         );
 
         let account = AccountSharedData::new(1, 16 * 4096, &Pubkey::default());
-        let pubkey1 = solana_sdk::pubkey::new_rand();
+        let pubkey1 = renec_sdk::pubkey::new_rand();
         accounts.store_cached(0, &[(&pubkey1, &account)]);
 
-        let pubkey2 = solana_sdk::pubkey::new_rand();
+        let pubkey2 = renec_sdk::pubkey::new_rand();
         accounts.store_cached(0, &[(&pubkey2, &account)]);
 
         let zero_account = AccountSharedData::new(0, 1, &Pubkey::default());
@@ -10021,7 +10021,7 @@ pub mod tests {
         let mut keys = Vec::new();
         for i in 0..num_accounts {
             let account = AccountSharedData::new((i + 1) as u64, size, &Pubkey::default());
-            let pubkey = solana_sdk::pubkey::new_rand();
+            let pubkey = renec_sdk::pubkey::new_rand();
             accounts.store_uncached(0, &[(&pubkey, &account)]);
             keys.push(pubkey);
         }
@@ -10164,9 +10164,9 @@ pub mod tests {
         let unrooted_slot = 4;
         let root5 = 5;
         let root6 = 6;
-        let unrooted_key = solana_sdk::pubkey::new_rand();
-        let key5 = solana_sdk::pubkey::new_rand();
-        let key6 = solana_sdk::pubkey::new_rand();
+        let unrooted_key = renec_sdk::pubkey::new_rand();
+        let key5 = renec_sdk::pubkey::new_rand();
+        let key6 = renec_sdk::pubkey::new_rand();
         db.store_cached(unrooted_slot, &[(&unrooted_key, &account0)]);
         db.store_cached(root5, &[(&key5, &account0)]);
         db.store_cached(root6, &[(&key6, &account0)]);
@@ -11809,9 +11809,9 @@ pub mod tests {
         let accounts = AccountsDb::new_single();
 
         // Key shared between rooted and nonrooted slot
-        let shared_key = solana_sdk::pubkey::new_rand();
+        let shared_key = renec_sdk::pubkey::new_rand();
         // Key to keep the storage entry for the unrooted slot alive
-        let unrooted_key = solana_sdk::pubkey::new_rand();
+        let unrooted_key = renec_sdk::pubkey::new_rand();
         let slot0 = 0;
         let slot1 = 1;
 

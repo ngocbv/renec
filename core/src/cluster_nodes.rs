@@ -9,7 +9,7 @@ use {
         weighted_shuffle::{weighted_best, weighted_shuffle},
     },
     renec_runtime::bank::Bank,
-    solana_sdk::{
+    renec_sdk::{
         clock::{Epoch, Slot},
         pubkey::Pubkey,
     },
@@ -325,7 +325,7 @@ mod tests {
                 sorted_stakes_with_index,
             },
         },
-        solana_sdk::{signature::Keypair, timing::timestamp},
+        renec_sdk::{signature::Keypair, timing::timestamp},
         solana_streamer::socket::SocketAddrSpace,
         std::{iter::repeat_with, sync::Arc},
     };

@@ -27,7 +27,7 @@ use {
         transaction_batch::TransactionBatch,
         vote_sender_types::ReplayVoteSender,
     },
-    solana_sdk::{
+    renec_sdk::{
         clock::{
             Slot, DEFAULT_TICKS_PER_SLOT, MAX_PROCESSING_AGE, MAX_TRANSACTION_FORWARDING_DELAY,
             MAX_TRANSACTION_FORWARDING_DELAY_GPU,
@@ -1675,7 +1675,7 @@ mod tests {
         },
         renec_rpc::transaction_status_service::TransactionStatusService,
         renec_runtime::cost_model::CostModel,
-        solana_sdk::{
+        renec_sdk::{
             hash::Hash,
             instruction::InstructionError,
             poh_config::PohConfig,
@@ -1866,16 +1866,16 @@ mod tests {
             bank.process_transaction(&fund_tx).unwrap();
 
             // good tx
-            let to = solana_sdk::pubkey::new_rand();
+            let to = renec_sdk::pubkey::new_rand();
             let tx = system_transaction::transfer(&mint_keypair, &to, 1, start_hash);
 
             // good tx, but no verify
-            let to2 = solana_sdk::pubkey::new_rand();
+            let to2 = renec_sdk::pubkey::new_rand();
             let tx_no_ver = system_transaction::transfer(&keypair, &to2, 2, start_hash);
 
             // bad tx, AccountNotFound
             let keypair = Keypair::new();
-            let to3 = solana_sdk::pubkey::new_rand();
+            let to3 = renec_sdk::pubkey::new_rand();
             let tx_anf = system_transaction::transfer(&keypair, &to3, 1, start_hash);
 
             // send 'em over
@@ -2084,9 +2084,9 @@ mod tests {
             let poh_simulator = simulate_poh(record_receiver, &poh_recorder);
 
             poh_recorder.lock().unwrap().set_working_bank(working_bank);
-            let pubkey = solana_sdk::pubkey::new_rand();
+            let pubkey = renec_sdk::pubkey::new_rand();
             let keypair2 = Keypair::new();
-            let pubkey2 = solana_sdk::pubkey::new_rand();
+            let pubkey2 = renec_sdk::pubkey::new_rand();
 
             let transactions = vec![
                 system_transaction::transfer(&mint_keypair, &pubkey, 1, genesis_config.hash()),
@@ -2223,8 +2223,8 @@ mod tests {
 
     #[test]
     fn test_should_process_or_forward_packets() {
-        let my_pubkey = solana_sdk::pubkey::new_rand();
-        let my_pubkey1 = solana_sdk::pubkey::new_rand();
+        let my_pubkey = renec_sdk::pubkey::new_rand();
+        let my_pubkey1 = renec_sdk::pubkey::new_rand();
         let bank = Arc::new(Bank::default());
         assert_matches!(
             BankingStage::consume_or_forward_packets(&my_pubkey, None, Some(&bank), false, false),
@@ -2318,7 +2318,7 @@ mod tests {
             ..
         } = create_slow_genesis_config(10_000);
         let bank = Arc::new(Bank::new_no_wallclock_throttle(&genesis_config));
-        let pubkey = solana_sdk::pubkey::new_rand();
+        let pubkey = renec_sdk::pubkey::new_rand();
 
         let transactions =
             vec![
@@ -2449,8 +2449,8 @@ mod tests {
             ..
         } = create_slow_genesis_config(10_000);
         let bank = Arc::new(Bank::new_no_wallclock_throttle(&genesis_config));
-        let pubkey = solana_sdk::pubkey::new_rand();
-        let pubkey1 = solana_sdk::pubkey::new_rand();
+        let pubkey = renec_sdk::pubkey::new_rand();
+        let pubkey1 = renec_sdk::pubkey::new_rand();
 
         let transactions = vec![
             system_transaction::transfer(&mint_keypair, &pubkey, 1, genesis_config.hash()).into(),
@@ -2562,7 +2562,7 @@ mod tests {
         } = create_slow_genesis_config(10_000);
         let bank = Arc::new(Bank::new_no_wallclock_throttle(&genesis_config));
 
-        let pubkey = solana_sdk::pubkey::new_rand();
+        let pubkey = renec_sdk::pubkey::new_rand();
 
         let transactions =
             vec![
@@ -2580,7 +2580,7 @@ mod tests {
                 bank.slot(),
                 Some((4, 4)),
                 bank.ticks_per_slot(),
-                &solana_sdk::pubkey::new_rand(),
+                &renec_sdk::pubkey::new_rand(),
                 &Arc::new(blockstore),
                 &Arc::new(LeaderScheduleCache::new_from_bank(&bank)),
                 &Arc::new(PohConfig::default()),
@@ -2627,8 +2627,8 @@ mod tests {
             ..
         } = create_slow_genesis_config(10_000);
         let bank = Arc::new(Bank::new_no_wallclock_throttle(&genesis_config));
-        let pubkey = solana_sdk::pubkey::new_rand();
-        let pubkey1 = solana_sdk::pubkey::new_rand();
+        let pubkey = renec_sdk::pubkey::new_rand();
+        let pubkey1 = renec_sdk::pubkey::new_rand();
         let keypair1 = Keypair::new();
 
         let success_tx =
@@ -2766,7 +2766,7 @@ mod tests {
             bank.slot(),
             Some((4, 4)),
             bank.ticks_per_slot(),
-            &solana_sdk::pubkey::new_rand(),
+            &renec_sdk::pubkey::new_rand(),
             &Arc::new(blockstore),
             &Arc::new(LeaderScheduleCache::new_from_bank(&bank)),
             &Arc::new(PohConfig::default()),
@@ -2775,9 +2775,9 @@ mod tests {
         let poh_recorder = Arc::new(Mutex::new(poh_recorder));
 
         // Set up unparallelizable conflicting transactions
-        let pubkey0 = solana_sdk::pubkey::new_rand();
-        let pubkey1 = solana_sdk::pubkey::new_rand();
-        let pubkey2 = solana_sdk::pubkey::new_rand();
+        let pubkey0 = renec_sdk::pubkey::new_rand();
+        let pubkey1 = renec_sdk::pubkey::new_rand();
+        let pubkey2 = renec_sdk::pubkey::new_rand();
         let transactions = vec![
             system_transaction::transfer(mint_keypair, &pubkey0, 1, genesis_config.hash()),
             system_transaction::transfer(mint_keypair, &pubkey1, 1, genesis_config.hash()),
@@ -3233,7 +3233,7 @@ mod tests {
     #[test]
     fn test_packet_message() {
         let keypair = Keypair::new();
-        let pubkey = solana_sdk::pubkey::new_rand();
+        let pubkey = renec_sdk::pubkey::new_rand();
         let blockhash = Hash::new_unique();
         let transaction = system_transaction::transfer(&keypair, &pubkey, 1, blockhash);
         let packet = Packet::from_data(None, &transaction).unwrap();

@@ -33,7 +33,7 @@ use {
         hardened_unpack::{open_genesis_config, MAX_GENESIS_ARCHIVE_UNPACKED_SIZE},
         snapshot_utils::{self, SnapshotVersion, DEFAULT_MAX_SNAPSHOTS_TO_RETAIN},
     },
-    solana_sdk::{
+    renec_sdk::{
         account::{AccountSharedData, ReadableAccount, WritableAccount},
         account_utils::StateMut,
         clock::{Epoch, Slot},
@@ -2305,7 +2305,7 @@ fn main() {
                             .unwrap()
                             .into_iter()
                             .filter(|(pubkey, _account, _slot)| {
-                                include_sysvars || !solana_sdk::sysvar::is_sysvar_id(pubkey)
+                                include_sysvars || !renec_sdk::sysvar::is_sysvar_id(pubkey)
                             })
                             .map(|(pubkey, account, slot)| (pubkey, (account, slot)))
                             .collect();
@@ -2614,7 +2614,7 @@ fn main() {
                             for (pubkey, warped_account) in all_accounts {
                                 // Don't output sysvars; it's always updated but not related to
                                 // inflation.
-                                if solana_sdk::sysvar::is_sysvar_id(&pubkey) {
+                                if renec_sdk::sysvar::is_sysvar_id(&pubkey) {
                                     continue;
                                 }
 

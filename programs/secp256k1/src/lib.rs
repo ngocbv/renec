@@ -1,4 +1,4 @@
-use solana_sdk::{
+use renec_sdk::{
     instruction::InstructionError, process_instruction::InvokeContext, pubkey::Pubkey,
 };
 
@@ -15,7 +15,7 @@ pub fn process_instruction(
 pub mod test {
     use {
         rand::{thread_rng, Rng},
-        solana_sdk::{
+        renec_sdk::{
             feature_set,
             hash::Hash,
             secp256k1_instruction::{

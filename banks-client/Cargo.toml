@@ -17,7 +17,7 @@ futures = "0.3"
 mio = "0.7.6"
 renec-banks-interface = { path = "../banks-interface", version = "=1.8.14" }
 renec-program = { path = "../sdk/program", version = "=1.8.14" }
-solana-sdk = { path = "../sdk", version = "=1.8.14" }
+renec-sdk = { path = "../sdk", version = "=1.8.14" }
 tarpc = { version = "0.24.1", features = ["full"] }
 tokio = { version = "1", features = ["full"] }
 tokio-serde = { version = "0.8", features = ["bincode"] }

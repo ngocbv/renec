@@ -11,7 +11,7 @@ use {
     renec_client::rpc_client::RpcClient,
     renec_faucet::faucet::{run_local_faucet_with_port, FAUCET_PORT},
     renec_rpc::rpc::JsonRpcConfig,
-    solana_sdk::{
+    renec_sdk::{
         account::AccountSharedData,
         clock::Slot,
         epoch_schedule::{EpochSchedule, MINIMUM_SLOTS_PER_EPOCH},
@@ -418,7 +418,7 @@ fn main() {
 
                     programs.push(ProgramInfo {
                         program_id: address,
-                        loader: solana_sdk::bpf_loader::id(),
+                        loader: renec_sdk::bpf_loader::id(),
                         program_path,
                     });
                 }

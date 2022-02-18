@@ -1,6 +1,6 @@
 use {
     crossbeam_channel::{Receiver, Sender},
-    solana_sdk::{hash::Hash, pubkey::Pubkey},
+    renec_sdk::{hash::Hash, pubkey::Pubkey},
     renec_vote_program::vote_state::Vote,
 };
 

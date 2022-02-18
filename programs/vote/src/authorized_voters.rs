@@ -1,7 +1,7 @@
 use {
     log::*,
     serde_derive::{Deserialize, Serialize},
-    solana_sdk::{clock::Epoch, pubkey::Pubkey},
+    renec_sdk::{clock::Epoch, pubkey::Pubkey},
     std::collections::BTreeMap,
 };
 

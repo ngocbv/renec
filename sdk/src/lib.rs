@@ -2,8 +2,8 @@
 #![cfg_attr(RUSTC_WITH_SPECIALIZATION, feature(specialization))]
 #![cfg_attr(RUSTC_NEEDS_PROC_MACRO_HYGIENE, feature(proc_macro_hygiene))]
 
-// Allows macro expansion of `use ::solana_sdk::*` to work within this crate
-extern crate self as solana_sdk;
+// Allows macro expansion of `use ::renec_sdk::*` to work within this crate
+extern crate self as renec_sdk;
 
 #[cfg(feature = "full")]
 pub use signer::signers;
@@ -64,10 +64,10 @@ pub mod transport;
 /// # // wrapper is used so that the macro invocation occurs in the item position
 /// # // rather than in the statement position which isn't allowed.
 /// use std::str::FromStr;
-/// use solana_sdk::{declare_id, pubkey::Pubkey};
+/// use renec_sdk::{declare_id, pubkey::Pubkey};
 ///
 /// # mod item_wrapper {
-/// #   use solana_sdk::declare_id;
+/// #   use renec_sdk::declare_id;
 /// declare_id!("My11111111111111111111111111111111111111111");
 /// # }
 /// # use item_wrapper::id;
@@ -96,7 +96,7 @@ pub use renec_sdk_macro::pubkeys;
 #[rustversion::since(1.46.0)]
 pub use renec_sdk_macro::respan;
 
-// Unused `solana_sdk::program_stubs!()` macro retained for source backwards compatibility with older programs
+// Unused `renec_sdk::program_stubs!()` macro retained for source backwards compatibility with older programs
 #[macro_export]
 #[deprecated(
     since = "1.4.3",

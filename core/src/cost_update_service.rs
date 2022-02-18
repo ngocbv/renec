@@ -7,7 +7,7 @@ use {
     renec_ledger::blockstore::Blockstore,
     renec_measure::measure::Measure,
     renec_runtime::{bank::Bank, cost_model::CostModel},
-    solana_sdk::{execute_timings::ExecuteTimings, timing::timestamp},
+    renec_sdk::{execute_timings::ExecuteTimings, timing::timestamp},
     std::{
         sync::{
             atomic::{AtomicBool, Ordering},
@@ -224,7 +224,7 @@ impl CostUpdateService {
 mod tests {
     use {
         super::*,
-        solana_sdk::{execute_timings::ProgramTiming, pubkey::Pubkey},
+        renec_sdk::{execute_timings::ProgramTiming, pubkey::Pubkey},
     };
 
     #[test]

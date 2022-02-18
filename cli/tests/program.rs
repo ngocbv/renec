@@ -8,7 +8,7 @@ use {
     renec_client::rpc_client::RpcClient,
     renec_core::test_validator::TestValidator,
     renec_faucet::faucet::run_local_faucet,
-    solana_sdk::{
+    renec_sdk::{
         account_utils::StateMut,
         bpf_loader,
         bpf_loader_upgradeable::{self, UpgradeableLoaderState},

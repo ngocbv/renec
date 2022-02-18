@@ -10,7 +10,7 @@
 //! For Entries:
 //! * recorded entry must be >= WorkingBank::min_tick_height && entry must be < WorkingBank::max_tick_height
 //!
-pub use solana_sdk::clock::Slot;
+pub use renec_sdk::clock::Slot;
 use {
     crate::poh_service::PohService,
     crossbeam_channel::{
@@ -21,7 +21,7 @@ use {
         blockstore::Blockstore, entry::Entry, leader_schedule_cache::LeaderScheduleCache, poh::Poh,
     },
     renec_runtime::bank::Bank,
-    solana_sdk::{
+    renec_sdk::{
         clock::NUM_CONSECUTIVE_LEADER_SLOTS, hash::Hash, poh_config::PohConfig, pubkey::Pubkey,
         timing, transaction::Transaction,
     },
@@ -786,7 +786,7 @@ mod tests {
             get_tmp_ledger_path,
         },
         renec_perf::test_tx::test_tx,
-        solana_sdk::{clock::DEFAULT_TICKS_PER_SLOT, hash::hash},
+        renec_sdk::{clock::DEFAULT_TICKS_PER_SLOT, hash::hash},
         std::sync::mpsc::sync_channel,
     };
 

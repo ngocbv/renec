@@ -3,7 +3,7 @@ use {
     clap::{crate_description, crate_name, value_t, App, Arg},
     renec_measure::measure::Measure,
     renec_runtime::accounts_hash::AccountsHash,
-    solana_sdk::{hash::Hash, pubkey::Pubkey},
+    renec_sdk::{hash::Hash, pubkey::Pubkey},
 };
 
 fn main() {

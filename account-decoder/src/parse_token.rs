@@ -3,7 +3,7 @@ use {
         parse_account_data::{ParsableAccount, ParseAccountError},
         StringAmount, StringDecimals,
     },
-    solana_sdk::pubkey::Pubkey,
+    renec_sdk::pubkey::Pubkey,
     spl_token::{
         // Rebuild https://github.com/solana-labs/solana-program-library first before change to renec_program
         solana_program::{
@@ -15,23 +15,23 @@ use {
 };
 
 // A helper function to convert spl_token::id() as spl_sdk::pubkey::Pubkey to
-// solana_sdk::pubkey::Pubkey
+// renec_sdk::pubkey::Pubkey
 pub fn spl_token_id() -> Pubkey {
     Pubkey::new_from_array(spl_token::id().to_bytes())
 }
 
 // A helper function to convert spl_token::native_mint::id() as spl_sdk::pubkey::Pubkey to
-// solana_sdk::pubkey::Pubkey
+// renec_sdk::pubkey::Pubkey
 pub fn spl_token_native_mint() -> Pubkey {
     Pubkey::new_from_array(spl_token::native_mint::id().to_bytes())
 }
 
-// A helper function to convert a solana_sdk::pubkey::Pubkey to spl_sdk::pubkey::Pubkey
+// A helper function to convert a renec_sdk::pubkey::Pubkey to spl_sdk::pubkey::Pubkey
 pub fn spl_token_pubkey(pubkey: &Pubkey) -> SplTokenPubkey {
     SplTokenPubkey::new_from_array(pubkey.to_bytes())
 }
 
-// A helper function to convert a spl_sdk::pubkey::Pubkey to solana_sdk::pubkey::Pubkey
+// A helper function to convert a spl_sdk::pubkey::Pubkey to renec_sdk::pubkey::Pubkey
 pub fn pubkey_from_spl_token(pubkey: &SplTokenPubkey) -> Pubkey {
     Pubkey::new_from_array(pubkey.to_bytes())
 }

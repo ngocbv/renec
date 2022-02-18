@@ -6,7 +6,7 @@ use {
     bincode::deserialize,
     serde_json::Value,
     renec_config_program::{get_config_data, ConfigKeys},
-    solana_sdk::{
+    renec_sdk::{
         pubkey::Pubkey,
         stake::config::{self as stake_config, Config as StakeConfig},
     },
@@ -93,7 +93,7 @@ pub struct UiConfig<T> {
 mod test {
     use {
         super::*, crate::validator_info::ValidatorInfo, serde_json::json,
-        renec_config_program::create_config_account, solana_sdk::account::ReadableAccount,
+        renec_config_program::create_config_account, renec_sdk::account::ReadableAccount,
     };
 
     #[test]
@@ -117,7 +117,7 @@ mod test {
             }))
             .unwrap(),
         };
-        let info_pubkey = solana_sdk::pubkey::new_rand();
+        let info_pubkey = renec_sdk::pubkey::new_rand();
         let validator_info_config_account = create_config_account(
             vec![(validator_info::id(), false), (info_pubkey, true)],
             &validator_info,

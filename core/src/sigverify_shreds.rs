@@ -71,7 +71,7 @@ pub mod tests {
         },
         renec_perf::packet::Packet,
         renec_runtime::bank::Bank,
-        solana_sdk::signature::{Keypair, Signer},
+        renec_sdk::signature::{Keypair, Signer},
     };
 
     #[test]

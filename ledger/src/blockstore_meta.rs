@@ -1,7 +1,7 @@
 use {
     crate::erasure::ErasureConfig,
     serde::{Deserialize, Serialize},
-    solana_sdk::{clock::Slot, hash::Hash},
+    renec_sdk::{clock::Slot, hash::Hash},
     std::{
         collections::BTreeSet,
         ops::{Range, RangeBounds},

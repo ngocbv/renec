@@ -9,7 +9,7 @@ use {
     },
     bincode::serialize_into,
     rand::{thread_rng, Rng},
-    solana_sdk::{
+    renec_sdk::{
         account::{AccountSharedData, ReadableAccount},
         clock::Slot,
         genesis_config::{create_genesis_config, ClusterType},

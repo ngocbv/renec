@@ -5,7 +5,7 @@ use {
         entry::Entry,
     },
     renec_rpc::{max_slots::MaxSlots, rpc_subscriptions::RpcSubscriptions},
-    solana_sdk::signature::Signature,
+    renec_sdk::signature::Signature,
     std::{
         sync::{
             atomic::{AtomicBool, Ordering},
@@ -106,7 +106,7 @@ impl CompletedDataSetsService {
 pub mod test {
     use {
         super::*,
-        solana_sdk::{
+        renec_sdk::{
             hash::Hash,
             signature::{Keypair, Signer},
             transaction::Transaction,

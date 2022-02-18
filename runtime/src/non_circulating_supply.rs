@@ -4,7 +4,7 @@ use {
         bank::Bank,
     },
     log::*,
-    solana_sdk::{
+    renec_sdk::{
         account::ReadableAccount,
         pubkey::Pubkey,
         stake::{self, state::StakeState},
@@ -80,7 +80,7 @@ pub fn calculate_non_circulating_supply(bank: &Arc<Bank>) -> ScanResult<NonCircu
 }
 
 // Mainnet-beta accounts that should be considered non-circulating
-solana_sdk::pubkeys!(
+renec_sdk::pubkeys!(
     non_circulating_accounts,
     [
         "9huDUZfxoJ7wGMTffUE7vh1xePqef7gyrLJu9NApncqA",
@@ -177,7 +177,7 @@ solana_sdk::pubkeys!(
 );
 
 // Withdraw authority for autostaked accounts on mainnet-beta
-solana_sdk::pubkeys!(
+renec_sdk::pubkeys!(
     withdraw_authority,
     [
         "8CUUMKYNGxdgYio5CLHRHyzMEhhVRMcqefgE6dLqnVRK",
@@ -197,7 +197,7 @@ solana_sdk::pubkeys!(
 mod tests {
     use {
         super::*,
-        solana_sdk::{
+        renec_sdk::{
             account::{Account, AccountSharedData},
             epoch_schedule::EpochSchedule,
             genesis_config::{ClusterType, GenesisConfig},
@@ -217,7 +217,7 @@ mod tests {
         let num_genesis_accounts = 10;
         for _ in 0..num_genesis_accounts {
             accounts.insert(
-                solana_sdk::pubkey::new_rand(),
+                renec_sdk::pubkey::new_rand(),
                 Account::new(balance, 0, &Pubkey::default()),
             );
         }
@@ -229,7 +229,7 @@ mod tests {
 
         let num_stake_accounts = 3;
         for _ in 0..num_stake_accounts {
-            let pubkey = solana_sdk::pubkey::new_rand();
+            let pubkey = renec_sdk::pubkey::new_rand();
             let meta = Meta {
                 authorized: Authorized::auto(&pubkey),
                 lockup: Lockup {

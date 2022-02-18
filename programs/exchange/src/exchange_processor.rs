@@ -6,7 +6,7 @@ use {
     num_derive::{FromPrimitive, ToPrimitive},
     serde_derive::Serialize,
     solana_metrics::inc_new_counter_info,
-    solana_sdk::{
+    renec_sdk::{
         account::{ReadableAccount, WritableAccount},
         decode_error::DecodeError,
         instruction::InstructionError,
@@ -514,7 +514,7 @@ mod test {
         super::*,
         crate::{exchange_instruction, id},
         renec_runtime::{bank::Bank, bank_client::BankClient},
-        solana_sdk::{
+        renec_sdk::{
             client::SyncClient,
             genesis_config::create_genesis_config,
             message::Message,

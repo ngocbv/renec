@@ -16,7 +16,7 @@ use {
     },
     renec_cli_config::{Config, CONFIG_FILE},
     renec_remote_wallet::remote_wallet::RemoteWalletManager,
-    solana_sdk::{
+    renec_sdk::{
         instruction::{AccountMeta, Instruction},
         message::Message,
         pubkey::{write_pubkey_file, Pubkey},

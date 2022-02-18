@@ -16,7 +16,7 @@ use {
     renec_perf::{cuda_runtime::PinnedVec, perf_libs, recycler::Recycler},
     renec_rayon_threadlimit::get_thread_count,
     renec_runtime::hashed_transaction::HashedTransaction,
-    solana_sdk::{
+    renec_sdk::{
         feature_set::{self, FeatureSet},
         hash::Hash,
         packet::PACKET_DATA_SIZE,
@@ -412,7 +412,7 @@ impl EntrySlice for [Entry] {
     }
 
     fn verify_cpu_x86_simd(&self, start_hash: &Hash, simd_len: usize) -> EntryVerificationState {
-        use solana_sdk::hash::HASH_BYTES;
+        use renec_sdk::hash::HASH_BYTES;
         let now = Instant::now();
         let genesis = [Entry {
             num_hashes: 0,
@@ -736,7 +736,7 @@ mod tests {
     use {
         super::*,
         crate::entry::Entry,
-        solana_sdk::{
+        renec_sdk::{
             hash::{hash, new_rand as hash_new_rand, Hash},
             message::Message,
             packet::PACKET_DATA_SIZE,
@@ -776,7 +776,7 @@ mod tests {
 
     #[test]
     fn test_transaction_signing() {
-        use solana_sdk::signature::Signature;
+        use renec_sdk::signature::Signature;
         let zero = Hash::default();
 
         let keypair = Keypair::new();

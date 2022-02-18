@@ -24,7 +24,7 @@ use {
     renec_measure::measure::Measure,
     solana_metrics::inc_new_counter_debug,
     renec_perf::packet::{limited_deserialize, PacketBatch, PacketBatchRecycler},
-    solana_sdk::{
+    renec_sdk::{
         clock::Slot,
         pubkey::Pubkey,
         signature::{Keypair, Signer},
@@ -457,7 +457,7 @@ impl ServeRepair {
         };
         let (peer, addr) = repair_peers.sample(&mut rand::thread_rng());
         let nonce =
-            outstanding_requests.add_request(repair_request, solana_sdk::timing::timestamp());
+            outstanding_requests.add_request(repair_request, renec_sdk::timing::timestamp());
         let out = self.map_repair_request(&repair_request, &peer, repair_stats, nonce)?;
         Ok((addr, out))
     }
@@ -473,7 +473,7 @@ impl ServeRepair {
             return Err(ClusterInfoError::NoPeers.into());
         }
         let weights = cluster_slots.compute_weights_exclude_noncomplete(slot, &repair_peers);
-        let n = weighted_best(&weights, solana_sdk::pubkey::new_rand().to_bytes());
+        let n = weighted_best(&weights, renec_sdk::pubkey::new_rand().to_bytes());
         Ok((repair_peers[n].id, repair_peers[n].serve_repair))
     }
 
@@ -650,7 +650,7 @@ mod tests {
             shred::{max_ticks_per_n_shreds, Shred},
         },
         renec_perf::packet::Packet,
-        solana_sdk::{hash::Hash, pubkey::Pubkey, signature::Keypair, timing::timestamp},
+        renec_sdk::{hash::Hash, pubkey::Pubkey, signature::Keypair, timing::timestamp},
         solana_streamer::socket::SocketAddrSpace,
     };
 
@@ -737,7 +737,7 @@ mod tests {
         {
             let blockstore = Arc::new(Blockstore::open(&ledger_path).unwrap());
             let me = ContactInfo {
-                id: solana_sdk::pubkey::new_rand(),
+                id: renec_sdk::pubkey::new_rand(),
                 gossip: socketaddr!("127.0.0.1:1234"),
                 tvu: socketaddr!("127.0.0.1:1235"),
                 tvu_forwards: socketaddr!("127.0.0.1:1236"),
@@ -808,7 +808,7 @@ mod tests {
     #[test]
     fn window_index_request() {
         let cluster_slots = ClusterSlots::default();
-        let me = ContactInfo::new_localhost(&solana_sdk::pubkey::new_rand(), timestamp());
+        let me = ContactInfo::new_localhost(&renec_sdk::pubkey::new_rand(), timestamp());
         let cluster_info = Arc::new(new_test_cluster_info(me));
         let serve_repair = ServeRepair::new(cluster_info.clone());
         let mut outstanding_requests = OutstandingRepairs::default();
@@ -824,7 +824,7 @@ mod tests {
 
         let serve_repair_addr = socketaddr!([127, 0, 0, 1], 1243);
         let nxt = ContactInfo {
-            id: solana_sdk::pubkey::new_rand(),
+            id: renec_sdk::pubkey::new_rand(),
             gossip: socketaddr!([127, 0, 0, 1], 1234),
             tvu: socketaddr!([127, 0, 0, 1], 1235),
             tvu_forwards: socketaddr!([127, 0, 0, 1], 1236),
@@ -854,7 +854,7 @@ mod tests {
 
         let serve_repair_addr2 = socketaddr!([127, 0, 0, 2], 1243);
         let nxt = ContactInfo {
-            id: solana_sdk::pubkey::new_rand(),
+            id: renec_sdk::pubkey::new_rand(),
             gossip: socketaddr!([127, 0, 0, 1], 1234),
             tvu: socketaddr!([127, 0, 0, 1], 1235),
             tvu_forwards: socketaddr!([127, 0, 0, 1], 1236),
@@ -1035,14 +1035,14 @@ mod tests {
     #[test]
     fn test_repair_with_repair_validators() {
         let cluster_slots = ClusterSlots::default();
-        let me = ContactInfo::new_localhost(&solana_sdk::pubkey::new_rand(), timestamp());
+        let me = ContactInfo::new_localhost(&renec_sdk::pubkey::new_rand(), timestamp());
         let cluster_info = Arc::new(new_test_cluster_info(me.clone()));
 
         // Insert two peers on the network
         let contact_info2 =
-            ContactInfo::new_localhost(&solana_sdk::pubkey::new_rand(), timestamp());
+            ContactInfo::new_localhost(&renec_sdk::pubkey::new_rand(), timestamp());
         let contact_info3 =
-            ContactInfo::new_localhost(&solana_sdk::pubkey::new_rand(), timestamp());
+            ContactInfo::new_localhost(&renec_sdk::pubkey::new_rand(), timestamp());
         cluster_info.insert_info(contact_info2.clone());
         cluster_info.insert_info(contact_info3.clone());
         let serve_repair = ServeRepair::new(cluster_info);
@@ -1051,7 +1051,7 @@ mod tests {
         // 1) repair validator set doesn't exist in gossip
         // 2) repair validator set only includes our own id
         // then no repairs should be generated
-        for pubkey in &[solana_sdk::pubkey::new_rand(), me.id] {
+        for pubkey in &[renec_sdk::pubkey::new_rand(), me.id] {
             let known_validators = Some(vec![*pubkey].into_iter().collect());
             assert!(serve_repair.repair_peers(&known_validators, 1).is_empty());
             assert!(serve_repair

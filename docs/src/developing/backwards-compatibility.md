@@ -72,7 +72,7 @@ Major releases:
 
 ### Rust Crates
 
-- [`solana-sdk`](https://docs.rs/solana-sdk/) - Rust SDK for creating transactions and parsing account state
+- [`renec-sdk`](https://docs.rs/renec-sdk/) - Rust SDK for creating transactions and parsing account state
 - [`renec-program`](https://docs.rs/renec-program/) - Rust SDK for writing programs
 - [`renec-client`](https://docs.rs/renec-client/) - Rust client for connecting to RPC API
 - [`renec-cli-config`](https://docs.rs/renec-cli-config/) - Rust client for managing Solana CLI config files

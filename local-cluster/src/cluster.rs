@@ -2,7 +2,7 @@ use {
     renec_client::thin_client::ThinClient,
     renec_core::validator::{Validator, ValidatorConfig},
     renec_gossip::{cluster_info::Node, contact_info::ContactInfo},
-    solana_sdk::{pubkey::Pubkey, signature::Keypair},
+    renec_sdk::{pubkey::Pubkey, signature::Keypair},
     solana_streamer::socket::SocketAddrSpace,
     std::{path::PathBuf, sync::Arc},
 };

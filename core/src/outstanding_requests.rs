@@ -76,7 +76,7 @@ pub struct RequestStatus<T> {
 pub(crate) mod tests {
     use {
         super::*, crate::serve_repair::RepairType, renec_ledger::shred::Shred,
-        solana_sdk::timing::timestamp,
+        renec_sdk::timing::timestamp,
     };
 
     #[test]

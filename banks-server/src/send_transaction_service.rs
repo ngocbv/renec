@@ -3,7 +3,7 @@ use {
     log::*,
     solana_metrics::{datapoint_warn, inc_new_counter_info},
     renec_runtime::{bank::Bank, bank_forks::BankForks},
-    solana_sdk::signature::Signature,
+    renec_sdk::signature::Signature,
     std::{
         collections::HashMap,
         net::{SocketAddr, UdpSocket},
@@ -187,7 +187,7 @@ impl SendTransactionService {
 mod test {
     use {
         super::*,
-        solana_sdk::{
+        renec_sdk::{
             genesis_config::create_genesis_config, pubkey::Pubkey, signature::Signer,
             system_transaction,
         },

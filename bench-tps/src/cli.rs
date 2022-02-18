@@ -1,7 +1,7 @@
 use {
     clap::{crate_description, crate_name, App, Arg, ArgMatches},
     renec_faucet::faucet::FAUCET_PORT,
-    solana_sdk::{
+    renec_sdk::{
         fee_calculator::FeeRateGovernor,
         pubkey::Pubkey,
         signature::{read_keypair_file, Keypair},
@@ -9,7 +9,7 @@ use {
     std::{net::SocketAddr, process::exit, time::Duration},
 };
 
-const NUM_LAMPORTS_PER_ACCOUNT_DEFAULT: u64 = solana_sdk::native_token::LAMPORTS_PER_SOL;
+const NUM_LAMPORTS_PER_ACCOUNT_DEFAULT: u64 = renec_sdk::native_token::LAMPORTS_PER_SOL;
 
 /// Holds the configuration for a single run of the benchmark
 pub struct Config {

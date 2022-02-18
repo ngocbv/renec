@@ -7,7 +7,7 @@ use {
         blockstore_db::Result as BlockstoreResult,
     },
     renec_measure::measure::Measure,
-    solana_sdk::clock::{Slot, DEFAULT_TICKS_PER_SLOT, TICKS_PER_DAY},
+    renec_sdk::clock::{Slot, DEFAULT_TICKS_PER_SLOT, TICKS_PER_DAY},
     std::{
         string::ToString,
         sync::{

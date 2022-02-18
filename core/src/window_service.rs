@@ -25,7 +25,7 @@ use {
     renec_perf::packet::{Packet, PacketBatch},
     renec_rayon_threadlimit::get_thread_count,
     renec_runtime::{bank::Bank, bank_forks::BankForks},
-    solana_sdk::{clock::Slot, packet::PACKET_DATA_SIZE, pubkey::Pubkey},
+    renec_sdk::{clock::Slot, packet::PACKET_DATA_SIZE, pubkey::Pubkey},
     std::{
         cmp::Reverse,
         collections::{HashMap, HashSet},
@@ -254,7 +254,7 @@ fn verify_repair(
             outstanding_requests.register_response(
                 repair_meta.nonce,
                 shred,
-                solana_sdk::timing::timestamp(),
+                renec_sdk::timing::timestamp(),
             )
         })
         .unwrap_or(true)
@@ -721,7 +721,7 @@ mod test {
             get_tmp_ledger_path,
             shred::{DataShredHeader, Shredder},
         },
-        solana_sdk::{
+        renec_sdk::{
             epoch_schedule::MINIMUM_SLOTS_PER_EPOCH,
             hash::Hash,
             signature::{Keypair, Signer},
@@ -760,7 +760,7 @@ mod test {
 
     #[test]
     fn test_should_retransmit_and_persist() {
-        let me_id = solana_sdk::pubkey::new_rand();
+        let me_id = renec_sdk::pubkey::new_rand();
         let leader_keypair = Arc::new(Keypair::new());
         let leader_pubkey = leader_keypair.pubkey();
         let bank = Arc::new(Bank::new(

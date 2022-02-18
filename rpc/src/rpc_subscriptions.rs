@@ -29,7 +29,7 @@ use {
         bank_forks::BankForks,
         commitment::{BlockCommitmentCache, CommitmentSlots},
     },
-    solana_sdk::{
+    renec_sdk::{
         account::{AccountSharedData, ReadableAccount},
         clock::Slot,
         pubkey::Pubkey,
@@ -1016,7 +1016,7 @@ pub(crate) mod tests {
             commitment::BlockCommitment,
             genesis_utils::{create_genesis_config, GenesisConfigInfo},
         },
-        solana_sdk::{
+        renec_sdk::{
             commitment_config::CommitmentConfig,
             message::Message,
             signature::{Keypair, Signer},
@@ -1768,7 +1768,7 @@ pub(crate) mod tests {
 
         let next_bank = Bank::new_from_parent(
             &bank_forks.get(0).unwrap().clone(),
-            &solana_sdk::pubkey::new_rand(),
+            &renec_sdk::pubkey::new_rand(),
             1,
         );
         bank_forks.insert(next_bank);

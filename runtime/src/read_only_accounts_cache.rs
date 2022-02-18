@@ -1,7 +1,7 @@
 //! ReadOnlyAccountsCache used to store accounts, such as executable accounts,
 //! which can be large, loaded many times, and rarely change.
 //use mapref::entry::{Entry, OccupiedEntry, VacantEntry};
-use solana_sdk::{
+use renec_sdk::{
     account::{AccountSharedData, ReadableAccount},
     clock::Slot,
     pubkey::Pubkey,
@@ -243,7 +243,7 @@ impl ReadOnlyAccountsCache {
 pub mod tests {
     use {
         super::*,
-        solana_sdk::account::{accounts_equal, Account, WritableAccount},
+        renec_sdk::account::{accounts_equal, Account, WritableAccount},
     };
     #[test]
     fn test_accountsdb_sizeof() {

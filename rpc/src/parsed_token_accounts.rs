@@ -7,7 +7,7 @@ use {
     },
     renec_client::rpc_response::RpcKeyedAccount,
     renec_runtime::bank::Bank,
-    solana_sdk::{
+    renec_sdk::{
         account::{AccountSharedData, ReadableAccount},
         pubkey::Pubkey,
     },

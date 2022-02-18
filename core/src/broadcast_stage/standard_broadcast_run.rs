@@ -15,7 +15,7 @@ use {
             SHRED_TICK_REFERENCE_MASK,
         },
     },
-    solana_sdk::{
+    renec_sdk::{
         signature::Keypair,
         timing::{duration_as_us, AtomicInterval},
     },
@@ -519,7 +519,7 @@ mod test {
             get_tmp_ledger_path, shred::max_ticks_per_n_shreds,
         },
         renec_runtime::bank::Bank,
-        solana_sdk::{
+        renec_sdk::{
             genesis_config::GenesisConfig,
             signature::{Keypair, Signer},
         },

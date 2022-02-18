@@ -86,7 +86,7 @@ pub fn new_secp256k1_instruction(
     bincode::serialize_into(writer, &offsets).unwrap();
 
     Instruction {
-        program_id: solana_sdk::secp256k1_program::id(),
+        program_id: renec_sdk::secp256k1_program::id(),
         accounts: vec![],
         data: instruction_data,
     }

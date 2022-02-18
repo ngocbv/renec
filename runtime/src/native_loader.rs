@@ -6,7 +6,7 @@ use libloading::os::windows::*;
 use {
     log::*,
     num_derive::{FromPrimitive, ToPrimitive},
-    solana_sdk::{
+    renec_sdk::{
         account::ReadableAccount,
         decode_error::DecodeError,
         entrypoint_native::ProgramEntrypoint,

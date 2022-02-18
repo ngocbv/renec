@@ -16,7 +16,7 @@ pub mod validator_info;
 
 use {
     crate::parse_account_data::{parse_account_data, AccountAdditionalData, ParsedAccount},
-    solana_sdk::{
+    renec_sdk::{
         account::{ReadableAccount, WritableAccount},
         clock::Epoch,
         fee_calculator::FeeCalculator,
@@ -206,7 +206,7 @@ fn slice_data(data: &[u8], data_slice_config: Option<UiDataSliceConfig>) -> &[u8
 mod test {
     use {
         super::*,
-        solana_sdk::account::{Account, AccountSharedData},
+        renec_sdk::account::{Account, AccountSharedData},
     };
 
     #[test]

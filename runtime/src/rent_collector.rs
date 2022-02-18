@@ -1,5 +1,5 @@
 //! calculate and collect rent from Accounts
-use solana_sdk::{
+use renec_sdk::{
     account::{AccountSharedData, ReadableAccount, WritableAccount},
     clock::Epoch,
     epoch_schedule::EpochSchedule,
@@ -126,7 +126,7 @@ impl RentCollector {
 
 #[cfg(test)]
 mod tests {
-    use {super::*, solana_sdk::account::Account};
+    use {super::*, renec_sdk::account::Account};
 
     #[test]
     fn test_collect_from_account_created_and_existing() {
@@ -148,7 +148,7 @@ mod tests {
 
         // collect rent on a newly-created account
         let collected = rent_collector.collect_from_created_account(
-            &solana_sdk::pubkey::new_rand(),
+            &renec_sdk::pubkey::new_rand(),
             &mut created_account,
             true,
         );
@@ -158,7 +158,7 @@ mod tests {
 
         // collect rent on a already-existing account
         let collected = rent_collector.collect_from_existing_account(
-            &solana_sdk::pubkey::new_rand(),
+            &renec_sdk::pubkey::new_rand(),
             &mut existing_account,
             true,
         );
@@ -178,7 +178,7 @@ mod tests {
         let huge_lamports = 123_456_789_012;
         let tiny_lamports = 789_012;
         let mut collected;
-        let pubkey = solana_sdk::pubkey::new_rand();
+        let pubkey = renec_sdk::pubkey::new_rand();
 
         account.set_lamports(huge_lamports);
         assert_eq!(account.rent_epoch(), 0);
@@ -207,7 +207,7 @@ mod tests {
         account.set_owner(sysvar::id());
         account.set_lamports(tiny_lamports);
 
-        let pubkey = solana_sdk::pubkey::new_rand();
+        let pubkey = renec_sdk::pubkey::new_rand();
 
         assert_eq!(account.rent_epoch(), 0);
 

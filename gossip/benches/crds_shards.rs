@@ -9,7 +9,7 @@ use {
         crds_shards::CrdsShards,
         crds_value::CrdsValue,
     },
-    solana_sdk::timing::timestamp,
+    renec_sdk::timing::timestamp,
     std::iter::repeat_with,
     test::Bencher,
 };

@@ -24,7 +24,7 @@ use {
             SlotInfo, SlotUpdate,
         },
     },
-    solana_sdk::{clock::Slot, pubkey::Pubkey, signature::Signature},
+    renec_sdk::{clock::Slot, pubkey::Pubkey, signature::Signature},
     std::{str::FromStr, sync::Arc},
 };
 
@@ -521,7 +521,7 @@ mod tests {
                 ValidatorVoteKeypairs,
             },
         },
-        solana_sdk::{
+        renec_sdk::{
             account::ReadableAccount,
             clock::Slot,
             commitment_config::CommitmentConfig,
@@ -699,7 +699,7 @@ mod tests {
             mint_keypair: alice,
             ..
         } = create_genesis_config(10_000);
-        let bob_pubkey = solana_sdk::pubkey::new_rand();
+        let bob_pubkey = renec_sdk::pubkey::new_rand();
         let bank = Bank::new(&genesis_config);
         let blockhash = bank.last_blockhash();
         let bank_forks = Arc::new(RwLock::new(BankForks::new(bank)));
@@ -745,7 +745,7 @@ mod tests {
             ..
         } = create_genesis_config(10_000);
 
-        let new_stake_authority = solana_sdk::pubkey::new_rand();
+        let new_stake_authority = renec_sdk::pubkey::new_rand();
         let stake_authority = Keypair::new();
         let from = Keypair::new();
         let stake_account = Keypair::new();
@@ -955,7 +955,7 @@ mod tests {
     #[test]
     #[serial]
     fn test_account_unsubscribe() {
-        let bob_pubkey = solana_sdk::pubkey::new_rand();
+        let bob_pubkey = renec_sdk::pubkey::new_rand();
 
         let GenesisConfigInfo { genesis_config, .. } = create_genesis_config(10_000);
         let bank_forks = Arc::new(RwLock::new(BankForks::new(Bank::new(&genesis_config))));

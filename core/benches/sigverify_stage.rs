@@ -10,7 +10,7 @@ use {
     rand::{thread_rng, Rng},
     renec_core::{sigverify::TransactionSigVerifier, sigverify_stage::SigVerifyStage},
     renec_perf::{packet::to_packet_batches, test_tx::test_tx},
-    solana_sdk::{
+    renec_sdk::{
         hash::Hash,
         signature::{Keypair, Signer},
         system_transaction,

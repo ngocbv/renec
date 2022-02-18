@@ -18,7 +18,7 @@ use {
         create_genesis_config_with_vote_accounts_and_cluster_type, GenesisConfigInfo,
         ValidatorVoteKeypairs,
     },
-    solana_sdk::{
+    renec_sdk::{
         account::{Account, AccountSharedData},
         client::SyncClient,
         clock::{DEFAULT_DEV_SLOTS_PER_EPOCH, DEFAULT_TICKS_PER_SLOT},

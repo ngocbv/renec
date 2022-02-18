@@ -10,7 +10,7 @@ use {
     renec_cli_output::{QuietDisplay, VerboseDisplay},
     renec_client::{client_error::ClientError, rpc_client::RpcClient},
     renec_remote_wallet::remote_wallet::RemoteWalletManager,
-    solana_sdk::{
+    renec_sdk::{
         account::Account,
         clock::Slot,
         feature::{self, Feature},

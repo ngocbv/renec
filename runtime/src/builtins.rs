@@ -3,7 +3,7 @@ use {
         bank::{Builtin, Builtins},
         system_instruction_processor,
     },
-    solana_sdk::{
+    renec_sdk::{
         feature_set,
         instruction::InstructionError,
         process_instruction::{stable_log, InvokeContext, ProcessInstructionWithContext},
@@ -68,7 +68,7 @@ fn genesis_builtins() -> Vec<Builtin> {
         ),
         Builtin::new(
             "secp256k1_program",
-            solana_sdk::secp256k1_program::id(),
+            renec_sdk::secp256k1_program::id(),
             renec_secp256k1_program::process_instruction,
         ),
     ]
@@ -93,7 +93,7 @@ fn feature_builtins() -> Vec<(Builtin, Pubkey, ActivationType)> {
         (
             Builtin::new(
                 "compute_budget_program",
-                solana_sdk::compute_budget::id(),
+                renec_sdk::compute_budget::id(),
                 renec_compute_budget_program::process_instruction,
             ),
             feature_set::add_compute_budget_program::id(),
@@ -102,7 +102,7 @@ fn feature_builtins() -> Vec<(Builtin, Pubkey, ActivationType)> {
         (
             Builtin::new(
                 "ed25519_program",
-                solana_sdk::ed25519_program::id(),
+                renec_sdk::ed25519_program::id(),
                 renec_ed25519_program::process_instruction,
             ),
             feature_set::ed25519_program_enabled::id(),

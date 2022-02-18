@@ -1,6 +1,6 @@
 use {
     serde_derive::{Deserialize, Serialize},
-    solana_sdk::pubkey::Pubkey,
+    renec_sdk::pubkey::Pubkey,
     std::{error, fmt},
 };
 

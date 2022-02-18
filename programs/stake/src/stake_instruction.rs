@@ -1,12 +1,12 @@
 #[deprecated(
     since = "1.7.2",
-    note = "Please use `solana_sdk::stake::instruction` or `renec_program::stake::instruction` instead"
+    note = "Please use `renec_sdk::stake::instruction` or `renec_program::stake::instruction` instead"
 )]
-pub use solana_sdk::stake::instruction::*;
+pub use renec_sdk::stake::instruction::*;
 use {
     crate::{config, stake_state::StakeAccount},
     log::*,
-    solana_sdk::{
+    renec_sdk::{
         feature_set,
         instruction::InstructionError,
         keyed_account::{from_keyed_account, get_signers, keyed_account_at_index},
@@ -277,7 +277,7 @@ mod tests {
         super::*,
         crate::stake_state::{Meta, StakeState},
         bincode::serialize,
-        solana_sdk::{
+        renec_sdk::{
             account::{self, Account, AccountSharedData, WritableAccount},
             instruction::{AccountMeta, Instruction},
             keyed_account::KeyedAccount,
@@ -447,7 +447,7 @@ mod tests {
             process_instruction(&instruction::withdraw(
                 &Pubkey::default(),
                 &Pubkey::default(),
-                &solana_sdk::pubkey::new_rand(),
+                &renec_sdk::pubkey::new_rand(),
                 100,
                 None,
             )),
@@ -557,7 +557,7 @@ mod tests {
             process_instruction(&instruction::withdraw(
                 &spoofed_stake_state_pubkey(),
                 &Pubkey::default(),
-                &solana_sdk::pubkey::new_rand(),
+                &renec_sdk::pubkey::new_rand(),
                 100,
                 None,
             )),

@@ -29,7 +29,7 @@ use {
         rpc_config::RpcTransactionConfig, rpc_response::RpcKeyedAccount,
     },
     renec_remote_wallet::remote_wallet::RemoteWalletManager,
-    solana_sdk::{
+    renec_sdk::{
         commitment_config::CommitmentConfig,
         message::Message,
         pubkey::Pubkey,

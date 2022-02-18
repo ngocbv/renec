@@ -3,7 +3,7 @@ use {
         vote_instruction::{self, VoteInstruction},
         vote_state::Vote,
     },
-    solana_sdk::{
+    renec_sdk::{
         clock::Slot,
         hash::Hash,
         program_utils::limited_deserialize,
@@ -83,7 +83,7 @@ pub fn new_vote_transaction(
 
 #[cfg(test)]
 mod test {
-    use {super::*, solana_sdk::hash::hash};
+    use {super::*, renec_sdk::hash::hash};
 
     fn run_test_parse_vote_transaction(input_hash: Option<Hash>) {
         let node_keypair = Keypair::new();

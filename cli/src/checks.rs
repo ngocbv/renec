@@ -4,7 +4,7 @@ use {
         client_error::{ClientError, Result as ClientResult},
         rpc_client::RpcClient,
     },
-    solana_sdk::{
+    renec_sdk::{
         commitment_config::CommitmentConfig, fee_calculator::FeeCalculator, message::Message,
         native_token::lamports_to_sol, pubkey::Pubkey,
     },
@@ -158,7 +158,7 @@ mod tests {
             rpc_request::RpcRequest,
             rpc_response::{Response, RpcResponseContext},
         },
-        solana_sdk::system_instruction,
+        renec_sdk::system_instruction,
         std::collections::HashMap,
     };
 
@@ -169,7 +169,7 @@ mod tests {
             context: RpcResponseContext { slot: 1 },
             value: json!(account_balance),
         });
-        let pubkey = solana_sdk::pubkey::new_rand();
+        let pubkey = renec_sdk::pubkey::new_rand();
         let fee_calculator = FeeCalculator::new(1);
 
         let pubkey0 = Pubkey::new(&[0; 32]);
@@ -229,7 +229,7 @@ mod tests {
             context: RpcResponseContext { slot: 1 },
             value: json!(account_balance),
         });
-        let pubkey = solana_sdk::pubkey::new_rand();
+        let pubkey = renec_sdk::pubkey::new_rand();
 
         let mut mocks = HashMap::new();
         mocks.insert(RpcRequest::GetBalance, account_balance_response);
@@ -266,9 +266,9 @@ mod tests {
 
     #[test]
     fn test_check_unique_pubkeys() {
-        let pubkey0 = solana_sdk::pubkey::new_rand();
+        let pubkey0 = renec_sdk::pubkey::new_rand();
         let pubkey_clone = pubkey0;
-        let pubkey1 = solana_sdk::pubkey::new_rand();
+        let pubkey1 = renec_sdk::pubkey::new_rand();
 
         check_unique_pubkeys((&pubkey0, "foo".to_string()), (&pubkey1, "bar".to_string()))
             .expect("unexpected result");

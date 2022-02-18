@@ -14,7 +14,7 @@ use {
     },
     renec_measure::measure::Measure,
     solana_metrics::*,
-    solana_sdk::timing::AtomicInterval,
+    renec_sdk::timing::AtomicInterval,
     std::{
         sync::{
             atomic::{AtomicBool, AtomicUsize, Ordering},

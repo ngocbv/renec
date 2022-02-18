@@ -3,7 +3,7 @@
 use {
     crate::ConfigKeys,
     bincode::deserialize,
-    solana_sdk::{
+    renec_sdk::{
         account::{ReadableAccount, WritableAccount},
         feature_set, ic_msg,
         instruction::InstructionError,
@@ -143,7 +143,7 @@ mod tests {
         crate::{config_instruction, get_config_data, id, ConfigKeys, ConfigState},
         bincode::serialized_size,
         serde_derive::{Deserialize, Serialize},
-        solana_sdk::{
+        renec_sdk::{
             account::{Account, AccountSharedData},
             keyed_account::create_keyed_accounts_unified,
             process_instruction::MockInvokeContext,
@@ -178,7 +178,7 @@ mod tests {
     }
 
     fn create_config_account(keys: Vec<(Pubkey, bool)>) -> (Keypair, RefCell<AccountSharedData>) {
-        let from_pubkey = solana_sdk::pubkey::new_rand();
+        let from_pubkey = renec_sdk::pubkey::new_rand();
         let config_keypair = Keypair::new();
         let config_pubkey = config_keypair.pubkey();
 
@@ -296,9 +296,9 @@ mod tests {
     #[test]
     fn test_process_store_with_additional_signers() {
         renec_logger::setup();
-        let pubkey = solana_sdk::pubkey::new_rand();
-        let signer0_pubkey = solana_sdk::pubkey::new_rand();
-        let signer1_pubkey = solana_sdk::pubkey::new_rand();
+        let pubkey = renec_sdk::pubkey::new_rand();
+        let signer0_pubkey = renec_sdk::pubkey::new_rand();
+        let signer1_pubkey = renec_sdk::pubkey::new_rand();
         let keys = vec![
             (pubkey, false),
             (signer0_pubkey, true),
@@ -336,8 +336,8 @@ mod tests {
     #[test]
     fn test_process_store_without_config_signer() {
         renec_logger::setup();
-        let pubkey = solana_sdk::pubkey::new_rand();
-        let signer0_pubkey = solana_sdk::pubkey::new_rand();
+        let pubkey = renec_sdk::pubkey::new_rand();
+        let signer0_pubkey = renec_sdk::pubkey::new_rand();
         let keys = vec![(pubkey, false), (signer0_pubkey, true)];
         let (config_keypair, _) = create_config_account(keys.clone());
         let config_pubkey = config_keypair.pubkey();
@@ -363,8 +363,8 @@ mod tests {
     #[test]
     fn test_process_store_with_bad_additional_signer() {
         renec_logger::setup();
-        let signer0_pubkey = solana_sdk::pubkey::new_rand();
-        let signer1_pubkey = solana_sdk::pubkey::new_rand();
+        let signer0_pubkey = renec_sdk::pubkey::new_rand();
+        let signer1_pubkey = renec_sdk::pubkey::new_rand();
         let signer0_account = RefCell::new(AccountSharedData::default());
         let signer1_account = RefCell::new(AccountSharedData::default());
         let keys = vec![(signer0_pubkey, true)];
@@ -408,10 +408,10 @@ mod tests {
     #[test]
     fn test_config_updates() {
         renec_logger::setup();
-        let pubkey = solana_sdk::pubkey::new_rand();
-        let signer0_pubkey = solana_sdk::pubkey::new_rand();
-        let signer1_pubkey = solana_sdk::pubkey::new_rand();
-        let signer2_pubkey = solana_sdk::pubkey::new_rand();
+        let pubkey = renec_sdk::pubkey::new_rand();
+        let signer0_pubkey = renec_sdk::pubkey::new_rand();
+        let signer1_pubkey = renec_sdk::pubkey::new_rand();
+        let signer2_pubkey = renec_sdk::pubkey::new_rand();
         let signer0_account = RefCell::new(AccountSharedData::default());
         let signer1_account = RefCell::new(AccountSharedData::default());
         let signer2_account = RefCell::new(AccountSharedData::default());
@@ -600,8 +600,8 @@ mod tests {
     #[test]
     fn test_config_updates_requiring_config() {
         renec_logger::setup();
-        let pubkey = solana_sdk::pubkey::new_rand();
-        let signer0_pubkey = solana_sdk::pubkey::new_rand();
+        let pubkey = renec_sdk::pubkey::new_rand();
+        let signer0_pubkey = renec_sdk::pubkey::new_rand();
         let signer0_account = RefCell::new(AccountSharedData::default());
         let keys = vec![
             (pubkey, false),
@@ -675,8 +675,8 @@ mod tests {
 
     #[test]
     fn test_config_initialize_no_panic() {
-        let from_pubkey = solana_sdk::pubkey::new_rand();
-        let config_pubkey = solana_sdk::pubkey::new_rand();
+        let from_pubkey = renec_sdk::pubkey::new_rand();
+        let config_pubkey = renec_sdk::pubkey::new_rand();
         let instructions =
             config_instruction::create_account::<MyConfig>(&from_pubkey, &config_pubkey, 1, vec![]);
         let accounts = vec![];
@@ -693,10 +693,10 @@ mod tests {
 
     #[test]
     fn test_config_bad_owner() {
-        let from_pubkey = solana_sdk::pubkey::new_rand();
-        let config_pubkey = solana_sdk::pubkey::new_rand();
+        let from_pubkey = renec_sdk::pubkey::new_rand();
+        let config_pubkey = renec_sdk::pubkey::new_rand();
         let new_config = MyConfig::new(84);
-        let signer0_pubkey = solana_sdk::pubkey::new_rand();
+        let signer0_pubkey = renec_sdk::pubkey::new_rand();
         let signer0_account = RefCell::new(AccountSharedData::default());
         let config_account = RefCell::new(AccountSharedData::default());
         let keys = vec![

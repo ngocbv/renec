@@ -14,7 +14,7 @@ renec-program = { path = "../../../../sdk/program", version = "=1.8.14" }
 
 [dev-dependencies]
 renec-program-test = { path = "../../../../program-test", version = "=1.8.14" }
-solana-sdk = { path = "../../../../sdk", version = "=1.8.14" }
+renec-sdk = { path = "../../../../sdk", version = "=1.8.14" }
 
 [lib]
 crate-type = ["cdylib", "lib"]

@@ -6,7 +6,7 @@ use {
     log::*,
     serde::{Deserialize, Serialize},
     renec_measure::measure::Measure,
-    solana_sdk::{
+    renec_sdk::{
         account::{AccountSharedData, ReadableAccount, WritableAccount},
         account_utils::StateMut,
         bpf_loader_upgradeable::{self, UpgradeableLoaderState},
@@ -1336,7 +1336,7 @@ impl MessageProcessor {
 mod tests {
     use {
         super::*,
-        solana_sdk::{
+        renec_sdk::{
             account::Account,
             account::{AccountSharedData, ReadableAccount},
             instruction::{AccountMeta, Instruction, InstructionError},
@@ -1353,9 +1353,9 @@ mod tests {
         let mut accounts = vec![];
         let mut metas = vec![];
         for i in 0..MAX_DEPTH {
-            invoke_stack.push(solana_sdk::pubkey::new_rand());
+            invoke_stack.push(renec_sdk::pubkey::new_rand());
             accounts.push((
-                solana_sdk::pubkey::new_rand(),
+                renec_sdk::pubkey::new_rand(),
                 Rc::new(RefCell::new(AccountSharedData::new(
                     i as u64,
                     1,
@@ -1370,7 +1370,7 @@ mod tests {
                 Rc::new(RefCell::new(AccountSharedData::new(
                     1,
                     1,
-                    &solana_sdk::pubkey::Pubkey::default(),
+                    &renec_sdk::pubkey::Pubkey::default(),
                 ))),
             ));
             metas.push(AccountMeta::new(*program_id, false));
@@ -1433,7 +1433,7 @@ mod tests {
                 Rc::new(RefCell::new(AccountSharedData::new(
                     1,
                     1,
-                    &solana_sdk::pubkey::Pubkey::default(),
+                    &renec_sdk::pubkey::Pubkey::default(),
                 ))),
             ));
             let write_privileges: Vec<bool> = (0..message.account_keys.len())
@@ -1500,7 +1500,7 @@ mod tests {
     #[test]
     fn test_verify_account_references() {
         let accounts = vec![(
-            solana_sdk::pubkey::new_rand(),
+            renec_sdk::pubkey::new_rand(),
             Rc::new(RefCell::new(AccountSharedData::default())),
         )];
 
@@ -1527,7 +1527,7 @@ mod tests {
                 rent: Rent::default(),
                 is_writable: true,
                 pre: PreAccount::new(
-                    &solana_sdk::pubkey::new_rand(),
+                    &renec_sdk::pubkey::new_rand(),
                     &AccountSharedData::from(Account {
                         owner: *owner,
                         lamports: std::u64::MAX,
@@ -1586,8 +1586,8 @@ mod tests {
     #[test]
     fn test_verify_account_changes_owner() {
         let system_program_id = system_program::id();
-        let alice_program_id = solana_sdk::pubkey::new_rand();
-        let mallory_program_id = solana_sdk::pubkey::new_rand();
+        let alice_program_id = renec_sdk::pubkey::new_rand();
+        let mallory_program_id = renec_sdk::pubkey::new_rand();
 
         assert_eq!(
             Change::new(&system_program_id, &system_program_id)
@@ -1647,8 +1647,8 @@ mod tests {
 
     #[test]
     fn test_verify_account_changes_executable() {
-        let owner = solana_sdk::pubkey::new_rand();
-        let mallory_program_id = solana_sdk::pubkey::new_rand();
+        let owner = renec_sdk::pubkey::new_rand();
+        let mallory_program_id = renec_sdk::pubkey::new_rand();
         let system_program_id = system_program::id();
 
         assert_eq!(
@@ -1754,7 +1754,7 @@ mod tests {
 
     #[test]
     fn test_verify_account_changes_data_len() {
-        let alice_program_id = solana_sdk::pubkey::new_rand();
+        let alice_program_id = renec_sdk::pubkey::new_rand();
 
         assert_eq!(
             Change::new(&system_program::id(), &system_program::id())
@@ -1774,8 +1774,8 @@ mod tests {
 
     #[test]
     fn test_verify_account_changes_data() {
-        let alice_program_id = solana_sdk::pubkey::new_rand();
-        let mallory_program_id = solana_sdk::pubkey::new_rand();
+        let alice_program_id = renec_sdk::pubkey::new_rand();
+        let mallory_program_id = renec_sdk::pubkey::new_rand();
 
         assert_eq!(
             Change::new(&alice_program_id, &alice_program_id)
@@ -1803,7 +1803,7 @@ mod tests {
 
     #[test]
     fn test_verify_account_changes_rent_epoch() {
-        let alice_program_id = solana_sdk::pubkey::new_rand();
+        let alice_program_id = renec_sdk::pubkey::new_rand();
 
         assert_eq!(
             Change::new(&alice_program_id, &system_program::id()).verify(),
@@ -1821,8 +1821,8 @@ mod tests {
 
     #[test]
     fn test_verify_account_changes_deduct_lamports_and_reassign_account() {
-        let alice_program_id = solana_sdk::pubkey::new_rand();
-        let bob_program_id = solana_sdk::pubkey::new_rand();
+        let alice_program_id = renec_sdk::pubkey::new_rand();
+        let bob_program_id = renec_sdk::pubkey::new_rand();
 
         // positive test of this capability
         assert_eq!(
@@ -1838,7 +1838,7 @@ mod tests {
 
     #[test]
     fn test_verify_account_changes_lamports() {
-        let alice_program_id = solana_sdk::pubkey::new_rand();
+        let alice_program_id = renec_sdk::pubkey::new_rand();
 
         assert_eq!(
             Change::new(&alice_program_id, &system_program::id())
@@ -1876,7 +1876,7 @@ mod tests {
 
     #[test]
     fn test_verify_account_changes_data_size_changed() {
-        let alice_program_id = solana_sdk::pubkey::new_rand();
+        let alice_program_id = renec_sdk::pubkey::new_rand();
 
         assert_eq!(
             Change::new(&alice_program_id, &system_program::id())
@@ -1903,8 +1903,8 @@ mod tests {
 
     #[test]
     fn test_verify_account_changes_owner_executable() {
-        let alice_program_id = solana_sdk::pubkey::new_rand();
-        let bob_program_id = solana_sdk::pubkey::new_rand();
+        let alice_program_id = renec_sdk::pubkey::new_rand();
+        let bob_program_id = renec_sdk::pubkey::new_rand();
 
         assert_eq!(
             Change::new(&alice_program_id, &alice_program_id)
@@ -1963,11 +1963,11 @@ mod tests {
 
         let accounts = vec![
             (
-                solana_sdk::pubkey::new_rand(),
+                renec_sdk::pubkey::new_rand(),
                 AccountSharedData::new_ref(100, 1, &mock_system_program_id),
             ),
             (
-                solana_sdk::pubkey::new_rand(),
+                renec_sdk::pubkey::new_rand(),
                 AccountSharedData::new_ref(0, 1, &mock_system_program_id),
             ),
         ];
@@ -2142,11 +2142,11 @@ mod tests {
 
         let accounts = vec![
             (
-                solana_sdk::pubkey::new_rand(),
+                renec_sdk::pubkey::new_rand(),
                 AccountSharedData::new_ref(100, 1, &mock_program_id),
             ),
             (
-                solana_sdk::pubkey::new_rand(),
+                renec_sdk::pubkey::new_rand(),
                 AccountSharedData::new_ref(0, 1, &mock_program_id),
             ),
         ];
@@ -2296,8 +2296,8 @@ mod tests {
             Ok(())
         }
 
-        let caller_program_id = solana_sdk::pubkey::new_rand();
-        let callee_program_id = solana_sdk::pubkey::new_rand();
+        let caller_program_id = renec_sdk::pubkey::new_rand();
+        let callee_program_id = renec_sdk::pubkey::new_rand();
 
         let mut program_account = AccountSharedData::new(1, 0, &native_loader::id());
         program_account.set_executable(true);
@@ -2307,21 +2307,21 @@ mod tests {
         )];
 
         let owned_account = AccountSharedData::new(42, 1, &callee_program_id);
-        let not_owned_account = AccountSharedData::new(84, 1, &solana_sdk::pubkey::new_rand());
+        let not_owned_account = AccountSharedData::new(84, 1, &renec_sdk::pubkey::new_rand());
         let readonly_account = AccountSharedData::new(168, 1, &caller_program_id);
 
         #[allow(unused_mut)]
         let accounts = vec![
             (
-                solana_sdk::pubkey::new_rand(),
+                renec_sdk::pubkey::new_rand(),
                 Rc::new(RefCell::new(owned_account)),
             ),
             (
-                solana_sdk::pubkey::new_rand(),
+                renec_sdk::pubkey::new_rand(),
                 Rc::new(RefCell::new(not_owned_account)),
             ),
             (
-                solana_sdk::pubkey::new_rand(),
+                renec_sdk::pubkey::new_rand(),
                 Rc::new(RefCell::new(readonly_account)),
             ),
             (callee_program_id, Rc::new(RefCell::new(program_account))),
@@ -2471,7 +2471,7 @@ mod tests {
         ) -> Result<(), InstructionError> {
             Ok(())
         }
-        let program_id = solana_sdk::pubkey::new_rand();
+        let program_id = renec_sdk::pubkey::new_rand();
         message_processor.add_program(program_id, mock_process_instruction);
         message_processor.add_loader(program_id, mock_ix_processor);
 
@@ -2521,8 +2521,8 @@ mod tests {
             Ok(())
         }
 
-        let caller_program_id = solana_sdk::pubkey::new_rand();
-        let callee_program_id = solana_sdk::pubkey::new_rand();
+        let caller_program_id = renec_sdk::pubkey::new_rand();
+        let callee_program_id = renec_sdk::pubkey::new_rand();
 
         let mut program_account = AccountSharedData::new(1, 0, &native_loader::id());
         program_account.set_executable(true);
@@ -2532,21 +2532,21 @@ mod tests {
         )];
 
         let owned_account = AccountSharedData::new(42, 1, &callee_program_id);
-        let not_owned_account = AccountSharedData::new(84, 1, &solana_sdk::pubkey::new_rand());
+        let not_owned_account = AccountSharedData::new(84, 1, &renec_sdk::pubkey::new_rand());
         let readonly_account = AccountSharedData::new(168, 1, &caller_program_id);
 
         #[allow(unused_mut)]
         let accounts = vec![
             (
-                solana_sdk::pubkey::new_rand(),
+                renec_sdk::pubkey::new_rand(),
                 Rc::new(RefCell::new(owned_account)),
             ),
             (
-                solana_sdk::pubkey::new_rand(),
+                renec_sdk::pubkey::new_rand(),
                 Rc::new(RefCell::new(not_owned_account)),
             ),
             (
-                solana_sdk::pubkey::new_rand(),
+                renec_sdk::pubkey::new_rand(),
                 Rc::new(RefCell::new(readonly_account)),
             ),
             (callee_program_id, Rc::new(RefCell::new(program_account))),

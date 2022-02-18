@@ -1,20 +1,20 @@
-use solana_sdk::{
+use renec_sdk::{
     account::{Account, AccountSharedData},
     pubkey::Pubkey,
     rent::Rent,
 };
 
 mod spl_token {
-    solana_sdk::declare_id!("TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA");
+    renec_sdk::declare_id!("TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA");
 }
 mod spl_memo_1_0 {
-    solana_sdk::declare_id!("Memo1UhkJRfHyvLMcVucJwxXeuD728EqVDDwQDxFMNo");
+    renec_sdk::declare_id!("Memo1UhkJRfHyvLMcVucJwxXeuD728EqVDDwQDxFMNo");
 }
 mod spl_memo_3_0 {
-    solana_sdk::declare_id!("MemoSq4gqABAXKb96qnH8TysNcWxMyWCqXgDLGmfcHr");
+    renec_sdk::declare_id!("MemoSq4gqABAXKb96qnH8TysNcWxMyWCqXgDLGmfcHr");
 }
 mod spl_associated_token_account {
-    solana_sdk::declare_id!("ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL");
+    renec_sdk::declare_id!("ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL");
 }
 
 static SPL_PROGRAMS: &[(Pubkey, &[u8])] = &[
@@ -42,7 +42,7 @@ pub fn spl_programs(rent: &Rent) -> Vec<(Pubkey, AccountSharedData)> {
                 AccountSharedData::from(Account {
                     lamports: rent.minimum_balance(elf.len()).min(1),
                     data: elf.to_vec(),
-                    owner: solana_sdk::bpf_loader::id(),
+                    owner: renec_sdk::bpf_loader::id(),
                     executable: true,
                     rent_epoch: 0,
                 }),

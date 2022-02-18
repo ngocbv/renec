@@ -10,7 +10,7 @@ use {
         recycler::Recycler,
     },
     renec_runtime::bank_forks::BankForks,
-    solana_sdk::clock::{Slot, DEFAULT_MS_PER_SLOT},
+    renec_sdk::clock::{Slot, DEFAULT_MS_PER_SLOT},
     solana_streamer::streamer::{self, PacketBatchReceiver, PacketBatchSender},
     std::{
         net::UdpSocket,

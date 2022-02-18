@@ -19,7 +19,7 @@ use {
     renec_client::rpc_client::RpcClient,
     renec_config_program::{config_instruction, get_config_data, ConfigKeys, ConfigState},
     renec_remote_wallet::remote_wallet::RemoteWalletManager,
-    solana_sdk::{
+    renec_sdk::{
         account::Account,
         message::Message,
         pubkey::Pubkey,
@@ -487,7 +487,7 @@ mod tests {
 
     #[test]
     fn test_parse_validator_info() {
-        let pubkey = solana_sdk::pubkey::new_rand();
+        let pubkey = renec_sdk::pubkey::new_rand();
         let keys = vec![(validator_info::id(), false), (pubkey, true)];
         let config = ConfigKeys { keys };
 

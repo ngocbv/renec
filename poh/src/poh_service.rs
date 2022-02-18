@@ -6,7 +6,7 @@ use {
     log::*,
     renec_ledger::poh::Poh,
     renec_measure::measure::Measure,
-    solana_sdk::poh_config::PohConfig,
+    renec_sdk::poh_config::PohConfig,
     std::{
         sync::{
             atomic::{AtomicBool, Ordering},
@@ -368,7 +368,7 @@ mod tests {
         renec_measure::measure::Measure,
         renec_perf::test_tx::test_tx,
         renec_runtime::bank::Bank,
-        solana_sdk::{clock, hash::hash, pubkey::Pubkey, timing},
+        renec_sdk::{clock, hash::hash, pubkey::Pubkey, timing},
         std::time::Duration,
     };
 

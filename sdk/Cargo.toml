@@ -1,11 +1,11 @@
 [package]
-name = "solana-sdk"
+name = "renec-sdk"
 version = "1.8.14"
 description = "RENEC SDK"
 authors = ["RENEC Maintainers <dev@remitano.com>"]
 repository = "https://github.com/remitano/renec"
 homepage = "https://remitano.com/"
-documentation = "https://docs.rs/solana-sdk"
+documentation = "https://docs.rs/renec-sdk"
 readme = "README.md"
 license = "Apache-2.0"
 edition = "2018"

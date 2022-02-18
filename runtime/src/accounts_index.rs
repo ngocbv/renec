@@ -9,7 +9,7 @@ use {
     log::*,
     ouroboros::self_referencing,
     renec_measure::measure::Measure,
-    solana_sdk::{
+    renec_sdk::{
         clock::{BankId, Slot},
         pubkey::{Pubkey, PUBKEY_BYTES},
     },
@@ -1737,7 +1737,7 @@ impl<T: 'static + Clone + IsCached + ZeroLamport + std::marker::Sync + std::mark
 pub mod tests {
     use {
         super::*,
-        solana_sdk::signature::{Keypair, Signer},
+        renec_sdk::signature::{Keypair, Signer},
     };
 
     pub enum SecondaryIndexTypes<'a> {
@@ -2845,7 +2845,7 @@ pub mod tests {
         let root_slot = 0;
 
         let mut pubkeys: Vec<Pubkey> = std::iter::repeat_with(|| {
-            let new_pubkey = solana_sdk::pubkey::new_rand();
+            let new_pubkey = renec_sdk::pubkey::new_rand();
             index.upsert(
                 root_slot,
                 &new_pubkey,
@@ -2995,7 +2995,7 @@ pub mod tests {
         let mut gc = vec![];
         index.upsert(
             0,
-            &solana_sdk::pubkey::new_rand(),
+            &renec_sdk::pubkey::new_rand(),
             &Pubkey::default(),
             &[],
             &AccountSecondaryIndexes::default(),

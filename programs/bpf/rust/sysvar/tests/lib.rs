@@ -1,6 +1,6 @@
 use renec_bpf_rust_sysvar::process_instruction;
 use renec_program_test::*;
-use solana_sdk::{
+use renec_sdk::{
     instruction::{AccountMeta, Instruction},
     pubkey::Pubkey,
     signature::Signer,

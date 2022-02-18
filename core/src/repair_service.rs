@@ -19,7 +19,7 @@ use {
     },
     renec_measure::measure::Measure,
     renec_runtime::{bank::Bank, bank_forks::BankForks, contains::Contains},
-    solana_sdk::{
+    renec_sdk::{
         clock::{BankId, Slot},
         epoch_schedule::EpochSchedule,
         pubkey::Pubkey,
@@ -725,7 +725,7 @@ mod test {
             shred::max_ticks_per_n_shreds,
         },
         renec_runtime::genesis_utils::{self, GenesisConfigInfo, ValidatorVoteKeypairs},
-        solana_sdk::signature::{Keypair, Signer},
+        renec_sdk::signature::{Keypair, Signer},
         solana_streamer::socket::SocketAddrSpace,
         renec_vote_program::vote_transaction,
         std::collections::HashSet,

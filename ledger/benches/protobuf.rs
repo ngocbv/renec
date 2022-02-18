@@ -10,7 +10,7 @@ use {
         get_tmp_ledger_path,
     },
     renec_runtime::bank::RewardType,
-    solana_sdk::{clock::Slot, pubkey},
+    renec_sdk::{clock::Slot, pubkey},
     solana_transaction_status::{Reward, Rewards},
     std::path::Path,
     test::Bencher,

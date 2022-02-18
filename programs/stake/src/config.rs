@@ -2,13 +2,13 @@
 //!  carries variables that the stake program cares about
 #[deprecated(
     since = "1.7.2",
-    note = "Please use `solana_sdk::stake::config` or `renec_program::stake::config` instead"
+    note = "Please use `renec_sdk::stake::config` or `renec_program::stake::config` instead"
 )]
-pub use solana_sdk::stake::config::*;
+pub use renec_sdk::stake::config::*;
 use {
     bincode::deserialize,
     renec_config_program::{create_config_account, get_config_data},
-    solana_sdk::{
+    renec_sdk::{
         account::{AccountSharedData, ReadableAccount, WritableAccount},
         genesis_config::GenesisConfig,
         instruction::InstructionError,
@@ -47,7 +47,7 @@ pub fn add_genesis_account(genesis_config: &mut GenesisConfig) -> u64 {
 
 #[cfg(test)]
 mod tests {
-    use {super::*, solana_sdk::pubkey::Pubkey, std::cell::RefCell};
+    use {super::*, renec_sdk::pubkey::Pubkey, std::cell::RefCell};
 
     #[test]
     fn test() {

@@ -1,7 +1,7 @@
 use {
     serde::{Deserialize, Serialize},
     renec_config_program::ConfigState,
-    solana_sdk::{
+    renec_sdk::{
         hash::Hash,
         pubkey::Pubkey,
         signature::{Signable, Signature},

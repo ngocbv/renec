@@ -15,7 +15,7 @@ use {
         },
     },
     renec_perf::test_tx,
-    solana_sdk::{hash::Hash, signature::Keypair},
+    renec_sdk::{hash::Hash, signature::Keypair},
     std::sync::Arc,
     test::Bencher,
 };

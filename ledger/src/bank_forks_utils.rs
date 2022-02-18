@@ -14,7 +14,7 @@ use {
         bank_forks::{ArchiveFormat, BankForks, SnapshotConfig},
         snapshot_utils,
     },
-    solana_sdk::{clock::Slot, genesis_config::GenesisConfig, hash::Hash},
+    renec_sdk::{clock::Slot, genesis_config::GenesisConfig, hash::Hash},
     std::{fs, path::PathBuf, process, result},
 };
 

@@ -12,7 +12,7 @@ use {
     },
     renec_core::test_validator::TestValidator,
     renec_faucet::faucet::run_local_faucet,
-    solana_sdk::{
+    renec_sdk::{
         commitment_config::CommitmentConfig,
         nonce::State as NonceState,
         pubkey::Pubkey,

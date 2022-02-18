@@ -2,7 +2,7 @@ use {
     renec_gossip::cluster_info::{ClusterInfo, MAX_SNAPSHOT_HASHES},
     renec_perf::thread::renice_this_thread,
     renec_runtime::{snapshot_package::AccountsPackage, snapshot_utils},
-    solana_sdk::{clock::Slot, hash::Hash},
+    renec_sdk::{clock::Slot, hash::Hash},
     std::{
         sync::{
             atomic::{AtomicBool, Ordering},
@@ -88,7 +88,7 @@ mod tests {
             snapshot_package::AccountsPackage,
             snapshot_utils::{self, SnapshotVersion, SNAPSHOT_STATUS_CACHE_FILE_NAME},
         },
-        solana_sdk::hash::Hash,
+        renec_sdk::hash::Hash,
         std::{
             fs::{self, remove_dir_all, OpenOptions},
             io::Write,

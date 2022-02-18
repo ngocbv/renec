@@ -12,7 +12,7 @@ use solana_rbpf::{
     verifier::check,
     vm::{Config, DynamicAnalysis},
 };
-use solana_sdk::{
+use renec_sdk::{
     account::AccountSharedData,
     bpf_loader,
     keyed_account::KeyedAccount,
@@ -153,7 +153,7 @@ native machine code before execting it in the virtual machine.",
     let mut accounts = Vec::new();
     let mut account_refcells = Vec::new();
     let default_account = RefCell::new(AccountSharedData::default());
-    let key = solana_sdk::pubkey::new_rand();
+    let key = renec_sdk::pubkey::new_rand();
     let mut mem = match matches.value_of("input").unwrap().parse::<usize>() {
         Ok(allocate) => {
             accounts.push(KeyedAccount::new(&key, false, &default_account));

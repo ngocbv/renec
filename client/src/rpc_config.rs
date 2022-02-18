@@ -1,7 +1,7 @@
 use {
     crate::rpc_filter::RpcFilterType,
     renec_account_decoder::{UiAccountEncoding, UiDataSliceConfig},
-    solana_sdk::{
+    renec_sdk::{
         clock::{Epoch, Slot},
         commitment_config::{CommitmentConfig, CommitmentLevel},
     },

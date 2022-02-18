@@ -13,7 +13,7 @@ use {
     renec_faucet::faucet::request_airdrop_transaction,
     renec_genesis::Base64Account,
     solana_metrics::datapoint_info,
-    solana_sdk::{
+    renec_sdk::{
         client::{Client, SyncClient},
         commitment_config::CommitmentConfig,
         message::Message,

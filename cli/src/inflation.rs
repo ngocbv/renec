@@ -11,7 +11,7 @@ use {
     },
     renec_client::rpc_client::RpcClient,
     renec_remote_wallet::remote_wallet::RemoteWalletManager,
-    solana_sdk::{clock::Epoch, pubkey::Pubkey},
+    renec_sdk::{clock::Epoch, pubkey::Pubkey},
     std::sync::Arc,
 };
 

@@ -5,7 +5,7 @@ use {
     },
     renec_ledger::blockstore::Blockstore,
     renec_runtime::contains::Contains,
-    solana_sdk::{clock::Slot, hash::Hash},
+    renec_sdk::{clock::Slot, hash::Hash},
     std::collections::{HashMap, HashSet},
 };
 
@@ -142,7 +142,7 @@ pub mod test {
         super::*,
         renec_ledger::{get_tmp_ledger_path, shred::Shred},
         renec_runtime::bank_utils,
-        solana_sdk::hash::Hash,
+        renec_sdk::hash::Hash,
         trees::tr,
     };
 

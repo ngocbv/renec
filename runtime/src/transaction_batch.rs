@@ -1,6 +1,6 @@
 use {
     crate::{bank::Bank, hashed_transaction::HashedTransaction},
-    solana_sdk::transaction::{Result, Transaction},
+    renec_sdk::transaction::{Result, Transaction},
     std::borrow::Cow,
 };
 
@@ -56,7 +56,7 @@ mod tests {
     use {
         super::*,
         crate::genesis_utils::{create_genesis_config_with_leader, GenesisConfigInfo},
-        solana_sdk::{signature::Keypair, system_transaction},
+        renec_sdk::{signature::Keypair, system_transaction},
     };
 
     #[test]
@@ -99,7 +99,7 @@ mod tests {
     }
 
     fn setup() -> (Bank, Vec<Transaction>) {
-        let dummy_leader_pubkey = solana_sdk::pubkey::new_rand();
+        let dummy_leader_pubkey = renec_sdk::pubkey::new_rand();
         let GenesisConfigInfo {
             genesis_config,
             mint_keypair,
@@ -107,9 +107,9 @@ mod tests {
         } = create_genesis_config_with_leader(500, &dummy_leader_pubkey, 100);
         let bank = Bank::new(&genesis_config);
 
-        let pubkey = solana_sdk::pubkey::new_rand();
+        let pubkey = renec_sdk::pubkey::new_rand();
         let keypair2 = Keypair::new();
-        let pubkey2 = solana_sdk::pubkey::new_rand();
+        let pubkey2 = renec_sdk::pubkey::new_rand();
 
         let txs = vec![
             system_transaction::transfer(&mint_keypair, &pubkey, 1, genesis_config.hash()),

@@ -13,7 +13,7 @@ use {
         local_cluster::{ClusterConfig, LocalCluster},
         validator_configs::make_identical_validator_configs,
     },
-    solana_sdk::signature::{Keypair, Signer},
+    renec_sdk::signature::{Keypair, Signer},
     solana_streamer::socket::SocketAddrSpace,
     std::{
         sync::{mpsc::channel, Arc},
