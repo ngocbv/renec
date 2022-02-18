@@ -3830,6 +3830,20 @@ dependencies = [
 ]
 
 [[package]]
+name = "renec-cargo-build-bpf"
+version = "1.8.14"
+dependencies = [
+ "bzip2",
+ "cargo_metadata",
+ "clap",
+ "regex",
+ "renec-download-utils",
+ "serial_test",
+ "solana-sdk",
+ "tar",
+]
+
+[[package]]
 name = "renec-clap-utils"
 version = "1.8.14"
 dependencies = [
@@ -5472,20 +5486,6 @@ dependencies = [
  "solana-metrics",
  "solana-sdk",
  "solana-streamer",
-]
-
-[[package]]
-name = "solana-cargo-build-bpf"
-version = "1.8.14"
-dependencies = [
- "bzip2",
- "cargo_metadata",
- "clap",
- "regex",
- "renec-download-utils",
- "serial_test",
- "solana-sdk",
- "tar",
 ]
 
 [[package]]

@@ -1,5 +1,5 @@
 [package]
-name = "solana-cargo-build-bpf"
+name = "renec-cargo-build-bpf"
 version = "1.8.14"
 description = "Compile a local package and all of its dependencies using the Solana BPF SDK"
 authors = ["RENEC Maintainers <dev@remitano.com>"]
