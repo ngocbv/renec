@@ -1,7 +1,7 @@
 [package]
-name = "solana-cargo-test-bpf"
+name = "renec-cargo-test-bpf"
 version = "1.8.14"
-description = "Execute all unit and integration tests after building with the Solana BPF SDK"
+description = "Execute all unit and integration tests after building with the RENEC BPF SDK"
 authors = ["RENEC Maintainers <dev@remitano.com>"]
 repository = "https://github.com/remitano/renec"
 homepage = "https://remitano.com/"

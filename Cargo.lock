@@ -5489,7 +5489,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "solana-cargo-test-bpf"
+name = "renec-cargo-test-bpf"
 version = "1.8.14"
 dependencies = [
  "cargo_metadata",
