@@ -1,6 +1,6 @@
 use {
     serde::{Deserialize, Serialize},
-    solana_account_decoder::{
+    renec_account_decoder::{
         parse_token::{real_number_string_trimmed, UiTokenAmount},
         StringAmount,
     },

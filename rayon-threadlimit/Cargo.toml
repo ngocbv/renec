@@ -1,7 +1,7 @@
 [package]
 name = "solana-rayon-threadlimit"
 version = "1.8.14"
-description = "solana-rayon-threadlimit"
+description = "RENEC-rayon-threadlimit"
 homepage = "https://remitano.com/"
 documentation = "https://docs.rs/solana-rayon-threadlimit"
 readme = "../README.md"

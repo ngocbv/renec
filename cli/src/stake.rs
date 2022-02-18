@@ -10,7 +10,7 @@ use {
         spend_utils::{resolve_spend_tx_and_check_account_balances, SpendAmount},
     },
     clap::{value_t, App, Arg, ArgGroup, ArgMatches, SubCommand},
-    solana_clap_utils::{
+    renec_clap_utils::{
         fee_payer::{fee_payer_arg, FEE_PAYER_ARG},
         input_parsers::*,
         input_validators::*,
@@ -20,7 +20,7 @@ use {
         offline::*,
         ArgConstant,
     },
-    solana_cli_output::{
+    renec_cli_output::{
         return_signers_with_config, CliEpochReward, CliStakeHistory, CliStakeHistoryEntry,
         CliStakeState, CliStakeType, OutputFormat, ReturnSignersConfig,
     },

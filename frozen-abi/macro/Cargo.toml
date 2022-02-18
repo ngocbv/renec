@@ -1,7 +1,7 @@
 [package]
 name = "solana-frozen-abi-macro"
 version = "1.8.14"
-description = "Solana Frozen ABI Macro"
+description = "RENEC Frozen ABI Macro"
 authors = ["RENEC Maintainers <dev@remitano.com>"]
 repository = "https://github.com/remitano/renec"
 homepage = "https://remitano.com/"

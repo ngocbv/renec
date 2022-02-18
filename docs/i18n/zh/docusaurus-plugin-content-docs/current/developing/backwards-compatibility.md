@@ -56,7 +56,7 @@ Solana RPC API、Rust SDK、CLI工具和BPF程序SDK均已更新并随每个Sola
 * [`solana-sdk`](https://docs.rs/solana-sdk/) - 用于创建交易和解析帐户状态的Rust SDK
 * [`solana-program`](https://docs.rs/solana-program/) - 用于编写程序的Rust SDK
 * [`solana-client`](https://docs.rs/solana-client/) - 用于连接RPC API的Rust客户端
-* [`solana-cli-config`](https://docs.rs/solana-cli-config/) - 用于管理Solana CLI配置文件的Rust客户端
+* [`renec-cli-config`](https://docs.rs/renec-cli-config/) - 用于管理Solana CLI配置文件的Rust客户端
 
 补丁发布：
 - Bug修复

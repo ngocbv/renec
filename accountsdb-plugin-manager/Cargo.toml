@@ -1,8 +1,8 @@
 [package]
 authors = ["RENEC Maintainers <dev@remitano.com>"]
 edition = "2018"
-name = "solana-accountsdb-plugin-manager"
-description = "The Solana AccountsDb plugin manager."
+name = "renec-accountsdb-plugin-manager"
+description = "The RENEC AccountsDb plugin manager."
 version = "1.8.14"
 repository = "https://github.com/remitano/renec"
 license = "Apache-2.0"
@@ -17,7 +17,7 @@ log = "0.4.11"
 serde = "1.0.130"
 serde_derive = "1.0.103"
 serde_json = "1.0.67"
-solana-accountsdb-plugin-interface = { path = "../accountsdb-plugin-interface", version = "=1.8.14" }
+renec-accountsdb-plugin-interface = { path = "../accountsdb-plugin-interface", version = "=1.8.14" }
 renec-logger = { path = "../logger", version = "=1.8.14" }
 solana-measure = { path = "../measure", version = "=1.8.14" }
 solana-metrics = { path = "../metrics", version = "=1.8.14" }

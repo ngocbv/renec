@@ -7,15 +7,15 @@ use {
     clap::{App, AppSettings, Arg, ArgMatches, SubCommand},
     reqwest::blocking::Client,
     serde_json::{Map, Value},
-    solana_account_decoder::validator_info::{
+    renec_account_decoder::validator_info::{
         self, ValidatorInfo, MAX_LONG_FIELD_LENGTH, MAX_SHORT_FIELD_LENGTH,
     },
-    solana_clap_utils::{
+    renec_clap_utils::{
         input_parsers::pubkey_of,
         input_validators::{is_pubkey, is_url},
         keypair::DefaultSigner,
     },
-    solana_cli_output::{CliValidatorInfo, CliValidatorInfoVec},
+    renec_cli_output::{CliValidatorInfo, CliValidatorInfoVec},
     solana_client::rpc_client::RpcClient,
     renec_config_program::{config_instruction, get_config_data, ConfigKeys, ConfigState},
     solana_remote_wallet::remote_wallet::RemoteWalletManager,

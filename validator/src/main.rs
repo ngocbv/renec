@@ -9,7 +9,7 @@ use {
     console::style,
     log::*,
     rand::{seq::SliceRandom, thread_rng, Rng},
-    solana_clap_utils::{
+    renec_clap_utils::{
         input_parsers::{keypair_of, keypairs_of, pubkey_of, value_of},
         input_validators::{
             is_keypair, is_keypair_or_ask_keyword, is_niceness_adjustment_valid, is_parsable,

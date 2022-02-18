@@ -4,17 +4,17 @@ use {
         SetLockupArgs,
     },
     clap::{value_t, value_t_or_exit, App, Arg, ArgMatches, SubCommand},
-    solana_clap_utils::{
+    renec_clap_utils::{
         input_parsers::unix_timestamp_from_rfc3339_datetime,
         input_validators::{is_amount, is_rfc3339_datetime, is_valid_pubkey, is_valid_signer},
     },
-    solana_cli_config::CONFIG_FILE,
+    renec_cli_config::CONFIG_FILE,
     solana_sdk::native_token::sol_to_lamports,
     std::{ffi::OsString, process::exit},
 };
 
 fn fee_payer_arg<'a, 'b>() -> Arg<'a, 'b> {
-    solana_clap_utils::fee_payer::fee_payer_arg().required(true)
+    renec_clap_utils::fee_payer::fee_payer_arg().required(true)
 }
 
 fn funding_keypair_arg<'a, 'b>() -> Arg<'a, 'b> {

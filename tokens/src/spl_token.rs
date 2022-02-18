@@ -4,7 +4,7 @@ use {
         commands::{Allocation, Error, FundingSource},
     },
     console::style,
-    solana_account_decoder::parse_token::{
+    renec_account_decoder::parse_token::{
         pubkey_from_spl_token, real_number_string, real_number_string_trimmed, spl_token_pubkey,
     },
     solana_client::rpc_client::RpcClient,

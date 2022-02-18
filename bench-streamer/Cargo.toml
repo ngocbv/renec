@@ -10,7 +10,7 @@ publish = false
 
 [dependencies]
 clap = "2.33.1"
-solana-clap-utils = { path = "../clap-utils", version = "=1.8.14" }
+renec-clap-utils = { path = "../clap-utils", version = "=1.8.14" }
 solana-streamer = { path = "../streamer", version = "=1.8.14" }
 renec-logger = { path = "../logger", version = "=1.8.14" }
 solana-net-utils = { path = "../net-utils", version = "=1.8.14" }

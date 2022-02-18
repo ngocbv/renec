@@ -24,26 +24,26 @@ Solana 提供了一个密钥生成工具，可以从符合 BIP39 规范的助记
 
 ### 检查您的安装
 
-运行 `solana-keygen` 确保已正确安装：
+运行 `renec-keygen` 确保已正确安装：
 
 ```bash
-solana-keygen --version
+renec-keygen --version
 ```
 
 ## 创建一个纸钱包
 
-使用 `solana-keygen` 工具可以生成新的助记词，并且从现有助记词和 (可选) 密码中生成一个密钥对。 助记词和密码可以作为纸钱包一起使用。 只要您将助记词和密码安全地存储起来，就可以使用它们来访问您的帐户。
+使用 `renec-keygen` 工具可以生成新的助记词，并且从现有助记词和 (可选) 密码中生成一个密钥对。 助记词和密码可以作为纸钱包一起使用。 只要您将助记词和密码安全地存储起来，就可以使用它们来访问您的帐户。
 
 > 如需了解更多关于助记词工作原理的信息，请参阅 [比特币百科网页](https://en.bitcoin.it/wiki/Seed_phrase)。
 
 ### 生成助记词
 
-使用 `solana-keygen new` 命令生成新的密钥对。 该命令将生成一个随机的助记词，要求您输入一个可选的密码，然后将显示派生的公钥和纸钱包生成的助记词。
+使用 `renec-keygen new` 命令生成新的密钥对。 该命令将生成一个随机的助记词，要求您输入一个可选的密码，然后将显示派生的公钥和纸钱包生成的助记词。
 
 复制助记词以后，您可以使用 [公钥派生](#public-key-derivation) 说明来验证操作没有任何错误。
 
 ```bash
-solana-keygen new --no-outfile
+renec-keygen new --no-outfile
 ```
 
 > 如果 `--no-outfile` 标志显示为 **omitted**，那么默认行为是将密钥写入到 `~/.config/solana/id.json`，最终产生一个 [文件系统钱包](file-system-wallet.md)
@@ -63,26 +63,26 @@ pubkey: 9ZNTfG4NyQgxy2SWjSiQoUyBPEvXT2xo7fKc5hPYYJ7b
 完整的使用详细信息请运行：
 
 ```bash
-solana-keygen new --help
+renec-keygen new --help
 ```
 
 ### 公钥派生
 
-如果您选择使用公钥，则可以从助记词和密码派生公钥。 这对于使用离线生成的助记词来导出有效公钥非常有用。 `solana-keygen pubkey` 命令将引导您输入助记词和密码（如果您有设置的话）。
+如果您选择使用公钥，则可以从助记词和密码派生公钥。 这对于使用离线生成的助记词来导出有效公钥非常有用。 `renec-keygen pubkey` 命令将引导您输入助记词和密码（如果您有设置的话）。
 
 ```bash
-solana-keygen pubkey ASK
+renec-keygen pubkey ASK
 ```
 
 > 请注意，对于相同的助记词，您可能会使用不同的密码。 每个唯一的密码将产生不同的密钥对。
 
-`solana-keygen` 工具与生成助记词的 BIP39 标准的英文单词列表是一样的。 如果您的助记词是通过另一个工具生成，您仍然可以使用 `solana-keygen` 命令，但需要通过 `--skip-seed-spoe-valide-` 参数并放弃验证。
+`renec-keygen` 工具与生成助记词的 BIP39 标准的英文单词列表是一样的。 如果您的助记词是通过另一个工具生成，您仍然可以使用 `renec-keygen` 命令，但需要通过 `--skip-seed-spoe-valide-` 参数并放弃验证。
 
 ```bash
-solana-keygen pubkey ASK --skip-seed-phrase-validation
+renec-keygen pubkey ASK --skip-seed-phrase-validation
 ```
 
-使用 `solana-keygen pubkey ASK` 输入您的助记词以后，控制台将显示一个 base-58 字符串。 这就是与助记词相关联的 _钱包地址_。
+使用 `renec-keygen pubkey ASK` 输入您的助记词以后，控制台将显示一个 base-58 字符串。 这就是与助记词相关联的 _钱包地址_。
 
 > 复制派生地址到 USB 以便网络计算机使用
 
@@ -91,15 +91,15 @@ solana-keygen pubkey ASK --skip-seed-phrase-validation
 完整是使用详细信息请运行：
 
 ```bash
-solana-keygen pubkey --help
+renec-keygen pubkey --help
 ```
 
 ## 验证密钥对
 
-如需要验证您控制纸钱包地址的私钥，请使用 `solana-keygen verify` 命令：
+如需要验证您控制纸钱包地址的私钥，请使用 `renec-keygen verify` 命令：
 
 ```bash
-solana-keygen verify <PUBKEY> ASK
+renec-keygen verify <PUBKEY> ASK
 ```
 
 其中 `<PUBKEY>` 替换为钱包地址，他们的关键字 `ASK` 让命令行提示您使用密钥对的助记词。 请注意，出于安全原因，在您输入助记词的时候，它们不会显示出来。 输入您的助记词后， 如果给定的公钥匹配助记词生成的密钥，命令将输出“成功”，否则将输出“失败”。

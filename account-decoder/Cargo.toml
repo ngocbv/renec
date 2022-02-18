@@ -1,11 +1,11 @@
 [package]
-name = "solana-account-decoder"
+name = "renec-account-decoder"
 version = "1.8.14"
-description = "Solana account decoder"
+description = "RENEC account decoder"
 authors = ["RENEC Maintainers <dev@remitano.com>"]
 repository = "https://github.com/remitano/renec"
 homepage = "https://remitano.com/"
-documentation = "https://docs.rs/solana-account-decoder"
+documentation = "https://docs.rs/renec-account-decoder"
 license = "Apache-2.0"
 edition = "2018"
 

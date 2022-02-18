@@ -5,7 +5,7 @@ use {
         crate_description, crate_name, value_t, value_t_or_exit, values_t_or_exit, App,
         AppSettings, Arg, ArgMatches, SubCommand,
     },
-    solana_clap_utils::{
+    renec_clap_utils::{
         input_parsers::STDOUT_OUTFILE_TOKEN,
         input_validators::{is_parsable, is_prompt_signer_source},
         keypair::{
@@ -14,7 +14,7 @@ use {
         },
         ArgConstant, DisplayError,
     },
-    solana_cli_config::{Config, CONFIG_FILE},
+    renec_cli_config::{Config, CONFIG_FILE},
     solana_remote_wallet::remote_wallet::RemoteWalletManager,
     solana_sdk::{
         instruction::{AccountMeta, Instruction},
