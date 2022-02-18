@@ -83,7 +83,7 @@ pub mod vote {
 /// let my_id = Pubkey::from_str("My11111111111111111111111111111111111111111").unwrap();
 /// assert_eq!(id(), my_id);
 /// ```
-pub use solana_sdk_macro::program_declare_id as declare_id;
+pub use renec_sdk_macro::program_declare_id as declare_id;
 /// Convenience macro to define a static public key
 ///
 /// Input: a single literal base58 string representation of a Pubkey
@@ -99,7 +99,7 @@ pub use solana_sdk_macro::program_declare_id as declare_id;
 /// let my_id = Pubkey::from_str("My11111111111111111111111111111111111111111").unwrap();
 /// assert_eq!(ID, my_id);
 /// ```
-pub use solana_sdk_macro::program_pubkey as pubkey;
+pub use renec_sdk_macro::program_pubkey as pubkey;
 
 #[macro_use]
 extern crate serde_derive;

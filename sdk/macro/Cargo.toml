@@ -1,11 +1,11 @@
 [package]
-name = "solana-sdk-macro"
+name = "renec-sdk-macro"
 version = "1.8.14"
 description = "RENEC SDK Macro"
 authors = ["RENEC Maintainers <dev@remitano.com>"]
 repository = "https://github.com/remitano/renec"
 homepage = "https://remitano.com/"
-documentation = "https://docs.rs/solana-sdk-macro"
+documentation = "https://docs.rs/renec-sdk-macro"
 license = "Apache-2.0"
 edition = "2018"
 

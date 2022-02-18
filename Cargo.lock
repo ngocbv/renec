@@ -3844,6 +3844,14 @@ dependencies = [
 ]
 
 [[package]]
+name = "renec-cargo-test-bpf"
+version = "1.8.14"
+dependencies = [
+ "cargo_metadata",
+ "clap",
+]
+
+[[package]]
 name = "renec-clap-utils"
 version = "1.8.14"
 dependencies = [
@@ -5489,14 +5497,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "renec-cargo-test-bpf"
-version = "1.8.14"
-dependencies = [
- "cargo_metadata",
- "clap",
-]
-
-[[package]]
 name = "solana-cli"
 version = "1.8.14"
 dependencies = [
@@ -5633,7 +5633,7 @@ dependencies = [
  "solana-frozen-abi",
  "solana-frozen-abi-macro",
  "solana-logger",
- "solana-sdk-macro 1.7.6",
+ "renec-sdk-macro 1.7.6",
  "thiserror",
 ]
 
@@ -5670,7 +5670,7 @@ dependencies = [
  "serde_json",
  "sha2",
  "sha3",
- "solana-sdk-macro 1.8.14",
+ "renec-sdk-macro 1.8.14",
  "static_assertions",
  "thiserror",
 ]
@@ -5730,14 +5730,14 @@ dependencies = [
  "sha2",
  "sha3",
  "solana-program 1.8.14",
- "solana-sdk-macro 1.8.14",
+ "renec-sdk-macro 1.8.14",
  "thiserror",
  "tiny-bip39",
  "uriparse",
 ]
 
 [[package]]
-name = "solana-sdk-macro"
+name = "renec-sdk-macro"
 version = "1.7.6"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "84710ce45a21cccd9f2b09d8e9aad529080bb2540f27b1253874b6e732b465b9"
@@ -5750,7 +5750,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "solana-sdk-macro"
+name = "renec-sdk-macro"
 version = "1.8.14"
 dependencies = [
  "bs58 0.3.1",

@@ -75,7 +75,7 @@ pub mod transport;
 /// let my_id = Pubkey::from_str("My11111111111111111111111111111111111111111").unwrap();
 /// assert_eq!(id(), my_id);
 /// ```
-pub use solana_sdk_macro::declare_id;
+pub use renec_sdk_macro::declare_id;
 /// Convenience macro to define a static public key
 ///
 /// Input: a single literal base58 string representation of a Pubkey
@@ -91,10 +91,10 @@ pub use solana_sdk_macro::declare_id;
 /// let my_id = Pubkey::from_str("My11111111111111111111111111111111111111111").unwrap();
 /// assert_eq!(ID, my_id);
 /// ```
-pub use solana_sdk_macro::pubkey;
-pub use solana_sdk_macro::pubkeys;
+pub use renec_sdk_macro::pubkey;
+pub use renec_sdk_macro::pubkeys;
 #[rustversion::since(1.46.0)]
-pub use solana_sdk_macro::respan;
+pub use renec_sdk_macro::respan;
 
 // Unused `solana_sdk::program_stubs!()` macro retained for source backwards compatibility with older programs
 #[macro_export]

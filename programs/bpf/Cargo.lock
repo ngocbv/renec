@@ -3441,7 +3441,7 @@ dependencies = [
  "renec-frozen-abi 1.7.6",
  "renec-frozen-abi-macro 1.7.6",
  "renec-logger 1.7.6",
- "solana-sdk-macro 1.7.6",
+ "renec-sdk-macro 1.7.6",
  "thiserror",
 ]
 
@@ -3476,7 +3476,7 @@ dependencies = [
  "renec-frozen-abi 1.8.14",
  "renec-frozen-abi-macro 1.8.14",
  "renec-logger 1.8.14",
- "solana-sdk-macro 1.8.14",
+ "renec-sdk-macro 1.8.14",
  "thiserror",
 ]
 
@@ -3629,13 +3629,13 @@ dependencies = [
  "renec-frozen-abi-macro 1.8.14",
  "renec-logger 1.8.14",
  "solana-program 1.8.14",
- "solana-sdk-macro 1.8.14",
+ "renec-sdk-macro 1.8.14",
  "thiserror",
  "uriparse",
 ]
 
 [[package]]
-name = "solana-sdk-macro"
+name = "renec-sdk-macro"
 version = "1.7.6"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "84710ce45a21cccd9f2b09d8e9aad529080bb2540f27b1253874b6e732b465b9"
@@ -3648,7 +3648,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "solana-sdk-macro"
+name = "renec-sdk-macro"
 version = "1.8.14"
 dependencies = [
  "bs58 0.3.1",

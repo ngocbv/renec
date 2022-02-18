@@ -31,7 +31,7 @@ sha2 = "0.9.2"
 sha3 = "0.9.1"
 renec-frozen-abi = { path = "../../frozen-abi", version = "=1.8.14" }
 renec-frozen-abi-macro = { path = "../../frozen-abi/macro", version = "=1.8.14" }
-solana-sdk-macro = { path = "../macro", version = "=1.8.14" }
+renec-sdk-macro = { path = "../macro", version = "=1.8.14" }
 thiserror = "1.0"
 
 [target.'cfg(not(target_arch = "bpf"))'.dependencies]
