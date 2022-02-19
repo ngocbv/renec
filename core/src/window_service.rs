@@ -727,7 +727,7 @@ mod test {
             signature::{Keypair, Signer},
             timing::timestamp,
         },
-        solana_streamer::socket::SocketAddrSpace,
+        renec_streamer::socket::SocketAddrSpace,
     };
 
     fn local_entries_to_shred(

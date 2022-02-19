@@ -28,7 +28,7 @@ use {
         rent::Rent,
         signature::{read_keypair_file, write_keypair_file, Keypair, Signer},
     },
-    solana_streamer::socket::SocketAddrSpace,
+    renec_streamer::socket::SocketAddrSpace,
     std::{
         collections::HashMap,
         fs::remove_dir_all,

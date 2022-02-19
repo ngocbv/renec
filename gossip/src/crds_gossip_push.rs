@@ -24,7 +24,7 @@ use {
     rand::{seq::SliceRandom, Rng},
     renec_bloom::bloom::{AtomicBloom, Bloom},
     renec_sdk::{packet::PACKET_DATA_SIZE, pubkey::Pubkey, timing::timestamp},
-    solana_streamer::socket::SocketAddrSpace,
+    renec_streamer::socket::SocketAddrSpace,
     std::{
         cmp,
         collections::{HashMap, HashSet},

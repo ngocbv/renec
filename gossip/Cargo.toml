@@ -38,7 +38,7 @@ renec-net-utils = { path = "../net-utils", version = "=1.8.14" }
 renec-perf = { path = "../perf", version = "=1.8.14" }
 renec-rayon-threadlimit = { path = "../rayon-threadlimit", version = "=1.8.14" }
 renec-runtime = { path = "../runtime", version = "=1.8.14" }
-solana-streamer = { path = "../streamer", version = "=1.8.14" }
+renec-streamer = { path = "../streamer", version = "=1.8.14" }
 renec-sdk = { path = "../sdk", version = "=1.8.14" }
 renec-version = { path = "../version", version = "=1.8.14" }
 renec-vote-program = { path = "../programs/vote", version = "=1.8.14" }

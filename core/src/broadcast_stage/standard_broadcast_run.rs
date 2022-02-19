@@ -523,7 +523,7 @@ mod test {
             genesis_config::GenesisConfig,
             signature::{Keypair, Signer},
         },
-        solana_streamer::socket::SocketAddrSpace,
+        renec_streamer::socket::SocketAddrSpace,
         std::{sync::Arc, time::Duration},
     };
 

@@ -16,7 +16,7 @@ use {
         genesis_config::create_genesis_config,
         signature::{Keypair, Signer},
     },
-    solana_streamer::socket::SocketAddrSpace,
+    renec_streamer::socket::SocketAddrSpace,
     std::{process::exit, sync::mpsc::channel, time::Duration},
 };
 

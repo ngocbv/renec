@@ -53,7 +53,7 @@ url = "2.1.1"
 
 [dev-dependencies]
 renec-core = { path = "../core", version = "=1.8.14" }
-solana-streamer = { path = "../streamer", version = "=1.8.14" }
+renec-streamer = { path = "../streamer", version = "=1.8.14" }
 tempfile = "3.1.0"
 
 [[bin]]

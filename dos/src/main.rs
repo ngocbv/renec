@@ -7,7 +7,7 @@ use {
     renec_core::serve_repair::RepairProtocol,
     renec_gossip::{contact_info::ContactInfo, gossip_service::discover},
     renec_sdk::pubkey::Pubkey,
-    solana_streamer::socket::SocketAddrSpace,
+    renec_streamer::socket::SocketAddrSpace,
     std::{
         net::{SocketAddr, UdpSocket},
         process::exit,

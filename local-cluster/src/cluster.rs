@@ -3,7 +3,7 @@ use {
     renec_core::validator::{Validator, ValidatorConfig},
     renec_gossip::{cluster_info::Node, contact_info::ContactInfo},
     renec_sdk::{pubkey::Pubkey, signature::Keypair},
-    solana_streamer::socket::SocketAddrSpace,
+    renec_streamer::socket::SocketAddrSpace,
     std::{path::PathBuf, sync::Arc},
 };
 

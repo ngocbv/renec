@@ -1220,7 +1220,7 @@ mod tests {
             signature::{read_keypair_file, write_keypair_file, Signer},
             stake::instruction::StakeInstruction,
         },
-        solana_streamer::socket::SocketAddrSpace,
+        renec_streamer::socket::SocketAddrSpace,
         solana_transaction_status::TransactionConfirmationStatus,
     };
 

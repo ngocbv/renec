@@ -11,7 +11,7 @@ use {
     },
     renec_gossip::{contact_info::ContactInfo, gossip_service::discover},
     renec_sdk::pubkey::Pubkey,
-    solana_streamer::socket::SocketAddrSpace,
+    renec_streamer::socket::SocketAddrSpace,
     std::{
         error,
         net::{IpAddr, Ipv4Addr, SocketAddr},

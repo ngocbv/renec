@@ -9,7 +9,7 @@ use {
     renec_perf::{packet::PacketBatchRecycler, recycler::Recycler},
     renec_poh::poh_recorder::PohRecorder,
     renec_sdk::{clock::DEFAULT_TICKS_PER_SLOT, packet::Packet},
-    solana_streamer::streamer::{self, PacketBatchReceiver, PacketBatchSender},
+    renec_streamer::streamer::{self, PacketBatchReceiver, PacketBatchSender},
     std::{
         net::UdpSocket,
         sync::{

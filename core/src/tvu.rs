@@ -390,7 +390,7 @@ pub mod tests {
         renec_rpc::optimistically_confirmed_bank_tracker::OptimisticallyConfirmedBank,
         renec_runtime::bank::Bank,
         renec_sdk::signature::{Keypair, Signer},
-        solana_streamer::socket::SocketAddrSpace,
+        renec_streamer::socket::SocketAddrSpace,
         std::sync::atomic::Ordering,
     };
 

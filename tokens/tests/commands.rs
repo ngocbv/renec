@@ -2,7 +2,7 @@ use {
     renec_client::rpc_client::RpcClient,
     renec_core::test_validator::TestValidator,
     renec_sdk::signature::{Keypair, Signer},
-    solana_streamer::socket::SocketAddrSpace,
+    renec_streamer::socket::SocketAddrSpace,
     solana_tokens::commands::test_process_distribute_tokens_with_client,
 };
 

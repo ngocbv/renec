@@ -227,7 +227,7 @@ mod tests {
             hash::hash,
             signature::{Keypair, Signer},
         },
-        solana_streamer::socket::SocketAddrSpace,
+        renec_streamer::socket::SocketAddrSpace,
     };
 
     fn new_test_cluster_info(contact_info: ContactInfo) -> ClusterInfo {

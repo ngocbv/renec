@@ -1,7 +1,7 @@
 #![allow(clippy::integer_arithmetic)]
 use {
     clap::{crate_description, crate_name, App, Arg},
-    solana_streamer::{
+    renec_streamer::{
         packet::{Packet, PacketBatch, PacketBatchRecycler, PACKET_DATA_SIZE},
         streamer::{receiver, PacketBatchReceiver},
     },

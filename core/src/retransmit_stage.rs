@@ -541,7 +541,7 @@ mod tests {
         },
         renec_net_utils::find_available_port_in_range,
         renec_sdk::signature::Keypair,
-        solana_streamer::socket::SocketAddrSpace,
+        renec_streamer::socket::SocketAddrSpace,
         std::net::{IpAddr, Ipv4Addr},
     };
 
@@ -606,7 +606,7 @@ mod tests {
         // it should send this over the sockets.
         retransmit_sender.send(vec![shred]).unwrap();
         let mut packet_batch = PacketBatch::new(vec![]);
-        solana_streamer::packet::recv_from(&mut packet_batch, &me_retransmit, 1).unwrap();
+        renec_streamer::packet::recv_from(&mut packet_batch, &me_retransmit, 1).unwrap();
         assert_eq!(packet_batch.packets.len(), 1);
         assert!(!packet_batch.packets[0].meta.repair);
     }

@@ -11,7 +11,7 @@ use {
     },
     renec_runtime::bank_forks::BankForks,
     renec_sdk::clock::{Slot, DEFAULT_MS_PER_SLOT},
-    solana_streamer::streamer::{self, PacketBatchReceiver, PacketBatchSender},
+    renec_streamer::streamer::{self, PacketBatchReceiver, PacketBatchSender},
     std::{
         net::UdpSocket,
         sync::{atomic::AtomicBool, mpsc::channel, Arc, RwLock},

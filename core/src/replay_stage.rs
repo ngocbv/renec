@@ -2665,7 +2665,7 @@ mod tests {
             system_transaction,
             transaction::TransactionError,
         },
-        solana_streamer::socket::SocketAddrSpace,
+        renec_streamer::socket::SocketAddrSpace,
         solana_transaction_status::TransactionWithStatusMeta,
         renec_vote_program::{
             vote_state::{VoteState, VoteStateVersions},

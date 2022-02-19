@@ -14,7 +14,7 @@ use {
         validator_configs::make_identical_validator_configs,
     },
     renec_sdk::signature::{Keypair, Signer},
-    solana_streamer::socket::SocketAddrSpace,
+    renec_streamer::socket::SocketAddrSpace,
     std::{
         sync::{mpsc::channel, Arc},
         time::Duration,

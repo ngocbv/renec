@@ -1684,7 +1684,7 @@ mod tests {
             system_transaction,
             transaction::TransactionError,
         },
-        solana_streamer::{recvmmsg::recv_mmsg, socket::SocketAddrSpace},
+        renec_streamer::{recvmmsg::recv_mmsg, socket::SocketAddrSpace},
         solana_transaction_status::TransactionWithStatusMeta,
         renec_vote_program::vote_transaction,
         std::{

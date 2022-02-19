@@ -391,7 +391,7 @@ mod test {
             system_program, system_transaction,
             timing::timestamp,
         },
-        solana_streamer::socket::SocketAddrSpace,
+        renec_streamer::socket::SocketAddrSpace,
         std::sync::{atomic::AtomicBool, mpsc::channel},
     };
 

@@ -37,7 +37,7 @@ use {
         transaction::Transaction,
     },
     renec_stake_program::{config::create_account as create_stake_config_account, stake_state},
-    solana_streamer::socket::SocketAddrSpace,
+    renec_streamer::socket::SocketAddrSpace,
     renec_vote_program::{
         vote_instruction,
         vote_state::{VoteInit, VoteState},

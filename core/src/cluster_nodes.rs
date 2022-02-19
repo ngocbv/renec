@@ -326,7 +326,7 @@ mod tests {
             },
         },
         renec_sdk::{signature::Keypair, timing::timestamp},
-        solana_streamer::socket::SocketAddrSpace,
+        renec_streamer::socket::SocketAddrSpace,
         std::{iter::repeat_with, sync::Arc},
     };
 

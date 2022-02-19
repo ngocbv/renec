@@ -16,7 +16,7 @@ use {
         commitment_config::CommitmentConfig,
         signature::{Keypair, NullSigner, Signer},
     },
-    solana_streamer::socket::SocketAddrSpace,
+    renec_streamer::socket::SocketAddrSpace,
     renec_vote_program::vote_state::{VoteAuthorize, VoteState, VoteStateVersions},
 };
 

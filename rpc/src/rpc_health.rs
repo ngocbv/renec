@@ -123,7 +123,7 @@ impl RpcHealth {
     pub(crate) fn stub() -> Arc<Self> {
         use {
             renec_gossip::contact_info::ContactInfo, renec_sdk::signer::keypair::Keypair,
-            solana_streamer::socket::SocketAddrSpace,
+            renec_streamer::socket::SocketAddrSpace,
         };
         Arc::new(Self::new(
             Arc::new(ClusterInfo::new(

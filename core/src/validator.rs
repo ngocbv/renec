@@ -79,7 +79,7 @@ use {
         signature::{Keypair, Signer},
         timing::timestamp,
     },
-    solana_streamer::socket::SocketAddrSpace,
+    renec_streamer::socket::SocketAddrSpace,
     renec_vote_program::vote_state::VoteState,
     std::{
         collections::{HashMap, HashSet},

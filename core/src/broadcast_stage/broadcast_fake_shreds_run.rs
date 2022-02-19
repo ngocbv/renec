@@ -142,7 +142,7 @@ mod tests {
     use {
         super::*,
         renec_gossip::contact_info::ContactInfo,
-        solana_streamer::socket::SocketAddrSpace,
+        renec_streamer::socket::SocketAddrSpace,
         std::net::{IpAddr, Ipv4Addr, SocketAddr},
     };
 

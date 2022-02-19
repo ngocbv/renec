@@ -26,7 +26,7 @@ use {
         timing::{duration_as_us, timestamp},
         transaction::Transaction,
     },
-    solana_streamer::socket::SocketAddrSpace,
+    renec_streamer::socket::SocketAddrSpace,
     std::{
         sync::{atomic::Ordering, mpsc::Receiver, Arc, Mutex, RwLock},
         thread::sleep,

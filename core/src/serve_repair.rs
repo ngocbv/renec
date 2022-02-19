@@ -30,7 +30,7 @@ use {
         signature::{Keypair, Signer},
         timing::duration_as_ms,
     },
-    solana_streamer::streamer::{PacketBatchReceiver, PacketBatchSender},
+    renec_streamer::streamer::{PacketBatchReceiver, PacketBatchSender},
     std::{
         collections::HashSet,
         net::SocketAddr,
@@ -651,7 +651,7 @@ mod tests {
         },
         renec_perf::packet::Packet,
         renec_sdk::{hash::Hash, pubkey::Pubkey, signature::Keypair, timing::timestamp},
-        solana_streamer::socket::SocketAddrSpace,
+        renec_streamer::socket::SocketAddrSpace,
     };
 
     #[test]

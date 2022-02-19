@@ -19,7 +19,7 @@ use {
         signature::{keypair_from_seed, Keypair, NullSigner, Signer},
         stake,
     },
-    solana_streamer::socket::SocketAddrSpace,
+    renec_streamer::socket::SocketAddrSpace,
 };
 
 #[test]

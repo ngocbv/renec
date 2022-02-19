@@ -27,7 +27,7 @@ use {
         pubkey::Pubkey,
         timing::{timestamp, AtomicInterval},
     },
-    solana_streamer::{
+    renec_streamer::{
         sendmmsg::{batch_send, SendPktsError},
         socket::SocketAddrSpace,
     },

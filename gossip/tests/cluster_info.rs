@@ -8,7 +8,7 @@ use {
         deprecated::{shuffle_peers_and_index, sorted_retransmit_peers_and_stakes},
     },
     renec_sdk::{pubkey::Pubkey, signer::keypair::Keypair},
-    solana_streamer::socket::SocketAddrSpace,
+    renec_streamer::socket::SocketAddrSpace,
     std::{
         collections::{HashMap, HashSet},
         sync::{

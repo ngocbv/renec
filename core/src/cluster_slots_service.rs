@@ -183,7 +183,7 @@ mod test {
         super::*,
         renec_gossip::{cluster_info::Node, crds_value::CrdsValueLabel},
         renec_sdk::{pubkey::Pubkey, signature::Keypair},
-        solana_streamer::socket::SocketAddrSpace,
+        renec_streamer::socket::SocketAddrSpace,
     };
 
     #[test]

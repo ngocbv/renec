@@ -8,7 +8,7 @@ use {
     log::*,
     renec_gossip::gossip_service::{discover_cluster, get_multi_client},
     renec_sdk::signature::Signer,
-    solana_streamer::socket::SocketAddrSpace,
+    renec_streamer::socket::SocketAddrSpace,
 };
 
 fn main() {

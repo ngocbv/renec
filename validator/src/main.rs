@@ -58,7 +58,7 @@ use {
         pubkey::Pubkey,
         signature::{Keypair, Signer},
     },
-    solana_streamer::socket::SocketAddrSpace,
+    renec_streamer::socket::SocketAddrSpace,
     renec_validator::{
         admin_rpc_service, dashboard::Dashboard, ledger_lockfile, lock_ledger,
         new_spinner_progress_bar, println_name_value, redirect_stderr_to_file,

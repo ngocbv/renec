@@ -2,7 +2,7 @@ use {
     crate::serve_repair::ServeRepair,
     renec_ledger::blockstore::Blockstore,
     renec_perf::recycler::Recycler,
-    solana_streamer::{socket::SocketAddrSpace, streamer},
+    renec_streamer::{socket::SocketAddrSpace, streamer},
     std::{
         net::UdpSocket,
         sync::{atomic::AtomicBool, mpsc::channel, Arc, RwLock},

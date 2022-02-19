@@ -18,7 +18,7 @@ use {
         validator_configs::*,
     },
     renec_sdk::signature::{Keypair, Signer},
-    solana_streamer::socket::SocketAddrSpace,
+    renec_streamer::socket::SocketAddrSpace,
     std::{
         sync::Arc,
         thread::sleep,

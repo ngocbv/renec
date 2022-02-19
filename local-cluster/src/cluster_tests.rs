@@ -30,7 +30,7 @@ use {
         timing::duration_as_ms,
         transport::TransportError,
     },
-    solana_streamer::socket::SocketAddrSpace,
+    renec_streamer::socket::SocketAddrSpace,
     std::{
         collections::{HashMap, HashSet},
         path::Path,

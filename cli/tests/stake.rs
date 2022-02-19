@@ -25,7 +25,7 @@ use {
             state::{Lockup, StakeAuthorize, StakeState},
         },
     },
-    solana_streamer::socket::SocketAddrSpace,
+    renec_streamer::socket::SocketAddrSpace,
 };
 
 #[test]

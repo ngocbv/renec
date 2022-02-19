@@ -25,7 +25,7 @@ use {
         pubkey::Pubkey,
         timing::timestamp,
     },
-    solana_streamer::sendmmsg::{batch_send, SendPktsError},
+    renec_streamer::sendmmsg::{batch_send, SendPktsError},
     std::{
         collections::{HashMap, HashSet},
         iter::Iterator,
@@ -726,7 +726,7 @@ mod test {
         },
         renec_runtime::genesis_utils::{self, GenesisConfigInfo, ValidatorVoteKeypairs},
         renec_sdk::signature::{Keypair, Signer},
-        solana_streamer::socket::SocketAddrSpace,
+        renec_streamer::socket::SocketAddrSpace,
         renec_vote_program::vote_transaction,
         std::collections::HashSet,
     };

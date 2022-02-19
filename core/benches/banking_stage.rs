@@ -30,7 +30,7 @@ use {
         timing::{duration_as_us, timestamp},
         transaction::Transaction,
     },
-    solana_streamer::socket::SocketAddrSpace,
+    renec_streamer::socket::SocketAddrSpace,
     std::{
         collections::VecDeque,
         sync::{atomic::Ordering, mpsc::Receiver, Arc, RwLock},

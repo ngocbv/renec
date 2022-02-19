@@ -13,7 +13,7 @@ use {
     renec_perf::packet::PacketBatch,
     renec_perf::sigverify::Deduper,
     renec_sdk::timing,
-    solana_streamer::streamer::{self, PacketBatchReceiver, StreamerError},
+    renec_streamer::streamer::{self, PacketBatchReceiver, StreamerError},
     std::{
         sync::mpsc::{Receiver, RecvTimeoutError},
         thread::{self, Builder, JoinHandle},

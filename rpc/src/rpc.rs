@@ -71,7 +71,7 @@ use {
         transaction::{self, Transaction, TransactionError},
     },
     renec_storage_bigtable::Error as StorageError,
-    solana_streamer::socket::SocketAddrSpace,
+    renec_streamer::socket::SocketAddrSpace,
     solana_transaction_status::{
         ConfirmedBlock, ConfirmedTransactionStatusWithSignature, EncodedConfirmedTransaction,
         Reward, RewardType, TransactionConfirmationStatus, TransactionStatus, UiConfirmedBlock,

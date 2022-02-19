@@ -1,7 +1,7 @@
 #![cfg(target_os = "linux")]
 
 use {
-    solana_streamer::{
+    renec_streamer::{
         packet::{Packet, PACKET_DATA_SIZE},
         recvmmsg::*,
     },

@@ -60,7 +60,7 @@ mod tests {
             signature::{Keypair, Signer},
             system_transaction,
         },
-        solana_streamer::socket::SocketAddrSpace,
+        renec_streamer::socket::SocketAddrSpace,
         std::{
             collections::HashSet,
             fs,

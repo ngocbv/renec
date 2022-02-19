@@ -24,7 +24,7 @@ use {
         signature::Keypair,
         timing::{timestamp, AtomicInterval},
     },
-    solana_streamer::socket::SocketAddrSpace,
+    renec_streamer::socket::SocketAddrSpace,
     std::{
         collections::HashMap,
         net::UdpSocket,

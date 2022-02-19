@@ -13,7 +13,7 @@ use {
         pubkey::Pubkey,
         signature::{Keypair, Signer},
     },
-    solana_streamer::{socket::SocketAddrSpace, streamer},
+    renec_streamer::{socket::SocketAddrSpace, streamer},
     std::{
         collections::HashSet,
         net::{IpAddr, Ipv4Addr, SocketAddr, TcpListener, UdpSocket},
