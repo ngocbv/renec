@@ -50,10 +50,10 @@ renec-validator \
 
 我们建议将每个节点配置退出时自动重启，以确保尽可能少地丢失数据。 把 Solana 软件运行为一个系统服务是很好的选择。
 
-对于监控，我们提供[`solana-watchtower`](https://github.com/solana-labs/solana/blob/master/watchtower/README.md)，它可以监视您的验证节点，并且通过 `renec-validator` 检测节点是否不健康。 它可以直接配置 Slack、Telegram 、Discord 或 Twillio 来提醒您。 详情请运行 `solana-watchtower --help`。
+对于监控，我们提供[`renec-watchtower`](https://github.com/solana-labs/solana/blob/master/watchtower/README.md)，它可以监视您的验证节点，并且通过 `renec-validator` 检测节点是否不健康。 它可以直接配置 Slack、Telegram 、Discord 或 Twillio 来提醒您。 详情请运行 `renec-watchtower --help`。
 
 ```bash
-solana-watchtower --validator-identity <YOUR VALIDATOR IDENTITY>
+renec-watchtower --validator-identity <YOUR VALIDATOR IDENTITY>
 ```
 
 #### 新软件发布公告

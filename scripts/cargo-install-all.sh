@@ -108,7 +108,7 @@ else
       renec-stake-accounts
       solana-test-validator
       renec-tokens
-      solana-watchtower
+      renec-watchtower
     )
   fi
 

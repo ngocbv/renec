@@ -70,13 +70,13 @@ ensure you miss as little data as possible. Running the solana software as a
 systemd service is one great option.
 
 For monitoring, we provide
-[`solana-watchtower`](https://github.com/solana-labs/solana/blob/master/watchtower/README.md),
+[`renec-watchtower`](https://github.com/solana-labs/solana/blob/master/watchtower/README.md),
 which can monitor your validator and detect with the `renec-validator` process
 is unhealthy. It can directly be configured to alert you via Slack, Telegram,
-Discord, or Twillio. For details, run `solana-watchtower --help`.
+Discord, or Twillio. For details, run `renec-watchtower --help`.
 
 ```bash
-solana-watchtower --validator-identity <YOUR VALIDATOR IDENTITY>
+renec-watchtower --validator-identity <YOUR VALIDATOR IDENTITY>
 ```
 
 #### New Software Release Announcements

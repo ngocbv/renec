@@ -5916,7 +5916,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "solana-watchtower"
+name = "renec-watchtower"
 version = "1.8.14"
 dependencies = [
  "clap",
