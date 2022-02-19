@@ -328,7 +328,7 @@ impl JsonRpcService {
         let (bigtable_ledger_storage, _bigtable_ledger_upload_service) =
             if config.enable_bigtable_ledger_storage || config.enable_bigtable_ledger_upload {
                 runtime
-                    .block_on(solana_storage_bigtable::LedgerStorage::new(
+                    .block_on(renec_storage_bigtable::LedgerStorage::new(
                         !config.enable_bigtable_ledger_upload,
                         config.rpc_bigtable_timeout,
                         None,

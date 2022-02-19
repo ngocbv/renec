@@ -33,7 +33,7 @@ async fn upload(
     allow_missing_metadata: bool,
     force_reupload: bool,
 ) -> Result<(), Box<dyn std::error::Error>> {
-    let bigtable = solana_storage_bigtable::LedgerStorage::new(false, None, None)
+    let bigtable = renec_storage_bigtable::LedgerStorage::new(false, None, None)
         .await
         .map_err(|err| format!("Failed to connect to storage: {:?}", err))?;
 
@@ -51,7 +51,7 @@ async fn upload(
 
 async fn delete_slots(slots: Vec<Slot>, dry_run: bool) -> Result<(), Box<dyn std::error::Error>> {
     let read_only = dry_run;
-    let bigtable = solana_storage_bigtable::LedgerStorage::new(read_only, None, None)
+    let bigtable = renec_storage_bigtable::LedgerStorage::new(read_only, None, None)
         .await
         .map_err(|err| format!("Failed to connect to storage: {:?}", err))?;
 
@@ -59,7 +59,7 @@ async fn delete_slots(slots: Vec<Slot>, dry_run: bool) -> Result<(), Box<dyn std
 }
 
 async fn first_available_block() -> Result<(), Box<dyn std::error::Error>> {
-    let bigtable = solana_storage_bigtable::LedgerStorage::new(true, None, None).await?;
+    let bigtable = renec_storage_bigtable::LedgerStorage::new(true, None, None).await?;
     match bigtable.get_first_available_block().await? {
         Some(block) => println!("{}", block),
         None => println!("No blocks available"),
@@ -69,7 +69,7 @@ async fn first_available_block() -> Result<(), Box<dyn std::error::Error>> {
 }
 
 async fn block(slot: Slot, output_format: OutputFormat) -> Result<(), Box<dyn std::error::Error>> {
-    let bigtable = solana_storage_bigtable::LedgerStorage::new(false, None, None)
+    let bigtable = renec_storage_bigtable::LedgerStorage::new(false, None, None)
         .await
         .map_err(|err| format!("Failed to connect to storage: {:?}", err))?;
 
@@ -84,7 +84,7 @@ async fn block(slot: Slot, output_format: OutputFormat) -> Result<(), Box<dyn st
 }
 
 async fn blocks(starting_slot: Slot, limit: usize) -> Result<(), Box<dyn std::error::Error>> {
-    let bigtable = solana_storage_bigtable::LedgerStorage::new(false, None, None)
+    let bigtable = renec_storage_bigtable::LedgerStorage::new(false, None, None)
         .await
         .map_err(|err| format!("Failed to connect to storage: {:?}", err))?;
 
@@ -102,7 +102,7 @@ async fn compare_blocks(
 ) -> Result<(), Box<dyn std::error::Error>> {
     assert!(!credential_path.is_empty());
 
-    let owned_bigtable = solana_storage_bigtable::LedgerStorage::new(false, None, None)
+    let owned_bigtable = renec_storage_bigtable::LedgerStorage::new(false, None, None)
         .await
         .map_err(|err| format!("failed to connect to owned bigtable: {:?}", err))?;
     let owned_bigtable_slots = owned_bigtable
@@ -113,7 +113,7 @@ async fn compare_blocks(
         owned_bigtable_slots.len()
     );
     let reference_bigtable =
-        solana_storage_bigtable::LedgerStorage::new(false, None, Some(credential_path))
+        renec_storage_bigtable::LedgerStorage::new(false, None, Some(credential_path))
             .await
             .map_err(|err| format!("failed to connect to reference bigtable: {:?}", err))?;
 
@@ -143,7 +143,7 @@ async fn confirm(
     verbose: bool,
     output_format: OutputFormat,
 ) -> Result<(), Box<dyn std::error::Error>> {
-    let bigtable = solana_storage_bigtable::LedgerStorage::new(false, None, None)
+    let bigtable = renec_storage_bigtable::LedgerStorage::new(false, None, None)
         .await
         .map_err(|err| format!("Failed to connect to storage: {:?}", err))?;
 
@@ -192,7 +192,7 @@ pub async fn transaction_history(
     show_transactions: bool,
     query_chunk_size: usize,
 ) -> Result<(), Box<dyn std::error::Error>> {
-    let bigtable = solana_storage_bigtable::LedgerStorage::new(true, None, None).await?;
+    let bigtable = renec_storage_bigtable::LedgerStorage::new(true, None, None).await?;
 
     let mut loaded_block: Option<(Slot, ConfirmedBlock)> = None;
     while limit > 0 {

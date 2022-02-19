@@ -4,7 +4,7 @@ use {log::*, renec_measure::measure::Measure, renec_sdk::clock::Slot, std::resul
 const NUM_BLOCKS_TO_DELETE_IN_PARALLEL: usize = 32;
 
 pub async fn delete_confirmed_blocks(
-    bigtable: solana_storage_bigtable::LedgerStorage,
+    bigtable: renec_storage_bigtable::LedgerStorage,
     blocks_to_delete: Vec<Slot>,
     dry_run: bool,
 ) -> Result<(), Box<dyn std::error::Error>> {

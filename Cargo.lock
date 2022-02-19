@@ -4347,7 +4347,7 @@ dependencies = [
  "serde_bytes",
  "sha2",
  "solana-metrics",
- "solana-storage-bigtable",
+ "renec-storage-bigtable",
  "solana-storage-proto",
  "solana-transaction-status",
  "tempfile",
@@ -4388,7 +4388,7 @@ dependencies = [
  "serde_json",
  "serde_yaml",
  "signal-hook",
- "solana-storage-bigtable",
+ "renec-storage-bigtable",
  "solana-transaction-status",
  "tempfile",
  "tokio",
@@ -4717,7 +4717,7 @@ dependencies = [
  "serial_test",
  "soketto",
  "solana-metrics",
- "solana-storage-bigtable",
+ "renec-storage-bigtable",
  "solana-streamer",
  "solana-transaction-status",
  "spl-token",
@@ -5775,7 +5775,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "solana-storage-bigtable"
+name = "renec-storage-bigtable"
 version = "1.8.14"
 dependencies = [
  "arc-swap 0.4.8",
