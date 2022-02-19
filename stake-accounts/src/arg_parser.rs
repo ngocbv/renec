@@ -133,7 +133,7 @@ where
     T: Into<OsString> + Clone,
 {
     let default_config_file = CONFIG_FILE.as_ref().unwrap();
-    App::new("solana-stake-accounts")
+    App::new("renec-stake-accounts")
         .about("about")
         .version("version")
         .arg(

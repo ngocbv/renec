@@ -76,7 +76,7 @@ if [[ $CI_OS_NAME = windows ]]; then
     renec-install
     renec-install-init
     renec-keygen
-    solana-stake-accounts
+    renec-stake-accounts
     solana-test-validator
     solana-tokens
   )
@@ -105,7 +105,7 @@ else
       cargo-test-bpf
       renec-dos
       renec-install-init
-      solana-stake-accounts
+      renec-stake-accounts
       solana-test-validator
       solana-tokens
       solana-watchtower

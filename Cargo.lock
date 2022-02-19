@@ -4857,6 +4857,20 @@ dependencies = [
 ]
 
 [[package]]
+name = "renec-stake-accounts"
+version = "1.8.14"
+dependencies = [
+ "clap",
+ "renec-clap-utils",
+ "renec-cli-config",
+ "renec-client",
+ "renec-remote-wallet",
+ "renec-runtime",
+ "renec-sdk",
+ "renec-stake-program",
+]
+
+[[package]]
 name = "renec-stake-program"
 version = "1.8.14"
 dependencies = [
@@ -5758,20 +5772,6 @@ dependencies = [
  "quote 1.0.9",
  "rustversion",
  "syn 1.0.60",
-]
-
-[[package]]
-name = "solana-stake-accounts"
-version = "1.8.14"
-dependencies = [
- "clap",
- "renec-clap-utils",
- "renec-cli-config",
- "renec-client",
- "renec-remote-wallet",
- "renec-runtime",
- "renec-sdk",
- "renec-stake-program",
 ]
 
 [[package]]

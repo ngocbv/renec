@@ -1,5 +1,5 @@
 [package]
-name = "solana-stake-accounts"
+name = "renec-stake-accounts"
 description = "Blockchain, Rebuilt for Scale"
 authors = ["RENEC Maintainers <dev@remitano.com>"]
 edition = "2018"
@@ -7,7 +7,7 @@ version = "1.8.14"
 repository = "https://github.com/remitano/renec"
 license = "Apache-2.0"
 homepage = "https://remitano.com/"
-documentation = "https://docs.rs/solana-stake-accounts"
+documentation = "https://docs.rs/renec-stake-accounts"
 
 [dependencies]
 clap = "2.33.1"
