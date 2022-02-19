@@ -1,5 +1,5 @@
 [package]
-name = "solana-upload-perf"
+name = "renec-upload-perf"
 version = "1.8.14"
 description = "Metrics Upload Utility"
 authors = ["RENEC Maintainers <dev@remitano.com>"]
@@ -14,7 +14,7 @@ serde_json = "1.0.56"
 solana-metrics = { path = "../metrics", version = "=1.8.14" }
 
 [[bin]]
-name = "solana-upload-perf"
+name = "renec-upload-perf"
 path = "src/upload-perf.rs"
 
 
