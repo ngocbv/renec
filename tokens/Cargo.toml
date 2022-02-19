@@ -1,5 +1,5 @@
 [package]
-name = "solana-tokens"
+name = "renec-tokens"
 description = "Blockchain, Rebuilt for Scale"
 authors = ["RENEC Maintainers <dev@remitano.com>"]
 edition = "2018"
@@ -7,7 +7,7 @@ version = "1.8.14"
 repository = "https://github.com/remitano/renec"
 license = "Apache-2.0"
 homepage = "https://remitano.com/"
-documentation = "https://docs.rs/solana-tokens"
+documentation = "https://docs.rs/renec-tokens"
 
 [dependencies]
 chrono = { version = "0.4", features = ["serde"] }

@@ -3662,8 +3662,8 @@ dependencies = [
  "renec-net-utils",
  "renec-runtime",
  "renec-sdk",
- "renec-version",
  "renec-streamer",
+ "renec-version",
  "solana-transaction-status",
  "spl-token",
 ]
@@ -3737,8 +3737,8 @@ dependencies = [
  "renec-poh",
  "renec-runtime",
  "renec-sdk",
- "renec-version",
  "renec-streamer",
+ "renec-version",
 ]
 
 [[package]]
@@ -4017,6 +4017,7 @@ dependencies = [
  "renec-runtime",
  "renec-sdk",
  "renec-stake-program",
+ "renec-streamer",
  "renec-version",
  "renec-vote-program",
  "reqwest",
@@ -4028,7 +4029,6 @@ dependencies = [
  "serde_json",
  "serial_test",
  "solana-metrics",
- "renec-streamer",
  "solana-transaction-status",
  "spl-token",
  "symlink",
@@ -4081,8 +4081,8 @@ dependencies = [
  "renec-perf",
  "renec-runtime",
  "renec-sdk",
- "renec-version",
  "renec-streamer",
+ "renec-version",
 ]
 
 [[package]]
@@ -4239,6 +4239,7 @@ dependencies = [
  "renec-rayon-threadlimit",
  "renec-runtime",
  "renec-sdk",
+ "renec-streamer",
  "renec-version",
  "renec-vote-program",
  "rustc_version 0.2.3",
@@ -4247,7 +4248,6 @@ dependencies = [
  "serde_derive",
  "serial_test",
  "solana-metrics",
- "renec-streamer",
  "thiserror",
 ]
 
@@ -4420,9 +4420,9 @@ dependencies = [
  "renec-runtime",
  "renec-sdk",
  "renec-stake-program",
+ "renec-streamer",
  "renec-vote-program",
  "serial_test",
- "renec-streamer",
  "tempfile",
 ]
 
@@ -4710,6 +4710,7 @@ dependencies = [
  "renec-sdk",
  "renec-stake-program",
  "renec-storage-bigtable",
+ "renec-streamer",
  "renec-version",
  "renec-vote-program",
  "serde",
@@ -4718,7 +4719,6 @@ dependencies = [
  "serial_test",
  "soketto",
  "solana-metrics",
- "renec-streamer",
  "solana-transaction-status",
  "spl-token",
  "stream-cancel",
@@ -4938,6 +4938,22 @@ dependencies = [
 ]
 
 [[package]]
+name = "renec-streamer"
+version = "1.8.14"
+dependencies = [
+ "itertools 0.10.1",
+ "libc",
+ "log 0.4.14",
+ "nix 0.20.2",
+ "renec-logger",
+ "renec-measure",
+ "renec-perf",
+ "renec-sdk",
+ "solana-metrics",
+ "thiserror",
+]
+
+[[package]]
 name = "renec-sys-tuner"
 version = "1.8.14"
 dependencies = [
@@ -4990,13 +5006,13 @@ dependencies = [
  "renec-rpc",
  "renec-runtime",
  "renec-sdk",
+ "renec-streamer",
  "renec-version",
  "renec-vote-program",
  "serde",
  "serde_json",
  "signal-hook",
  "solana-metrics",
- "renec-streamer",
  "symlink",
  "tikv-jemallocator",
 ]
@@ -5610,11 +5626,11 @@ dependencies = [
  "renec-net-utils",
  "renec-runtime",
  "renec-sdk",
+ "renec-streamer",
  "renec-version",
  "serde_json",
  "serde_yaml",
  "solana-metrics",
- "renec-streamer",
 ]
 
 [[package]]
@@ -5625,8 +5641,8 @@ dependencies = [
  "renec-clap-utils",
  "renec-logger",
  "renec-net-utils",
- "renec-version",
  "renec-streamer",
+ "renec-version",
 ]
 
 [[package]]
@@ -5649,12 +5665,12 @@ dependencies = [
  "renec-net-utils",
  "renec-runtime",
  "renec-sdk",
+ "renec-streamer",
  "renec-version",
  "serde_json",
  "serde_yaml",
  "serial_test",
  "solana-metrics",
- "renec-streamer",
 ]
 
 [[package]]
@@ -5689,6 +5705,7 @@ dependencies = [
  "renec-net-utils",
  "renec-remote-wallet",
  "renec-sdk",
+ "renec-streamer",
  "renec-version",
  "renec-vote-program",
  "reqwest",
@@ -5696,7 +5713,6 @@ dependencies = [
  "serde",
  "serde_derive",
  "serde_json",
- "renec-streamer",
  "solana-transaction-status",
  "solana_rbpf",
  "spl-memo",
@@ -5833,23 +5849,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "renec-streamer"
-version = "1.8.14"
-dependencies = [
- "itertools 0.10.1",
- "libc",
- "log 0.4.14",
- "nix 0.20.2",
- "renec-logger",
- "renec-measure",
- "renec-perf",
- "renec-sdk",
- "solana-metrics",
- "thiserror",
-]
-
-[[package]]
-name = "solana-tokens"
+name = "renec-tokens"
 version = "1.8.14"
 dependencies = [
  "bincode",
@@ -5872,9 +5872,9 @@ dependencies = [
  "renec-remote-wallet",
  "renec-runtime",
  "renec-sdk",
+ "renec-streamer",
  "renec-version",
  "serde",
- "renec-streamer",
  "solana-transaction-status",
  "spl-associated-token-account",
  "spl-token",

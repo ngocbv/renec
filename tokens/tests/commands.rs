@@ -3,7 +3,7 @@ use {
     renec_core::test_validator::TestValidator,
     renec_sdk::signature::{Keypair, Signer},
     renec_streamer::socket::SocketAddrSpace,
-    solana_tokens::commands::test_process_distribute_tokens_with_client,
+    renec_tokens::commands::test_process_distribute_tokens_with_client,
 };
 
 #[test]

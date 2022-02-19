@@ -78,7 +78,7 @@ if [[ $CI_OS_NAME = windows ]]; then
     renec-keygen
     renec-stake-accounts
     solana-test-validator
-    solana-tokens
+    renec-tokens
   )
 else
   ./fetch-perf-libs.sh
@@ -107,7 +107,7 @@ else
       renec-install-init
       renec-stake-accounts
       solana-test-validator
-      solana-tokens
+      renec-tokens
       solana-watchtower
     )
   fi
