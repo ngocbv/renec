@@ -197,7 +197,7 @@ EOF
       done
       for i in $(seq 0 $((numBenchExchangeClients-1))); do
         # shellcheck disable=SC2086 # Do not want to quote $benchExchangeExtraArgs
-        solana-bench-exchange --batch-size 1000 --fund-amount 20000 \
+        renec-bench-exchange --batch-size 1000 --fund-amount 20000 \
           --write-client-keys config/bench-exchange"$i".yml $benchExchangeExtraArgs
         tail -n +2 -q config/bench-exchange"$i".yml >> config/client-accounts.yml
         echo "" >> config/client-accounts.yml

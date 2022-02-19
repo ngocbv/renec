@@ -3687,13 +3687,13 @@ dependencies = [
  "renec-accountsdb-plugin-interface",
  "renec-logger",
  "renec-measure",
+ "renec-metrics",
  "renec-rpc",
  "renec-runtime",
  "renec-sdk",
  "serde",
  "serde_derive",
  "serde_json",
- "renec-metrics",
  "thiserror",
 ]
 
@@ -3709,11 +3709,11 @@ dependencies = [
  "renec-accountsdb-plugin-interface",
  "renec-logger",
  "renec-measure",
+ "renec-metrics",
  "renec-sdk",
  "serde",
  "serde_derive",
  "serde_json",
- "renec-metrics",
  "thiserror",
  "tokio-postgres",
 ]
@@ -3780,9 +3780,9 @@ dependencies = [
  "log 0.4.14",
  "mio 0.7.6",
  "renec-banks-interface",
+ "renec-metrics",
  "renec-runtime",
  "renec-sdk",
- "renec-metrics",
  "tarpc",
  "tokio",
  "tokio-serde",
@@ -3820,11 +3820,11 @@ dependencies = [
  "rand 0.7.3",
  "rand_core 0.6.2",
  "renec-measure",
+ "renec-metrics",
  "renec-runtime",
  "renec-sdk",
  "rustversion",
  "sha3",
- "renec-metrics",
  "solana_rbpf",
  "thiserror",
 ]
@@ -4008,6 +4008,7 @@ dependencies = [
  "renec-logger",
  "renec-measure",
  "renec-merkle-tree",
+ "renec-metrics",
  "renec-net-utils",
  "renec-perf",
  "renec-poh",
@@ -4029,7 +4030,6 @@ dependencies = [
  "serde_derive",
  "serde_json",
  "serial_test",
- "renec-metrics",
  "spl-token",
  "symlink",
  "sys-info",
@@ -4119,11 +4119,11 @@ dependencies = [
  "num-derive",
  "num-traits",
  "renec-logger",
+ "renec-metrics",
  "renec-runtime",
  "renec-sdk",
  "serde",
  "serde_derive",
- "renec-metrics",
  "thiserror",
 ]
 
@@ -4138,11 +4138,11 @@ dependencies = [
  "renec-clap-utils",
  "renec-cli-config",
  "renec-logger",
+ "renec-metrics",
  "renec-sdk",
  "renec-version",
  "serde",
  "serde_derive",
- "renec-metrics",
  "spl-memo",
  "thiserror",
  "tokio",
@@ -4234,6 +4234,7 @@ dependencies = [
  "renec-ledger",
  "renec-logger",
  "renec-measure",
+ "renec-metrics",
  "renec-net-utils",
  "renec-perf",
  "renec-rayon-threadlimit",
@@ -4247,7 +4248,6 @@ dependencies = [
  "serde_bytes",
  "serde_derive",
  "serial_test",
- "renec-metrics",
  "thiserror",
 ]
 
@@ -4336,6 +4336,7 @@ dependencies = [
  "renec-logger",
  "renec-measure",
  "renec-merkle-tree",
+ "renec-metrics",
  "renec-perf",
  "renec-rayon-threadlimit",
  "renec-runtime",
@@ -4349,7 +4350,6 @@ dependencies = [
  "serde",
  "serde_bytes",
  "sha2",
- "renec-metrics",
  "tempfile",
  "thiserror",
  "tokio",
@@ -4453,8 +4453,8 @@ name = "renec-measure"
 version = "1.8.14"
 dependencies = [
  "log 0.4.14",
- "renec-sdk",
  "renec-metrics",
+ "renec-sdk",
 ]
 
 [[package]]
@@ -4478,6 +4478,20 @@ dependencies = [
  "hex",
  "matches",
  "renec-program",
+]
+
+[[package]]
+name = "renec-metrics"
+version = "1.8.14"
+dependencies = [
+ "env_logger",
+ "gethostname",
+ "lazy_static",
+ "log 0.4.14",
+ "rand 0.7.3",
+ "renec-sdk",
+ "reqwest",
+ "serial_test",
 ]
 
 [[package]]
@@ -4540,11 +4554,11 @@ dependencies = [
  "rayon",
  "renec-bloom",
  "renec-logger",
+ "renec-metrics",
  "renec-rayon-threadlimit",
  "renec-sdk",
  "renec-vote-program",
  "serde",
- "renec-metrics",
 ]
 
 [[package]]
@@ -4560,11 +4574,11 @@ dependencies = [
  "renec-ledger",
  "renec-logger",
  "renec-measure",
+ "renec-metrics",
  "renec-perf",
  "renec-runtime",
  "renec-sdk",
  "renec-sys-tuner",
- "renec-metrics",
  "thiserror",
 ]
 
@@ -4702,6 +4716,7 @@ dependencies = [
  "renec-ledger",
  "renec-logger",
  "renec-measure",
+ "renec-metrics",
  "renec-net-utils",
  "renec-perf",
  "renec-poh",
@@ -4719,7 +4734,6 @@ dependencies = [
  "serde_json",
  "serial_test",
  "soketto",
- "renec-metrics",
  "spl-token",
  "stream-cancel",
  "symlink",
@@ -4765,6 +4779,7 @@ dependencies = [
  "renec-frozen-abi-macro",
  "renec-logger",
  "renec-measure",
+ "renec-metrics",
  "renec-rayon-threadlimit",
  "renec-sdk",
  "renec-secp256k1-program",
@@ -4773,7 +4788,6 @@ dependencies = [
  "rustc_version 0.2.3",
  "serde",
  "serde_derive",
- "renec-metrics",
  "symlink",
  "tar",
  "tempfile",
@@ -4883,12 +4897,12 @@ dependencies = [
  "renec-frozen-abi",
  "renec-frozen-abi-macro",
  "renec-logger",
+ "renec-metrics",
  "renec-sdk",
  "renec-vote-program",
  "rustc_version 0.2.3",
  "serde",
  "serde_derive",
- "renec-metrics",
  "thiserror",
 ]
 
@@ -4909,13 +4923,13 @@ dependencies = [
  "prost",
  "prost-types",
  "rand_core 0.6.2",
+ "renec-metrics",
  "renec-sdk",
  "renec-storage-proto",
  "renec-transaction-status",
  "serde",
  "serde_derive",
  "smpl_jwt",
- "renec-metrics",
  "thiserror",
  "tonic",
  "zstd",
@@ -4947,9 +4961,9 @@ dependencies = [
  "nix 0.20.2",
  "renec-logger",
  "renec-measure",
+ "renec-metrics",
  "renec-perf",
  "renec-sdk",
- "renec-metrics",
  "thiserror",
 ]
 
@@ -5015,13 +5029,13 @@ dependencies = [
  "log 0.4.14",
  "renec-account-decoder",
  "renec-measure",
+ "renec-metrics",
  "renec-runtime",
  "renec-sdk",
  "renec-vote-program",
  "serde",
  "serde_derive",
  "serde_json",
- "renec-metrics",
  "spl-associated-token-account",
  "spl-memo",
  "spl-token",
@@ -5032,8 +5046,8 @@ dependencies = [
 name = "renec-upload-perf"
 version = "1.8.14"
 dependencies = [
- "serde_json",
  "renec-metrics",
+ "serde_json",
 ]
 
 [[package]]
@@ -5067,6 +5081,7 @@ dependencies = [
  "renec-gossip",
  "renec-ledger",
  "renec-logger",
+ "renec-metrics",
  "renec-net-utils",
  "renec-perf",
  "renec-poh",
@@ -5079,7 +5094,6 @@ dependencies = [
  "serde",
  "serde_json",
  "signal-hook",
- "renec-metrics",
  "symlink",
  "tikv-jemallocator",
 ]
@@ -5109,11 +5123,11 @@ dependencies = [
  "renec-frozen-abi",
  "renec-frozen-abi-macro",
  "renec-logger",
+ "renec-metrics",
  "renec-sdk",
  "rustc_version 0.2.3",
  "serde",
  "serde_derive",
- "renec-metrics",
  "thiserror",
 ]
 
@@ -5129,10 +5143,10 @@ dependencies = [
  "renec-cli-output",
  "renec-client",
  "renec-logger",
+ "renec-metrics",
  "renec-notifier",
  "renec-sdk",
  "renec-version",
- "renec-metrics",
 ]
 
 [[package]]
@@ -5689,7 +5703,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "solana-bench-exchange"
+name = "renec-bench-exchange"
 version = "1.8.14"
 dependencies = [
  "clap",
@@ -5708,6 +5722,7 @@ dependencies = [
  "renec-gossip",
  "renec-local-cluster",
  "renec-logger",
+ "renec-metrics",
  "renec-net-utils",
  "renec-runtime",
  "renec-sdk",
@@ -5715,7 +5730,6 @@ dependencies = [
  "renec-version",
  "serde_json",
  "serde_yaml",
- "renec-metrics",
 ]
 
 [[package]]
@@ -5747,6 +5761,7 @@ dependencies = [
  "renec-local-cluster",
  "renec-logger",
  "renec-measure",
+ "renec-metrics",
  "renec-net-utils",
  "renec-runtime",
  "renec-sdk",
@@ -5755,7 +5770,6 @@ dependencies = [
  "serde_json",
  "serde_yaml",
  "serial_test",
- "renec-metrics",
 ]
 
 [[package]]
@@ -5848,20 +5862,6 @@ dependencies = [
  "env_logger",
  "lazy_static",
  "log 0.4.14",
-]
-
-[[package]]
-name = "renec-metrics"
-version = "1.8.14"
-dependencies = [
- "env_logger",
- "gethostname",
- "lazy_static",
- "log 0.4.14",
- "rand 0.7.3",
- "renec-sdk",
- "reqwest",
- "serial_test",
 ]
 
 [[package]]

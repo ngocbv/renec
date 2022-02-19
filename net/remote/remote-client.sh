@@ -57,12 +57,12 @@ solana-bench-tps)
       --read-client-keys ./client-accounts.yml \
   "
   ;;
-solana-bench-exchange)
+renec-bench-exchange)
   renec-keygen new --no-passphrase -fso bench.keypair
   net/scripts/rsync-retry.sh -vPrc \
     "$entrypointIp":~/solana/config/bench-exchange"$clientIndex".yml ./client-accounts.yml
   clientCommand="\
-    solana-bench-exchange \
+    renec-bench-exchange \
       --entrypoint $entrypointIp:8001 \
       --faucet $entrypointIp:9900 \
       --threads $threadCount \
