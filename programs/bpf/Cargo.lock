@@ -2818,7 +2818,7 @@ dependencies = [
  "renec-measure",
  "renec-runtime",
  "renec-sdk",
- "solana-transaction-status",
+ "renec-transaction-status",
  "solana_rbpf",
  "walkdir",
 ]
@@ -3157,7 +3157,7 @@ dependencies = [
  "renec-clap-utils",
  "renec-client",
  "renec-sdk",
- "solana-transaction-status",
+ "renec-transaction-status",
  "renec-vote-program",
  "spl-memo",
 ]
@@ -3185,7 +3185,7 @@ dependencies = [
  "renec-faucet",
  "renec-net-utils",
  "renec-sdk",
- "solana-transaction-status",
+ "renec-transaction-status",
  "renec-version",
  "renec-vote-program",
  "thiserror",
@@ -3686,7 +3686,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "solana-transaction-status"
+name = "renec-transaction-status"
 version = "1.8.14"
 dependencies = [
  "Inflector",

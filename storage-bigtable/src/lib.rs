@@ -12,7 +12,7 @@ use {
         transaction::{Transaction, TransactionError},
     },
     renec_storage_proto::convert::{generated, tx_by_addr},
-    solana_transaction_status::{
+    renec_transaction_status::{
         extract_and_fmt_memos, ConfirmedBlock, ConfirmedTransaction,
         ConfirmedTransactionStatusWithSignature, Reward, TransactionByAddrInfo,
         TransactionConfirmationStatus, TransactionStatus, TransactionStatusMeta,

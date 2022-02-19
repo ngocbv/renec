@@ -41,7 +41,7 @@ use {
         signature::Signature,
         transaction::{self, uses_durable_nonce, Transaction},
     },
-    solana_transaction_status::{
+    renec_transaction_status::{
         EncodedConfirmedBlock, EncodedConfirmedTransaction, TransactionStatus, UiConfirmedBlock,
         UiTransactionEncoding,
     },
@@ -2328,7 +2328,7 @@ impl RpcClient {
     /// # Examples
     ///
     /// ```
-    /// # use solana_transaction_status::UiTransactionEncoding;
+    /// # use renec_transaction_status::UiTransactionEncoding;
     /// # use renec_client::{
     /// #     rpc_client::RpcClient,
     /// #     client_error::ClientError,
@@ -2364,7 +2364,7 @@ impl RpcClient {
     /// # Examples
     ///
     /// ```
-    /// # use solana_transaction_status::{
+    /// # use renec_transaction_status::{
     /// #     TransactionDetails,
     /// #     UiTransactionEncoding,
     /// # };
@@ -2915,7 +2915,7 @@ impl RpcClient {
     /// #     signer::keypair::Keypair,
     /// #     system_transaction,
     /// # };
-    /// # use solana_transaction_status::UiTransactionEncoding;
+    /// # use renec_transaction_status::UiTransactionEncoding;
     /// # let rpc_client = RpcClient::new_mock("succeeds".to_string());
     /// # let alice = Keypair::new();
     /// # let bob = Keypair::new();
@@ -2974,7 +2974,7 @@ impl RpcClient {
     /// #     system_transaction,
     /// #     commitment_config::CommitmentConfig,
     /// # };
-    /// # use solana_transaction_status::UiTransactionEncoding;
+    /// # use renec_transaction_status::UiTransactionEncoding;
     /// # let rpc_client = RpcClient::new_mock("succeeds".to_string());
     /// # let alice = Keypair::new();
     /// # let bob = Keypair::new();

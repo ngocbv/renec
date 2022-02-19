@@ -792,7 +792,7 @@ mod tests {
         prost::Message,
         renec_sdk::{hash::Hash, signature::Keypair, system_transaction},
         renec_storage_proto::convert::generated,
-        solana_transaction_status::{
+        renec_transaction_status::{
             ConfirmedBlock, TransactionStatusMeta, TransactionWithStatusMeta,
         },
         std::convert::TryInto,

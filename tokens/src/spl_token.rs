@@ -9,7 +9,7 @@ use {
     },
     renec_client::rpc_client::RpcClient,
     renec_sdk::{instruction::Instruction, native_token::lamports_to_sol},
-    solana_transaction_status::parse_token::spl_token_instruction,
+    renec_transaction_status::parse_token::spl_token_instruction,
     spl_associated_token_account::{create_associated_token_account, get_associated_token_address},
     spl_token::{
         // Rebuild https://github.com/solana-labs/solana-program-library first before change to renec_program

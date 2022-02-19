@@ -38,7 +38,7 @@ use {
         system_instruction,
         transaction::Transaction,
     },
-    solana_transaction_status::TransactionStatus,
+    renec_transaction_status::TransactionStatus,
     spl_associated_token_account::get_associated_token_address,
     // Rebuild https://github.com/solana-labs/solana-program-library first before change to renec_program
     spl_token::solana_program::program_error::ProgramError,
@@ -1221,7 +1221,7 @@ mod tests {
             stake::instruction::StakeInstruction,
         },
         renec_streamer::socket::SocketAddrSpace,
-        solana_transaction_status::TransactionConfirmationStatus,
+        renec_transaction_status::TransactionConfirmationStatus,
     };
 
     #[test]

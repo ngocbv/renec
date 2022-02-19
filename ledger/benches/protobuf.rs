@@ -11,7 +11,7 @@ use {
     },
     renec_runtime::bank::RewardType,
     renec_sdk::{clock::Slot, pubkey},
-    solana_transaction_status::{Reward, Rewards},
+    renec_transaction_status::{Reward, Rewards},
     std::path::Path,
     test::Bencher,
 };

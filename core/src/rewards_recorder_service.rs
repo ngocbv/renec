@@ -3,7 +3,7 @@ use {
     renec_ledger::blockstore::Blockstore,
     renec_runtime::bank::RewardInfo,
     renec_sdk::{clock::Slot, pubkey::Pubkey},
-    solana_transaction_status::Reward,
+    renec_transaction_status::Reward,
     std::{
         sync::{
             atomic::{AtomicBool, Ordering},

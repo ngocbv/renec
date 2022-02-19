@@ -8,7 +8,7 @@ use {
     renec_runtime::bank::{
         Bank, InnerInstructionsList, NonceRollbackInfo, TransactionLogMessages,
     },
-    solana_transaction_status::{
+    renec_transaction_status::{
         extract_and_fmt_memos, InnerInstructions, Reward, TransactionStatusMeta,
     },
     std::{
@@ -35,7 +35,7 @@ impl TransactionStatusService {
     ) -> Self {
         let exit = exit.clone();
         let thread_hdl = Builder::new()
-            .name("solana-transaction-status-writer".to_string())
+            .name("renec-transaction-status-writer".to_string())
             .spawn(move || loop {
                 if exit.load(Ordering::Relaxed) {
                     break;

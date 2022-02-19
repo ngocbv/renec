@@ -41,7 +41,7 @@ use {
         transaction::Transaction,
     },
     renec_storage_proto::{StoredExtendedRewards, StoredTransactionStatusMeta},
-    solana_transaction_status::{
+    renec_transaction_status::{
         ConfirmedBlock, ConfirmedTransaction, ConfirmedTransactionStatusWithSignature, Rewards,
         TransactionStatusMeta, TransactionWithStatusMeta,
     },
@@ -3915,7 +3915,7 @@ pub mod tests {
             transaction::TransactionError,
         },
         renec_storage_proto::convert::generated,
-        solana_transaction_status::{InnerInstructions, Reward, Rewards, TransactionTokenBalance},
+        renec_transaction_status::{InnerInstructions, Reward, Rewards, TransactionTokenBalance},
         std::{sync::mpsc::channel, thread::Builder, time::Duration},
     };
 

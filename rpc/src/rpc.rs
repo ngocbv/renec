@@ -72,7 +72,7 @@ use {
     },
     renec_storage_bigtable::Error as StorageError,
     renec_streamer::socket::SocketAddrSpace,
-    solana_transaction_status::{
+    renec_transaction_status::{
         ConfirmedBlock, ConfirmedTransactionStatusWithSignature, EncodedConfirmedTransaction,
         Reward, RewardType, TransactionConfirmationStatus, TransactionStatus, UiConfirmedBlock,
         UiTransactionEncoding,
@@ -4135,7 +4135,7 @@ pub mod tests {
             timing::slot_duration_from_slots_per_year,
             transaction::{self, TransactionError},
         },
-        solana_transaction_status::{
+        renec_transaction_status::{
             EncodedConfirmedBlock, EncodedTransaction, EncodedTransactionWithStatusMeta,
             TransactionDetails, UiMessage,
         },

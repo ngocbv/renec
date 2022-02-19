@@ -3664,7 +3664,7 @@ dependencies = [
  "renec-sdk",
  "renec-streamer",
  "renec-version",
- "solana-transaction-status",
+ "renec-transaction-status",
  "spl-token",
 ]
 
@@ -3899,7 +3899,7 @@ dependencies = [
  "serde",
  "serde_derive",
  "serde_json",
- "solana-transaction-status",
+ "renec-transaction-status",
  "spl-memo",
 ]
 
@@ -3931,7 +3931,7 @@ dependencies = [
  "serde",
  "serde_derive",
  "serde_json",
- "solana-transaction-status",
+ "renec-transaction-status",
  "thiserror",
  "tokio",
  "tungstenite",
@@ -4029,7 +4029,7 @@ dependencies = [
  "serde_json",
  "serial_test",
  "solana-metrics",
- "solana-transaction-status",
+ "renec-transaction-status",
  "spl-token",
  "symlink",
  "sys-info",
@@ -4349,7 +4349,7 @@ dependencies = [
  "serde_bytes",
  "sha2",
  "solana-metrics",
- "solana-transaction-status",
+ "renec-transaction-status",
  "tempfile",
  "thiserror",
  "tokio",
@@ -4389,7 +4389,7 @@ dependencies = [
  "serde_json",
  "serde_yaml",
  "signal-hook",
- "solana-transaction-status",
+ "renec-transaction-status",
  "tempfile",
  "tokio",
 ]
@@ -4719,7 +4719,7 @@ dependencies = [
  "serial_test",
  "soketto",
  "solana-metrics",
- "solana-transaction-status",
+ "renec-transaction-status",
  "spl-token",
  "stream-cancel",
  "symlink",
@@ -4915,7 +4915,7 @@ dependencies = [
  "serde_derive",
  "smpl_jwt",
  "solana-metrics",
- "solana-transaction-status",
+ "renec-transaction-status",
  "thiserror",
  "tonic",
  "zstd",
@@ -4933,7 +4933,7 @@ dependencies = [
  "renec-sdk",
  "serde",
  "serde_derive",
- "solana-transaction-status",
+ "renec-transaction-status",
  "tonic-build",
 ]
 
@@ -5713,7 +5713,7 @@ dependencies = [
  "serde",
  "serde_derive",
  "serde_json",
- "solana-transaction-status",
+ "renec-transaction-status",
  "solana_rbpf",
  "spl-memo",
  "tempfile",
@@ -5875,7 +5875,7 @@ dependencies = [
  "renec-streamer",
  "renec-version",
  "serde",
- "solana-transaction-status",
+ "renec-transaction-status",
  "spl-associated-token-account",
  "spl-token",
  "tempfile",
@@ -5883,7 +5883,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "solana-transaction-status"
+name = "renec-transaction-status"
 version = "1.8.14"
 dependencies = [
  "Inflector",

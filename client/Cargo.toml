@@ -29,7 +29,7 @@ renec-clap-utils = { path = "../clap-utils", version = "=1.8.14" }
 renec-faucet = { path = "../faucet", version = "=1.8.14" }
 renec-net-utils = { path = "../net-utils", version = "=1.8.14" }
 renec-sdk = { path = "../sdk", version = "=1.8.14" }
-solana-transaction-status = { path = "../transaction-status", version = "=1.8.14" }
+renec-transaction-status = { path = "../transaction-status", version = "=1.8.14" }
 renec-version = { path = "../version", version = "=1.8.14" }
 renec-vote-program = { path = "../programs/vote", version = "=1.8.14" }
 thiserror = "1.0"

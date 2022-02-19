@@ -3,7 +3,7 @@ use {
     pickledb::{error::Error, PickleDb, PickleDbDumpPolicy},
     serde::{Deserialize, Serialize},
     renec_sdk::{clock::Slot, pubkey::Pubkey, signature::Signature, transaction::Transaction},
-    solana_transaction_status::TransactionStatus,
+    renec_transaction_status::TransactionStatus,
     std::{cmp::Ordering, fs, io, path::Path},
 };
 
@@ -214,7 +214,7 @@ mod tests {
         super::*,
         csv::{ReaderBuilder, Trim},
         renec_sdk::transaction::TransactionError,
-        solana_transaction_status::TransactionConfirmationStatus,
+        renec_transaction_status::TransactionConfirmationStatus,
         tempfile::NamedTempFile,
     };
 

@@ -48,7 +48,7 @@ use renec_sdk::{
     sysvar::{clock, fees, rent},
     transaction::{Transaction, TransactionError},
 };
-use solana_transaction_status::{
+use renec_transaction_status::{
     token_balances::collect_token_balances, ConfirmedTransaction, InnerInstructions,
     TransactionStatusMeta, TransactionWithStatusMeta, UiTransactionEncoding,
 };

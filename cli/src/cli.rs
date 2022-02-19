@@ -1696,7 +1696,7 @@ mod tests {
             stake, system_program,
             transaction::TransactionError,
         },
-        solana_transaction_status::TransactionConfirmationStatus,
+        renec_transaction_status::TransactionConfirmationStatus,
         std::path::PathBuf,
     };
 

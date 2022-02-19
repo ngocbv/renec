@@ -41,7 +41,7 @@ use {
         timing::{duration_as_ms, timestamp, AtomicInterval},
         transaction::{self, Transaction, TransactionError},
     },
-    solana_transaction_status::token_balances::{
+    renec_transaction_status::token_balances::{
         collect_token_balances, TransactionTokenBalancesSet,
     },
     std::{
@@ -1685,7 +1685,7 @@ mod tests {
             transaction::TransactionError,
         },
         renec_streamer::{recvmmsg::recv_mmsg, socket::SocketAddrSpace},
-        solana_transaction_status::TransactionWithStatusMeta,
+        renec_transaction_status::TransactionWithStatusMeta,
         renec_vote_program::vote_transaction,
         std::{
             net::SocketAddr,

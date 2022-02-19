@@ -58,7 +58,7 @@ use {
         timing,
         transaction::Transaction,
     },
-    solana_transaction_status::UiTransactionEncoding,
+    renec_transaction_status::UiTransactionEncoding,
     renec_vote_program::vote_state::VoteState,
     std::{
         collections::{BTreeMap, HashMap, VecDeque},

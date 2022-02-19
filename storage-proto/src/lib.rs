@@ -5,7 +5,7 @@ use {
         StringAmount,
     },
     renec_sdk::{deserialize_utils::default_on_eof, transaction::Result},
-    solana_transaction_status::{
+    renec_transaction_status::{
         InnerInstructions, Reward, RewardType, TransactionStatusMeta, TransactionTokenBalance,
     },
     std::str::FromStr,

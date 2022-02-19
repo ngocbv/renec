@@ -30,7 +30,7 @@ use {
         stake_history::StakeHistoryEntry,
         transaction::{Transaction, TransactionError},
     },
-    solana_transaction_status::{
+    renec_transaction_status::{
         EncodedConfirmedBlock, EncodedTransaction, TransactionConfirmationStatus,
         UiTransactionStatusMeta,
     },

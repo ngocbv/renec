@@ -16,7 +16,7 @@ use {
     },
     renec_ledger::{blockstore::Blockstore, blockstore_db::AccessType},
     renec_sdk::{clock::Slot, pubkey::Pubkey, signature::Signature},
-    solana_transaction_status::{ConfirmedBlock, EncodedTransaction, UiTransactionEncoding},
+    renec_transaction_status::{ConfirmedBlock, EncodedTransaction, UiTransactionEncoding},
     std::{
         collections::HashSet,
         path::Path,
