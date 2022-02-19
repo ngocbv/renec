@@ -791,7 +791,7 @@ mod tests {
         crate::StoredConfirmedBlock,
         prost::Message,
         renec_sdk::{hash::Hash, signature::Keypair, system_transaction},
-        solana_storage_proto::convert::generated,
+        renec_storage_proto::convert::generated,
         solana_transaction_status::{
             ConfirmedBlock, TransactionStatusMeta, TransactionWithStatusMeta,
         },

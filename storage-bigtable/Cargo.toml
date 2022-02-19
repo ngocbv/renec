@@ -26,7 +26,7 @@ serde_derive = "1.0.103"
 smpl_jwt = "0.6.1"
 solana-metrics = { path = "../metrics", version = "=1.8.14" }
 renec-sdk = { path = "../sdk", version = "=1.8.14" }
-solana-storage-proto = { path = "../storage-proto", version = "=1.8.14" }
+renec-storage-proto = { path = "../storage-proto", version = "=1.8.14" }
 solana-transaction-status = { path = "../transaction-status", version = "=1.8.14" }
 thiserror = "1.0"
 futures = "0.3.8"

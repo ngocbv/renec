@@ -48,7 +48,7 @@ renec-rayon-threadlimit = { path = "../rayon-threadlimit", version = "=1.8.14" }
 renec-runtime = { path = "../runtime", version = "=1.8.14" }
 renec-sdk = { path = "../sdk", version = "=1.8.14" }
 renec-storage-bigtable = { path = "../storage-bigtable", version = "=1.8.14" }
-solana-storage-proto = { path = "../storage-proto", version = "=1.8.14" }
+renec-storage-proto = { path = "../storage-proto", version = "=1.8.14" }
 renec-vote-program = { path = "../programs/vote", version = "=1.8.14" }
 tempfile = "3.1.0"
 thiserror = "1.0"

@@ -4340,6 +4340,8 @@ dependencies = [
  "renec-rayon-threadlimit",
  "renec-runtime",
  "renec-sdk",
+ "renec-storage-bigtable",
+ "renec-storage-proto",
  "renec-vote-program",
  "rocksdb",
  "rustc_version 0.2.3",
@@ -4347,8 +4349,6 @@ dependencies = [
  "serde_bytes",
  "sha2",
  "solana-metrics",
- "renec-storage-bigtable",
- "solana-storage-proto",
  "solana-transaction-status",
  "tempfile",
  "thiserror",
@@ -4382,13 +4382,13 @@ dependencies = [
  "renec-runtime",
  "renec-sdk",
  "renec-stake-program",
+ "renec-storage-bigtable",
  "renec-version",
  "renec-vote-program",
  "serde",
  "serde_json",
  "serde_yaml",
  "signal-hook",
- "renec-storage-bigtable",
  "solana-transaction-status",
  "tempfile",
  "tokio",
@@ -4709,6 +4709,7 @@ dependencies = [
  "renec-runtime",
  "renec-sdk",
  "renec-stake-program",
+ "renec-storage-bigtable",
  "renec-version",
  "renec-vote-program",
  "serde",
@@ -4717,7 +4718,6 @@ dependencies = [
  "serial_test",
  "soketto",
  "solana-metrics",
- "renec-storage-bigtable",
  "solana-streamer",
  "solana-transaction-status",
  "spl-token",
@@ -4890,6 +4890,51 @@ dependencies = [
  "serde_derive",
  "solana-metrics",
  "thiserror",
+]
+
+[[package]]
+name = "renec-storage-bigtable"
+version = "1.8.14"
+dependencies = [
+ "arc-swap 0.4.8",
+ "backoff",
+ "bincode",
+ "bzip2",
+ "enum-iterator",
+ "flate2",
+ "futures 0.3.8",
+ "goauth",
+ "log 0.4.14",
+ "openssl",
+ "prost",
+ "prost-types",
+ "rand_core 0.6.2",
+ "renec-sdk",
+ "renec-storage-proto",
+ "serde",
+ "serde_derive",
+ "smpl_jwt",
+ "solana-metrics",
+ "solana-transaction-status",
+ "thiserror",
+ "tonic",
+ "zstd",
+]
+
+[[package]]
+name = "renec-storage-proto"
+version = "1.8.14"
+dependencies = [
+ "bincode",
+ "bs58 0.3.1",
+ "enum-iterator",
+ "prost",
+ "renec-account-decoder",
+ "renec-sdk",
+ "serde",
+ "serde_derive",
+ "solana-transaction-status",
+ "tonic-build",
 ]
 
 [[package]]
@@ -5772,51 +5817,6 @@ dependencies = [
  "quote 1.0.9",
  "rustversion",
  "syn 1.0.60",
-]
-
-[[package]]
-name = "renec-storage-bigtable"
-version = "1.8.14"
-dependencies = [
- "arc-swap 0.4.8",
- "backoff",
- "bincode",
- "bzip2",
- "enum-iterator",
- "flate2",
- "futures 0.3.8",
- "goauth",
- "log 0.4.14",
- "openssl",
- "prost",
- "prost-types",
- "rand_core 0.6.2",
- "renec-sdk",
- "serde",
- "serde_derive",
- "smpl_jwt",
- "solana-metrics",
- "solana-storage-proto",
- "solana-transaction-status",
- "thiserror",
- "tonic",
- "zstd",
-]
-
-[[package]]
-name = "solana-storage-proto"
-version = "1.8.14"
-dependencies = [
- "bincode",
- "bs58 0.3.1",
- "enum-iterator",
- "prost",
- "renec-account-decoder",
- "renec-sdk",
- "serde",
- "serde_derive",
- "solana-transaction-status",
- "tonic-build",
 ]
 
 [[package]]
