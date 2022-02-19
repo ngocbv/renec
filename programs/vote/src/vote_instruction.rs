@@ -9,7 +9,7 @@ use {
     log::*,
     num_derive::{FromPrimitive, ToPrimitive},
     serde_derive::{Deserialize, Serialize},
-    solana_metrics::inc_new_counter_info,
+    renec_metrics::inc_new_counter_info,
     renec_sdk::{
         decode_error::DecodeError,
         feature_set,

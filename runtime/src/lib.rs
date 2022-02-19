@@ -50,7 +50,7 @@ pub mod vote_account;
 pub mod vote_sender_types;
 
 #[macro_use]
-extern crate solana_metrics;
+extern crate renec_metrics;
 #[macro_use]
 extern crate serde_derive;
 

@@ -19,7 +19,7 @@ renec-clap-utils = { path = "../clap-utils", version = "=1.8.14" }
 renec-cli-config = { path = "../cli-config", version = "=1.8.14" }
 renec-client = { path = "../client", version = "=1.8.14" }
 renec-logger = { path = "../logger", version = "=1.8.14" }
-solana-metrics = { path = "../metrics", version = "=1.8.14" }
+renec-metrics = { path = "../metrics", version = "=1.8.14" }
 renec-rpc = { path = "../rpc", version = "=1.8.14" }
 renec-sdk = { path = "../sdk", version = "=1.8.14" }
 renec-transaction-status = { path = "../transaction-status", version = "=1.8.14" }

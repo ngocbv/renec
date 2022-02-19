@@ -17,7 +17,7 @@ num-traits = { version = "0.2" }
 serde = "1.0.122"
 serde_derive = "1.0.103"
 renec-logger = { path = "../../logger", version = "=1.8.14" }
-solana-metrics = { path = "../../metrics", version = "=1.8.14" }
+renec-metrics = { path = "../../metrics", version = "=1.8.14" }
 renec-sdk = { path = "../../sdk", version = "=1.8.14" }
 thiserror = "1.0"
 

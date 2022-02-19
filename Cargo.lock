@@ -3693,7 +3693,7 @@ dependencies = [
  "serde",
  "serde_derive",
  "serde_json",
- "solana-metrics",
+ "renec-metrics",
  "thiserror",
 ]
 
@@ -3713,7 +3713,7 @@ dependencies = [
  "serde",
  "serde_derive",
  "serde_json",
- "solana-metrics",
+ "renec-metrics",
  "thiserror",
  "tokio-postgres",
 ]
@@ -3782,7 +3782,7 @@ dependencies = [
  "renec-banks-interface",
  "renec-runtime",
  "renec-sdk",
- "solana-metrics",
+ "renec-metrics",
  "tarpc",
  "tokio",
  "tokio-serde",
@@ -3824,7 +3824,7 @@ dependencies = [
  "renec-sdk",
  "rustversion",
  "sha3",
- "solana-metrics",
+ "renec-metrics",
  "solana_rbpf",
  "thiserror",
 ]
@@ -4029,7 +4029,7 @@ dependencies = [
  "serde_derive",
  "serde_json",
  "serial_test",
- "solana-metrics",
+ "renec-metrics",
  "spl-token",
  "symlink",
  "sys-info",
@@ -4123,7 +4123,7 @@ dependencies = [
  "renec-sdk",
  "serde",
  "serde_derive",
- "solana-metrics",
+ "renec-metrics",
  "thiserror",
 ]
 
@@ -4142,7 +4142,7 @@ dependencies = [
  "renec-version",
  "serde",
  "serde_derive",
- "solana-metrics",
+ "renec-metrics",
  "spl-memo",
  "thiserror",
  "tokio",
@@ -4247,7 +4247,7 @@ dependencies = [
  "serde_bytes",
  "serde_derive",
  "serial_test",
- "solana-metrics",
+ "renec-metrics",
  "thiserror",
 ]
 
@@ -4349,7 +4349,7 @@ dependencies = [
  "serde",
  "serde_bytes",
  "sha2",
- "solana-metrics",
+ "renec-metrics",
  "tempfile",
  "thiserror",
  "tokio",
@@ -4454,7 +4454,7 @@ version = "1.8.14"
 dependencies = [
  "log 0.4.14",
  "renec-sdk",
- "solana-metrics",
+ "renec-metrics",
 ]
 
 [[package]]
@@ -4544,7 +4544,7 @@ dependencies = [
  "renec-sdk",
  "renec-vote-program",
  "serde",
- "solana-metrics",
+ "renec-metrics",
 ]
 
 [[package]]
@@ -4564,7 +4564,7 @@ dependencies = [
  "renec-runtime",
  "renec-sdk",
  "renec-sys-tuner",
- "solana-metrics",
+ "renec-metrics",
  "thiserror",
 ]
 
@@ -4719,7 +4719,7 @@ dependencies = [
  "serde_json",
  "serial_test",
  "soketto",
- "solana-metrics",
+ "renec-metrics",
  "spl-token",
  "stream-cancel",
  "symlink",
@@ -4773,7 +4773,7 @@ dependencies = [
  "rustc_version 0.2.3",
  "serde",
  "serde_derive",
- "solana-metrics",
+ "renec-metrics",
  "symlink",
  "tar",
  "tempfile",
@@ -4888,7 +4888,7 @@ dependencies = [
  "rustc_version 0.2.3",
  "serde",
  "serde_derive",
- "solana-metrics",
+ "renec-metrics",
  "thiserror",
 ]
 
@@ -4915,7 +4915,7 @@ dependencies = [
  "serde",
  "serde_derive",
  "smpl_jwt",
- "solana-metrics",
+ "renec-metrics",
  "thiserror",
  "tonic",
  "zstd",
@@ -4949,7 +4949,7 @@ dependencies = [
  "renec-measure",
  "renec-perf",
  "renec-sdk",
- "solana-metrics",
+ "renec-metrics",
  "thiserror",
 ]
 
@@ -5021,11 +5021,19 @@ dependencies = [
  "serde",
  "serde_derive",
  "serde_json",
- "solana-metrics",
+ "renec-metrics",
  "spl-associated-token-account",
  "spl-memo",
  "spl-token",
  "thiserror",
+]
+
+[[package]]
+name = "renec-upload-perf"
+version = "1.8.14"
+dependencies = [
+ "serde_json",
+ "renec-metrics",
 ]
 
 [[package]]
@@ -5071,7 +5079,7 @@ dependencies = [
  "serde",
  "serde_json",
  "signal-hook",
- "solana-metrics",
+ "renec-metrics",
  "symlink",
  "tikv-jemallocator",
 ]
@@ -5105,8 +5113,26 @@ dependencies = [
  "rustc_version 0.2.3",
  "serde",
  "serde_derive",
- "solana-metrics",
+ "renec-metrics",
  "thiserror",
+]
+
+[[package]]
+name = "renec-watchtower"
+version = "1.8.14"
+dependencies = [
+ "clap",
+ "humantime",
+ "log 0.4.14",
+ "renec-clap-utils",
+ "renec-cli-config",
+ "renec-cli-output",
+ "renec-client",
+ "renec-logger",
+ "renec-notifier",
+ "renec-sdk",
+ "renec-version",
+ "renec-metrics",
 ]
 
 [[package]]
@@ -5689,7 +5715,7 @@ dependencies = [
  "renec-version",
  "serde_json",
  "serde_yaml",
- "solana-metrics",
+ "renec-metrics",
 ]
 
 [[package]]
@@ -5729,7 +5755,7 @@ dependencies = [
  "serde_json",
  "serde_yaml",
  "serial_test",
- "solana-metrics",
+ "renec-metrics",
 ]
 
 [[package]]
@@ -5825,7 +5851,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "solana-metrics"
+name = "renec-metrics"
 version = "1.8.14"
 dependencies = [
  "env_logger",
@@ -5905,32 +5931,6 @@ dependencies = [
  "renec-runtime",
  "renec-sdk",
  "renec-version",
-]
-
-[[package]]
-name = "renec-upload-perf"
-version = "1.8.14"
-dependencies = [
- "serde_json",
- "solana-metrics",
-]
-
-[[package]]
-name = "renec-watchtower"
-version = "1.8.14"
-dependencies = [
- "clap",
- "humantime",
- "log 0.4.14",
- "renec-clap-utils",
- "renec-cli-config",
- "renec-cli-output",
- "renec-client",
- "renec-logger",
- "renec-notifier",
- "renec-sdk",
- "renec-version",
- "solana-metrics",
 ]
 
 [[package]]

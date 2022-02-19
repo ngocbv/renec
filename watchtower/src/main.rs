@@ -10,7 +10,7 @@ use {
     },
     renec_cli_output::display::format_labeled_address,
     renec_client::{client_error, rpc_client::RpcClient, rpc_response::RpcVoteAccountStatus},
-    solana_metrics::{datapoint_error, datapoint_info},
+    renec_metrics::{datapoint_error, datapoint_info},
     renec_notifier::Notifier,
     renec_sdk::{
         hash::Hash,
@@ -204,7 +204,7 @@ fn get_cluster_info(
 
 fn main() -> Result<(), Box<dyn error::Error>> {
     renec_logger::setup_with_default("solana=info");
-    solana_metrics::set_panic_hook("watchtower");
+    renec_metrics::set_panic_hook("watchtower");
 
     let config = get_config();
 

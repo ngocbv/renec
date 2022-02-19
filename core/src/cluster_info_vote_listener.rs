@@ -20,7 +20,7 @@ use {
     },
     renec_ledger::blockstore::Blockstore,
     renec_measure::measure::Measure,
-    solana_metrics::inc_new_counter_debug,
+    renec_metrics::inc_new_counter_debug,
     renec_perf::packet::{self, PacketBatch},
     renec_poh::poh_recorder::PohRecorder,
     renec_rpc::{

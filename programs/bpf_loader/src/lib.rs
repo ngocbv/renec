@@ -9,7 +9,7 @@ pub mod upgradeable_with_jit;
 pub mod with_jit;
 
 #[macro_use]
-extern crate solana_metrics;
+extern crate renec_metrics;
 
 use {
     crate::{

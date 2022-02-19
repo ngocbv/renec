@@ -6,7 +6,7 @@ use {
     renec_core::gen_keys::GenKeys,
     renec_faucet::faucet::request_airdrop_transaction,
     renec_measure::measure::Measure,
-    solana_metrics::{self, datapoint_info},
+    renec_metrics::{self, datapoint_info},
     renec_sdk::{
         client::Client,
         clock::{DEFAULT_S_PER_SLOT, MAX_PROCESSING_AGE},

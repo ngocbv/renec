@@ -12,7 +12,7 @@ use {
     renec_accountsdb_plugin_interface::accountsdb_plugin_interface::{
         AccountsDbPlugin, AccountsDbPluginError, ReplicaAccountInfoVersions, Result, SlotStatus,
     },
-    solana_metrics::*,
+    renec_metrics::*,
     std::{fs::File, io::Read},
     thiserror::Error,
 };

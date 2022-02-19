@@ -2,7 +2,7 @@
 use {
     log::*,
     renec_gossip::cluster_info::ClusterInfo,
-    solana_metrics::{datapoint_warn, inc_new_counter_info},
+    renec_metrics::{datapoint_warn, inc_new_counter_info},
     renec_poh::poh_recorder::PohRecorder,
     renec_runtime::{bank::Bank, bank_forks::BankForks},
     renec_sdk::{

@@ -13,7 +13,7 @@ use {
 
 fn main() {
     renec_logger::setup();
-    solana_metrics::set_panic_hook("bench-exchange");
+    renec_metrics::set_panic_hook("bench-exchange");
 
     let matches = cli::build_args(renec_version::version!()).get_matches();
     let cli_config = cli::extract_args(&matches);

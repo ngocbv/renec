@@ -12,7 +12,7 @@ use {
     serde::{Deserialize, Serialize},
     renec_measure::measure::Measure,
     renec_merkle_tree::MerkleTree,
-    solana_metrics::*,
+    renec_metrics::*,
     renec_perf::{cuda_runtime::PinnedVec, perf_libs, recycler::Recycler},
     renec_rayon_threadlimit::get_thread_count,
     renec_runtime::hashed_transaction::HashedTransaction,

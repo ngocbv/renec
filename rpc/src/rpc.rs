@@ -39,7 +39,7 @@ use {
         get_tmp_ledger_path,
         leader_schedule_cache::LeaderScheduleCache,
     },
-    solana_metrics::inc_new_counter_info,
+    renec_metrics::inc_new_counter_info,
     renec_perf::packet::PACKET_DATA_SIZE,
     renec_runtime::{
         accounts::AccountAddressFilter,

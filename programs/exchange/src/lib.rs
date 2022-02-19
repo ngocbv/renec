@@ -4,7 +4,7 @@ pub mod exchange_processor;
 pub mod exchange_state;
 
 #[macro_use]
-extern crate solana_metrics;
+extern crate renec_metrics;
 
 use crate::exchange_processor::process_instruction;
 

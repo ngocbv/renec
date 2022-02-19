@@ -2754,7 +2754,7 @@ dependencies = [
  "log",
  "mio",
  "renec-banks-interface",
- "solana-metrics",
+ "renec-metrics",
  "renec-runtime",
  "renec-sdk",
  "tarpc",
@@ -2793,7 +2793,7 @@ dependencies = [
  "rand_core 0.6.2",
  "sha3",
  "renec-measure",
- "solana-metrics",
+ "renec-metrics",
  "renec-runtime",
  "renec-sdk",
  "solana_rbpf",
@@ -3256,7 +3256,7 @@ dependencies = [
  "renec-clap-utils",
  "renec-cli-config",
  "renec-logger 1.8.14",
- "solana-metrics",
+ "renec-metrics",
  "renec-sdk",
  "renec-version",
  "spl-memo",
@@ -3349,12 +3349,12 @@ name = "renec-measure"
 version = "1.8.14"
 dependencies = [
  "log",
- "solana-metrics",
+ "renec-metrics",
  "renec-sdk",
 ]
 
 [[package]]
-name = "solana-metrics"
+name = "renec-metrics"
 version = "1.8.14"
 dependencies = [
  "env_logger",
@@ -3404,7 +3404,7 @@ dependencies = [
  "serde",
  "renec-bloom",
  "renec-logger 1.8.14",
- "solana-metrics",
+ "renec-metrics",
  "renec-rayon-threadlimit",
  "renec-sdk",
  "renec-vote-program",
@@ -3570,7 +3570,7 @@ dependencies = [
  "renec-frozen-abi-macro 1.8.14",
  "renec-logger 1.8.14",
  "renec-measure",
- "solana-metrics",
+ "renec-metrics",
  "renec-rayon-threadlimit",
  "renec-sdk",
  "renec-secp256k1-program",
@@ -3679,7 +3679,7 @@ dependencies = [
  "renec-config-program",
  "renec-frozen-abi 1.8.14",
  "renec-frozen-abi-macro 1.8.14",
- "solana-metrics",
+ "renec-metrics",
  "renec-sdk",
  "renec-vote-program",
  "thiserror",
@@ -3700,7 +3700,7 @@ dependencies = [
  "serde_json",
  "renec-account-decoder",
  "renec-measure",
- "solana-metrics",
+ "renec-metrics",
  "renec-runtime",
  "renec-sdk",
  "renec-vote-program",
@@ -3738,7 +3738,7 @@ dependencies = [
  "renec-frozen-abi 1.8.14",
  "renec-frozen-abi-macro 1.8.14",
  "renec-logger 1.8.14",
- "solana-metrics",
+ "renec-metrics",
  "renec-sdk",
  "thiserror",
 ]

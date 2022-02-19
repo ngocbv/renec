@@ -2819,8 +2819,8 @@ pub fn main() {
         }
     }
 
-    solana_metrics::set_host_id(identity_keypair.pubkey().to_string());
-    solana_metrics::set_panic_hook("validator");
+    renec_metrics::set_host_id(identity_keypair.pubkey().to_string());
+    renec_metrics::set_panic_hook("validator");
 
     renec_ledger::entry::init_poh();
     renec_runtime::snapshot_utils::remove_tmp_snapshot_archives(&snapshot_output_dir);

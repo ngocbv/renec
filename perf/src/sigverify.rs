@@ -16,7 +16,7 @@ use {
     ahash::AHasher,
     rand::{thread_rng, Rng},
     rayon::ThreadPool,
-    solana_metrics::inc_new_counter_debug,
+    renec_metrics::inc_new_counter_debug,
     renec_rayon_threadlimit::get_thread_count,
     renec_sdk::{
         hash::Hash, message::MESSAGE_HEADER_LENGTH, pubkey::Pubkey, short_vec::decode_shortu16_len,

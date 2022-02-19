@@ -35,7 +35,7 @@ use {
         leader_schedule_cache::LeaderScheduleCache,
     },
     renec_measure::measure::Measure,
-    solana_metrics::inc_new_counter_info,
+    renec_metrics::inc_new_counter_info,
     renec_poh::poh_recorder::{PohRecorder, GRACE_TICKS_FACTOR, MAX_GRACE_SLOTS},
     renec_rpc::{
         optimistically_confirmed_bank_tracker::{BankNotification, BankNotificationSender},

@@ -12,7 +12,7 @@ use {
     renec_exchange_program::{exchange_instruction, exchange_state::*, id},
     renec_faucet::faucet::request_airdrop_transaction,
     renec_genesis::Base64Account,
-    solana_metrics::datapoint_info,
+    renec_metrics::datapoint_info,
     renec_sdk::{
         client::{Client, SyncClient},
         commitment_config::CommitmentConfig,

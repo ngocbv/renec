@@ -19,7 +19,7 @@ use {
     renec_gossip::cluster_info::{ClusterInfo, ClusterInfoError},
     renec_ledger::{blockstore::Blockstore, shred::Shred},
     renec_measure::measure::Measure,
-    solana_metrics::{inc_new_counter_error, inc_new_counter_info},
+    renec_metrics::{inc_new_counter_error, inc_new_counter_info},
     renec_poh::poh_recorder::WorkingBankEntry,
     renec_runtime::{bank::Bank, bank_forks::BankForks},
     renec_sdk::{

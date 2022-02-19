@@ -36,7 +36,7 @@ renec-faucet = { path = "../faucet", version = "=1.8.14" }
 renec-gossip = { path = "../gossip", version = "=1.8.14" }
 renec-ledger = { path = "../ledger", version = "=1.8.14" }
 renec-measure = { path = "../measure", version = "=1.8.14" }
-solana-metrics = { path = "../metrics", version = "=1.8.14" }
+renec-metrics = { path = "../metrics", version = "=1.8.14" }
 renec-perf = { path = "../perf", version = "=1.8.14" }
 renec-poh = { path = "../poh", version = "=1.8.14" }
 renec-rayon-threadlimit = { path = "../rayon-threadlimit", version = "=1.8.14" }

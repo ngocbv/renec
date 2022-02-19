@@ -3,7 +3,7 @@ use {
     dashmap::{mapref::entry::Entry as DashEntry, DashMap},
     renec_account_decoder::{UiAccountEncoding, UiDataSliceConfig},
     renec_client::rpc_filter::RpcFilterType,
-    solana_metrics::{CounterToken, TokenCounter},
+    renec_metrics::{CounterToken, TokenCounter},
     renec_runtime::{
         bank::{TransactionLogCollectorConfig, TransactionLogCollectorFilter},
         bank_forks::BankForks,

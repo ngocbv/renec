@@ -19,7 +19,7 @@ extern crate log;
 extern crate matches;
 
 #[macro_use]
-extern crate solana_metrics;
+extern crate renec_metrics;
 
 fn is_rosetta_emulated() -> bool {
     #[cfg(target_os = "macos")]

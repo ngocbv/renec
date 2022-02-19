@@ -5,7 +5,7 @@ use {
     log::*,
     num_derive::{FromPrimitive, ToPrimitive},
     serde_derive::Serialize,
-    solana_metrics::inc_new_counter_info,
+    renec_metrics::inc_new_counter_info,
     renec_sdk::{
         account::{ReadableAccount, WritableAccount},
         decode_error::DecodeError,

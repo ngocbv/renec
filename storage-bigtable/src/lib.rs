@@ -2,7 +2,7 @@
 use {
     log::*,
     serde::{Deserialize, Serialize},
-    solana_metrics::inc_new_counter_debug,
+    renec_metrics::inc_new_counter_debug,
     renec_sdk::{
         clock::{Slot, UnixTimestamp},
         deserialize_utils::default_on_eof,
@@ -26,7 +26,7 @@ use {
 };
 
 #[macro_use]
-extern crate solana_metrics;
+extern crate renec_metrics;
 
 #[macro_use]
 extern crate serde_derive;

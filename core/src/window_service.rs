@@ -21,7 +21,7 @@ use {
         shred::{Nonce, Shred, ShredType},
     },
     renec_measure::measure::Measure,
-    solana_metrics::{inc_new_counter_debug, inc_new_counter_error},
+    renec_metrics::{inc_new_counter_debug, inc_new_counter_error},
     renec_perf::packet::{Packet, PacketBatch},
     renec_rayon_threadlimit::get_thread_count,
     renec_runtime::{bank::Bank, bank_forks::BankForks},

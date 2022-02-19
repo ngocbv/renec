@@ -1,7 +1,7 @@
 use {
     crate::consensus::Stake,
     renec_measure::measure::Measure,
-    solana_metrics::datapoint_info,
+    renec_metrics::datapoint_info,
     renec_rpc::rpc_subscriptions::RpcSubscriptions,
     renec_runtime::{
         bank::Bank,

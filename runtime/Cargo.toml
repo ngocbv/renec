@@ -44,7 +44,7 @@ renec-frozen-abi = { path = "../frozen-abi", version = "=1.8.14" }
 renec-frozen-abi-macro = { path = "../frozen-abi/macro", version = "=1.8.14" }
 renec-logger = { path = "../logger", version = "=1.8.14" }
 renec-measure = { path = "../measure", version = "=1.8.14" }
-solana-metrics = { path = "../metrics", version = "=1.8.14" }
+renec-metrics = { path = "../metrics", version = "=1.8.14" }
 renec-rayon-threadlimit = { path = "../rayon-threadlimit", version = "=1.8.14" }
 renec-sdk = { path = "../sdk", version = "=1.8.14" }
 renec-secp256k1-program = { path = "../programs/secp256k1", version = "=1.8.14" }

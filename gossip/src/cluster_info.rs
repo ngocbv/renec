@@ -39,7 +39,7 @@ use {
     serde::ser::Serialize,
     renec_ledger::shred::Shred,
     renec_measure::measure::Measure,
-    solana_metrics::{inc_new_counter_debug, inc_new_counter_error},
+    renec_metrics::{inc_new_counter_debug, inc_new_counter_error},
     renec_net_utils::{
         bind_common, bind_common_in_range, bind_in_range, find_available_port_in_range,
         multi_bind_in_range, PortRange,

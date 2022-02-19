@@ -34,4 +34,4 @@ extern crate serde_derive;
 extern crate renec_frozen_abi_macro;
 
 #[macro_use]
-extern crate solana_metrics;
+extern crate renec_metrics;

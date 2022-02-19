@@ -13,7 +13,7 @@ use {
         AccountsDbPluginError, ReplicaAccountInfo, SlotStatus,
     },
     renec_measure::measure::Measure,
-    solana_metrics::*,
+    renec_metrics::*,
     renec_sdk::timing::AtomicInterval,
     std::{
         sync::{

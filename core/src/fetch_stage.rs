@@ -5,7 +5,7 @@ use {
         banking_stage::HOLD_TRANSACTIONS_SLOT_OFFSET,
         result::{Error, Result},
     },
-    solana_metrics::{inc_new_counter_debug, inc_new_counter_info},
+    renec_metrics::{inc_new_counter_debug, inc_new_counter_info},
     renec_perf::{packet::PacketBatchRecycler, recycler::Recycler},
     renec_poh::poh_recorder::PohRecorder,
     renec_sdk::{clock::DEFAULT_TICKS_PER_SLOT, packet::Packet},

@@ -7,7 +7,7 @@ pub mod vote_state;
 pub mod vote_transaction;
 
 #[macro_use]
-extern crate solana_metrics;
+extern crate renec_metrics;
 
 #[macro_use]
 extern crate renec_frozen_abi_macro;

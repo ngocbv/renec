@@ -21,7 +21,7 @@ rand = "0.7.0"
 rayon = "1.5.0"
 serde = "1.0.126"
 renec-logger = { path = "../logger", version = "=1.8.14" }
-solana-metrics = { path = "../metrics", version = "=1.8.14" }
+renec-metrics = { path = "../metrics", version = "=1.8.14" }
 renec-sdk = { path = "../sdk", version = "=1.8.14" }
 renec-rayon-threadlimit = { path = "../rayon-threadlimit", version = "=1.8.14" }
 renec-bloom = { path = "../bloom", version = "=1.8.14" }

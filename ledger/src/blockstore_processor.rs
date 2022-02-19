@@ -16,7 +16,7 @@ use {
     rand::{seq::SliceRandom, thread_rng},
     rayon::{prelude::*, ThreadPool},
     renec_measure::measure::Measure,
-    solana_metrics::{datapoint_error, inc_new_counter_debug},
+    renec_metrics::{datapoint_error, inc_new_counter_debug},
     renec_rayon_threadlimit::get_thread_count,
     renec_runtime::{
         accounts_db::AccountShrinkThreshold,

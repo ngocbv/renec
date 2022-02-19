@@ -21,7 +21,7 @@ serde_derive = "1.0.103"
 serde_json = "1.0.56"
 renec-account-decoder = { path = "../account-decoder", version = "=1.8.14" }
 renec-measure = { path = "../measure", version = "=1.8.14" }
-solana-metrics = { path = "../metrics", version = "=1.8.14" }
+renec-metrics = { path = "../metrics", version = "=1.8.14" }
 renec-sdk = { path = "../sdk", version = "=1.8.14" }
 renec-runtime = { path = "../runtime", version = "=1.8.14" }
 renec-vote-program = { path = "../programs/vote", version = "=1.8.14" }

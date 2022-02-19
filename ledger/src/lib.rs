@@ -29,7 +29,7 @@ pub mod sigverify_shreds;
 pub mod staking_utils;
 
 #[macro_use]
-extern crate solana_metrics;
+extern crate renec_metrics;
 
 #[macro_use]
 extern crate log;
