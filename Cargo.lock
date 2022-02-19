@@ -3790,6 +3790,36 @@ dependencies = [
 ]
 
 [[package]]
+name = "renec-bench-exchange"
+version = "1.8.14"
+dependencies = [
+ "clap",
+ "itertools 0.9.0",
+ "log 0.4.14",
+ "num-derive",
+ "num-traits",
+ "rand 0.7.3",
+ "rayon",
+ "renec-clap-utils",
+ "renec-client",
+ "renec-core",
+ "renec-exchange-program",
+ "renec-faucet",
+ "renec-genesis",
+ "renec-gossip",
+ "renec-local-cluster",
+ "renec-logger",
+ "renec-metrics",
+ "renec-net-utils",
+ "renec-runtime",
+ "renec-sdk",
+ "renec-streamer",
+ "renec-version",
+ "serde_json",
+ "serde_yaml",
+]
+
+[[package]]
 name = "renec-bloom"
 version = "1.8.14"
 dependencies = [
@@ -5703,37 +5733,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "renec-bench-exchange"
-version = "1.8.14"
-dependencies = [
- "clap",
- "itertools 0.9.0",
- "log 0.4.14",
- "num-derive",
- "num-traits",
- "rand 0.7.3",
- "rayon",
- "renec-clap-utils",
- "renec-client",
- "renec-core",
- "renec-exchange-program",
- "renec-faucet",
- "renec-genesis",
- "renec-gossip",
- "renec-local-cluster",
- "renec-logger",
- "renec-metrics",
- "renec-net-utils",
- "renec-runtime",
- "renec-sdk",
- "renec-streamer",
- "renec-version",
- "serde_json",
- "serde_yaml",
-]
-
-[[package]]
-name = "solana-bench-streamer"
+name = "renec-bench-streamer"
 version = "1.8.14"
 dependencies = [
  "clap",
