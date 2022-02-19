@@ -1,7 +1,7 @@
 #![allow(clippy::integer_arithmetic)]
 use {
     serial_test::serial,
-    solana_bench_tps::{
+    renec_bench_tps::{
         bench::{do_bench_tps, generate_and_fund_keypairs},
         cli::Config,
     },

@@ -61,7 +61,7 @@ else
   }
 fi
 
-solana_bench_tps=$(renec_program bench-tps)
+renec_bench_tps=$(renec_program bench-tps)
 renec_faucet=$(renec_program faucet)
 renec_validator=$(renec_program validator)
 renec_validator_cuda="$renec_validator --cuda"

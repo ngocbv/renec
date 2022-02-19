@@ -5745,7 +5745,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "solana-bench-tps"
+name = "renec-bench-tps"
 version = "1.8.14"
 dependencies = [
  "bincode",

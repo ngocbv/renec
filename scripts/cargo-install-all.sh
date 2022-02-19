@@ -86,7 +86,7 @@ else
   BINS=(
     solana
     renec-bench-exchange
-    solana-bench-tps
+    renec-bench-tps
     renec-faucet
     renec-gossip
     renec-install

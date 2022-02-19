@@ -43,11 +43,11 @@ skip)
 esac
 
 case $clientToRun in
-solana-bench-tps)
+renec-bench-tps)
   net/scripts/rsync-retry.sh -vPrc \
     "$entrypointIp":~/solana/config/bench-tps"$clientIndex".yml ./client-accounts.yml
   clientCommand="\
-    solana-bench-tps \
+    renec-bench-tps \
       --entrypoint $entrypointIp:8001 \
       --faucet $entrypointIp:9900 \
       --duration 7500 \
