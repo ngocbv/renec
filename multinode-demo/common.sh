@@ -69,7 +69,7 @@ renec_genesis=$(renec_program genesis)
 renec_gossip=$(renec_program gossip)
 renec_keygen=$(renec_program keygen)
 renec_ledger_tool=$(renec_program ledger-tool)
-solana_cli=$(renec_program)
+renec_cli=$(renec_program)
 
 export RUST_BACKTRACE=1
 

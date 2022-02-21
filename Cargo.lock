@@ -3820,6 +3820,46 @@ dependencies = [
 ]
 
 [[package]]
+name = "renec-bench-streamer"
+version = "1.8.14"
+dependencies = [
+ "clap",
+ "renec-clap-utils",
+ "renec-logger",
+ "renec-net-utils",
+ "renec-streamer",
+ "renec-version",
+]
+
+[[package]]
+name = "renec-bench-tps"
+version = "1.8.14"
+dependencies = [
+ "bincode",
+ "clap",
+ "log 0.4.14",
+ "rayon",
+ "renec-clap-utils",
+ "renec-client",
+ "renec-core",
+ "renec-faucet",
+ "renec-genesis",
+ "renec-gossip",
+ "renec-local-cluster",
+ "renec-logger",
+ "renec-measure",
+ "renec-metrics",
+ "renec-net-utils",
+ "renec-runtime",
+ "renec-sdk",
+ "renec-streamer",
+ "renec-version",
+ "serde_json",
+ "serde_yaml",
+ "serial_test",
+]
+
+[[package]]
 name = "renec-bloom"
 version = "1.8.14"
 dependencies = [
@@ -3895,6 +3935,55 @@ dependencies = [
  "thiserror",
  "tiny-bip39",
  "uriparse",
+ "url 2.2.0",
+]
+
+[[package]]
+name = "renec-cli"
+version = "1.8.14"
+dependencies = [
+ "Inflector",
+ "bincode",
+ "bs58 0.3.1",
+ "chrono",
+ "clap",
+ "console 0.14.1",
+ "const_format",
+ "criterion-stats",
+ "ctrlc",
+ "dirs-next",
+ "humantime",
+ "indicatif",
+ "log 0.4.14",
+ "num-traits",
+ "pretty-hex",
+ "renec-account-decoder",
+ "renec-bpf-loader-program",
+ "renec-clap-utils",
+ "renec-cli-config",
+ "renec-cli-output",
+ "renec-client",
+ "renec-config-program",
+ "renec-core",
+ "renec-faucet",
+ "renec-logger",
+ "renec-net-utils",
+ "renec-remote-wallet",
+ "renec-sdk",
+ "renec-streamer",
+ "renec-transaction-status",
+ "renec-version",
+ "renec-vote-program",
+ "reqwest",
+ "semver 1.0.4",
+ "serde",
+ "serde_derive",
+ "serde_json",
+ "solana_rbpf",
+ "spl-memo",
+ "tempfile",
+ "thiserror",
+ "tiny-bip39",
  "url 2.2.0",
 ]
 
@@ -5730,95 +5819,6 @@ dependencies = [
  "log 0.4.14",
  "rand 0.8.3",
  "sha-1 0.9.7",
-]
-
-[[package]]
-name = "renec-bench-streamer"
-version = "1.8.14"
-dependencies = [
- "clap",
- "renec-clap-utils",
- "renec-logger",
- "renec-net-utils",
- "renec-streamer",
- "renec-version",
-]
-
-[[package]]
-name = "renec-bench-tps"
-version = "1.8.14"
-dependencies = [
- "bincode",
- "clap",
- "log 0.4.14",
- "rayon",
- "renec-clap-utils",
- "renec-client",
- "renec-core",
- "renec-faucet",
- "renec-genesis",
- "renec-gossip",
- "renec-local-cluster",
- "renec-logger",
- "renec-measure",
- "renec-metrics",
- "renec-net-utils",
- "renec-runtime",
- "renec-sdk",
- "renec-streamer",
- "renec-version",
- "serde_json",
- "serde_yaml",
- "serial_test",
-]
-
-[[package]]
-name = "solana-cli"
-version = "1.8.14"
-dependencies = [
- "Inflector",
- "bincode",
- "bs58 0.3.1",
- "chrono",
- "clap",
- "console 0.14.1",
- "const_format",
- "criterion-stats",
- "ctrlc",
- "dirs-next",
- "humantime",
- "indicatif",
- "log 0.4.14",
- "num-traits",
- "pretty-hex",
- "renec-account-decoder",
- "renec-bpf-loader-program",
- "renec-clap-utils",
- "renec-cli-config",
- "renec-cli-output",
- "renec-client",
- "renec-config-program",
- "renec-core",
- "renec-faucet",
- "renec-logger",
- "renec-net-utils",
- "renec-remote-wallet",
- "renec-sdk",
- "renec-streamer",
- "renec-transaction-status",
- "renec-version",
- "renec-vote-program",
- "reqwest",
- "semver 1.0.4",
- "serde",
- "serde_derive",
- "serde_json",
- "solana_rbpf",
- "spl-memo",
- "tempfile",
- "thiserror",
- "tiny-bip39",
- "url 2.2.0",
 ]
 
 [[package]]

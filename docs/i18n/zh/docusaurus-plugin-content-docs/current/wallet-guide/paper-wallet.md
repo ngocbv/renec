@@ -20,7 +20,7 @@ Solana 提供了一个密钥生成工具，可以从符合 BIP39 规范的助记
 
 ## 准备工作
 
-- [安装 Solana 命令行工具](../cli/install-solana-cli-tools.md)
+- [安装 Solana 命令行工具](../cli/install-renec-cli-tools.md)
 
 ### 检查您的安装
 
