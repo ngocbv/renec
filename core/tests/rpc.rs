@@ -6,7 +6,7 @@ use {
     reqwest::{self, header::CONTENT_TYPE},
     serde_json::{json, Value},
     renec_account_decoder::UiAccount,
-    solana_client::{
+    renec_client::{
         client_error::{ClientErrorKind, Result as ClientResult},
         rpc_client::RpcClient,
         rpc_config::{RpcAccountInfoConfig, RpcSignatureSubscribeConfig},
@@ -14,7 +14,7 @@ use {
         rpc_response::{Response as RpcResponse, RpcSignatureResult, SlotUpdate},
         tpu_client::{TpuClient, TpuClientConfig},
     },
-    solana_core::test_validator::TestValidator,
+    renec_core::test_validator::TestValidator,
     solana_rpc::rpc_pubsub::gen_client::Client as PubsubClient,
     solana_sdk::{
         commitment_config::CommitmentConfig,
@@ -109,7 +109,7 @@ fn test_rpc_send_tx() {
     assert!(confirmed_tx);
 
     use {
-        renec_account_decoder::UiAccountEncoding, solana_client::rpc_config::RpcAccountInfoConfig,
+        renec_account_decoder::UiAccountEncoding, renec_client::rpc_config::RpcAccountInfoConfig,
     };
     let config = RpcAccountInfoConfig {
         encoding: Some(UiAccountEncoding::Base64),

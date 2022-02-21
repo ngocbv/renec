@@ -16,8 +16,8 @@ num-derive = "0.3"
 num-traits = "0.2"
 serde = "1.0.122"
 serde_derive = "1.0.103"
-solana-frozen-abi = { path = "../../frozen-abi", version = "=1.8.14" }
-solana-frozen-abi-macro = { path = "../../frozen-abi/macro", version = "=1.8.14" }
+renec-frozen-abi = { path = "../../frozen-abi", version = "=1.8.14" }
+renec-frozen-abi-macro = { path = "../../frozen-abi/macro", version = "=1.8.14" }
 solana-metrics = { path = "../../metrics", version = "=1.8.14" }
 solana-sdk = { path = "../../sdk", version = "=1.8.14" }
 renec-vote-program = { path = "../vote", version = "=1.8.14" }

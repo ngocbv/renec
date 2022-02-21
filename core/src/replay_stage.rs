@@ -25,18 +25,18 @@ use {
         voting_service::VoteOp,
         window_service::DuplicateSlotReceiver,
     },
-    solana_client::rpc_response::SlotUpdate,
-    solana_gossip::cluster_info::ClusterInfo,
-    solana_ledger::{
+    renec_client::rpc_response::SlotUpdate,
+    renec_gossip::cluster_info::ClusterInfo,
+    renec_ledger::{
         block_error::BlockError,
         blockstore::Blockstore,
         blockstore_processor::{self, BlockstoreProcessorError, TransactionStatusSender},
         entry::VerifyRecyclers,
         leader_schedule_cache::LeaderScheduleCache,
     },
-    solana_measure::measure::Measure,
+    renec_measure::measure::Measure,
     solana_metrics::inc_new_counter_info,
-    solana_poh::poh_recorder::{PohRecorder, GRACE_TICKS_FACTOR, MAX_GRACE_SLOTS},
+    renec_poh::poh_recorder::{PohRecorder, GRACE_TICKS_FACTOR, MAX_GRACE_SLOTS},
     solana_rpc::{
         optimistically_confirmed_bank_tracker::{BankNotification, BankNotificationSender},
         rpc_subscriptions::RpcSubscriptions,
@@ -2633,8 +2633,8 @@ mod tests {
             replay_stage::ReplayStage,
         },
         crossbeam_channel::unbounded,
-        solana_gossip::{cluster_info::Node, crds::Cursor},
-        solana_ledger::{
+        renec_gossip::{cluster_info::Node, crds::Cursor},
+        renec_ledger::{
             blockstore::{entries_to_test_shreds, make_slot_entries, BlockstoreError},
             create_new_tmp_ledger,
             entry::{self, Entry},

@@ -9,7 +9,7 @@ use {
     renec_cli_output::{
         CliEpochRewardshMetadata, CliInflation, CliKeyedEpochReward, CliKeyedEpochRewards,
     },
-    solana_client::rpc_client::RpcClient,
+    renec_client::rpc_client::RpcClient,
     solana_remote_wallet::remote_wallet::RemoteWalletManager,
     solana_sdk::{clock::Epoch, pubkey::Pubkey},
     std::sync::Arc,

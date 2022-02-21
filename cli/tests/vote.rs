@@ -5,11 +5,11 @@ use {
         test_utils::check_recent_balance,
     },
     renec_cli_output::{parse_sign_only_reply_string, OutputFormat},
-    solana_client::{
+    renec_client::{
         blockhash_query::{self, BlockhashQuery},
         rpc_client::RpcClient,
     },
-    solana_core::test_validator::TestValidator,
+    renec_core::test_validator::TestValidator,
     renec_faucet::faucet::run_local_faucet,
     solana_sdk::{
         account_utils::StateMut,

@@ -14,15 +14,15 @@ use {
         unbounded, Receiver as CrossbeamReceiver, RecvTimeoutError, Sender as CrossbeamSender,
     },
     rayon::{prelude::*, ThreadPool},
-    solana_gossip::cluster_info::ClusterInfo,
-    solana_ledger::{
+    renec_gossip::cluster_info::ClusterInfo,
+    renec_ledger::{
         blockstore::{self, Blockstore, BlockstoreInsertionMetrics, MAX_DATA_SHREDS_PER_SLOT},
         leader_schedule_cache::LeaderScheduleCache,
         shred::{Nonce, Shred, ShredType},
     },
-    solana_measure::measure::Measure,
+    renec_measure::measure::Measure,
     solana_metrics::{inc_new_counter_debug, inc_new_counter_error},
-    solana_perf::packet::{Packet, PacketBatch},
+    renec_perf::packet::{Packet, PacketBatch},
     solana_rayon_threadlimit::get_thread_count,
     solana_runtime::{bank::Bank, bank_forks::BankForks},
     solana_sdk::{clock::Slot, packet::PACKET_DATA_SIZE, pubkey::Pubkey},
@@ -713,8 +713,8 @@ impl WindowService {
 mod test {
     use {
         super::*,
-        solana_gossip::contact_info::ContactInfo,
-        solana_ledger::{
+        renec_gossip::contact_info::ContactInfo,
+        renec_ledger::{
             blockstore::{make_many_slot_entries, Blockstore},
             entry::{create_ticks, Entry},
             genesis_utils::create_genesis_config_with_leader,

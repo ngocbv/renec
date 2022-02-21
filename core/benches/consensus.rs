@@ -1,10 +1,10 @@
 #![feature(test)]
 
-extern crate solana_core;
+extern crate renec_core;
 extern crate test;
 
 use {
-    solana_core::consensus::Tower,
+    renec_core::consensus::Tower,
     solana_runtime::{bank::Bank, bank_forks::BankForks},
     solana_sdk::{
         pubkey::Pubkey,

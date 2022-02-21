@@ -1,9 +1,9 @@
 use {
-    solana_ledger::{
+    renec_ledger::{
         blockstore::Blockstore,
         shred::{Nonce, SIZE_OF_NONCE},
     },
-    solana_perf::packet::limited_deserialize,
+    renec_perf::packet::limited_deserialize,
     solana_sdk::{clock::Slot, packet::Packet},
     std::{io, net::SocketAddr},
 };
@@ -52,7 +52,7 @@ pub fn nonce(buf: &[u8]) -> Option<Nonce> {
 mod test {
     use {
         super::*,
-        solana_ledger::{
+        renec_ledger::{
             shred::{Shred, Shredder},
             sigverify_shreds::verify_shred_cpu,
         },

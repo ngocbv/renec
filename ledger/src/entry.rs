@@ -10,10 +10,10 @@ use {
     rand::{thread_rng, Rng},
     rayon::{prelude::*, ThreadPool},
     serde::{Deserialize, Serialize},
-    solana_measure::measure::Measure,
-    solana_merkle_tree::MerkleTree,
+    renec_measure::measure::Measure,
+    renec_merkle_tree::MerkleTree,
     solana_metrics::*,
-    solana_perf::{cuda_runtime::PinnedVec, perf_libs, recycler::Recycler},
+    renec_perf::{cuda_runtime::PinnedVec, perf_libs, recycler::Recycler},
     solana_rayon_threadlimit::get_thread_count,
     solana_runtime::hashed_transaction::HashedTransaction,
     solana_sdk::{
@@ -59,9 +59,9 @@ fn init(name: &OsStr) {
     unsafe {
         INIT_HOOK.call_once(|| {
             let path;
-            let lib_name = if let Some(perf_libs_path) = solana_perf::perf_libs::locate_perf_libs()
+            let lib_name = if let Some(perf_libs_path) = renec_perf::perf_libs::locate_perf_libs()
             {
-                solana_perf::perf_libs::append_to_ld_library_path(
+                renec_perf::perf_libs::append_to_ld_library_path(
                     perf_libs_path.to_str().unwrap_or("").to_string(),
                 );
                 path = perf_libs_path.join(name);

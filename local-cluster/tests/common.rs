@@ -1,20 +1,20 @@
 #![allow(clippy::integer_arithmetic, dead_code)]
 use {
     log::*,
-    solana_client::rpc_client::RpcClient,
-    solana_core::{
+    renec_client::rpc_client::RpcClient,
+    renec_core::{
         broadcast_stage::BroadcastStageType,
         consensus::{Tower, SWITCH_FORK_THRESHOLD},
         validator::ValidatorConfig,
     },
-    solana_gossip::gossip_service::discover_cluster,
-    solana_ledger::{
+    renec_gossip::gossip_service::discover_cluster,
+    renec_ledger::{
         ancestor_iterator::AncestorIterator,
         blockstore::{Blockstore, PurgeType},
         blockstore_db::AccessType,
         leader_schedule::{FixedSchedule, LeaderSchedule},
     },
-    solana_local_cluster::{
+    renec_local_cluster::{
         cluster::{Cluster, ClusterValidatorInfo},
         cluster_tests,
         local_cluster::{ClusterConfig, LocalCluster},
@@ -43,7 +43,7 @@ use {
 };
 
 pub const RUST_LOG_FILTER: &str =
-    "error,solana_core::replay_stage=warn,solana_local_cluster=info,local_cluster=info";
+    "error,renec_core::replay_stage=warn,renec_local_cluster=info,local_cluster=info";
 
 pub fn last_vote_in_tower(ledger_path: &Path, node_pubkey: &Pubkey) -> Option<(Slot, Hash)> {
     restore_tower(ledger_path, node_pubkey).map(|tower| tower.last_voted_slot_hash().unwrap())
@@ -357,7 +357,7 @@ pub fn run_cluster_partition<C>(
 }
 
 pub fn test_faulty_node(faulty_node_type: BroadcastStageType) {
-    renec_logger::setup_with_default("solana_local_cluster=info");
+    renec_logger::setup_with_default("renec_local_cluster=info");
     let num_nodes = 3;
 
     let error_validator_config = ValidatorConfig {

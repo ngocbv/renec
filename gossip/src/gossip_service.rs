@@ -6,8 +6,8 @@ use {
         contact_info::ContactInfo,
     },
     rand::{thread_rng, Rng},
-    solana_client::thin_client::{create_client, ThinClient},
-    solana_perf::recycler::Recycler,
+    renec_client::thin_client::{create_client, ThinClient},
+    renec_perf::recycler::Recycler,
     solana_runtime::bank_forks::BankForks,
     solana_sdk::{
         pubkey::Pubkey,
@@ -162,7 +162,7 @@ pub fn discover(
         info!("Gossip Address: {:?}", my_gossip_addr);
     }
     let _ip_echo_server = ip_echo
-        .map(|tcp_listener| solana_net_utils::ip_echo_server(tcp_listener, Some(my_shred_version)));
+        .map(|tcp_listener| renec_net_utils::ip_echo_server(tcp_listener, Some(my_shred_version)));
     let (met_criteria, elapsed, all_peers, tvu_peers) = spy(
         spy_ref.clone(),
         num_nodes,
@@ -227,7 +227,7 @@ pub fn get_multi_client(
         .collect();
     let rpc_addrs: Vec<_> = addrs.iter().map(|addr| addr.0).collect();
     let tpu_addrs: Vec<_> = addrs.iter().map(|addr| addr.1).collect();
-    let (_, transactions_socket) = solana_net_utils::bind_in_range(
+    let (_, transactions_socket) = renec_net_utils::bind_in_range(
         IpAddr::V4(Ipv4Addr::new(0, 0, 0, 0)),
         VALIDATOR_PORT_RANGE,
     )

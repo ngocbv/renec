@@ -1,7 +1,7 @@
 use {
     super::*,
     crate::cluster_nodes::ClusterNodesCache,
-    solana_ledger::shred::Shredder,
+    renec_ledger::shred::Shredder,
     solana_sdk::{hash::Hash, signature::Keypair},
     std::{thread::sleep, time::Duration},
 };

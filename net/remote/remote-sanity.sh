@@ -64,8 +64,8 @@ local|tar|skip)
   PATH="$HOME"/.cargo/bin:"$PATH"
   export USE_INSTALL=1
   solana_cli=solana
-  solana_gossip=solana-gossip
-  solana_install=solana-install
+  renec_gossip=renec-gossip
+  renec_install=renec-install
   ;;
 *)
   echo "Unknown deployment method: $deployMethod"
@@ -97,7 +97,7 @@ echo "--- $sanityTargetIp: node count ($numSanityNodes expected)"
     nodeArg="num-nodes-exactly"
   fi
 
-  $solana_gossip --allow-private-addr spy --entrypoint "$sanityTargetIp:8001" \
+  $renec_gossip --allow-private-addr spy --entrypoint "$sanityTargetIp:8001" \
     --$nodeArg "$numSanityNodes" --timeout 60 \
 )
 
@@ -122,17 +122,17 @@ else
 fi
 
 if $installCheck && [[ -r update_manifest_keypair.json ]]; then
-  echo "--- $sanityTargetIp: solana-install test"
+  echo "--- $sanityTargetIp: renec-install test"
 
   (
     set -x
     rm -rf install-data-dir
-    $solana_install init \
+    $renec_install init \
       --no-modify-path \
       --data-dir install-data-dir \
       --url http://"$sanityTargetIp":8899 \
 
-    $solana_install info
+    $renec_install info
   )
 fi
 

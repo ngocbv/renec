@@ -1,6 +1,6 @@
 use {
     clap::{crate_description, crate_name, value_t, App, Arg, ArgMatches},
-    solana_core::gen_keys::GenKeys,
+    renec_core::gen_keys::GenKeys,
     renec_faucet::faucet::FAUCET_PORT,
     solana_sdk::signature::{read_keypair_file, Keypair},
     std::{net::SocketAddr, process::exit, time::Duration},
@@ -167,7 +167,7 @@ pub fn build_args<'a, 'b>(version: &'b str) -> App<'a, 'b> {
 pub fn extract_args(matches: &ArgMatches) -> Config {
     let mut args = Config::default();
 
-    args.entrypoint_addr = solana_net_utils::parse_host_port(
+    args.entrypoint_addr = renec_net_utils::parse_host_port(
         matches.value_of("entrypoint").unwrap(),
     )
     .unwrap_or_else(|e| {
@@ -175,7 +175,7 @@ pub fn extract_args(matches: &ArgMatches) -> Config {
         exit(1)
     });
 
-    args.faucet_addr = solana_net_utils::parse_host_port(matches.value_of("faucet").unwrap())
+    args.faucet_addr = renec_net_utils::parse_host_port(matches.value_of("faucet").unwrap())
         .unwrap_or_else(|e| {
             eprintln!("failed to parse faucet address: {}", e);
             exit(1)

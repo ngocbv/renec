@@ -15,7 +15,7 @@ use {
     log::*,
     rand::{seq::SliceRandom, thread_rng},
     rayon::{prelude::*, ThreadPool},
-    solana_measure::measure::Measure,
+    renec_measure::measure::Measure,
     solana_metrics::{datapoint_error, inc_new_counter_debug},
     solana_rayon_threadlimit::get_thread_count,
     solana_runtime::{

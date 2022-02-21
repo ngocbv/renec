@@ -1,13 +1,13 @@
 [package]
 authors = ["RENEC Maintainers <dev@remitano.com>"]
 edition = "2018"
-name = "solana-local-cluster"
+name = "renec-local-cluster"
 description = "Blockchain, Rebuilt for Scale"
 version = "1.8.14"
 repository = "https://github.com/remitano/renec"
 license = "Apache-2.0"
 homepage = "https://remitano.com/"
-documentation = "https://docs.rs/solana-local-cluster"
+documentation = "https://docs.rs/renec-local-cluster"
 
 [dependencies]
 crossbeam-channel = "0.4"
@@ -18,13 +18,13 @@ log = "0.4.11"
 rand = "0.7.0"
 rayon = "1.5.0"
 renec-config-program = { path = "../programs/config", version = "=1.8.14" }
-solana-core = { path = "../core", version = "=1.8.14" }
-solana-client = { path = "../client", version = "=1.8.14" }
-solana-download-utils = { path = "../download-utils", version = "=1.8.14" }
+renec-core = { path = "../core", version = "=1.8.14" }
+renec-client = { path = "../client", version = "=1.8.14" }
+renec-download-utils = { path = "../download-utils", version = "=1.8.14" }
 renec-exchange-program = { path = "../programs/exchange", version = "=1.8.14" }
 renec-faucet = { path = "../faucet", version = "=1.8.14" }
-solana-gossip = { path = "../gossip", version = "=1.8.14" }
-solana-ledger = { path = "../ledger", version = "=1.8.14" }
+renec-gossip = { path = "../gossip", version = "=1.8.14" }
+renec-ledger = { path = "../ledger", version = "=1.8.14" }
 renec-logger = { path = "../logger", version = "=1.8.14" }
 solana-rayon-threadlimit = { path = "../rayon-threadlimit", version = "=1.8.14" }
 solana-rpc = { path = "../rpc", version = "=1.8.14" }

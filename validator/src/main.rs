@@ -17,27 +17,27 @@ use {
         },
         keypair::SKIP_SEED_PHRASE_VALIDATION_ARG,
     },
-    solana_client::{
+    renec_client::{
         rpc_client::RpcClient, rpc_config::RpcLeaderScheduleConfig,
         rpc_request::MAX_MULTIPLE_ACCOUNTS,
     },
-    solana_core::{
+    renec_core::{
         ledger_cleanup_service::{DEFAULT_MAX_LEDGER_SHREDS, DEFAULT_MIN_MAX_LEDGER_SHREDS},
         tpu::DEFAULT_TPU_COALESCE_MS,
         validator::{
             is_snapshot_config_invalid, Validator, ValidatorConfig, ValidatorStartProgress,
         },
     },
-    solana_download_utils::{download_snapshot, DownloadProgressRecord},
+    renec_download_utils::{download_snapshot, DownloadProgressRecord},
     renec_genesis_utils::download_then_check_genesis_hash,
-    solana_gossip::{
+    renec_gossip::{
         cluster_info::{ClusterInfo, Node, VALIDATOR_PORT_RANGE},
         contact_info::ContactInfo,
         gossip_service::GossipService,
     },
-    solana_ledger::blockstore_db::BlockstoreRecoveryMode,
-    solana_perf::recycler::enable_recycler_warming,
-    solana_poh::poh_service,
+    renec_ledger::blockstore_db::BlockstoreRecoveryMode,
+    renec_perf::recycler::enable_recycler_warming,
+    renec_poh::poh_service,
     solana_rpc::{rpc::JsonRpcConfig, rpc_pubsub_service::PubSubConfig, send_transaction_service},
     solana_runtime::{
         accounts_db::{
@@ -733,7 +733,7 @@ fn verify_reachable_ports(
         tcp_listeners.push((ip_echo.local_addr().unwrap().port(), ip_echo));
     }
 
-    solana_net_utils::verify_reachable_ports(
+    renec_net_utils::verify_reachable_ports(
         &cluster_entrypoint.gossip,
         tcp_listeners,
         &udp_sockets,
@@ -841,7 +841,7 @@ fn rpc_bootstrap(
 
         let result = match rpc_client.get_version() {
             Ok(rpc_version) => {
-                info!("RPC node version: {}", rpc_version.solana_core);
+                info!("RPC node version: {}", rpc_version.renec_core);
                 Ok(())
             }
             Err(err) => Err(format!("Failed to get RPC node version: {}", err)),
@@ -1032,7 +1032,7 @@ fn get_cluster_shred_version(entrypoints: &[SocketAddr]) -> Option<u16> {
         index.into_iter().map(|i| &entrypoints[i])
     };
     for entrypoint in entrypoints {
-        match solana_net_utils::get_cluster_shred_version(entrypoint) {
+        match renec_net_utils::get_cluster_shred_version(entrypoint) {
             Err(err) => eprintln!("get_cluster_shred_version failed: {}, {}", entrypoint, err),
             Ok(0) => eprintln!("zero sherd-version from entrypoint: {}", entrypoint),
             Ok(shred_version) => {
@@ -1144,7 +1144,7 @@ pub fn main() {
                 .value_name("HOST:PORT")
                 .takes_value(true)
                 .multiple(true)
-                .validator(solana_net_utils::is_host_port)
+                .validator(renec_net_utils::is_host_port)
                 .help("Rendezvous with the cluster at this gossip entrypoint"),
         )
         .arg(
@@ -1282,7 +1282,7 @@ pub fn main() {
                 .long("rpc-faucet-address")
                 .value_name("HOST:PORT")
                 .takes_value(true)
-                .validator(solana_net_utils::is_host_port)
+                .validator(renec_net_utils::is_host_port)
                 .help("Enable the JSON RPC 'requestAirdrop' API with this faucet address."),
         )
         .arg(
@@ -1327,7 +1327,7 @@ pub fn main() {
                 .long("gossip-host")
                 .value_name("HOST")
                 .takes_value(true)
-                .validator(solana_net_utils::is_host)
+                .validator(renec_net_utils::is_host)
                 .help("Gossip DNS name or IP address for the validator to advertise in gossip \
                        [default: ask --entrypoint, or 127.0.0.1 when --entrypoint is not provided]"),
 
@@ -1338,7 +1338,7 @@ pub fn main() {
                 .value_name("HOST:PORT")
                 .takes_value(true)
                 .conflicts_with("private_rpc")
-                .validator(solana_net_utils::is_host_port)
+                .validator(renec_net_utils::is_host_port)
                 .help("RPC address for the validator to advertise publicly in gossip. \
                       Useful for validators running behind a load balancer or proxy \
                       [default: use --rpc-bind-address / --rpc-port]"),
@@ -1612,7 +1612,7 @@ pub fn main() {
                 .long("bind-address")
                 .value_name("HOST")
                 .takes_value(true)
-                .validator(solana_net_utils::is_host)
+                .validator(renec_net_utils::is_host)
                 .default_value("0.0.0.0")
                 .help("IP address to bind the validator ports"),
         )
@@ -1621,7 +1621,7 @@ pub fn main() {
                 .long("rpc-bind-address")
                 .value_name("HOST")
                 .takes_value(true)
-                .validator(solana_net_utils::is_host)
+                .validator(renec_net_utils::is_host)
                 .help("IP address to bind the RPC port [default: 127.0.0.1 if --private-rpc is present, otherwise use --bind-address]"),
         )
         .arg(
@@ -2289,11 +2289,11 @@ pub fn main() {
 
     let cuda = matches.is_present("cuda");
     if cuda {
-        solana_perf::perf_libs::init_cuda();
+        renec_perf::perf_libs::init_cuda();
         enable_recycler_warming();
     }
 
-    solana_core::validator::report_target_features();
+    renec_core::validator::report_target_features();
 
     let authorized_voter_keypairs = keypairs_of(&matches, "authorized_voter_keypairs")
         .map(|keypairs| keypairs.into_iter().map(Arc::new).collect())
@@ -2362,13 +2362,13 @@ pub fn main() {
         "--gossip-validator",
     );
 
-    let bind_address = solana_net_utils::parse_host(matches.value_of("bind_address").unwrap())
+    let bind_address = renec_net_utils::parse_host(matches.value_of("bind_address").unwrap())
         .expect("invalid bind_address");
     let rpc_bind_address = if matches.is_present("rpc_bind_address") {
-        solana_net_utils::parse_host(matches.value_of("rpc_bind_address").unwrap())
+        renec_net_utils::parse_host(matches.value_of("rpc_bind_address").unwrap())
             .expect("invalid rpc_bind_address")
     } else if private_rpc {
-        solana_net_utils::parse_host("127.0.0.1").unwrap()
+        renec_net_utils::parse_host("127.0.0.1").unwrap()
     } else {
         bind_address
     };
@@ -2398,7 +2398,7 @@ pub fn main() {
         .unwrap_or_default()
         .into_iter()
         .map(|entrypoint| {
-            solana_net_utils::parse_host_port(&entrypoint).unwrap_or_else(|e| {
+            renec_net_utils::parse_host_port(&entrypoint).unwrap_or_else(|e| {
                 eprintln!("failed to parse entrypoint address: {}", e);
                 exit(1);
             })
@@ -2445,7 +2445,7 @@ pub fn main() {
             enable_bigtable_ledger_upload: matches.is_present("enable_bigtable_ledger_upload"),
             identity_pubkey: identity_keypair.pubkey(),
             faucet_addr: matches.value_of("rpc_faucet_addr").map(|address| {
-                solana_net_utils::parse_host_port(address).expect("failed to parse faucet address")
+                renec_net_utils::parse_host_port(address).expect("failed to parse faucet address")
             }),
             minimal_api: matches.is_present("minimal_rpc_api"),
             obsolete_v1_7_api: matches.is_present("obsolete_v1_7_rpc_api"),
@@ -2556,7 +2556,7 @@ pub fn main() {
     });
 
     let dynamic_port_range =
-        solana_net_utils::parse_port_range(matches.value_of("dynamic_port_range").unwrap())
+        renec_net_utils::parse_port_range(matches.value_of("dynamic_port_range").unwrap())
             .expect("invalid dynamic_port_range");
 
     let account_paths: Vec<PathBuf> =
@@ -2707,7 +2707,7 @@ pub fn main() {
     }
 
     let public_rpc_addr = matches.value_of("public_rpc_addr").map(|addr| {
-        solana_net_utils::parse_host_port(addr).unwrap_or_else(|e| {
+        renec_net_utils::parse_host_port(addr).unwrap_or_else(|e| {
             eprintln!("failed to parse public rpc address: {}", e);
             exit(1);
         })
@@ -2733,7 +2733,7 @@ pub fn main() {
     let gossip_host: IpAddr = matches
         .value_of("gossip_host")
         .map(|gossip_host| {
-            solana_net_utils::parse_host(gossip_host).unwrap_or_else(|err| {
+            renec_net_utils::parse_host(gossip_host).unwrap_or_else(|err| {
                 eprintln!("Failed to parse --gossip-host: {}", err);
                 exit(1);
             })
@@ -2749,7 +2749,7 @@ pub fn main() {
                         "Contacting {} to determine the validator's public IP address",
                         entrypoint_addr
                     );
-                    solana_net_utils::get_public_ip_addr(entrypoint_addr).map_or_else(
+                    renec_net_utils::get_public_ip_addr(entrypoint_addr).map_or_else(
                         |err| {
                             eprintln!(
                                 "Failed to contact cluster entrypoint {}: {}",
@@ -2773,7 +2773,7 @@ pub fn main() {
     let gossip_addr = SocketAddr::new(
         gossip_host,
         value_t!(matches, "gossip_port", u16).unwrap_or_else(|_| {
-            solana_net_utils::find_available_port_in_range(bind_address, (0, 1)).unwrap_or_else(
+            renec_net_utils::find_available_port_in_range(bind_address, (0, 1)).unwrap_or_else(
                 |err| {
                     eprintln!("Unable to find an available gossip port: {}", err);
                     exit(1);
@@ -2822,7 +2822,7 @@ pub fn main() {
     solana_metrics::set_host_id(identity_keypair.pubkey().to_string());
     solana_metrics::set_panic_hook("validator");
 
-    solana_ledger::entry::init_poh();
+    renec_ledger::entry::init_poh();
     solana_runtime::snapshot_utils::remove_tmp_snapshot_archives(&snapshot_output_dir);
 
     let should_check_duplicate_instance = !matches.is_present("no_duplicate_instance_check");

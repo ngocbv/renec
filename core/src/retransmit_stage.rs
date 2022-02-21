@@ -15,15 +15,15 @@ use {
     crossbeam_channel::{Receiver, Sender},
     lru::LruCache,
     rayon::{prelude::*, ThreadPool, ThreadPoolBuilder},
-    solana_client::rpc_response::SlotUpdate,
-    solana_gossip::cluster_info::{ClusterInfo, DATA_PLANE_FANOUT},
-    solana_ledger::{
+    renec_client::rpc_response::SlotUpdate,
+    renec_gossip::cluster_info::{ClusterInfo, DATA_PLANE_FANOUT},
+    renec_ledger::{
         blockstore::Blockstore,
         leader_schedule_cache::LeaderScheduleCache,
         shred::{Shred, ShredType},
     },
-    solana_measure::measure::Measure,
-    solana_perf::packet::PacketBatch,
+    renec_measure::measure::Measure,
+    renec_perf::packet::PacketBatch,
     solana_rayon_threadlimit::get_thread_count,
     solana_rpc::{max_slots::MaxSlots, rpc_subscriptions::RpcSubscriptions},
     solana_runtime::{bank::Bank, bank_forks::BankForks},
@@ -533,13 +533,13 @@ impl RetransmitStage {
 mod tests {
     use {
         super::*,
-        solana_gossip::contact_info::ContactInfo,
-        solana_ledger::{
+        renec_gossip::contact_info::ContactInfo,
+        renec_ledger::{
             blockstore_processor::{process_blockstore, ProcessOptions},
             create_new_tmp_ledger,
             genesis_utils::{create_genesis_config, GenesisConfigInfo},
         },
-        solana_net_utils::find_available_port_in_range,
+        renec_net_utils::find_available_port_in_range,
         solana_sdk::signature::Keypair,
         solana_streamer::socket::SocketAddrSpace,
         std::net::{IpAddr, Ipv4Addr},

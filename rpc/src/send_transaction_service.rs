@@ -1,9 +1,9 @@
 // TODO: Merge this implementation with the one at `banks-server/src/send_transaction_service.rs`
 use {
     log::*,
-    solana_gossip::cluster_info::ClusterInfo,
+    renec_gossip::cluster_info::ClusterInfo,
     solana_metrics::{datapoint_warn, inc_new_counter_info},
-    solana_poh::poh_recorder::PohRecorder,
+    renec_poh::poh_recorder::PohRecorder,
     solana_runtime::{bank::Bank, bank_forks::BankForks},
     solana_sdk::{
         clock::NUM_CONSECUTIVE_LEADER_SLOTS, hash::Hash, nonce_account, pubkey::Pubkey,
@@ -373,8 +373,8 @@ impl SendTransactionService {
 mod test {
     use {
         super::*,
-        solana_gossip::contact_info::ContactInfo,
-        solana_ledger::{
+        renec_gossip::contact_info::ContactInfo,
+        renec_ledger::{
             blockstore::Blockstore, get_tmp_ledger_path, leader_schedule_cache::LeaderScheduleCache,
         },
         solana_runtime::genesis_utils::{
@@ -1008,13 +1008,13 @@ mod test {
 
             let slot = bank.slot();
             let first_leader =
-                solana_ledger::leader_schedule_utils::slot_leader_at(slot, &bank).unwrap();
+                renec_ledger::leader_schedule_utils::slot_leader_at(slot, &bank).unwrap();
             assert_eq!(
                 leader_info.get_leader_tpus(1),
                 vec![recent_peers.get(&first_leader).unwrap()]
             );
 
-            let second_leader = solana_ledger::leader_schedule_utils::slot_leader_at(
+            let second_leader = renec_ledger::leader_schedule_utils::slot_leader_at(
                 slot + NUM_CONSECUTIVE_LEADER_SLOTS,
                 &bank,
             )
@@ -1026,7 +1026,7 @@ mod test {
             expected_leader_sockets.dedup();
             assert_eq!(leader_info.get_leader_tpus(2), expected_leader_sockets);
 
-            let third_leader = solana_ledger::leader_schedule_utils::slot_leader_at(
+            let third_leader = renec_ledger::leader_schedule_utils::slot_leader_at(
                 slot + (2 * NUM_CONSECUTIVE_LEADER_SLOTS),
                 &bank,
             )

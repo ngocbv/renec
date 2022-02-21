@@ -5,7 +5,7 @@
 use {
     crate::rpc_subscriptions::RpcSubscriptions,
     crossbeam_channel::{Receiver, RecvTimeoutError, Sender},
-    solana_client::rpc_response::{SlotTransactionStats, SlotUpdate},
+    renec_client::rpc_response::{SlotTransactionStats, SlotUpdate},
     solana_runtime::{bank::Bank, bank_forks::BankForks},
     solana_sdk::{clock::Slot, timing::timestamp},
     std::{
@@ -316,7 +316,7 @@ impl OptimisticallyConfirmedBankTracker {
 mod tests {
     use {
         super::*,
-        solana_ledger::genesis_utils::{create_genesis_config, GenesisConfigInfo},
+        renec_ledger::genesis_utils::{create_genesis_config, GenesisConfigInfo},
         solana_runtime::{
             accounts_background_service::AbsRequestSender, commitment::BlockCommitmentCache,
         },

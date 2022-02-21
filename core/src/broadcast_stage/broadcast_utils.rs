@@ -1,7 +1,7 @@
 use {
     crate::result::Result,
-    solana_ledger::{entry::Entry, shred::Shred},
-    solana_poh::poh_recorder::WorkingBankEntry,
+    renec_ledger::{entry::Entry, shred::Shred},
+    renec_poh::poh_recorder::WorkingBankEntry,
     solana_runtime::bank::Bank,
     solana_sdk::clock::Slot,
     std::{
@@ -82,7 +82,7 @@ pub(super) fn recv_slot_entries(receiver: &Receiver<WorkingBankEntry>) -> Result
 mod tests {
     use {
         super::*,
-        solana_ledger::genesis_utils::{create_genesis_config, GenesisConfigInfo},
+        renec_ledger::genesis_utils::{create_genesis_config, GenesisConfigInfo},
         solana_sdk::{
             genesis_config::GenesisConfig, pubkey::Pubkey, system_transaction,
             transaction::Transaction,

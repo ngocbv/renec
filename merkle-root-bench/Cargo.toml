@@ -1,7 +1,7 @@
 [package]
 authors = ["RENEC Maintainers <dev@remitano.com>"]
 edition = "2018"
-name = "solana-merkle-root-bench"
+name = "renec-merkle-root-bench"
 version = "1.8.14"
 repository = "https://github.com/remitano/renec"
 license = "Apache-2.0"
@@ -12,7 +12,7 @@ publish = false
 log = "0.4.11"
 renec-logger = { path = "../logger", version = "=1.8.14" }
 solana-runtime = { path = "../runtime", version = "=1.8.14" }
-solana-measure = { path = "../measure", version = "=1.8.14" }
+renec-measure = { path = "../measure", version = "=1.8.14" }
 solana-sdk = { path = "../sdk", version = "=1.8.14" }
 renec-version = { path = "../version", version = "=1.8.14" }
 clap = "2.33.1"

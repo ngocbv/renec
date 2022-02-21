@@ -1,6 +1,6 @@
 use {
     crate::cluster_info_vote_listener::VoteTracker,
-    solana_ledger::blockstore::Blockstore,
+    renec_ledger::blockstore::Blockstore,
     solana_runtime::bank::Bank,
     solana_sdk::{clock::Slot, hash::Hash},
     std::{collections::BTreeSet, time::Instant},
@@ -142,7 +142,7 @@ impl OptimisticConfirmationVerifier {
 #[cfg(test)]
 mod test {
     use {
-        super::*, crate::consensus::test::VoteSimulator, solana_ledger::get_tmp_ledger_path,
+        super::*, crate::consensus::test::VoteSimulator, renec_ledger::get_tmp_ledger_path,
         solana_runtime::bank::Bank, solana_sdk::pubkey::Pubkey, std::collections::HashMap,
         trees::tr,
     };

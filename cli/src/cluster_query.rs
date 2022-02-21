@@ -19,7 +19,7 @@ use {
         },
         *,
     },
-    solana_client::{
+    renec_client::{
         client_error::ClientErrorKind,
         pubsub_client::PubsubClient,
         rpc_client::{GetConfirmedSignaturesForAddress2Config, RpcClient},

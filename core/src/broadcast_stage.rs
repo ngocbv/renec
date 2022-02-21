@@ -16,11 +16,11 @@ use {
         Sender as CrossbeamSender,
     },
     itertools::Itertools,
-    solana_gossip::cluster_info::{ClusterInfo, ClusterInfoError},
-    solana_ledger::{blockstore::Blockstore, shred::Shred},
-    solana_measure::measure::Measure,
+    renec_gossip::cluster_info::{ClusterInfo, ClusterInfoError},
+    renec_ledger::{blockstore::Blockstore, shred::Shred},
+    renec_measure::measure::Measure,
     solana_metrics::{inc_new_counter_error, inc_new_counter_info},
-    solana_poh::poh_recorder::WorkingBankEntry,
+    renec_poh::poh_recorder::WorkingBankEntry,
     solana_runtime::{bank::Bank, bank_forks::BankForks},
     solana_sdk::{
         clock::Slot,
@@ -453,8 +453,8 @@ pub mod test {
     use {
         super::*,
         crossbeam_channel::unbounded,
-        solana_gossip::cluster_info::{ClusterInfo, Node},
-        solana_ledger::{
+        renec_gossip::cluster_info::{ClusterInfo, Node},
+        renec_ledger::{
             blockstore::{make_slot_entries, Blockstore},
             entry::create_ticks,
             genesis_utils::{create_genesis_config, GenesisConfigInfo},

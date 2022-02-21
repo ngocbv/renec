@@ -1,15 +1,15 @@
 #![feature(test)]
 #![allow(clippy::integer_arithmetic)]
 
-extern crate solana_core;
+extern crate renec_core;
 extern crate test;
 
 use {
     crossbeam_channel::unbounded,
     log::*,
     rand::{thread_rng, Rng},
-    solana_core::{sigverify::TransactionSigVerifier, sigverify_stage::SigVerifyStage},
-    solana_perf::{packet::to_packet_batches, test_tx::test_tx},
+    renec_core::{sigverify::TransactionSigVerifier, sigverify_stage::SigVerifyStage},
+    renec_perf::{packet::to_packet_batches, test_tx::test_tx},
     solana_sdk::{
         hash::Hash,
         signature::{Keypair, Signer},

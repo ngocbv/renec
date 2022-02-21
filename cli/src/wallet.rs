@@ -24,7 +24,7 @@ use {
         CliSignatureVerificationStatus, CliTransaction, CliTransactionConfirmation, OutputFormat,
         ReturnSignersConfig,
     },
-    solana_client::{
+    renec_client::{
         blockhash_query::BlockhashQuery, nonce_utils, rpc_client::RpcClient,
         rpc_config::RpcTransactionConfig, rpc_response::RpcKeyedAccount,
     },

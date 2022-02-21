@@ -27,7 +27,7 @@ solana 交易数统计
 尝试运行以下命令以加入八卦网络并查看集群中的所有其他节点：
 
 ```bash
-solana-gossip spy --entrypoint devnet.solana.com/8001
+renec-gossip spy --entrypoint devnet.solana.com/8001
 # 按^C 退出
 ```
 
@@ -238,7 +238,7 @@ renec-validator \
 通过打开一个新终端并运行以下命令来确认连接到网络的验证节点：
 
 ```bash
-solana-gossip spy --entrypoint devnet.solana.com:8001
+renec-gossip spy --entrypoint devnet.solana.com:8001
 ```
 
 如果您的验证节点已连接，其公钥和IP地址将出现在列表中。

@@ -14,15 +14,15 @@ use {
         RequestMiddlewareAction, ServerBuilder,
     },
     regex::Regex,
-    solana_client::rpc_cache::LargestAccountsCache,
-    solana_gossip::cluster_info::ClusterInfo,
-    solana_ledger::{
+    renec_client::rpc_cache::LargestAccountsCache,
+    renec_gossip::cluster_info::ClusterInfo,
+    renec_ledger::{
         bigtable_upload_service::BigTableUploadService, blockstore::Blockstore,
         leader_schedule_cache::LeaderScheduleCache,
     },
     solana_metrics::inc_new_counter_info,
-    solana_perf::thread::renice_this_thread,
-    solana_poh::poh_recorder::PohRecorder,
+    renec_perf::thread::renice_this_thread,
+    renec_poh::poh_recorder::PohRecorder,
     solana_runtime::{
         bank_forks::{BankForks, SnapshotConfig},
         commitment::BlockCommitmentCache,
@@ -482,12 +482,12 @@ mod tests {
     use {
         super::*,
         crate::rpc::create_validator_exit,
-        solana_gossip::{
+        renec_gossip::{
             contact_info::ContactInfo,
             crds::GossipRoute,
             crds_value::{CrdsData, CrdsValue, SnapshotHash},
         },
-        solana_ledger::{
+        renec_ledger::{
             genesis_utils::{create_genesis_config, GenesisConfigInfo},
             get_tmp_ledger_path,
         },
@@ -527,7 +527,7 @@ mod tests {
         let ip_addr = IpAddr::V4(Ipv4Addr::new(0, 0, 0, 0));
         let rpc_addr = SocketAddr::new(
             ip_addr,
-            solana_net_utils::find_available_port_in_range(ip_addr, (10000, 65535)).unwrap(),
+            renec_net_utils::find_available_port_in_range(ip_addr, (10000, 65535)).unwrap(),
         );
         let bank_forks = Arc::new(RwLock::new(BankForks::new(bank)));
         let ledger_path = get_tmp_ledger_path!();

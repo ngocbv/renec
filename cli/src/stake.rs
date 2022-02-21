@@ -24,7 +24,7 @@ use {
         return_signers_with_config, CliEpochReward, CliStakeHistory, CliStakeHistoryEntry,
         CliStakeState, CliStakeType, OutputFormat, ReturnSignersConfig,
     },
-    solana_client::{
+    renec_client::{
         blockhash_query::BlockhashQuery, nonce_utils, rpc_client::RpcClient,
         rpc_request::DELINQUENT_VALIDATOR_SLOT_DISTANCE, rpc_response::RpcInflationReward,
     },
@@ -2443,7 +2443,7 @@ mod tests {
     use {
         super::*,
         crate::{clap_app::get_clap_app, cli::parse_command},
-        solana_client::blockhash_query,
+        renec_client::blockhash_query,
         solana_sdk::{
             hash::Hash,
             signature::{

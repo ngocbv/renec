@@ -3,9 +3,9 @@ use {
     clap::{crate_description, crate_name, value_t, value_t_or_exit, App, Arg},
     log::*,
     rand::{thread_rng, Rng},
-    solana_client::rpc_client::RpcClient,
-    solana_core::serve_repair::RepairProtocol,
-    solana_gossip::{contact_info::ContactInfo, gossip_service::discover},
+    renec_client::rpc_client::RpcClient,
+    renec_core::serve_repair::RepairProtocol,
+    renec_gossip::{contact_info::ContactInfo, gossip_service::discover},
     solana_sdk::pubkey::Pubkey,
     solana_streamer::socket::SocketAddrSpace,
     std::{
@@ -88,7 +88,7 @@ fn run_dos(
             data.resize(data_size, 0);
         }
         "transaction" => {
-            let tx = solana_perf::test_tx::test_tx();
+            let tx = renec_perf::test_tx::test_tx();
             info!("{:?}", tx);
             data = bincode::serialize(&tx).unwrap();
         }
@@ -222,7 +222,7 @@ fn main() {
 
     let mut entrypoint_addr = SocketAddr::from(([127, 0, 0, 1], 8001));
     if let Some(addr) = matches.value_of("entrypoint") {
-        entrypoint_addr = solana_net_utils::parse_host_port(addr).unwrap_or_else(|e| {
+        entrypoint_addr = renec_net_utils::parse_host_port(addr).unwrap_or_else(|e| {
             eprintln!("failed to parse entrypoint address: {}", e);
             exit(1)
         });

@@ -128,8 +128,8 @@ impl RpcClientConfig {
 ///
 /// ```
 /// # use solana_sdk::system_transaction;
-/// # use solana_client::rpc_client::RpcClient;
-/// # use solana_client::client_error::ClientError;
+/// # use renec_client::rpc_client::RpcClient;
+/// # use renec_client::client_error::ClientError;
 /// # use solana_sdk::signature::{Keypair, Signer};
 /// # use solana_sdk::hash::Hash;
 /// # let rpc_client = RpcClient::new_mock("succeeds".to_string());
@@ -186,7 +186,7 @@ impl RpcClient {
     /// # Examples
     ///
     /// ```
-    /// # use solana_client::rpc_client::RpcClient;
+    /// # use renec_client::rpc_client::RpcClient;
     /// let url = "http://localhost:8899".to_string();
     /// let client = RpcClient::new(url);
     /// ```
@@ -208,7 +208,7 @@ impl RpcClient {
     ///
     /// ```
     /// # use solana_sdk::commitment_config::CommitmentConfig;
-    /// # use solana_client::rpc_client::RpcClient;
+    /// # use renec_client::rpc_client::RpcClient;
     /// let url = "http://localhost:8899".to_string();
     /// let commitment_config = CommitmentConfig::processed();
     /// let client = RpcClient::new_with_commitment(url, commitment_config);
@@ -234,7 +234,7 @@ impl RpcClient {
     ///
     /// ```
     /// # use std::time::Duration;
-    /// # use solana_client::rpc_client::RpcClient;
+    /// # use renec_client::rpc_client::RpcClient;
     /// let url = "http://localhost::8899".to_string();
     /// let timeout = Duration::from_secs(1);
     /// let client = RpcClient::new_with_timeout(url, timeout);
@@ -257,7 +257,7 @@ impl RpcClient {
     ///
     /// ```
     /// # use std::time::Duration;
-    /// # use solana_client::rpc_client::RpcClient;
+    /// # use renec_client::rpc_client::RpcClient;
     /// # use solana_sdk::commitment_config::CommitmentConfig;
     /// let url = "http://localhost::8899".to_string();
     /// let timeout = Duration::from_secs(1);
@@ -298,7 +298,7 @@ impl RpcClient {
     ///
     /// ```
     /// # use std::time::Duration;
-    /// # use solana_client::rpc_client::RpcClient;
+    /// # use renec_client::rpc_client::RpcClient;
     /// # use solana_sdk::commitment_config::CommitmentConfig;
     /// let url = "http://localhost::8899".to_string();
     /// let timeout = Duration::from_secs(1);
@@ -334,14 +334,14 @@ impl RpcClient {
     /// # Examples
     ///
     /// ```
-    /// # use solana_client::rpc_client::RpcClient;
+    /// # use renec_client::rpc_client::RpcClient;
     /// // Create an `RpcClient` that always succeeds
     /// let url = "succeeds".to_string();
     /// let successful_client = RpcClient::new_mock(url);
     /// ```
     ///
     /// ```
-    /// # use solana_client::rpc_client::RpcClient;
+    /// # use renec_client::rpc_client::RpcClient;
     /// // Create an `RpcClient` that always fails
     /// let url = "fails".to_string();
     /// let successful_client = RpcClient::new_mock(url);
@@ -361,7 +361,7 @@ impl RpcClient {
     /// # Examples
     ///
     /// ```
-    /// # use solana_client::{
+    /// # use renec_client::{
     /// #     rpc_client::RpcClient,
     /// #     rpc_request::RpcRequest,
     /// #     rpc_response::{Response, RpcResponseContext},
@@ -398,7 +398,7 @@ impl RpcClient {
     ///
     /// ```
     /// # use std::net::SocketAddr;
-    /// # use solana_client::rpc_client::RpcClient;
+    /// # use renec_client::rpc_client::RpcClient;
     /// let addr = SocketAddr::from(([127, 0, 0, 1], 8899));
     /// let client = RpcClient::new_socket(addr);
     /// ```
@@ -417,7 +417,7 @@ impl RpcClient {
     ///
     /// ```
     /// # use std::net::SocketAddr;
-    /// # use solana_client::rpc_client::RpcClient;
+    /// # use renec_client::rpc_client::RpcClient;
     /// # use solana_sdk::commitment_config::CommitmentConfig;
     /// let addr = SocketAddr::from(([127, 0, 0, 1], 8899));
     /// let commitment_config = CommitmentConfig::processed();
@@ -444,7 +444,7 @@ impl RpcClient {
     /// ```
     /// # use std::net::SocketAddr;
     /// # use std::time::Duration;
-    /// # use solana_client::rpc_client::RpcClient;
+    /// # use renec_client::rpc_client::RpcClient;
     /// let addr = SocketAddr::from(([127, 0, 0, 1], 8899));
     /// let timeout = Duration::from_secs(1);
     /// let client = RpcClient::new_socket_with_timeout(addr, timeout);
@@ -464,7 +464,7 @@ impl RpcClient {
             let node_version = self.get_version().map_err(|e| {
                 RpcError::RpcRequestError(format!("cluster version query failed: {}", e))
             })?;
-            let node_version = semver::Version::parse(&node_version.solana_core).map_err(|e| {
+            let node_version = semver::Version::parse(&node_version.renec_core).map_err(|e| {
                 RpcError::RpcRequestError(format!("failed to parse cluster version: {}", e))
             })?;
             *w_node_version = Some(node_version.clone());
@@ -567,7 +567,7 @@ impl RpcClient {
     /// # Examples
     ///
     /// ```
-    /// # use solana_client::{
+    /// # use renec_client::{
     /// #     rpc_client::RpcClient,
     /// #     client_error::ClientError,
     /// # };
@@ -732,7 +732,7 @@ impl RpcClient {
     /// # Examples
     ///
     /// ```
-    /// # use solana_client::{
+    /// # use renec_client::{
     /// #     client_error::ClientError,
     /// #     rpc_client::RpcClient,
     /// # };
@@ -814,7 +814,7 @@ impl RpcClient {
     /// # Examples
     ///
     /// ```
-    /// # use solana_client::{
+    /// # use renec_client::{
     /// #     client_error::ClientError,
     /// #     rpc_client::RpcClient,
     /// #     rpc_config::RpcSendTransactionConfig,
@@ -949,7 +949,7 @@ impl RpcClient {
     /// # Examples
     ///
     /// ```
-    /// # use solana_client::{
+    /// # use renec_client::{
     /// #     client_error::ClientError,
     /// #     rpc_client::RpcClient,
     /// # };
@@ -1006,7 +1006,7 @@ impl RpcClient {
     /// # Examples
     ///
     /// ```
-    /// # use solana_client::{
+    /// # use renec_client::{
     /// #     client_error::ClientError,
     /// #     rpc_client::RpcClient,
     /// # };
@@ -1186,7 +1186,7 @@ impl RpcClient {
     /// # Examples
     ///
     /// ```
-    /// # use solana_client::{
+    /// # use renec_client::{
     /// #     client_error::ClientError,
     /// #     rpc_client::RpcClient,
     /// #     rpc_response::RpcSimulateTransactionResult,
@@ -1262,7 +1262,7 @@ impl RpcClient {
     /// # Examples
     ///
     /// ```
-    /// # use solana_client::{
+    /// # use renec_client::{
     /// #     client_error::ClientError,
     /// #     rpc_client::RpcClient,
     /// #     rpc_config::RpcSimulateTransactionConfig,
@@ -1327,7 +1327,7 @@ impl RpcClient {
     /// # Examples
     ///
     /// ```
-    /// # use solana_client::{
+    /// # use renec_client::{
     /// #     rpc_client::RpcClient,
     /// #     client_error::ClientError,
     /// # };
@@ -1372,7 +1372,7 @@ impl RpcClient {
     /// # Examples
     ///
     /// ```
-    /// # use solana_client::{
+    /// # use renec_client::{
     /// #     rpc_client::RpcClient,
     /// #     client_error::ClientError,
     /// # };
@@ -1439,7 +1439,7 @@ impl RpcClient {
     /// # Examples
     ///
     /// ```
-    /// # use solana_client::{
+    /// # use renec_client::{
     /// #     rpc_client::RpcClient,
     /// #     client_error::ClientError,
     /// # };
@@ -1517,7 +1517,7 @@ impl RpcClient {
     /// # Examples
     ///
     /// ```
-    /// # use solana_client::{
+    /// # use renec_client::{
     /// #     rpc_client::RpcClient,
     /// #     client_error::ClientError,
     /// # };
@@ -1586,7 +1586,7 @@ impl RpcClient {
     /// # Examples
     ///
     /// ```
-    /// # use solana_client::{
+    /// # use renec_client::{
     /// #     rpc_client::RpcClient,
     /// #     client_error::ClientError,
     /// # };
@@ -1655,7 +1655,7 @@ impl RpcClient {
     /// # Examples
     ///
     /// ```
-    /// # use solana_client::{
+    /// # use renec_client::{
     /// #     rpc_client::RpcClient,
     /// #     client_error::ClientError,
     /// # };
@@ -1713,7 +1713,7 @@ impl RpcClient {
     /// # Examples
     ///
     /// ```
-    /// # use solana_client::{
+    /// # use renec_client::{
     /// #     rpc_client::RpcClient,
     /// #     client_error::ClientError,
     /// # };
@@ -1738,7 +1738,7 @@ impl RpcClient {
     /// # Examples
     ///
     /// ```
-    /// # use solana_client::{
+    /// # use renec_client::{
     /// #     rpc_client::RpcClient,
     /// #     client_error::ClientError,
     /// # };
@@ -1771,7 +1771,7 @@ impl RpcClient {
     /// # Examples
     ///
     /// ```
-    /// # use solana_client::{
+    /// # use renec_client::{
     /// #     rpc_client::RpcClient,
     /// #     client_error::ClientError,
     /// # };
@@ -1796,7 +1796,7 @@ impl RpcClient {
     /// # Examples
     ///
     /// ```
-    /// # use solana_client::{
+    /// # use renec_client::{
     /// #     rpc_client::RpcClient,
     /// #     client_error::ClientError,
     /// # };
@@ -1829,7 +1829,7 @@ impl RpcClient {
     /// # Examples
     ///
     /// ```
-    /// # use solana_client::{
+    /// # use renec_client::{
     /// #     rpc_client::RpcClient,
     /// #     client_error::ClientError,
     /// # };
@@ -1869,7 +1869,7 @@ impl RpcClient {
     /// # Examples
     ///
     /// ```
-    /// # use solana_client::{
+    /// # use renec_client::{
     /// #     rpc_client::RpcClient,
     /// #     client_error::ClientError,
     /// # };
@@ -1892,7 +1892,7 @@ impl RpcClient {
     /// # Examples
     ///
     /// ```
-    /// # use solana_client::{
+    /// # use renec_client::{
     /// #     rpc_client::RpcClient,
     /// #     client_error::ClientError,
     /// #     rpc_config::RpcBlockProductionConfig,
@@ -1944,7 +1944,7 @@ impl RpcClient {
     /// # Examples
     ///
     /// ```
-    /// # use solana_client::{
+    /// # use renec_client::{
     /// #     rpc_client::RpcClient,
     /// #     client_error::ClientError,
     /// #     rpc_response::StakeActivationState,
@@ -2032,7 +2032,7 @@ impl RpcClient {
     /// # Examples
     ///
     /// ```
-    /// # use solana_client::{
+    /// # use renec_client::{
     /// #     rpc_client::RpcClient,
     /// #     client_error::ClientError,
     /// # };
@@ -2055,7 +2055,7 @@ impl RpcClient {
     /// # Examples
     ///
     /// ```
-    /// # use solana_client::{
+    /// # use renec_client::{
     /// #     rpc_client::RpcClient,
     /// #     client_error::ClientError,
     /// # };
@@ -2089,7 +2089,7 @@ impl RpcClient {
     /// # Examples
     ///
     /// ```
-    /// # use solana_client::{
+    /// # use renec_client::{
     /// #     rpc_client::RpcClient,
     /// #     client_error::ClientError,
     /// #     rpc_config::RpcLargestAccountsConfig,
@@ -2135,7 +2135,7 @@ impl RpcClient {
     /// # Examples
     ///
     /// ```
-    /// # use solana_client::{
+    /// # use renec_client::{
     /// #     rpc_client::RpcClient,
     /// #     client_error::ClientError,
     /// # };
@@ -2162,7 +2162,7 @@ impl RpcClient {
     ///
     /// ```
     /// # use solana_sdk::commitment_config::CommitmentConfig;
-    /// # use solana_client::{
+    /// # use renec_client::{
     /// #     rpc_client::RpcClient,
     /// #     client_error::ClientError,
     /// # };
@@ -2197,7 +2197,7 @@ impl RpcClient {
     /// # Examples
     ///
     /// ```
-    /// # use solana_client::{
+    /// # use renec_client::{
     /// #     rpc_client::RpcClient,
     /// #     client_error::ClientError,
     /// #     rpc_config::RpcGetVoteAccountsConfig,
@@ -2273,7 +2273,7 @@ impl RpcClient {
     /// # Examples
     ///
     /// ```
-    /// # use solana_client::{
+    /// # use renec_client::{
     /// #     rpc_client::RpcClient,
     /// #     client_error::ClientError,
     /// # };
@@ -2304,7 +2304,7 @@ impl RpcClient {
     /// # Examples
     ///
     /// ```
-    /// # use solana_client::{
+    /// # use renec_client::{
     /// #     rpc_client::RpcClient,
     /// #     client_error::ClientError,
     /// # };
@@ -2329,7 +2329,7 @@ impl RpcClient {
     ///
     /// ```
     /// # use solana_transaction_status::UiTransactionEncoding;
-    /// # use solana_client::{
+    /// # use renec_client::{
     /// #     rpc_client::RpcClient,
     /// #     client_error::ClientError,
     /// # };
@@ -2368,7 +2368,7 @@ impl RpcClient {
     /// #     TransactionDetails,
     /// #     UiTransactionEncoding,
     /// # };
-    /// # use solana_client::{
+    /// # use renec_client::{
     /// #     rpc_client::RpcClient,
     /// #     rpc_config::RpcBlockConfig,
     /// #     client_error::ClientError,
@@ -2464,7 +2464,7 @@ impl RpcClient {
     /// # Examples
     ///
     /// ```
-    /// # use solana_client::{
+    /// # use renec_client::{
     /// #     rpc_client::RpcClient,
     /// #     client_error::ClientError,
     /// # };
@@ -2521,7 +2521,7 @@ impl RpcClient {
     ///
     /// ```
     /// # use solana_sdk::commitment_config::CommitmentConfig;
-    /// # use solana_client::{
+    /// # use renec_client::{
     /// #     rpc_client::RpcClient,
     /// #     client_error::ClientError,
     /// # };
@@ -2579,7 +2579,7 @@ impl RpcClient {
     /// # Examples
     ///
     /// ```
-    /// # use solana_client::{
+    /// # use renec_client::{
     /// #     rpc_client::RpcClient,
     /// #     client_error::ClientError,
     /// # };
@@ -2622,7 +2622,7 @@ impl RpcClient {
     ///
     /// ```
     /// # use solana_sdk::commitment_config::CommitmentConfig;
-    /// # use solana_client::{
+    /// # use renec_client::{
     /// #     rpc_client::RpcClient,
     /// #     client_error::ClientError,
     /// # };
@@ -2748,7 +2748,7 @@ impl RpcClient {
     /// # Examples
     ///
     /// ```
-    /// # use solana_client::{
+    /// # use renec_client::{
     /// #     client_error::ClientError,
     /// #     rpc_client::RpcClient,
     /// # };
@@ -2796,7 +2796,7 @@ impl RpcClient {
     /// # Examples
     ///
     /// ```
-    /// # use solana_client::{
+    /// # use renec_client::{
     /// #     client_error::ClientError,
     /// #     rpc_client::RpcClient,
     /// #     rpc_client::GetConfirmedSignaturesForAddress2Config,
@@ -2905,7 +2905,7 @@ impl RpcClient {
     /// # Examples
     ///
     /// ```
-    /// # use solana_client::{
+    /// # use renec_client::{
     /// #     client_error::ClientError,
     /// #     rpc_client::RpcClient,
     /// # };
@@ -2962,7 +2962,7 @@ impl RpcClient {
     /// # Examples
     ///
     /// ```
-    /// # use solana_client::{
+    /// # use renec_client::{
     /// #     client_error::ClientError,
     /// #     rpc_client::RpcClient,
     /// #     rpc_config::RpcTransactionConfig,
@@ -3046,7 +3046,7 @@ impl RpcClient {
     /// # Examples
     ///
     /// ```
-    /// # use solana_client::{
+    /// # use renec_client::{
     /// #     client_error::ClientError,
     /// #     rpc_client::RpcClient,
     /// # };
@@ -3088,7 +3088,7 @@ impl RpcClient {
     /// # Examples
     ///
     /// ```
-    /// # use solana_client::{
+    /// # use renec_client::{
     /// #     client_error::ClientError,
     /// #     rpc_client::RpcClient,
     /// # };
@@ -3111,7 +3111,7 @@ impl RpcClient {
     /// # Examples
     ///
     /// ```
-    /// # use solana_client::{
+    /// # use renec_client::{
     /// #     client_error::ClientError,
     /// #     rpc_client::RpcClient,
     /// # };
@@ -3148,7 +3148,7 @@ impl RpcClient {
     /// # Examples
     ///
     /// ```
-    /// # use solana_client::{
+    /// # use renec_client::{
     /// #     client_error::ClientError,
     /// #     rpc_client::RpcClient,
     /// # };
@@ -3178,7 +3178,7 @@ impl RpcClient {
     /// # Examples
     ///
     /// ```
-    /// # use solana_client::{
+    /// # use renec_client::{
     /// #     client_error::ClientError,
     /// #     rpc_client::RpcClient,
     /// # };
@@ -3217,11 +3217,11 @@ impl RpcClient {
     /// # Examples
     ///
     /// ```
-    /// # use solana_client::{
+    /// # use renec_client::{
     /// #     client_error::ClientError,
     /// #     rpc_client::RpcClient,
     /// # };
-    /// # use solana_client::rpc_config::RpcLeaderScheduleConfig;
+    /// # use renec_client::rpc_config::RpcLeaderScheduleConfig;
     /// # use solana_sdk::commitment_config::CommitmentConfig;
     /// # let rpc_client = RpcClient::new_mock("succeeds".to_string());
     /// # let slot = rpc_client.get_slot()?;
@@ -3255,7 +3255,7 @@ impl RpcClient {
     /// # Examples
     ///
     /// ```
-    /// # use solana_client::{
+    /// # use renec_client::{
     /// #     client_error::ClientError,
     /// #     rpc_client::RpcClient,
     /// # };
@@ -3281,7 +3281,7 @@ impl RpcClient {
     /// # Examples
     ///
     /// ```
-    /// # use solana_client::{
+    /// # use renec_client::{
     /// #     client_error::ClientError,
     /// #     rpc_client::RpcClient,
     /// # };
@@ -3310,7 +3310,7 @@ impl RpcClient {
     /// # Examples
     ///
     /// ```
-    /// # use solana_client::{
+    /// # use renec_client::{
     /// #     client_error::ClientError,
     /// #     rpc_client::RpcClient,
     /// # };
@@ -3346,7 +3346,7 @@ impl RpcClient {
     /// # Examples
     ///
     /// ```
-    /// # use solana_client::{
+    /// # use renec_client::{
     /// #     client_error::ClientError,
     /// #     rpc_client::RpcClient,
     /// # };
@@ -3369,7 +3369,7 @@ impl RpcClient {
     /// # Examples
     ///
     /// ```
-    /// # use solana_client::{
+    /// # use renec_client::{
     /// #     client_error::ClientError,
     /// #     rpc_client::RpcClient,
     /// # };
@@ -3396,7 +3396,7 @@ impl RpcClient {
     /// # Examples
     ///
     /// ```
-    /// # use solana_client::{
+    /// # use renec_client::{
     /// #     client_error::ClientError,
     /// #     rpc_client::RpcClient,
     /// # };
@@ -3445,7 +3445,7 @@ impl RpcClient {
     /// # Examples
     ///
     /// ```
-    /// # use solana_client::{
+    /// # use renec_client::{
     /// #     client_error::ClientError,
     /// #     rpc_client::RpcClient,
     /// # };
@@ -3453,7 +3453,7 @@ impl RpcClient {
     /// # let rpc_client = RpcClient::new_mock("succeeds".to_string());
     /// let expected_version = semver::Version::new(1, 7, 0);
     /// let version = rpc_client.get_version()?;
-    /// let version = semver::Version::parse(&version.solana_core)?;
+    /// let version = semver::Version::parse(&version.renec_core)?;
     /// assert!(version >= expected_version);
     /// # Ok::<(), Box<dyn std::error::Error>>(())
     /// ```
@@ -3476,7 +3476,7 @@ impl RpcClient {
     /// # Examples
     ///
     /// ```
-    /// # use solana_client::{
+    /// # use renec_client::{
     /// #     client_error::ClientError,
     /// #     rpc_client::RpcClient,
     /// # };
@@ -3515,7 +3515,7 @@ impl RpcClient {
     /// # Examples
     ///
     /// ```
-    /// # use solana_client::{
+    /// # use renec_client::{
     /// #     rpc_client::{self, RpcClient},
     /// #     client_error::ClientError,
     /// # };
@@ -3554,7 +3554,7 @@ impl RpcClient {
     /// # Examples
     ///
     /// ```
-    /// # use solana_client::{
+    /// # use renec_client::{
     /// #     rpc_client::{self, RpcClient},
     /// #     client_error::ClientError,
     /// # };
@@ -3630,7 +3630,7 @@ impl RpcClient {
     /// # Examples
     ///
     /// ```
-    /// # use solana_client::{
+    /// # use renec_client::{
     /// #     rpc_client::RpcClient,
     /// #     client_error::ClientError,
     /// # };
@@ -3653,7 +3653,7 @@ impl RpcClient {
     /// # Examples
     ///
     /// ```
-    /// # use solana_client::{
+    /// # use renec_client::{
     /// #     rpc_client::RpcClient,
     /// #     client_error::ClientError,
     /// # };
@@ -3679,7 +3679,7 @@ impl RpcClient {
     /// # Examples
     ///
     /// ```
-    /// # use solana_client::{
+    /// # use renec_client::{
     /// #     rpc_client::RpcClient,
     /// #     client_error::ClientError,
     /// # };
@@ -3711,7 +3711,7 @@ impl RpcClient {
     /// # Examples
     ///
     /// ```
-    /// # use solana_client::{
+    /// # use renec_client::{
     /// #     rpc_client::RpcClient,
     /// #     client_error::ClientError,
     /// # };
@@ -3757,7 +3757,7 @@ impl RpcClient {
     /// # Examples
     ///
     /// ```
-    /// # use solana_client::{
+    /// # use renec_client::{
     /// #     rpc_client::RpcClient,
     /// #     rpc_config::RpcAccountInfoConfig,
     /// #     client_error::ClientError,
@@ -3826,7 +3826,7 @@ impl RpcClient {
     /// # Examples
     ///
     /// ```
-    /// # use solana_client::{
+    /// # use renec_client::{
     /// #     rpc_client::{self, RpcClient},
     /// #     client_error::ClientError,
     /// # };
@@ -3858,7 +3858,7 @@ impl RpcClient {
     /// # Examples
     ///
     /// ```
-    /// # use solana_client::{
+    /// # use renec_client::{
     /// #     rpc_client::RpcClient,
     /// #     client_error::ClientError,
     /// # };
@@ -3899,7 +3899,7 @@ impl RpcClient {
     /// # Examples
     ///
     /// ```
-    /// # use solana_client::{
+    /// # use renec_client::{
     /// #     rpc_client::RpcClient,
     /// #     client_error::ClientError,
     /// # };
@@ -3929,7 +3929,7 @@ impl RpcClient {
     /// # Examples
     ///
     /// ```
-    /// # use solana_client::{
+    /// # use renec_client::{
     /// #     rpc_client::RpcClient,
     /// #     client_error::ClientError,
     /// # };
@@ -3977,7 +3977,7 @@ impl RpcClient {
     /// # Examples
     ///
     /// ```
-    /// # use solana_client::{
+    /// # use renec_client::{
     /// #     rpc_client::RpcClient,
     /// #     client_error::ClientError,
     /// # };
@@ -4014,7 +4014,7 @@ impl RpcClient {
     /// # Examples
     ///
     /// ```
-    /// # use solana_client::{
+    /// # use renec_client::{
     /// #     rpc_client::RpcClient,
     /// #     client_error::ClientError,
     /// #     rpc_config::{RpcAccountInfoConfig, RpcProgramAccountsConfig},

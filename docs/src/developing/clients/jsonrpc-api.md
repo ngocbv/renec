@@ -359,8 +359,8 @@ Result:
 
 ### getBlock
 
-**NEW: This method is only available in solana-core v1.7 or newer. Please use
-[getConfirmedBlock](jsonrpc-api.md#getconfirmedblock) for solana-core v1.6**
+**NEW: This method is only available in renec-core v1.7 or newer. Please use
+[getConfirmedBlock](jsonrpc-api.md#getconfirmedblock) for renec-core v1.6**
 
 Returns identity and transaction information about a confirmed block in the ledger
 
@@ -764,8 +764,8 @@ Result:
 
 ### getBlocks
 
-**NEW: This method is only available in solana-core v1.7 or newer. Please use
-[getConfirmedBlocks](jsonrpc-api.md#getconfirmedblocks) for solana-core v1.6**
+**NEW: This method is only available in renec-core v1.7 or newer. Please use
+[getConfirmedBlocks](jsonrpc-api.md#getconfirmedblocks) for renec-core v1.6**
 
 Returns a list of confirmed blocks between two slots
 
@@ -798,8 +798,8 @@ Result:
 
 ### getBlocksWithLimit
 
-**NEW: This method is only available in solana-core v1.7 or newer. Please use
-[getConfirmedBlocksWithLimit](jsonrpc-api.md#getconfirmedblockswithlimit) for solana-core v1.6**
+**NEW: This method is only available in renec-core v1.7 or newer. Please use
+[getConfirmedBlocksWithLimit](jsonrpc-api.md#getconfirmedblockswithlimit) for renec-core v1.6**
 
 Returns a list of confirmed blocks starting at the given slot
 
@@ -2066,8 +2066,8 @@ Result when the node has no snapshot:
 
 ### getSignaturesForAddress
 
-**NEW: This method is only available in solana-core v1.7 or newer. Please use
-[getConfirmedSignaturesForAddress2](jsonrpc-api.md#getconfirmedsignaturesforaddress2) for solana-core v1.6**
+**NEW: This method is only available in renec-core v1.7 or newer. Please use
+[getConfirmedSignaturesForAddress2](jsonrpc-api.md#getconfirmedsignaturesforaddress2) for renec-core v1.6**
 
 
 Returns confirmed signatures for transactions involving an
@@ -2817,8 +2817,8 @@ Result:
 
 ### getTransaction
 
-**NEW: This method is only available in solana-core v1.7 or newer. Please use
-[getConfirmedTransaction](jsonrpc-api.md#getconfirmedtransaction) for solana-core v1.6**
+**NEW: This method is only available in renec-core v1.7 or newer. Please use
+[getConfirmedTransaction](jsonrpc-api.md#getconfirmedtransaction) for renec-core v1.6**
 
 Returns transaction details for a confirmed transaction
 
@@ -3034,7 +3034,7 @@ None
 
 The result field will be a JSON object with the following fields:
 
-- `solana-core`, software version of solana-core
+- `renec-core`, software version of renec-core
 - `feature-set`, unique identifier of the current software's feature set
 
 #### Example:
@@ -3048,7 +3048,7 @@ curl http://localhost:8899 -X POST -H "Content-Type: application/json" -d '
 
 Result:
 ```json
-{"jsonrpc":"2.0","result":{"solana-core": "1.8.14"},"id":1}
+{"jsonrpc":"2.0","result":{"renec-core": "1.8.14"},"id":1}
 ```
 
 ### getVoteAccounts
@@ -4160,7 +4160,7 @@ Response:
 ### getConfirmedBlock
 
 **DEPRECATED: Please use [getBlock](jsonrpc-api.md#getblock) instead**
-This method is expected to be removed in solana-core v2.0
+This method is expected to be removed in renec-core v2.0
 
 Returns identity and transaction information about a confirmed block in the ledger
 
@@ -4354,7 +4354,7 @@ For more details on returned data:
 ### getConfirmedBlocks
 
 **DEPRECATED: Please use [getBlocks](jsonrpc-api.md#getblocks) instead**
-This method is expected to be removed in solana-core v2.0
+This method is expected to be removed in renec-core v2.0
 
 Returns a list of confirmed blocks between two slots
 
@@ -4388,7 +4388,7 @@ Result:
 ### getConfirmedBlocksWithLimit
 
 **DEPRECATED: Please use [getBlocksWithLimit](jsonrpc-api.md#getblockswithlimit) instead**
-This method is expected to be removed in solana-core v2.0
+This method is expected to be removed in renec-core v2.0
 
 Returns a list of confirmed blocks starting at the given slot
 
@@ -4420,7 +4420,7 @@ Result:
 ### getConfirmedSignaturesForAddress2
 
 **DEPRECATED: Please use [getSignaturesForAddress](jsonrpc-api.md#getsignaturesforaddress) instead**
-This method is expected to be removed in solana-core v2.0
+This method is expected to be removed in renec-core v2.0
 
 Returns confirmed signatures for transactions involving an
 address backwards in time from the provided signature or most recent confirmed block
@@ -4482,7 +4482,7 @@ Result:
 ### getConfirmedTransaction
 
 **DEPRECATED: Please use [getTransaction](jsonrpc-api.md#gettransaction) instead**
-This method is expected to be removed in solana-core v2.0
+This method is expected to be removed in renec-core v2.0
 
 Returns transaction details for a confirmed transaction
 

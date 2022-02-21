@@ -4,8 +4,8 @@ use {
     crate::poh_recorder::{PohRecorder, Record},
     crossbeam_channel::Receiver,
     log::*,
-    solana_ledger::poh::Poh,
-    solana_measure::measure::Measure,
+    renec_ledger::poh::Poh,
+    renec_measure::measure::Measure,
     solana_sdk::poh_config::PohConfig,
     std::{
         sync::{
@@ -98,7 +98,7 @@ impl PohService {
         let poh_exit_ = poh_exit.clone();
         let poh_config = poh_config.clone();
         let tick_producer = Builder::new()
-            .name("solana-poh-service-tick_producer".to_string())
+            .name("renec-poh-service-tick_producer".to_string())
             .spawn(move || {
                 renec_sys_tuner::request_realtime_poh();
                 if poh_config.hashes_per_tick.is_none() {
@@ -359,14 +359,14 @@ mod tests {
         super::*,
         crate::poh_recorder::WorkingBank,
         rand::{thread_rng, Rng},
-        solana_ledger::{
+        renec_ledger::{
             blockstore::Blockstore,
             genesis_utils::{create_genesis_config, GenesisConfigInfo},
             get_tmp_ledger_path,
             leader_schedule_cache::LeaderScheduleCache,
         },
-        solana_measure::measure::Measure,
-        solana_perf::test_tx::test_tx,
+        renec_measure::measure::Measure,
+        renec_perf::test_tx::test_tx,
         solana_runtime::bank::Bank,
         solana_sdk::{clock, hash::hash, pubkey::Pubkey, timing},
         std::time::Duration,
@@ -428,7 +428,7 @@ mod tests {
                 let exit = exit.clone();
 
                 Builder::new()
-                    .name("solana-poh-service-entry_producer".to_string())
+                    .name("renec-poh-service-entry_producer".to_string())
                     .spawn(move || {
                         let now = Instant::now();
                         let mut total_us = 0;

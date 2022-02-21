@@ -5,13 +5,13 @@
 mod tests {
     use {
         log::*,
-        solana_core::ledger_cleanup_service::LedgerCleanupService,
-        solana_ledger::{
+        renec_core::ledger_cleanup_service::LedgerCleanupService,
+        renec_ledger::{
             blockstore::{make_many_slot_entries, Blockstore},
             get_tmp_ledger_path,
             shred::Shred,
         },
-        solana_measure::measure::Measure,
+        renec_measure::measure::Measure,
         std::{
             collections::VecDeque,
             str::FromStr,
