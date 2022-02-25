@@ -9,7 +9,7 @@ use {
         question_mark,
         vm::{EbpfVm, SyscallObject, SyscallRegistry},
     },
-    renec_runtime::message_processor::MessageProcessor,
+    solana_runtime::message_processor::MessageProcessor,
     solana_sdk::{
         account::{Account, AccountSharedData, ReadableAccount},
         account_info::AccountInfo,

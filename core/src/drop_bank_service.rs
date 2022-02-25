@@ -1,6 +1,6 @@
 use {
     renec_measure::measure::Measure,
-    renec_runtime::bank::Bank,
+    solana_runtime::bank::Bank,
     std::{
         sync::{mpsc::Receiver, Arc},
         thread::{self, Builder, JoinHandle},

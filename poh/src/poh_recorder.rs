@@ -20,7 +20,7 @@ use {
     renec_ledger::{
         blockstore::Blockstore, entry::Entry, leader_schedule_cache::LeaderScheduleCache, poh::Poh,
     },
-    renec_runtime::bank::Bank,
+    solana_runtime::bank::Bank,
     solana_sdk::{
         clock::NUM_CONSECUTIVE_LEADER_SLOTS, hash::Hash, poh_config::PohConfig, pubkey::Pubkey,
         timing, transaction::Transaction,

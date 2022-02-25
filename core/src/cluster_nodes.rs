@@ -8,7 +8,7 @@ use {
         crds_gossip_pull::CRDS_GOSSIP_PULL_CRDS_TIMEOUT_MS,
         weighted_shuffle::{weighted_best, weighted_shuffle},
     },
-    renec_runtime::bank::Bank,
+    solana_runtime::bank::Bank,
     solana_sdk::{
         clock::{Epoch, Slot},
         pubkey::Pubkey,

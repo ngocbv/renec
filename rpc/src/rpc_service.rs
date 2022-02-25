@@ -23,7 +23,7 @@ use {
     solana_metrics::inc_new_counter_info,
     renec_perf::thread::renice_this_thread,
     renec_poh::poh_recorder::PohRecorder,
-    renec_runtime::{
+    solana_runtime::{
         bank_forks::{BankForks, SnapshotConfig},
         commitment::BlockCommitmentCache,
         snapshot_utils,
@@ -249,7 +249,7 @@ fn process_rest(bank_forks: &Arc<RwLock<BankForks>>, path: &str) -> Option<Strin
             let bank = r_bank_forks.root_bank();
             let total_supply = bank.capitalization();
             let non_circulating_supply =
-                renec_runtime::non_circulating_supply::calculate_non_circulating_supply(&bank)
+                solana_runtime::non_circulating_supply::calculate_non_circulating_supply(&bank)
                     .expect("Scan should not error on root banks")
                     .lamports;
             Some(format!(
@@ -491,7 +491,7 @@ mod tests {
             genesis_utils::{create_genesis_config, GenesisConfigInfo},
             get_tmp_ledger_path,
         },
-        renec_runtime::{
+        solana_runtime::{
             bank::Bank,
             bank_forks::ArchiveFormat,
             snapshot_utils::{SnapshotVersion, DEFAULT_MAX_SNAPSHOTS_TO_RETAIN},

@@ -18,7 +18,7 @@ use {
         shred::Nonce,
     },
     renec_measure::measure::Measure,
-    renec_runtime::{bank::Bank, bank_forks::BankForks, contains::Contains},
+    solana_runtime::{bank::Bank, bank_forks::BankForks, contains::Contains},
     solana_sdk::{
         clock::{BankId, Slot},
         epoch_schedule::EpochSchedule,
@@ -724,7 +724,7 @@ mod test {
             get_tmp_ledger_path,
             shred::max_ticks_per_n_shreds,
         },
-        renec_runtime::genesis_utils::{self, GenesisConfigInfo, ValidatorVoteKeypairs},
+        solana_runtime::genesis_utils::{self, GenesisConfigInfo, ValidatorVoteKeypairs},
         solana_sdk::signature::{Keypair, Signer},
         solana_streamer::socket::SocketAddrSpace,
         renec_vote_program::vote_transaction,

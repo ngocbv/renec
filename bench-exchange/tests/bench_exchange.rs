@@ -11,7 +11,7 @@ use {
         local_cluster::{ClusterConfig, LocalCluster},
         validator_configs::make_identical_validator_configs,
     },
-    renec_runtime::{bank::Bank, bank_client::BankClient},
+    solana_runtime::{bank::Bank, bank_client::BankClient},
     solana_sdk::{
         genesis_config::create_genesis_config,
         signature::{Keypair, Signer},

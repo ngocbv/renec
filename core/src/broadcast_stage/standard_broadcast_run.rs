@@ -518,7 +518,7 @@ mod test {
             blockstore::Blockstore, entry::create_ticks, genesis_utils::create_genesis_config,
             get_tmp_ledger_path, shred::max_ticks_per_n_shreds,
         },
-        renec_runtime::bank::Bank,
+        solana_runtime::bank::Bank,
         solana_sdk::{
             genesis_config::GenesisConfig,
             signature::{Keypair, Signer},

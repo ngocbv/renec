@@ -4,7 +4,7 @@ use {
     renec_gossip::cluster_info::ClusterInfo,
     solana_metrics::{datapoint_warn, inc_new_counter_info},
     renec_poh::poh_recorder::PohRecorder,
-    renec_runtime::{bank::Bank, bank_forks::BankForks},
+    solana_runtime::{bank::Bank, bank_forks::BankForks},
     solana_sdk::{
         clock::NUM_CONSECUTIVE_LEADER_SLOTS, hash::Hash, nonce_account, pubkey::Pubkey,
         signature::Signature,
@@ -377,7 +377,7 @@ mod test {
         renec_ledger::{
             blockstore::Blockstore, get_tmp_ledger_path, leader_schedule_cache::LeaderScheduleCache,
         },
-        renec_runtime::genesis_utils::{
+        solana_runtime::genesis_utils::{
             create_genesis_config_with_vote_accounts, GenesisConfigInfo, ValidatorVoteKeypairs,
         },
         solana_sdk::{

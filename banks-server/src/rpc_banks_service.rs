@@ -3,7 +3,7 @@
 use {
     crate::banks_server::start_tcp_server,
     futures::{future::FutureExt, pin_mut, prelude::stream::StreamExt, select},
-    renec_runtime::{bank_forks::BankForks, commitment::BlockCommitmentCache},
+    solana_runtime::{bank_forks::BankForks, commitment::BlockCommitmentCache},
     std::{
         net::SocketAddr,
         sync::{
@@ -103,7 +103,7 @@ impl RpcBanksService {
 
 #[cfg(test)]
 mod tests {
-    use {super::*, renec_runtime::bank::Bank};
+    use {super::*, solana_runtime::bank::Bank};
 
     #[test]
     fn test_rpc_banks_server_exit() {

@@ -7,7 +7,7 @@ use {
         progress_map::ProgressMap, tree_diff::TreeDiff,
     },
     renec_measure::measure::Measure,
-    renec_runtime::{bank::Bank, bank_forks::BankForks, epoch_stakes::EpochStakes},
+    solana_runtime::{bank::Bank, bank_forks::BankForks, epoch_stakes::EpochStakes},
     solana_sdk::{
         clock::{Epoch, Slot},
         epoch_schedule::EpochSchedule,
@@ -1049,7 +1049,7 @@ mod test {
     use {
         super::*,
         crate::consensus::test::VoteSimulator,
-        renec_runtime::{bank::Bank, bank_utils},
+        solana_runtime::{bank::Bank, bank_utils},
         solana_sdk::{hash::Hash, slot_history::SlotHistory},
         std::{collections::HashSet, ops::Range},
         trees::tr,

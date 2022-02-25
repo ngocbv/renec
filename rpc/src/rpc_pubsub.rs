@@ -512,7 +512,7 @@ mod tests {
         renec_client::rpc_response::{
             ProcessedSignatureResult, ReceivedSignatureResult, RpcSignatureResult, SlotInfo,
         },
-        renec_runtime::{
+        solana_runtime::{
             bank::Bank,
             bank_forks::BankForks,
             commitment::{BlockCommitmentCache, CommitmentSlots},

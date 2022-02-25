@@ -2,7 +2,7 @@ use {
     log::*,
     rand::{thread_rng, Rng},
     rayon::prelude::*,
-    renec_runtime::{
+    solana_runtime::{
         accounts_db::{AccountsDb, LoadHint},
         ancestors::Ancestors,
     },

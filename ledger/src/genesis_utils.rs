@@ -1,4 +1,4 @@
-pub use renec_runtime::genesis_utils::{
+pub use solana_runtime::genesis_utils::{
     bootstrap_validator_stake_lamports, create_genesis_config_with_leader, GenesisConfigInfo,
 };
 

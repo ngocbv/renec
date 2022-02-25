@@ -3,7 +3,7 @@ use {
     crossbeam_channel::{Receiver, RecvTimeoutError},
     renec_ledger::blockstore::Blockstore,
     renec_measure::measure::Measure,
-    renec_runtime::bank::Bank,
+    solana_runtime::bank::Bank,
     std::{
         sync::{
             atomic::{AtomicBool, Ordering},

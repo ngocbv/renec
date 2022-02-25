@@ -8,7 +8,7 @@ use {
     crate::snapshot_packager_service::PendingSnapshotPackage,
     rayon::ThreadPool,
     renec_gossip::cluster_info::{ClusterInfo, MAX_SNAPSHOT_HASHES},
-    renec_runtime::{
+    solana_runtime::{
         accounts_db,
         snapshot_package::{AccountsPackage, AccountsPackagePre, AccountsPackageReceiver},
     },
@@ -98,7 +98,7 @@ impl AccountsHashVerifier {
         snapshot_interval_slots: u64,
         thread_pool: Option<&ThreadPool>,
     ) {
-        let accounts_package = renec_runtime::snapshot_utils::process_accounts_package_pre(
+        let accounts_package = solana_runtime::snapshot_utils::process_accounts_package_pre(
             accounts_package,
             thread_pool,
         );
@@ -222,7 +222,7 @@ mod tests {
     use {
         super::*,
         renec_gossip::{cluster_info::make_accounts_hashes_message, contact_info::ContactInfo},
-        renec_runtime::{bank_forks::ArchiveFormat, snapshot_utils::SnapshotVersion},
+        solana_runtime::{bank_forks::ArchiveFormat, snapshot_utils::SnapshotVersion},
         solana_sdk::{
             hash::hash,
             signature::{Keypair, Signer},

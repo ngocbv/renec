@@ -206,13 +206,13 @@ msg!("Some variable: {:?}", variable);
 默认情况下，Rust 的`panic!`、`assert!`和内部恐慌结果被打印到[程序日志](debugging.md#logging)。
 
 ```
-INFO  renec_runtime::message_processor] Finalized account CGLhHSuWsp1gT4B7MY2KACqp9RUwQRhcUFfVSuxpSajZ
-INFO  renec_runtime::message_processor] Call BPF program CGLhHSuWsp1gT4B7MY2KACqp9RUwQRhcUFfVSuxpSajZ
-INFO  renec_runtime::message_processor] Program log: Panicked at: 'assertion failed: `(left == right)`
+INFO  solana_runtime::message_processor] Finalized account CGLhHSuWsp1gT4B7MY2KACqp9RUwQRhcUFfVSuxpSajZ
+INFO  solana_runtime::message_processor] Call BPF program CGLhHSuWsp1gT4B7MY2KACqp9RUwQRhcUFfVSuxpSajZ
+INFO  solana_runtime::message_processor] Program log: Panicked at: 'assertion failed: `(left == right)`
       left: `1`,
      right: `2`', rust/panic/src/lib.rs:22:5
-INFO  renec_runtime::message_processor] BPF program consumed 5453 of 200000 units
-INFO  renec_runtime::message_processor] BPF program CGLhHSuWsp1gT4B7MY2KACqp9RUwQRhcUFfVSuxpSajZ failed: BPF program panicked
+INFO  solana_runtime::message_processor] BPF program consumed 5453 of 200000 units
+INFO  solana_runtime::message_processor] BPF program CGLhHSuWsp1gT4B7MY2KACqp9RUwQRhcUFfVSuxpSajZ failed: BPF program panicked
 ```
 
 ### 自定义恐慌处理器 {#custom-panic-handler}

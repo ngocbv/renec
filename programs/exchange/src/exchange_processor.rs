@@ -513,7 +513,7 @@ mod test {
     use {
         super::*,
         crate::{exchange_instruction, id},
-        renec_runtime::{bank::Bank, bank_client::BankClient},
+        solana_runtime::{bank::Bank, bank_client::BankClient},
         solana_sdk::{
             client::SyncClient,
             genesis_config::create_genesis_config,

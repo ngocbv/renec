@@ -283,7 +283,7 @@ pub(crate) fn move_stake_accounts(
 mod tests {
     use {
         super::*,
-        renec_runtime::{bank::Bank, bank_client::BankClient},
+        solana_runtime::{bank::Bank, bank_client::BankClient},
         solana_sdk::{
             account::{AccountSharedData, ReadableAccount},
             client::SyncClient,

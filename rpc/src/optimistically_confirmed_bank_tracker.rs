@@ -6,7 +6,7 @@ use {
     crate::rpc_subscriptions::RpcSubscriptions,
     crossbeam_channel::{Receiver, RecvTimeoutError, Sender},
     renec_client::rpc_response::{SlotTransactionStats, SlotUpdate},
-    renec_runtime::{bank::Bank, bank_forks::BankForks},
+    solana_runtime::{bank::Bank, bank_forks::BankForks},
     solana_sdk::{clock::Slot, timing::timestamp},
     std::{
         collections::HashSet,
@@ -317,7 +317,7 @@ mod tests {
     use {
         super::*,
         renec_ledger::genesis_utils::{create_genesis_config, GenesisConfigInfo},
-        renec_runtime::{
+        solana_runtime::{
             accounts_background_service::AbsRequestSender, commitment::BlockCommitmentCache,
         },
         solana_sdk::pubkey::Pubkey,

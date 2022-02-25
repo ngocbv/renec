@@ -5,7 +5,7 @@ use {
     },
     renec_ledger::{ancestor_iterator::AncestorIterator, blockstore::Blockstore},
     renec_measure::measure::Measure,
-    renec_runtime::{contains::Contains, epoch_stakes::EpochStakes},
+    solana_runtime::{contains::Contains, epoch_stakes::EpochStakes},
     solana_sdk::{
         clock::Slot,
         epoch_schedule::{Epoch, EpochSchedule},
@@ -536,7 +536,7 @@ mod test {
     use {
         super::*,
         renec_ledger::{blockstore::Blockstore, get_tmp_ledger_path},
-        renec_runtime::{bank::Bank, bank_utils},
+        solana_runtime::{bank::Bank, bank_utils},
         solana_sdk::hash::Hash,
         trees::tr,
     };

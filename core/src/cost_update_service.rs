@@ -6,7 +6,7 @@
 use {
     renec_ledger::blockstore::Blockstore,
     renec_measure::measure::Measure,
-    renec_runtime::{bank::Bank, cost_model::CostModel},
+    solana_runtime::{bank::Bank, cost_model::CostModel},
     solana_sdk::{execute_timings::ExecuteTimings, timing::timestamp},
     std::{
         sync::{

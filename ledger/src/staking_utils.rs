@@ -1,5 +1,5 @@
 use {
-    renec_runtime::bank::Bank,
+    solana_runtime::bank::Bank,
     solana_sdk::clock::{Epoch, Slot},
 };
 
@@ -58,7 +58,7 @@ pub(crate) mod tests {
             bootstrap_validator_stake_lamports, create_genesis_config, GenesisConfigInfo,
         },
         rand::Rng,
-        renec_runtime::vote_account::{VoteAccount, VoteAccounts},
+        solana_runtime::vote_account::{VoteAccount, VoteAccounts},
         solana_sdk::{
             account::{from_account, AccountSharedData},
             clock::Clock,

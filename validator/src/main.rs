@@ -39,7 +39,7 @@ use {
     renec_perf::recycler::enable_recycler_warming,
     renec_poh::poh_service,
     renec_rpc::{rpc::JsonRpcConfig, rpc_pubsub_service::PubSubConfig, send_transaction_service},
-    renec_runtime::{
+    solana_runtime::{
         accounts_db::{
             AccountShrinkThreshold, DEFAULT_ACCOUNTS_SHRINK_OPTIMIZE_TOTAL_SPACE,
             DEFAULT_ACCOUNTS_SHRINK_RATIO,
@@ -2823,7 +2823,7 @@ pub fn main() {
     solana_metrics::set_panic_hook("validator");
 
     renec_ledger::entry::init_poh();
-    renec_runtime::snapshot_utils::remove_tmp_snapshot_archives(&snapshot_output_dir);
+    solana_runtime::snapshot_utils::remove_tmp_snapshot_archives(&snapshot_output_dir);
 
     let should_check_duplicate_instance = !matches.is_present("no_duplicate_instance_check");
     if !cluster_entrypoints.is_empty() {

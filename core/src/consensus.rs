@@ -7,7 +7,7 @@ use {
     chrono::prelude::*,
     renec_ledger::{ancestor_iterator::AncestorIterator, blockstore::Blockstore, blockstore_db},
     renec_measure::measure::Measure,
-    renec_runtime::{
+    solana_runtime::{
         bank::Bank, bank_forks::BankForks, commitment::VOTE_THRESHOLD_SIZE,
         vote_account::VoteAccount,
     },
@@ -1365,7 +1365,7 @@ pub mod test {
         },
         itertools::Itertools,
         renec_ledger::{blockstore::make_slot_entries, get_tmp_ledger_path},
-        renec_runtime::{
+        solana_runtime::{
             accounts_background_service::AbsRequestSender,
             bank::Bank,
             bank_forks::BankForks,

@@ -7,7 +7,7 @@ use {
     },
     renec_measure::measure::Measure,
     solana_metrics::*,
-    renec_runtime::{
+    solana_runtime::{
         accounts_update_notifier_interface::AccountsUpdateNotifierInterface,
         append_vec::{StoredAccountMeta, StoredMeta},
     },

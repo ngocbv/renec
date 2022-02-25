@@ -10,7 +10,7 @@ use {
     renec_faucet::faucet::{request_airdrop_transaction, FAUCET_PORT},
     renec_gossip::gossip_service::discover,
     renec_measure::measure::Measure,
-    renec_runtime::inline_spl_token,
+    solana_runtime::inline_spl_token,
     solana_sdk::{
         commitment_config::CommitmentConfig,
         message::Message,
