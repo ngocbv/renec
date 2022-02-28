@@ -12,18 +12,18 @@ use {
         distributions::{Distribution, WeightedError, WeightedIndex},
         Rng,
     },
-    renec_gossip::{
+    solana_gossip::{
         cluster_info::{ClusterInfo, ClusterInfoError},
         contact_info::ContactInfo,
         weighted_shuffle::weighted_best,
     },
-    renec_ledger::{
+    solana_ledger::{
         blockstore::Blockstore,
         shred::{Nonce, Shred},
     },
-    renec_measure::measure::Measure,
+    solana_measure::measure::Measure,
     solana_metrics::inc_new_counter_debug,
-    renec_perf::packet::{limited_deserialize, PacketBatch, PacketBatchRecycler},
+    solana_perf::packet::{limited_deserialize, PacketBatch, PacketBatchRecycler},
     solana_sdk::{
         clock::Slot,
         pubkey::Pubkey,
@@ -642,14 +642,14 @@ mod tests {
     use {
         super::*,
         crate::{repair_response, result::Error},
-        renec_gossip::{socketaddr, socketaddr_any},
-        renec_ledger::{
+        solana_gossip::{socketaddr, socketaddr_any},
+        solana_ledger::{
             blockstore::make_many_slot_entries,
             blockstore_processor::fill_blockstore_slot_with_ticks,
             get_tmp_ledger_path,
             shred::{max_ticks_per_n_shreds, Shred},
         },
-        renec_perf::packet::Packet,
+        solana_perf::packet::Packet,
         solana_sdk::{hash::Hash, pubkey::Pubkey, signature::Keypair, timing::timestamp},
         solana_streamer::socket::SocketAddrSpace,
     };

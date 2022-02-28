@@ -2,10 +2,10 @@ use {
     crate::cli::Config,
     log::*,
     rayon::prelude::*,
-    renec_client::perf_utils::{sample_txs, SampleStats},
-    renec_core::gen_keys::GenKeys,
+    solana_client::perf_utils::{sample_txs, SampleStats},
+    solana_core::gen_keys::GenKeys,
     renec_faucet::faucet::request_airdrop_transaction,
-    renec_measure::measure::Measure,
+    solana_measure::measure::Measure,
     solana_metrics::{self, datapoint_info},
     solana_sdk::{
         client::Client,
@@ -100,7 +100,7 @@ where
     let maxes = maxes.clone();
     let client = client.clone();
     Builder::new()
-        .name("renec-client-sample".to_string())
+        .name("solana-client-sample".to_string())
         .spawn(move || {
             sample_txs(&exit_signal, &maxes, sample_period, &client);
         })
@@ -181,7 +181,7 @@ where
             let total_tx_sent_count = total_tx_sent_count.clone();
             let client = client.clone();
             Builder::new()
-                .name("renec-client-sender".to_string())
+                .name("solana-client-sender".to_string())
                 .spawn(move || {
                     do_tx_transfers(
                         &exit_signal,

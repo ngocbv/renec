@@ -4,12 +4,12 @@ extern crate log;
 
 use {
     rayon::iter::*,
-    renec_gossip::{
+    solana_gossip::{
         cluster_info::{ClusterInfo, Node},
         crds::Cursor,
         gossip_service::GossipService,
     },
-    renec_perf::packet::Packet,
+    solana_perf::packet::Packet,
     solana_runtime::bank_forks::BankForks,
     solana_sdk::{
         hash::Hash,
@@ -247,8 +247,8 @@ pub fn cluster_info_retransmit() {
 #[ignore]
 pub fn cluster_info_scale() {
     use {
-        renec_measure::measure::Measure,
-        renec_perf::test_tx::test_tx,
+        solana_measure::measure::Measure,
+        solana_perf::test_tx::test_tx,
         solana_runtime::{
             bank::Bank,
             genesis_utils::{create_genesis_config_with_vote_accounts, ValidatorVoteKeypairs},

@@ -271,7 +271,7 @@ verifyLedger() {
     echo "--- $ledger ledger verification"
     (
       set -x
-      $renec_ledger_tool --ledger "$SOLANA_CONFIG_DIR"/$ledger verify
+      $solana_ledger_tool --ledger "$SOLANA_CONFIG_DIR"/$ledger verify
     ) || flag_error
   done
 }
@@ -317,7 +317,7 @@ while [[ $iteration -le $iterations ]]; do
     set -x
     client_keypair=/tmp/client-id.json-$$
     $renec_keygen new --no-passphrase -fso $client_keypair || exit $?
-    $renec_gossip spy -n 127.0.0.1:8001 --num-nodes-exactly $numNodes || exit $?
+    $solana_gossip spy -n 127.0.0.1:8001 --num-nodes-exactly $numNodes || exit $?
     rm -rf $client_keypair
   ) || flag_error
 

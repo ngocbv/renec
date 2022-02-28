@@ -8,7 +8,7 @@ use {
     console::{style, Emoji},
     indicatif::{ProgressBar, ProgressStyle},
     serde::{Deserialize, Serialize},
-    renec_client::rpc_client::RpcClient,
+    solana_client::rpc_client::RpcClient,
     renec_config_program::{config_instruction, get_config_data, ConfigState},
     solana_sdk::{
         hash::{Hash, Hasher},
@@ -537,7 +537,7 @@ pub fn init(
     explicit_release: Option<ExplicitRelease>,
 ) -> Result<(), String> {
     let config = {
-        // Write new config file only if different, so that running |renec-install init|
+        // Write new config file only if different, so that running |solana-install init|
         // repeatedly doesn't unnecessarily re-download
         let mut current_config = Config::load(config_file).unwrap_or_default();
         current_config.current_update_manifest = None;
@@ -870,7 +870,7 @@ fn check_for_newer_github_release(
     let mut page = 1;
     const PER_PAGE: usize = 100;
     let client = reqwest::blocking::Client::builder()
-        .user_agent("renec-install")
+        .user_agent("solana-install")
         .build()?;
     let mut all_releases = vec![];
     let mut releases = vec![];

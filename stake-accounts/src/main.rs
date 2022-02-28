@@ -11,7 +11,7 @@ use {
         },
     },
     renec_cli_config::Config,
-    renec_client::{client_error::ClientError, rpc_client::RpcClient},
+    solana_client::{client_error::ClientError, rpc_client::RpcClient},
     solana_sdk::{
         message::Message,
         native_token::lamports_to_sol,

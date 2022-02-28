@@ -1,22 +1,22 @@
 #![feature(test)]
 
-extern crate renec_core;
+extern crate solana_core;
 extern crate test;
 
 use {
     log::*,
-    renec_core::retransmit_stage::retransmitter,
-    renec_gossip::{
+    solana_core::retransmit_stage::retransmitter,
+    solana_gossip::{
         cluster_info::{ClusterInfo, Node},
         contact_info::ContactInfo,
     },
-    renec_ledger::{
+    solana_ledger::{
         entry::Entry,
         genesis_utils::{create_genesis_config, GenesisConfigInfo},
         leader_schedule_cache::LeaderScheduleCache,
         shred::Shredder,
     },
-    renec_measure::measure::Measure,
+    solana_measure::measure::Measure,
     solana_runtime::{bank::Bank, bank_forks::BankForks},
     solana_sdk::{
         hash::Hash,

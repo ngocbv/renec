@@ -17,7 +17,7 @@ use {
         CliUpgradeableBuffer, CliUpgradeableBuffers, CliUpgradeableProgram,
         CliUpgradeableProgramClosed, CliUpgradeablePrograms,
     },
-    renec_client::{
+    solana_client::{
         client_error::ClientErrorKind,
         rpc_client::RpcClient,
         rpc_config::{RpcAccountInfoConfig, RpcProgramAccountsConfig, RpcSendTransactionConfig},

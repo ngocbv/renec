@@ -5,7 +5,7 @@ use {
         parse_token::{get_token_account_mint, spl_token_id, spl_token_native_mint},
         UiAccount, UiAccountData, UiAccountEncoding,
     },
-    renec_client::rpc_response::RpcKeyedAccount,
+    solana_client::rpc_response::RpcKeyedAccount,
     solana_runtime::bank::Bank,
     solana_sdk::{
         account::{AccountSharedData, ReadableAccount},

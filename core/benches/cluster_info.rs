@@ -4,17 +4,17 @@ extern crate test;
 
 use {
     rand::{thread_rng, Rng},
-    renec_core::{
+    solana_core::{
         broadcast_stage::{
             broadcast_metrics::TransmitShredsStats, broadcast_shreds, BroadcastStage,
         },
         cluster_nodes::ClusterNodesCache,
     },
-    renec_gossip::{
+    solana_gossip::{
         cluster_info::{ClusterInfo, Node},
         contact_info::ContactInfo,
     },
-    renec_ledger::{
+    solana_ledger::{
         genesis_utils::{create_genesis_config, GenesisConfigInfo},
         shred::Shred,
     },

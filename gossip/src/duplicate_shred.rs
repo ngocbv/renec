@@ -1,7 +1,7 @@
 use {
     crate::crds_value::sanitize_wallclock,
     itertools::Itertools,
-    renec_ledger::{
+    solana_ledger::{
         blockstore_meta::DuplicateSlotProof,
         shred::{Shred, ShredError, ShredType},
     },
@@ -283,7 +283,7 @@ pub(crate) mod tests {
     use {
         super::*,
         rand::Rng,
-        renec_ledger::{entry::Entry, shred::Shredder},
+        solana_ledger::{entry::Entry, shred::Shredder},
         solana_sdk::{
             hash,
             signature::{Keypair, Signer},

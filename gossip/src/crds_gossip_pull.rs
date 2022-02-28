@@ -632,7 +632,7 @@ pub(crate) mod tests {
         rand::{seq::SliceRandom, thread_rng, SeedableRng},
         rand_chacha::ChaChaRng,
         rayon::ThreadPoolBuilder,
-        renec_perf::test_tx::test_tx,
+        solana_perf::test_tx::test_tx,
         solana_sdk::{
             hash::{hash, HASH_BYTES},
             packet::PACKET_DATA_SIZE,

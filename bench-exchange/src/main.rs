@@ -6,7 +6,7 @@ pub mod order_book;
 use {
     crate::bench::{airdrop_lamports, create_client_accounts_file, do_bench_exchange, Config},
     log::*,
-    renec_gossip::gossip_service::{discover_cluster, get_multi_client},
+    solana_gossip::gossip_service::{discover_cluster, get_multi_client},
     solana_sdk::signature::Signer,
     solana_streamer::socket::SocketAddrSpace,
 };

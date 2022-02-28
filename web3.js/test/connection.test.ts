@@ -102,7 +102,7 @@ describe('Connection', () => {
       await mockRpcResponse({
         method: 'getVersion',
         params: [],
-        value: {'renec-core': '0.20.4'},
+        value: {'solana-core': '0.20.4'},
         withHeaders: headers,
       });
 
@@ -122,7 +122,7 @@ describe('Connection', () => {
       await mockRpcResponse({
         method: 'getVersion',
         params: [],
-        value: {'renec-core': '0.20.4'},
+        value: {'solana-core': '0.20.4'},
         withHeaders: {
           Authorization: 'Bearer 123',
         },
@@ -2485,11 +2485,11 @@ describe('Connection', () => {
     await mockRpcResponse({
       method: 'getVersion',
       params: [],
-      value: {'renec-core': '0.20.4'},
+      value: {'solana-core': '0.20.4'},
     });
 
     const version = await connection.getVersion();
-    expect(version['renec-core']).to.be.ok;
+    expect(version['solana-core']).to.be.ok;
   });
 
   it('request airdrop', async () => {
@@ -3016,7 +3016,7 @@ describe('Connection', () => {
     it('https request', async () => {
       const connection = new Connection('https://api.mainnet-beta.solana.com');
       const version = await connection.getVersion();
-      expect(version['renec-core']).to.be.ok;
+      expect(version['solana-core']).to.be.ok;
     });
   }
 });

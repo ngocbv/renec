@@ -24,7 +24,7 @@ use {
         return_signers_with_config, CliEpochVotingHistory, CliLockout, CliVoteAccount,
         ReturnSignersConfig,
     },
-    renec_client::{blockhash_query::BlockhashQuery, nonce_utils, rpc_client::RpcClient},
+    solana_client::{blockhash_query::BlockhashQuery, nonce_utils, rpc_client::RpcClient},
     solana_remote_wallet::remote_wallet::RemoteWalletManager,
     solana_sdk::{
         account::Account, commitment_config::CommitmentConfig, message::Message,
@@ -1274,7 +1274,7 @@ mod tests {
     use {
         super::*,
         crate::{clap_app::get_clap_app, cli::parse_command},
-        renec_client::blockhash_query,
+        solana_client::blockhash_query,
         solana_sdk::{
             hash::Hash,
             signature::{read_keypair_file, write_keypair, Keypair, Signer},

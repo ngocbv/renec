@@ -1,11 +1,11 @@
 #![allow(clippy::implicit_hasher)]
 use {
     crate::{sigverify, sigverify_stage::SigVerifier},
-    renec_ledger::{
+    solana_ledger::{
         leader_schedule_cache::LeaderScheduleCache, shred::Shred,
         sigverify_shreds::verify_shreds_gpu,
     },
-    renec_perf::{self, packet::PacketBatch, recycler_cache::RecyclerCache},
+    solana_perf::{self, packet::PacketBatch, recycler_cache::RecyclerCache},
     solana_runtime::bank_forks::BankForks,
     std::{
         collections::{HashMap, HashSet},
@@ -56,7 +56,7 @@ impl SigVerifier for ShredSigVerifier {
         leader_slots.insert(std::u64::MAX, [0u8; 32]);
 
         let r = verify_shreds_gpu(&batches, &leader_slots, &self.recycler_cache);
-        renec_perf::sigverify::mark_disabled(&mut batches, &r);
+        solana_perf::sigverify::mark_disabled(&mut batches, &r);
         batches
     }
 }
@@ -65,11 +65,11 @@ impl SigVerifier for ShredSigVerifier {
 pub mod tests {
     use {
         super::*,
-        renec_ledger::{
+        solana_ledger::{
             genesis_utils::create_genesis_config_with_leader,
             shred::{Shred, Shredder},
         },
-        renec_perf::packet::Packet,
+        solana_perf::packet::Packet,
         solana_runtime::bank::Bank,
         solana_sdk::signature::{Keypair, Signer},
     };

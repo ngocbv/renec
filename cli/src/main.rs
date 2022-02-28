@@ -12,7 +12,7 @@ use {
     },
     renec_cli_config::Config,
     renec_cli_output::{display::println_name_value, OutputFormat},
-    renec_client::rpc_config::RpcSendTransactionConfig,
+    solana_client::rpc_config::RpcSendTransactionConfig,
     solana_remote_wallet::remote_wallet::RemoteWalletManager,
     std::{collections::HashMap, error, path::PathBuf, sync::Arc, time::Duration},
 };

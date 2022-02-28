@@ -10,23 +10,23 @@ use {
     gag::BufferRedirect,
     log::*,
     serial_test::serial,
-    renec_client::{
+    solana_client::{
         pubsub_client::PubsubClient,
         rpc_client::RpcClient,
         rpc_config::{RpcProgramAccountsConfig, RpcSignatureSubscribeConfig},
         rpc_response::RpcSignatureResult,
         thin_client::{create_client, ThinClient},
     },
-    renec_core::{
+    solana_core::{
         broadcast_stage::BroadcastStageType,
         consensus::{Tower, SWITCH_FORK_THRESHOLD, VOTE_THRESHOLD_DEPTH},
         optimistic_confirmation_verifier::OptimisticConfirmationVerifier,
         validator::ValidatorConfig,
     },
-    renec_download_utils::download_snapshot,
-    renec_gossip::{cluster_info::VALIDATOR_PORT_RANGE, gossip_service::discover_cluster},
-    renec_ledger::{ancestor_iterator::AncestorIterator, blockstore::Blockstore},
-    renec_local_cluster::{
+    solana_download_utils::download_snapshot,
+    solana_gossip::{cluster_info::VALIDATOR_PORT_RANGE, gossip_service::discover_cluster},
+    solana_ledger::{ancestor_iterator::AncestorIterator, blockstore::Blockstore},
+    solana_local_cluster::{
         cluster::{Cluster, ClusterValidatorInfo},
         cluster_tests,
         local_cluster::{ClusterConfig, LocalCluster},

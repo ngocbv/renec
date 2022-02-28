@@ -15,7 +15,7 @@ use {
     serde_json::{Map, Value},
     renec_account_decoder::parse_token::UiTokenAccount,
     renec_clap_utils::keypair::SignOnly,
-    renec_client::rpc_response::{
+    solana_client::rpc_response::{
         RpcAccountBalance, RpcContactInfo, RpcInflationGovernor, RpcInflationRate, RpcKeyedAccount,
         RpcSupply, RpcVoteAccountInfo,
     },

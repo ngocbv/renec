@@ -37,14 +37,14 @@ use {
     rand::{seq::SliceRandom, thread_rng, CryptoRng, Rng},
     rayon::{prelude::*, ThreadPool, ThreadPoolBuilder},
     serde::ser::Serialize,
-    renec_ledger::shred::Shred,
-    renec_measure::measure::Measure,
+    solana_ledger::shred::Shred,
+    solana_measure::measure::Measure,
     solana_metrics::{inc_new_counter_debug, inc_new_counter_error},
-    renec_net_utils::{
+    solana_net_utils::{
         bind_common, bind_common_in_range, bind_in_range, find_available_port_in_range,
         multi_bind_in_range, PortRange,
     },
-    renec_perf::{
+    solana_perf::{
         data_budget::DataBudget,
         packet::{
             limited_deserialize, to_packet_batch_with_destination, Packet, PacketBatch,
@@ -1704,7 +1704,7 @@ impl ClusterInfo {
             .build()
             .unwrap();
         Builder::new()
-            .name("renec-gossip".to_string())
+            .name("solana-gossip".to_string())
             .spawn(move || {
                 let mut last_push = timestamp();
                 let mut last_contact_info_trace = timestamp();
@@ -3054,7 +3054,7 @@ mod tests {
         itertools::izip,
         rand::{seq::SliceRandom, SeedableRng},
         rand_chacha::ChaChaRng,
-        renec_ledger::shred::Shredder,
+        solana_ledger::shred::Shredder,
         solana_sdk::signature::{Keypair, Signer},
         renec_vote_program::{vote_instruction, vote_state::Vote},
         std::{

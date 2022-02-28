@@ -1,6 +1,6 @@
 use {
     itertools::Itertools,
-    renec_gossip::{
+    solana_gossip::{
         cluster_info::ClusterInfo, contact_info::ContactInfo, crds::Cursor, epoch_slots::EpochSlots,
     },
     solana_runtime::{bank::Bank, epoch_stakes::NodeIdToVoteAccounts},

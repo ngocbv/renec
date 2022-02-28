@@ -6,14 +6,14 @@ use {
     },
     itertools::izip,
     log::*,
-    renec_client::thin_client::{create_client, ThinClient},
-    renec_core::validator::{Validator, ValidatorConfig, ValidatorStartProgress},
-    renec_gossip::{
+    solana_client::thin_client::{create_client, ThinClient},
+    solana_core::validator::{Validator, ValidatorConfig, ValidatorStartProgress},
+    solana_gossip::{
         cluster_info::{Node, VALIDATOR_PORT_RANGE},
         contact_info::ContactInfo,
         gossip_service::discover_cluster,
     },
-    renec_ledger::create_new_tmp_ledger,
+    solana_ledger::create_new_tmp_ledger,
     solana_runtime::genesis_utils::{
         create_genesis_config_with_vote_accounts_and_cluster_type, GenesisConfigInfo,
         ValidatorVoteKeypairs,

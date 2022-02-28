@@ -3,7 +3,7 @@
 extern crate test;
 
 use {
-    renec_perf::{packet::to_packet_batches, recycler::Recycler, sigverify, test_tx::test_tx},
+    solana_perf::{packet::to_packet_batches, recycler::Recycler, sigverify, test_tx::test_tx},
     test::Bencher,
 };
 

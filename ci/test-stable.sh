@@ -29,7 +29,7 @@ NPROC=$((NPROC>14 ? 14 : NPROC))
 echo "Executing $testName"
 case $testName in
 test-stable)
-  _ "$cargo" stable test --jobs "$NPROC" --all --exclude renec-local-cluster ${V:+--verbose} -- --nocapture
+  _ "$cargo" stable test --jobs "$NPROC" --all --exclude solana-local-cluster ${V:+--verbose} -- --nocapture
   ;;
 test-stable-bpf)
   # Clear the C dependency files, if dependency moves these files are not regenerated
@@ -87,7 +87,7 @@ test-stable-perf)
     rm -rf target/perf-libs
     ./fetch-perf-libs.sh
 
-    # Force CUDA for renec-core unit tests
+    # Force CUDA for solana-core unit tests
     export TEST_PERF_LIBS_CUDA=1
 
     # Force CUDA in ci/localnet-sanity.sh
@@ -95,22 +95,22 @@ test-stable-perf)
   fi
 
   _ "$cargo" stable build --bins ${V:+--verbose}
-  _ "$cargo" stable test --package renec-perf --package renec-ledger --package renec-core --lib ${V:+--verbose} -- --nocapture
+  _ "$cargo" stable test --package solana-perf --package solana-ledger --package solana-core --lib ${V:+--verbose} -- --nocapture
   _ "$cargo" stable run --manifest-path poh-bench/Cargo.toml ${V:+--verbose} -- --hashes-per-tick 10
   ;;
 test-local-cluster)
   _ "$cargo" stable build --release --bins ${V:+--verbose}
-  _ "$cargo" stable test --release --package renec-local-cluster --test local_cluster ${V:+--verbose} -- --nocapture --test-threads=1
+  _ "$cargo" stable test --release --package solana-local-cluster --test local_cluster ${V:+--verbose} -- --nocapture --test-threads=1
   exit 0
   ;;
 test-local-cluster-flakey)
   _ "$cargo" stable build --release --bins ${V:+--verbose}
-  _ "$cargo" stable test --release --package renec-local-cluster --test local_cluster_flakey ${V:+--verbose} -- --nocapture --test-threads=1
+  _ "$cargo" stable test --release --package solana-local-cluster --test local_cluster_flakey ${V:+--verbose} -- --nocapture --test-threads=1
   exit 0
   ;;
 test-local-cluster-slow)
   _ "$cargo" stable build --release --bins ${V:+--verbose}
-  _ "$cargo" stable test --release --package renec-local-cluster --test local_cluster_slow ${V:+--verbose} -- --nocapture --test-threads=1
+  _ "$cargo" stable test --release --package solana-local-cluster --test local_cluster_slow ${V:+--verbose} -- --nocapture --test-threads=1
   exit 0
   ;;
 *)

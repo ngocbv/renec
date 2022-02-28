@@ -1,6 +1,6 @@
 use {
     crate::consensus::Stake,
-    renec_measure::measure::Measure,
+    solana_measure::measure::Measure,
     solana_metrics::datapoint_info,
     solana_rpc::rpc_subscriptions::RpcSubscriptions,
     solana_runtime::{
@@ -253,7 +253,7 @@ impl AggregateCommitmentService {
 mod tests {
     use {
         super::*,
-        renec_ledger::genesis_utils::{create_genesis_config, GenesisConfigInfo},
+        solana_ledger::genesis_utils::{create_genesis_config, GenesisConfigInfo},
         solana_runtime::{
             accounts_background_service::AbsRequestSender,
             bank_forks::BankForks,

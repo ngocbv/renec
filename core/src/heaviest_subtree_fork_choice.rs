@@ -6,7 +6,7 @@ use {
         latest_validator_votes_for_frozen_banks::LatestValidatorVotesForFrozenBanks,
         progress_map::ProgressMap, tree_diff::TreeDiff,
     },
-    renec_measure::measure::Measure,
+    solana_measure::measure::Measure,
     solana_runtime::{bank::Bank, bank_forks::BankForks, epoch_stakes::EpochStakes},
     solana_sdk::{
         clock::{Epoch, Slot},

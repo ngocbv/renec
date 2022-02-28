@@ -12,7 +12,7 @@ use {
     },
 };
 pub use {
-    renec_core::test_validator, renec_gossip::cluster_info::MINIMUM_VALIDATOR_PORT_RANGE_WIDTH,
+    solana_core::test_validator, solana_gossip::cluster_info::MINIMUM_VALIDATOR_PORT_RANGE_WIDTH,
 };
 
 pub mod admin_rpc_service;
@@ -88,7 +88,7 @@ pub fn port_validator(port: String) -> Result<(), String> {
 }
 
 pub fn port_range_validator(port_range: String) -> Result<(), String> {
-    if let Some((start, end)) = renec_net_utils::parse_port_range(&port_range) {
+    if let Some((start, end)) = solana_net_utils::parse_port_range(&port_range) {
         if end - start < MINIMUM_VALIDATOR_PORT_RANGE_WIDTH {
             Err(format!(
                 "Port range is too small.  Try --dynamic-port-range {}-{}",

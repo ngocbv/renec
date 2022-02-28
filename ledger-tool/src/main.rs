@@ -16,7 +16,7 @@ use {
             is_parsable, is_pubkey, is_pubkey_or_keypair, is_slot, is_valid_percentage,
         },
     },
-    renec_ledger::{
+    solana_ledger::{
         ancestor_iterator::AncestorIterator,
         bank_forks_utils,
         blockstore::{create_new_ledger, Blockstore, PurgeType},
@@ -544,7 +544,7 @@ fn graph_forks(bank_forks: &BankForks, include_all_votes: bool) -> String {
 }
 
 fn analyze_column<
-    T: renec_ledger::blockstore_db::Column + renec_ledger::blockstore_db::ColumnName,
+    T: solana_ledger::blockstore_db::Column + solana_ledger::blockstore_db::ColumnName,
 >(
     db: &Database,
     name: &str,

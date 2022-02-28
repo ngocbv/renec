@@ -1,12 +1,12 @@
 #![allow(clippy::integer_arithmetic)]
 #[cfg(any(target_arch = "x86", target_arch = "x86_64"))]
-use renec_ledger::entry::{self, create_ticks, init_poh, EntrySlice, VerifyRecyclers};
+use solana_ledger::entry::{self, create_ticks, init_poh, EntrySlice, VerifyRecyclers};
 #[cfg(not(any(target_arch = "x86", target_arch = "x86_64")))]
-use renec_ledger::entry::{create_ticks, init_poh, EntrySlice, VerifyRecyclers};
+use solana_ledger::entry::{create_ticks, init_poh, EntrySlice, VerifyRecyclers};
 use {
     clap::{crate_description, crate_name, value_t, App, Arg},
-    renec_measure::measure::Measure,
-    renec_perf::perf_libs,
+    solana_measure::measure::Measure,
+    solana_perf::perf_libs,
     solana_sdk::hash::hash,
 };
 

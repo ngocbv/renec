@@ -279,7 +279,7 @@ pub fn main() -> Result<(), String> {
 pub fn main_init() -> Result<(), String> {
     renec_logger::setup();
 
-    let matches = App::new("renec-install-init")
+    let matches = App::new("solana-install-init")
         .about("Initializes a new installation")
         .version(renec_version::version!())
         .arg({

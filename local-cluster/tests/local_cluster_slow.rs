@@ -9,18 +9,18 @@ use {
     },
     log::*,
     serial_test::serial,
-    renec_core::{
+    solana_core::{
         broadcast_stage::{BroadcastDuplicatesConfig, BroadcastStageType},
         consensus::SWITCH_FORK_THRESHOLD,
         validator::ValidatorConfig,
     },
-    renec_gossip::{
+    solana_gossip::{
         cluster_info,
         crds_value::{self, CrdsData, CrdsValue},
         gossip_service::discover_cluster,
     },
-    renec_ledger::ancestor_iterator::AncestorIterator,
-    renec_local_cluster::{
+    solana_ledger::ancestor_iterator::AncestorIterator,
+    solana_local_cluster::{
         cluster::{Cluster, ClusterValidatorInfo},
         local_cluster::{ClusterConfig, LocalCluster},
         validator_configs::*,

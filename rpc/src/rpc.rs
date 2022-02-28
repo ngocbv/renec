@@ -16,7 +16,7 @@ use {
         parse_token::{spl_token_id, token_amount_to_ui_amount, UiTokenAmount},
         UiAccount, UiAccountEncoding, UiDataSliceConfig, MAX_BASE58_BYTES,
     },
-    renec_client::{
+    solana_client::{
         rpc_cache::LargestAccountsCache,
         rpc_config::*,
         rpc_custom_error::RpcCustomError,
@@ -32,15 +32,15 @@ use {
         rpc_response::{Response as RpcResponse, *},
     },
     renec_faucet::faucet::request_airdrop_transaction,
-    renec_gossip::{cluster_info::ClusterInfo, contact_info::ContactInfo},
-    renec_ledger::{
+    solana_gossip::{cluster_info::ClusterInfo, contact_info::ContactInfo},
+    solana_ledger::{
         blockstore::{Blockstore, SignatureInfosForAddress},
         blockstore_db::BlockstoreError,
         get_tmp_ledger_path,
         leader_schedule_cache::LeaderScheduleCache,
     },
     solana_metrics::inc_new_counter_info,
-    renec_perf::packet::PACKET_DATA_SIZE,
+    solana_perf::packet::PACKET_DATA_SIZE,
     solana_runtime::{
         accounts::AccountAddressFilter,
         accounts_index::{AccountIndex, AccountSecondaryIndexes, IndexKey},
@@ -2443,7 +2443,7 @@ pub mod rpc_minimal {
             debug!("get_version rpc request received");
             let version = renec_version::Version::default();
             Ok(RpcVersionInfo {
-                renec_core: version.to_string(),
+                solana_core: version.to_string(),
                 feature_set: Some(version.feature_set),
             })
         }
@@ -2485,7 +2485,7 @@ pub mod rpc_minimal {
                 .get_epoch_leader_schedule(epoch)
                 .map(|leader_schedule| {
                     let mut schedule_by_identity =
-                        renec_ledger::leader_schedule_utils::leader_schedule_by_identity(
+                        solana_ledger::leader_schedule_utils::leader_schedule_by_identity(
                             leader_schedule.get_slot_leaders().iter().enumerate(),
                         );
                     if let Some(identity) = config.identity {
@@ -4041,12 +4041,12 @@ pub fn create_test_transactions_and_populate_blockstore(
     let success_tx =
         solana_sdk::system_transaction::transfer(mint_keypair, &keypair1.pubkey(), 2, blockhash);
     let success_signature = success_tx.signatures[0];
-    let entry_1 = renec_ledger::entry::next_entry(&blockhash, 1, vec![success_tx]);
+    let entry_1 = solana_ledger::entry::next_entry(&blockhash, 1, vec![success_tx]);
     // Failed transaction, InstructionError
     let ix_error_tx =
         solana_sdk::system_transaction::transfer(keypair2, &keypair3.pubkey(), 10, blockhash);
     let ix_error_signature = ix_error_tx.signatures[0];
-    let entry_2 = renec_ledger::entry::next_entry(&entry_1.hash, 1, vec![ix_error_tx]);
+    let entry_2 = solana_ledger::entry::next_entry(&entry_1.hash, 1, vec![ix_error_tx]);
     // Failed transaction
     let fail_tx = solana_sdk::system_transaction::transfer(
         mint_keypair,
@@ -4054,10 +4054,10 @@ pub fn create_test_transactions_and_populate_blockstore(
         2,
         Hash::default(),
     );
-    let entry_3 = renec_ledger::entry::next_entry(&entry_2.hash, 1, vec![fail_tx]);
+    let entry_3 = solana_ledger::entry::next_entry(&entry_2.hash, 1, vec![fail_tx]);
     let mut entries = vec![entry_1, entry_2, entry_3];
 
-    let shreds = renec_ledger::blockstore::entries_to_test_shreds(
+    let shreds = solana_ledger::blockstore::entries_to_test_shreds(
         entries.clone(),
         slot,
         previous_slot,
@@ -4079,12 +4079,12 @@ pub fn create_test_transactions_and_populate_blockstore(
 
     // Check that process_entries successfully writes can_commit transactions statuses, and
     // that they are matched properly by get_rooted_block
-    let _result = renec_ledger::blockstore_processor::process_entries(
+    let _result = solana_ledger::blockstore_processor::process_entries(
         &bank,
         &mut entries,
         true,
         Some(
-            &renec_ledger::blockstore_processor::TransactionStatusSender {
+            &solana_ledger::blockstore_processor::TransactionStatusSender {
                 sender: transaction_status_sender,
                 enable_cpi_and_log_storage: false,
             },
@@ -4110,9 +4110,9 @@ pub mod tests {
         bincode::deserialize,
         jsonrpc_core::{futures, ErrorCode, MetaIoHandler, Output, Response, Value},
         jsonrpc_core_client::transports::local,
-        renec_client::rpc_filter::{Memcmp, MemcmpEncodedBytes},
-        renec_gossip::{contact_info::ContactInfo, socketaddr},
-        renec_ledger::{
+        solana_client::rpc_filter::{Memcmp, MemcmpEncodedBytes},
+        solana_gossip::{contact_info::ContactInfo, socketaddr},
+        solana_ledger::{
             blockstore_meta::PerfSample,
             blockstore_processor::fill_blockstore_slot_with_ticks,
             genesis_utils::{create_genesis_config, GenesisConfigInfo},
@@ -4799,7 +4799,7 @@ pub mod tests {
 
             assert_eq!(
                 bob_schedule.len(),
-                renec_ledger::leader_schedule_utils::leader_schedule(bank.epoch(), &bank)
+                solana_ledger::leader_schedule_utils::leader_schedule(bank.epoch(), &bank)
                     .unwrap()
                     .get_slot_leaders()
                     .len()
@@ -6101,7 +6101,7 @@ pub mod tests {
         let expected = json!({
             "jsonrpc": "2.0",
             "result": {
-                "renec-core": version.to_string(),
+                "solana-core": version.to_string(),
                 "feature-set": version.feature_set,
             },
             "id": 1

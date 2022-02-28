@@ -48,7 +48,7 @@ use {
     rand::{prelude::SliceRandom, thread_rng, Rng},
     rayon::{prelude::*, ThreadPool},
     serde::{Deserialize, Serialize},
-    renec_measure::measure::Measure,
+    solana_measure::measure::Measure,
     solana_rayon_threadlimit::get_thread_count,
     solana_sdk::{
         account::{AccountSharedData, ReadableAccount},
@@ -1309,7 +1309,7 @@ pub fn make_min_priority_thread_pool() -> ThreadPool {
 }
 
 #[cfg(all(test, RUSTC_WITH_SPECIALIZATION))]
-impl renec_frozen_abi::abi_example::AbiExample for AccountsDb {
+impl solana_frozen_abi::abi_example::AbiExample for AccountsDb {
     fn example() -> Self {
         let accounts_db = AccountsDb::new_single();
         let key = Pubkey::default();

@@ -14,7 +14,7 @@ use {
     jsonrpc_derive::rpc,
     jsonrpc_pubsub::{typed::Subscriber, SubscriptionId as PubSubSubscriptionId},
     renec_account_decoder::{UiAccount, UiAccountEncoding},
-    renec_client::{
+    solana_client::{
         rpc_config::{
             RpcAccountInfoConfig, RpcProgramAccountsConfig, RpcSignatureSubscribeConfig,
             RpcTransactionLogsConfig, RpcTransactionLogsFilter,
@@ -509,7 +509,7 @@ mod tests {
         jsonrpc_core::{IoHandler, Response},
         serial_test::serial,
         renec_account_decoder::{parse_account_data::parse_account_data, UiAccountEncoding},
-        renec_client::rpc_response::{
+        solana_client::rpc_response::{
             ProcessedSignatureResult, ReceivedSignatureResult, RpcSignatureResult, SlotInfo,
         },
         solana_runtime::{

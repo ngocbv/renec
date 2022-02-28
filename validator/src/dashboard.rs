@@ -1,10 +1,10 @@
 use {
     crate::{admin_rpc_service, new_spinner_progress_bar, println_name_value, ProgressBar},
     console::style,
-    renec_client::{
+    solana_client::{
         client_error, rpc_client::RpcClient, rpc_request, rpc_response::RpcContactInfo,
     },
-    renec_core::validator::ValidatorStartProgress,
+    solana_core::validator::ValidatorStartProgress,
     solana_sdk::{
         clock::Slot, commitment_config::CommitmentConfig, exit::Exit, native_token::Sol,
         pubkey::Pubkey,

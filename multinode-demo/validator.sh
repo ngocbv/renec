@@ -318,7 +318,7 @@ setup_validator_accounts() {
 }
 
 # shellcheck disable=SC2086 # Don't want to double quote "$maybe_allow_private_addr"
-rpc_url=$($renec_gossip $maybe_allow_private_addr rpc-url --timeout 180 --entrypoint "$gossip_entrypoint")
+rpc_url=$($solana_gossip $maybe_allow_private_addr rpc-url --timeout 180 --entrypoint "$gossip_entrypoint")
 
 [[ -r "$identity" ]] || $renec_keygen new --no-passphrase -so "$identity"
 [[ -r "$vote_account" ]] || $renec_keygen new --no-passphrase -so "$vote_account"

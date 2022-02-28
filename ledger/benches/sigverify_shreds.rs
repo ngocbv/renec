@@ -2,11 +2,11 @@
 
 extern crate test;
 use {
-    renec_ledger::{
+    solana_ledger::{
         shred::{Shred, SIZE_OF_DATA_SHRED_PAYLOAD},
         sigverify_shreds::{sign_shreds_cpu, sign_shreds_gpu, sign_shreds_gpu_pinned_keypair},
     },
-    renec_perf::{
+    solana_perf::{
         packet::{Packet, PacketBatch},
         recycler_cache::RecyclerCache,
     },

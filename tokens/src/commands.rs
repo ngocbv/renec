@@ -17,7 +17,7 @@ use {
     renec_account_decoder::parse_token::{
         pubkey_from_spl_token, real_number_string, spl_token_pubkey,
     },
-    renec_client::{
+    solana_client::{
         client_error::{ClientError, Result as ClientResult},
         rpc_client::RpcClient,
         rpc_config::RpcSendTransactionConfig,
@@ -1214,7 +1214,7 @@ pub fn test_process_distribute_stake_with_client(client: &RpcClient, sender_keyp
 mod tests {
     use {
         super::*,
-        renec_core::test_validator::TestValidator,
+        solana_core::test_validator::TestValidator,
         solana_sdk::{
             signature::{read_keypair_file, write_keypair_file, Signer},
             stake::instruction::StakeInstruction,

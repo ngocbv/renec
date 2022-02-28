@@ -40,8 +40,8 @@ mod tests {
         crossbeam_channel::unbounded,
         fs_extra::dir::CopyOptions,
         itertools::Itertools,
-        renec_core::snapshot_packager_service::{PendingSnapshotPackage, SnapshotPackagerService},
-        renec_gossip::{cluster_info::ClusterInfo, contact_info::ContactInfo},
+        solana_core::snapshot_packager_service::{PendingSnapshotPackage, SnapshotPackagerService},
+        solana_gossip::{cluster_info::ClusterInfo, contact_info::ContactInfo},
         solana_runtime::{
             accounts_background_service::{AbsRequestSender, SnapshotRequestHandler},
             accounts_db,

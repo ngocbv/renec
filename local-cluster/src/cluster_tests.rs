@@ -6,13 +6,13 @@ use log::*;
 use {
     rand::{thread_rng, Rng},
     rayon::prelude::*,
-    renec_client::thin_client::create_client,
-    renec_core::consensus::VOTE_THRESHOLD_DEPTH,
-    renec_gossip::{
+    solana_client::thin_client::create_client,
+    solana_core::consensus::VOTE_THRESHOLD_DEPTH,
+    solana_gossip::{
         cluster_info::VALIDATOR_PORT_RANGE, contact_info::ContactInfo,
         gossip_service::discover_cluster,
     },
-    renec_ledger::{
+    solana_ledger::{
         blockstore::Blockstore,
         entry::{Entry, EntrySlice},
     },

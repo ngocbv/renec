@@ -73,8 +73,8 @@ if [[ $CI_OS_NAME = windows ]]; then
     cargo-build-bpf
     cargo-test-bpf
     solana
-    renec-install
-    renec-install-init
+    solana-install
+    solana-install-init
     renec-keygen
     solana-stake-accounts
     solana-test-validator
@@ -88,12 +88,12 @@ else
     solana-bench-exchange
     solana-bench-tps
     renec-faucet
-    renec-gossip
-    renec-install
+    solana-gossip
+    solana-install
     renec-keygen
-    renec-ledger-tool
+    solana-ledger-tool
     renec-log-analyzer
-    renec-net-shaper
+    solana-net-shaper
     renec-sys-tuner
     renec-validator
   )
@@ -103,8 +103,8 @@ else
     BINS+=(
       cargo-build-bpf
       cargo-test-bpf
-      renec-dos
-      renec-install-init
+      solana-dos
+      solana-install-init
       solana-stake-accounts
       solana-test-validator
       solana-tokens

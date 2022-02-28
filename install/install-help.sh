@@ -4,11 +4,11 @@ set -e
 cd "$(dirname "$0")"/..
 cargo="$(readlink -f "./cargo")"
 
-"$cargo" build --package renec-install
+"$cargo" build --package solana-install
 export PATH=$PWD/target/debug:$PATH
 
 echo "\`\`\`manpage"
-renec-install --help
+solana-install --help
 echo "\`\`\`"
 echo ""
 
@@ -16,7 +16,7 @@ commands=(init info deploy update run)
 
 for x in "${commands[@]}"; do
     echo "\`\`\`manpage"
-    renec-install "${x}" --help
+    solana-install "${x}" --help
     echo "\`\`\`"
     echo ""
 done

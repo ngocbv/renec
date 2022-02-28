@@ -5,7 +5,7 @@ use {
     },
     clap::ArgMatches,
     renec_clap_utils::{input_parsers::lamports_of_sol, offline::SIGN_ONLY_ARG},
-    renec_client::rpc_client::RpcClient,
+    solana_client::rpc_client::RpcClient,
     solana_sdk::{
         commitment_config::CommitmentConfig, fee_calculator::FeeCalculator, message::Message,
         native_token::lamports_to_sol, pubkey::Pubkey,

@@ -1,7 +1,7 @@
 use {
     log::*,
     rayon::prelude::*,
-    renec_measure::measure::Measure,
+    solana_measure::measure::Measure,
     solana_sdk::{
         hash::{Hash, Hasher},
         pubkey::Pubkey,

@@ -5,16 +5,16 @@ use {
     log::*,
     rand::{thread_rng, Rng},
     rayon::prelude::*,
-    renec_core::banking_stage::BankingStage,
-    renec_gossip::cluster_info::{ClusterInfo, Node},
-    renec_ledger::{
+    solana_core::banking_stage::BankingStage,
+    solana_gossip::cluster_info::{ClusterInfo, Node},
+    solana_ledger::{
         blockstore::Blockstore,
         genesis_utils::{create_genesis_config, GenesisConfigInfo},
         get_tmp_ledger_path,
     },
-    renec_measure::measure::Measure,
-    renec_perf::packet::to_packet_batches,
-    renec_poh::poh_recorder::{create_test_recorder, PohRecorder, WorkingBankEntry},
+    solana_measure::measure::Measure,
+    solana_perf::packet::to_packet_batches,
+    solana_poh::poh_recorder::{create_test_recorder, PohRecorder, WorkingBankEntry},
     solana_runtime::{
         accounts_background_service::AbsRequestSender, bank::Bank, bank_forks::BankForks,
         cost_model::CostModel,

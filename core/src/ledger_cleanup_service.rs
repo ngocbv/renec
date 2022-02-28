@@ -2,11 +2,11 @@
 
 use {
     rand::{thread_rng, Rng},
-    renec_ledger::{
+    solana_ledger::{
         blockstore::{Blockstore, PurgeType},
         blockstore_db::Result as BlockstoreResult,
     },
-    renec_measure::measure::Measure,
+    solana_measure::measure::Measure,
     solana_sdk::clock::{Slot, DEFAULT_TICKS_PER_SLOT, TICKS_PER_DAY},
     std::{
         string::ToString,
@@ -202,7 +202,7 @@ impl LedgerCleanupService {
             let purge_complete1 = purge_complete.clone();
             let last_compact_slot1 = last_compact_slot.clone();
             let _t_purge = Builder::new()
-                .name("renec-ledger-purge".to_string())
+                .name("solana-ledger-purge".to_string())
                 .spawn(move || {
                     let mut slot_update_time = Measure::start("slot_update");
                     *blockstore.lowest_cleanup_slot.write().unwrap() = lowest_cleanup_slot;
@@ -315,7 +315,7 @@ impl LedgerCleanupService {
 mod tests {
     use {
         super::*,
-        renec_ledger::{blockstore::make_many_slot_entries, get_tmp_ledger_path},
+        solana_ledger::{blockstore::make_many_slot_entries, get_tmp_ledger_path},
         std::sync::mpsc::channel,
     };
 

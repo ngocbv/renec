@@ -8,11 +8,11 @@ use {
     },
     log::*,
     serial_test::serial,
-    renec_core::validator::ValidatorConfig,
-    renec_ledger::{
+    solana_core::validator::ValidatorConfig,
+    solana_ledger::{
         ancestor_iterator::AncestorIterator, blockstore::Blockstore, blockstore_db::AccessType,
     },
-    renec_local_cluster::{
+    solana_local_cluster::{
         cluster::Cluster,
         local_cluster::{ClusterConfig, LocalCluster},
         validator_configs::*,

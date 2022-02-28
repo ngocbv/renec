@@ -83,7 +83,7 @@ fn main() -> Result<()> {
     let mut read_threads = Vec::new();
     let recycler = PacketBatchRecycler::default();
     for _ in 0..num_sockets {
-        let read = renec_net_utils::bind_to(ip_addr, port, false).unwrap();
+        let read = solana_net_utils::bind_to(ip_addr, port, false).unwrap();
         read.set_read_timeout(Some(Duration::new(1, 0))).unwrap();
 
         addr = read.local_addr().unwrap();

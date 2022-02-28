@@ -8,7 +8,7 @@ use {
     std::{io::Result, net::UdpSocket, time::Instant},
 };
 pub use {
-    renec_perf::packet::{
+    solana_perf::packet::{
         limited_deserialize, to_packet_batches, PacketBatch, PacketBatchRecycler, NUM_PACKETS,
         PACKETS_PER_BATCH,
     },

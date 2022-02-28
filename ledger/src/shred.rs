@@ -65,8 +65,8 @@ use {
         ThreadPool,
     },
     serde::{Deserialize, Deserializer, Serialize, Serializer},
-    renec_measure::measure::Measure,
-    renec_perf::packet::{limited_deserialize, Packet},
+    solana_measure::measure::Measure,
+    solana_perf::packet::{limited_deserialize, Packet},
     solana_rayon_threadlimit::get_thread_count,
     solana_runtime::bank::Bank,
     solana_sdk::{

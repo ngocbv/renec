@@ -17,7 +17,7 @@ use {
         syscalls::SyscallError,
     },
     log::{log_enabled, trace, Level::Trace},
-    renec_measure::measure::Measure,
+    solana_measure::measure::Measure,
     solana_rbpf::{
         aligned_memory::AlignedMemory,
         ebpf::HOST_ALIGN,

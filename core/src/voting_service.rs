@@ -1,6 +1,6 @@
 use {
-    renec_gossip::cluster_info::ClusterInfo,
-    renec_poh::poh_recorder::PohRecorder,
+    solana_gossip::cluster_info::ClusterInfo,
+    solana_poh::poh_recorder::PohRecorder,
     solana_runtime::bank_forks::BankForks,
     solana_sdk::{clock::Slot, transaction::Transaction},
     std::{

@@ -4,7 +4,7 @@ extern crate test;
 
 use {
     bincode::{deserialize, serialize},
-    renec_ledger::{
+    solana_ledger::{
         blockstore::Blockstore,
         blockstore_db::{columns as cf, LedgerColumn},
         get_tmp_ledger_path,

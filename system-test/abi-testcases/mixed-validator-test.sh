@@ -30,14 +30,14 @@ solanaInstallGlobalOpts=(
 bootstrapInstall() {
   declare v=$1
   if [[ ! -h $solanaInstallDataDir/active_release ]]; then
-    sh "$SOLANA_ROOT"/install/renec-install-init.sh "$v" "${solanaInstallGlobalOpts[@]}"
+    sh "$SOLANA_ROOT"/install/solana-install-init.sh "$v" "${solanaInstallGlobalOpts[@]}"
   fi
   export PATH="$solanaInstallDataDir/active_release/bin/:$PATH"
 }
 
 bootstrapInstall "$baselineVersion"
 for v in "${otherVersions[@]}"; do
-  renec-install-init "${solanaInstallGlobalOpts[@]}" "$v"
+  solana-install-init "${solanaInstallGlobalOpts[@]}" "$v"
   solana -V
 done
 
@@ -89,7 +89,7 @@ for v in "${otherVersions[@]}"; do
   echo "--- Looking for bootstrap validator on gossip"
   (
     set -x
-    "$SOLANA_BIN"/renec-gossip spy \
+    "$SOLANA_BIN"/solana-gossip spy \
       --entrypoint 127.0.0.1:8001 \
       --num-nodes-exactly 1 \
       --timeout 30
@@ -119,7 +119,7 @@ for v in "${otherVersions[@]}"; do
       --entrypoint 127.0.0.1:8001 \
       -o - 2>&1 | tee $logDir/$v.log \
     "
-    "$SOLANA_BIN"/renec-gossip spy \
+    "$SOLANA_BIN"/solana-gossip spy \
       --entrypoint 127.0.0.1:8001 \
       --num-nodes-exactly $nodeCount \
       --timeout 30

@@ -731,7 +731,7 @@ mod test {
         bincode::{deserialize, Options},
         rand::SeedableRng,
         rand_chacha::ChaChaRng,
-        renec_perf::test_tx::test_tx,
+        solana_perf::test_tx::test_tx,
         solana_sdk::{
             signature::{Keypair, Signer},
             timing::timestamp,

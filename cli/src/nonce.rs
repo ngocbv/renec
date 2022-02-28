@@ -18,7 +18,7 @@ use {
         nonce::*,
     },
     renec_cli_output::CliNonceAccount,
-    renec_client::{nonce_utils::*, rpc_client::RpcClient},
+    solana_client::{nonce_utils::*, rpc_client::RpcClient},
     solana_remote_wallet::remote_wallet::RemoteWalletManager,
     solana_sdk::{
         account::Account,

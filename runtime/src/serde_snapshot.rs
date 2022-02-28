@@ -1,5 +1,5 @@
 #[cfg(RUSTC_WITH_SPECIALIZATION)]
-use renec_frozen_abi::abi_example::IgnoreAsHelper;
+use solana_frozen_abi::abi_example::IgnoreAsHelper;
 use {
     crate::{
         accounts::Accounts,
@@ -23,7 +23,7 @@ use {
     log::*,
     rayon::prelude::*,
     serde::{de::DeserializeOwned, Deserialize, Serialize},
-    renec_measure::measure::Measure,
+    solana_measure::measure::Measure,
     solana_sdk::{
         clock::{Epoch, Slot, UnixTimestamp},
         epoch_schedule::EpochSchedule,

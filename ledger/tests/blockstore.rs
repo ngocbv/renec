@@ -1,5 +1,5 @@
 use {
-    renec_ledger::{
+    solana_ledger::{
         blockstore::{self, Blockstore},
         entry, get_tmp_ledger_path,
     },

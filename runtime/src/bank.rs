@@ -72,7 +72,7 @@ use {
         iter::{IntoParallelIterator, IntoParallelRefIterator, ParallelIterator},
         ThreadPool, ThreadPoolBuilder,
     },
-    renec_measure::measure::Measure,
+    solana_measure::measure::Measure,
     solana_metrics::{inc_new_counter_debug, inc_new_counter_info},
     solana_sdk::{
         account::{
@@ -565,7 +565,7 @@ pub struct BankRc {
 }
 
 #[cfg(RUSTC_WITH_SPECIALIZATION)]
-use renec_frozen_abi::abi_example::AbiExample;
+use solana_frozen_abi::abi_example::AbiExample;
 
 #[cfg(RUSTC_WITH_SPECIALIZATION)]
 impl AbiExample for BankRc {

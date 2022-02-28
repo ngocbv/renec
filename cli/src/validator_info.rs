@@ -16,7 +16,7 @@ use {
         keypair::DefaultSigner,
     },
     renec_cli_output::{CliValidatorInfo, CliValidatorInfoVec},
-    renec_client::rpc_client::RpcClient,
+    solana_client::rpc_client::RpcClient,
     renec_config_program::{config_instruction, get_config_data, ConfigKeys, ConfigState},
     solana_remote_wallet::remote_wallet::RemoteWalletManager,
     solana_sdk::{
