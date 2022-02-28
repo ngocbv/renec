@@ -6,7 +6,7 @@ Solana支持几种不同类型的钱包，它们可以直接与Solana命令行�
 
 ** 如果您不熟悉命令行程序的使用，并且只需要发送和接收SOL代币，我们建议您设置第三方 [App Wallet](apps.md)**。
 
-您首先需要 [安装 Solana CLI 工具](../cli/install-solana-cli-tools.md) 才能使用命令行钱包。
+您首先需要 [安装 Solana CLI 工具](../cli/install-renec-cli-tools.md) 才能使用命令行钱包。
 
 ## 文件系统钱包
 

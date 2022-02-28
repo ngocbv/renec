@@ -9,7 +9,7 @@ your Nano, [click here](../ledger-live.md#interact-with-the-solana-network).
 ## Before You Begin
 
 - [Set up a Nano with the Solana App](../ledger-live.md)
-- [Install the Solana command-line tools](../../cli/install-solana-cli-tools.md)
+- [Install the Solana command-line tools](../../cli/install-renec-cli-tools.md)
 
 ## Use Ledger Nano with Solana CLI
 

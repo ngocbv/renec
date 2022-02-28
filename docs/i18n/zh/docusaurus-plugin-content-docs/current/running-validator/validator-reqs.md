@@ -53,7 +53,7 @@ title: 验证节点要求
 ## 软件设置
 
 - 我们在Ubuntu 04/18上进行开发和运行。 在Ubuntu 04/16上运行时，某些用户会遇到一些问题
-- 请参阅 [安装Solana](../cli/install-solana-cli-tools.md) 以获取当前的 Solana 软件版本。
+- 请参阅 [安装Solana](../cli/install-renec-cli-tools.md) 以获取当前的 Solana 软件版本。
 
 请确保所使用的计算机不在本地NAT后面，以避免NAT遍历问题。 云托管的机器效果最好。 **请确保8000到10000的IP端口没有被禁止，来让网络实现进出通信。** 关于寄宿网络端口转发的更多信息，请参阅 [这个文档](http://www.mcs.sdsmt.edu/lpyeatt/courses/314/PortForwardingSetup.pdf)。
 

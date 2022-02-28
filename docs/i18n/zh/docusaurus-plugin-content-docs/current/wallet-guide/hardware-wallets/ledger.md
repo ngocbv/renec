@@ -7,7 +7,7 @@ title: Ledger Nano
 ## 开始前的准备
 
 - [使用 Solana 应用设置 Nano](../ledger-live.md)
-- [安装 Solana 命令行工具](../../cli/install-solana-cli-tools.md)
+- [安装 Solana 命令行工具](../../cli/install-renec-cli-tools.md)
 
 ## 通过 Solana CLI 使用 Ledger Nano
 

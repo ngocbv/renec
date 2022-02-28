@@ -3606,6 +3606,55 @@ dependencies = [
 ]
 
 [[package]]
+name = "renec-cli"
+version = "1.8.14"
+dependencies = [
+ "Inflector",
+ "bincode",
+ "bs58 0.3.1",
+ "chrono",
+ "clap",
+ "console 0.14.1",
+ "const_format",
+ "criterion-stats",
+ "ctrlc",
+ "dirs-next",
+ "humantime",
+ "indicatif",
+ "log 0.4.14",
+ "num-traits",
+ "pretty-hex",
+ "renec-cli-config",
+ "renec-cli-output",
+ "reqwest",
+ "semver 1.0.4",
+ "serde",
+ "serde_derive",
+ "serde_json",
+ "solana-account-decoder",
+ "solana-bpf-loader-program",
+ "solana-clap-utils",
+ "solana-client",
+ "solana-config-program",
+ "solana-core",
+ "solana-faucet",
+ "solana-logger 1.8.14",
+ "solana-net-utils",
+ "solana-remote-wallet",
+ "solana-sdk",
+ "solana-streamer",
+ "solana-transaction-status",
+ "solana-version",
+ "solana-vote-program",
+ "solana_rbpf",
+ "spl-memo",
+ "tempfile",
+ "thiserror",
+ "tiny-bip39",
+ "url 2.2.0",
+]
+
+[[package]]
 name = "renec-cli-config"
 version = "1.8.14"
 dependencies = [
@@ -4668,55 +4717,6 @@ dependencies = [
  "thiserror",
  "tiny-bip39",
  "uriparse",
- "url 2.2.0",
-]
-
-[[package]]
-name = "solana-cli"
-version = "1.8.14"
-dependencies = [
- "Inflector",
- "bincode",
- "bs58 0.3.1",
- "chrono",
- "clap",
- "console 0.14.1",
- "const_format",
- "criterion-stats",
- "ctrlc",
- "dirs-next",
- "humantime",
- "indicatif",
- "log 0.4.14",
- "num-traits",
- "pretty-hex",
- "renec-cli-config",
- "renec-cli-output",
- "reqwest",
- "semver 1.0.4",
- "serde",
- "serde_derive",
- "serde_json",
- "solana-account-decoder",
- "solana-bpf-loader-program",
- "solana-clap-utils",
- "solana-client",
- "solana-config-program",
- "solana-core",
- "solana-faucet",
- "solana-logger 1.8.14",
- "solana-net-utils",
- "solana-remote-wallet",
- "solana-sdk",
- "solana-streamer",
- "solana-transaction-status",
- "solana-version",
- "solana-vote-program",
- "solana_rbpf",
- "spl-memo",
- "tempfile",
- "thiserror",
- "tiny-bip39",
  "url 2.2.0",
 ]
 
