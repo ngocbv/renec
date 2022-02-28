@@ -16,11 +16,11 @@ use {
 };
 
 fn main() {
-    renec_logger::setup();
+    solana_logger::setup();
 
     let matches = App::new(crate_name!())
         .about(crate_description!())
-        .version(renec_version::version!())
+        .version(solana_version::version!())
         .arg(
             Arg::with_name("num_slots")
                 .long("num_slots")

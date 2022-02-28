@@ -24,7 +24,7 @@ use {
 
 #[test]
 fn test_transfer() {
-    renec_logger::setup();
+    solana_logger::setup();
     let mint_keypair = Keypair::new();
     let mint_pubkey = mint_keypair.pubkey();
     let faucet_addr = run_local_faucet(mint_keypair, None);
@@ -281,7 +281,7 @@ fn test_transfer() {
 
 #[test]
 fn test_transfer_multisession_signing() {
-    renec_logger::setup();
+    solana_logger::setup();
     let mint_keypair = Keypair::new();
     let mint_pubkey = mint_keypair.pubkey();
     let faucet_addr = run_local_faucet(mint_keypair, None);
@@ -413,7 +413,7 @@ fn test_transfer_multisession_signing() {
 
 #[test]
 fn test_transfer_all() {
-    renec_logger::setup();
+    solana_logger::setup();
     let mint_keypair = Keypair::new();
     let mint_pubkey = mint_keypair.pubkey();
     let faucet_addr = run_local_faucet(mint_keypair, None);
@@ -466,7 +466,7 @@ fn test_transfer_all() {
 
 #[test]
 fn test_transfer_unfunded_recipient() {
-    renec_logger::setup();
+    solana_logger::setup();
     let mint_keypair = Keypair::new();
     let mint_pubkey = mint_keypair.pubkey();
     let faucet_addr = run_local_faucet(mint_keypair, None);
@@ -519,7 +519,7 @@ fn test_transfer_unfunded_recipient() {
 
 #[test]
 fn test_transfer_with_seed() {
-    renec_logger::setup();
+    solana_logger::setup();
     let mint_keypair = Keypair::new();
     let mint_pubkey = mint_keypair.pubkey();
     let faucet_addr = run_local_faucet(mint_keypair, None);

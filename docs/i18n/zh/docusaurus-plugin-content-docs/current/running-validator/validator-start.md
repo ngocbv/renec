@@ -33,7 +33,7 @@ solana-gossip spy --entrypoint devnet.solana.com/8001
 
 ## 启用 CUDA
 
-如果您的机器安装了 CUDA 的 GPU \(Linux-only currently\)，请将 `--cuda` 参数包含到 `renec-validator`。
+如果您的机器安装了 CUDA 的 GPU \(Linux-only currently\)，请将 `--cuda` 参数包含到 `solana-validator`。
 
 当您的验证程序启动后，请查找以下日志消息来确认CUDA已启用： `"[<timestamp> solana::validator] CUDA is enabled"`
 
@@ -212,7 +212,7 @@ solana create-vote-account ~/vote-account-keypair.json ~/validator-keypair.json
 
 ## 可信的验证程序
 
-如果您知道并信任其他验证节点节点，则可以在命令行中使用`renec-validator`的参数`--trusted-validator<PUBKEY>`来指定。 您可以通过重复参数`--trusted-validator<PUBKEY1> --trusted-validator <PUBKEY2>`来指定多个。 这有两种作用，一种是当验证节点使用`--no-untrusted-rpc`引导时，它只会询问那组受信任的节点来下载创世区块和快照数据。 另一个是结合`--halt-on-trusted-validator-hash-mismatch`选项，它将监视八卦上其他受信任节点的整个帐户状态的merkle根哈希，如果哈希有任何不匹配，验证节点将停止该节点，以防止验证节点投票或处理可能不正确的状态值。 目前，验证节点在其上发布哈希的插槽已与快照间隔绑定。 为了使该功能生效，应将可信集中的所有验证节点设置为相同的快照间隔值或相同的倍数。
+如果您知道并信任其他验证节点节点，则可以在命令行中使用`solana-validator`的参数`--trusted-validator<PUBKEY>`来指定。 您可以通过重复参数`--trusted-validator<PUBKEY1> --trusted-validator <PUBKEY2>`来指定多个。 这有两种作用，一种是当验证节点使用`--no-untrusted-rpc`引导时，它只会询问那组受信任的节点来下载创世区块和快照数据。 另一个是结合`--halt-on-trusted-validator-hash-mismatch`选项，它将监视八卦上其他受信任节点的整个帐户状态的merkle根哈希，如果哈希有任何不匹配，验证节点将停止该节点，以防止验证节点投票或处理可能不正确的状态值。 目前，验证节点在其上发布哈希的插槽已与快照间隔绑定。 为了使该功能生效，应将可信集中的所有验证节点设置为相同的快照间隔值或相同的倍数。
 
 我们强烈建议您使用这些选项来防止恶意快照状态下载或帐户状态差异。
 
@@ -221,19 +221,19 @@ solana create-vote-account ~/vote-account-keypair.json ~/validator-keypair.json
 通过运行以下命令连接到集群：
 
 ```bash
-renec-validator \
+solana-validator \
   --identity ~/validator-keypair.json \
   --vote-account ~/vote-account-keypair.json \
   --ledger ~/validator-ledger \
   --rpc-port 8899 \
   --entrypoint devnet.solana.com:8001 \
   --limit-ledger-size \
-  --log ~/renec-validator.log
+  --log ~/solana-validator.log
 ```
 
 要强制验证日志记录到控制台，请添加 `--log -` 参数，否则验证程序将自动登录到一个文件。
 
-> 注意：您可以使用 [纸钱包种子短语](../wallet-guide/paper-wallet.md) 用于您的 `--identity` 和/或 `--authorized-panitor` 密钥对。 要使用这些参数，请将各自的参数作为 `renec-validator --idential ASK ... --authorized-lister ASK ...` 并且您将会收到 输入您的种子短语和可选密码的提示。
+> 注意：您可以使用 [纸钱包种子短语](../wallet-guide/paper-wallet.md) 用于您的 `--identity` 和/或 `--authorized-panitor` 密钥对。 要使用这些参数，请将各自的参数作为 `solana-validator --idential ASK ... --authorized-lister ASK ...` 并且您将会收到 输入您的种子短语和可选密码的提示。
 
 通过打开一个新终端并运行以下命令来确认连接到网络的验证节点：
 
@@ -245,12 +245,12 @@ solana-gossip spy --entrypoint devnet.solana.com:8001
 
 ### 控制本地网络端口分配
 
-默认情况下，验证节点将在8000-1000范围内动态选择可用的网络端口，可能会覆盖 `--dynamic-port-range`。 例如： `renec-validator --dynamic-port-range 11000-110...` 将限制验证节点到 11000-11010 端口。
+默认情况下，验证节点将在8000-1000范围内动态选择可用的网络端口，可能会覆盖 `--dynamic-port-range`。 例如： `solana-validator --dynamic-port-range 11000-110...` 将限制验证节点到 11000-11010 端口。
 
 ### 限制账本大小以节省磁盘空间
 `--limit-ledger-size` 参数允许您指定磁盘保留多少个账本[碎片](../terminology.md#shred)。 如果您没有配置该参数，验证节点将保留整个账本直到磁盘空间满了为止。
 
-保持账本磁盘使用量的默认值小于 500GB。  如果需要，可以通过添加参数到 `--limit-ledger-size` 来增加或减少磁盘的使用。 查看 `renec-validator --help` 来配置 `--limit-ledger-size` 所使用的默认限制值。  关于选择一个普通限制值的更多信息请参看 [这里](https://github.com/solana-labs/solana/blob/583cec922b6107e0f85c7e14cb5e642bc7dfb340/core/src/ledger_cleanup_service.rs#L15-L26)。
+保持账本磁盘使用量的默认值小于 500GB。  如果需要，可以通过添加参数到 `--limit-ledger-size` 来增加或减少磁盘的使用。 查看 `solana-validator --help` 来配置 `--limit-ledger-size` 所使用的默认限制值。  关于选择一个普通限制值的更多信息请参看 [这里](https://github.com/solana-labs/solana/blob/583cec922b6107e0f85c7e14cb5e642bc7dfb340/core/src/ledger_cleanup_service.rs#L15-L26)。
 
 ### 系统单位
 将验证程序作为系统单元运行是管理后台运行的一种简单方法。
@@ -277,7 +277,7 @@ ExecStart=/home/sol/bin/validator.sh
 WantedBy=multi-user.target
 ```
 
-现在创建 `/home/sol/bin/validator.sh` 来包含 `renec-validator` 所需的命令行。  确保运行 `/home/sol/bin/validator.sh` 来手动启动验证程序。 别忘了将其标记为 `chmod +x /home/sol/bin/validator.sh`
+现在创建 `/home/sol/bin/validator.sh` 来包含 `solana-validator` 所需的命令行。  确保运行 `/home/sol/bin/validator.sh` 来手动启动验证程序。 别忘了将其标记为 `chmod +x /home/sol/bin/validator.sh`
 
 开启服务：
 ```bash
@@ -293,18 +293,18 @@ $ sudo systemctl enable --now sol
 
 #### 日志切换
 
-由 `--log ~/renec-validator.log`指定的验证器日志文件会随着时间的推移变得很大，因此建议配置日志切换。
+由 `--log ~/solana-validator.log`指定的验证器日志文件会随着时间的推移变得很大，因此建议配置日志切换。
 
 验证节点在收到`USR1`信号时将重新打开其信号，该信号是启用日志切换的基本原语。
 
 #### 使用日志切换
 
-`logrotate`的一个示例设置中，它假定验证节点作为名为`sol.service`的系统服务运行，并在/home/sol/renec-validator.log中写入日志文件：
+`logrotate`的一个示例设置中，它假定验证节点作为名为`sol.service`的系统服务运行，并在/home/sol/solana-validator.log中写入日志文件：
 ```bash
 # 设置日志切换
 
 cat > logrotate.sol <<EOF
-/home/sol/renec-validator.log {
+/home/sol/solana-validator.log {
   rotate 7
   daily
   missingok
@@ -318,12 +318,12 @@ systemctl restart logrotate.service
 ```
 
 ### 禁用端口检查以加快重启速度
-验证节点正常运行后，您可以通过在`renec-validator`命令行中添加`--no-port-check`标志来减少重新启动验证节点所需的时间。
+验证节点正常运行后，您可以通过在`solana-validator`命令行中添加`--no-port-check`标志来减少重新启动验证节点所需的时间。
 
 ### 禁用快照压缩以减少CPU使用率
 如果不将快照提供给其他验证节点，则可以禁用快照压缩功能以减少CPU负载，但这样会花费更多的本地快照存储磁盘使用量。
 
-在`renec-validator`命令行参数中添加`--snapshot-compression none`参数，然后重新启动验证节点。
+在`solana-validator`命令行参数中添加`--snapshot-compression none`参数，然后重新启动验证节点。
 
 ### 使用具有溢出功能的ramdisk交换帐户数据库以减少SSD磨损
 如果您的机器有大量的RAM，可以使用tmpfs ramdisk ([tmpfs](https://man7.org/linux/man-pages/man5/tmpfs.5.html)) 来保持账户数据库
@@ -342,7 +342,7 @@ systemctl restart logrotate.service
 5. 启用与 `sudo swapon -a` 的交换并以 `sudo mount /mnt/solana-accounts/` 挂载tmps
 6. 确认交换正在使用 `free -g` 并且tmpfs 被挂载 `mount`
 
-现在将 `--accounts /mnt/solana-account` 参数添加到您的 `renec-validator`命令行参数并重启验证节点。
+现在将 `--accounts /mnt/solana-account` 参数添加到您的 `solana-validator`命令行参数并重启验证节点。
 
 ### 账户索引
 

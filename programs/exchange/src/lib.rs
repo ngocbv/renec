@@ -10,7 +10,7 @@ use crate::exchange_processor::process_instruction;
 
 solana_sdk::declare_program!(
     "Exchange11111111111111111111111111111111111",
-    renec_exchange_program,
+    solana_exchange_program,
     process_instruction
 );
 

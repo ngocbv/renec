@@ -64,7 +64,7 @@ while [[ -n $1 ]]; do
     elif [[ $1 = --no-airdrop ]]; then
       airdrops_enabled=0
       shift
-    # renec-validator options
+    # solana-validator options
     elif [[ $1 = --expected-genesis-hash ]]; then
       args+=("$1" "$2")
       shift 2
@@ -253,9 +253,9 @@ if [[ $maybeRequireTower = true ]]; then
 fi
 
 if [[ -n $SOLANA_CUDA ]]; then
-  program=$renec_validator_cuda
+  program=$solana_validator_cuda
 else
-  program=$renec_validator
+  program=$solana_validator
 fi
 
 set -e

@@ -6,7 +6,7 @@ use {
         account::from_account, clock::Slot, hash::Hash, pubkey::Pubkey, signature::Signature,
         slot_hashes::SlotHashes, sysvar,
     },
-    renec_vote_program::vote_state::Vote,
+    solana_vote_program::vote_state::Vote,
     std::{
         collections::{BTreeMap, HashMap, HashSet},
         sync::Arc,

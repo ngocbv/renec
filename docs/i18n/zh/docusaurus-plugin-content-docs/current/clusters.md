@@ -34,10 +34,10 @@ export SOLANA_METRICS_CONFIG="host=https://metrics.solana.com:8086,db=devnet,u=s
 solana config set --url https://api.devnet.solana.com
 ```
 
-##### 示例 `renec-validator` 命令行
+##### 示例 `solana-validator` 命令行
 
 ```bash
-$ renec-validator \
+$ solana-validator \
     --identity ~/validator-keypair.json \
     --vote-account ~/vote-account-keypair.json \
     --trusted-validator dv1LfzJvDF7S1fBKpFgKoKXK5yoSosmkAdfbxBo1GqJ \
@@ -73,10 +73,10 @@ export SOLANA_METRICS_CONFIG="host=https://metrics.solana.com:8086,db=tds,u=test
 solana config set --url https://api.testnet.solana.com
 ```
 
-##### 示例 `renec-validator` 命令行
+##### 示例 `solana-validator` 命令行
 
 ```bash
-$ renec-validator \
+$ solana-validator \
     --identity ~/validator-keypair.json \
     --vote-account ~/vote-account-keypair.json \
     --trusted-validator 5D1fNXzvv5NjV1ysLjirC4WY92RNsVH18vjmcszZd8on \
@@ -120,10 +120,10 @@ export SOLANA_METRICS_CONFIG="host=https://metrics.solana.com:8086,db=mainnet-be
 solana config set --url https://api.mainnet-beta.solana.com
 ```
 
-##### 示例 `renec-validator` 命令行
+##### 示例 `solana-validator` 命令行
 
 ```bash
-$ renec-validator \
+$ solana-validator \
     --identity ~/validator-keypair.json \
     --vote-account ~/vote-account-keypair.json \
     --trusted-validator 7Np41oeYqPefeNQEHSv1UDhYrehxin3NStELsSKCT4K2 \

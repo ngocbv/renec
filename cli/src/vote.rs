@@ -31,7 +31,7 @@ use {
         native_token::lamports_to_sol, pubkey::Pubkey, system_instruction::SystemError,
         transaction::Transaction,
     },
-    renec_vote_program::{
+    solana_vote_program::{
         vote_instruction::{self, withdraw, VoteError},
         vote_state::{VoteAuthorize, VoteInit, VoteState},
     },
@@ -687,7 +687,7 @@ pub fn process_create_vote_account(
     let vote_account = config.signers[vote_account];
     let vote_account_pubkey = vote_account.pubkey();
     let vote_account_address = if let Some(seed) = seed {
-        Pubkey::create_with_seed(&vote_account_pubkey, seed, &renec_vote_program::id())?
+        Pubkey::create_with_seed(&vote_account_pubkey, seed, &solana_vote_program::id())?
     } else {
         vote_account_pubkey
     };
@@ -769,7 +769,7 @@ pub fn process_create_vote_account(
             rpc_client.get_account_with_commitment(&vote_account_address, config.commitment)
         {
             if let Some(vote_account) = response.value {
-                let err_msg = if vote_account.owner == renec_vote_program::id() {
+                let err_msg = if vote_account.owner == solana_vote_program::id() {
                     format!("Vote account {} already exists", vote_account_address)
                 } else {
                     format!(
@@ -1090,7 +1090,7 @@ fn get_vote_account(
             CliError::RpcRequestError(format!("{:?} account does not exist", vote_account_pubkey))
         })?;
 
-    if vote_account.owner != renec_vote_program::id() {
+    if vote_account.owner != solana_vote_program::id() {
         return Err(CliError::RpcRequestError(format!(
             "{:?} is not a vote account",
             vote_account_pubkey

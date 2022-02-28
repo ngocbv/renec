@@ -44,7 +44,7 @@ use {
 
 #[test]
 fn test_rpc_client() {
-    renec_logger::setup();
+    solana_logger::setup();
 
     let alice = Keypair::new();
     let test_validator =
@@ -56,7 +56,7 @@ fn test_rpc_client() {
 
     assert_eq!(
         client.get_version().unwrap().solana_core,
-        renec_version::semver!()
+        solana_version::semver!()
     );
 
     assert!(client.get_account(&bob_pubkey).is_err());

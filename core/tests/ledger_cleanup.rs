@@ -226,7 +226,7 @@ mod tests {
 
     #[test]
     fn test_ledger_cleanup_compaction() {
-        renec_logger::setup();
+        solana_logger::setup();
         let blockstore_path = get_tmp_ledger_path!();
         let mut blockstore = Blockstore::open(&blockstore_path).unwrap();
         let config = get_benchmark_config();

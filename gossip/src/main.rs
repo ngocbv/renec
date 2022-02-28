@@ -31,7 +31,7 @@ fn parse_matches() -> ArgMatches<'static> {
 
     App::new(crate_name!())
         .about(crate_description!())
-        .version(renec_version::version!())
+        .version(solana_version::version!())
         .setting(AppSettings::SubcommandRequiredElseHelp)
         .arg(
             Arg::with_name("allow_private_addr")
@@ -325,7 +325,7 @@ fn process_rpc_url(
 }
 
 fn main() -> Result<(), Box<dyn error::Error>> {
-    renec_logger::setup_with_default("solana=info");
+    solana_logger::setup_with_default("solana=info");
 
     let matches = parse_matches();
     let socket_addr_space = SocketAddrSpace::new(matches.is_present("allow_private_addr"));

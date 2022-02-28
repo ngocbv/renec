@@ -77,7 +77,7 @@ use {
         Reward, RewardType, TransactionConfirmationStatus, TransactionStatus, UiConfirmedBlock,
         UiTransactionEncoding,
     },
-    renec_vote_program::vote_state::{VoteState, MAX_LOCKOUT_HISTORY},
+    solana_vote_program::vote_state::{VoteState, MAX_LOCKOUT_HISTORY},
     spl_token::{
         solana_program::program_pack::Pack,
         state::{Account as TokenAccount, Mint},
@@ -2335,7 +2335,7 @@ pub mod rpc_minimal {
         #[rpc(meta, name = "getVersion")]
         fn get_version(&self, meta: Self::Metadata) -> Result<RpcVersionInfo>;
 
-        // TODO: Refactor `renec-validator wait-for-restart-window` to not require this method, so
+        // TODO: Refactor `solana-validator wait-for-restart-window` to not require this method, so
         //       it can be removed from rpc_minimal
         #[rpc(meta, name = "getVoteAccounts")]
         fn get_vote_accounts(
@@ -2344,7 +2344,7 @@ pub mod rpc_minimal {
             config: Option<RpcGetVoteAccountsConfig>,
         ) -> Result<RpcVoteAccountStatus>;
 
-        // TODO: Refactor `renec-validator wait-for-restart-window` to not require this method, so
+        // TODO: Refactor `solana-validator wait-for-restart-window` to not require this method, so
         //       it can be removed from rpc_minimal
         #[rpc(meta, name = "getLeaderSchedule")]
         fn get_leader_schedule(
@@ -2441,14 +2441,14 @@ pub mod rpc_minimal {
 
         fn get_version(&self, _: Self::Metadata) -> Result<RpcVersionInfo> {
             debug!("get_version rpc request received");
-            let version = renec_version::Version::default();
+            let version = solana_version::Version::default();
             Ok(RpcVersionInfo {
                 solana_core: version.to_string(),
                 feature_set: Some(version.feature_set),
             })
         }
 
-        // TODO: Refactor `renec-validator wait-for-restart-window` to not require this method, so
+        // TODO: Refactor `solana-validator wait-for-restart-window` to not require this method, so
         //       it can be removed from rpc_minimal
         fn get_vote_accounts(
             &self,
@@ -2459,7 +2459,7 @@ pub mod rpc_minimal {
             meta.get_vote_accounts(config)
         }
 
-        // TODO: Refactor `renec-validator wait-for-restart-window` to not require this method, so
+        // TODO: Refactor `solana-validator wait-for-restart-window` to not require this method, so
         //       it can be removed from rpc_minimal
         fn get_leader_schedule(
             &self,
@@ -4138,7 +4138,7 @@ pub mod tests {
             EncodedConfirmedBlock, EncodedTransaction, EncodedTransactionWithStatusMeta,
             TransactionDetails, UiMessage,
         },
-        renec_vote_program::{
+        solana_vote_program::{
             vote_instruction,
             vote_state::{BlockTimestamp, Vote, VoteInit, VoteStateVersions, MAX_LOCKOUT_HISTORY},
         },
@@ -6097,7 +6097,7 @@ pub mod tests {
 
         let req = r#"{"jsonrpc":"2.0","id":1,"method":"getVersion"}"#;
         let res = io.handle_request_sync(req, meta);
-        let version = renec_version::Version::default();
+        let version = solana_version::Version::default();
         let expected = json!({
             "jsonrpc": "2.0",
             "result": {

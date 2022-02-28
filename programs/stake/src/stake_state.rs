@@ -27,7 +27,7 @@ use {
         },
         stake_history::{StakeHistory, StakeHistoryEntry},
     },
-    renec_vote_program::vote_state::{VoteState, VoteStateVersions},
+    solana_vote_program::vote_state::{VoteState, VoteStateVersions},
     std::{collections::HashSet, convert::TryFrom},
 };
 
@@ -520,7 +520,7 @@ impl<'a> StakeAccount for KeyedAccount<'a> {
         signers: &HashSet<Pubkey>,
         can_reverse_deactivation: bool,
     ) -> Result<(), InstructionError> {
-        if vote_account.owner()? != renec_vote_program::id() {
+        if vote_account.owner()? != solana_vote_program::id() {
             return Err(InstructionError::IncorrectProgramId);
         }
 
@@ -1306,7 +1306,7 @@ mod tests {
             pubkey::Pubkey,
             system_program,
         },
-        renec_vote_program::vote_state,
+        solana_vote_program::vote_state,
         std::{cell::RefCell, iter::FromIterator},
     };
 
@@ -2101,7 +2101,7 @@ mod tests {
 
     #[test]
     fn test_stop_activating_after_deactivation() {
-        renec_logger::setup();
+        solana_logger::setup();
         let stake = Delegation {
             stake: 1_000,
             activation_epoch: 0,

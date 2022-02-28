@@ -9,7 +9,7 @@ use {
     indicatif::{ProgressBar, ProgressStyle},
     serde::{Deserialize, Serialize},
     solana_client::rpc_client::RpcClient,
-    renec_config_program::{config_instruction, get_config_data, ConfigState},
+    solana_config_program::{config_instruction, get_config_data, ConfigState},
     solana_sdk::{
         hash::{Hash, Hasher},
         message::Message,

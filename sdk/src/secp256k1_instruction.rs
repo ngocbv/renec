@@ -222,7 +222,7 @@ pub mod test {
 
     #[test]
     fn test_invalid_offsets() {
-        renec_logger::setup();
+        solana_logger::setup();
 
         let mut instruction_data = vec![0u8; DATA_START];
         let offsets = SecpSignatureOffsets::default();

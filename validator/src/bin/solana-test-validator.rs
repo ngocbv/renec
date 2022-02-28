@@ -23,7 +23,7 @@ use {
         system_program,
     },
     solana_streamer::socket::SocketAddrSpace,
-    renec_validator::{
+    solana_validator::{
         admin_rpc_service, dashboard::Dashboard, ledger_lockfile, lock_ledger, println_name_value,
         redirect_stderr_to_file, test_validator::*,
     },
@@ -61,7 +61,7 @@ fn main() {
 
     let matches = App::new("solana-test-validator")
         .about("Test Validator")
-        .version(renec_version::version!())
+        .version(solana_version::version!())
         .arg({
             let arg = Arg::with_name("config_file")
                 .short("C")
@@ -140,7 +140,7 @@ fn main() {
                 .value_name("PORT")
                 .takes_value(true)
                 .default_value(&default_faucet_port)
-                .validator(renec_validator::port_validator)
+                .validator(solana_validator::port_validator)
                 .help("Enable the faucet on this port"),
         )
         .arg(
@@ -149,7 +149,7 @@ fn main() {
                 .value_name("PORT")
                 .takes_value(true)
                 .default_value(&default_rpc_port)
-                .validator(renec_validator::port_validator)
+                .validator(solana_validator::port_validator)
                 .help("Enable JSON RPC on this port, and the next port for the RPC websocket"),
         )
         .arg(
@@ -216,7 +216,7 @@ fn main() {
                 .long("dynamic-port-range")
                 .value_name("MIN_PORT-MAX_PORT")
                 .takes_value(true)
-                .validator(renec_validator::port_range_validator)
+                .validator(solana_validator::port_range_validator)
                 .help(
                     "Range to use for dynamically assigned ports \
                     [default: 1024-65535]",
@@ -341,7 +341,7 @@ fn main() {
     };
     let _logger_thread = redirect_stderr_to_file(logfile);
 
-    info!("{} {}", crate_name!(), renec_version::version!());
+    info!("{} {}", crate_name!(), solana_version::version!());
     info!("Starting validator with: {:#?}", std::env::args_os());
     solana_core::validator::report_target_features();
 

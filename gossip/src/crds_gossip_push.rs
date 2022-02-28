@@ -548,7 +548,7 @@ mod test {
     }
     #[test]
     fn test_refresh_active_set() {
-        renec_logger::setup();
+        solana_logger::setup();
         let now = timestamp();
         let mut crds = Crds::default();
         let mut push = CrdsGossipPush::default();
@@ -622,7 +622,7 @@ mod test {
     }
     #[test]
     fn test_active_set_refresh_with_bank() {
-        renec_logger::setup();
+        solana_logger::setup();
         let time = timestamp() - 1024; //make sure there's at least a 1 second delay
         let mut crds = Crds::default();
         let mut push = CrdsGossipPush::default();

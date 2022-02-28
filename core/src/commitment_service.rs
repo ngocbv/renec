@@ -8,7 +8,7 @@ use {
         commitment::{BlockCommitment, BlockCommitmentCache, CommitmentSlots, VOTE_THRESHOLD_SIZE},
     },
     solana_sdk::clock::Slot,
-    renec_vote_program::vote_state::VoteState,
+    solana_vote_program::vote_state::VoteState,
     std::{
         cmp::max,
         collections::HashMap,
@@ -260,8 +260,8 @@ mod tests {
             genesis_utils::{create_genesis_config_with_vote_accounts, ValidatorVoteKeypairs},
         },
         solana_sdk::{account::Account, pubkey::Pubkey, signature::Signer},
-        renec_stake_program::stake_state,
-        renec_vote_program::{
+        solana_stake_program::stake_state,
+        solana_vote_program::{
             vote_state::{self, VoteStateVersions},
             vote_transaction,
         },

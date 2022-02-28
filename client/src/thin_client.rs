@@ -626,7 +626,7 @@ mod tests {
 
     #[test]
     fn test_client_optimizer() {
-        renec_logger::setup();
+        solana_logger::setup();
 
         const NUM_CLIENTS: usize = 5;
         let optimizer = ClientOptimizer::new(NUM_CLIENTS);

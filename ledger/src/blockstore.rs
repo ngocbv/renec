@@ -3987,7 +3987,7 @@ pub mod tests {
 
     #[test]
     fn test_write_entries() {
-        renec_logger::setup();
+        solana_logger::setup();
         let ledger_path = get_tmp_ledger_path!();
         {
             let ticks_per_slot = 10;
@@ -5455,7 +5455,7 @@ pub mod tests {
 
     #[test]
     pub fn test_should_insert_data_shred() {
-        renec_logger::setup();
+        solana_logger::setup();
         let (mut shreds, _) = make_slot_entries(0, 0, 200);
         let blockstore_path = get_tmp_ledger_path!();
         {
@@ -5809,7 +5809,7 @@ pub mod tests {
 
     #[test]
     pub fn test_insert_multiple_is_last() {
-        renec_logger::setup();
+        solana_logger::setup();
         let (shreds, _) = make_slot_entries(0, 0, 20);
         let num_shreds = shreds.len() as u64;
         let blockstore_path = get_tmp_ledger_path!();
@@ -6799,7 +6799,7 @@ pub mod tests {
         simulate_compaction: bool,
         simulate_ledger_cleanup_service: bool,
     ) {
-        renec_logger::setup();
+        solana_logger::setup();
 
         let blockstore_path = get_tmp_ledger_path!();
         {
@@ -8507,7 +8507,7 @@ pub mod tests {
 
     #[test]
     fn erasure_multiple_config() {
-        renec_logger::setup();
+        solana_logger::setup();
         let slot = 1;
         let parent = 0;
         let num_txs = 20;
@@ -8540,7 +8540,7 @@ pub mod tests {
 
     #[test]
     fn test_large_num_coding() {
-        renec_logger::setup();
+        solana_logger::setup();
         let slot = 1;
         let (_data_shreds, mut coding_shreds, leader_schedule_cache) =
             setup_erasure_shreds(slot, 0, 100);

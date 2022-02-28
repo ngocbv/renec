@@ -519,7 +519,7 @@ mod tests {
 
     #[test]
     fn test_vote_process_instruction() {
-        renec_logger::setup();
+        solana_logger::setup();
         let instructions = create_account(
             &Pubkey::default(),
             &Pubkey::default(),

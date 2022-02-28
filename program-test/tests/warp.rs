@@ -26,7 +26,7 @@ use {
         },
         transaction::{Transaction, TransactionError},
     },
-    renec_vote_program::{
+    solana_vote_program::{
         vote_instruction,
         vote_state::{VoteInit, VoteState},
     },

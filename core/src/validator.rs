@@ -80,7 +80,7 @@ use {
         timing::timestamp,
     },
     solana_streamer::socket::SocketAddrSpace,
-    renec_vote_program::vote_state::VoteState,
+    solana_vote_program::vote_state::VoteState,
     std::{
         collections::{HashMap, HashSet},
         net::SocketAddr,
@@ -1651,7 +1651,7 @@ mod tests {
 
     #[test]
     fn validator_exit() {
-        renec_logger::setup();
+        solana_logger::setup();
         let leader_keypair = Keypair::new();
         let leader_node = Node::new_localhost_with_pubkey(&leader_keypair.pubkey());
 
@@ -1691,7 +1691,7 @@ mod tests {
     #[test]
     fn test_backup_and_clear_blockstore() {
         use std::time::Instant;
-        renec_logger::setup();
+        solana_logger::setup();
         use solana_ledger::{blockstore, entry, get_tmp_ledger_path};
         let blockstore_path = get_tmp_ledger_path!();
         {
@@ -1776,7 +1776,7 @@ mod tests {
 
     #[test]
     fn test_wait_for_supermajority() {
-        renec_logger::setup();
+        solana_logger::setup();
         use solana_sdk::hash::hash;
         let node_keypair = Arc::new(Keypair::new());
         let cluster_info = ClusterInfo::new(
@@ -1852,7 +1852,7 @@ mod tests {
     #[test]
     #[should_panic]
     fn test_poh_speed() {
-        renec_logger::setup();
+        solana_logger::setup();
         let poh_config = PohConfig {
             target_tick_duration: Duration::from_millis(solana_sdk::clock::MS_PER_TICK),
             // make PoH rate really fast to cause the panic condition

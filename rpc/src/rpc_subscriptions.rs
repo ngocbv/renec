@@ -37,7 +37,7 @@ use {
         timing::timestamp,
         transaction,
     },
-    renec_vote_program::vote_state::Vote,
+    solana_vote_program::vote_state::Vote,
     std::{
         cell::RefCell,
         collections::{HashMap, VecDeque},

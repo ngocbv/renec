@@ -254,7 +254,7 @@ mod tests {
 
     #[test]
     fn test_fee_rate_governor_derived_default() {
-        renec_logger::setup();
+        solana_logger::setup();
 
         let f0 = FeeRateGovernor::default();
         assert_eq!(
@@ -284,7 +284,7 @@ mod tests {
 
     #[test]
     fn test_fee_rate_governor_derived_adjust() {
-        renec_logger::setup();
+        solana_logger::setup();
 
         let mut f = FeeRateGovernor {
             target_lamports_per_signature: 100,

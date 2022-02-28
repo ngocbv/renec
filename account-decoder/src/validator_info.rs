@@ -1,4 +1,4 @@
-use renec_config_program::ConfigState;
+use solana_config_program::ConfigState;
 
 pub const MAX_SHORT_FIELD_LENGTH: usize = 70;
 pub const MAX_LONG_FIELD_LENGTH: usize = 300;

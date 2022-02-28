@@ -59,7 +59,7 @@ use {
         timing::timestamp,
         transaction::Transaction,
     },
-    renec_vote_program::vote_state::Vote,
+    solana_vote_program::vote_state::Vote,
     std::{
         collections::{BTreeMap, HashMap, HashSet},
         result,
@@ -2667,7 +2667,7 @@ mod tests {
         },
         solana_streamer::socket::SocketAddrSpace,
         solana_transaction_status::TransactionWithStatusMeta,
-        renec_vote_program::{
+        solana_vote_program::{
             vote_state::{VoteState, VoteStateVersions},
             vote_transaction,
         },
@@ -3132,7 +3132,7 @@ mod tests {
 
     #[test]
     fn test_dead_fork_invalid_slot_tick_count() {
-        renec_logger::setup();
+        solana_logger::setup();
         // Too many ticks per slot
         let res = check_dead_fork(|_keypair, bank| {
             let blockhash = bank.last_blockhash();

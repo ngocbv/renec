@@ -41,7 +41,7 @@ $ solana-ledger-tool -l ledger create-snapshot SLOT_X ledger --硬分叉 SLOT_X
 > Steps: 1. Install the v1.1.12 release: https://github.com/solana-labs/solana/releases/tag/v1.1.12 2. a. Preferred method, start from your local ledger with:
 >
 > ```bash
-renec-validator
+solana-validator
   --wait-for-supermajority SLOT_X     # <-- NEW! IMPORTANT! REMOVE AFTER THIS RESTART
   --expected-bank-hash NEW_BANK_HASH  # <-- NEW! IMPORTANT! REMOVE AFTER THIS RESTART
   --hard-fork SLOT_X                  # <-- NEW! IMPORTANT! REMOVE AFTER THIS RESTART
@@ -57,7 +57,7 @@ renec-validator
 b. If your validator doesn't have ledger up to slot SLOT_X or if you have deleted your ledger, have it instead download a snapshot with:
 
 ```bash
-renec-validator
+solana-validator
   --wait-for-supermajority SLOT_X     # <-- NEW! IMPORTANT! REMOVE AFTER THIS RESTART
   --expected-bank-hash NEW_BANK_HASH  # <-- NEW! IMPORTANT! REMOVE AFTER THIS RESTART
   --entrypoint entrypoint.testnet.solana.com:8001

@@ -236,11 +236,11 @@ pub fn parse_args<'a>(
 }
 
 fn main() -> Result<(), Box<dyn error::Error>> {
-    renec_logger::setup_with_default("off");
+    solana_logger::setup_with_default("off");
     let matches = get_clap_app(
         crate_name!(),
         crate_description!(),
-        renec_version::version!(),
+        solana_version::version!(),
     )
     .get_matches();
 

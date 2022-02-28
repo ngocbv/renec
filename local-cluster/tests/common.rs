@@ -235,7 +235,7 @@ pub fn run_cluster_partition<C>(
     ticks_per_slot: Option<u64>,
     additional_accounts: Vec<(Pubkey, AccountSharedData)>,
 ) {
-    renec_logger::setup_with_default(RUST_LOG_FILTER);
+    solana_logger::setup_with_default(RUST_LOG_FILTER);
     info!("PARTITION_TEST!");
     let num_nodes = partitions.len();
     let node_stakes: Vec<_> = partitions
@@ -357,7 +357,7 @@ pub fn run_cluster_partition<C>(
 }
 
 pub fn test_faulty_node(faulty_node_type: BroadcastStageType) {
-    renec_logger::setup_with_default("solana_local_cluster=info");
+    solana_logger::setup_with_default("solana_local_cluster=info");
     let num_nodes = 3;
 
     let error_validator_config = ValidatorConfig {

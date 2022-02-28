@@ -75,7 +75,7 @@ else
   fi
 
   # shellcheck disable=SC2086
-  renec-genesis \
+  solana-genesis \
     --hashes-per-tick sleep \
     --faucet-lamports 500000000000000000 \
     --bootstrap-validator \
@@ -114,7 +114,7 @@ args=(
   --no-wait-for-vote-to-start-leader
 )
 # shellcheck disable=SC2086
-renec-validator "${args[@]}" $SOLANA_RUN_SH_VALIDATOR_ARGS &
+solana-validator "${args[@]}" $SOLANA_RUN_SH_VALIDATOR_ARGS &
 validator=$!
 
 wait "$validator"

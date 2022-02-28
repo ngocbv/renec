@@ -536,8 +536,8 @@ mod tests {
             system_instruction, system_program, system_transaction,
             transaction::{self, Transaction},
         },
-        renec_stake_program::stake_state,
-        renec_vote_program::vote_state::Vote,
+        solana_stake_program::stake_state,
+        solana_vote_program::vote_state::Vote,
         std::{
             sync::{atomic::AtomicBool, RwLock},
             thread::sleep,

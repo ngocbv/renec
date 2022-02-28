@@ -42,7 +42,7 @@ use {
         slot_hashes,
         transaction::Transaction,
     },
-    renec_vote_program::{self, vote_state::Vote, vote_transaction},
+    solana_vote_program::{self, vote_state::Vote, vote_transaction},
     std::{
         collections::{HashMap, HashSet},
         iter::repeat,
@@ -823,13 +823,13 @@ mod tests {
             pubkey::Pubkey,
             signature::{Keypair, Signature, Signer},
         },
-        renec_vote_program::vote_state::Vote,
+        solana_vote_program::vote_state::Vote,
         std::{collections::BTreeSet, iter::repeat_with, sync::Arc},
     };
 
     #[test]
     fn test_max_vote_tx_fits() {
-        renec_logger::setup();
+        solana_logger::setup();
         let node_keypair = Keypair::new();
         let vote_keypair = Keypair::new();
         let slots: Vec<_> = (0..31).collect();
@@ -1492,7 +1492,7 @@ mod tests {
 
     #[test]
     fn test_verify_votes_empty() {
-        renec_logger::setup();
+        solana_logger::setup();
         let GenesisConfigInfo { genesis_config, .. } = create_genesis_config(10_000);
         let bank = Bank::new(&genesis_config);
         let bank_forks = RwLock::new(BankForks::new(bank));

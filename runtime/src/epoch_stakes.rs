@@ -120,7 +120,7 @@ impl EpochStakes {
 pub(crate) mod tests {
     use {
         super::*, solana_sdk::account::AccountSharedData,
-        renec_vote_program::vote_state::create_account_with_authorized, std::iter,
+        solana_vote_program::vote_state::create_account_with_authorized, std::iter,
     };
 
     struct VoteAccountInfo {

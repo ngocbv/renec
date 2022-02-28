@@ -489,7 +489,7 @@ fn configure(matches: &ArgMatches) {
 }
 
 fn main() {
-    renec_logger::setup();
+    solana_logger::setup();
 
     let matches = App::new(crate_name!())
         .about(crate_description!())

@@ -727,7 +727,7 @@ mod test {
         solana_runtime::genesis_utils::{self, GenesisConfigInfo, ValidatorVoteKeypairs},
         solana_sdk::signature::{Keypair, Signer},
         solana_streamer::socket::SocketAddrSpace,
-        renec_vote_program::vote_transaction,
+        solana_vote_program::vote_transaction,
         std::collections::HashSet,
     };
 

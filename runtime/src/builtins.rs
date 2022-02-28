@@ -53,23 +53,23 @@ fn genesis_builtins() -> Vec<Builtin> {
         ),
         Builtin::new(
             "vote_program",
-            renec_vote_program::id(),
-            with_program_logging!(renec_vote_program::vote_instruction::process_instruction),
+            solana_vote_program::id(),
+            with_program_logging!(solana_vote_program::vote_instruction::process_instruction),
         ),
         Builtin::new(
             "stake_program",
             stake::program::id(),
-            with_program_logging!(renec_stake_program::stake_instruction::process_instruction),
+            with_program_logging!(solana_stake_program::stake_instruction::process_instruction),
         ),
         Builtin::new(
             "config_program",
-            renec_config_program::id(),
-            with_program_logging!(renec_config_program::config_processor::process_instruction),
+            solana_config_program::id(),
+            with_program_logging!(solana_config_program::config_processor::process_instruction),
         ),
         Builtin::new(
             "secp256k1_program",
             solana_sdk::secp256k1_program::id(),
-            renec_secp256k1_program::process_instruction,
+            solana_secp256k1_program::process_instruction,
         ),
     ]
 }
@@ -103,7 +103,7 @@ fn feature_builtins() -> Vec<(Builtin, Pubkey, ActivationType)> {
             Builtin::new(
                 "ed25519_program",
                 solana_sdk::ed25519_program::id(),
-                renec_ed25519_program::process_instruction,
+                solana_ed25519_program::process_instruction,
             ),
             feature_set::ed25519_program_enabled::id(),
             ActivationType::NewProgram,

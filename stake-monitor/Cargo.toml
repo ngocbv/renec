@@ -1,12 +1,12 @@
 [package]
-authors = ["RENEC Maintainers <dev@remitano.com>"]
+authors = ["Solana Maintainers <maintainers@solana.foundation>"]
 edition = "2018"
 name = "solana-stake-monitor"
 description = "Blockchain, Rebuilt for Scale"
 version = "1.8.14"
-repository = "https://github.com/remitano/renec"
+repository = "https://github.com/solana-labs/solana"
 license = "Apache-2.0"
-homepage = "https://remitano.com/"
+homepage = "https://solana.com/"
 documentation = "https://docs.rs/solana-stake-monitor"
 
 [dependencies]
@@ -18,12 +18,12 @@ serde_yaml = "0.8.13"
 solana-clap-utils = { path = "../clap-utils", version = "=1.8.14" }
 solana-cli-config = { path = "../cli-config", version = "=1.8.14" }
 solana-client = { path = "../client", version = "=1.8.14" }
-renec-logger = { path = "../logger", version = "=1.8.14" }
+solana-logger = { path = "../logger", version = "=1.8.14" }
 solana-metrics = { path = "../metrics", version = "=1.8.14" }
 solana-rpc = { path = "../rpc", version = "=1.8.14" }
 solana-sdk = { path = "../sdk", version = "=1.8.14" }
 solana-transaction-status = { path = "../transaction-status", version = "=1.8.14" }
-renec-version = { path = "../version", version = "=1.8.14" }
+solana-version = { path = "../version", version = "=1.8.14" }
 
 [dev-dependencies]
 serial_test = "0.4.0"

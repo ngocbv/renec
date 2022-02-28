@@ -101,7 +101,7 @@ impl AccountsDbPlugin for AccountsDbPluginPostgres {
     /// }
 
     fn on_load(&mut self, config_file: &str) -> Result<()> {
-        renec_logger::setup_with_default("info");
+        solana_logger::setup_with_default("info");
         info!(
             "Loading plugin {:?} from config_file {:?}",
             self.name(),

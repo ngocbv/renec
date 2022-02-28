@@ -165,7 +165,7 @@ impl AdminRpc for AdminRpcImpl {
 
     fn set_log_filter(&self, filter: String) -> Result<()> {
         debug!("set_log_filter admin rpc request received");
-        renec_logger::setup_with(&filter);
+        solana_logger::setup_with(&filter);
         Ok(())
     }
 

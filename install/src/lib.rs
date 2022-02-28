@@ -83,11 +83,11 @@ fn handle_init(matches: &ArgMatches<'_>, config_file: &str) -> Result<(), String
 }
 
 pub fn main() -> Result<(), String> {
-    renec_logger::setup();
+    solana_logger::setup();
 
     let matches = App::new(crate_name!())
         .about(crate_description!())
-        .version(renec_version::version!())
+        .version(solana_version::version!())
         .setting(AppSettings::SubcommandRequiredElseHelp)
         .arg({
             let arg = Arg::with_name("config_file")
@@ -277,11 +277,11 @@ pub fn main() -> Result<(), String> {
 }
 
 pub fn main_init() -> Result<(), String> {
-    renec_logger::setup();
+    solana_logger::setup();
 
     let matches = App::new("solana-install-init")
         .about("Initializes a new installation")
-        .version(renec_version::version!())
+        .version(solana_version::version!())
         .arg({
             let arg = Arg::with_name("config_file")
                 .short("c")

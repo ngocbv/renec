@@ -47,8 +47,8 @@ use {
         stake::{self, state::StakeState},
         system_program,
     },
-    renec_stake_program::stake_state::{self, PointValue},
-    renec_vote_program::{
+    solana_stake_program::stake_state::{self, PointValue},
+    solana_vote_program::{
         self,
         vote_state::{self, VoteState},
     },
@@ -807,7 +807,7 @@ fn main() {
 
     const DEFAULT_ROOT_COUNT: &str = "1";
     const DEFAULT_MAX_SLOTS_ROOT_REPAIR: &str = "2000";
-    renec_logger::setup_with_default("solana=info");
+    solana_logger::setup_with_default("solana=info");
 
     let starting_slot_arg = Arg::with_name("starting_slot")
         .long("starting-slot")
@@ -905,7 +905,7 @@ fn main() {
 
     let matches = App::new(crate_name!())
         .about(crate_description!())
-        .version(renec_version::version!())
+        .version(solana_version::version!())
         .setting(AppSettings::InferSubcommands)
         .setting(AppSettings::SubcommandRequiredElseHelp)
         .setting(AppSettings::VersionlessSubcommands)
@@ -1499,7 +1499,7 @@ fn main() {
         )
         .get_matches();
 
-    info!("{} {}", crate_name!(), renec_version::version!());
+    info!("{} {}", crate_name!(), solana_version::version!());
 
     let ledger_path = parse_ledger_path(&matches, "ledger_path");
 
@@ -1577,7 +1577,7 @@ fn main() {
 
                 if let Some(hashes_per_tick) = arg_matches.value_of("hashes_per_tick") {
                     genesis_config.poh_config.hashes_per_tick = match hashes_per_tick {
-                        // Note: Unlike `renec-genesis`, "auto" is not supported here.
+                        // Note: Unlike `solana-genesis`, "auto" is not supported here.
                         "sleep" => None,
                         _ => Some(value_t_or_exit!(arg_matches, "hashes_per_tick", u64)),
                     }
@@ -2056,7 +2056,7 @@ fn main() {
 
                             if let Some(hashes_per_tick) = hashes_per_tick {
                                 child_bank.set_hashes_per_tick(match hashes_per_tick {
-                                    // Note: Unlike `renec-genesis`, "auto" is not supported here.
+                                    // Note: Unlike `solana-genesis`, "auto" is not supported here.
                                     "sleep" => None,
                                     _ => {
                                         Some(value_t_or_exit!(arg_matches, "hashes_per_tick", u64))
@@ -2138,7 +2138,7 @@ fn main() {
 
                             // Delete existing vote accounts
                             for (address, mut account) in bank
-                                .get_program_accounts(&renec_vote_program::id())
+                                .get_program_accounts(&solana_vote_program::id())
                                 .unwrap()
                                 .into_iter()
                             {
@@ -2445,7 +2445,7 @@ fn main() {
                                 new_credits_observed: Option<u64>,
                                 skipped_reasons: String,
                             }
-                            use renec_stake_program::stake_state::InflationPointCalculationEvent;
+                            use solana_stake_program::stake_state::InflationPointCalculationEvent;
                             let stake_calculation_details: DashMap<Pubkey, CalculationDetail> =
                                 DashMap::new();
                             let last_point_value = Arc::new(RwLock::new(None));

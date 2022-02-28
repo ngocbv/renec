@@ -6,7 +6,7 @@ use {
 
 #[test]
 fn test_race_register_tick_freeze() {
-    renec_logger::setup();
+    solana_logger::setup();
 
     let (mut genesis_config, _) = create_genesis_config(50);
     genesis_config.ticks_per_slot = 1;

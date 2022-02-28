@@ -92,10 +92,10 @@ else
     solana-install
     solana-keygen
     solana-ledger-tool
-    renec-log-analyzer
+    solana-log-analyzer
     solana-net-shaper
     solana-sys-tuner
-    renec-validator
+    solana-validator
   )
 
   # Speed up net.sh deploys by excluding unused binaries
@@ -112,9 +112,9 @@ else
     )
   fi
 
-  #XXX: Ensure `renec-genesis` is built LAST!
+  #XXX: Ensure `solana-genesis` is built LAST!
   # See https://github.com/solana-labs/solana/issues/5826
-  BINS+=(renec-genesis)
+  BINS+=(solana-genesis)
 fi
 
 binArgs=()

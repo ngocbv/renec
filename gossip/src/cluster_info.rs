@@ -69,7 +69,7 @@ use {
         socket::SocketAddrSpace,
         streamer::{PacketBatchReceiver, PacketBatchSender},
     },
-    renec_vote_program::{
+    solana_vote_program::{
         vote_state::MAX_LOCKOUT_HISTORY, vote_transaction::parse_vote_transaction,
     },
     std::{
@@ -1168,7 +1168,7 @@ impl ClusterInfo {
             .collect()
     }
 
-    pub fn get_node_version(&self, pubkey: &Pubkey) -> Option<renec_version::Version> {
+    pub fn get_node_version(&self, pubkey: &Pubkey) -> Option<solana_version::Version> {
         let gossip = self.gossip.read().unwrap();
         let version = gossip.crds.get(&CrdsValueLabel::Version(*pubkey));
         if let Some(version) = version.and_then(|v| v.value.version()) {
@@ -3056,7 +3056,7 @@ mod tests {
         rand_chacha::ChaChaRng,
         solana_ledger::shred::Shredder,
         solana_sdk::signature::{Keypair, Signer},
-        renec_vote_program::{vote_instruction, vote_state::Vote},
+        solana_vote_program::{vote_instruction, vote_state::Vote},
         std::{
             iter::repeat_with,
             net::{IpAddr, Ipv4Addr, Ipv6Addr, SocketAddrV4},
@@ -3085,7 +3085,7 @@ mod tests {
 
     #[test]
     fn test_handle_pull() {
-        renec_logger::setup();
+        solana_logger::setup();
         let node = Node::new_localhost();
         let cluster_info = Arc::new(ClusterInfo::new(
             node.info,

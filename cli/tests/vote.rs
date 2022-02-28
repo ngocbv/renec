@@ -17,7 +17,7 @@ use {
         signature::{Keypair, NullSigner, Signer},
     },
     solana_streamer::socket::SocketAddrSpace,
-    renec_vote_program::vote_state::{VoteAuthorize, VoteState, VoteStateVersions},
+    solana_vote_program::vote_state::{VoteAuthorize, VoteState, VoteStateVersions},
 };
 
 #[test]

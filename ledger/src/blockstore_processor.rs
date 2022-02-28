@@ -1408,7 +1408,7 @@ pub mod tests {
             system_transaction,
             transaction::{Transaction, TransactionError},
         },
-        renec_vote_program::{
+        solana_vote_program::{
             self,
             vote_state::{VoteState, VoteStateVersions, MAX_LOCKOUT_HISTORY},
             vote_transaction,
@@ -1419,7 +1419,7 @@ pub mod tests {
 
     #[test]
     fn test_process_blockstore_with_missing_hashes() {
-        renec_logger::setup();
+        solana_logger::setup();
 
         let hashes_per_tick = 2;
         let GenesisConfigInfo {
@@ -1467,7 +1467,7 @@ pub mod tests {
 
     #[test]
     fn test_process_blockstore_with_invalid_slot_tick_count() {
-        renec_logger::setup();
+        solana_logger::setup();
 
         let GenesisConfigInfo { genesis_config, .. } = create_genesis_config(10_000);
         let ticks_per_slot = genesis_config.ticks_per_slot;
@@ -1535,7 +1535,7 @@ pub mod tests {
 
     #[test]
     fn test_process_blockstore_with_slot_with_trailing_entry() {
-        renec_logger::setup();
+        solana_logger::setup();
 
         let GenesisConfigInfo {
             mint_keypair,
@@ -1586,7 +1586,7 @@ pub mod tests {
 
     #[test]
     fn test_process_blockstore_with_incomplete_slot() {
-        renec_logger::setup();
+        solana_logger::setup();
 
         let GenesisConfigInfo { genesis_config, .. } = create_genesis_config(10_000);
         let ticks_per_slot = genesis_config.ticks_per_slot;
@@ -1674,7 +1674,7 @@ pub mod tests {
 
     #[test]
     fn test_process_blockstore_with_two_forks_and_squash() {
-        renec_logger::setup();
+        solana_logger::setup();
 
         let GenesisConfigInfo { genesis_config, .. } = create_genesis_config(10_000);
         let ticks_per_slot = genesis_config.ticks_per_slot;
@@ -1754,7 +1754,7 @@ pub mod tests {
 
     #[test]
     fn test_process_blockstore_with_two_forks() {
-        renec_logger::setup();
+        solana_logger::setup();
 
         let GenesisConfigInfo { genesis_config, .. } = create_genesis_config(10_000);
         let ticks_per_slot = genesis_config.ticks_per_slot;
@@ -1845,7 +1845,7 @@ pub mod tests {
 
     #[test]
     fn test_process_blockstore_with_dead_slot() {
-        renec_logger::setup();
+        solana_logger::setup();
 
         let GenesisConfigInfo { genesis_config, .. } = create_genesis_config(10_000);
         let ticks_per_slot = genesis_config.ticks_per_slot;
@@ -1894,7 +1894,7 @@ pub mod tests {
 
     #[test]
     fn test_process_blockstore_with_dead_child() {
-        renec_logger::setup();
+        solana_logger::setup();
 
         let GenesisConfigInfo { genesis_config, .. } = create_genesis_config(10_000);
         let ticks_per_slot = genesis_config.ticks_per_slot;
@@ -1956,7 +1956,7 @@ pub mod tests {
 
     #[test]
     fn test_root_with_all_dead_children() {
-        renec_logger::setup();
+        solana_logger::setup();
 
         let GenesisConfigInfo { genesis_config, .. } = create_genesis_config(10_000);
         let ticks_per_slot = genesis_config.ticks_per_slot;
@@ -1991,7 +1991,7 @@ pub mod tests {
 
     #[test]
     fn test_process_blockstore_epoch_boundary_root() {
-        renec_logger::setup();
+        solana_logger::setup();
 
         let GenesisConfigInfo { genesis_config, .. } = create_genesis_config(10_000);
         let ticks_per_slot = genesis_config.ticks_per_slot;
@@ -2083,7 +2083,7 @@ pub mod tests {
 
     #[test]
     fn test_process_empty_entry_is_registered() {
-        renec_logger::setup();
+        solana_logger::setup();
 
         let GenesisConfigInfo {
             genesis_config,
@@ -2114,7 +2114,7 @@ pub mod tests {
 
     #[test]
     fn test_process_ledger_simple() {
-        renec_logger::setup();
+        solana_logger::setup();
         let leader_pubkey = solana_sdk::pubkey::new_rand();
         let mint = 100;
         let hashes_per_tick = 10;
@@ -2512,7 +2512,7 @@ pub mod tests {
 
     #[test]
     fn test_process_entries_2nd_entry_collision_with_self_and_error() {
-        renec_logger::setup();
+        solana_logger::setup();
 
         let GenesisConfigInfo {
             genesis_config,
@@ -3062,7 +3062,7 @@ pub mod tests {
     fn test_process_entries_stress() {
         // this test throws lots of rayon threads at process_entries()
         //  finds bugs in very low-layer stuff
-        renec_logger::setup();
+        solana_logger::setup();
         let GenesisConfigInfo {
             genesis_config,
             mint_keypair,
@@ -3403,7 +3403,7 @@ pub mod tests {
     }
 
     fn run_test_process_blockstore_with_supermajority_root(blockstore_root: Option<Slot>) {
-        renec_logger::setup();
+        solana_logger::setup();
         /*
             Build fork structure:
                  slot 0
@@ -3599,7 +3599,7 @@ pub mod tests {
                         let mut vote_account = AccountSharedData::new(
                             1,
                             VoteState::size_of(),
-                            &renec_vote_program::id(),
+                            &solana_vote_program::id(),
                         );
                         let versioned = VoteStateVersions::new_current(vote_state);
                         VoteState::serialize(&versioned, vote_account.data_as_mut_slice()).unwrap();

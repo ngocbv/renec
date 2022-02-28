@@ -780,7 +780,7 @@ mod tests {
 
     #[test]
     fn test_pubkey_too_small() {
-        renec_logger::setup();
+        solana_logger::setup();
         let mut tx = test_tx();
         let sig = tx.signatures[0];
         const NUM_SIG: usize = 18;
@@ -806,7 +806,7 @@ mod tests {
         // See that the verify cannot walk off the end of the packet
         // trying to index into the account_keys to access pubkey.
         use solana_sdk::signer::{keypair::Keypair, Signer};
-        renec_logger::setup();
+        solana_logger::setup();
 
         const NUM_SIG: usize = 17;
         let keypair1 = Keypair::new();
@@ -1041,7 +1041,7 @@ mod tests {
 
     #[test]
     fn test_verify_multisig() {
-        renec_logger::setup();
+        solana_logger::setup();
 
         let tx = test_multisig_tx();
         let mut packet = sigverify::make_packet_from_transaction(tx);
@@ -1077,7 +1077,7 @@ mod tests {
     #[test]
     fn test_verify_fuzz() {
         use rand::{thread_rng, Rng};
-        renec_logger::setup();
+        solana_logger::setup();
 
         let tx = test_multisig_tx();
         let packet = sigverify::make_packet_from_transaction(tx);
@@ -1121,7 +1121,7 @@ mod tests {
 
     #[test]
     fn test_get_checked_scalar() {
-        renec_logger::setup();
+        solana_logger::setup();
         use {
             curve25519_dalek::scalar::Scalar,
             rand::{thread_rng, Rng},
@@ -1163,7 +1163,7 @@ mod tests {
 
     #[test]
     fn test_ge_small_order() {
-        renec_logger::setup();
+        solana_logger::setup();
         use {
             curve25519_dalek::edwards::CompressedEdwardsY,
             rand::{thread_rng, Rng},
@@ -1212,7 +1212,7 @@ mod tests {
 
     #[test]
     fn test_is_simple_vote_transaction() {
-        renec_logger::setup();
+        solana_logger::setup();
 
         // tansfer tx is not
         {
@@ -1243,7 +1243,7 @@ mod tests {
                 &[&key],
                 &[key1, key2],
                 Hash::default(),
-                vec![renec_vote_program::id(), Pubkey::new_unique()],
+                vec![solana_vote_program::id(), Pubkey::new_unique()],
                 vec![
                     CompiledInstruction::new(3, &(), vec![0, 1]),
                     CompiledInstruction::new(4, &(), vec![0, 2]),
@@ -1258,7 +1258,7 @@ mod tests {
 
     #[test]
     fn test_is_simple_vote_transaction_with_offsets() {
-        renec_logger::setup();
+        solana_logger::setup();
 
         let mut current_offset = 0usize;
         let mut batch = PacketBatch::default();

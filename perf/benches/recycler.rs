@@ -9,7 +9,7 @@ use {
 
 #[bench]
 fn bench_recycler(bencher: &mut Bencher) {
-    renec_logger::setup();
+    solana_logger::setup();
 
     let recycler: PacketBatchRecycler = Recycler::default();
 

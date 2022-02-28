@@ -49,7 +49,7 @@ use {
 #[bench]
 #[allow(clippy::same_item_push)]
 fn bench_retransmitter(bencher: &mut Bencher) {
-    renec_logger::setup();
+    solana_logger::setup();
     let cluster_info = ClusterInfo::new(
         Node::new_localhost().info,
         Arc::new(Keypair::new()),

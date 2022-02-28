@@ -45,7 +45,7 @@ use {
             rent, Sysvar,
         },
     },
-    renec_vote_program::vote_state::{VoteState, VoteStateVersions},
+    solana_vote_program::vote_state::{VoteState, VoteStateVersions},
     std::{
         cell::RefCell,
         collections::HashMap,
@@ -478,7 +478,7 @@ impl Default for ProgramTest {
     /// * the current working directory
     ///
     fn default() -> Self {
-        renec_logger::setup_with_default(
+        solana_logger::setup_with_default(
             "solana_rbpf::vm=debug,\
              solana_runtime::message_processor=debug,\
              solana_runtime::system_instruction_processor=trace,\

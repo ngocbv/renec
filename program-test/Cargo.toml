@@ -1,10 +1,10 @@
 [package]
-authors = ["RENEC Maintainers <dev@remitano.com>"]
+authors = ["Solana Maintainers <maintainers@solana.foundation>"]
 description = "Solana Program Test Framework"
 edition = "2018"
 license = "Apache-2.0"
 name = "solana-program-test"
-repository = "https://github.com/remitano/renec"
+repository = "https://github.com/solana-labs/solana"
 version = "1.8.14"
 
 [dependencies]
@@ -20,10 +20,10 @@ serde_derive = "1.0.103"
 solana-banks-client = { path = "../banks-client", version = "=1.8.14" }
 solana-banks-server = { path = "../banks-server", version = "=1.8.14" }
 solana-bpf-loader-program = { path = "../programs/bpf_loader", version = "=1.8.14" }
-renec-logger = { path = "../logger", version = "=1.8.14" }
+solana-logger = { path = "../logger", version = "=1.8.14" }
 solana-runtime = { path = "../runtime", version = "=1.8.14" }
 solana-sdk = { path = "../sdk", version = "=1.8.14" }
-renec-vote-program = { path = "../programs/vote", version = "=1.8.14" }
+solana-vote-program = { path = "../programs/vote", version = "=1.8.14" }
 thiserror = "1.0"
 tokio = { version = "1", features = ["full"] }
 

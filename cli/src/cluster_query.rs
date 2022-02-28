@@ -59,7 +59,7 @@ use {
         transaction::Transaction,
     },
     solana_transaction_status::UiTransactionEncoding,
-    renec_vote_program::vote_state::VoteState,
+    solana_vote_program::vote_state::VoteState,
     std::{
         collections::{BTreeMap, HashMap, VecDeque},
         fmt,

@@ -76,7 +76,7 @@ pub mod tests {
 
     #[test]
     fn test_sigverify_shreds_read_slots() {
-        renec_logger::setup();
+        solana_logger::setup();
         let mut shred = Shred::new_from_data(
             0xdead_c0de,
             0xc0de,
