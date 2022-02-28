@@ -1,7 +1,7 @@
 use {
     crossbeam_channel::Receiver,
     renec_rpc::optimistically_confirmed_bank_tracker::BankNotification,
-    renec_runtime::accounts_update_notifier_interface::AccountsUpdateNotifier,
+    solana_runtime::accounts_update_notifier_interface::AccountsUpdateNotifier,
     std::{
         sync::{
             atomic::{AtomicBool, Ordering},

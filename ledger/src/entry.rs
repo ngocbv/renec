@@ -15,7 +15,7 @@ use {
     renec_metrics::*,
     renec_perf::{cuda_runtime::PinnedVec, perf_libs, recycler::Recycler},
     renec_rayon_threadlimit::get_thread_count,
-    renec_runtime::hashed_transaction::HashedTransaction,
+    solana_runtime::hashed_transaction::HashedTransaction,
     renec_sdk::{
         feature_set::{self, FeatureSet},
         hash::Hash,

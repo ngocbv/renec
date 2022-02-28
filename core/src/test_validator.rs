@@ -9,7 +9,7 @@ use {
     renec_ledger::{blockstore::create_new_ledger, create_new_tmp_ledger},
     renec_net_utils::PortRange,
     renec_rpc::rpc::JsonRpcConfig,
-    renec_runtime::{
+    solana_runtime::{
         bank_forks::{ArchiveFormat, SnapshotConfig, SnapshotVersion},
         genesis_utils::create_genesis_config_with_leader_ex,
         hardened_unpack::MAX_GENESIS_ARCHIVE_UNPACKED_SIZE,

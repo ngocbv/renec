@@ -6,7 +6,7 @@ use {
         UiAccount, UiAccountData, UiAccountEncoding,
     },
     renec_client::rpc_response::RpcKeyedAccount,
-    renec_runtime::bank::Bank,
+    solana_runtime::bank::Bank,
     renec_sdk::{
         account::{AccountSharedData, ReadableAccount},
         pubkey::Pubkey,

@@ -21,7 +21,7 @@ use {
         optimistically_confirmed_bank_tracker::BankNotificationSender,
         rpc_subscriptions::RpcSubscriptions,
     },
-    renec_runtime::{
+    solana_runtime::{
         bank_forks::BankForks,
         cost_model::CostModel,
         vote_sender_types::{ReplayVoteReceiver, ReplayVoteSender},

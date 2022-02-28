@@ -27,7 +27,7 @@ use {
         verifier::{self, VerifierError},
         vm::{Config, EbpfVm, InstructionMeter},
     },
-    renec_runtime::message_processor::MessageProcessor,
+    solana_runtime::message_processor::MessageProcessor,
     renec_sdk::{
         account::{ReadableAccount, WritableAccount},
         account_utils::State,
@@ -1091,7 +1091,7 @@ mod tests {
         super::*,
         rand::Rng,
         solana_rbpf::vm::SyscallRegistry,
-        renec_runtime::{bank::Bank, bank_client::BankClient},
+        solana_runtime::{bank::Bank, bank_client::BankClient},
         renec_sdk::{
             account::{
                 create_account_shared_data_for_test as create_account_for_test, AccountSharedData,

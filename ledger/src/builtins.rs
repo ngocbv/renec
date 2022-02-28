@@ -1,5 +1,5 @@
 use {
-    renec_runtime::{
+    solana_runtime::{
         bank::{Builtin, Builtins},
         builtins::ActivationType,
     },

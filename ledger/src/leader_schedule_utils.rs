@@ -1,6 +1,6 @@
 use {
     crate::leader_schedule::LeaderSchedule,
-    renec_runtime::bank::Bank,
+    solana_runtime::bank::Bank,
     renec_sdk::{
         clock::{Epoch, Slot, NUM_CONSECUTIVE_LEADER_SLOTS},
         pubkey::Pubkey,
@@ -81,7 +81,7 @@ fn sort_stakes(stakes: &mut Vec<(Pubkey, u64)>) {
 mod tests {
     use {
         super::*,
-        renec_runtime::genesis_utils::{
+        solana_runtime::genesis_utils::{
             bootstrap_validator_stake_lamports, create_genesis_config_with_leader,
         },
     };

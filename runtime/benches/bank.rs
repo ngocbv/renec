@@ -5,7 +5,7 @@ extern crate test;
 
 use {
     log::*,
-    renec_runtime::{bank::*, bank_client::BankClient, loader_utils::create_invoke_instruction},
+    solana_runtime::{bank::*, bank_client::BankClient, loader_utils::create_invoke_instruction},
     renec_sdk::{
         client::{AsyncClient, SyncClient},
         clock::MAX_RECENT_BLOCKHASHES,

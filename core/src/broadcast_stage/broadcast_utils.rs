@@ -2,7 +2,7 @@ use {
     crate::result::Result,
     renec_ledger::{entry::Entry, shred::Shred},
     renec_poh::poh_recorder::WorkingBankEntry,
-    renec_runtime::bank::Bank,
+    solana_runtime::bank::Bank,
     renec_sdk::clock::Slot,
     std::{
         sync::{mpsc::Receiver, Arc},

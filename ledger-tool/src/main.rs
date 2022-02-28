@@ -25,7 +25,7 @@ use {
         entry::Entry,
         shred::Shred,
     },
-    renec_runtime::{
+    solana_runtime::{
         bank::{Bank, RewardCalculationEvent},
         bank_forks::{ArchiveFormat, BankForks, SnapshotConfig},
         cost_model::CostModel,
@@ -1586,7 +1586,7 @@ fn main() {
                 create_new_ledger(
                     &output_directory,
                     &genesis_config,
-                    renec_runtime::hardened_unpack::MAX_GENESIS_ARCHIVE_UNPACKED_SIZE,
+                    solana_runtime::hardened_unpack::MAX_GENESIS_ARCHIVE_UNPACKED_SIZE,
                     AccessType::PrimaryOnly,
                 )
                 .unwrap_or_else(|err| {

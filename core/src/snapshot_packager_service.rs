@@ -1,7 +1,7 @@
 use {
     renec_gossip::cluster_info::{ClusterInfo, MAX_SNAPSHOT_HASHES},
     renec_perf::thread::renice_this_thread,
-    renec_runtime::{snapshot_package::AccountsPackage, snapshot_utils},
+    solana_runtime::{snapshot_package::AccountsPackage, snapshot_utils},
     renec_sdk::{clock::Slot, hash::Hash},
     std::{
         sync::{
@@ -81,7 +81,7 @@ mod tests {
     use {
         super::*,
         bincode::serialize_into,
-        renec_runtime::{
+        solana_runtime::{
             accounts_db::AccountStorageEntry,
             bank::BankSlotDelta,
             bank_forks::ArchiveFormat,

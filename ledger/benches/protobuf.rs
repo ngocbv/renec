@@ -9,7 +9,7 @@ use {
         blockstore_db::{columns as cf, LedgerColumn},
         get_tmp_ledger_path,
     },
-    renec_runtime::bank::RewardType,
+    solana_runtime::bank::RewardType,
     renec_sdk::{clock::Slot, pubkey},
     renec_transaction_status::{Reward, Rewards},
     std::path::Path,

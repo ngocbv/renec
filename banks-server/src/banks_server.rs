@@ -8,7 +8,7 @@ use {
     renec_banks_interface::{
         Banks, BanksRequest, BanksResponse, TransactionConfirmationStatus, TransactionStatus,
     },
-    renec_runtime::{bank::Bank, bank_forks::BankForks, commitment::BlockCommitmentCache},
+    solana_runtime::{bank::Bank, bank_forks::BankForks, commitment::BlockCommitmentCache},
     renec_sdk::{
         account::Account,
         clock::Slot,

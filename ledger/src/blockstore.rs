@@ -29,7 +29,7 @@ use {
     renec_measure::measure::Measure,
     renec_metrics::{datapoint_debug, datapoint_error},
     renec_rayon_threadlimit::get_thread_count,
-    renec_runtime::hardened_unpack::{unpack_genesis_archive, MAX_GENESIS_ARCHIVE_UNPACKED_SIZE},
+    solana_runtime::hardened_unpack::{unpack_genesis_archive, MAX_GENESIS_ARCHIVE_UNPACKED_SIZE},
     renec_sdk::{
         clock::{Slot, UnixTimestamp, DEFAULT_TICKS_PER_SECOND, MS_PER_TICK},
         genesis_config::{GenesisConfig, DEFAULT_GENESIS_ARCHIVE, DEFAULT_GENESIS_FILE},
@@ -3905,7 +3905,7 @@ pub mod tests {
         itertools::Itertools,
         rand::{seq::SliceRandom, thread_rng},
         renec_account_decoder::parse_token::UiTokenAmount,
-        renec_runtime::bank::{Bank, RewardType},
+        solana_runtime::bank::{Bank, RewardType},
         renec_sdk::{
             hash::{self, hash, Hash},
             instruction::CompiledInstruction,

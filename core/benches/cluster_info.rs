@@ -18,7 +18,7 @@ use {
         genesis_utils::{create_genesis_config, GenesisConfigInfo},
         shred::Shred,
     },
-    renec_runtime::{bank::Bank, bank_forks::BankForks},
+    solana_runtime::{bank::Bank, bank_forks::BankForks},
     renec_sdk::{
         pubkey,
         signature::Keypair,

@@ -7,7 +7,7 @@ use {
     dashmap::DashMap,
     rand::Rng,
     rayon::iter::{IntoParallelRefIterator, ParallelIterator},
-    renec_runtime::{
+    solana_runtime::{
         accounts::{create_test_accounts, AccountAddressFilter, Accounts},
         accounts_db::AccountShrinkThreshold,
         accounts_index::AccountSecondaryIndexes,

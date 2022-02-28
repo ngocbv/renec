@@ -20,7 +20,7 @@ Solana程序在链上运行，因此在链外调试可能会很困难。 为了�
 运行本地集群时，只要通过`RUST_LOG`日志掩码启用了日志，日志就会写入stdout。  从程序开发的角度来看，仅关注运行时和程序日志，而不关注其余的集群日志会有所帮助。  为了专注于程序特定的信息，建议使用以下日志掩码：
 
 `export
-RUST_LOG=renec_runtime::system_instruction_processor=trace,renec_runtime::message_processor=info,solana_bpf_loader=debug,solana_rbpf=debug`
+RUST_LOG=solana_runtime::system_instruction_processor=trace,solana_runtime::message_processor=info,solana_bpf_loader=debug,solana_rbpf=debug`
 
 直接来自程序(而不是runtime) 的日志消息将以以下形式显示：
 

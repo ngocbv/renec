@@ -4,7 +4,7 @@ use {
         serve_repair::RepairType, tree_diff::TreeDiff,
     },
     renec_ledger::blockstore::Blockstore,
-    renec_runtime::contains::Contains,
+    solana_runtime::contains::Contains,
     renec_sdk::{clock::Slot, hash::Hash},
     std::collections::{HashMap, HashSet},
 };
@@ -141,7 +141,7 @@ pub mod test {
     use {
         super::*,
         renec_ledger::{get_tmp_ledger_path, shred::Shred},
-        renec_runtime::bank_utils,
+        solana_runtime::bank_utils,
         renec_sdk::hash::Hash,
         trees::tr,
     };

@@ -41,7 +41,7 @@ use {
         optimistically_confirmed_bank_tracker::{BankNotification, BankNotificationSender},
         rpc_subscriptions::RpcSubscriptions,
     },
-    renec_runtime::{
+    solana_runtime::{
         accounts_background_service::AbsRequestSender,
         bank::{Bank, NewBankOptions},
         bank_forks::BankForks,
@@ -2649,7 +2649,7 @@ mod tests {
             optimistically_confirmed_bank_tracker::OptimisticallyConfirmedBank,
             rpc::create_test_transactions_and_populate_blockstore,
         },
-        renec_runtime::{
+        solana_runtime::{
             accounts_background_service::AbsRequestSender,
             commitment::BlockCommitment,
             genesis_utils::{GenesisConfigInfo, ValidatorVoteKeypairs},

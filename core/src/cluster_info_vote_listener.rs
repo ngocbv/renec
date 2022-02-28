@@ -27,7 +27,7 @@ use {
         optimistically_confirmed_bank_tracker::{BankNotification, BankNotificationSender},
         rpc_subscriptions::RpcSubscriptions,
     },
-    renec_runtime::{
+    solana_runtime::{
         bank::Bank,
         bank_forks::BankForks,
         commitment::VOTE_THRESHOLD_SIZE,
@@ -810,7 +810,7 @@ mod tests {
         super::*,
         renec_perf::packet,
         renec_rpc::optimistically_confirmed_bank_tracker::OptimisticallyConfirmedBank,
-        renec_runtime::{
+        solana_runtime::{
             bank::Bank,
             commitment::BlockCommitmentCache,
             genesis_utils::{

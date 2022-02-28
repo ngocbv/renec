@@ -310,7 +310,7 @@ mod test {
     use {
         super::*,
         crate::consensus::test::VoteSimulator,
-        renec_runtime::bank_forks::BankForks,
+        solana_runtime::bank_forks::BankForks,
         std::{
             collections::{HashMap, HashSet},
             sync::RwLock,

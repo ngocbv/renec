@@ -6,7 +6,7 @@ use {
     },
     itertools::Itertools,
     log::*,
-    renec_runtime::bank::Bank,
+    solana_runtime::bank::Bank,
     renec_sdk::{
         clock::{Epoch, Slot},
         epoch_schedule::EpochSchedule,
@@ -261,7 +261,7 @@ mod tests {
             get_tmp_ledger_path,
             staking_utils::tests::setup_vote_and_stake_accounts,
         },
-        renec_runtime::bank::Bank,
+        solana_runtime::bank::Bank,
         renec_sdk::{
             clock::NUM_CONSECUTIVE_LEADER_SLOTS,
             epoch_schedule::{

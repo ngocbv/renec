@@ -11,7 +11,7 @@ use {
     log::*,
     renec_banks_client::start_client,
     renec_banks_server::banks_server::start_local_server,
-    renec_runtime::{
+    solana_runtime::{
         bank::{Bank, Builtin},
         bank_forks::BankForks,
         commitment::BlockCommitmentCache,
@@ -320,7 +320,7 @@ impl renec_sdk::program_stubs::SyscallStubs for SyscallStubs {
 
         invoke_context.record_instruction(instruction);
 
-        renec_runtime::message_processor::MessageProcessor::process_cross_program_instruction(
+        solana_runtime::message_processor::MessageProcessor::process_cross_program_instruction(
             &message,
             &executables,
             &accounts,
@@ -480,8 +480,8 @@ impl Default for ProgramTest {
     fn default() -> Self {
         renec_logger::setup_with_default(
             "solana_rbpf::vm=debug,\
-             renec_runtime::message_processor=debug,\
-             renec_runtime::system_instruction_processor=trace,\
+             solana_runtime::message_processor=debug,\
+             solana_runtime::system_instruction_processor=trace,\
              renec_program_test=info",
         );
         let prefer_bpf = std::env::var("BPF_OUT_DIR").is_ok();
@@ -1045,7 +1045,7 @@ impl ProgramTestContext {
         ));
         bank_forks.set_root(
             pre_warp_slot,
-            &renec_runtime::accounts_background_service::AbsRequestSender::default(),
+            &solana_runtime::accounts_background_service::AbsRequestSender::default(),
             Some(pre_warp_slot),
         );
 

@@ -3,7 +3,7 @@ use {
     renec_gossip::{
         cluster_info::ClusterInfo, contact_info::ContactInfo, crds::Cursor, epoch_slots::EpochSlots,
     },
-    renec_runtime::{bank::Bank, epoch_stakes::NodeIdToVoteAccounts},
+    solana_runtime::{bank::Bank, epoch_stakes::NodeIdToVoteAccounts},
     renec_sdk::{
         clock::{Slot, DEFAULT_SLOTS_PER_EPOCH},
         pubkey::Pubkey,
@@ -186,7 +186,7 @@ impl ClusterSlots {
 
 #[cfg(test)]
 mod tests {
-    use {super::*, renec_runtime::epoch_stakes::NodeVoteAccounts};
+    use {super::*, solana_runtime::epoch_stakes::NodeVoteAccounts};
 
     #[test]
     fn test_default() {

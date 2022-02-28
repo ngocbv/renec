@@ -8,7 +8,7 @@ use {
     log::*,
     serde_json,
     renec_rpc::optimistically_confirmed_bank_tracker::BankNotification,
-    renec_runtime::accounts_update_notifier_interface::AccountsUpdateNotifier,
+    solana_runtime::accounts_update_notifier_interface::AccountsUpdateNotifier,
     std::{
         fs::File,
         io::Read,

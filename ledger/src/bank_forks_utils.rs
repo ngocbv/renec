@@ -9,7 +9,7 @@ use {
         leader_schedule_cache::LeaderScheduleCache,
     },
     log::*,
-    renec_runtime::{
+    solana_runtime::{
         accounts_update_notifier_interface::AccountsUpdateNotifier,
         bank_forks::{ArchiveFormat, BankForks, SnapshotConfig},
         snapshot_utils,

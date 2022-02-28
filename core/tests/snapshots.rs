@@ -42,7 +42,7 @@ mod tests {
         itertools::Itertools,
         renec_core::snapshot_packager_service::{PendingSnapshotPackage, SnapshotPackagerService},
         renec_gossip::{cluster_info::ClusterInfo, contact_info::ContactInfo},
-        renec_runtime::{
+        solana_runtime::{
             accounts_background_service::{AbsRequestSender, SnapshotRequestHandler},
             accounts_db,
             accounts_index::AccountSecondaryIndexes,
@@ -476,7 +476,7 @@ mod tests {
                     }
 
                     let snapshot_package =
-                        renec_runtime::snapshot_utils::process_accounts_package_pre(
+                        solana_runtime::snapshot_utils::process_accounts_package_pre(
                             snapshot_package,
                             Some(&thread_pool),
                         );
