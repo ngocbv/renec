@@ -3654,6 +3654,22 @@ dependencies = [
 ]
 
 [[package]]
+name = "renec-sys-tuner"
+version = "1.8.14"
+dependencies = [
+ "clap",
+ "libc",
+ "log 0.4.14",
+ "nix 0.20.2",
+ "solana-clap-utils",
+ "solana-logger 1.8.14",
+ "solana-version",
+ "sysctl",
+ "unix_socket2",
+ "users",
+]
+
+[[package]]
 name = "renec-validator"
 version = "1.8.14"
 dependencies = [
@@ -5334,6 +5350,7 @@ dependencies = [
  "log 0.4.14",
  "matches",
  "rand 0.7.3",
+ "renec-sys-tuner",
  "solana-ledger",
  "solana-logger 1.8.14",
  "solana-measure",
@@ -5341,7 +5358,6 @@ dependencies = [
  "solana-perf",
  "solana-runtime",
  "solana-sdk",
- "solana-sys-tuner",
  "thiserror",
 ]
 
@@ -5797,22 +5813,6 @@ dependencies = [
  "solana-perf",
  "solana-sdk",
  "thiserror",
-]
-
-[[package]]
-name = "solana-sys-tuner"
-version = "1.8.14"
-dependencies = [
- "clap",
- "libc",
- "log 0.4.14",
- "nix 0.20.2",
- "solana-clap-utils",
- "solana-logger 1.8.14",
- "solana-version",
- "sysctl",
- "unix_socket2",
- "users",
 ]
 
 [[package]]

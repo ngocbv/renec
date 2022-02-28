@@ -43,12 +43,12 @@ solana-gossip spy --entrypoint devnet.solana.com/8001
 #### 自动模式
 Solana代码库有一个守护程序，用于调整系统设置以优化性能(即通过增加OS UDP缓冲区和文件映射限制)。
 
-守护进程(`solana-sys-tuner`) 已包含在solana二进制版本中。 在每次软件升级之后，在重新启动验证节点*之前*进行重新启动，以确保配置了系统建议的最新设置。 要运行它：
+守护进程(`renec-sys-tuner`) 已包含在solana二进制版本中。 在每次软件升级之后，在重新启动验证节点*之前*进行重新启动，以确保配置了系统建议的最新设置。 要运行它：
 
 运行：
 
 ```bash
-sudo solana-sys-tuner --user $(whoami) > sys-tuner.log 2>&1 &
+sudo renec-sys-tuner --user $(whoami) > sys-tuner.log 2>&1 &
 ```
 
 #### 手动模式
@@ -260,7 +260,7 @@ solana-gossip spy --entrypoint devnet.solana.com:8001
 [Unit]
 Description=Solana Validator
 After=network.target
-Wants=solana-sys-tuner.service
+Wants=renec-sys-tuner.service
 StartLimitIntervalSec=0
 
 [Service]
