@@ -3618,6 +3618,29 @@ dependencies = [
 ]
 
 [[package]]
+name = "renec-cli-output"
+version = "1.8.14"
+dependencies = [
+ "Inflector",
+ "base64 0.13.0",
+ "chrono",
+ "clap",
+ "console 0.14.1",
+ "humantime",
+ "indicatif",
+ "serde",
+ "serde_derive",
+ "serde_json",
+ "solana-account-decoder",
+ "solana-clap-utils",
+ "solana-client",
+ "solana-sdk",
+ "solana-transaction-status",
+ "solana-vote-program",
+ "spl-memo",
+]
+
+[[package]]
 name = "renec-genesis"
 version = "1.8.14"
 dependencies = [
@@ -4668,6 +4691,7 @@ dependencies = [
  "num-traits",
  "pretty-hex",
  "renec-cli-config",
+ "renec-cli-output",
  "reqwest",
  "semver 1.0.4",
  "serde",
@@ -4676,7 +4700,6 @@ dependencies = [
  "solana-account-decoder",
  "solana-bpf-loader-program",
  "solana-clap-utils",
- "solana-cli-output",
  "solana-client",
  "solana-config-program",
  "solana-core",
@@ -4695,29 +4718,6 @@ dependencies = [
  "thiserror",
  "tiny-bip39",
  "url 2.2.0",
-]
-
-[[package]]
-name = "solana-cli-output"
-version = "1.8.14"
-dependencies = [
- "Inflector",
- "base64 0.13.0",
- "chrono",
- "clap",
- "console 0.14.1",
- "humantime",
- "indicatif",
- "serde",
- "serde_derive",
- "serde_json",
- "solana-account-decoder",
- "solana-clap-utils",
- "solana-client",
- "solana-sdk",
- "solana-transaction-status",
- "solana-vote-program",
- "spl-memo",
 ]
 
 [[package]]
@@ -5141,12 +5141,12 @@ dependencies = [
  "itertools 0.9.0",
  "log 0.4.14",
  "regex",
+ "renec-cli-output",
  "serde",
  "serde_json",
  "serde_yaml",
  "signal-hook",
  "solana-clap-utils",
- "solana-cli-output",
  "solana-core",
  "solana-ledger",
  "solana-logger 1.8.14",
@@ -5923,8 +5923,8 @@ dependencies = [
  "humantime",
  "log 0.4.14",
  "renec-cli-config",
+ "renec-cli-output",
  "solana-clap-utils",
- "solana-cli-output",
  "solana-client",
  "solana-logger 1.8.14",
  "solana-metrics",

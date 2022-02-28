@@ -2813,7 +2813,7 @@ dependencies = [
  "net2",
  "solana-account-decoder",
  "solana-bpf-loader-program",
- "solana-cli-output",
+ "renec-cli-output",
  "solana-logger 1.8.14",
  "solana-measure",
  "solana-runtime",
@@ -3140,7 +3140,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "solana-cli-output"
+name = "renec-cli-output"
 version = "1.8.14"
 dependencies = [
  "Inflector",
