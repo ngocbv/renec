@@ -106,7 +106,7 @@ cat >> ~/solana/on-reboot <<EOF
   PATH="$HOME"/.cargo/bin:"$PATH"
   export USE_INSTALL=1
 
-  sudo RUST_LOG=info ~solana/.cargo/bin/renec-sys-tuner --user $(whoami) > sys-tuner.log 2>&1 &
+  sudo RUST_LOG=info ~solana/.cargo/bin/solana-sys-tuner --user $(whoami) > sys-tuner.log 2>&1 &
   echo \$! > sys-tuner.pid
 
   (
@@ -152,17 +152,17 @@ EOF
             cp net/keypairs/"$name".json config/"$name".json
           fi
         else
-          renec-keygen new --no-passphrase -so config/"$name".json
+          solana-keygen new --no-passphrase -so config/"$name".json
           if [[ "$name" =~ ^validator-identity- ]]; then
             name="${name//-identity-/-vote-}"
-            renec-keygen new --no-passphrase -so config/"$name".json
+            solana-keygen new --no-passphrase -so config/"$name".json
             name="${name//-vote-/-stake-}"
-            renec-keygen new --no-passphrase -so config/"$name".json
+            solana-keygen new --no-passphrase -so config/"$name".json
           fi
         fi
         if [[ -n $internalNodesLamports ]]; then
           declare pubkey
-          pubkey="$(renec-keygen pubkey config/"$name".json)"
+          pubkey="$(solana-keygen pubkey config/"$name".json)"
           cat >> config/validator-balances.yml <<EOF
 $pubkey:
   balance: $internalNodesLamports
@@ -240,9 +240,9 @@ EOF
           extraPrimordialStakes=$numNodes
         fi
         for i in $(seq "$extraPrimordialStakes"); do
-          args+=(--bootstrap-validator "$(renec-keygen pubkey "config/validator-identity-$i.json")"
-                                       "$(renec-keygen pubkey "config/validator-vote-$i.json")"
-                                       "$(renec-keygen pubkey "config/validator-stake-$i.json")"
+          args+=(--bootstrap-validator "$(solana-keygen pubkey "config/validator-identity-$i.json")"
+                                       "$(solana-keygen pubkey "config/validator-vote-$i.json")"
+                                       "$(solana-keygen pubkey "config/validator-stake-$i.json")"
           )
         done
       fi
@@ -362,11 +362,11 @@ EOF
     fi
 
     if [[ ! -f "$SOLANA_CONFIG_DIR"/validator-identity.json ]]; then
-      renec-keygen new --no-passphrase -so "$SOLANA_CONFIG_DIR"/validator-identity.json
+      solana-keygen new --no-passphrase -so "$SOLANA_CONFIG_DIR"/validator-identity.json
     fi
     args+=(--identity "$SOLANA_CONFIG_DIR"/validator-identity.json)
     if [[ ! -f "$SOLANA_CONFIG_DIR"/vote-account.json ]]; then
-      renec-keygen new --no-passphrase -so "$SOLANA_CONFIG_DIR"/vote-account.json
+      solana-keygen new --no-passphrase -so "$SOLANA_CONFIG_DIR"/vote-account.json
     fi
     args+=(--vote-account "$SOLANA_CONFIG_DIR"/vote-account.json)
 

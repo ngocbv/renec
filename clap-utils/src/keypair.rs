@@ -135,8 +135,8 @@ impl DefaultSigner {
     ///
     /// ```no_run
     /// use clap::{App, Arg, value_t_or_exit};
-    /// use renec_clap_utils::keypair::DefaultSigner;
-    /// use renec_clap_utils::offline::OfflineArgs;
+    /// use solana_clap_utils::keypair::DefaultSigner;
+    /// use solana_clap_utils::offline::OfflineArgs;
     ///
     /// let clap_app = App::new("my-program")
     ///     // The argument we'll parse as a signer "path"
@@ -177,7 +177,7 @@ impl DefaultSigner {
                     std::io::Error::new(
                         std::io::ErrorKind::Other,
                         format!(
-                        "No default signer found, run \"renec-keygen new -o {}\" to create a new one",
+                        "No default signer found, run \"solana-keygen new -o {}\" to create a new one",
                         self.path
                     ),
                     )
@@ -205,8 +205,8 @@ impl DefaultSigner {
     ///
     /// ```no_run
     /// use clap::{App, Arg, value_t_or_exit};
-    /// use renec_clap_utils::keypair::{DefaultSigner, signer_from_path};
-    /// use renec_clap_utils::offline::OfflineArgs;
+    /// use solana_clap_utils::keypair::{DefaultSigner, signer_from_path};
+    /// use solana_clap_utils::offline::OfflineArgs;
     /// use solana_sdk::signer::Signer;
     ///
     /// let clap_app = App::new("my-program")
@@ -280,8 +280,8 @@ impl DefaultSigner {
     ///
     /// ```no_run
     /// use clap::{App, Arg, value_t_or_exit};
-    /// use renec_clap_utils::keypair::DefaultSigner;
-    /// use renec_clap_utils::offline::OfflineArgs;
+    /// use solana_clap_utils::keypair::DefaultSigner;
+    /// use solana_clap_utils::offline::OfflineArgs;
     ///
     /// let clap_app = App::new("my-program")
     ///     // The argument we'll parse as a signer "path"
@@ -327,8 +327,8 @@ impl DefaultSigner {
     ///
     /// ```no_run
     /// use clap::{App, Arg, value_t_or_exit};
-    /// use renec_clap_utils::keypair::{SignerFromPathConfig, DefaultSigner};
-    /// use renec_clap_utils::offline::OfflineArgs;
+    /// use solana_clap_utils::keypair::{SignerFromPathConfig, DefaultSigner};
+    /// use solana_clap_utils::offline::OfflineArgs;
     ///
     /// let clap_app = App::new("my-program")
     ///     // The argument we'll parse as a signer "path"
@@ -661,8 +661,8 @@ pub struct SignerFromPathConfig {
 ///
 /// ```no_run
 /// use clap::{App, Arg, value_t_or_exit};
-/// use renec_clap_utils::keypair::signer_from_path;
-/// use renec_clap_utils::offline::OfflineArgs;
+/// use solana_clap_utils::keypair::signer_from_path;
+/// use solana_clap_utils::offline::OfflineArgs;
 ///
 /// let clap_app = App::new("my-program")
 ///     // The argument we'll parse as a signer "path"
@@ -721,8 +721,8 @@ pub fn signer_from_path(
 ///
 /// ```no_run
 /// use clap::{App, Arg, value_t_or_exit};
-/// use renec_clap_utils::keypair::{signer_from_path_with_config, SignerFromPathConfig};
-/// use renec_clap_utils::offline::OfflineArgs;
+/// use solana_clap_utils::keypair::{signer_from_path_with_config, SignerFromPathConfig};
+/// use solana_clap_utils::offline::OfflineArgs;
 ///
 /// let clap_app = App::new("my-program")
 ///     // The argument we'll parse as a signer "path"
@@ -775,7 +775,7 @@ pub fn signer_from_path_with_config(
         SignerSourceKind::Filepath(path) => match read_keypair_file(&path) {
             Err(e) => Err(std::io::Error::new(
                 std::io::ErrorKind::Other,
-                format!("could not read keypair file \"{}\". Run \"renec-keygen new\" to create a keypair file: {}", path, e),
+                format!("could not read keypair file \"{}\". Run \"solana-keygen new\" to create a keypair file: {}", path, e),
             )
             .into()),
             Ok(file) => Ok(Box::new(file)),
@@ -837,7 +837,7 @@ pub fn signer_from_path_with_config(
 ///
 /// ```no_run
 /// use clap::{App, Arg, value_t_or_exit};
-/// use renec_clap_utils::keypair::pubkey_from_path;
+/// use solana_clap_utils::keypair::pubkey_from_path;
 ///
 /// let clap_app = App::new("my-program")
 ///     // The argument we'll parse as a signer "path"
@@ -899,7 +899,7 @@ pub fn resolve_signer_from_path(
                 std::io::ErrorKind::Other,
                 format!(
                     "could not read keypair file \"{}\". \
-                    Run \"renec-keygen new\" to create a keypair file: {}",
+                    Run \"solana-keygen new\" to create a keypair file: {}",
                     path, e
                 ),
             )
@@ -976,7 +976,7 @@ pub fn prompt_passphrase(prompt: &str) -> Result<String, Box<dyn error::Error>> 
 ///
 /// ```no_run
 /// use clap::{App, Arg, value_t_or_exit};
-/// use renec_clap_utils::keypair::keypair_from_path;
+/// use solana_clap_utils::keypair::keypair_from_path;
 ///
 /// let clap_app = App::new("my-program")
 ///     // The argument we'll parse as a signer "path"
@@ -1022,7 +1022,7 @@ pub fn keypair_from_path(
                 std::io::ErrorKind::Other,
                 format!(
                     "could not read keypair file \"{}\". \
-                    Run \"renec-keygen new\" to create a keypair file: {}",
+                    Run \"solana-keygen new\" to create a keypair file: {}",
                     path, e
                 ),
             )

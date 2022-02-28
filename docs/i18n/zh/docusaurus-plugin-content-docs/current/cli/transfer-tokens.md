@@ -35,7 +35,7 @@ solana balance <ACCOUNT_ADDRESS> --url https://api.devnet.solana.com
 我们需要一个新地址来接收代币。 创建第二个密钥对并记录其公钥：
 
 ```bash
-renec-keygen new --no-passphrase --no-outfile
+solana-keygen new --no-passphrase --no-outfile
 ```
 
 输出将在文本 `pubkey:` 后面包括该地址。 复制该地址。 我们在下一步中要用到它。
@@ -67,7 +67,7 @@ solana balance <ACCOUNT_ADDRESS> --url http://api.devnet.solana.com
 #### 转账测试的完整示例
 
 ```bash
-$ renec-keygen new --outfile my_solana_wallet.json   # 创建第一个文件系统钱包
+$ solana-keygen new --outfile my_solana_wallet.json   # 创建第一个文件系统钱包
 产生新的密钥对
 为了增加安全性，输入一个密码(空白表示不设置密码)：
 将新密钥对写入 my_solana_wallet.json
@@ -85,7 +85,7 @@ $ solana airdrop 10 DYw8jCTfwHNRJhhmFcbXvVDTqWMEVFBX6ZKUmG5CNSKK --url https://a
 $ solana balance DYw8jCTfwHNRJhhmFcbXvVDTqWMEVFBX6ZKUmG5CNSKK --url https://api.devnet.solana.com # 检查钱包余额
 10 SOL
 
-$ renec-keygen new --no-outfile  # 创建第二个钱包即纸钱包
+$ solana-keygen new --no-outfile  # 创建第二个钱包即纸钱包
 生成新的密钥对
 为了增加安全性，输入一个密码(空白表示不设置密码)：
 ====================================================================

@@ -2,7 +2,7 @@
 use {
     libloading::{Library, Symbol},
     log::*,
-    renec_accountsdb_plugin_interface::accountsdb_plugin_interface::AccountsDbPlugin,
+    solana_accountsdb_plugin_interface::accountsdb_plugin_interface::AccountsDbPlugin,
     std::error::Error,
 };
 

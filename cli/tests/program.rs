@@ -4,10 +4,10 @@ use {
         cli::{process_command, CliCommand, CliConfig},
         program::ProgramCliCommand,
     },
-    renec_cli_output::OutputFormat,
+    solana_cli_output::OutputFormat,
     solana_client::rpc_client::RpcClient,
     solana_core::test_validator::TestValidator,
-    renec_faucet::faucet::run_local_faucet,
+    solana_faucet::faucet::run_local_faucet,
     solana_sdk::{
         account_utils::StateMut,
         bpf_loader,

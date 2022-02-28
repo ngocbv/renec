@@ -1,6 +1,6 @@
 [package]
 authors = ["RENEC Maintainers <dev@remitano.com>"]
-description = "RENEC Program Test Framework"
+description = "Solana Program Test Framework"
 edition = "2018"
 license = "Apache-2.0"
 name = "solana-program-test"
@@ -17,9 +17,9 @@ log = "0.4.11"
 mio = "0.7.6"
 serde = "1.0.112"
 serde_derive = "1.0.103"
-renec-banks-client = { path = "../banks-client", version = "=1.8.14" }
-renec-banks-server = { path = "../banks-server", version = "=1.8.14" }
-renec-bpf-loader-program = { path = "../programs/bpf_loader", version = "=1.8.14" }
+solana-banks-client = { path = "../banks-client", version = "=1.8.14" }
+solana-banks-server = { path = "../banks-server", version = "=1.8.14" }
+solana-bpf-loader-program = { path = "../programs/bpf_loader", version = "=1.8.14" }
 renec-logger = { path = "../logger", version = "=1.8.14" }
 solana-runtime = { path = "../runtime", version = "=1.8.14" }
 solana-sdk = { path = "../sdk", version = "=1.8.14" }

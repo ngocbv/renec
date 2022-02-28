@@ -5,11 +5,11 @@
 //! but they are undocumented, may change over time, and are generally more
 //! cumbersome to use.
 
-pub use renec_banks_interface::{BanksClient as TarpcClient, TransactionStatus};
+pub use solana_banks_interface::{BanksClient as TarpcClient, TransactionStatus};
 use {
     borsh::BorshDeserialize,
     futures::{future::join_all, Future, FutureExt},
-    renec_banks_interface::{BanksRequest, BanksResponse},
+    solana_banks_interface::{BanksRequest, BanksResponse},
     solana_program::{
         clock::{Clock, Slot},
         fee_calculator::FeeCalculator,
@@ -351,7 +351,7 @@ pub async fn start_tcp_client<T: ToSocketAddrs>(addr: T) -> io::Result<BanksClie
 mod tests {
     use {
         super::*,
-        renec_banks_server::banks_server::start_local_server,
+        solana_banks_server::banks_server::start_local_server,
         solana_runtime::{
             bank::Bank, bank_forks::BankForks, commitment::BlockCommitmentCache,
             genesis_utils::create_genesis_config,

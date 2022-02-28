@@ -1,12 +1,12 @@
 [package]
-name = "renec-bpf-rust-param-passing-dep"
+name = "solana-bpf-rust-param-passing-dep"
 version = "1.8.14"
-description = "RENEC BPF program written in Rust"
+description = "Solana BPF program written in Rust"
 authors = ["RENEC Maintainers <dev@remitano.com>"]
 repository = "https://github.com/remitano/renec"
 license = "Apache-2.0"
 homepage = "https://remitano.com/"
-documentation = "https://docs.rs/renec-bpf-rust-param-passing-dep"
+documentation = "https://docs.rs/solana-bpf-rust-param-passing-dep"
 edition = "2018"
 
 [dependencies]

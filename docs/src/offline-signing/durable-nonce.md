@@ -38,7 +38,7 @@ A nonce account is created by first generating a new keypair, then create the ac
 - Command
 
 ```bash
-renec-keygen new -o nonce-keypair.json
+solana-keygen new -o nonce-keypair.json
 solana create-nonce-account nonce-keypair.json 1
 ```
 
@@ -173,9 +173,9 @@ is the same for all subcommands supporting durable nonces
 First we need some accounts for Alice, Alice's nonce and Bob
 
 ```bash
-$ renec-keygen new -o alice.json
-$ renec-keygen new -o nonce.json
-$ renec-keygen new -o bob.json
+$ solana-keygen new -o alice.json
+$ solana-keygen new -o nonce.json
+$ solana-keygen new -o bob.json
 ```
 
 #### - Fund Alice's account

@@ -23,7 +23,7 @@ fi
 BENCH_FILE=bench_output.log
 BENCH_ARTIFACT=current_bench_results.log
 
-# renec-keygen required when building C programs
+# solana-keygen required when building C programs
 _ "$cargo" build --manifest-path=keygen/Cargo.toml
 export PATH="$PWD/target/debug":$PATH
 

@@ -6,13 +6,13 @@ use {
     clap::{value_t, value_t_or_exit, App, AppSettings, Arg, ArgMatches, SubCommand},
     console::{style, Emoji},
     serde::{Deserialize, Serialize},
-    renec_clap_utils::{
+    solana_clap_utils::{
         input_parsers::*,
         input_validators::*,
         keypair::DefaultSigner,
         offline::{blockhash_arg, BLOCKHASH_ARG},
     },
-    renec_cli_output::{
+    solana_cli_output::{
         display::{
             build_balance_message, format_labeled_address, new_spinner_progress_bar,
             println_name_value, println_transaction, unix_timestamp_to_string, writeln_name_value,
@@ -1710,7 +1710,7 @@ pub fn process_show_stakes(
 
     let mut program_accounts_config = RpcProgramAccountsConfig {
         account_config: RpcAccountInfoConfig {
-            encoding: Some(renec_account_decoder::UiAccountEncoding::Base64),
+            encoding: Some(solana_account_decoder::UiAccountEncoding::Base64),
             ..RpcAccountInfoConfig::default()
         },
         ..RpcProgramAccountsConfig::default()

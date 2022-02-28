@@ -9,10 +9,10 @@ use {
     bip39::{Language, Mnemonic, MnemonicType, Seed},
     clap::{App, AppSettings, Arg, ArgMatches, SubCommand},
     log::*,
-    renec_account_decoder::{UiAccountEncoding, UiDataSliceConfig},
-    renec_bpf_loader_program::{syscalls::register_syscalls, BpfError, ThisInstructionMeter},
-    renec_clap_utils::{self, input_parsers::*, input_validators::*, keypair::*},
-    renec_cli_output::{
+    solana_account_decoder::{UiAccountEncoding, UiDataSliceConfig},
+    solana_bpf_loader_program::{syscalls::register_syscalls, BpfError, ThisInstructionMeter},
+    solana_clap_utils::{self, input_parsers::*, input_validators::*, keypair::*},
+    solana_cli_output::{
         CliProgram, CliProgramAccountType, CliProgramAuthority, CliProgramBuffer, CliProgramId,
         CliUpgradeableBuffer, CliUpgradeableBuffers, CliUpgradeableProgram,
         CliUpgradeableProgramClosed, CliUpgradeablePrograms,
@@ -2185,7 +2185,7 @@ fn report_ephemeral_mnemonic(words: usize, mnemonic: bip39::Mnemonic) {
         divider
     );
     eprintln!(
-        "`renec-keygen recover` and the following {}-word seed phrase:",
+        "`solana-keygen recover` and the following {}-word seed phrase:",
         words
     );
     eprintln!("{}\n{}\n{}", divider, phrase, divider);
@@ -2207,7 +2207,7 @@ mod tests {
             cli::{parse_command, process_command},
         },
         serde_json::Value,
-        renec_cli_output::OutputFormat,
+        solana_cli_output::OutputFormat,
         solana_sdk::signature::write_keypair_file,
     };
 

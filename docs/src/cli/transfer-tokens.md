@@ -48,7 +48,7 @@ We will need a new address to receive our tokens. Create a second
 keypair and record its pubkey:
 
 ```bash
-renec-keygen new --no-passphrase --no-outfile
+solana-keygen new --no-passphrase --no-outfile
 ```
 
 The output will contain the address after the text `pubkey:`. Copy the
@@ -90,7 +90,7 @@ recipient's public key.
 #### Full example of test transfer
 
 ```bash
-$ renec-keygen new --outfile my_solana_wallet.json   # Creating my first wallet, a file system wallet
+$ solana-keygen new --outfile my_solana_wallet.json   # Creating my first wallet, a file system wallet
 Generating a new keypair
 For added security, enter a passphrase (empty for no passphrase):
 Wrote new keypair to my_solana_wallet.json
@@ -108,7 +108,7 @@ Requesting airdrop of 1 SOL from 35.233.193.70:9900
 $ solana balance DYw8jCTfwHNRJhhmFcbXvVDTqWMEVFBX6ZKUmG5CNSKK --url https://api.devnet.solana.com # Check the address's balance
 1 SOL
 
-$ renec-keygen new --no-outfile  # Creating a second wallet, a paper wallet
+$ solana-keygen new --no-outfile  # Creating a second wallet, a paper wallet
 Generating a new keypair
 For added security, enter a passphrase (empty for no passphrase):
 ====================================================================

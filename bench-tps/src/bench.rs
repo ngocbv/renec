@@ -4,7 +4,7 @@ use {
     rayon::prelude::*,
     solana_client::perf_utils::{sample_txs, SampleStats},
     solana_core::gen_keys::GenKeys,
-    renec_faucet::faucet::request_airdrop_transaction,
+    solana_faucet::faucet::request_airdrop_transaction,
     solana_measure::measure::Measure,
     solana_metrics::{self, datapoint_info},
     solana_sdk::{

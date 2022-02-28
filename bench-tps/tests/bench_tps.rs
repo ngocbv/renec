@@ -7,7 +7,7 @@ use {
     },
     solana_client::thin_client::create_client,
     solana_core::validator::ValidatorConfig,
-    renec_faucet::faucet::run_local_faucet_with_port,
+    solana_faucet::faucet::run_local_faucet_with_port,
     solana_gossip::cluster_info::VALIDATOR_PORT_RANGE,
     solana_local_cluster::{
         local_cluster::{ClusterConfig, LocalCluster},

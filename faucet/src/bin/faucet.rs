@@ -1,8 +1,8 @@
 use {
     clap::{crate_description, crate_name, values_t, App, Arg},
     log::*,
-    renec_clap_utils::input_parsers::{lamports_of_sol, value_of},
-    renec_faucet::{
+    solana_clap_utils::input_parsers::{lamports_of_sol, value_of},
+    solana_faucet::{
         faucet::{run_faucet, Faucet, FAUCET_PORT},
         socketaddr,
     },
@@ -17,7 +17,7 @@ use {
 
 #[tokio::main]
 async fn main() {
-    let default_keypair = renec_cli_config::Config::default().keypair_path;
+    let default_keypair = solana_cli_config::Config::default().keypair_path;
 
     renec_logger::setup_with_default("solana=info");
     solana_metrics::set_panic_hook("faucet");

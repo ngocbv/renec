@@ -10,7 +10,7 @@ use {
     },
     inflector::Inflector,
     serde_json::Value,
-    renec_account_decoder::parse_token::spl_token_id,
+    solana_account_decoder::parse_token::spl_token_id,
     solana_sdk::{instruction::CompiledInstruction, pubkey::Pubkey, stake, system_program},
     std::{
         collections::HashMap,

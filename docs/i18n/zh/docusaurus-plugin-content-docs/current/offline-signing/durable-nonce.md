@@ -26,7 +26,7 @@ title: 持久交易随机数（Nonces）
 - 命令
 
 ```bash
-renec-keygen new -o nonce-keypair.json
+solana-keygen new -o nonce-keypair.json
 solana create-nonce-account nonce-keypair.json 1
 ```
 
@@ -156,9 +156,9 @@ solana authorize-non-account non-keypair.json nonce-authority.json
 首先，我们需要为Alice、Alice的none和Bob准备一些账户
 
 ```bash
-$ renec-keygen new -o alice.json
-$ renec-keygen new -o nonce.json
-$ renec-keygen new -o bob.json
+$ solana-keygen new -o alice.json
+$ solana-keygen new -o nonce.json
+$ solana-keygen new -o bob.json
 ```
 
 #### - Alice账户充值

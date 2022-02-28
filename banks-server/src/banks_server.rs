@@ -5,7 +5,7 @@ use {
         future,
         prelude::stream::{self, StreamExt},
     },
-    renec_banks_interface::{
+    solana_banks_interface::{
         Banks, BanksRequest, BanksResponse, TransactionConfirmationStatus, TransactionStatus,
     },
     solana_runtime::{bank::Bank, bank_forks::BankForks, commitment::BlockCommitmentCache},

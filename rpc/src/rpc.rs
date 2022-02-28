@@ -12,7 +12,7 @@ use {
     jsonrpc_core::{futures::future, types::error, BoxFuture, Error, Metadata, Result},
     jsonrpc_derive::rpc,
     serde::{Deserialize, Serialize},
-    renec_account_decoder::{
+    solana_account_decoder::{
         parse_token::{spl_token_id, token_amount_to_ui_amount, UiTokenAmount},
         UiAccount, UiAccountEncoding, UiDataSliceConfig, MAX_BASE58_BYTES,
     },
@@ -31,7 +31,7 @@ use {
         },
         rpc_response::{Response as RpcResponse, *},
     },
-    renec_faucet::faucet::request_airdrop_transaction,
+    solana_faucet::faucet::request_airdrop_transaction,
     solana_gossip::{cluster_info::ClusterInfo, contact_info::ContactInfo},
     solana_ledger::{
         blockstore::{Blockstore, SignatureInfosForAddress},

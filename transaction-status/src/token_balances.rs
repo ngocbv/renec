@@ -1,6 +1,6 @@
 use {
     crate::TransactionTokenBalance,
-    renec_account_decoder::parse_token::{
+    solana_account_decoder::parse_token::{
         pubkey_from_spl_token, spl_token_id, spl_token_native_mint, token_amount_to_ui_amount,
         UiTokenAmount,
     },

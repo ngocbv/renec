@@ -16,7 +16,7 @@ use {
         rpc_sender::*,
     },
     serde_json::{json, Number, Value},
-    renec_account_decoder::{UiAccount, UiAccountEncoding},
+    solana_account_decoder::{UiAccount, UiAccountEncoding},
     solana_sdk::{
         account::Account,
         clock::{Slot, UnixTimestamp},

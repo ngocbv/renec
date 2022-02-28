@@ -75,7 +75,7 @@ _Commission（佣金）_是验证节点获得网络奖励的百分比，该百�
 
 您需要访问投票帐户的_withdraw authority（提款权限）_密钥对，才能更改验证节点身份。  以下步骤假定`~/withdraw-authority.json`是该密钥对。
 
-1. 创建新的验证节点身份密钥对，即`renec-keygen new -o ~/new-validator-keypair.json`。
+1. 创建新的验证节点身份密钥对，即`solana-keygen new -o ~/new-validator-keypair.json`。
 2. 确保已为新的身份帐户`solana transfer ~/new-validator-keypair.json 500`提供资金。
 3. 运行`solana vote-update-validator ~/vote-account-keypair.json ~/new-validator-keypair.json ~/withdraw-authority.json`来修改投票账户中的验证节点身份
 4. 使用用于`--identity`参数的新身份密钥对重新启动验证节点。
@@ -84,7 +84,7 @@ _Commission（佣金）_是验证节点获得网络奖励的百分比，该百�
 更改_vote authority_密钥对只能在epoch边界进行，并且需要对`renec-validator`进行一些附加参数以实现无缝迁移。
 
 1. 运行`solana epoch-info`。  如果当前epoch中没有剩余时间，请考虑等待下一个时，以使您的验证节点有足够的时间重新启动并跟上。
-2. 创建新的投票授权密钥对，即`renec-keygen new -o ~/new-vote-authority.json`。
+2. 创建新的投票授权密钥对，即`solana-keygen new -o ~/new-vote-authority.json`。
 3. 对于当前的_vote authority_密钥对，可通过运行`solana vote-account ~/vote-account-keypair.json`来确定。  它可能是验证节点的身份帐户(默认) 或其他一些密钥对。  以下步骤假定 `~/validator-keypair.json` 是该密钥对。
 4. 运行`solana vote-authorize-voter ~/vote-account-keypair.json ~/validator-keypair.json ~/new-vote-authority.json`。 新的投票授权计划在下一个epoch开始生效。
 5. 现在需要用旧的和新的投票授权密钥对重新启动`renec-validator`，以便它可以在下一个epoch平稳过渡。 在重新启动时添加两个参数：`--authorized-voter ~/validator-keypair.json，

@@ -43,12 +43,12 @@ solana-gossip spy --entrypoint devnet.solana.com/8001
 #### 自动模式
 Solana代码库有一个守护程序，用于调整系统设置以优化性能(即通过增加OS UDP缓冲区和文件映射限制)。
 
-守护进程(`renec-sys-tuner`) 已包含在solana二进制版本中。 在每次软件升级之后，在重新启动验证节点*之前*进行重新启动，以确保配置了系统建议的最新设置。 要运行它：
+守护进程(`solana-sys-tuner`) 已包含在solana二进制版本中。 在每次软件升级之后，在重新启动验证节点*之前*进行重新启动，以确保配置了系统建议的最新设置。 要运行它：
 
 运行：
 
 ```bash
-sudo renec-sys-tuner --user $(whoami) > sys-tuner.log 2>&1 &
+sudo solana-sys-tuner --user $(whoami) > sys-tuner.log 2>&1 &
 ```
 
 #### 手动模式
@@ -105,13 +105,13 @@ EOF"
 通过运行以下操作为您的验证节点创建身份密钥：
 
 ```bash
-renec-keygen new -o ~/validator-keypair.json
+solana-keygen new -o ~/validator-keypair.json
 ```
 
 现在可以通过运行以下操作查看身份公钥：
 
 ```bash
-renec-keygen pubkey ~/validator-keypair.json
+solana-keygen pubkey ~/validator-keypair.json
 ```
 
 > 注意："validator-keypair.json"文件也是您的 \(ed25519\) 私钥。
@@ -121,13 +121,13 @@ renec-keygen pubkey ~/validator-keypair.json
 您可以为身份文件创建一个纸钱包，而不用将密钥对文件写入到磁盘：
 
 ```bash
-renec-keygen new --no-outfile
+solana-keygen new --no-outfile
 ```
 
 现在可以通过运行以下操作查看相应的身份公钥：
 
 ```bash
-renec-keygen pubkey ASK
+solana-keygen pubkey ASK
 ```
 
 然后输入您的种子短语。
@@ -138,10 +138,10 @@ renec-keygen pubkey ASK
 
 ### 虚拟密钥
 
-您可以使用renec-keygen生成一个自定义的虚拟密钥。 例如：
+您可以使用solana-keygen生成一个自定义的虚拟密钥。 例如：
 
 ```bash
-renec-keygen grind --starts-with e1v1s:1
+solana-keygen grind --starts-with e1v1s:1
 ```
 
 根据请求的字符串，可能需要几天时间才能匹配...
@@ -199,7 +199,7 @@ solana balance --lamports
 如果您还没有进行这一步，请创建一个投票帐户密钥对并在网络上创建该投票帐户。 如果完成了此步骤，则应该在Solana运行时目录中看到“ vote-account-keypair.json”：
 
 ```bash
-renec-keygen new -o ~/vote-account-keypair.json
+solana-keygen new -o ~/vote-account-keypair.json
 ```
 
 以下命令可用于使用所有在区块链上创建投票帐户的默认选项：
@@ -260,7 +260,7 @@ solana-gossip spy --entrypoint devnet.solana.com:8001
 [Unit]
 Description=Solana Validator
 After=network.target
-Wants=renec-sys-tuner.service
+Wants=solana-sys-tuner.service
 StartLimitIntervalSec=0
 
 [Service]

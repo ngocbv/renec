@@ -11,7 +11,7 @@ use {
         stake::check_current_authority,
     },
     clap::{value_t_or_exit, App, Arg, ArgMatches, SubCommand},
-    renec_clap_utils::{
+    solana_clap_utils::{
         fee_payer::{fee_payer_arg, FEE_PAYER_ARG},
         input_parsers::*,
         input_validators::*,
@@ -20,7 +20,7 @@ use {
         nonce::*,
         offline::*,
     },
-    renec_cli_output::{
+    solana_cli_output::{
         return_signers_with_config, CliEpochVotingHistory, CliLockout, CliVoteAccount,
         ReturnSignersConfig,
     },

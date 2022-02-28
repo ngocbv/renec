@@ -1,8 +1,8 @@
 [package]
 authors = ["RENEC Maintainers <dev@remitano.com>"]
 edition = "2018"
-name = "renec-accountsdb-plugin-postgres"
-description = "The RENEC AccountsDb plugin for PostgreSQL database."
+name = "solana-accountsdb-plugin-postgres"
+description = "The Solana AccountsDb plugin for PostgreSQL database."
 version = "1.8.14"
 repository = "https://github.com/remitano/renec"
 license = "Apache-2.0"
@@ -21,7 +21,7 @@ postgres = { version = "0.19.1", features = ["with-chrono-0_4"] }
 serde = "1.0.130"
 serde_derive = "1.0.103"
 serde_json = "1.0.67"
-renec-accountsdb-plugin-interface = { path = "../accountsdb-plugin-interface", version = "=1.8.14" }
+solana-accountsdb-plugin-interface = { path = "../accountsdb-plugin-interface", version = "=1.8.14" }
 renec-logger = { path = "../logger", version = "=1.8.14" }
 solana-measure = { path = "../measure", version = "=1.8.14" }
 solana-metrics = { path = "../metrics", version = "=1.8.14" }

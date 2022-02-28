@@ -2698,7 +2698,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "renec-account-decoder"
+name = "solana-account-decoder"
 version = "1.8.14"
 dependencies = [
  "Inflector",
@@ -2719,7 +2719,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "renec-banks-client"
+name = "solana-banks-client"
 version = "1.8.14"
 dependencies = [
  "bincode",
@@ -2727,7 +2727,7 @@ dependencies = [
  "borsh-derive",
  "futures",
  "mio",
- "renec-banks-interface",
+ "solana-banks-interface",
  "solana-program 1.8.14",
  "solana-sdk",
  "tarpc",
@@ -2736,7 +2736,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "renec-banks-interface"
+name = "solana-banks-interface"
 version = "1.8.14"
 dependencies = [
  "mio",
@@ -2746,14 +2746,14 @@ dependencies = [
 ]
 
 [[package]]
-name = "renec-banks-server"
+name = "solana-banks-server"
 version = "1.8.14"
 dependencies = [
  "bincode",
  "futures",
  "log",
  "mio",
- "renec-banks-interface",
+ "solana-banks-interface",
  "solana-metrics",
  "solana-runtime",
  "solana-sdk",
@@ -2764,7 +2764,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "renec-bloom"
+name = "solana-bloom"
 version = "1.8.14"
 dependencies = [
  "bv",
@@ -2781,7 +2781,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "renec-bpf-loader-program"
+name = "solana-bpf-loader-program"
 version = "1.8.14"
 dependencies = [
  "bincode",
@@ -2801,7 +2801,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "renec-bpf-programs"
+name = "solana-bpf-programs"
 version = "1.8.14"
 dependencies = [
  "bincode",
@@ -2811,9 +2811,9 @@ dependencies = [
  "log",
  "miow 0.2.2",
  "net2",
- "renec-account-decoder",
- "renec-bpf-loader-program",
- "renec-cli-output",
+ "solana-account-decoder",
+ "solana-bpf-loader-program",
+ "solana-cli-output",
  "renec-logger 1.8.14",
  "solana-measure",
  "solana-runtime",
@@ -2824,50 +2824,50 @@ dependencies = [
 ]
 
 [[package]]
-name = "renec-bpf-rust-128bit"
+name = "solana-bpf-rust-128bit"
 version = "1.8.14"
 dependencies = [
- "renec-bpf-rust-128bit-dep",
+ "solana-bpf-rust-128bit-dep",
  "solana-program 1.8.14",
 ]
 
 [[package]]
-name = "renec-bpf-rust-128bit-dep"
-version = "1.8.14"
-dependencies = [
- "solana-program 1.8.14",
-]
-
-[[package]]
-name = "renec-bpf-rust-alloc"
+name = "solana-bpf-rust-128bit-dep"
 version = "1.8.14"
 dependencies = [
  "solana-program 1.8.14",
 ]
 
 [[package]]
-name = "renec-bpf-rust-call-depth"
+name = "solana-bpf-rust-alloc"
 version = "1.8.14"
 dependencies = [
  "solana-program 1.8.14",
 ]
 
 [[package]]
-name = "renec-bpf-rust-caller-access"
+name = "solana-bpf-rust-call-depth"
 version = "1.8.14"
 dependencies = [
  "solana-program 1.8.14",
 ]
 
 [[package]]
-name = "renec-bpf-rust-custom-heap"
+name = "solana-bpf-rust-caller-access"
 version = "1.8.14"
 dependencies = [
  "solana-program 1.8.14",
 ]
 
 [[package]]
-name = "renec-bpf-rust-dep-crate"
+name = "solana-bpf-rust-custom-heap"
+version = "1.8.14"
+dependencies = [
+ "solana-program 1.8.14",
+]
+
+[[package]]
+name = "solana-bpf-rust-dep-crate"
 version = "1.8.14"
 dependencies = [
  "byteorder 1.3.4",
@@ -2875,21 +2875,21 @@ dependencies = [
 ]
 
 [[package]]
-name = "renec-bpf-rust-deprecated-loader"
+name = "solana-bpf-rust-deprecated-loader"
 version = "1.8.14"
 dependencies = [
  "solana-program 1.8.14",
 ]
 
 [[package]]
-name = "renec-bpf-rust-dup-accounts"
+name = "solana-bpf-rust-dup-accounts"
 version = "1.8.14"
 dependencies = [
  "solana-program 1.8.14",
 ]
 
 [[package]]
-name = "renec-bpf-rust-error-handling"
+name = "solana-bpf-rust-error-handling"
 version = "1.8.14"
 dependencies = [
  "num-derive 0.2.5",
@@ -2899,93 +2899,93 @@ dependencies = [
 ]
 
 [[package]]
-name = "renec-bpf-rust-external-spend"
+name = "solana-bpf-rust-external-spend"
 version = "1.8.14"
 dependencies = [
  "solana-program 1.8.14",
 ]
 
 [[package]]
-name = "renec-bpf-rust-finalize"
+name = "solana-bpf-rust-finalize"
 version = "1.8.14"
 dependencies = [
  "solana-program 1.8.14",
 ]
 
 [[package]]
-name = "renec-bpf-rust-instruction-introspection"
+name = "solana-bpf-rust-instruction-introspection"
 version = "1.8.14"
 dependencies = [
  "solana-program 1.8.14",
 ]
 
 [[package]]
-name = "renec-bpf-rust-invoke"
+name = "solana-bpf-rust-invoke"
 version = "1.8.14"
 dependencies = [
- "renec-bpf-rust-invoked",
+ "solana-bpf-rust-invoked",
  "solana-program 1.8.14",
 ]
 
 [[package]]
-name = "renec-bpf-rust-invoke-and-error"
-version = "1.8.14"
-dependencies = [
- "solana-program 1.8.14",
-]
-
-[[package]]
-name = "renec-bpf-rust-invoke-and-ok"
+name = "solana-bpf-rust-invoke-and-error"
 version = "1.8.14"
 dependencies = [
  "solana-program 1.8.14",
 ]
 
 [[package]]
-name = "renec-bpf-rust-invoke-and-return"
+name = "solana-bpf-rust-invoke-and-ok"
 version = "1.8.14"
 dependencies = [
  "solana-program 1.8.14",
 ]
 
 [[package]]
-name = "renec-bpf-rust-invoked"
+name = "solana-bpf-rust-invoke-and-return"
 version = "1.8.14"
 dependencies = [
  "solana-program 1.8.14",
 ]
 
 [[package]]
-name = "renec-bpf-rust-iter"
+name = "solana-bpf-rust-invoked"
 version = "1.8.14"
 dependencies = [
  "solana-program 1.8.14",
 ]
 
 [[package]]
-name = "renec-bpf-rust-log-data"
+name = "solana-bpf-rust-iter"
 version = "1.8.14"
 dependencies = [
  "solana-program 1.8.14",
 ]
 
 [[package]]
-name = "renec-bpf-rust-many-args"
-version = "1.8.14"
-dependencies = [
- "renec-bpf-rust-many-args-dep",
- "solana-program 1.8.14",
-]
-
-[[package]]
-name = "renec-bpf-rust-many-args-dep"
+name = "solana-bpf-rust-log-data"
 version = "1.8.14"
 dependencies = [
  "solana-program 1.8.14",
 ]
 
 [[package]]
-name = "renec-bpf-rust-mem"
+name = "solana-bpf-rust-many-args"
+version = "1.8.14"
+dependencies = [
+ "solana-bpf-rust-many-args-dep",
+ "solana-program 1.8.14",
+]
+
+[[package]]
+name = "solana-bpf-rust-many-args-dep"
+version = "1.8.14"
+dependencies = [
+ "solana-program 1.8.14",
+]
+
+[[package]]
+name = "solana-bpf-rust-mem"
 version = "1.8.14"
 dependencies = [
  "solana-program 1.8.14",
@@ -2994,44 +2994,44 @@ dependencies = [
 ]
 
 [[package]]
-name = "renec-bpf-rust-membuiltins"
+name = "solana-bpf-rust-membuiltins"
 version = "1.8.14"
 dependencies = [
- "renec-bpf-rust-mem",
+ "solana-bpf-rust-mem",
  "solana-program 1.8.14",
 ]
 
 [[package]]
-name = "renec-bpf-rust-noop"
-version = "1.8.14"
-dependencies = [
- "solana-program 1.8.14",
-]
-
-[[package]]
-name = "renec-bpf-rust-panic"
+name = "solana-bpf-rust-noop"
 version = "1.8.14"
 dependencies = [
  "solana-program 1.8.14",
 ]
 
 [[package]]
-name = "renec-bpf-rust-param-passing"
-version = "1.8.14"
-dependencies = [
- "renec-bpf-rust-param-passing-dep",
- "solana-program 1.8.14",
-]
-
-[[package]]
-name = "renec-bpf-rust-param-passing-dep"
+name = "solana-bpf-rust-panic"
 version = "1.8.14"
 dependencies = [
  "solana-program 1.8.14",
 ]
 
 [[package]]
-name = "renec-bpf-rust-rand"
+name = "solana-bpf-rust-param-passing"
+version = "1.8.14"
+dependencies = [
+ "solana-bpf-rust-param-passing-dep",
+ "solana-program 1.8.14",
+]
+
+[[package]]
+name = "solana-bpf-rust-param-passing-dep"
+version = "1.8.14"
+dependencies = [
+ "solana-program 1.8.14",
+]
+
+[[package]]
+name = "solana-bpf-rust-rand"
 version = "1.8.14"
 dependencies = [
  "getrandom 0.1.14",
@@ -3040,56 +3040,56 @@ dependencies = [
 ]
 
 [[package]]
-name = "renec-bpf-rust-ro-account_modify"
+name = "solana-bpf-rust-ro-account_modify"
 version = "1.8.14"
 dependencies = [
  "solana-program 1.8.14",
 ]
 
 [[package]]
-name = "renec-bpf-rust-ro-modify"
+name = "solana-bpf-rust-ro-modify"
 version = "1.8.14"
 dependencies = [
  "solana-program 1.8.14",
 ]
 
 [[package]]
-name = "renec-bpf-rust-sanity"
+name = "solana-bpf-rust-sanity"
 version = "1.8.14"
 dependencies = [
  "solana-program 1.8.14",
 ]
 
 [[package]]
-name = "renec-bpf-rust-secp256k1-recover"
+name = "solana-bpf-rust-secp256k1-recover"
 version = "1.8.14"
 dependencies = [
  "solana-program 1.8.14",
 ]
 
 [[package]]
-name = "renec-bpf-rust-sha"
+name = "solana-bpf-rust-sha"
 version = "1.8.14"
 dependencies = [
  "solana-program 1.8.14",
 ]
 
 [[package]]
-name = "renec-bpf-rust-spoof1"
+name = "solana-bpf-rust-spoof1"
 version = "1.8.14"
 dependencies = [
  "solana-program 1.8.14",
 ]
 
 [[package]]
-name = "renec-bpf-rust-spoof1-system"
+name = "solana-bpf-rust-spoof1-system"
 version = "1.8.14"
 dependencies = [
  "solana-program 1.8.14",
 ]
 
 [[package]]
-name = "renec-bpf-rust-sysvar"
+name = "solana-bpf-rust-sysvar"
 version = "1.8.14"
 dependencies = [
  "solana-program 1.8.14",
@@ -3098,21 +3098,21 @@ dependencies = [
 ]
 
 [[package]]
-name = "renec-bpf-rust-upgradeable"
+name = "solana-bpf-rust-upgradeable"
 version = "1.8.14"
 dependencies = [
  "solana-program 1.8.14",
 ]
 
 [[package]]
-name = "renec-bpf-rust-upgraded"
+name = "solana-bpf-rust-upgraded"
 version = "1.8.14"
 dependencies = [
  "solana-program 1.8.14",
 ]
 
 [[package]]
-name = "renec-clap-utils"
+name = "solana-clap-utils"
 version = "1.8.14"
 dependencies = [
  "chrono",
@@ -3128,7 +3128,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "renec-cli-config"
+name = "solana-cli-config"
 version = "1.8.14"
 dependencies = [
  "dirs-next",
@@ -3140,7 +3140,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "renec-cli-output"
+name = "solana-cli-output"
 version = "1.8.14"
 dependencies = [
  "Inflector",
@@ -3153,8 +3153,8 @@ dependencies = [
  "serde",
  "serde_derive",
  "serde_json",
- "renec-account-decoder",
- "renec-clap-utils",
+ "solana-account-decoder",
+ "solana-clap-utils",
  "solana-client",
  "solana-sdk",
  "solana-transaction-status",
@@ -3180,9 +3180,9 @@ dependencies = [
  "serde",
  "serde_derive",
  "serde_json",
- "renec-account-decoder",
- "renec-clap-utils",
- "renec-faucet",
+ "solana-account-decoder",
+ "solana-clap-utils",
+ "solana-faucet",
  "solana-net-utils",
  "solana-sdk",
  "solana-transaction-status",
@@ -3195,7 +3195,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "renec-compute-budget-program"
+name = "solana-compute-budget-program"
 version = "1.8.14"
 dependencies = [
  "solana-sdk",
@@ -3244,7 +3244,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "renec-faucet"
+name = "solana-faucet"
 version = "1.8.14"
 dependencies = [
  "bincode",
@@ -3253,8 +3253,8 @@ dependencies = [
  "log",
  "serde",
  "serde_derive",
- "renec-clap-utils",
- "renec-cli-config",
+ "solana-clap-utils",
+ "solana-cli-config",
  "renec-logger 1.8.14",
  "solana-metrics",
  "solana-sdk",
@@ -3377,7 +3377,7 @@ dependencies = [
  "serde",
  "serde_derive",
  "socket2 0.3.17",
- "renec-clap-utils",
+ "solana-clap-utils",
  "renec-logger 1.8.14",
  "solana-sdk",
  "renec-version",
@@ -3402,7 +3402,7 @@ dependencies = [
  "rand 0.7.3",
  "rayon",
  "serde",
- "renec-bloom",
+ "solana-bloom",
  "renec-logger 1.8.14",
  "solana-metrics",
  "solana-rayon-threadlimit",
@@ -3493,9 +3493,9 @@ dependencies = [
  "mio",
  "serde",
  "serde_derive",
- "renec-banks-client",
- "renec-banks-server",
- "renec-bpf-loader-program",
+ "solana-banks-client",
+ "solana-banks-server",
+ "solana-bpf-loader-program",
  "renec-logger 1.8.14",
  "solana-runtime",
  "solana-sdk",
@@ -3562,8 +3562,8 @@ dependencies = [
  "rustc_version 0.2.3",
  "serde",
  "serde_derive",
- "renec-bloom",
- "renec-compute-budget-program",
+ "solana-bloom",
+ "solana-compute-budget-program",
  "renec-config-program",
  "renec-ed25519-program",
  "solana-frozen-abi 1.8.14",
@@ -3698,7 +3698,7 @@ dependencies = [
  "serde",
  "serde_derive",
  "serde_json",
- "renec-account-decoder",
+ "solana-account-decoder",
  "solana-measure",
  "solana-metrics",
  "solana-runtime",

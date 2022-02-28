@@ -7,8 +7,8 @@ use {
     log::*,
     num_traits::FromPrimitive,
     serde_json::{self, Value},
-    renec_clap_utils::{self, input_parsers::*, input_validators::*, keypair::*},
-    renec_cli_output::{
+    solana_clap_utils::{self, input_parsers::*, input_validators::*, keypair::*},
+    solana_cli_output::{
         display::println_name_value, CliSignature, CliValidatorsSortOrder, OutputFormat,
     },
     solana_client::{
@@ -472,15 +472,15 @@ pub struct CliConfig<'a> {
 
 impl CliConfig<'_> {
     fn default_keypair_path() -> String {
-        renec_cli_config::Config::default().keypair_path
+        solana_cli_config::Config::default().keypair_path
     }
 
     fn default_json_rpc_url() -> String {
-        renec_cli_config::Config::default().json_rpc_url
+        solana_cli_config::Config::default().json_rpc_url
     }
 
     fn default_websocket_url() -> String {
-        renec_cli_config::Config::default().websocket_url
+        solana_cli_config::Config::default().websocket_url
     }
 
     fn default_commitment() -> CommitmentConfig {
@@ -517,13 +517,13 @@ impl CliConfig<'_> {
             (SettingType::Explicit, websocket_cfg_url.to_string()),
             (
                 SettingType::Computed,
-                renec_cli_config::Config::compute_websocket_url(&normalize_to_url_if_moniker(
+                solana_cli_config::Config::compute_websocket_url(&normalize_to_url_if_moniker(
                     json_rpc_cmd_url,
                 )),
             ),
             (
                 SettingType::Computed,
-                renec_cli_config::Config::compute_websocket_url(&normalize_to_url_if_moniker(
+                solana_cli_config::Config::compute_websocket_url(&normalize_to_url_if_moniker(
                     json_rpc_cfg_url,
                 )),
             ),

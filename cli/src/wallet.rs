@@ -9,8 +9,8 @@ use {
         spend_utils::{resolve_spend_tx_and_check_account_balances, SpendAmount},
     },
     clap::{value_t_or_exit, App, Arg, ArgMatches, SubCommand},
-    renec_account_decoder::{UiAccount, UiAccountEncoding},
-    renec_clap_utils::{
+    solana_account_decoder::{UiAccount, UiAccountEncoding},
+    solana_clap_utils::{
         fee_payer::*,
         input_parsers::*,
         input_validators::*,
@@ -19,7 +19,7 @@ use {
         nonce::*,
         offline::*,
     },
-    renec_cli_output::{
+    solana_cli_output::{
         display::build_balance_message, return_signers_with_config, CliAccount,
         CliSignatureVerificationStatus, CliTransaction, CliTransactionConfirmation, OutputFormat,
         ReturnSignersConfig,

@@ -1,7 +1,7 @@
 [package]
 name = "solana-metrics"
 version = "1.8.14"
-description = "RENEC Metrics"
+description = "Solana Metrics"
 authors = ["RENEC Maintainers <dev@remitano.com>"]
 repository = "https://github.com/remitano/renec"
 license = "Apache-2.0"

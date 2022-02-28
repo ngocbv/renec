@@ -10,14 +10,14 @@ use {
         spend_utils::{resolve_spend_tx_and_check_account_balance, SpendAmount},
     },
     clap::{App, Arg, ArgMatches, SubCommand},
-    renec_clap_utils::{
+    solana_clap_utils::{
         input_parsers::*,
         input_validators::*,
         keypair::{DefaultSigner, SignerIndex},
         memo::{memo_arg, MEMO_ARG},
         nonce::*,
     },
-    renec_cli_output::CliNonceAccount,
+    solana_cli_output::CliNonceAccount,
     solana_client::{nonce_utils::*, rpc_client::RpcClient},
     solana_remote_wallet::remote_wallet::RemoteWalletManager,
     solana_sdk::{

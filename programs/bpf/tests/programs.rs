@@ -1,20 +1,20 @@
 #![cfg(any(feature = "bpf_c", feature = "bpf_rust"))]
 
 #[macro_use]
-extern crate renec_bpf_loader_program;
+extern crate solana_bpf_loader_program;
 
 use itertools::izip;
 use log::{log_enabled, trace, Level::Trace};
-use renec_account_decoder::parse_bpf_loader::{
+use solana_account_decoder::parse_bpf_loader::{
     parse_bpf_upgradeable_loader, BpfUpgradeableLoaderAccountType,
 };
-use renec_bpf_loader_program::{
+use solana_bpf_loader_program::{
     create_vm,
     serialization::{deserialize_parameters, serialize_parameters},
     syscalls::register_syscalls,
     BpfError, ThisInstructionMeter,
 };
-use renec_cli_output::display::println_transaction;
+use solana_cli_output::display::println_transaction;
 use solana_rbpf::{
     elf::Executable,
     static_analysis::Analysis,
@@ -451,21 +451,21 @@ fn test_program_bpf_sanity() {
     #[cfg(feature = "bpf_rust")]
     {
         programs.extend_from_slice(&[
-            ("renec_bpf_rust_128bit", true),
-            ("renec_bpf_rust_alloc", true),
-            ("renec_bpf_rust_custom_heap", true),
-            ("renec_bpf_rust_dep_crate", true),
-            ("renec_bpf_rust_external_spend", false),
-            ("renec_bpf_rust_iter", true),
-            ("renec_bpf_rust_many_args", true),
-            ("renec_bpf_rust_membuiltins", true),
-            ("renec_bpf_rust_noop", true),
-            ("renec_bpf_rust_panic", false),
-            ("renec_bpf_rust_param_passing", true),
-            ("renec_bpf_rust_rand", true),
-            ("renec_bpf_rust_sanity", true),
-            ("renec_bpf_rust_secp256k1_recover", true),
-            ("renec_bpf_rust_sha", true),
+            ("solana_bpf_rust_128bit", true),
+            ("solana_bpf_rust_alloc", true),
+            ("solana_bpf_rust_custom_heap", true),
+            ("solana_bpf_rust_dep_crate", true),
+            ("solana_bpf_rust_external_spend", false),
+            ("solana_bpf_rust_iter", true),
+            ("solana_bpf_rust_many_args", true),
+            ("solana_bpf_rust_membuiltins", true),
+            ("solana_bpf_rust_noop", true),
+            ("solana_bpf_rust_panic", false),
+            ("solana_bpf_rust_param_passing", true),
+            ("solana_bpf_rust_rand", true),
+            ("solana_bpf_rust_sanity", true),
+            ("solana_bpf_rust_secp256k1_recover", true),
+            ("solana_bpf_rust_sha", true),
         ]);
     }
 
@@ -479,7 +479,7 @@ fn test_program_bpf_sanity() {
         } = create_genesis_config(50);
 
         let mut bank = Bank::new(&genesis_config);
-        let (name, id, entrypoint) = renec_bpf_loader_program!();
+        let (name, id, entrypoint) = solana_bpf_loader_program!();
         bank.add_builtin(&name, id, entrypoint);
         let bank_client = BankClient::new(bank);
 
@@ -512,7 +512,7 @@ fn test_program_bpf_loader_deprecated() {
     }
     #[cfg(feature = "bpf_rust")]
     {
-        programs.extend_from_slice(&[("renec_bpf_rust_deprecated_loader")]);
+        programs.extend_from_slice(&[("solana_bpf_rust_deprecated_loader")]);
     }
 
     for program in programs.iter() {
@@ -552,7 +552,7 @@ fn test_program_bpf_duplicate_accounts() {
     }
     #[cfg(feature = "bpf_rust")]
     {
-        programs.extend_from_slice(&[("renec_bpf_rust_dup_accounts")]);
+        programs.extend_from_slice(&[("solana_bpf_rust_dup_accounts")]);
     }
 
     for program in programs.iter() {
@@ -564,7 +564,7 @@ fn test_program_bpf_duplicate_accounts() {
             ..
         } = create_genesis_config(50);
         let mut bank = Bank::new(&genesis_config);
-        let (name, id, entrypoint) = renec_bpf_loader_program!();
+        let (name, id, entrypoint) = solana_bpf_loader_program!();
         bank.add_builtin(&name, id, entrypoint);
         let bank = Arc::new(bank);
         let bank_client = BankClient::new_shared(&bank);
@@ -652,7 +652,7 @@ fn test_program_bpf_error_handling() {
     }
     #[cfg(feature = "bpf_rust")]
     {
-        programs.extend_from_slice(&[("renec_bpf_rust_error_handling")]);
+        programs.extend_from_slice(&[("solana_bpf_rust_error_handling")]);
     }
 
     for program in programs.iter() {
@@ -664,7 +664,7 @@ fn test_program_bpf_error_handling() {
             ..
         } = create_genesis_config(50);
         let mut bank = Bank::new(&genesis_config);
-        let (name, id, entrypoint) = renec_bpf_loader_program!();
+        let (name, id, entrypoint) = solana_bpf_loader_program!();
         bank.add_builtin(&name, id, entrypoint);
         let bank_client = BankClient::new(bank);
         let program_id = load_bpf_program(&bank_client, &bpf_loader::id(), &mint_keypair, program);
@@ -756,7 +756,7 @@ fn test_return_data_and_log_data_syscall() {
     }
     #[cfg(feature = "bpf_rust")]
     {
-        programs.extend_from_slice(&[("renec_bpf_rust_log_data")]);
+        programs.extend_from_slice(&[("solana_bpf_rust_log_data")]);
     }
 
     for program in programs.iter() {
@@ -766,7 +766,7 @@ fn test_return_data_and_log_data_syscall() {
             ..
         } = create_genesis_config(50);
         let mut bank = Bank::new(&genesis_config);
-        let (name, id, entrypoint) = renec_bpf_loader_program!();
+        let (name, id, entrypoint) = solana_bpf_loader_program!();
         bank.add_builtin(&name, id, entrypoint);
         let bank = Arc::new(bank);
         let bank_client = BankClient::new_shared(&bank);
@@ -830,9 +830,9 @@ fn test_program_bpf_invoke_sanity() {
     {
         programs.push((
             Languages::Rust,
-            "renec_bpf_rust_invoke",
-            "renec_bpf_rust_invoked",
-            "renec_bpf_rust_noop",
+            "solana_bpf_rust_invoke",
+            "solana_bpf_rust_invoked",
+            "solana_bpf_rust_noop",
         ));
     }
     for program in programs.iter() {
@@ -844,7 +844,7 @@ fn test_program_bpf_invoke_sanity() {
             ..
         } = create_genesis_config(50);
         let mut bank = Bank::new(&genesis_config);
-        let (name, id, entrypoint) = renec_bpf_loader_program!();
+        let (name, id, entrypoint) = solana_bpf_loader_program!();
         bank.add_builtin(&name, id, entrypoint);
         let bank = Arc::new(bank);
         let bank_client = BankClient::new_shared(&bank);
@@ -1156,7 +1156,7 @@ fn test_program_bpf_program_id_spoofing() {
         ..
     } = create_genesis_config(50);
     let mut bank = Bank::new(&genesis_config);
-    let (name, id, entrypoint) = renec_bpf_loader_program!();
+    let (name, id, entrypoint) = solana_bpf_loader_program!();
     bank.add_builtin(&name, id, entrypoint);
     let bank = Arc::new(bank);
     let bank_client = BankClient::new_shared(&bank);
@@ -1165,13 +1165,13 @@ fn test_program_bpf_program_id_spoofing() {
         &bank_client,
         &bpf_loader::id(),
         &mint_keypair,
-        "renec_bpf_rust_spoof1",
+        "solana_bpf_rust_spoof1",
     );
     let malicious_system_pubkey = load_bpf_program(
         &bank_client,
         &bpf_loader::id(),
         &mint_keypair,
-        "renec_bpf_rust_spoof1_system",
+        "solana_bpf_rust_spoof1_system",
     );
 
     let from_pubkey = Pubkey::new_unique();
@@ -1209,7 +1209,7 @@ fn test_program_bpf_caller_has_access_to_cpi_program() {
         ..
     } = create_genesis_config(50);
     let mut bank = Bank::new(&genesis_config);
-    let (name, id, entrypoint) = renec_bpf_loader_program!();
+    let (name, id, entrypoint) = solana_bpf_loader_program!();
     bank.add_builtin(&name, id, entrypoint);
     let bank = Arc::new(bank);
     let bank_client = BankClient::new_shared(&bank);
@@ -1218,13 +1218,13 @@ fn test_program_bpf_caller_has_access_to_cpi_program() {
         &bank_client,
         &bpf_loader::id(),
         &mint_keypair,
-        "renec_bpf_rust_caller_access",
+        "solana_bpf_rust_caller_access",
     );
     let caller2_pubkey = load_bpf_program(
         &bank_client,
         &bpf_loader::id(),
         &mint_keypair,
-        "renec_bpf_rust_caller_access",
+        "solana_bpf_rust_caller_access",
     );
     let account_metas = vec![
         AccountMeta::new_readonly(caller_pubkey, false),
@@ -1249,7 +1249,7 @@ fn test_program_bpf_ro_modify() {
         ..
     } = create_genesis_config(50);
     let mut bank = Bank::new(&genesis_config);
-    let (name, id, entrypoint) = renec_bpf_loader_program!();
+    let (name, id, entrypoint) = solana_bpf_loader_program!();
     bank.add_builtin(&name, id, entrypoint);
     let bank = Arc::new(bank);
     let bank_client = BankClient::new_shared(&bank);
@@ -1258,7 +1258,7 @@ fn test_program_bpf_ro_modify() {
         &bank_client,
         &bpf_loader::id(),
         &mint_keypair,
-        "renec_bpf_rust_ro_modify",
+        "solana_bpf_rust_ro_modify",
     );
 
     let test_keypair = Keypair::new();
@@ -1308,14 +1308,14 @@ fn test_program_bpf_call_depth() {
         ..
     } = create_genesis_config(50);
     let mut bank = Bank::new(&genesis_config);
-    let (name, id, entrypoint) = renec_bpf_loader_program!();
+    let (name, id, entrypoint) = solana_bpf_loader_program!();
     bank.add_builtin(&name, id, entrypoint);
     let bank_client = BankClient::new(bank);
     let program_id = load_bpf_program(
         &bank_client,
         &bpf_loader::id(),
         &mint_keypair,
-        "renec_bpf_rust_call_depth",
+        "solana_bpf_rust_call_depth",
     );
 
     let instruction = Instruction::new_with_bincode(
@@ -1346,14 +1346,14 @@ fn test_program_bpf_compute_budget() {
         ..
     } = create_genesis_config(50);
     let mut bank = Bank::new(&genesis_config);
-    let (name, id, entrypoint) = renec_bpf_loader_program!();
+    let (name, id, entrypoint) = solana_bpf_loader_program!();
     bank.add_builtin(&name, id, entrypoint);
     let bank_client = BankClient::new(bank);
     let program_id = load_bpf_program(
         &bank_client,
         &bpf_loader::id(),
         &mint_keypair,
-        "renec_bpf_rust_noop",
+        "solana_bpf_rust_noop",
     );
     let message = Message::new(
         &[
@@ -1395,21 +1395,21 @@ fn assert_instruction_count() {
     #[cfg(feature = "bpf_rust")]
     {
         programs.extend_from_slice(&[
-            ("renec_bpf_rust_128bit", 584),
-            ("renec_bpf_rust_alloc", 8906),
-            ("renec_bpf_rust_custom_heap", 539),
-            ("renec_bpf_rust_dep_crate", 2),
-            ("renec_bpf_rust_external_spend", 521),
-            ("renec_bpf_rust_iter", 724),
-            ("renec_bpf_rust_many_args", 237),
-            ("renec_bpf_rust_mem", 3166),
-            ("renec_bpf_rust_membuiltins", 4069),
-            ("renec_bpf_rust_noop", 495),
-            ("renec_bpf_rust_param_passing", 46),
-            ("renec_bpf_rust_rand", 498),
-            ("renec_bpf_rust_sanity", 917),
-            ("renec_bpf_rust_secp256k1_recover", 306),
-            ("renec_bpf_rust_sha", 29131),
+            ("solana_bpf_rust_128bit", 584),
+            ("solana_bpf_rust_alloc", 8906),
+            ("solana_bpf_rust_custom_heap", 539),
+            ("solana_bpf_rust_dep_crate", 2),
+            ("solana_bpf_rust_external_spend", 521),
+            ("solana_bpf_rust_iter", 724),
+            ("solana_bpf_rust_many_args", 237),
+            ("solana_bpf_rust_mem", 3166),
+            ("solana_bpf_rust_membuiltins", 4069),
+            ("solana_bpf_rust_noop", 495),
+            ("solana_bpf_rust_param_passing", 46),
+            ("solana_bpf_rust_rand", 498),
+            ("solana_bpf_rust_sanity", 917),
+            ("solana_bpf_rust_secp256k1_recover", 306),
+            ("solana_bpf_rust_sha", 29131),
         ]);
     }
 
@@ -1449,7 +1449,7 @@ fn test_program_bpf_instruction_introspection() {
     } = create_genesis_config(50_000);
     let mut bank = Bank::new(&genesis_config);
 
-    let (name, id, entrypoint) = renec_bpf_loader_program!();
+    let (name, id, entrypoint) = solana_bpf_loader_program!();
     bank.add_builtin(&name, id, entrypoint);
     let bank = Arc::new(bank);
     let bank_client = BankClient::new_shared(&bank);
@@ -1458,7 +1458,7 @@ fn test_program_bpf_instruction_introspection() {
         &bank_client,
         &bpf_loader::id(),
         &mint_keypair,
-        "renec_bpf_rust_instruction_introspection",
+        "solana_bpf_rust_instruction_introspection",
     );
 
     // Passing transaction
@@ -1519,20 +1519,20 @@ fn test_program_bpf_test_use_latest_executor() {
         ..
     } = create_genesis_config(50);
     let mut bank = Bank::new(&genesis_config);
-    let (name, id, entrypoint) = renec_bpf_loader_program!();
+    let (name, id, entrypoint) = solana_bpf_loader_program!();
     bank.add_builtin(&name, id, entrypoint);
     let bank_client = BankClient::new(bank);
     let panic_id = load_bpf_program(
         &bank_client,
         &bpf_loader::id(),
         &mint_keypair,
-        "renec_bpf_rust_panic",
+        "solana_bpf_rust_panic",
     );
 
     let program_keypair = Keypair::new();
 
     // Write the panic program into the program account
-    let elf = read_bpf_program("renec_bpf_rust_panic");
+    let elf = read_bpf_program("solana_bpf_rust_panic");
     let message = Message::new(
         &[system_instruction::create_account(
             &mint_keypair.pubkey(),
@@ -1567,7 +1567,7 @@ fn test_program_bpf_test_use_latest_executor() {
         .is_err());
 
     // Write the noop program into the same program account
-    let elf = read_bpf_program("renec_bpf_rust_noop");
+    let elf = read_bpf_program("solana_bpf_rust_noop");
     write_bpf_program(
         &bank_client,
         &bpf_loader::id(),
@@ -1616,26 +1616,26 @@ fn test_program_bpf_test_use_latest_executor2() {
         ..
     } = create_genesis_config(50);
     let mut bank = Bank::new(&genesis_config);
-    let (name, id, entrypoint) = renec_bpf_loader_program!();
+    let (name, id, entrypoint) = solana_bpf_loader_program!();
     bank.add_builtin(&name, id, entrypoint);
     let bank_client = BankClient::new(bank);
     let invoke_and_error = load_bpf_program(
         &bank_client,
         &bpf_loader::id(),
         &mint_keypair,
-        "renec_bpf_rust_invoke_and_error",
+        "solana_bpf_rust_invoke_and_error",
     );
     let invoke_and_ok = load_bpf_program(
         &bank_client,
         &bpf_loader::id(),
         &mint_keypair,
-        "renec_bpf_rust_invoke_and_ok",
+        "solana_bpf_rust_invoke_and_ok",
     );
 
     let program_keypair = Keypair::new();
 
     // Write the panic program into the program account
-    let elf = read_bpf_program("renec_bpf_rust_panic");
+    let elf = read_bpf_program("solana_bpf_rust_panic");
     let message = Message::new(
         &[system_instruction::create_account(
             &mint_keypair.pubkey(),
@@ -1700,7 +1700,7 @@ fn test_program_bpf_test_use_latest_executor2() {
     );
 
     // Write the noop program into the same program account
-    let elf = read_bpf_program("renec_bpf_rust_noop");
+    let elf = read_bpf_program("solana_bpf_rust_noop");
     write_bpf_program(
         &bank_client,
         &bpf_loader::id(),
@@ -1761,7 +1761,7 @@ fn test_program_bpf_upgrade() {
         &buffer_keypair,
         &program_keypair,
         &authority_keypair,
-        "renec_bpf_rust_upgradeable",
+        "solana_bpf_rust_upgradeable",
     );
 
     let mut instruction = Instruction::new_with_bytes(
@@ -1789,7 +1789,7 @@ fn test_program_bpf_upgrade() {
         &buffer_keypair,
         &program_id,
         &authority_keypair,
-        "renec_bpf_rust_upgraded",
+        "solana_bpf_rust_upgraded",
     );
 
     // Call upgraded program
@@ -1818,7 +1818,7 @@ fn test_program_bpf_upgrade() {
         &buffer_keypair,
         &program_id,
         &new_authority_keypair,
-        "renec_bpf_rust_upgradeable",
+        "solana_bpf_rust_upgradeable",
     );
 
     // Call original program
@@ -1857,7 +1857,7 @@ fn test_program_bpf_upgrade_and_invoke_in_same_tx() {
         &buffer_keypair,
         &program_keypair,
         &authority_keypair,
-        "renec_bpf_rust_noop",
+        "solana_bpf_rust_noop",
     );
 
     let invoke_instruction = Instruction::new_with_bytes(
@@ -1882,7 +1882,7 @@ fn test_program_bpf_upgrade_and_invoke_in_same_tx() {
         &mint_keypair,
         &buffer_keypair,
         &authority_keypair,
-        "renec_bpf_rust_panic",
+        "solana_bpf_rust_panic",
     );
 
     // Invoke, then upgrade the program, and then invoke again in same tx
@@ -1922,7 +1922,7 @@ fn test_program_bpf_invoke_upgradeable_via_cpi() {
         ..
     } = create_genesis_config(50);
     let mut bank = Bank::new(&genesis_config);
-    let (name, id, entrypoint) = renec_bpf_loader_program!();
+    let (name, id, entrypoint) = solana_bpf_loader_program!();
     bank.add_builtin(&name, id, entrypoint);
     let (name, id, entrypoint) = solana_bpf_loader_upgradeable_program!();
     bank.add_builtin(&name, id, entrypoint);
@@ -1931,7 +1931,7 @@ fn test_program_bpf_invoke_upgradeable_via_cpi() {
         &bank_client,
         &bpf_loader::id(),
         &mint_keypair,
-        "renec_bpf_rust_invoke_and_return",
+        "solana_bpf_rust_invoke_and_return",
     );
 
     // Deploy upgradeable program
@@ -1945,7 +1945,7 @@ fn test_program_bpf_invoke_upgradeable_via_cpi() {
         &buffer_keypair,
         &program_keypair,
         &authority_keypair,
-        "renec_bpf_rust_upgradeable",
+        "solana_bpf_rust_upgradeable",
     );
 
     let mut instruction = Instruction::new_with_bytes(
@@ -1975,7 +1975,7 @@ fn test_program_bpf_invoke_upgradeable_via_cpi() {
         &buffer_keypair,
         &program_id,
         &authority_keypair,
-        "renec_bpf_rust_upgraded",
+        "solana_bpf_rust_upgraded",
     );
 
     // Call the upgraded program
@@ -2004,7 +2004,7 @@ fn test_program_bpf_invoke_upgradeable_via_cpi() {
         &buffer_keypair,
         &program_id,
         &new_authority_keypair,
-        "renec_bpf_rust_upgradeable",
+        "solana_bpf_rust_upgradeable",
     );
 
     // Call original program
@@ -2028,7 +2028,7 @@ fn test_program_bpf_disguised_as_bpf_loader() {
     }
     #[cfg(feature = "bpf_rust")]
     {
-        programs.extend_from_slice(&[("renec_bpf_rust_noop")]);
+        programs.extend_from_slice(&[("solana_bpf_rust_noop")]);
     }
 
     for program in programs.iter() {
@@ -2070,7 +2070,7 @@ fn test_program_bpf_c_dup() {
         ..
     } = create_genesis_config(50);
     let mut bank = Bank::new(&genesis_config);
-    let (name, id, entrypoint) = renec_bpf_loader_program!();
+    let (name, id, entrypoint) = solana_bpf_loader_program!();
     bank.add_builtin(&name, id, entrypoint);
 
     let account_address = Pubkey::new_unique();
@@ -2102,7 +2102,7 @@ fn test_program_bpf_upgrade_via_cpi() {
         ..
     } = create_genesis_config(50);
     let mut bank = Bank::new(&genesis_config);
-    let (name, id, entrypoint) = renec_bpf_loader_program!();
+    let (name, id, entrypoint) = solana_bpf_loader_program!();
     bank.add_builtin(&name, id, entrypoint);
     let (name, id, entrypoint) = solana_bpf_loader_upgradeable_program!();
     bank.add_builtin(&name, id, entrypoint);
@@ -2111,7 +2111,7 @@ fn test_program_bpf_upgrade_via_cpi() {
         &bank_client,
         &bpf_loader::id(),
         &mint_keypair,
-        "renec_bpf_rust_invoke_and_return",
+        "solana_bpf_rust_invoke_and_return",
     );
 
     // Deploy upgradeable program
@@ -2125,7 +2125,7 @@ fn test_program_bpf_upgrade_via_cpi() {
         &buffer_keypair,
         &program_keypair,
         &authority_keypair,
-        "renec_bpf_rust_upgradeable",
+        "solana_bpf_rust_upgradeable",
     );
     let program_account = bank_client.get_account(&program_id).unwrap().unwrap();
     let programdata_address = match program_account.state() {
@@ -2159,7 +2159,7 @@ fn test_program_bpf_upgrade_via_cpi() {
     );
 
     // Load the buffer account
-    let path = create_bpf_path("renec_bpf_rust_upgraded");
+    let path = create_bpf_path("solana_bpf_rust_upgraded");
     let mut file = File::open(&path).unwrap_or_else(|err| {
         panic!("Failed to open {}: {}", path.display(), err);
     });
@@ -2217,7 +2217,7 @@ fn test_program_bpf_upgrade_self_via_cpi() {
         ..
     } = create_genesis_config(50);
     let mut bank = Bank::new(&genesis_config);
-    let (name, id, entrypoint) = renec_bpf_loader_program!();
+    let (name, id, entrypoint) = solana_bpf_loader_program!();
     bank.add_builtin(&name, id, entrypoint);
     let (name, id, entrypoint) = solana_bpf_loader_upgradeable_program!();
     bank.add_builtin(&name, id, entrypoint);
@@ -2227,7 +2227,7 @@ fn test_program_bpf_upgrade_self_via_cpi() {
         &bank_client,
         &bpf_loader::id(),
         &mint_keypair,
-        "renec_bpf_rust_noop",
+        "solana_bpf_rust_noop",
     );
 
     // Deploy upgradeable program
@@ -2241,7 +2241,7 @@ fn test_program_bpf_upgrade_self_via_cpi() {
         &buffer_keypair,
         &program_keypair,
         &authority_keypair,
-        "renec_bpf_rust_invoke_and_return",
+        "solana_bpf_rust_invoke_and_return",
     );
 
     let mut invoke_instruction = Instruction::new_with_bytes(
@@ -2267,7 +2267,7 @@ fn test_program_bpf_upgrade_self_via_cpi() {
         &mint_keypair,
         &buffer_keypair,
         &authority_keypair,
-        "renec_bpf_rust_panic",
+        "solana_bpf_rust_panic",
     );
 
     // Invoke, then upgrade the program, and then invoke again in same tx
@@ -2307,7 +2307,7 @@ fn test_program_bpf_set_upgrade_authority_via_cpi() {
         ..
     } = create_genesis_config(50);
     let mut bank = Bank::new(&genesis_config);
-    let (name, id, entrypoint) = renec_bpf_loader_program!();
+    let (name, id, entrypoint) = solana_bpf_loader_program!();
     bank.add_builtin(&name, id, entrypoint);
     let (name, id, entrypoint) = solana_bpf_loader_upgradeable_program!();
     bank.add_builtin(&name, id, entrypoint);
@@ -2318,7 +2318,7 @@ fn test_program_bpf_set_upgrade_authority_via_cpi() {
         &bank_client,
         &bpf_loader::id(),
         &mint_keypair,
-        "renec_bpf_rust_invoke_and_return",
+        "solana_bpf_rust_invoke_and_return",
     );
 
     // Deploy upgradeable program
@@ -2332,7 +2332,7 @@ fn test_program_bpf_set_upgrade_authority_via_cpi() {
         &buffer_keypair,
         &program_keypair,
         &authority_keypair,
-        "renec_bpf_rust_upgradeable",
+        "solana_bpf_rust_upgradeable",
     );
 
     // Set program upgrade authority instruction to invoke via CPI
@@ -2411,11 +2411,11 @@ fn test_program_upgradeable_locks() {
             buffer_keypair,
             program_keypair,
             payer_keypair,
-            "renec_bpf_rust_panic",
+            "solana_bpf_rust_panic",
         );
 
         // Load the buffer account
-        let path = create_bpf_path("renec_bpf_rust_noop");
+        let path = create_bpf_path("solana_bpf_rust_noop");
         let mut file = File::open(&path).unwrap_or_else(|err| {
             panic!("Failed to open {}: {}", path.display(), err);
         });
@@ -2535,7 +2535,7 @@ fn test_program_bpf_finalize() {
         ..
     } = create_genesis_config(50);
     let mut bank = Bank::new(&genesis_config);
-    let (name, id, entrypoint) = renec_bpf_loader_program!();
+    let (name, id, entrypoint) = solana_bpf_loader_program!();
     bank.add_builtin(&name, id, entrypoint);
     let bank = Arc::new(bank);
     let bank_client = BankClient::new_shared(&bank);
@@ -2544,13 +2544,13 @@ fn test_program_bpf_finalize() {
         &bank_client,
         &bpf_loader::id(),
         &mint_keypair,
-        "renec_bpf_rust_finalize",
+        "solana_bpf_rust_finalize",
     );
 
     let noop_keypair = Keypair::new();
 
     // Write the noop program into the same program account
-    let elf = read_bpf_program("renec_bpf_rust_noop");
+    let elf = read_bpf_program("solana_bpf_rust_noop");
     let message = Message::new(
         &[system_instruction::create_account(
             &mint_keypair.pubkey(),
@@ -2597,7 +2597,7 @@ fn test_program_bpf_ro_account_modify() {
         ..
     } = create_genesis_config(50);
     let mut bank = Bank::new(&genesis_config);
-    let (name, id, entrypoint) = renec_bpf_loader_program!();
+    let (name, id, entrypoint) = solana_bpf_loader_program!();
     bank.add_builtin(&name, id, entrypoint);
     let bank = Arc::new(bank);
     let bank_client = BankClient::new_shared(&bank);
@@ -2606,7 +2606,7 @@ fn test_program_bpf_ro_account_modify() {
         &bank_client,
         &bpf_loader::id(),
         &mint_keypair,
-        "renec_bpf_rust_ro_account_modify",
+        "solana_bpf_rust_ro_account_modify",
     );
 
     let argument_keypair = Keypair::new();

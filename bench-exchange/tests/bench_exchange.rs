@@ -5,7 +5,7 @@ use {
     renec_exchange_program::{
         exchange_processor::process_instruction, id, renec_exchange_program,
     },
-    renec_faucet::faucet::run_local_faucet_with_port,
+    solana_faucet::faucet::run_local_faucet_with_port,
     solana_gossip::gossip_service::{discover_cluster, get_multi_client},
     solana_local_cluster::{
         local_cluster::{ClusterConfig, LocalCluster},

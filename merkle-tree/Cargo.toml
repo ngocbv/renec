@@ -1,7 +1,7 @@
 [package]
 name = "solana-merkle-tree"
 version = "1.8.14"
-description = "RENEC Merkle Tree"
+description = "Solana Merkle Tree"
 authors = ["RENEC Maintainers <dev@remitano.com>"]
 repository = "https://github.com/remitano/renec"
 license = "Apache-2.0"

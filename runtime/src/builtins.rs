@@ -94,7 +94,7 @@ fn feature_builtins() -> Vec<(Builtin, Pubkey, ActivationType)> {
             Builtin::new(
                 "compute_budget_program",
                 solana_sdk::compute_budget::id(),
-                renec_compute_budget_program::process_instruction,
+                solana_compute_budget_program::process_instruction,
             ),
             feature_set::add_compute_budget_program::id(),
             ActivationType::NewProgram,
