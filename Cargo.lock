@@ -3638,6 +3638,22 @@ dependencies = [
 ]
 
 [[package]]
+name = "renec-keygen"
+version = "1.8.14"
+dependencies = [
+ "bs58 0.3.1",
+ "clap",
+ "dirs-next",
+ "num_cpus",
+ "solana-clap-utils",
+ "solana-cli-config",
+ "solana-remote-wallet",
+ "solana-sdk",
+ "solana-version",
+ "tiny-bip39",
+]
+
+[[package]]
 name = "renec-validator"
 version = "1.8.14"
 dependencies = [
@@ -5034,22 +5050,6 @@ dependencies = [
  "url 2.2.0",
  "winapi 0.3.9",
  "winreg",
-]
-
-[[package]]
-name = "solana-keygen"
-version = "1.8.14"
-dependencies = [
- "bs58 0.3.1",
- "clap",
- "dirs-next",
- "num_cpus",
- "solana-clap-utils",
- "solana-cli-config",
- "solana-remote-wallet",
- "solana-sdk",
- "solana-version",
- "tiny-bip39",
 ]
 
 [[package]]

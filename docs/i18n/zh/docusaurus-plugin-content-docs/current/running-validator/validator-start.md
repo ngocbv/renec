@@ -105,13 +105,13 @@ EOF"
 通过运行以下操作为您的验证节点创建身份密钥：
 
 ```bash
-solana-keygen new -o ~/validator-keypair.json
+renec-keygen new -o ~/validator-keypair.json
 ```
 
 现在可以通过运行以下操作查看身份公钥：
 
 ```bash
-solana-keygen pubkey ~/validator-keypair.json
+renec-keygen pubkey ~/validator-keypair.json
 ```
 
 > 注意："validator-keypair.json"文件也是您的 \(ed25519\) 私钥。
@@ -121,13 +121,13 @@ solana-keygen pubkey ~/validator-keypair.json
 您可以为身份文件创建一个纸钱包，而不用将密钥对文件写入到磁盘：
 
 ```bash
-solana-keygen new --no-outfile
+renec-keygen new --no-outfile
 ```
 
 现在可以通过运行以下操作查看相应的身份公钥：
 
 ```bash
-solana-keygen pubkey ASK
+renec-keygen pubkey ASK
 ```
 
 然后输入您的种子短语。
@@ -138,10 +138,10 @@ solana-keygen pubkey ASK
 
 ### 虚拟密钥
 
-您可以使用solana-keygen生成一个自定义的虚拟密钥。 例如：
+您可以使用renec-keygen生成一个自定义的虚拟密钥。 例如：
 
 ```bash
-solana-keygen grind --starts-with e1v1s:1
+renec-keygen grind --starts-with e1v1s:1
 ```
 
 根据请求的字符串，可能需要几天时间才能匹配...
@@ -199,7 +199,7 @@ solana balance --lamports
 如果您还没有进行这一步，请创建一个投票帐户密钥对并在网络上创建该投票帐户。 如果完成了此步骤，则应该在Solana运行时目录中看到“ vote-account-keypair.json”：
 
 ```bash
-solana-keygen new -o ~/vote-account-keypair.json
+renec-keygen new -o ~/vote-account-keypair.json
 ```
 
 以下命令可用于使用所有在区块链上创建投票帐户的默认选项：

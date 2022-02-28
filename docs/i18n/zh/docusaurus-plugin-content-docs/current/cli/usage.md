@@ -10,7 +10,7 @@ title: CLI 使用参考
 
 ```bash
 // 命令
-$solana-keygen pubkey
+$renec-keygen pubkey
 
 // 返回
 <PUBKEY>

@@ -50,7 +50,7 @@ $ cargo run -- --help
 如果Solana发布的tarball\(由`ci/publish-tarball.sh`创建\) 已经上传到一个可公开访问的URL中，以下命令将部署更新。
 
 ```bash
-$ solana-keygen new -o update-manifest.json  # <-- only generated once, the public key is shared with users
+$ renec-keygen new -o update-manifest.json  # <-- only generated once, the public key is shared with users
 $ solana-install deploy http://example.com/path/to/solana-release.tar.bz2 update-manifest.json
 ```
 
@@ -59,7 +59,7 @@ $ solana-install deploy http://example.com/path/to/solana-release.tar.bz2 update
 ```bash
 $ solana-install init --pubkey 92DMonmBYXwEMHJ99c9ceRSpAmk9v6i3RdvDdXaVcrfj  # <-- pubkey is obtained from whoever is deploying the updates
 $ export PATH=~/.local/share/solana-install/bin:$PATH
-$ solana-keygen ...  # <-- runs the latest solana-keygen
+$ renec-keygen ...  # <-- runs the latest renec-keygen
 $ solana-install run renec-validator ...  # <-- runs a validator, restarting it as necesary when an update is applied
 ```
 
