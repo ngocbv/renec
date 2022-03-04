@@ -10,7 +10,7 @@ use {
         spend_utils::{resolve_spend_tx_and_check_account_balance, SpendAmount},
     },
     clap::{App, Arg, ArgMatches, SubCommand},
-    renec_clap_utils::{
+    solana_clap_utils::{
         input_parsers::*,
         input_validators::*,
         keypair::{DefaultSigner, SignerIndex},
@@ -18,7 +18,7 @@ use {
         nonce::*,
     },
     renec_cli_output::CliNonceAccount,
-    renec_client::{nonce_utils::*, rpc_client::RpcClient},
+    solana_client::{nonce_utils::*, rpc_client::RpcClient},
     solana_remote_wallet::remote_wallet::RemoteWalletManager,
     solana_sdk::{
         account::Account,
@@ -84,7 +84,7 @@ impl NonceSubCommands for App<'_, '_> {
                         .takes_value(true)
                         .required(true)
                         .validator(is_amount_or_all)
-                        .help("The amount to load the nonce account with, in SOL; accepts keyword ALL"),
+                        .help("The amount to load the nonce account with, in RENEC; accepts keyword ALL"),
                 )
                 .arg(
                     pubkey!(Arg::with_name(NONCE_AUTHORITY_ARG.name)
@@ -141,12 +141,12 @@ impl NonceSubCommands for App<'_, '_> {
                     Arg::with_name("lamports")
                         .long("lamports")
                         .takes_value(false)
-                        .help("Display balance in lamports instead of SOL"),
+                        .help("Display balance in lamports instead of RENEC"),
                 ),
         )
         .subcommand(
             SubCommand::with_name("withdraw-from-nonce-account")
-                .about("Withdraw SOL from the nonce account")
+                .about("Withdraw RENEC from the nonce account")
                 .arg(
                     pubkey!(Arg::with_name("nonce_account_pubkey")
                         .index(1)
@@ -159,7 +159,7 @@ impl NonceSubCommands for App<'_, '_> {
                         .index(2)
                         .value_name("RECIPIENT_ADDRESS")
                         .required(true),
-                        "The account to which the SOL should be transferred. "),
+                        "The account to which the RENEC should be transferred. "),
                 )
                 .arg(
                     Arg::with_name("amount")
@@ -168,7 +168,7 @@ impl NonceSubCommands for App<'_, '_> {
                         .takes_value(true)
                         .required(true)
                         .validator(is_amount)
-                        .help("The amount to withdraw from the nonce account, in SOL"),
+                        .help("The amount to withdraw from the nonce account, in RENEC"),
                 )
                 .arg(nonce_authority_arg())
                 .arg(memo_arg()),

@@ -4,7 +4,7 @@ extern crate log;
 use {
     clap::{crate_description, crate_name, value_t, App, Arg},
     rayon::prelude::*,
-    renec_measure::measure::Measure,
+    solana_measure::measure::Measure,
     solana_runtime::{
         accounts::{create_test_accounts, update_accounts_bench, Accounts},
         accounts_db::AccountShrinkThreshold,
@@ -16,11 +16,11 @@ use {
 };
 
 fn main() {
-    renec_logger::setup();
+    solana_logger::setup();
 
     let matches = App::new(crate_name!())
         .about(crate_description!())
-        .version(renec_version::version!())
+        .version(solana_version::version!())
         .arg(
             Arg::with_name("num_slots")
                 .long("num_slots")

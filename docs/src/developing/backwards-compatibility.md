@@ -74,9 +74,9 @@ Major releases:
 
 - [`solana-sdk`](https://docs.rs/solana-sdk/) - Rust SDK for creating transactions and parsing account state
 - [`solana-program`](https://docs.rs/solana-program/) - Rust SDK for writing programs
-- [`renec-client`](https://docs.rs/renec-client/) - Rust client for connecting to RPC API
+- [`solana-client`](https://docs.rs/solana-client/) - Rust client for connecting to RPC API
 - [`renec-cli-config`](https://docs.rs/renec-cli-config/) - Rust client for managing Solana CLI config files
-- [`renec-accountsdb-plugin-interface`](https://docs.rs/renec-accountsdb-plugin-interface/) - Rust interface for developing Solana AccountsDb plugins.
+- [`solana-accountsdb-plugin-interface`](https://docs.rs/solana-accountsdb-plugin-interface/) - Rust interface for developing Solana AccountsDb plugins.
 
 Patch releases:
 

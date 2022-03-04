@@ -23,20 +23,20 @@ implementation for the PostgreSQL database.
 
 ### Important Crates:
 
-- [`renec-accountsdb-plugin-interface`] &mdash; This crate defines the plugin
+- [`solana-accountsdb-plugin-interface`] &mdash; This crate defines the plugin
 interfaces.
 
-- [`renec-accountsdb-plugin-postgres`] &mdash; The crate for the referential
+- [`solana-accountsdb-plugin-postgres`] &mdash; The crate for the referential
 plugin implementation for the PostgreSQL database.
 
-[`renec-accountsdb-plugin-interface`]: https://docs.rs/renec-accountsdb-plugin-interface
-[`renec-accountsdb-plugin-postgres`]: https://docs.rs/renec-accountsdb-plugin-postgres
+[`solana-accountsdb-plugin-interface`]: https://docs.rs/solana-accountsdb-plugin-interface
+[`solana-accountsdb-plugin-postgres`]: https://docs.rs/solana-accountsdb-plugin-postgres
 
 
 The Plugin Interface
 ====================
 
-The Plugin interface is declared in [`renec-accountsdb-plugin-interface`]. It
+The Plugin interface is declared in [`solana-accountsdb-plugin-interface`]. It
 is defined by the trait `AccountsDbPlugin`. The plugin should implement the
 trait and expose a "C" function `_create_plugin` to return the pointer to this
 trait. For example, in the referential implementation, the following code
@@ -118,12 +118,12 @@ the validator in case of error persisting to external stores. When the
 validator restarts the account data will be re-transmitted.
 
 For more details, please refer to the Rust documentation in
-[`renec-accountsdb-plugin-interface`].
+[`solana-accountsdb-plugin-interface`].
 
 Example PostgreSQL Plugin
 =========================
 
-The [`renec-accountsdb-plugin-postgres`] crate implements a plugin storing
+The [`solana-accountsdb-plugin-postgres`] crate implements a plugin storing
 account data to a PostgreSQL database to illustrate how a plugin can be
 developed.
 
@@ -137,7 +137,7 @@ configuration file looks like the following:
 
 ```
 {
-	"libpath": "/solana/target/release/librenec_accountsdb_plugin_postgres.so",
+	"libpath": "/solana/target/release/libsolana_accountsdb_plugin_postgres.so",
 	"host": "postgres-server",
 	"user": "solana",
 	"port": 5433,

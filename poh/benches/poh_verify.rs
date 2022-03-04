@@ -2,7 +2,7 @@
 extern crate test;
 
 use {
-    renec_ledger::entry::{next_entry_mut, Entry, EntrySlice},
+    solana_ledger::entry::{next_entry_mut, Entry, EntrySlice},
     solana_sdk::{
         hash::{hash, Hash},
         signature::{Keypair, Signer},
@@ -16,7 +16,7 @@ const NUM_ENTRIES: usize = 800;
 
 #[bench]
 fn bench_poh_verify_ticks(bencher: &mut Bencher) {
-    renec_logger::setup();
+    solana_logger::setup();
     let zero = Hash::default();
     let start_hash = hash(zero.as_ref());
     let mut cur_hash = start_hash;

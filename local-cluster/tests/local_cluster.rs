@@ -10,23 +10,23 @@ use {
     gag::BufferRedirect,
     log::*,
     serial_test::serial,
-    renec_client::{
+    solana_client::{
         pubsub_client::PubsubClient,
         rpc_client::RpcClient,
         rpc_config::{RpcProgramAccountsConfig, RpcSignatureSubscribeConfig},
         rpc_response::RpcSignatureResult,
         thin_client::{create_client, ThinClient},
     },
-    renec_core::{
+    solana_core::{
         broadcast_stage::BroadcastStageType,
         consensus::{Tower, SWITCH_FORK_THRESHOLD, VOTE_THRESHOLD_DEPTH},
         optimistic_confirmation_verifier::OptimisticConfirmationVerifier,
         validator::ValidatorConfig,
     },
-    renec_download_utils::download_snapshot,
-    renec_gossip::{cluster_info::VALIDATOR_PORT_RANGE, gossip_service::discover_cluster},
-    renec_ledger::{ancestor_iterator::AncestorIterator, blockstore::Blockstore},
-    renec_local_cluster::{
+    solana_download_utils::download_snapshot,
+    solana_gossip::{cluster_info::VALIDATOR_PORT_RANGE, gossip_service::discover_cluster},
+    solana_ledger::{ancestor_iterator::AncestorIterator, blockstore::Blockstore},
+    solana_local_cluster::{
         cluster::{Cluster, ClusterValidatorInfo},
         cluster_tests,
         local_cluster::{ClusterConfig, LocalCluster},
@@ -50,7 +50,7 @@ use {
         system_program, system_transaction,
     },
     solana_streamer::socket::SocketAddrSpace,
-    renec_vote_program::vote_state::MAX_LOCKOUT_HISTORY,
+    solana_vote_program::vote_state::MAX_LOCKOUT_HISTORY,
     std::{
         collections::{HashMap, HashSet},
         fs,
@@ -71,7 +71,7 @@ mod common;
 
 #[test]
 fn test_local_cluster_start_and_exit() {
-    renec_logger::setup();
+    solana_logger::setup();
     let num_nodes = 1;
     let cluster =
         LocalCluster::new_with_equal_stakes(num_nodes, 100, 3, SocketAddrSpace::Unspecified);
@@ -80,7 +80,7 @@ fn test_local_cluster_start_and_exit() {
 
 #[test]
 fn test_local_cluster_start_and_exit_with_config() {
-    renec_logger::setup();
+    solana_logger::setup();
     const NUM_NODES: usize = 1;
     let mut config = ClusterConfig {
         validator_configs: make_identical_validator_configs(&ValidatorConfig::default(), NUM_NODES),
@@ -98,7 +98,7 @@ fn test_local_cluster_start_and_exit_with_config() {
 #[test]
 #[serial]
 fn test_ledger_cleanup_service() {
-    renec_logger::setup_with_default(RUST_LOG_FILTER);
+    solana_logger::setup_with_default(RUST_LOG_FILTER);
     error!("test_ledger_cleanup_service");
     let num_nodes = 3;
     let validator_config = ValidatorConfig {
@@ -140,7 +140,7 @@ fn test_ledger_cleanup_service() {
 #[test]
 #[serial]
 fn test_spend_and_verify_all_nodes_1() {
-    renec_logger::setup_with_default(RUST_LOG_FILTER);
+    solana_logger::setup_with_default(RUST_LOG_FILTER);
     error!("test_spend_and_verify_all_nodes_1");
     let num_nodes = 1;
     let local =
@@ -157,7 +157,7 @@ fn test_spend_and_verify_all_nodes_1() {
 #[test]
 #[serial]
 fn test_spend_and_verify_all_nodes_2() {
-    renec_logger::setup_with_default(RUST_LOG_FILTER);
+    solana_logger::setup_with_default(RUST_LOG_FILTER);
     error!("test_spend_and_verify_all_nodes_2");
     let num_nodes = 2;
     let local =
@@ -174,7 +174,7 @@ fn test_spend_and_verify_all_nodes_2() {
 #[test]
 #[serial]
 fn test_spend_and_verify_all_nodes_3() {
-    renec_logger::setup_with_default(RUST_LOG_FILTER);
+    solana_logger::setup_with_default(RUST_LOG_FILTER);
     error!("test_spend_and_verify_all_nodes_3");
     let num_nodes = 3;
     let local =
@@ -191,7 +191,7 @@ fn test_spend_and_verify_all_nodes_3() {
 #[test]
 #[serial]
 fn test_local_cluster_signature_subscribe() {
-    renec_logger::setup_with_default(RUST_LOG_FILTER);
+    solana_logger::setup_with_default(RUST_LOG_FILTER);
     let num_nodes = 2;
     let cluster =
         LocalCluster::new_with_equal_stakes(num_nodes, 10_000, 100, SocketAddrSpace::Unspecified);
@@ -266,7 +266,7 @@ fn test_local_cluster_signature_subscribe() {
 #[allow(unused_attributes)]
 #[ignore]
 fn test_spend_and_verify_all_nodes_env_num_nodes() {
-    renec_logger::setup_with_default(RUST_LOG_FILTER);
+    solana_logger::setup_with_default(RUST_LOG_FILTER);
     let num_nodes: usize = std::env::var("NUM_NODES")
         .expect("please set environment variable NUM_NODES")
         .parse()
@@ -286,7 +286,7 @@ fn test_spend_and_verify_all_nodes_env_num_nodes() {
 #[test]
 #[serial]
 fn test_leader_failure_4() {
-    renec_logger::setup_with_default(RUST_LOG_FILTER);
+    solana_logger::setup_with_default(RUST_LOG_FILTER);
     error!("test_leader_failure_4");
     let num_nodes = 4;
     let validator_config = ValidatorConfig::default();
@@ -378,7 +378,7 @@ fn test_cluster_partition_1_1_1() {
 #[test]
 #[serial]
 fn test_two_unbalanced_stakes() {
-    renec_logger::setup_with_default(RUST_LOG_FILTER);
+    solana_logger::setup_with_default(RUST_LOG_FILTER);
     error!("test_two_unbalanced_stakes");
     let validator_config = ValidatorConfig::default();
     let num_ticks_per_second = 100;
@@ -446,7 +446,7 @@ fn test_forwarding() {
 #[test]
 #[serial]
 fn test_restart_node() {
-    renec_logger::setup_with_default(RUST_LOG_FILTER);
+    solana_logger::setup_with_default(RUST_LOG_FILTER);
     error!("test_restart_node");
     let slots_per_epoch = MINIMUM_SLOTS_PER_EPOCH * 2;
     let ticks_per_slot = 16;
@@ -488,7 +488,7 @@ fn test_restart_node() {
 #[test]
 #[serial]
 fn test_mainnet_beta_cluster_type() {
-    renec_logger::setup_with_default(RUST_LOG_FILTER);
+    solana_logger::setup_with_default(RUST_LOG_FILTER);
 
     let mut config = ClusterConfig {
         cluster_type: ClusterType::MainnetBeta,
@@ -513,10 +513,10 @@ fn test_mainnet_beta_cluster_type() {
 
     // Programs that are available at epoch 0
     for program_id in [
-        &renec_config_program::id(),
+        &solana_config_program::id(),
         &solana_sdk::system_program::id(),
         &solana_sdk::stake::program::id(),
-        &renec_vote_program::id(),
+        &solana_vote_program::id(),
         &solana_sdk::bpf_loader_deprecated::id(),
         &solana_sdk::bpf_loader::id(),
     ]
@@ -595,7 +595,7 @@ fn generate_frozen_account_panic(mut cluster: LocalCluster, frozen_account: Arc<
 #[test]
 #[serial]
 fn test_frozen_account_from_genesis() {
-    renec_logger::setup_with_default(RUST_LOG_FILTER);
+    solana_logger::setup_with_default(RUST_LOG_FILTER);
     let validator_identity =
         Arc::new(solana_sdk::signature::keypair_from_seed(&[0u8; 32]).unwrap());
 
@@ -619,7 +619,7 @@ fn test_frozen_account_from_genesis() {
 #[test]
 #[serial]
 fn test_frozen_account_from_snapshot() {
-    renec_logger::setup_with_default(RUST_LOG_FILTER);
+    solana_logger::setup_with_default(RUST_LOG_FILTER);
     let validator_identity =
         Arc::new(solana_sdk::signature::keypair_from_seed(&[0u8; 32]).unwrap());
 
@@ -666,7 +666,7 @@ fn test_frozen_account_from_snapshot() {
 #[test]
 #[serial]
 fn test_consistency_halt() {
-    renec_logger::setup_with_default(RUST_LOG_FILTER);
+    solana_logger::setup_with_default(RUST_LOG_FILTER);
     let snapshot_interval_slots = 20;
     let num_account_paths = 1;
 
@@ -769,7 +769,7 @@ fn test_consistency_halt() {
 #[test]
 #[serial]
 fn test_snapshot_download() {
-    renec_logger::setup_with_default(RUST_LOG_FILTER);
+    solana_logger::setup_with_default(RUST_LOG_FILTER);
     // First set up the cluster with 1 node
     let snapshot_interval_slots = 50;
     let num_account_paths = 3;
@@ -838,7 +838,7 @@ fn test_snapshot_download() {
 #[test]
 #[serial]
 fn test_snapshot_restart_tower() {
-    renec_logger::setup_with_default(RUST_LOG_FILTER);
+    solana_logger::setup_with_default(RUST_LOG_FILTER);
     // First set up the cluster with 2 nodes
     let snapshot_interval_slots = 10;
     let num_account_paths = 2;
@@ -911,7 +911,7 @@ fn test_snapshot_restart_tower() {
 #[test]
 #[serial]
 fn test_snapshots_blockstore_floor() {
-    renec_logger::setup_with_default(RUST_LOG_FILTER);
+    solana_logger::setup_with_default(RUST_LOG_FILTER);
     // First set up the cluster with 1 snapshotting leader
     let snapshot_interval_slots = 10;
     let num_account_paths = 4;
@@ -1020,7 +1020,7 @@ fn test_snapshots_blockstore_floor() {
 #[test]
 #[serial]
 fn test_snapshots_restart_validity() {
-    renec_logger::setup_with_default(RUST_LOG_FILTER);
+    solana_logger::setup_with_default(RUST_LOG_FILTER);
     let snapshot_interval_slots = 10;
     let num_account_paths = 1;
     let mut snapshot_test_config =
@@ -1120,7 +1120,7 @@ fn test_fake_shreds_broadcast_leader() {
 
 #[test]
 fn test_wait_for_max_stake() {
-    renec_logger::setup_with_default(RUST_LOG_FILTER);
+    solana_logger::setup_with_default(RUST_LOG_FILTER);
     let validator_config = ValidatorConfig::default();
     let mut config = ClusterConfig {
         cluster_lamports: 10_000,
@@ -1141,7 +1141,7 @@ fn test_wait_for_max_stake() {
 // Test that when a leader is leader for banks B_i..B_{i+n}, and B_i is not
 // votable, then B_{i+1} still chains to B_i
 fn test_no_voting() {
-    renec_logger::setup_with_default(RUST_LOG_FILTER);
+    solana_logger::setup_with_default(RUST_LOG_FILTER);
     let validator_config = ValidatorConfig {
         voting_disabled: true,
         ..ValidatorConfig::default()
@@ -1181,7 +1181,7 @@ fn test_no_voting() {
 #[test]
 #[serial]
 fn test_optimistic_confirmation_violation_detection() {
-    renec_logger::setup_with_default(RUST_LOG_FILTER);
+    solana_logger::setup_with_default(RUST_LOG_FILTER);
     // First set up the cluster with 2 nodes
     let slots_per_epoch = 2048;
     let node_stakes = vec![51, 50];
@@ -1314,7 +1314,7 @@ fn test_optimistic_confirmation_violation_detection() {
 #[test]
 #[serial]
 fn test_validator_saves_tower() {
-    renec_logger::setup_with_default(RUST_LOG_FILTER);
+    solana_logger::setup_with_default(RUST_LOG_FILTER);
 
     let validator_config = ValidatorConfig {
         require_tower: true,
@@ -1461,7 +1461,7 @@ enum ClusterMode {
 }
 
 fn do_test_future_tower(cluster_mode: ClusterMode) {
-    renec_logger::setup_with_default(RUST_LOG_FILTER);
+    solana_logger::setup_with_default(RUST_LOG_FILTER);
 
     // First set up the cluster with 4 nodes
     let slots_per_epoch = 2048;
@@ -1576,7 +1576,7 @@ fn test_future_tower_master_slave() {
 
 #[test]
 fn test_hard_fork_invalidates_tower() {
-    renec_logger::setup_with_default(RUST_LOG_FILTER);
+    solana_logger::setup_with_default(RUST_LOG_FILTER);
 
     // First set up the cluster with 2 nodes
     let slots_per_epoch = 2048;
@@ -1984,7 +1984,7 @@ fn setup_transfer_scan_threads(
 }
 
 fn run_test_load_program_accounts(scan_commitment: CommitmentConfig) {
-    renec_logger::setup_with_default(RUST_LOG_FILTER);
+    solana_logger::setup_with_default(RUST_LOG_FILTER);
     // First set up the cluster with 2 nodes
     let slots_per_epoch = 2048;
     let node_stakes = vec![51, 50];

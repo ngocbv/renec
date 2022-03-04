@@ -4,7 +4,7 @@ title: Solana 集群
 
 Solana维护着几个不同用途的集群。
 
-在开始之前，请确保已首先安装了[Solana命令行工具](cli/install-solana-cli-tools.md)
+在开始之前，请确保已首先安装了[Solana命令行工具](cli/install-renec-cli-tools.md)
 
 浏览器：
 

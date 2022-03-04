@@ -1,11 +1,11 @@
 [package]
-name = "renec-compute-budget-program"
-description = "RENEC Compute Budget program"
+name = "solana-compute-budget-program"
+description = "Solana Compute Budget program"
 version = "1.8.14"
-homepage = "https://remitano.com/"
-documentation = "https://docs.rs/renec-compute-budget-program"
-repository = "https://github.com/remitano/renec"
-authors = ["RENEC Maintainers <dev@remitano.com>"]
+homepage = "https://solana.com/"
+documentation = "https://docs.rs/solana-compute-budget-program"
+repository = "https://github.com/solana-labs/solana"
+authors = ["Solana Maintainers <maintainers@solana.foundation>"]
 license = "Apache-2.0"
 edition = "2018"
 
@@ -14,7 +14,7 @@ solana-sdk = { path = "../../sdk", version = "=1.8.14" }
 
 [lib]
 crate-type = ["lib"]
-name = "renec_compute_budget_program"
+name = "solana_compute_budget_program"
 
 [package.metadata.docs.rs]
 targets = ["x86_64-unknown-linux-gnu"]

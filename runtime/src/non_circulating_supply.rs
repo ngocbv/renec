@@ -9,7 +9,7 @@ use {
         pubkey::Pubkey,
         stake::{self, state::StakeState},
     },
-    renec_stake_program::stake_state,
+    solana_stake_program::stake_state,
     std::{collections::HashSet, sync::Arc},
 };
 

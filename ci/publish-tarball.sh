@@ -149,7 +149,7 @@ if [[ -n $DO_NOT_PUBLISH_TAR ]]; then
 elif [[ -n $BUILDKITE ]]; then
   cat > release.solana.com-install <<EOF
 SOLANA_RELEASE=$CHANNEL_OR_TAG
-SOLANA_INSTALL_INIT_ARGS=$CHANNEL_OR_TAG
+renec_install_INIT_ARGS=$CHANNEL_OR_TAG
 SOLANA_DOWNLOAD_ROOT=http://release.solana.com
 EOF
   cat install/renec-install-init.sh >> release.solana.com-install

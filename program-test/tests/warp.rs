@@ -1,7 +1,7 @@
 #![allow(clippy::integer_arithmetic)]
 use {
     bincode::deserialize,
-    renec_banks_client::BanksClient,
+    solana_banks_client::BanksClient,
     solana_program_test::{
         processor, ProgramTest, ProgramTestBanksClientExt, ProgramTestContext, ProgramTestError,
     },
@@ -26,7 +26,7 @@ use {
         },
         transaction::{Transaction, TransactionError},
     },
-    renec_vote_program::{
+    solana_vote_program::{
         vote_instruction,
         vote_state::{VoteInit, VoteState},
     },

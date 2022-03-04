@@ -77,10 +77,10 @@ log_pubkey_units: 100,
 
 运行时功能是历时协调的事件，将在集群中发生一个或多个行为更改。  对Solana的新更改（将更改行为）使用功能门进行包装，并且默认情况下处于禁用状态。  然后使用Solana工具激活功能，将其标记为未决，一旦标记为未决，该功能将在下一个时期激活。
 
-要确定激活了哪些功能，请使用[Solana命令行工具](cli/install-solana-cli-tools.md)：
+要确定激活了哪些功能，请使用[Solana命令行工具](cli/install-renec-cli-tools.md)：
 
 ```bash
 solana功能状态
 ```
 
-如果首先遇到问题，请确保您使用的Solana工具版本与`solana cluster-version`返回的版本相匹配。  如果它们不匹配，请[安装正确的工具套件](cli/install-solana-cli-tools.md)。
+如果首先遇到问题，请确保您使用的Solana工具版本与`solana cluster-version`返回的版本相匹配。  如果它们不匹配，请[安装正确的工具套件](cli/install-renec-cli-tools.md)。

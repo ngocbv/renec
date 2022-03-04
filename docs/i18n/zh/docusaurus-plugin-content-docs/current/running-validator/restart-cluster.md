@@ -14,10 +14,10 @@
 ### 步骤4。 在插槽`SLOT_X`上为插槽`SLOT_X`的硬分叉创建一个新的快照。
 
 ```bash
-$ renec-ledger-tool -l ledger create-snapshot SLOT_X ledger --硬分叉 SLOT_X
+$ solana-ledger-tool -l ledger create-snapshot SLOT_X ledger --硬分叉 SLOT_X
 ```
 
-现在，账本目录应包含一个新的快照。 `renec-ledger-tool-create-snapshot` 也会输出新的碎片版本和bank哈希值，分别调用 NEW\_SHRED\_VERSION 和 NEW\_BANK\_HASH。
+现在，账本目录应包含一个新的快照。 `solana-ledger-tool-create-snapshot` 也会输出新的碎片版本和bank哈希值，分别调用 NEW\_SHRED\_VERSION 和 NEW\_BANK\_HASH。
 
 调整验证节点的参数：
 
@@ -68,7 +68,7 @@ renec-validator
   ...                                # <-- your other --identity/--vote-account/etc arguments
 ```
 
-     You can check for which slots your ledger has with: `renec-ledger-tool -l path/to/ledger bounds`
+     You can check for which slots your ledger has with: `solana-ledger-tool -l path/to/ledger bounds`
 
 3. 等待80%的质押在线
 

@@ -3,13 +3,13 @@
 extern crate test;
 
 use {
-    renec_perf::{packet::PacketBatchRecycler, recycler::Recycler},
+    solana_perf::{packet::PacketBatchRecycler, recycler::Recycler},
     test::Bencher,
 };
 
 #[bench]
 fn bench_recycler(bencher: &mut Bencher) {
-    renec_logger::setup();
+    solana_logger::setup();
 
     let recycler: PacketBatchRecycler = Recycler::default();
 

@@ -5,7 +5,7 @@
 
 set -e
 
-instance=renec-ledger
+instance=solana-ledger
 
 cbt=(
   cbt

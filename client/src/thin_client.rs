@@ -606,7 +606,7 @@ impl AsyncClient for ThinClient {
 
 pub fn create_client((rpc, tpu): (SocketAddr, SocketAddr), range: (u16, u16)) -> ThinClient {
     let (_, transactions_socket) =
-        renec_net_utils::bind_in_range(IpAddr::V4(Ipv4Addr::new(0, 0, 0, 0)), range).unwrap();
+        solana_net_utils::bind_in_range(IpAddr::V4(Ipv4Addr::new(0, 0, 0, 0)), range).unwrap();
     ThinClient::new(rpc, tpu, transactions_socket)
 }
 
@@ -616,7 +616,7 @@ pub fn create_client_with_timeout(
     timeout: Duration,
 ) -> ThinClient {
     let (_, transactions_socket) =
-        renec_net_utils::bind_in_range(IpAddr::V4(Ipv4Addr::new(0, 0, 0, 0)), range).unwrap();
+        solana_net_utils::bind_in_range(IpAddr::V4(Ipv4Addr::new(0, 0, 0, 0)), range).unwrap();
     ThinClient::new_socket_with_timeout(rpc, tpu, transactions_socket, timeout)
 }
 
@@ -626,7 +626,7 @@ mod tests {
 
     #[test]
     fn test_client_optimizer() {
-        renec_logger::setup();
+        solana_logger::setup();
 
         const NUM_CLIENTS: usize = 5;
         let optimizer = ClientOptimizer::new(NUM_CLIENTS);

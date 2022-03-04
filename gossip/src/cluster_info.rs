@@ -37,14 +37,14 @@ use {
     rand::{seq::SliceRandom, thread_rng, CryptoRng, Rng},
     rayon::{prelude::*, ThreadPool, ThreadPoolBuilder},
     serde::ser::Serialize,
-    renec_ledger::shred::Shred,
-    renec_measure::measure::Measure,
+    solana_ledger::shred::Shred,
+    solana_measure::measure::Measure,
     solana_metrics::{inc_new_counter_debug, inc_new_counter_error},
-    renec_net_utils::{
+    solana_net_utils::{
         bind_common, bind_common_in_range, bind_in_range, find_available_port_in_range,
         multi_bind_in_range, PortRange,
     },
-    renec_perf::{
+    solana_perf::{
         data_budget::DataBudget,
         packet::{
             limited_deserialize, to_packet_batch_with_destination, Packet, PacketBatch,
@@ -69,7 +69,7 @@ use {
         socket::SocketAddrSpace,
         streamer::{PacketBatchReceiver, PacketBatchSender},
     },
-    renec_vote_program::{
+    solana_vote_program::{
         vote_state::MAX_LOCKOUT_HISTORY, vote_transaction::parse_vote_transaction,
     },
     std::{
@@ -1168,7 +1168,7 @@ impl ClusterInfo {
             .collect()
     }
 
-    pub fn get_node_version(&self, pubkey: &Pubkey) -> Option<renec_version::Version> {
+    pub fn get_node_version(&self, pubkey: &Pubkey) -> Option<solana_version::Version> {
         let gossip = self.gossip.read().unwrap();
         let version = gossip.crds.get(&CrdsValueLabel::Version(*pubkey));
         if let Some(version) = version.and_then(|v| v.value.version()) {
@@ -1704,7 +1704,7 @@ impl ClusterInfo {
             .build()
             .unwrap();
         Builder::new()
-            .name("renec-gossip".to_string())
+            .name("solana-gossip".to_string())
             .spawn(move || {
                 let mut last_push = timestamp();
                 let mut last_contact_info_trace = timestamp();
@@ -3054,9 +3054,9 @@ mod tests {
         itertools::izip,
         rand::{seq::SliceRandom, SeedableRng},
         rand_chacha::ChaChaRng,
-        renec_ledger::shred::Shredder,
+        solana_ledger::shred::Shredder,
         solana_sdk::signature::{Keypair, Signer},
-        renec_vote_program::{vote_instruction, vote_state::Vote},
+        solana_vote_program::{vote_instruction, vote_state::Vote},
         std::{
             iter::repeat_with,
             net::{IpAddr, Ipv4Addr, Ipv6Addr, SocketAddrV4},
@@ -3085,7 +3085,7 @@ mod tests {
 
     #[test]
     fn test_handle_pull() {
-        renec_logger::setup();
+        solana_logger::setup();
         let node = Node::new_localhost();
         let cluster_info = Arc::new(ClusterInfo::new(
             node.info,

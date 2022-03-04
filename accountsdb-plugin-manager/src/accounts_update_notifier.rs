@@ -2,10 +2,10 @@
 use {
     crate::accountsdb_plugin_manager::AccountsDbPluginManager,
     log::*,
-    renec_accountsdb_plugin_interface::accountsdb_plugin_interface::{
+    solana_accountsdb_plugin_interface::accountsdb_plugin_interface::{
         ReplicaAccountInfo, ReplicaAccountInfoVersions, SlotStatus,
     },
-    renec_measure::measure::Measure,
+    solana_measure::measure::Measure,
     solana_metrics::*,
     solana_runtime::{
         accounts_update_notifier_interface::AccountsUpdateNotifierInterface,

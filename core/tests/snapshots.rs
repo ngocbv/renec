@@ -40,8 +40,8 @@ mod tests {
         crossbeam_channel::unbounded,
         fs_extra::dir::CopyOptions,
         itertools::Itertools,
-        renec_core::snapshot_packager_service::{PendingSnapshotPackage, SnapshotPackagerService},
-        renec_gossip::{cluster_info::ClusterInfo, contact_info::ContactInfo},
+        solana_core::snapshot_packager_service::{PendingSnapshotPackage, SnapshotPackagerService},
+        solana_gossip::{cluster_info::ClusterInfo, contact_info::ContactInfo},
         solana_runtime::{
             accounts_background_service::{AbsRequestSender, SnapshotRequestHandler},
             accounts_db,
@@ -205,7 +205,7 @@ mod tests {
     ) where
         F: Fn(&mut Bank, &Keypair),
     {
-        renec_logger::setup();
+        solana_logger::setup();
         // Set up snapshotting config
         let mut snapshot_test_config = SnapshotTestConfig::new(snapshot_version, cluster_type, 1);
 
@@ -313,7 +313,7 @@ mod tests {
         snapshot_version: SnapshotVersion,
         cluster_type: ClusterType,
     ) {
-        renec_logger::setup();
+        solana_logger::setup();
 
         // Set up snapshotting config
         let mut snapshot_test_config = SnapshotTestConfig::new(snapshot_version, cluster_type, 1);
@@ -527,7 +527,7 @@ mod tests {
     }
 
     fn run_test_slots_to_snapshot(snapshot_version: SnapshotVersion, cluster_type: ClusterType) {
-        renec_logger::setup();
+        solana_logger::setup();
         let num_set_roots = MAX_CACHE_ENTRIES * 2;
 
         for add_root_interval in &[1, 3, 9] {

@@ -4,8 +4,8 @@
 use {
     ahash::AHasher,
     rand::{thread_rng, Rng},
-    renec_ledger::shred::Shred,
-    renec_perf::packet::Packet,
+    solana_ledger::shred::Shred,
+    solana_perf::packet::Packet,
     std::hash::Hasher,
 };
 

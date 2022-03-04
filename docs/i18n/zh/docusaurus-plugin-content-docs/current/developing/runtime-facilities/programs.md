@@ -18,7 +18,7 @@ Solana包含少量内置程序，这些程序是运行验证程序节点所必�
 将配置数据添加到链和允许对其进行修改的公钥列表中
 
 - 程序ID：`Config1111111111111111111111111111111111111111`
-- 说明：[config_instruction](https://docs.rs/renec-config-program/VERSION_FOR_DOCS_RS/renec_config_program/config_instruction/index.html)
+- 说明：[config_instruction](https://docs.rs/solana-config-program/VERSION_FOR_DOCS_RS/solana_config_program/config_instruction/index.html)
 
 与其他程序不同，Config程序未定义任何单独的指令。 它只有一条隐式指令，即“存储”指令。 它的指令数据是一组密钥，用于控制对帐户的访问以及存储在其中的数据。
 
@@ -27,14 +27,14 @@ Solana包含少量内置程序，这些程序是运行验证程序节点所必�
 创建权益账户并将其委托给验证者
 
 - 程序ID：`Stake11111111111111111111111111111111111111`
-- 说明： [StakeInstruction](https://docs.rs/renec-stake-program/VERSION_FOR_DOCS_RS/renec_stake_program/stake_instruction/enum.StakeInstruction.html)
+- 说明： [StakeInstruction](https://docs.rs/solana-stake-program/VERSION_FOR_DOCS_RS/solana_stake_program/stake_instruction/enum.StakeInstruction.html)
 
 ## 投票程序
 
 创建投票账户并对区块进行投票
 
 - 程序ID：`Vote111111111111111111111111111111111111111`
-- 说明：[VoteInstruction](https://docs.rs/renec-vote-program/VERSION_FOR_DOCS_RS/renec_vote_program/vote_instruction/enum.VoteInstruction.html)
+- 说明：[VoteInstruction](https://docs.rs/solana-vote-program/VERSION_FOR_DOCS_RS/solana_vote_program/vote_instruction/enum.VoteInstruction.html)
 
 ## BPF加载程序
 

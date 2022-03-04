@@ -41,7 +41,7 @@ fn tune_poh_service_priority(uid: u32) {
     if let Some(pid) = find_pid("solana-validato", "/proc", uid, |dir| {
         let mut path = dir.path();
         path.push("task");
-        find_pid("renec-poh-serv", path, uid, |dir1| {
+        find_pid("solana-poh-serv", path, uid, |dir1| {
             if let Ok(pid) = dir1.file_name().into_string() {
                 pid.parse::<u64>().ok()
             } else {
@@ -97,10 +97,10 @@ fn tune_kernel_udp_buffers_and_vmmap() {
 
 #[cfg(unix)]
 fn main() {
-    renec_logger::setup();
+    solana_logger::setup();
     let matches = App::new(crate_name!())
         .about(crate_description!())
-        .version(renec_version::version!())
+        .version(solana_version::version!())
         .arg(
             Arg::with_name("user")
                 .long("user")

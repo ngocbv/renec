@@ -2,11 +2,11 @@
 #![allow(clippy::integer_arithmetic)]
 
 #[macro_use]
-extern crate renec_exchange_program;
+extern crate solana_exchange_program;
 
 use {
     clap::{crate_description, crate_name, value_t, value_t_or_exit, App, Arg, ArgMatches},
-    renec_clap_utils::{
+    solana_clap_utils::{
         input_parsers::{
             cluster_type_of, pubkey_of, pubkeys_of, unix_timestamp_from_rfc3339_datetime,
         },
@@ -15,7 +15,7 @@ use {
         },
     },
     renec_genesis::{genesis_accounts::add_genesis_accounts, Base64Account},
-    renec_ledger::{
+    solana_ledger::{
         blockstore::create_new_ledger, blockstore_db::AccessType, poh::compute_hashes_per_tick,
     },
     solana_runtime::hardened_unpack::MAX_GENESIS_ARCHIVE_UNPACKED_SIZE,
@@ -34,8 +34,8 @@ use {
         stake::state::StakeState,
         system_program, timing,
     },
-    renec_stake_program::stake_state,
-    renec_vote_program::vote_state::{self, VoteState},
+    solana_stake_program::stake_state,
+    solana_vote_program::vote_state::{self, VoteState},
     std::{
         collections::HashMap,
         error,
@@ -150,7 +150,7 @@ fn main() -> Result<(), Box<dyn error::Error>> {
 
     let matches = App::new(crate_name!())
         .about(crate_description!())
-        .version(renec_version::version!())
+        .version(solana_version::version!())
         .arg(
             Arg::with_name("creation_time")
                 .long("creation-time")
@@ -497,7 +497,7 @@ fn main() -> Result<(), Box<dyn error::Error>> {
     );
 
     let native_instruction_processors = if cluster_type == ClusterType::Development {
-        vec![renec_exchange_program!()]
+        vec![solana_exchange_program!()]
     } else {
         vec![]
     };
@@ -574,7 +574,7 @@ fn main() -> Result<(), Box<dyn error::Error>> {
         );
     }
 
-    renec_stake_program::add_genesis_accounts(&mut genesis_config);
+    solana_stake_program::add_genesis_accounts(&mut genesis_config);
     if genesis_config.cluster_type == ClusterType::Development {
         solana_runtime::genesis_utils::activate_all_features(&mut genesis_config);
     }
@@ -634,7 +634,7 @@ fn main() -> Result<(), Box<dyn error::Error>> {
         }
     }
 
-    renec_logger::setup();
+    solana_logger::setup();
     create_new_ledger(
         &ledger_path,
         &genesis_config,

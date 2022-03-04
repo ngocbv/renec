@@ -1,23 +1,23 @@
 use {
-    solana_cli::{
+    renec_cli::{
         cli::{process_command, request_and_confirm_airdrop, CliCommand, CliConfig},
         spend_utils::SpendAmount,
         test_utils::check_recent_balance,
     },
     renec_cli_output::{parse_sign_only_reply_string, OutputFormat},
-    renec_client::{
+    solana_client::{
         blockhash_query::{self, BlockhashQuery},
         rpc_client::RpcClient,
     },
-    renec_core::test_validator::TestValidator,
-    renec_faucet::faucet::run_local_faucet,
+    solana_core::test_validator::TestValidator,
+    solana_faucet::faucet::run_local_faucet,
     solana_sdk::{
         account_utils::StateMut,
         commitment_config::CommitmentConfig,
         signature::{Keypair, NullSigner, Signer},
     },
     solana_streamer::socket::SocketAddrSpace,
-    renec_vote_program::vote_state::{VoteAuthorize, VoteState, VoteStateVersions},
+    solana_vote_program::vote_state::{VoteAuthorize, VoteState, VoteStateVersions},
 };
 
 #[test]
@@ -71,7 +71,7 @@ fn test_vote_authorize_and_withdraw() {
         .max(1);
     check_recent_balance(expected_balance, &rpc_client, &vote_account_pubkey);
 
-    // Transfer in some more SOL
+    // Transfer in some more RENEC
     config.signers = vec![&default_signer];
     config.command = CliCommand::Transfer {
         amount: SpendAmount::Some(1_000),
@@ -275,7 +275,7 @@ fn test_offline_vote_authorize_and_withdraw() {
         .max(1);
     check_recent_balance(expected_balance, &rpc_client, &vote_account_pubkey);
 
-    // Transfer in some more SOL
+    // Transfer in some more RENEC
     config_payer.signers = vec![&default_signer];
     config_payer.command = CliCommand::Transfer {
         amount: SpendAmount::Some(1_000),

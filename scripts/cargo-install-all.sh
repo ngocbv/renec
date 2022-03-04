@@ -87,13 +87,13 @@ else
     solana
     solana-bench-exchange
     solana-bench-tps
-    renec-faucet
-    renec-gossip
+    solana-faucet
+    solana-gossip
     renec-install
     renec-keygen
-    renec-ledger-tool
-    renec-log-analyzer
-    renec-net-shaper
+    solana-ledger-tool
+    solana-log-analyzer
+    solana-net-shaper
     renec-sys-tuner
     renec-validator
   )
@@ -103,7 +103,7 @@ else
     BINS+=(
       cargo-build-bpf
       cargo-test-bpf
-      renec-dos
+      solana-dos
       renec-install-init
       solana-stake-accounts
       solana-test-validator

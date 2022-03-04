@@ -1,15 +1,15 @@
 #![feature(test)]
 #![allow(clippy::integer_arithmetic)]
 
-extern crate renec_core;
+extern crate solana_core;
 extern crate test;
 
 use {
     crossbeam_channel::unbounded,
     log::*,
     rand::{thread_rng, Rng},
-    renec_core::{sigverify::TransactionSigVerifier, sigverify_stage::SigVerifyStage},
-    renec_perf::{packet::to_packet_batches, test_tx::test_tx},
+    solana_core::{sigverify::TransactionSigVerifier, sigverify_stage::SigVerifyStage},
+    solana_perf::{packet::to_packet_batches, test_tx::test_tx},
     solana_sdk::{
         hash::Hash,
         signature::{Keypair, Signer},
@@ -24,7 +24,7 @@ use {
 };
 
 fn run_bench_packet_discard(num_ips: usize, bencher: &mut Bencher) {
-    renec_logger::setup();
+    solana_logger::setup();
     let len = 30 * 1000;
     let chunk_size = 1024;
     let tx = test_tx();
@@ -114,7 +114,7 @@ fn bench_packet_discard_mixed_senders(bencher: &mut Bencher) {
 
 #[bench]
 fn bench_sigverify_stage(bencher: &mut Bencher) {
-    renec_logger::setup();
+    solana_logger::setup();
     let (packet_s, packet_r) = channel();
     let (verified_s, verified_r) = unbounded();
     let verifier = TransactionSigVerifier::default();

@@ -26,12 +26,12 @@ use {
         voting_service::VotingService,
     },
     crossbeam_channel::unbounded,
-    renec_gossip::cluster_info::ClusterInfo,
-    renec_ledger::{
+    solana_gossip::cluster_info::ClusterInfo,
+    solana_ledger::{
         blockstore::Blockstore, blockstore_processor::TransactionStatusSender,
         leader_schedule_cache::LeaderScheduleCache,
     },
-    renec_poh::poh_recorder::PohRecorder,
+    solana_poh::poh_recorder::PohRecorder,
     solana_rpc::{
         max_slots::MaxSlots, optimistically_confirmed_bank_tracker::BankNotificationSender,
         rpc_subscriptions::RpcSubscriptions,
@@ -380,13 +380,13 @@ pub mod tests {
     use {
         super::*,
         serial_test::serial,
-        renec_gossip::cluster_info::{ClusterInfo, Node},
-        renec_ledger::{
+        solana_gossip::cluster_info::{ClusterInfo, Node},
+        solana_ledger::{
             blockstore::BlockstoreSignals,
             create_new_tmp_ledger,
             genesis_utils::{create_genesis_config, GenesisConfigInfo},
         },
-        renec_poh::poh_recorder::create_test_recorder,
+        solana_poh::poh_recorder::create_test_recorder,
         solana_rpc::optimistically_confirmed_bank_tracker::OptimisticallyConfirmedBank,
         solana_runtime::bank::Bank,
         solana_sdk::signature::{Keypair, Signer},
@@ -398,7 +398,7 @@ pub mod tests {
     #[test]
     #[serial]
     fn test_tvu_exit() {
-        renec_logger::setup();
+        solana_logger::setup();
         let leader = Node::new_localhost();
         let target1_keypair = Keypair::new();
         let target1 = Node::new_localhost_with_pubkey(&target1_keypair.pubkey());

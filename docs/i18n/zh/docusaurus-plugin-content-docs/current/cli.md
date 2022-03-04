@@ -10,7 +10,7 @@ title: 命令行指南
 
 要开始使用 Solana 命令行 (CLI) 工具：
 
-- [安装 Solana 工具](cli/install-solana-cli-tools.md)
+- [安装 Solana 工具](cli/install-renec-cli-tools.md)
 - [选择一个集群](cli/choose-a-cluster.md)
 - [创建一个钱包](wallet-guide/cli.md)
 - [查看 CLI 协议](cli/conventions.md)

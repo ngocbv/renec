@@ -9,8 +9,8 @@ use {
         spend_utils::{resolve_spend_tx_and_check_account_balances, SpendAmount},
     },
     clap::{value_t_or_exit, App, Arg, ArgMatches, SubCommand},
-    renec_account_decoder::{UiAccount, UiAccountEncoding},
-    renec_clap_utils::{
+    solana_account_decoder::{UiAccount, UiAccountEncoding},
+    solana_clap_utils::{
         fee_payer::*,
         input_parsers::*,
         input_validators::*,
@@ -24,7 +24,7 @@ use {
         CliSignatureVerificationStatus, CliTransaction, CliTransactionConfirmation, OutputFormat,
         ReturnSignersConfig,
     },
-    renec_client::{
+    solana_client::{
         blockhash_query::BlockhashQuery, nonce_utils, rpc_client::RpcClient,
         rpc_config::RpcTransactionConfig, rpc_response::RpcKeyedAccount,
     },
@@ -72,7 +72,7 @@ impl WalletSubCommands for App<'_, '_> {
                     Arg::with_name("lamports")
                         .long("lamports")
                         .takes_value(false)
-                        .help("Display balance in lamports instead of SOL"),
+                        .help("Display balance in lamports instead of RENEC"),
                 ),
         )
         .subcommand(
@@ -87,7 +87,7 @@ impl WalletSubCommands for App<'_, '_> {
         )
         .subcommand(
             SubCommand::with_name("airdrop")
-                .about("Request SOL from a faucet")
+                .about("Request RENEC from a faucet")
                 .arg(
                     Arg::with_name("amount")
                         .index(1)
@@ -95,7 +95,7 @@ impl WalletSubCommands for App<'_, '_> {
                         .takes_value(true)
                         .validator(is_amount)
                         .required(true)
-                        .help("The airdrop amount to request, in SOL"),
+                        .help("The airdrop amount to request, in RENEC"),
                 )
                 .arg(
                     pubkey!(Arg::with_name("to")
@@ -117,7 +117,7 @@ impl WalletSubCommands for App<'_, '_> {
                     Arg::with_name("lamports")
                         .long("lamports")
                         .takes_value(false)
-                        .help("Display balance in lamports instead of SOL"),
+                        .help("Display balance in lamports instead of RENEC"),
                 ),
         )
         .subcommand(
@@ -227,7 +227,7 @@ impl WalletSubCommands for App<'_, '_> {
                         .takes_value(true)
                         .validator(is_amount_or_all)
                         .required(true)
-                        .help("The amount to send, in SOL; accepts keyword ALL"),
+                        .help("The amount to send, in RENEC; accepts keyword ALL"),
                 )
                 .arg(
                     pubkey!(Arg::with_name("from")
@@ -276,7 +276,7 @@ fn resolve_derived_address_program_id(matches: &ArgMatches<'_>, arg_name: &str) 
     matches.value_of(arg_name).and_then(|v| match v {
         "NONCE" => Some(system_program::id()),
         "STAKE" => Some(stake::program::id()),
-        "VOTE" => Some(renec_vote_program::id()),
+        "VOTE" => Some(solana_vote_program::id()),
         _ => pubkey_of(matches, arg_name),
     })
 }

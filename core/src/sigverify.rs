@@ -4,12 +4,12 @@
 //! to the GPU.
 //!
 
-pub use renec_perf::sigverify::{
+pub use solana_perf::sigverify::{
     count_packets_in_batches, ed25519_verify_cpu, ed25519_verify_disabled, init, TxOffset,
 };
 use {
     crate::sigverify_stage::SigVerifier,
-    renec_perf::{cuda_runtime::PinnedVec, packet::PacketBatch, recycler::Recycler, sigverify},
+    solana_perf::{cuda_runtime::PinnedVec, packet::PacketBatch, recycler::Recycler, sigverify},
 };
 
 #[derive(Clone)]

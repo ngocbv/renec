@@ -1,12 +1,12 @@
 use {
     crate::{cluster_info_vote_listener::VerifiedLabelVotePacketsReceiver, result::Result},
-    renec_perf::packet::PacketBatch,
+    solana_perf::packet::PacketBatch,
     solana_runtime::bank::Bank,
     solana_sdk::{
         account::from_account, clock::Slot, hash::Hash, pubkey::Pubkey, signature::Signature,
         slot_hashes::SlotHashes, sysvar,
     },
-    renec_vote_program::vote_state::Vote,
+    solana_vote_program::vote_state::Vote,
     std::{
         collections::{BTreeMap, HashMap, HashSet},
         sync::Arc,
@@ -179,7 +179,7 @@ mod tests {
         super::*,
         crate::{consensus::test::VoteSimulator, result::Error},
         crossbeam_channel::unbounded,
-        renec_perf::packet::Packet,
+        solana_perf::packet::Packet,
         solana_sdk::slot_hashes::MAX_ENTRIES,
     };
 

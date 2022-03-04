@@ -14,15 +14,15 @@ use {
         unbounded, Receiver as CrossbeamReceiver, RecvTimeoutError, Sender as CrossbeamSender,
     },
     rayon::{prelude::*, ThreadPool},
-    renec_gossip::cluster_info::ClusterInfo,
-    renec_ledger::{
+    solana_gossip::cluster_info::ClusterInfo,
+    solana_ledger::{
         blockstore::{self, Blockstore, BlockstoreInsertionMetrics, MAX_DATA_SHREDS_PER_SLOT},
         leader_schedule_cache::LeaderScheduleCache,
         shred::{Nonce, Shred, ShredType},
     },
-    renec_measure::measure::Measure,
+    solana_measure::measure::Measure,
     solana_metrics::{inc_new_counter_debug, inc_new_counter_error},
-    renec_perf::packet::{Packet, PacketBatch},
+    solana_perf::packet::{Packet, PacketBatch},
     solana_rayon_threadlimit::get_thread_count,
     solana_runtime::{bank::Bank, bank_forks::BankForks},
     solana_sdk::{clock::Slot, packet::PACKET_DATA_SIZE, pubkey::Pubkey},
@@ -713,8 +713,8 @@ impl WindowService {
 mod test {
     use {
         super::*,
-        renec_gossip::contact_info::ContactInfo,
-        renec_ledger::{
+        solana_gossip::contact_info::ContactInfo,
+        solana_ledger::{
             blockstore::{make_many_slot_entries, Blockstore},
             entry::{create_ticks, Entry},
             genesis_utils::create_genesis_config_with_leader,
@@ -924,7 +924,7 @@ mod test {
             crate::serve_repair::RepairType,
             std::net::{IpAddr, Ipv4Addr},
         };
-        renec_logger::setup();
+        solana_logger::setup();
         let (common, coding) = Shredder::new_coding_shred_header(
             5, // slot
             5, // index

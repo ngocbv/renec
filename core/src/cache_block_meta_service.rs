@@ -1,8 +1,8 @@
-pub use renec_ledger::blockstore_processor::CacheBlockMetaSender;
+pub use solana_ledger::blockstore_processor::CacheBlockMetaSender;
 use {
     crossbeam_channel::{Receiver, RecvTimeoutError},
-    renec_ledger::blockstore::Blockstore,
-    renec_measure::measure::Measure,
+    solana_ledger::blockstore::Blockstore,
+    solana_measure::measure::Measure,
     solana_runtime::bank::Bank,
     std::{
         sync::{

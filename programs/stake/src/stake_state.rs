@@ -27,7 +27,7 @@ use {
         },
         stake_history::{StakeHistory, StakeHistoryEntry},
     },
-    renec_vote_program::vote_state::{VoteState, VoteStateVersions},
+    solana_vote_program::vote_state::{VoteState, VoteStateVersions},
     std::{collections::HashSet, convert::TryFrom},
 };
 
@@ -520,7 +520,7 @@ impl<'a> StakeAccount for KeyedAccount<'a> {
         signers: &HashSet<Pubkey>,
         can_reverse_deactivation: bool,
     ) -> Result<(), InstructionError> {
-        if vote_account.owner()? != renec_vote_program::id() {
+        if vote_account.owner()? != solana_vote_program::id() {
             return Err(InstructionError::IncorrectProgramId);
         }
 
@@ -1306,7 +1306,7 @@ mod tests {
             pubkey::Pubkey,
             system_program,
         },
-        renec_vote_program::vote_state,
+        solana_vote_program::vote_state,
         std::{cell::RefCell, iter::FromIterator},
     };
 
@@ -2101,7 +2101,7 @@ mod tests {
 
     #[test]
     fn test_stop_activating_after_deactivation() {
-        renec_logger::setup();
+        solana_logger::setup();
         let stake = Delegation {
             stake: 1_000,
             activation_epoch: 0,
@@ -3409,7 +3409,7 @@ mod tests {
         let mut vote_state = VoteState::default();
 
         // bootstrap means fully-vested stake at epoch 0 with
-        //  10_000_000 SOL is a big but not unreasaonable stake
+        //  10_000_000 RENEC is a big but not unreasaonable stake
         let stake = new_stake(
             native_token::sol_to_lamports(10_000_000f64),
             &Pubkey::default(),
@@ -5616,7 +5616,7 @@ mod tests {
     fn test_dbg_stake_minimum_balance() {
         let minimum_balance = Rent::default().minimum_balance(std::mem::size_of::<StakeState>());
         panic!(
-            "stake minimum_balance: {} lamports, {} SOL",
+            "stake minimum_balance: {} lamports, {} RENEC",
             minimum_balance,
             minimum_balance as f64 / solana_sdk::native_token::LAMPORTS_PER_SOL as f64
         );

@@ -1,4 +1,4 @@
-use renec_measure::measure::Measure;
+use solana_measure::measure::Measure;
 /// Main entry for the PostgreSQL plugin
 use {
     crate::{
@@ -9,7 +9,7 @@ use {
     log::*,
     serde_derive::{Deserialize, Serialize},
     serde_json,
-    renec_accountsdb_plugin_interface::accountsdb_plugin_interface::{
+    solana_accountsdb_plugin_interface::accountsdb_plugin_interface::{
         AccountsDbPlugin, AccountsDbPluginError, ReplicaAccountInfoVersions, Result, SlotStatus,
     },
     solana_metrics::*,
@@ -91,7 +91,7 @@ impl AccountsDbPlugin for AccountsDbPluginPostgres {
     /// # Examples
     ///
     /// {
-    ///    "libpath": "/home/solana/target/release/librenec_accountsdb_plugin_postgres.so",
+    ///    "libpath": "/home/solana/target/release/libsolana_accountsdb_plugin_postgres.so",
     ///    "host": "host_foo",
     ///    "user": "solana",
     ///    "threads": 10,
@@ -101,7 +101,7 @@ impl AccountsDbPlugin for AccountsDbPluginPostgres {
     /// }
 
     fn on_load(&mut self, config_file: &str) -> Result<()> {
-        renec_logger::setup_with_default("info");
+        solana_logger::setup_with_default("info");
         info!(
             "Loading plugin {:?} from config_file {:?}",
             self.name(),

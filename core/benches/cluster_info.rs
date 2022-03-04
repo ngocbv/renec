@@ -4,17 +4,17 @@ extern crate test;
 
 use {
     rand::{thread_rng, Rng},
-    renec_core::{
+    solana_core::{
         broadcast_stage::{
             broadcast_metrics::TransmitShredsStats, broadcast_shreds, BroadcastStage,
         },
         cluster_nodes::ClusterNodesCache,
     },
-    renec_gossip::{
+    solana_gossip::{
         cluster_info::{ClusterInfo, Node},
         contact_info::ContactInfo,
     },
-    renec_ledger::{
+    solana_ledger::{
         genesis_utils::{create_genesis_config, GenesisConfigInfo},
         shred::Shred,
     },
@@ -36,7 +36,7 @@ use {
 
 #[bench]
 fn broadcast_shreds_bench(bencher: &mut Bencher) {
-    renec_logger::setup();
+    solana_logger::setup();
     let leader_pubkey = pubkey::new_rand();
     let leader_info = Node::new_localhost_with_pubkey(&leader_pubkey);
     let cluster_info = ClusterInfo::new(

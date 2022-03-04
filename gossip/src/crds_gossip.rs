@@ -17,7 +17,7 @@ use {
     },
     itertools::Itertools,
     rayon::ThreadPool,
-    renec_ledger::shred::Shred,
+    solana_ledger::shred::Shred,
     solana_sdk::{
         hash::Hash,
         pubkey::Pubkey,

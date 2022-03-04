@@ -154,7 +154,7 @@ mod tests {
 
     #[test]
     fn test_execute_cost_table_prune_simple_table() {
-        renec_logger::setup();
+        solana_logger::setup();
         let capacity: usize = 3;
         let mut testee = ExecuteCostTable::new(capacity);
 
@@ -176,7 +176,7 @@ mod tests {
 
     #[test]
     fn test_execute_cost_table_prune_weighted_table() {
-        renec_logger::setup();
+        solana_logger::setup();
         let capacity: usize = 3;
         let mut testee = ExecuteCostTable::new(capacity);
 
@@ -205,7 +205,7 @@ mod tests {
 
     #[test]
     fn test_execute_cost_table_upsert_within_capacity() {
-        renec_logger::setup();
+        solana_logger::setup();
         let mut testee = ExecuteCostTable::default();
 
         let key1 = Pubkey::new_unique();
@@ -242,7 +242,7 @@ mod tests {
 
     #[test]
     fn test_execute_cost_table_upsert_exceeds_capacity() {
-        renec_logger::setup();
+        solana_logger::setup();
         let capacity: usize = 2;
         let mut testee = ExecuteCostTable::new(capacity);
 

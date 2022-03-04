@@ -3,8 +3,8 @@ use {
         heaviest_subtree_fork_choice::HeaviestSubtreeForkChoice, repair_service::RepairTiming,
         repair_weighted_traversal, serve_repair::RepairType, tree_diff::TreeDiff,
     },
-    renec_ledger::{ancestor_iterator::AncestorIterator, blockstore::Blockstore},
-    renec_measure::measure::Measure,
+    solana_ledger::{ancestor_iterator::AncestorIterator, blockstore::Blockstore},
+    solana_measure::measure::Measure,
     solana_runtime::{contains::Contains, epoch_stakes::EpochStakes},
     solana_sdk::{
         clock::Slot,
@@ -535,7 +535,7 @@ impl RepairWeight {
 mod test {
     use {
         super::*,
-        renec_ledger::{blockstore::Blockstore, get_tmp_ledger_path},
+        solana_ledger::{blockstore::Blockstore, get_tmp_ledger_path},
         solana_runtime::{bank::Bank, bank_utils},
         solana_sdk::hash::Hash,
         trees::tr,

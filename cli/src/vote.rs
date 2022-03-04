@@ -11,7 +11,7 @@ use {
         stake::check_current_authority,
     },
     clap::{value_t_or_exit, App, Arg, ArgMatches, SubCommand},
-    renec_clap_utils::{
+    solana_clap_utils::{
         fee_payer::{fee_payer_arg, FEE_PAYER_ARG},
         input_parsers::*,
         input_validators::*,
@@ -24,14 +24,14 @@ use {
         return_signers_with_config, CliEpochVotingHistory, CliLockout, CliVoteAccount,
         ReturnSignersConfig,
     },
-    renec_client::{blockhash_query::BlockhashQuery, nonce_utils, rpc_client::RpcClient},
+    solana_client::{blockhash_query::BlockhashQuery, nonce_utils, rpc_client::RpcClient},
     solana_remote_wallet::remote_wallet::RemoteWalletManager,
     solana_sdk::{
         account::Account, commitment_config::CommitmentConfig, message::Message,
         native_token::lamports_to_sol, pubkey::Pubkey, system_instruction::SystemError,
         transaction::Transaction,
     },
-    renec_vote_program::{
+    solana_vote_program::{
         vote_instruction::{self, withdraw, VoteError},
         vote_state::{VoteAuthorize, VoteInit, VoteState},
     },
@@ -313,7 +313,7 @@ impl VoteSubCommands for App<'_, '_> {
                     Arg::with_name("lamports")
                         .long("lamports")
                         .takes_value(false)
-                        .help("Display balance in lamports instead of SOL"),
+                        .help("Display balance in lamports instead of RENEC"),
                 )
                 .arg(
                     Arg::with_name("with_rewards")
@@ -347,7 +347,7 @@ impl VoteSubCommands for App<'_, '_> {
                         .index(2)
                         .value_name("RECIPIENT_ADDRESS")
                         .required(true),
-                        "The recipient of withdrawn SOL. "),
+                        "The recipient of withdrawn RENEC. "),
                 )
                 .arg(
                     Arg::with_name("amount")
@@ -356,7 +356,7 @@ impl VoteSubCommands for App<'_, '_> {
                         .takes_value(true)
                         .required(true)
                         .validator(is_amount_or_all)
-                        .help("The amount to withdraw, in SOL; accepts keyword ALL, which for this command means account balance minus rent-exempt minimum"),
+                        .help("The amount to withdraw, in RENEC; accepts keyword ALL, which for this command means account balance minus rent-exempt minimum"),
                 )
                 .arg(
                     Arg::with_name("authorized_withdrawer")
@@ -687,7 +687,7 @@ pub fn process_create_vote_account(
     let vote_account = config.signers[vote_account];
     let vote_account_pubkey = vote_account.pubkey();
     let vote_account_address = if let Some(seed) = seed {
-        Pubkey::create_with_seed(&vote_account_pubkey, seed, &renec_vote_program::id())?
+        Pubkey::create_with_seed(&vote_account_pubkey, seed, &solana_vote_program::id())?
     } else {
         vote_account_pubkey
     };
@@ -769,7 +769,7 @@ pub fn process_create_vote_account(
             rpc_client.get_account_with_commitment(&vote_account_address, config.commitment)
         {
             if let Some(vote_account) = response.value {
-                let err_msg = if vote_account.owner == renec_vote_program::id() {
+                let err_msg = if vote_account.owner == solana_vote_program::id() {
                     format!("Vote account {} already exists", vote_account_address)
                 } else {
                     format!(
@@ -1090,7 +1090,7 @@ fn get_vote_account(
             CliError::RpcRequestError(format!("{:?} account does not exist", vote_account_pubkey))
         })?;
 
-    if vote_account.owner != renec_vote_program::id() {
+    if vote_account.owner != solana_vote_program::id() {
         return Err(CliError::RpcRequestError(format!(
             "{:?} is not a vote account",
             vote_account_pubkey
@@ -1229,7 +1229,7 @@ pub fn process_withdraw_from_vote_account(
             let balance_remaining = current_balance.saturating_sub(withdraw_amount);
             if balance_remaining < minimum_balance && balance_remaining != 0 {
                 return Err(CliError::BadParameter(format!(
-                    "Withdraw amount too large. The vote account balance must be at least {} SOL to remain rent exempt", lamports_to_sol(minimum_balance)
+                    "Withdraw amount too large. The vote account balance must be at least {} RENEC to remain rent exempt", lamports_to_sol(minimum_balance)
                 ))
                 .into());
             }
@@ -1274,7 +1274,7 @@ mod tests {
     use {
         super::*,
         crate::{clap_app::get_clap_app, cli::parse_command},
-        renec_client::blockhash_query,
+        solana_client::blockhash_query,
         solana_sdk::{
             hash::Hash,
             signature::{read_keypair_file, write_keypair, Keypair, Signer},

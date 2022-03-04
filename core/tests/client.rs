@@ -1,13 +1,13 @@
 use {
     serde_json::{json, Value},
     serial_test::serial,
-    renec_client::{
+    solana_client::{
         pubsub_client::PubsubClient,
         rpc_client::RpcClient,
         rpc_config::{RpcAccountInfoConfig, RpcProgramAccountsConfig},
         rpc_response::SlotInfo,
     },
-    renec_core::test_validator::TestValidator,
+    solana_core::test_validator::TestValidator,
     solana_rpc::{
         optimistically_confirmed_bank_tracker::OptimisticallyConfirmedBank,
         rpc_pubsub_service::{PubSubConfig, PubSubService},
@@ -44,7 +44,7 @@ use {
 
 #[test]
 fn test_rpc_client() {
-    renec_logger::setup();
+    solana_logger::setup();
 
     let alice = Keypair::new();
     let test_validator =
@@ -55,8 +55,8 @@ fn test_rpc_client() {
     let client = RpcClient::new(test_validator.rpc_url());
 
     assert_eq!(
-        client.get_version().unwrap().renec_core,
-        renec_version::semver!()
+        client.get_version().unwrap().solana_core,
+        solana_version::semver!()
     );
 
     assert!(client.get_account(&bob_pubkey).is_err());

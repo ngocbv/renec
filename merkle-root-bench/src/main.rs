@@ -1,17 +1,17 @@
 extern crate log;
 use {
     clap::{crate_description, crate_name, value_t, App, Arg},
-    renec_measure::measure::Measure,
+    solana_measure::measure::Measure,
     solana_runtime::accounts_hash::AccountsHash,
     solana_sdk::{hash::Hash, pubkey::Pubkey},
 };
 
 fn main() {
-    renec_logger::setup();
+    solana_logger::setup();
 
     let matches = App::new(crate_name!())
         .about(crate_description!())
-        .version(renec_version::version!())
+        .version(solana_version::version!())
         .arg(
             Arg::with_name("num_accounts")
                 .long("num_accounts")

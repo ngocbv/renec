@@ -8,7 +8,7 @@ use {
         system_program, system_transaction,
         transaction::Transaction,
     },
-    renec_vote_program::vote_transaction,
+    solana_vote_program::vote_transaction,
 };
 
 pub fn test_tx() -> Transaction {

@@ -1,12 +1,12 @@
 [package]
-name = "renec-vote-program"
+name = "solana-vote-program"
 version = "1.8.14"
-description = "RENEC Vote program"
-authors = ["RENEC Maintainers <dev@remitano.com>"]
-repository = "https://github.com/remitano/renec"
+description = "Solana Vote program"
+authors = ["Solana Maintainers <maintainers@solana.foundation>"]
+repository = "https://github.com/solana-labs/solana"
 license = "Apache-2.0"
-homepage = "https://remitano.com/"
-documentation = "https://docs.rs/renec-vote-program"
+homepage = "https://solana.com/"
+documentation = "https://docs.rs/solana-vote-program"
 edition = "2018"
 
 [dependencies]
@@ -16,9 +16,9 @@ num-derive = "0.3"
 num-traits = "0.2"
 serde = "1.0.122"
 serde_derive = "1.0.103"
-renec-frozen-abi = { path = "../../frozen-abi", version = "=1.8.14" }
-renec-frozen-abi-macro = { path = "../../frozen-abi/macro", version = "=1.8.14" }
-renec-logger = { path = "../../logger", version = "=1.8.14" }
+solana-frozen-abi = { path = "../../frozen-abi", version = "=1.8.14" }
+solana-frozen-abi-macro = { path = "../../frozen-abi/macro", version = "=1.8.14" }
+solana-logger = { path = "../../logger", version = "=1.8.14" }
 solana-metrics = { path = "../../metrics", version = "=1.8.14" }
 solana-sdk = { path = "../../sdk", version = "=1.8.14" }
 thiserror = "1.0"
@@ -28,7 +28,7 @@ rustc_version = "0.2"
 
 [lib]
 crate-type = ["lib"]
-name = "renec_vote_program"
+name = "solana_vote_program"
 
 [package.metadata.docs.rs]
 targets = ["x86_64-unknown-linux-gnu"]

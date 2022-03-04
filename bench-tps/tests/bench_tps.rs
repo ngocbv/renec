@@ -5,11 +5,11 @@ use {
         bench::{do_bench_tps, generate_and_fund_keypairs},
         cli::Config,
     },
-    renec_client::thin_client::create_client,
-    renec_core::validator::ValidatorConfig,
-    renec_faucet::faucet::run_local_faucet_with_port,
-    renec_gossip::cluster_info::VALIDATOR_PORT_RANGE,
-    renec_local_cluster::{
+    solana_client::thin_client::create_client,
+    solana_core::validator::ValidatorConfig,
+    solana_faucet::faucet::run_local_faucet_with_port,
+    solana_gossip::cluster_info::VALIDATOR_PORT_RANGE,
+    solana_local_cluster::{
         local_cluster::{ClusterConfig, LocalCluster},
         validator_configs::make_identical_validator_configs,
     },
@@ -24,7 +24,7 @@ use {
 fn test_bench_tps_local_cluster(config: Config) {
     let native_instruction_processors = vec![];
 
-    renec_logger::setup();
+    solana_logger::setup();
     const NUM_NODES: usize = 1;
     let cluster = LocalCluster::new(
         &mut ClusterConfig {

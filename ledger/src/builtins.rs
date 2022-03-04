@@ -30,7 +30,7 @@ fn genesis_builtins(bpf_jit: bool) -> Vec<Builtin> {
         if bpf_jit {
             to_builtin!(solana_bpf_loader_program_with_jit!())
         } else {
-            to_builtin!(renec_bpf_loader_program!())
+            to_builtin!(solana_bpf_loader_program!())
         },
     ]
 }

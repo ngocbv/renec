@@ -17,7 +17,7 @@ use {
         unbounded, Receiver as CrossbeamReceiver, RecvTimeoutError, Sender as CrossbeamSender,
     },
     log::*,
-    renec_ledger::{
+    solana_ledger::{
         blockstore::Blockstore, entry::Entry, leader_schedule_cache::LeaderScheduleCache, poh::Poh,
     },
     solana_runtime::bank::Bank,
@@ -779,13 +779,13 @@ mod tests {
     use {
         super::*,
         bincode::serialize,
-        renec_ledger::{
+        solana_ledger::{
             blockstore::Blockstore,
             blockstore_meta::SlotMeta,
             genesis_utils::{create_genesis_config, GenesisConfigInfo},
             get_tmp_ledger_path,
         },
-        renec_perf::test_tx::test_tx,
+        solana_perf::test_tx::test_tx,
         solana_sdk::{clock::DEFAULT_TICKS_PER_SLOT, hash::hash},
         std::sync::mpsc::sync_channel,
     };
@@ -1284,7 +1284,7 @@ mod tests {
 
     #[test]
     fn test_reset_to_new_value() {
-        renec_logger::setup();
+        solana_logger::setup();
 
         let ledger_path = get_tmp_ledger_path!();
         {
@@ -1382,7 +1382,7 @@ mod tests {
 
     #[test]
     fn test_poh_recorder_reset_start_slot() {
-        renec_logger::setup();
+        solana_logger::setup();
         let ledger_path = get_tmp_ledger_path!();
         {
             let blockstore = Blockstore::open(&ledger_path)
@@ -1435,7 +1435,7 @@ mod tests {
 
     #[test]
     fn test_reached_leader_tick() {
-        renec_logger::setup();
+        solana_logger::setup();
 
         let ledger_path = get_tmp_ledger_path!();
         {
@@ -1499,7 +1499,7 @@ mod tests {
 
     #[test]
     fn test_reached_leader_slot() {
-        renec_logger::setup();
+        solana_logger::setup();
 
         let ledger_path = get_tmp_ledger_path!();
         {

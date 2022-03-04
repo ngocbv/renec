@@ -12,18 +12,18 @@ use {
         distributions::{Distribution, WeightedError, WeightedIndex},
         Rng,
     },
-    renec_gossip::{
+    solana_gossip::{
         cluster_info::{ClusterInfo, ClusterInfoError},
         contact_info::ContactInfo,
         weighted_shuffle::weighted_best,
     },
-    renec_ledger::{
+    solana_ledger::{
         blockstore::Blockstore,
         shred::{Nonce, Shred},
     },
-    renec_measure::measure::Measure,
+    solana_measure::measure::Measure,
     solana_metrics::inc_new_counter_debug,
-    renec_perf::packet::{limited_deserialize, PacketBatch, PacketBatchRecycler},
+    solana_perf::packet::{limited_deserialize, PacketBatch, PacketBatchRecycler},
     solana_sdk::{
         clock::Slot,
         pubkey::Pubkey,
@@ -642,14 +642,14 @@ mod tests {
     use {
         super::*,
         crate::{repair_response, result::Error},
-        renec_gossip::{socketaddr, socketaddr_any},
-        renec_ledger::{
+        solana_gossip::{socketaddr, socketaddr_any},
+        solana_ledger::{
             blockstore::make_many_slot_entries,
             blockstore_processor::fill_blockstore_slot_with_ticks,
             get_tmp_ledger_path,
             shred::{max_ticks_per_n_shreds, Shred},
         },
-        renec_perf::packet::Packet,
+        solana_perf::packet::Packet,
         solana_sdk::{hash::Hash, pubkey::Pubkey, signature::Keypair, timing::timestamp},
         solana_streamer::socket::SocketAddrSpace,
     };
@@ -662,7 +662,7 @@ mod tests {
     /// test run_window_request responds with the right shred, and do not overrun
     fn run_highest_window_request(slot: Slot, num_slots: u64, nonce: Nonce) {
         let recycler = PacketBatchRecycler::default();
-        renec_logger::setup();
+        solana_logger::setup();
         let ledger_path = get_tmp_ledger_path!();
         {
             let blockstore = Arc::new(Blockstore::open(&ledger_path).unwrap());
@@ -732,7 +732,7 @@ mod tests {
     /// test window requests respond with the right shred, and do not overrun
     fn run_window_request(slot: Slot, nonce: Nonce) {
         let recycler = PacketBatchRecycler::default();
-        renec_logger::setup();
+        solana_logger::setup();
         let ledger_path = get_tmp_ledger_path!();
         {
             let blockstore = Arc::new(Blockstore::open(&ledger_path).unwrap());
@@ -899,7 +899,7 @@ mod tests {
     }
 
     fn run_orphan(slot: Slot, num_slots: u64, nonce: Nonce) {
-        renec_logger::setup();
+        solana_logger::setup();
         let recycler = PacketBatchRecycler::default();
         let ledger_path = get_tmp_ledger_path!();
         {
@@ -973,7 +973,7 @@ mod tests {
 
     #[test]
     fn run_orphan_corrupted_shred_size() {
-        renec_logger::setup();
+        solana_logger::setup();
         let recycler = PacketBatchRecycler::default();
         let ledger_path = get_tmp_ledger_path!();
         {

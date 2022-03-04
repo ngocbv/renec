@@ -27,29 +27,29 @@ bootstrapInstall() {
 bootstrapInstall "edge"
 renec-install-init --version
 renec-install-init edge
-renec-gossip --version
-renec-dos --version
+solana-gossip --version
+solana-dos --version
 
-killall renec-gossip || true
-renec-gossip spy --gossip-port 8001 > "$logDir"/gossip.log 2>&1 &
+killall solana-gossip || true
+solana-gossip spy --gossip-port 8001 > "$logDir"/gossip.log 2>&1 &
 solanaGossipPid=$!
-echo "renec-gossip pid: $solanaGossipPid"
+echo "solana-gossip pid: $solanaGossipPid"
 sleep 5
-renec-dos --mode gossip --data-type random --data-size 1232 &
+solana-dos --mode gossip --data-type random --data-size 1232 &
 dosPid=$!
-echo "renec-dos pid: $dosPid"
+echo "solana-dos pid: $dosPid"
 
 pass=true
 
 SECONDS=
 while ((SECONDS < 600)); do
   if ! kill -0 $solanaGossipPid; then
-    echo "renec-gossip is no longer running after $SECONDS seconds"
+    echo "solana-gossip is no longer running after $SECONDS seconds"
     pass=false
     break
   fi
   if ! kill -0 $dosPid; then
-    echo "renec-dos is no longer running after $SECONDS seconds"
+    echo "solana-dos is no longer running after $SECONDS seconds"
     pass=false
     break
   fi

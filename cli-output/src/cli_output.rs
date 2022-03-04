@@ -13,9 +13,9 @@ use {
     inflector::cases::titlecase::to_title_case,
     serde::{Deserialize, Serialize},
     serde_json::{Map, Value},
-    renec_account_decoder::parse_token::UiTokenAccount,
-    renec_clap_utils::keypair::SignOnly,
-    renec_client::rpc_response::{
+    solana_account_decoder::parse_token::UiTokenAccount,
+    solana_clap_utils::keypair::SignOnly,
+    solana_client::rpc_response::{
         RpcAccountBalance, RpcContactInfo, RpcInflationGovernor, RpcInflationRate, RpcKeyedAccount,
         RpcSupply, RpcVoteAccountInfo,
     },
@@ -34,7 +34,7 @@ use {
         EncodedConfirmedBlock, EncodedTransaction, TransactionConfirmationStatus,
         UiTransactionStatusMeta,
     },
-    renec_vote_program::{
+    solana_vote_program::{
         authorized_voters::AuthorizedVoters,
         vote_state::{BlockTimestamp, Lockout, MAX_EPOCH_CREDITS_HISTORY, MAX_LOCKOUT_HISTORY},
     },
@@ -1244,7 +1244,7 @@ impl fmt::Display for CliStakeHistory {
                 if self.use_lamports_unit {
                     "lamports"
                 } else {
-                    "SOL"
+                    "RENEC"
                 }
             )?;
         }
@@ -1672,7 +1672,7 @@ impl fmt::Display for CliAccountBalances {
                 f,
                 "{:<44}  {}",
                 account.address,
-                &format!("{} SOL", lamports_to_sol(account.lamports))
+                &format!("{} RENEC", lamports_to_sol(account.lamports))
             )?;
         }
         Ok(())
@@ -1707,16 +1707,16 @@ impl VerboseDisplay for CliSupply {}
 
 impl fmt::Display for CliSupply {
     fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
-        writeln_name_value(f, "Total:", &format!("{} SOL", lamports_to_sol(self.total)))?;
+        writeln_name_value(f, "Total:", &format!("{} RENEC", lamports_to_sol(self.total)))?;
         writeln_name_value(
             f,
             "Circulating:",
-            &format!("{} SOL", lamports_to_sol(self.circulating)),
+            &format!("{} RENEC", lamports_to_sol(self.circulating)),
         )?;
         writeln_name_value(
             f,
             "Non-Circulating:",
-            &format!("{} SOL", lamports_to_sol(self.non_circulating)),
+            &format!("{} RENEC", lamports_to_sol(self.non_circulating)),
         )?;
         if self.print_accounts {
             writeln!(f)?;

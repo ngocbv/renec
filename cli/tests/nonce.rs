@@ -1,17 +1,17 @@
 use {
-    solana_cli::{
+    renec_cli::{
         cli::{process_command, request_and_confirm_airdrop, CliCommand, CliConfig},
         spend_utils::SpendAmount,
         test_utils::{check_ready, check_recent_balance},
     },
     renec_cli_output::{parse_sign_only_reply_string, OutputFormat},
-    renec_client::{
+    solana_client::{
         blockhash_query::{self, BlockhashQuery},
         nonce_utils,
         rpc_client::RpcClient,
     },
-    renec_core::test_validator::TestValidator,
-    renec_faucet::faucet::run_local_faucet,
+    solana_core::test_validator::TestValidator,
+    solana_faucet::faucet::run_local_faucet,
     solana_sdk::{
         commitment_config::CommitmentConfig,
         hash::Hash,
@@ -218,7 +218,7 @@ fn full_battery_tests(
 
 #[test]
 fn test_create_account_with_seed() {
-    renec_logger::setup();
+    solana_logger::setup();
     let mint_keypair = Keypair::new();
     let mint_pubkey = mint_keypair.pubkey();
     let faucet_addr = run_local_faucet(mint_keypair, None);

@@ -2,9 +2,9 @@
 name = "solana-cargo-test-bpf"
 version = "1.8.14"
 description = "Execute all unit and integration tests after building with the Solana BPF SDK"
-authors = ["RENEC Maintainers <dev@remitano.com>"]
-repository = "https://github.com/remitano/renec"
-homepage = "https://remitano.com/"
+authors = ["Solana Maintainers <maintainers@solana.foundation>"]
+repository = "https://github.com/solana-labs/solana"
+homepage = "https://solana.com/"
 license = "Apache-2.0"
 edition = "2018"
 publish = false

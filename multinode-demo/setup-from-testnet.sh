@@ -48,7 +48,7 @@ fi
 $renec_keygen new --no-passphrase -so "$SOLANA_CONFIG_DIR"/bootstrap-validator/vote-account.json
 $renec_keygen new --no-passphrase -so "$SOLANA_CONFIG_DIR"/bootstrap-validator/stake-account.json
 
-$renec_ledger_tool create-snapshot \
+$solana_ledger_tool create-snapshot \
   --ledger "$SOLANA_CONFIG_DIR"/latest-testnet-snapshot \
   --faucet-pubkey "$SOLANA_CONFIG_DIR"/faucet.json \
   --faucet-lamports 500000000000000000 \
@@ -58,7 +58,7 @@ $renec_ledger_tool create-snapshot \
   --hashes-per-tick sleep \
   "$snapshot_slot" "$SOLANA_CONFIG_DIR"/bootstrap-validator
 
-$renec_ledger_tool modify-genesis \
+$solana_ledger_tool modify-genesis \
   --ledger "$SOLANA_CONFIG_DIR"/latest-testnet-snapshot \
   --hashes-per-tick sleep \
   "$SOLANA_CONFIG_DIR"/bootstrap-validator

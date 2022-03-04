@@ -7,7 +7,7 @@
 pub use solana_sdk::stake::config::*;
 use {
     bincode::deserialize,
-    renec_config_program::{create_config_account, get_config_data},
+    solana_config_program::{create_config_account, get_config_data},
     solana_sdk::{
         account::{AccountSharedData, ReadableAccount, WritableAccount},
         genesis_config::GenesisConfig,

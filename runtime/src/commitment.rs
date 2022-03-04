@@ -1,6 +1,6 @@
 use {
     solana_sdk::{clock::Slot, commitment_config::CommitmentLevel},
-    renec_vote_program::vote_state::MAX_LOCKOUT_HISTORY,
+    solana_vote_program::vote_state::MAX_LOCKOUT_HISTORY,
     std::collections::HashMap,
 };
 

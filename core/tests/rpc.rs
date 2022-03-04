@@ -5,8 +5,8 @@ use {
     log::*,
     reqwest::{self, header::CONTENT_TYPE},
     serde_json::{json, Value},
-    renec_account_decoder::UiAccount,
-    renec_client::{
+    solana_account_decoder::UiAccount,
+    solana_client::{
         client_error::{ClientErrorKind, Result as ClientResult},
         rpc_client::RpcClient,
         rpc_config::{RpcAccountInfoConfig, RpcSignatureSubscribeConfig},
@@ -14,7 +14,7 @@ use {
         rpc_response::{Response as RpcResponse, RpcSignatureResult, SlotUpdate},
         tpu_client::{TpuClient, TpuClientConfig},
     },
-    renec_core::test_validator::TestValidator,
+    solana_core::test_validator::TestValidator,
     solana_rpc::rpc_pubsub::gen_client::Client as PubsubClient,
     solana_sdk::{
         commitment_config::CommitmentConfig,
@@ -60,7 +60,7 @@ fn post_rpc(request: Value, rpc_url: &str) -> Value {
 
 #[test]
 fn test_rpc_send_tx() {
-    renec_logger::setup();
+    solana_logger::setup();
 
     let alice = Keypair::new();
     let test_validator =
@@ -109,7 +109,7 @@ fn test_rpc_send_tx() {
     assert!(confirmed_tx);
 
     use {
-        renec_account_decoder::UiAccountEncoding, renec_client::rpc_config::RpcAccountInfoConfig,
+        solana_account_decoder::UiAccountEncoding, solana_client::rpc_config::RpcAccountInfoConfig,
     };
     let config = RpcAccountInfoConfig {
         encoding: Some(UiAccountEncoding::Base64),
@@ -126,7 +126,7 @@ fn test_rpc_send_tx() {
 
 #[test]
 fn test_rpc_invalid_requests() {
-    renec_logger::setup();
+    solana_logger::setup();
 
     let alice = Keypair::new();
     let test_validator =
@@ -159,7 +159,7 @@ fn test_rpc_invalid_requests() {
 
 #[test]
 fn test_rpc_slot_updates() {
-    renec_logger::setup();
+    solana_logger::setup();
 
     let test_validator =
         TestValidator::with_no_fees(Pubkey::new_unique(), None, SocketAddrSpace::Unspecified);
@@ -224,7 +224,7 @@ fn test_rpc_slot_updates() {
 
 #[test]
 fn test_rpc_subscriptions() {
-    renec_logger::setup();
+    solana_logger::setup();
 
     let alice = Keypair::new();
     let test_validator =
@@ -431,7 +431,7 @@ fn test_tpu_send_transaction() {
 
 #[test]
 fn deserialize_rpc_error() -> ClientResult<()> {
-    renec_logger::setup();
+    solana_logger::setup();
 
     let alice = Keypair::new();
     let validator = TestValidator::with_no_fees(alice.pubkey(), None, SocketAddrSpace::Unspecified);

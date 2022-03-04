@@ -95,7 +95,7 @@ abort() {
 }
 trap abort INT TERM EXIT
 
-renec-faucet &
+solana-faucet &
 faucet=$!
 
 args=(

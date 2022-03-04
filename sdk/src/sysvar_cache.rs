@@ -7,7 +7,7 @@ use {
 };
 
 #[cfg(RUSTC_WITH_SPECIALIZATION)]
-impl ::renec_frozen_abi::abi_example::AbiExample for SysvarCache {
+impl ::solana_frozen_abi::abi_example::AbiExample for SysvarCache {
     fn example() -> Self {
         // SysvarCache is not Serialize so just rely on Default.
         SysvarCache::default()

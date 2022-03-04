@@ -9,18 +9,18 @@ use {
     },
     log::*,
     serial_test::serial,
-    renec_core::{
+    solana_core::{
         broadcast_stage::{BroadcastDuplicatesConfig, BroadcastStageType},
         consensus::SWITCH_FORK_THRESHOLD,
         validator::ValidatorConfig,
     },
-    renec_gossip::{
+    solana_gossip::{
         cluster_info,
         crds_value::{self, CrdsData, CrdsValue},
         gossip_service::discover_cluster,
     },
-    renec_ledger::ancestor_iterator::AncestorIterator,
-    renec_local_cluster::{
+    solana_ledger::ancestor_iterator::AncestorIterator,
+    solana_local_cluster::{
         cluster::{Cluster, ClusterValidatorInfo},
         local_cluster::{ClusterConfig, LocalCluster},
         validator_configs::*,
@@ -34,7 +34,7 @@ use {
         transaction::Transaction,
     },
     solana_streamer::socket::SocketAddrSpace,
-    renec_vote_program::{vote_instruction, vote_state::Vote},
+    solana_vote_program::{vote_instruction, vote_state::Vote},
     std::{
         collections::{BTreeSet, HashSet},
         path::Path,
@@ -72,7 +72,7 @@ mod common;
 // stalling the network.
 
 fn test_fork_choice_refresh_old_votes() {
-    renec_logger::setup_with_default(RUST_LOG_FILTER);
+    solana_logger::setup_with_default(RUST_LOG_FILTER);
     let max_switch_threshold_failure_pct = 1.0 - 2.0 * SWITCH_FORK_THRESHOLD;
     let total_stake = 100;
     let max_failures_stake = (max_switch_threshold_failure_pct * total_stake as f64) as u64;
@@ -405,7 +405,7 @@ fn test_duplicate_shreds_broadcast_leader() {
 #[test]
 #[serial]
 fn test_switch_threshold_uses_gossip_votes() {
-    renec_logger::setup_with_default(RUST_LOG_FILTER);
+    solana_logger::setup_with_default(RUST_LOG_FILTER);
     let total_stake = 100;
 
     // Minimum stake needed to generate a switching proof

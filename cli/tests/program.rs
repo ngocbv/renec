@@ -1,13 +1,13 @@
 use {
     serde_json::Value,
-    solana_cli::{
+    renec_cli::{
         cli::{process_command, CliCommand, CliConfig},
         program::ProgramCliCommand,
     },
     renec_cli_output::OutputFormat,
-    renec_client::rpc_client::RpcClient,
-    renec_core::test_validator::TestValidator,
-    renec_faucet::faucet::run_local_faucet,
+    solana_client::rpc_client::RpcClient,
+    solana_core::test_validator::TestValidator,
+    solana_faucet::faucet::run_local_faucet,
     solana_sdk::{
         account_utils::StateMut,
         bpf_loader,
@@ -22,7 +22,7 @@ use {
 
 #[test]
 fn test_cli_program_deploy_non_upgradeable() {
-    renec_logger::setup();
+    solana_logger::setup();
 
     let mut noop_path = PathBuf::from(env!("CARGO_MANIFEST_DIR"));
     noop_path.push("tests");
@@ -139,7 +139,7 @@ fn test_cli_program_deploy_non_upgradeable() {
 
 #[test]
 fn test_cli_program_deploy_no_authority() {
-    renec_logger::setup();
+    solana_logger::setup();
 
     let mut noop_path = PathBuf::from(env!("CARGO_MANIFEST_DIR"));
     noop_path.push("tests");
@@ -223,7 +223,7 @@ fn test_cli_program_deploy_no_authority() {
 
 #[test]
 fn test_cli_program_deploy_with_authority() {
-    renec_logger::setup();
+    solana_logger::setup();
 
     let mut noop_path = PathBuf::from(env!("CARGO_MANIFEST_DIR"));
     noop_path.push("tests");
@@ -556,7 +556,7 @@ fn test_cli_program_deploy_with_authority() {
 
 #[test]
 fn test_cli_program_close_program() {
-    renec_logger::setup();
+    solana_logger::setup();
 
     let mut noop_path = PathBuf::from(env!("CARGO_MANIFEST_DIR"));
     noop_path.push("tests");
@@ -638,7 +638,7 @@ fn test_cli_program_close_program() {
 
 #[test]
 fn test_cli_program_write_buffer() {
-    renec_logger::setup();
+    solana_logger::setup();
 
     let mut noop_path = PathBuf::from(env!("CARGO_MANIFEST_DIR"));
     noop_path.push("tests");
@@ -961,7 +961,7 @@ fn test_cli_program_write_buffer() {
 
 #[test]
 fn test_cli_program_set_buffer_authority() {
-    renec_logger::setup();
+    solana_logger::setup();
 
     let mut noop_path = PathBuf::from(env!("CARGO_MANIFEST_DIR"));
     noop_path.push("tests");
@@ -1075,7 +1075,7 @@ fn test_cli_program_set_buffer_authority() {
 
 #[test]
 fn test_cli_program_mismatch_buffer_authority() {
-    renec_logger::setup();
+    solana_logger::setup();
 
     let mut noop_path = PathBuf::from(env!("CARGO_MANIFEST_DIR"));
     noop_path.push("tests");
@@ -1165,7 +1165,7 @@ fn test_cli_program_mismatch_buffer_authority() {
 
 #[test]
 fn test_cli_program_show() {
-    renec_logger::setup();
+    solana_logger::setup();
 
     let mut noop_path = PathBuf::from(env!("CARGO_MANIFEST_DIR"));
     noop_path.push("tests");
@@ -1350,7 +1350,7 @@ fn test_cli_program_show() {
 
 #[test]
 fn test_cli_program_dump() {
-    renec_logger::setup();
+    solana_logger::setup();
 
     let mut noop_path = PathBuf::from(env!("CARGO_MANIFEST_DIR"));
     noop_path.push("tests");

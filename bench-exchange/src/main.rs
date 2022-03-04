@@ -6,16 +6,16 @@ pub mod order_book;
 use {
     crate::bench::{airdrop_lamports, create_client_accounts_file, do_bench_exchange, Config},
     log::*,
-    renec_gossip::gossip_service::{discover_cluster, get_multi_client},
+    solana_gossip::gossip_service::{discover_cluster, get_multi_client},
     solana_sdk::signature::Signer,
     solana_streamer::socket::SocketAddrSpace,
 };
 
 fn main() {
-    renec_logger::setup();
+    solana_logger::setup();
     solana_metrics::set_panic_hook("bench-exchange");
 
-    let matches = cli::build_args(renec_version::version!()).get_matches();
+    let matches = cli::build_args(solana_version::version!()).get_matches();
     let cli_config = cli::extract_args(&matches);
 
     let cli::Config {

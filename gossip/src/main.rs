@@ -5,11 +5,11 @@ use {
         crate_description, crate_name, value_t, value_t_or_exit, App, AppSettings, Arg, ArgMatches,
         SubCommand,
     },
-    renec_clap_utils::{
+    solana_clap_utils::{
         input_parsers::keypair_of,
         input_validators::{is_keypair_or_ask_keyword, is_port, is_pubkey},
     },
-    renec_gossip::{contact_info::ContactInfo, gossip_service::discover},
+    solana_gossip::{contact_info::ContactInfo, gossip_service::discover},
     solana_sdk::pubkey::Pubkey,
     solana_streamer::socket::SocketAddrSpace,
     std::{
@@ -31,7 +31,7 @@ fn parse_matches() -> ArgMatches<'static> {
 
     App::new(crate_name!())
         .about(crate_description!())
-        .version(renec_version::version!())
+        .version(solana_version::version!())
         .setting(AppSettings::SubcommandRequiredElseHelp)
         .arg(
             Arg::with_name("allow_private_addr")
@@ -50,7 +50,7 @@ fn parse_matches() -> ArgMatches<'static> {
                         .value_name("HOST:PORT")
                         .takes_value(true)
                         .required(true)
-                        .validator(renec_net_utils::is_host_port)
+                        .validator(solana_net_utils::is_host_port)
                         .help("Rendezvous with the cluster at this entry point"),
                 )
                 .arg(
@@ -87,7 +87,7 @@ fn parse_matches() -> ArgMatches<'static> {
                         .long("entrypoint")
                         .value_name("HOST:PORT")
                         .takes_value(true)
-                        .validator(renec_net_utils::is_host_port)
+                        .validator(solana_net_utils::is_host_port)
                         .help("Rendezvous with the cluster at this entrypoint"),
                 )
                 .arg(
@@ -103,7 +103,7 @@ fn parse_matches() -> ArgMatches<'static> {
                         .long("gossip-host")
                         .value_name("HOST")
                         .takes_value(true)
-                        .validator(renec_net_utils::is_host)
+                        .validator(solana_net_utils::is_host)
                         .help("Gossip DNS name or IP address for the node to advertise in gossip \
                                [default: ask --entrypoint, or 127.0.0.1 when --entrypoint is not provided]"),
                 )
@@ -158,14 +158,14 @@ fn parse_gossip_host(matches: &ArgMatches, entrypoint_addr: Option<SocketAddr>) 
     matches
         .value_of("gossip_host")
         .map(|gossip_host| {
-            renec_net_utils::parse_host(gossip_host).unwrap_or_else(|e| {
+            solana_net_utils::parse_host(gossip_host).unwrap_or_else(|e| {
                 eprintln!("failed to parse gossip-host: {}", e);
                 exit(1);
             })
         })
         .unwrap_or_else(|| {
             if let Some(entrypoint_addr) = entrypoint_addr {
-                renec_net_utils::get_public_ip_addr(&entrypoint_addr).unwrap_or_else(|err| {
+                solana_net_utils::get_public_ip_addr(&entrypoint_addr).unwrap_or_else(|err| {
                     eprintln!(
                         "Failed to contact cluster entrypoint {}: {}",
                         entrypoint_addr, err
@@ -242,7 +242,7 @@ fn process_spy(matches: &ArgMatches, socket_addr_space: SocketAddrSpace) -> std:
     let gossip_addr = SocketAddr::new(
         gossip_host,
         value_t!(matches, "gossip_port", u16).unwrap_or_else(|_| {
-            renec_net_utils::find_available_port_in_range(
+            solana_net_utils::find_available_port_in_range(
                 IpAddr::V4(Ipv4Addr::new(0, 0, 0, 0)),
                 (0, 1),
             )
@@ -269,7 +269,7 @@ fn process_spy(matches: &ArgMatches, socket_addr_space: SocketAddrSpace) -> std:
 
 fn parse_entrypoint(matches: &ArgMatches) -> Option<SocketAddr> {
     matches.value_of("entrypoint").map(|entrypoint| {
-        renec_net_utils::parse_host_port(entrypoint).unwrap_or_else(|e| {
+        solana_net_utils::parse_host_port(entrypoint).unwrap_or_else(|e| {
             eprintln!("failed to parse entrypoint address: {}", e);
             exit(1);
         })
@@ -325,7 +325,7 @@ fn process_rpc_url(
 }
 
 fn main() -> Result<(), Box<dyn error::Error>> {
-    renec_logger::setup_with_default("solana=info");
+    solana_logger::setup_with_default("solana=info");
 
     let matches = parse_matches();
     let socket_addr_space = SocketAddrSpace::new(matches.is_present("allow_private_addr"));

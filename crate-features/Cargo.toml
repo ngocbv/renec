@@ -1,11 +1,11 @@
 [package]
-name = "renec-crate-features"
+name = "solana-crate-features"
 version = "1.8.14"
-description = "RENEC Crate Features"
-authors = ["RENEC Maintainers <dev@remitano.com>"]
-repository = "https://github.com/remitano/renec"
-homepage = "https://remitano.com/"
-documentation = "https://docs.rs/renec-crate-features"
+description = "Solana Crate Features"
+authors = ["Solana Maintainers <maintainers@solana.foundation>"]
+repository = "https://github.com/solana-labs/solana"
+homepage = "https://solana.com/"
+documentation = "https://docs.rs/solana-crate-features"
 license = "Apache-2.0"
 edition = "2018"
 

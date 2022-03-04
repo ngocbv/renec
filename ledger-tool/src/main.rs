@@ -10,13 +10,13 @@ use {
     regex::Regex,
     serde::Serialize,
     serde_json::json,
-    renec_clap_utils::{
+    solana_clap_utils::{
         input_parsers::{cluster_type_of, pubkey_of, pubkeys_of},
         input_validators::{
             is_parsable, is_pubkey, is_pubkey_or_keypair, is_slot, is_valid_percentage,
         },
     },
-    renec_ledger::{
+    solana_ledger::{
         ancestor_iterator::AncestorIterator,
         bank_forks_utils,
         blockstore::{create_new_ledger, Blockstore, PurgeType},
@@ -47,8 +47,8 @@ use {
         stake::{self, state::StakeState},
         system_program,
     },
-    renec_stake_program::stake_state::{self, PointValue},
-    renec_vote_program::{
+    solana_stake_program::stake_state::{self, PointValue},
+    solana_vote_program::{
         self,
         vote_state::{self, VoteState},
     },
@@ -405,7 +405,7 @@ fn graph_forks(bank_forks: &BankForks, include_all_votes: bool) -> String {
                         slot_stake_and_vote_count.get(&bank.slot())
                     {
                         format!(
-                            "\nvotes: {}, stake: {:.1} SOL ({:.1}%)",
+                            "\nvotes: {}, stake: {:.1} RENEC ({:.1}%)",
                             votes,
                             lamports_to_sol(*stake),
                             *stake as f64 / *total_stake as f64 * 100.,
@@ -466,7 +466,7 @@ fn graph_forks(bank_forks: &BankForks, include_all_votes: bool) -> String {
         });
 
         dot.push(format!(
-            r#"  "last vote {}"[shape=box,label="Latest validator vote: {}\nstake: {} SOL\nroot slot: {}\nvote history:\n{}"];"#,
+            r#"  "last vote {}"[shape=box,label="Latest validator vote: {}\nstake: {} RENEC\nroot slot: {}\nvote history:\n{}"];"#,
             node_pubkey,
             node_pubkey,
             lamports_to_sol(*stake),
@@ -500,7 +500,7 @@ fn graph_forks(bank_forks: &BankForks, include_all_votes: bool) -> String {
     // Annotate the final "..." node with absent vote and stake information
     if absent_votes > 0 {
         dot.push(format!(
-            r#"    "..."[label="...\nvotes: {}, stake: {:.1} SOL {:.1}%"];"#,
+            r#"    "..."[label="...\nvotes: {}, stake: {:.1} RENEC {:.1}%"];"#,
             absent_votes,
             lamports_to_sol(absent_stake),
             absent_stake as f64 / lowest_total_stake as f64 * 100.,
@@ -544,7 +544,7 @@ fn graph_forks(bank_forks: &BankForks, include_all_votes: bool) -> String {
 }
 
 fn analyze_column<
-    T: renec_ledger::blockstore_db::Column + renec_ledger::blockstore_db::ColumnName,
+    T: solana_ledger::blockstore_db::Column + solana_ledger::blockstore_db::ColumnName,
 >(
     db: &Database,
     name: &str,
@@ -807,7 +807,7 @@ fn main() {
 
     const DEFAULT_ROOT_COUNT: &str = "1";
     const DEFAULT_MAX_SLOTS_ROOT_REPAIR: &str = "2000";
-    renec_logger::setup_with_default("solana=info");
+    solana_logger::setup_with_default("solana=info");
 
     let starting_slot_arg = Arg::with_name("starting_slot")
         .long("starting-slot")
@@ -905,7 +905,7 @@ fn main() {
 
     let matches = App::new(crate_name!())
         .about(crate_description!())
-        .version(renec_version::version!())
+        .version(solana_version::version!())
         .setting(AppSettings::InferSubcommands)
         .setting(AppSettings::SubcommandRequiredElseHelp)
         .setting(AppSettings::VersionlessSubcommands)
@@ -1499,7 +1499,7 @@ fn main() {
         )
         .get_matches();
 
-    info!("{} {}", crate_name!(), renec_version::version!());
+    info!("{} {}", crate_name!(), solana_version::version!());
 
     let ledger_path = parse_ledger_path(&matches, "ledger_path");
 
@@ -2138,7 +2138,7 @@ fn main() {
 
                             // Delete existing vote accounts
                             for (address, mut account) in bank
-                                .get_program_accounts(&renec_vote_program::id())
+                                .get_program_accounts(&solana_vote_program::id())
                                 .unwrap()
                                 .into_iter()
                             {
@@ -2314,7 +2314,7 @@ fn main() {
                         for (pubkey, (account, slot)) in accounts.into_iter() {
                             let data_len = account.data().len();
                             println!("{}:", pubkey);
-                            println!("  - balance: {} SOL", lamports_to_sol(account.lamports()));
+                            println!("  - balance: {} RENEC", lamports_to_sol(account.lamports()));
                             println!("  - owner: '{}'", account.owner());
                             println!("  - executable: {}", account.executable());
                             println!("  - slot: {}", slot);
@@ -2445,7 +2445,7 @@ fn main() {
                                 new_credits_observed: Option<u64>,
                                 skipped_reasons: String,
                             }
-                            use renec_stake_program::stake_state::InflationPointCalculationEvent;
+                            use solana_stake_program::stake_state::InflationPointCalculationEvent;
                             let stake_calculation_details: DashMap<Pubkey, CalculationDetail> =
                                 DashMap::new();
                             let last_point_value = Arc::new(RwLock::new(None));

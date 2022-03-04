@@ -200,7 +200,7 @@ mod test {
             packet::{Packet, PacketBatch, PACKET_DATA_SIZE},
             streamer::{receiver, responder},
         },
-        renec_perf::recycler::Recycler,
+        solana_perf::recycler::Recycler,
         std::{
             io,
             io::Write,

@@ -6,7 +6,7 @@ use {
     },
     log::info,
     serde_json::json,
-    renec_clap_utils::{
+    solana_clap_utils::{
         input_parsers::pubkey_of,
         input_validators::{is_slot, is_valid_pubkey},
     },
@@ -14,7 +14,7 @@ use {
         display::println_transaction, CliBlock, CliTransaction, CliTransactionConfirmation,
         OutputFormat,
     },
-    renec_ledger::{blockstore::Blockstore, blockstore_db::AccessType},
+    solana_ledger::{blockstore::Blockstore, blockstore_db::AccessType},
     solana_sdk::{clock::Slot, pubkey::Pubkey, signature::Signature},
     solana_transaction_status::{ConfirmedBlock, EncodedTransaction, UiTransactionEncoding},
     std::{
@@ -37,7 +37,7 @@ async fn upload(
         .await
         .map_err(|err| format!("Failed to connect to storage: {:?}", err))?;
 
-    renec_ledger::bigtable_upload::upload_confirmed_blocks(
+    solana_ledger::bigtable_upload::upload_confirmed_blocks(
         Arc::new(blockstore),
         bigtable,
         starting_slot,
@@ -55,7 +55,7 @@ async fn delete_slots(slots: Vec<Slot>, dry_run: bool) -> Result<(), Box<dyn std
         .await
         .map_err(|err| format!("Failed to connect to storage: {:?}", err))?;
 
-    renec_ledger::bigtable_delete::delete_confirmed_blocks(bigtable, slots, dry_run).await
+    solana_ledger::bigtable_delete::delete_confirmed_blocks(bigtable, slots, dry_run).await
 }
 
 async fn first_available_block() -> Result<(), Box<dyn std::error::Error>> {

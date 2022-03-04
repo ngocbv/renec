@@ -16,7 +16,7 @@ use {
         rpc_sender::*,
     },
     serde_json::{json, Number, Value},
-    renec_account_decoder::{UiAccount, UiAccountEncoding},
+    solana_account_decoder::{UiAccount, UiAccountEncoding},
     solana_sdk::{
         account::Account,
         clock::{Slot, UnixTimestamp},
@@ -35,7 +35,7 @@ use {
         TransactionStatus, UiCompiledInstruction, UiMessage, UiRawMessage, UiTransaction,
         UiTransactionEncoding, UiTransactionStatusMeta,
     },
-    renec_version::Version,
+    solana_version::Version,
     std::{collections::HashMap, net::SocketAddr, str::FromStr, sync::RwLock},
 };
 
@@ -334,7 +334,7 @@ impl RpcSender for MockSender {
             "getVersion" => {
                 let version = Version::default();
                 json!(RpcVersionInfo {
-                    renec_core: version.to_string(),
+                    solana_core: version.to_string(),
                     feature_set: Some(version.feature_set),
                 })
             }

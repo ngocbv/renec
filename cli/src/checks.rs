@@ -1,6 +1,6 @@
 use {
     crate::cli::CliError,
-    renec_client::{
+    solana_client::{
         client_error::{ClientError, Result as ClientResult},
         rpc_client::RpcClient,
     },
@@ -154,7 +154,7 @@ mod tests {
     use {
         super::*,
         serde_json::json,
-        renec_client::{
+        solana_client::{
             rpc_request::RpcRequest,
             rpc_response::{Response, RpcResponseContext},
         },

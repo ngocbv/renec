@@ -4,7 +4,7 @@ use {
         crate_description, crate_name, crate_version, value_t, value_t_or_exit, values_t, App, Arg,
     },
     regex::Regex,
-    renec_download_utils::download_file,
+    solana_download_utils::download_file,
     solana_sdk::signature::{write_keypair_file, Keypair},
     std::{
         collections::{HashMap, HashSet},

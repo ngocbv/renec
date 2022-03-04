@@ -1,7 +1,7 @@
 use {
     crate::{nonce_utils, rpc_client::RpcClient},
     clap::ArgMatches,
-    renec_clap_utils::{
+    solana_clap_utils::{
         input_parsers::{pubkey_of, value_of},
         nonce::*,
         offline::*,
@@ -127,7 +127,7 @@ mod tests {
         },
         clap::App,
         serde_json::{self, json},
-        renec_account_decoder::{UiAccount, UiAccountEncoding},
+        solana_account_decoder::{UiAccount, UiAccountEncoding},
         solana_sdk::{account::Account, hash::hash, nonce, system_program},
         std::collections::HashMap,
     };

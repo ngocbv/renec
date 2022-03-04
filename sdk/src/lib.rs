@@ -121,7 +121,7 @@ pub extern crate bs58;
 extern crate log as logger;
 
 #[macro_use]
-extern crate renec_frozen_abi_macro;
+extern crate solana_frozen_abi_macro;
 
 #[cfg(test)]
 mod tests {

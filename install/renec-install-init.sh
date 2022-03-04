@@ -36,7 +36,7 @@ FLAGS:
 
 OPTIONS:
     -d, --data_dir <PATH>    Directory to store install data
-    -u, --url <URL>          JSON RPC URL for the solana cluster
+    -u, --url <URL>          JSON RPC URL for the renec cluster
     -p, --pubkey <PUBKEY>    Public key of the update manifest
 EOF
 }
@@ -117,7 +117,7 @@ main() {
 
     if [ -z "$1" ]; then
       #shellcheck disable=SC2086
-      ignore "$renec_install_init" $SOLANA_INSTALL_INIT_ARGS
+      ignore "$renec_install_init" $renec_install_INIT_ARGS
     else
       ignore "$renec_install_init" "$@"
     fi

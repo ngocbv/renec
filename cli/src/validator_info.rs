@@ -7,17 +7,17 @@ use {
     clap::{App, AppSettings, Arg, ArgMatches, SubCommand},
     reqwest::blocking::Client,
     serde_json::{Map, Value},
-    renec_account_decoder::validator_info::{
+    solana_account_decoder::validator_info::{
         self, ValidatorInfo, MAX_LONG_FIELD_LENGTH, MAX_SHORT_FIELD_LENGTH,
     },
-    renec_clap_utils::{
+    solana_clap_utils::{
         input_parsers::pubkey_of,
         input_validators::{is_pubkey, is_url},
         keypair::DefaultSigner,
     },
     renec_cli_output::{CliValidatorInfo, CliValidatorInfoVec},
-    renec_client::rpc_client::RpcClient,
-    renec_config_program::{config_instruction, get_config_data, ConfigKeys, ConfigState},
+    solana_client::rpc_client::RpcClient,
+    solana_config_program::{config_instruction, get_config_data, ConfigKeys, ConfigState},
     solana_remote_wallet::remote_wallet::RemoteWalletManager,
     solana_sdk::{
         account::Account,
@@ -115,7 +115,7 @@ fn parse_validator_info(
     pubkey: &Pubkey,
     account: &Account,
 ) -> Result<(Pubkey, Map<String, serde_json::value::Value>), Box<dyn error::Error>> {
-    if account.owner != renec_config_program::id() {
+    if account.owner != solana_config_program::id() {
         return Err(format!("{} is not a validator info account", pubkey).into());
     }
     let key_list: ConfigKeys = deserialize(&account.data)?;
@@ -264,7 +264,7 @@ pub fn process_set_validator_info(
         info: validator_string,
     };
     // Check for existing validator-info account
-    let all_config = rpc_client.get_program_accounts(&renec_config_program::id())?;
+    let all_config = rpc_client.get_program_accounts(&solana_config_program::id())?;
     let existing_account = all_config
         .iter()
         .filter(
@@ -377,7 +377,7 @@ pub fn process_get_validator_info(
             rpc_client.get_account(&validator_info_pubkey)?,
         )]
     } else {
-        let all_config = rpc_client.get_program_accounts(&renec_config_program::id())?;
+        let all_config = rpc_client.get_program_accounts(&solana_config_program::id())?;
         all_config
             .into_iter()
             .filter(|(_, validator_info_account)| {
@@ -501,7 +501,7 @@ mod tests {
             parse_validator_info(
                 &Pubkey::default(),
                 &Account {
-                    owner: renec_config_program::id(),
+                    owner: solana_config_program::id(),
                     data,
                     ..Account::default()
                 }

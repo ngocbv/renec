@@ -1,6 +1,6 @@
 #![allow(clippy::integer_arithmetic)]
 use {
-    renec_ledger::{
+    solana_ledger::{
         entry::Entry,
         shred::{
             max_entries_per_n_shred, verify_test_data_shred, Shred, Shredder,

@@ -14,15 +14,15 @@ use {
     crossbeam_channel::{Receiver, RecvTimeoutError, SendError, Sender},
     rayon::prelude::*,
     serde::Serialize,
-    renec_account_decoder::{parse_token::spl_token_id, UiAccount, UiAccountEncoding},
-    renec_client::{
+    solana_account_decoder::{parse_token::spl_token_id, UiAccount, UiAccountEncoding},
+    solana_client::{
         rpc_filter::RpcFilterType,
         rpc_response::{
             ProcessedSignatureResult, ReceivedSignatureResult, Response, RpcKeyedAccount,
             RpcLogsResponse, RpcResponseContext, RpcSignatureResult, RpcVote, SlotInfo, SlotUpdate,
         },
     },
-    renec_measure::measure::Measure,
+    solana_measure::measure::Measure,
     solana_rayon_threadlimit::get_thread_count,
     solana_runtime::{
         bank::{Bank, TransactionLogInfo},
@@ -37,7 +37,7 @@ use {
         timing::timestamp,
         transaction,
     },
-    renec_vote_program::vote_state::Vote,
+    solana_vote_program::vote_state::Vote,
     std::{
         cell::RefCell,
         collections::{HashMap, VecDeque},
@@ -1008,7 +1008,7 @@ pub(crate) mod tests {
             rpc_pubsub_service,
         },
         serial_test::serial,
-        renec_client::rpc_config::{
+        solana_client::rpc_config::{
             RpcAccountInfoConfig, RpcProgramAccountsConfig, RpcSignatureSubscribeConfig,
             RpcTransactionLogsFilter,
         },

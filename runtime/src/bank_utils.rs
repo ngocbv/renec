@@ -6,7 +6,7 @@ use {
         vote_sender_types::ReplayVoteSender,
     },
     solana_sdk::{pubkey::Pubkey, signature::Signer},
-    renec_vote_program::vote_transaction,
+    solana_vote_program::vote_transaction,
 };
 
 pub fn setup_bank_and_vote_pubkeys(num_vote_accounts: usize, stake: u64) -> (Bank, Vec<Pubkey>) {

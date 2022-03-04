@@ -1,6 +1,6 @@
 use {
     crossbeam_channel::{Receiver, RecvTimeoutError, Sender},
-    renec_ledger::{
+    solana_ledger::{
         blockstore::{Blockstore, CompletedDataSetInfo},
         entry::Entry,
     },

@@ -9,15 +9,15 @@ use {
     bip39::{Language, Mnemonic, MnemonicType, Seed},
     clap::{App, AppSettings, Arg, ArgMatches, SubCommand},
     log::*,
-    renec_account_decoder::{UiAccountEncoding, UiDataSliceConfig},
-    renec_bpf_loader_program::{syscalls::register_syscalls, BpfError, ThisInstructionMeter},
-    renec_clap_utils::{self, input_parsers::*, input_validators::*, keypair::*},
+    solana_account_decoder::{UiAccountEncoding, UiDataSliceConfig},
+    solana_bpf_loader_program::{syscalls::register_syscalls, BpfError, ThisInstructionMeter},
+    solana_clap_utils::{self, input_parsers::*, input_validators::*, keypair::*},
     renec_cli_output::{
         CliProgram, CliProgramAccountType, CliProgramAuthority, CliProgramBuffer, CliProgramId,
         CliUpgradeableBuffer, CliUpgradeableBuffers, CliUpgradeableProgram,
         CliUpgradeableProgramClosed, CliUpgradeablePrograms,
     },
-    renec_client::{
+    solana_client::{
         client_error::ClientErrorKind,
         rpc_client::RpcClient,
         rpc_config::{RpcAccountInfoConfig, RpcProgramAccountsConfig, RpcSendTransactionConfig},
@@ -165,7 +165,7 @@ impl ProgramSubCommands for App<'_, '_> {
                             Arg::with_name("allow_excessive_balance")
                                 .long("allow-excessive-deploy-account-balance")
                                 .takes_value(false)
-                                .help("Use the designated program id even if the account already holds a large balance of SOL")
+                                .help("Use the designated program id even if the account already holds a large balance of RENEC")
                         ),
                 )
                 .subcommand(
@@ -309,7 +309,7 @@ impl ProgramSubCommands for App<'_, '_> {
                             Arg::with_name("lamports")
                                 .long("lamports")
                                 .takes_value(false)
-                                .help("Display balance in lamports instead of SOL"),
+                                .help("Display balance in lamports instead of RENEC"),
                         ),
                 )
                 .subcommand(
@@ -369,7 +369,7 @@ impl ProgramSubCommands for App<'_, '_> {
                             Arg::with_name("lamports")
                                 .long("lamports")
                                 .takes_value(false)
-                                .help("Display balance in lamports instead of SOL"),
+                                .help("Display balance in lamports instead of RENEC"),
                         ),
                 )
         )
@@ -404,7 +404,7 @@ impl ProgramSubCommands for App<'_, '_> {
                     Arg::with_name("allow_excessive_balance")
                         .long("allow-excessive-deploy-account-balance")
                         .takes_value(false)
-                        .help("Use the designated program id, even if the account already holds a large balance of SOL")
+                        .help("Use the designated program id, even if the account already holds a large balance of RENEC")
                 ),
         )
     }
@@ -2983,7 +2983,7 @@ mod tests {
 
     #[test]
     fn test_cli_keypair_file() {
-        renec_logger::setup();
+        solana_logger::setup();
 
         let default_keypair = Keypair::new();
         let program_pubkey = Keypair::new();

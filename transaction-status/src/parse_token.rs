@@ -3,7 +3,7 @@ use {
         check_num_accounts, ParsableProgram, ParseInstructionError, ParsedInstructionEnum,
     },
     serde_json::{json, Map, Value},
-    renec_account_decoder::parse_token::{pubkey_from_spl_token, token_amount_to_ui_amount},
+    solana_account_decoder::parse_token::{pubkey_from_spl_token, token_amount_to_ui_amount},
     solana_sdk::{
         instruction::{AccountMeta, CompiledInstruction, Instruction},
         pubkey::Pubkey,

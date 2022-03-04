@@ -13,8 +13,8 @@ use {
     jsonrpc_core::{Error, ErrorCode, Result},
     jsonrpc_derive::rpc,
     jsonrpc_pubsub::{typed::Subscriber, SubscriptionId as PubSubSubscriptionId},
-    renec_account_decoder::{UiAccount, UiAccountEncoding},
-    renec_client::{
+    solana_account_decoder::{UiAccount, UiAccountEncoding},
+    solana_client::{
         rpc_config::{
             RpcAccountInfoConfig, RpcProgramAccountsConfig, RpcSignatureSubscribeConfig,
             RpcTransactionLogsConfig, RpcTransactionLogsFilter,
@@ -508,8 +508,8 @@ mod tests {
         },
         jsonrpc_core::{IoHandler, Response},
         serial_test::serial,
-        renec_account_decoder::{parse_account_data::parse_account_data, UiAccountEncoding},
-        renec_client::rpc_response::{
+        solana_account_decoder::{parse_account_data::parse_account_data, UiAccountEncoding},
+        solana_client::rpc_response::{
             ProcessedSignatureResult, ReceivedSignatureResult, RpcSignatureResult, SlotInfo,
         },
         solana_runtime::{
@@ -536,8 +536,8 @@ mod tests {
             system_instruction, system_program, system_transaction,
             transaction::{self, Transaction},
         },
-        renec_stake_program::stake_state,
-        renec_vote_program::vote_state::Vote,
+        solana_stake_program::stake_state,
+        solana_vote_program::vote_state::Vote,
         std::{
             sync::{atomic::AtomicBool, RwLock},
             thread::sleep,

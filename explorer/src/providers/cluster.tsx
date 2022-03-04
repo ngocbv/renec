@@ -19,9 +19,7 @@ export enum Cluster {
 }
 
 export const CLUSTERS = [
-  Cluster.MainnetBeta,
   Cluster.Testnet,
-  Cluster.Devnet,
   Cluster.Custom,
 ];
 
@@ -52,7 +50,7 @@ export function clusterName(cluster: Cluster): string {
 }
 
 export const MAINNET_BETA_URL = clusterApiUrl("mainnet-beta");
-export const TESTNET_URL = clusterApiUrl("testnet");
+export const TESTNET_URL = "http://54.163.176.84:8899";
 export const DEVNET_URL = clusterApiUrl("devnet");
 
 export function clusterUrl(cluster: Cluster, customUrl: string): string {
@@ -68,7 +66,7 @@ export function clusterUrl(cluster: Cluster, customUrl: string): string {
   }
 }
 
-export const DEFAULT_CLUSTER = Cluster.MainnetBeta;
+export const DEFAULT_CLUSTER = Cluster.Testnet;
 
 interface State {
   cluster: Cluster;

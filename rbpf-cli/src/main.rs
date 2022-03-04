@@ -1,7 +1,7 @@
 use clap::{crate_version, App, Arg};
 use serde::{Deserialize, Serialize};
 use serde_json::Result;
-use renec_bpf_loader_program::{
+use solana_bpf_loader_program::{
     create_vm, serialization::serialize_parameters, syscalls::register_syscalls, BpfError,
     ThisInstructionMeter,
 };
@@ -43,7 +43,7 @@ fn load_accounts(path: &Path) -> Result<Input> {
 }
 
 fn main() {
-    renec_logger::setup();
+    solana_logger::setup();
     let matches = App::new("Solana BPF CLI")
         .version(crate_version!())
         .author("Solana Maintainers <maintainers@solana.foundation>")

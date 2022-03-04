@@ -2,7 +2,7 @@ use {
     crate::{broadcast_stage::BroadcastStage, retransmit_stage::RetransmitStage},
     itertools::Itertools,
     lru::LruCache,
-    renec_gossip::{
+    solana_gossip::{
         cluster_info::{compute_retransmit_peers, ClusterInfo},
         contact_info::ContactInfo,
         crds_gossip_pull::CRDS_GOSSIP_PULL_CRDS_TIMEOUT_MS,
@@ -174,7 +174,7 @@ fn new_cluster_nodes<T: 'static>(
     //   * nodes which do not have contact-info are excluded.
     //   * stakes are floored at 1.
     // The sorting key here should be equivalent to
-    // renec_gossip::deprecated::sorted_stakes_with_index.
+    // solana_gossip::deprecated::sorted_stakes_with_index.
     // Leader itself is excluded when sampling broadcast peers.
     let index = nodes
         .iter()
@@ -317,7 +317,7 @@ mod tests {
     use {
         super::*,
         rand::{seq::SliceRandom, Rng},
-        renec_gossip::{
+        solana_gossip::{
             crds::GossipRoute,
             crds_value::{CrdsData, CrdsValue},
             deprecated::{

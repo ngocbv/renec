@@ -65,8 +65,8 @@ use {
         ThreadPool,
     },
     serde::{Deserialize, Deserializer, Serialize, Serializer},
-    renec_measure::measure::Measure,
-    renec_perf::packet::{limited_deserialize, Packet},
+    solana_measure::measure::Measure,
+    solana_perf::packet::{limited_deserialize, Packet},
     solana_rayon_threadlimit::get_thread_count,
     solana_runtime::bank::Bank,
     solana_sdk::{
@@ -1862,7 +1862,7 @@ pub mod tests {
 
     #[test]
     fn test_shred_offsets() {
-        renec_logger::setup();
+        solana_logger::setup();
         let mut packet = Packet::default();
         let shred = Shred::new_from_data(1, 3, 0, None, true, true, 0, 0, 0);
         shred.copy_to_packet(&mut packet);

@@ -57,7 +57,7 @@ pub fn build_balance_message_with_config(
             let ess = if lamports == 1 { "" } else { "s" };
             format!(" lamport{}", ess)
         } else {
-            " SOL".to_string()
+            " RENEC".to_string()
         }
     } else {
         "".to_string()
@@ -235,9 +235,9 @@ pub fn write_transaction<W: io::Write>(
         }
 
         let mut raw = true;
-        if program_pubkey == renec_vote_program::id() {
+        if program_pubkey == solana_vote_program::id() {
             if let Ok(vote_instruction) = limited_deserialize::<
-                renec_vote_program::vote_instruction::VoteInstruction,
+                solana_vote_program::vote_instruction::VoteInstruction,
             >(&instruction.data)
             {
                 writeln!(w, "{}  {:?}", prefix, vote_instruction)?;

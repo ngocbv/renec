@@ -677,7 +677,7 @@ mod tests {
 
     #[test]
     fn test_get_public_ip_addr_none() {
-        renec_logger::setup();
+        solana_logger::setup();
         let ip_addr = IpAddr::V4(Ipv4Addr::new(0, 0, 0, 0));
         let (_server_port, (server_udp_socket, server_tcp_listener)) =
             bind_common_in_range(ip_addr, (3200, 3250)).unwrap();
@@ -695,7 +695,7 @@ mod tests {
 
     #[test]
     fn test_get_public_ip_addr_reachable() {
-        renec_logger::setup();
+        solana_logger::setup();
         let ip_addr = IpAddr::V4(Ipv4Addr::new(0, 0, 0, 0));
         let (_server_port, (server_udp_socket, server_tcp_listener)) =
             bind_common_in_range(ip_addr, (3200, 3250)).unwrap();
@@ -719,7 +719,7 @@ mod tests {
 
     #[test]
     fn test_get_public_ip_addr_tcp_unreachable() {
-        renec_logger::setup();
+        solana_logger::setup();
         let ip_addr = IpAddr::V4(Ipv4Addr::new(0, 0, 0, 0));
         let (_server_port, (server_udp_socket, _server_tcp_listener)) =
             bind_common_in_range(ip_addr, (3200, 3250)).unwrap();
@@ -742,7 +742,7 @@ mod tests {
 
     #[test]
     fn test_get_public_ip_addr_udp_unreachable() {
-        renec_logger::setup();
+        solana_logger::setup();
         let ip_addr = IpAddr::V4(Ipv4Addr::new(0, 0, 0, 0));
         let (_server_port, (server_udp_socket, _server_tcp_listener)) =
             bind_common_in_range(ip_addr, (3200, 3250)).unwrap();

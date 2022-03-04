@@ -14,15 +14,15 @@ use {
         Sender as CrossbeamSender,
     },
     log::*,
-    renec_gossip::{
+    solana_gossip::{
         cluster_info::{ClusterInfo, GOSSIP_SLEEP_MILLIS},
         crds::Cursor,
     },
-    renec_ledger::blockstore::Blockstore,
-    renec_measure::measure::Measure,
+    solana_ledger::blockstore::Blockstore,
+    solana_measure::measure::Measure,
     solana_metrics::inc_new_counter_debug,
-    renec_perf::packet::{self, PacketBatch},
-    renec_poh::poh_recorder::PohRecorder,
+    solana_perf::packet::{self, PacketBatch},
+    solana_poh::poh_recorder::PohRecorder,
     solana_rpc::{
         optimistically_confirmed_bank_tracker::{BankNotification, BankNotificationSender},
         rpc_subscriptions::RpcSubscriptions,
@@ -42,7 +42,7 @@ use {
         slot_hashes,
         transaction::Transaction,
     },
-    renec_vote_program::{self, vote_state::Vote, vote_transaction},
+    solana_vote_program::{self, vote_state::Vote, vote_transaction},
     std::{
         collections::{HashMap, HashSet},
         iter::repeat,
@@ -808,7 +808,7 @@ impl ClusterInfoVoteListener {
 mod tests {
     use {
         super::*,
-        renec_perf::packet,
+        solana_perf::packet,
         solana_rpc::optimistically_confirmed_bank_tracker::OptimisticallyConfirmedBank,
         solana_runtime::{
             bank::Bank,
@@ -823,13 +823,13 @@ mod tests {
             pubkey::Pubkey,
             signature::{Keypair, Signature, Signer},
         },
-        renec_vote_program::vote_state::Vote,
+        solana_vote_program::vote_state::Vote,
         std::{collections::BTreeSet, iter::repeat_with, sync::Arc},
     };
 
     #[test]
     fn test_max_vote_tx_fits() {
-        renec_logger::setup();
+        solana_logger::setup();
         let node_keypair = Keypair::new();
         let vote_keypair = Keypair::new();
         let slots: Vec<_> = (0..31).collect();
@@ -1492,7 +1492,7 @@ mod tests {
 
     #[test]
     fn test_verify_votes_empty() {
-        renec_logger::setup();
+        solana_logger::setup();
         let GenesisConfigInfo { genesis_config, .. } = create_genesis_config(10_000);
         let bank = Bank::new(&genesis_config);
         let bank_forks = RwLock::new(BankForks::new(bank));

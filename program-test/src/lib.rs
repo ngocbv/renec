@@ -2,15 +2,15 @@
 #![allow(clippy::integer_arithmetic)]
 
 // Export types so test clients can limit their solana crate dependencies
-pub use renec_banks_client::BanksClient;
+pub use solana_banks_client::BanksClient;
 // Export tokio for test clients
 pub use tokio;
 use {
     async_trait::async_trait,
     chrono_humanize::{Accuracy, HumanTime, Tense},
     log::*,
-    renec_banks_client::start_client,
-    renec_banks_server::banks_server::start_local_server,
+    solana_banks_client::start_client,
+    solana_banks_server::banks_server::start_local_server,
     solana_runtime::{
         bank::{Bank, Builtin},
         bank_forks::BankForks,
@@ -45,7 +45,7 @@ use {
             rent, Sysvar,
         },
     },
-    renec_vote_program::vote_state::{VoteState, VoteStateVersions},
+    solana_vote_program::vote_state::{VoteState, VoteStateVersions},
     std::{
         cell::RefCell,
         collections::HashMap,
@@ -68,7 +68,7 @@ use {
 pub mod programs;
 
 #[macro_use]
-extern crate renec_bpf_loader_program;
+extern crate solana_bpf_loader_program;
 
 /// Errors from the program test environment
 #[derive(Error, Debug, PartialEq)]
@@ -478,7 +478,7 @@ impl Default for ProgramTest {
     /// * the current working directory
     ///
     fn default() -> Self {
-        renec_logger::setup_with_default(
+        solana_logger::setup_with_default(
             "solana_rbpf::vm=debug,\
              solana_runtime::message_processor=debug,\
              solana_runtime::system_instruction_processor=trace,\
@@ -771,7 +771,7 @@ impl ProgramTest {
             add_builtin!(solana_bpf_loader_program_with_jit!());
             add_builtin!(solana_bpf_loader_upgradeable_program_with_jit!());
         } else {
-            add_builtin!(renec_bpf_loader_program!());
+            add_builtin!(solana_bpf_loader_program!());
             add_builtin!(solana_bpf_loader_upgradeable_program!());
         }
 
@@ -856,7 +856,7 @@ impl ProgramTest {
     /// Start the test client
     ///
     /// Returns a `BanksClient` interface into the test environment as well as a payer `Keypair`
-    /// with SOL for sending transactions
+    /// with RENEC for sending transactions
     pub async fn start_with_context(self) -> ProgramTestContext {
         let (bank_forks, block_commitment_cache, last_blockhash, gci) = self.setup_bank();
         let target_tick_duration = gci.genesis_config.poh_config.target_tick_duration;

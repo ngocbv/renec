@@ -8,17 +8,17 @@ use {
     log::*,
     rand::{thread_rng, Rng},
     rayon::prelude::*,
-    renec_core::banking_stage::{BankingStage, BankingStageStats},
-    renec_gossip::cluster_info::{ClusterInfo, Node},
-    renec_ledger::{
+    solana_core::banking_stage::{BankingStage, BankingStageStats},
+    solana_gossip::cluster_info::{ClusterInfo, Node},
+    solana_ledger::{
         blockstore::Blockstore,
         blockstore_processor::process_entries,
         entry::{next_hash, Entry},
         genesis_utils::{create_genesis_config, GenesisConfigInfo},
         get_tmp_ledger_path,
     },
-    renec_perf::{packet::to_packet_batches, test_tx::test_tx},
-    renec_poh::poh_recorder::{create_test_recorder, WorkingBankEntry},
+    solana_perf::{packet::to_packet_batches, test_tx::test_tx},
+    solana_poh::poh_recorder::{create_test_recorder, WorkingBankEntry},
     solana_runtime::{bank::Bank, cost_model::CostModel},
     solana_sdk::{
         genesis_config::GenesisConfig,
@@ -143,7 +143,7 @@ enum TransactionType {
 }
 
 fn bench_banking(bencher: &mut Bencher, tx_type: TransactionType) {
-    renec_logger::setup();
+    solana_logger::setup();
     let num_threads = BankingStage::num_threads() as usize;
     //   a multiple of packet chunk duplicates to avoid races
     const CHUNKS: usize = 8;

@@ -1,6 +1,6 @@
 use {
     clap::ArgMatches,
-    renec_clap_utils::keypair::{pubkey_from_path, signer_from_path},
+    solana_clap_utils::keypair::{pubkey_from_path, signer_from_path},
     solana_remote_wallet::remote_wallet::RemoteWalletManager,
     solana_sdk::{
         clock::{Epoch, UnixTimestamp},

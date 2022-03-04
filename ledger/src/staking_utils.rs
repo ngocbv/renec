@@ -73,7 +73,7 @@ pub(crate) mod tests {
             sysvar::stake_history::{self, StakeHistory},
             transaction::Transaction,
         },
-        renec_vote_program::{
+        solana_vote_program::{
             vote_instruction,
             vote_state::{VoteInit, VoteState, VoteStateVersions},
         },
@@ -137,7 +137,7 @@ pub(crate) mod tests {
 
     #[test]
     fn test_epoch_stakes_and_lockouts() {
-        renec_logger::setup();
+        solana_logger::setup();
         let stake = bootstrap_validator_stake_lamports();
         let leader_stake = Stake {
             delegation: Delegation {

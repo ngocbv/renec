@@ -1,5 +1,5 @@
 use {
-    renec_account_decoder::parse_token::real_number_string_trimmed,
+    solana_account_decoder::parse_token::real_number_string_trimmed,
     solana_sdk::native_token::lamports_to_sol,
     std::{
         fmt::{Debug, Display, Formatter, Result},

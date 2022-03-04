@@ -4,7 +4,7 @@ use {
         validator_info::*, vote::*, wallet::*,
     },
     clap::{App, AppSettings, Arg, ArgGroup, SubCommand},
-    renec_clap_utils::{self, input_validators::*, keypair::*},
+    solana_clap_utils::{self, input_validators::*, keypair::*},
     renec_cli_config::CONFIG_FILE,
 };
 

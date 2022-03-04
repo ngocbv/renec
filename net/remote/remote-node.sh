@@ -266,13 +266,13 @@ EOF
 
       if [[ -n "$maybeWarpSlot" ]]; then
         # shellcheck disable=SC2086 # Do not want to quote $maybeWarSlot
-        renec-ledger-tool -l config/bootstrap-validator create-snapshot 0 config/bootstrap-validator $maybeWarpSlot
+        solana-ledger-tool -l config/bootstrap-validator create-snapshot 0 config/bootstrap-validator $maybeWarpSlot
       fi
 
-      renec-ledger-tool -l config/bootstrap-validator shred-version --max-genesis-archive-unpacked-size 1073741824 | tee config/shred-version
+      solana-ledger-tool -l config/bootstrap-validator shred-version --max-genesis-archive-unpacked-size 1073741824 | tee config/shred-version
 
       if [[ -n "$maybeWaitForSupermajority" ]]; then
-        bankHash=$(renec-ledger-tool -l config/bootstrap-validator bank-hash)
+        bankHash=$(solana-ledger-tool -l config/bootstrap-validator bank-hash)
         extraNodeArgs="$extraNodeArgs --expected-bank-hash $bankHash"
         echo "$bankHash" > config/bank-hash
       fi

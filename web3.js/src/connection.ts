@@ -428,13 +428,13 @@ const SignatureReceivedResult = literal('receivedSignature');
  * Version info for a node
  */
 export type Version = {
-  /** Version of renec-core */
-  'renec-core': string;
+  /** Version of solana-core */
+  'solana-core': string;
   'feature-set'?: number;
 };
 
 const VersionResult = pick({
-  'renec-core': string(),
+  'solana-core': string(),
   'feature-set': optional(number()),
 });
 

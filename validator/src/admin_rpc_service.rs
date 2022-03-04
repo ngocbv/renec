@@ -6,8 +6,8 @@ use {
     jsonrpc_server_utils::tokio,
     log::*,
     serde::{Deserialize, Serialize},
-    renec_core::validator::ValidatorStartProgress,
-    renec_gossip::{cluster_info::ClusterInfo, contact_info::ContactInfo},
+    solana_core::validator::ValidatorStartProgress,
+    solana_gossip::{cluster_info::ClusterInfo, contact_info::ContactInfo},
     solana_sdk::{
         exit::Exit,
         signature::{read_keypair_file, Keypair, Signer},
@@ -165,7 +165,7 @@ impl AdminRpc for AdminRpcImpl {
 
     fn set_log_filter(&self, filter: String) -> Result<()> {
         debug!("set_log_filter admin rpc request received");
-        renec_logger::setup_with(&filter);
+        solana_logger::setup_with(&filter);
         Ok(())
     }
 

@@ -17,7 +17,7 @@ use {
         syscalls::SyscallError,
     },
     log::{log_enabled, trace, Level::Trace},
-    renec_measure::measure::Measure,
+    solana_measure::measure::Measure,
     solana_rbpf::{
         aligned_memory::AlignedMemory,
         ebpf::HOST_ALIGN,
@@ -61,8 +61,8 @@ use {
 
 solana_sdk::declare_builtin!(
     solana_sdk::bpf_loader::ID,
-    renec_bpf_loader_program,
-    renec_bpf_loader_program::process_instruction
+    solana_bpf_loader_program,
+    solana_bpf_loader_program::process_instruction
 );
 
 /// Errors returned by functions the BPF Loader registers with the VM

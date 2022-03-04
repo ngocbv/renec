@@ -1,8 +1,8 @@
 use {
     clap::{crate_description, crate_name, values_t, App, Arg},
     log::*,
-    renec_clap_utils::input_parsers::{lamports_of_sol, value_of},
-    renec_faucet::{
+    solana_clap_utils::input_parsers::{lamports_of_sol, value_of},
+    solana_faucet::{
         faucet::{run_faucet, Faucet, FAUCET_PORT},
         socketaddr,
     },
@@ -19,11 +19,11 @@ use {
 async fn main() {
     let default_keypair = renec_cli_config::Config::default().keypair_path;
 
-    renec_logger::setup_with_default("solana=info");
+    solana_logger::setup_with_default("solana=info");
     solana_metrics::set_panic_hook("faucet");
     let matches = App::new(crate_name!())
         .about(crate_description!())
-        .version(renec_version::version!())
+        .version(solana_version::version!())
         .arg(
             Arg::with_name("keypair")
                 .short("k")
@@ -47,14 +47,14 @@ async fn main() {
                 .alias("cap")
                 .value_name("NUM")
                 .takes_value(true)
-                .help("Request limit for time slice, in SOL"),
+                .help("Request limit for time slice, in RENEC"),
         )
         .arg(
             Arg::with_name("per_request_cap")
                 .long("per-request-cap")
                 .value_name("NUM")
                 .takes_value(true)
-                .help("Request limit for a single request, in SOL"),
+                .help("Request limit for a single request, in RENEC"),
         )
         .arg(
             Arg::with_name("allowed_ip")

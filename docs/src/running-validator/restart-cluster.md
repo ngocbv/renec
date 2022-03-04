@@ -16,11 +16,11 @@ Call this slot `SLOT_X`
 ### Step 4. Create a new snapshot for slot `SLOT_X` with a hard fork at slot `SLOT_X`
 
 ```bash
-$ renec-ledger-tool -l ledger create-snapshot SLOT_X ledger --hard-fork SLOT_X
+$ solana-ledger-tool -l ledger create-snapshot SLOT_X ledger --hard-fork SLOT_X
 ```
 
 The ledger directory should now contain the new snapshot.
-`renec-ledger-tool create-snapshot` will also output the new shred version, and bank hash value,
+`solana-ledger-tool create-snapshot` will also output the new shred version, and bank hash value,
 call this NEW_SHRED_VERSION and NEW_BANK_HASH respectively.
 
 Adjust your validator's arguments:
@@ -75,7 +75,7 @@ Post something like the following to #announcements (adjusting the text as appro
 >   ...                                # <-- your other --identity/--vote-account/etc arguments
 > ```
 >
->      You can check for which slots your ledger has with: `renec-ledger-tool -l path/to/ledger bounds`
+>      You can check for which slots your ledger has with: `solana-ledger-tool -l path/to/ledger bounds`
 >
 > 3. Wait until 80% of the stake comes online
 >
@@ -102,7 +102,7 @@ and create a new snapshot with additional `--destake-vote-account <PUBKEY>`
 arguments for each of the non-responsive validator's vote account address
 
 ```bash
-$ renec-ledger-tool -l ledger create-snapshot SLOT_X ledger --hard-fork SLOT_X \
+$ solana-ledger-tool -l ledger create-snapshot SLOT_X ledger --hard-fork SLOT_X \
     --destake-vote-account <VOTE_ACCOUNT_1> \
     --destake-vote-account <VOTE_ACCOUNT_2> \
     .

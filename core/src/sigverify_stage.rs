@@ -9,9 +9,9 @@ use {
     crate::sigverify,
     crossbeam_channel::{SendError, Sender as CrossbeamSender},
     itertools::Itertools,
-    renec_measure::measure::Measure,
-    renec_perf::packet::PacketBatch,
-    renec_perf::sigverify::Deduper,
+    solana_measure::measure::Measure,
+    solana_perf::packet::PacketBatch,
+    solana_perf::sigverify::Deduper,
     solana_sdk::timing,
     solana_streamer::streamer::{self, PacketBatchReceiver, StreamerError},
     std::{
@@ -350,7 +350,7 @@ impl SigVerifyStage {
 
 #[cfg(test)]
 mod tests {
-    use {super::*, renec_perf::packet::Packet};
+    use {super::*, solana_perf::packet::Packet};
 
     fn count_non_discard(packet_batches: &[PacketBatch]) -> usize {
         packet_batches
@@ -367,7 +367,7 @@ mod tests {
 
     #[test]
     fn test_packet_discard() {
-        renec_logger::setup();
+        solana_logger::setup();
         let mut batch = PacketBatch::default();
         batch.packets.resize(10, Packet::default());
         batch.packets[3].meta.addr = [1u16; 8];

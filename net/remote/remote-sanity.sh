@@ -63,8 +63,8 @@ case $deployMethod in
 local|tar|skip)
   PATH="$HOME"/.cargo/bin:"$PATH"
   export USE_INSTALL=1
-  solana_cli=solana
-  renec_gossip=renec-gossip
+  renec_cli=solana
+  solana_gossip=solana-gossip
   renec_install=renec-install
   ;;
 *)
@@ -85,7 +85,7 @@ fi
 echo "--- $sanityTargetIp: validators"
 (
   set -x
-  $solana_cli --url http://"$sanityTargetIp":8899 validators
+  $renec_cli --url http://"$sanityTargetIp":8899 validators
 )
 
 echo "--- $sanityTargetIp: node count ($numSanityNodes expected)"
@@ -97,7 +97,7 @@ echo "--- $sanityTargetIp: node count ($numSanityNodes expected)"
     nodeArg="num-nodes-exactly"
   fi
 
-  $renec_gossip --allow-private-addr spy --entrypoint "$sanityTargetIp:8001" \
+  $solana_gossip --allow-private-addr spy --entrypoint "$sanityTargetIp:8001" \
     --$nodeArg "$numSanityNodes" --timeout 60 \
 )
 

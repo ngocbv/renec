@@ -1,18 +1,18 @@
 use {
-    solana_cli::{
+    renec_cli::{
         cli::{process_command, request_and_confirm_airdrop, CliCommand, CliConfig},
         spend_utils::SpendAmount,
         stake::StakeAuthorizationIndexed,
         test_utils::{check_ready, check_recent_balance},
     },
     renec_cli_output::{parse_sign_only_reply_string, OutputFormat},
-    renec_client::{
+    solana_client::{
         blockhash_query::{self, BlockhashQuery},
         nonce_utils,
         rpc_client::RpcClient,
     },
-    renec_core::test_validator::TestValidator,
-    renec_faucet::faucet::run_local_faucet,
+    solana_core::test_validator::TestValidator,
+    solana_faucet::faucet::run_local_faucet,
     solana_sdk::{
         account_utils::StateMut,
         commitment_config::CommitmentConfig,
@@ -126,7 +126,7 @@ fn test_stake_delegation_force() {
 
 #[test]
 fn test_seed_stake_delegation_and_deactivation() {
-    renec_logger::setup();
+    solana_logger::setup();
 
     let mint_keypair = Keypair::new();
     let mint_pubkey = mint_keypair.pubkey();
@@ -213,7 +213,7 @@ fn test_seed_stake_delegation_and_deactivation() {
 
 #[test]
 fn test_stake_delegation_and_deactivation() {
-    renec_logger::setup();
+    solana_logger::setup();
 
     let mint_keypair = Keypair::new();
     let mint_pubkey = mint_keypair.pubkey();
@@ -296,7 +296,7 @@ fn test_stake_delegation_and_deactivation() {
 
 #[test]
 fn test_offline_stake_delegation_and_deactivation() {
-    renec_logger::setup();
+    solana_logger::setup();
 
     let mint_keypair = Keypair::new();
     let mint_pubkey = mint_keypair.pubkey();
@@ -440,7 +440,7 @@ fn test_offline_stake_delegation_and_deactivation() {
 
 #[test]
 fn test_nonced_stake_delegation_and_deactivation() {
-    renec_logger::setup();
+    solana_logger::setup();
 
     let mint_keypair = Keypair::new();
     let mint_pubkey = mint_keypair.pubkey();
@@ -558,7 +558,7 @@ fn test_nonced_stake_delegation_and_deactivation() {
 
 #[test]
 fn test_stake_authorize() {
-    renec_logger::setup();
+    solana_logger::setup();
 
     let mint_keypair = Keypair::new();
     let mint_pubkey = mint_keypair.pubkey();
@@ -872,7 +872,7 @@ fn test_stake_authorize() {
 
 #[test]
 fn test_stake_authorize_with_fee_payer() {
-    renec_logger::setup();
+    solana_logger::setup();
     const SIG_FEE: u64 = 42;
 
     let mint_keypair = Keypair::new();
@@ -1026,7 +1026,7 @@ fn test_stake_authorize_with_fee_payer() {
 
 #[test]
 fn test_stake_split() {
-    renec_logger::setup();
+    solana_logger::setup();
 
     let mint_keypair = Keypair::new();
     let mint_pubkey = mint_keypair.pubkey();
@@ -1175,7 +1175,7 @@ fn test_stake_split() {
 
 #[test]
 fn test_stake_set_lockup() {
-    renec_logger::setup();
+    solana_logger::setup();
 
     let mint_keypair = Keypair::new();
     let mint_pubkey = mint_keypair.pubkey();
@@ -1446,7 +1446,7 @@ fn test_stake_set_lockup() {
 
 #[test]
 fn test_offline_nonced_create_stake_account_and_withdraw() {
-    renec_logger::setup();
+    solana_logger::setup();
 
     let mint_keypair = Keypair::new();
     let mint_pubkey = mint_keypair.pubkey();
@@ -1671,7 +1671,7 @@ fn test_offline_nonced_create_stake_account_and_withdraw() {
 
 #[test]
 fn test_stake_checked_instructions() {
-    renec_logger::setup();
+    solana_logger::setup();
 
     let mint_keypair = Keypair::new();
     let mint_pubkey = mint_keypair.pubkey();

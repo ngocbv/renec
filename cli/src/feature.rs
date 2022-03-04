@@ -6,9 +6,9 @@ use {
     clap::{App, AppSettings, Arg, ArgMatches, SubCommand},
     console::style,
     serde::{Deserialize, Deserializer, Serialize, Serializer},
-    renec_clap_utils::{input_parsers::*, input_validators::*, keypair::*},
+    solana_clap_utils::{input_parsers::*, input_validators::*, keypair::*},
     renec_cli_output::{QuietDisplay, VerboseDisplay},
-    renec_client::{client_error::ClientError, rpc_client::RpcClient},
+    solana_client::{client_error::ClientError, rpc_client::RpcClient},
     solana_remote_wallet::remote_wallet::RemoteWalletManager,
     solana_sdk::{
         account::Account,
@@ -564,7 +564,7 @@ fn feature_activation_allowed(
     rpc_client: &RpcClient,
     quiet: bool,
 ) -> Result<(bool, Option<CliClusterFeatureSets>), ClientError> {
-    let my_feature_set = renec_version::Version::default().feature_set;
+    let my_feature_set = solana_version::Version::default().feature_set;
 
     let feature_set_stats = feature_set_stats(rpc_client)?;
 

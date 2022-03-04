@@ -8,7 +8,7 @@ use {
     std::{io::Result, net::UdpSocket, time::Instant},
 };
 pub use {
-    renec_perf::packet::{
+    solana_perf::packet::{
         limited_deserialize, to_packet_batches, PacketBatch, PacketBatchRecycler, NUM_PACKETS,
         PACKETS_PER_BATCH,
     },
@@ -97,7 +97,7 @@ mod tests {
 
     #[test]
     pub fn packet_send_recv() {
-        renec_logger::setup();
+        solana_logger::setup();
         let recv_socket = UdpSocket::bind("127.0.0.1:0").expect("bind");
         let addr = recv_socket.local_addr().unwrap();
         let send_socket = UdpSocket::bind("127.0.0.1:0").expect("bind");
@@ -147,7 +147,7 @@ mod tests {
 
     #[test]
     fn test_packet_resize() {
-        renec_logger::setup();
+        solana_logger::setup();
         let recv_socket = UdpSocket::bind("127.0.0.1:0").expect("bind");
         let addr = recv_socket.local_addr().unwrap();
         let send_socket = UdpSocket::bind("127.0.0.1:0").expect("bind");

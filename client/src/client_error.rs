@@ -1,7 +1,7 @@
 pub use reqwest;
 use {
     crate::{rpc_request, rpc_response},
-    renec_faucet::faucet::FaucetError,
+    solana_faucet::faucet::FaucetError,
     solana_sdk::{
         signature::SignerError, transaction::TransactionError, transport::TransportError,
     },

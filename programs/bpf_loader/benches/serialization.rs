@@ -3,7 +3,7 @@
 extern crate test;
 
 use {
-    renec_bpf_loader_program::serialization::{
+    solana_bpf_loader_program::serialization::{
         serialize_parameters_aligned, serialize_parameters_unaligned,
     },
     solana_sdk::{

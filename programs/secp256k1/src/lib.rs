@@ -29,7 +29,7 @@ pub mod test {
 
     #[test]
     fn test_secp256k1() {
-        renec_logger::setup();
+        solana_logger::setup();
         let offsets = SecpSignatureOffsets::default();
         assert_eq!(
             bincode::serialized_size(&offsets).unwrap() as usize,

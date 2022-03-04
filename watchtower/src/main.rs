@@ -4,14 +4,14 @@
 use {
     clap::{crate_description, crate_name, value_t, value_t_or_exit, App, Arg},
     log::*,
-    renec_clap_utils::{
+    solana_clap_utils::{
         input_parsers::pubkeys_of,
         input_validators::{is_parsable, is_pubkey_or_keypair, is_url},
     },
     renec_cli_output::display::format_labeled_address,
-    renec_client::{client_error, rpc_client::RpcClient, rpc_response::RpcVoteAccountStatus},
+    solana_client::{client_error, rpc_client::RpcClient, rpc_response::RpcVoteAccountStatus},
     solana_metrics::{datapoint_error, datapoint_info},
-    renec_notifier::Notifier,
+    solana_notifier::Notifier,
     solana_sdk::{
         hash::Hash,
         native_token::{sol_to_lamports, Sol},
@@ -39,7 +39,7 @@ struct Config {
 fn get_config() -> Config {
     let matches = App::new(crate_name!())
         .about(crate_description!())
-        .version(renec_version::version!())
+        .version(solana_version::version!())
         .after_help("ADDITIONAL HELP:
         To receive a Slack, Discord and/or Telegram notification on sanity failure,
         define environment variables before running `solana-watchtower`:
@@ -107,11 +107,11 @@ fn get_config() -> Config {
         .arg(
             Arg::with_name("minimum_validator_identity_balance")
                 .long("minimum-validator-identity-balance")
-                .value_name("SOL")
+                .value_name("RENEC")
                 .takes_value(true)
                 .default_value("10")
                 .validator(is_parsable::<f64>)
-                .help("Alert when the validator identity balance is less than this amount of SOL")
+                .help("Alert when the validator identity balance is less than this amount of RENEC")
         )
         .arg(
             // Deprecated parameter, now always enabled
@@ -203,7 +203,7 @@ fn get_cluster_info(
 }
 
 fn main() -> Result<(), Box<dyn error::Error>> {
-    renec_logger::setup_with_default("solana=info");
+    solana_logger::setup_with_default("solana=info");
     solana_metrics::set_panic_hook("watchtower");
 
     let config = get_config();

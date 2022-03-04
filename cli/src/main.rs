@@ -1,18 +1,18 @@
 use {
     clap::{crate_description, crate_name, value_t_or_exit, ArgMatches},
     console::style,
-    renec_clap_utils::{
+    solana_clap_utils::{
         input_validators::normalize_to_url_if_moniker,
         keypair::{CliSigners, DefaultSigner},
         DisplayError,
     },
-    solana_cli::{
+    renec_cli::{
         clap_app::get_clap_app,
         cli::{parse_command, process_command, CliCommandInfo, CliConfig, SettingType},
     },
     renec_cli_config::Config,
     renec_cli_output::{display::println_name_value, OutputFormat},
-    renec_client::rpc_config::RpcSendTransactionConfig,
+    solana_client::rpc_config::RpcSendTransactionConfig,
     solana_remote_wallet::remote_wallet::RemoteWalletManager,
     std::{collections::HashMap, error, path::PathBuf, sync::Arc, time::Duration},
 };
@@ -236,11 +236,11 @@ pub fn parse_args<'a>(
 }
 
 fn main() -> Result<(), Box<dyn error::Error>> {
-    renec_logger::setup_with_default("off");
+    solana_logger::setup_with_default("off");
     let matches = get_clap_app(
         crate_name!(),
         crate_description!(),
-        renec_version::version!(),
+        solana_version::version!(),
     )
     .get_matches();
 

@@ -4,12 +4,12 @@ use {
     log::*,
     rand::{thread_rng, Rng},
     rayon::prelude::*,
-    renec_account_decoder::parse_token::spl_token_pubkey,
-    renec_clap_utils::input_parsers::pubkey_of,
-    renec_client::rpc_client::RpcClient,
-    renec_faucet::faucet::{request_airdrop_transaction, FAUCET_PORT},
-    renec_gossip::gossip_service::discover,
-    renec_measure::measure::Measure,
+    solana_account_decoder::parse_token::spl_token_pubkey,
+    solana_clap_utils::input_parsers::pubkey_of,
+    solana_client::rpc_client::RpcClient,
+    solana_faucet::faucet::{request_airdrop_transaction, FAUCET_PORT},
+    solana_gossip::gossip_service::discover,
+    solana_measure::measure::Measure,
     solana_runtime::inline_spl_token,
     solana_sdk::{
         commitment_config::CommitmentConfig,
@@ -532,10 +532,10 @@ fn run_accounts_bench(
 }
 
 fn main() {
-    renec_logger::setup_with_default("solana=info");
+    solana_logger::setup_with_default("solana=info");
     let matches = App::new(crate_name!())
         .about(crate_description!())
-        .version(renec_version::version!())
+        .version(solana_version::version!())
         .arg(
             Arg::with_name("entrypoint")
                 .long("entrypoint")
@@ -624,14 +624,14 @@ fn main() {
     let port = if skip_gossip { DEFAULT_RPC_PORT } else { 8001 };
     let mut entrypoint_addr = SocketAddr::from(([127, 0, 0, 1], port));
     if let Some(addr) = matches.value_of("entrypoint") {
-        entrypoint_addr = renec_net_utils::parse_host_port(addr).unwrap_or_else(|e| {
+        entrypoint_addr = solana_net_utils::parse_host_port(addr).unwrap_or_else(|e| {
             eprintln!("failed to parse entrypoint address: {}", e);
             exit(1)
         });
     }
     let mut faucet_addr = SocketAddr::from(([127, 0, 0, 1], FAUCET_PORT));
     if let Some(addr) = matches.value_of("faucet_addr") {
-        faucet_addr = renec_net_utils::parse_host_port(addr).unwrap_or_else(|e| {
+        faucet_addr = solana_net_utils::parse_host_port(addr).unwrap_or_else(|e| {
             eprintln!("failed to parse entrypoint address: {}", e);
             exit(1)
         });
@@ -705,8 +705,8 @@ fn main() {
 pub mod test {
     use {
         super::*,
-        renec_core::validator::ValidatorConfig,
-        renec_local_cluster::{
+        solana_core::validator::ValidatorConfig,
+        solana_local_cluster::{
             local_cluster::{ClusterConfig, LocalCluster},
             validator_configs::make_identical_validator_configs,
         },
@@ -715,7 +715,7 @@ pub mod test {
 
     #[test]
     fn test_accounts_cluster_bench() {
-        renec_logger::setup();
+        solana_logger::setup();
         let validator_config = ValidatorConfig::default();
         let num_nodes = 1;
         let mut config = ClusterConfig {

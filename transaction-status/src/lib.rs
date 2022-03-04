@@ -21,7 +21,7 @@ use {
         parse_accounts::{parse_accounts, ParsedAccount},
         parse_instruction::{parse, ParsedInstruction},
     },
-    renec_account_decoder::parse_token::UiTokenAmount,
+    solana_account_decoder::parse_token::UiTokenAmount,
     solana_sdk::{
         clock::{Slot, UnixTimestamp},
         commitment_config::CommitmentConfig,
