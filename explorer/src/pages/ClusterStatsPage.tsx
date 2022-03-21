@@ -134,7 +134,8 @@ function StakingComponent() {
             )}
           </div>
           <hr className="hidden-sm-up" />
-          {solanaInfo && (
+          {/* Temporary disable price */}
+          {false && solanaInfo && (
             <div className="p-2 flex-fill">
               <h4>
                 Price{" "}
