@@ -5,10 +5,10 @@ title: SolFlare Web Wallet
 ## Introduction
 
 [SolFlare.com](https://solflare.com/) is a community-created web wallet built
-specifically for Solana.
-SolFlare supports sending and receiving native SOL tokens as well as sending and
-receiving SPL Tokens (Solana's ERC-20 equivalent).
-SolFlare also supports staking of SOL tokens.
+specifically for Renec.
+SolFlare supports sending and receiving native RENEC tokens as well as sending and
+receiving SPL Tokens (Renec's ERC-20 equivalent).
+SolFlare also supports staking of RENEC tokens.
 
 As a _non-custodial_ wallet, your private keys are not stored by the SolFlare
 site itself, but rather they are stored in an encrypted
@@ -16,7 +16,7 @@ site itself, but rather they are stored in an encrypted
 [Ledger Nano S or X hardware wallet](#using-a-ledger-nano-hardware-wallet).
 
 This guide describes how to set up a wallet using SolFlare, how to send and
-receive SOL tokens, and how to create and manage a stake account.
+receive RENEC tokens, and how to create and manage a stake account.
 
 ## Getting Started
 
@@ -35,7 +35,7 @@ computer. You will be prompted to then upload the Keystore file back to the site
 to verify that the download was saved correctly.
 
 **NOTE: If you lose your Keystore file or the password used to encrypt it, any
-funds in that wallet will be lost permanently. Neither the Solana team nor the
+funds in that wallet will be lost permanently. Neither the Renec team nor the
 SolFlare developers can help you recover lost keys.**
 
 You may want to consider saving a backup copy of your Keystore file on an
@@ -59,18 +59,18 @@ limitations in using the Nano._
 
 To use a Ledger Nano with SolFlare, first ensure you have
 [set up your Nano](ledger-live.md) and have [installed the latest version of
-the Solana app](ledger-live.md#upgrade-to-the-latest-version-of-the-solana-app)
+the Renec app](ledger-live.md#upgrade-to-the-latest-version-of-the-solana-app)
 on your device.
 
 #### Select a Ledger address to access
 
-Plug in your Nano and open the Solana app so the device screen displays
+Plug in your Nano and open the Renec app so the device screen displays
 "Application is Ready".
 
 From the SolFlare home page, click "Access a Wallet" then select "Using Ledger
 Nano S | Ledger Nano X". Under "Select derivation path", select the only option:
 
-`` Solana - 44`/501`/ ``
+`` Renec - 44`/501`/ ``
 
 Note: Your browser may prompt you to ask if SolFlare may communicate with your
 Ledger device. Click to allow this.
@@ -88,15 +88,15 @@ simply click Logout and re-connect with the correct address.
 
 ## Select a Network
 
-Solana maintains [three distinct networks](../clusters), each of which has
-its own purpose in supporting the Solana ecosystem. Mainnet Beta is selected by
+Renec maintains [three distinct networks](../clusters), each of which has
+its own purpose in supporting the Renec ecosystem. Mainnet Beta is selected by
 default on SolFlare, as this is the permanent network where exchanges and other
 production apps are deployed. To select a different network, click on the name
 of the currently selected network at the top of the wallet dashboard, either
 Mainnet, Testnet or Devnet, then click on the name of the network you wish to be
 using.
 
-## Sending and Receiving SOL Tokens
+## Sending and Receiving RENEC Tokens
 
 ### Receiving
 
@@ -110,27 +110,27 @@ on SolFlare should update within a few seconds.
 ### Sending
 
 Once you have some tokens at your wallet address, you can send them to any other
-wallet address or an exchange deposit address by clicking "Transfer SOL" in the
-upper-right corner. Enter the recipient address and the amount of SOL to
+wallet address or an exchange deposit address by clicking "Transfer RENEC" in the
+upper-right corner. Enter the recipient address and the amount of RENEC to
 transfer and click "Submit". You will be prompted to confirm the details of the
 transaction before you [use your key to sign the transaction](#signing-a-transaction)
 and then it will be submitted to the network.
 
-## Staking SOL Tokens
+## Staking RENEC Tokens
 
 SolFlare supports creating and managing stake accounts and delegations. To learn
-about how staking on Solana works in general, check out our
+about how staking on Renec works in general, check out our
 [Staking Guide](../staking).
 
 ### Create a Stake Account
 
-You can use some of the SOL tokens in your wallet to create a new stake account.
+You can use some of the RENEC tokens in your wallet to create a new stake account.
 From the wallet main page click "Staking" at the top of the page. In the upper-
-right, click "Create Account". Enter the amount of SOL you want to use to
+right, click "Create Account". Enter the amount of RENEC you want to use to
 fund your new stake account. This amount will be withdrawn from your wallet
 and transfered to the stake account. Do not transfer your entire wallet balance
 to a stake account, as the wallet is still used to pay any transaction fees
-associated with your stake account. Consider leaving at least 1 SOL in your
+associated with your stake account. Consider leaving at least 1 RENEC in your
 wallet account.
 
 After you submit and [sign the transaction](#signing-a-transaction) you will see
@@ -171,7 +171,7 @@ account, click the "Undelegate" button and follow the prompts.
 
 You may split an existing stake account into two stake accounts. Click on the
 address of a stake account controlled by your wallet, and under the Actions bar,
-click "Split". Specify the amount of SOL tokens you want to split. This will be
+click "Split". Specify the amount of RENEC tokens you want to split. This will be
 the amount of tokens in your new stake account and your existing stake account
 balance will be reduced by the same amount. Splitting your stake account
 allows you to delegate to multiple different validators with different amounts

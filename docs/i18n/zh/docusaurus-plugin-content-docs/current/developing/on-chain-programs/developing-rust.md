@@ -47,7 +47,7 @@ Solana BPF程序具有某些[限制](#Restrictions)，可能会阻止将某些�
 
 首先设置环境：
 - 从https://rustup.rs/安装最新的Rust稳定版本
-- 从https://docs.solana.com/cli/install-renec-cli-tools安装最新的Solana命令行工具
+- 从https://docs.renec.foundation/cli/install-renec-cli-tools安装最新的Solana命令行工具
 
 正常的cargo构建可用于针对您的主机构建程序，该程序可用于单元测试：
 
