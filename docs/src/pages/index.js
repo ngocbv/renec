@@ -7,53 +7,53 @@ import useBaseUrl from "@docusaurus/useBaseUrl";
 import styles from "./styles.module.css";
 
 const features = [
+  // {
+  //   title: <>⛏ Start Building</>,
+  //   imageUrl: "developing/programming-model/overview",
+  //   description: (
+  //     <>Get started building your decentralized app or marketplace.</>
+  //   ),
+  // },
   {
-    title: <>⛏ Start Building</>,
-    imageUrl: "developing/programming-model/overview",
-    description: (
-      <>Get started building your decentralized app or marketplace.</>
-    ),
-  },
-  {
-    title: <>🎛 Run a Validator Node</>,
+    title: <>Run a Validator Node</>,
     imageUrl: "running-validator",
     description: (
       <>Validate transactions, secure the network, and earn rewards.</>
     ),
   },
-  {
-    title: <>🏛 Create an SPL Token</>,
-    imageUrl: "https://spl.solana.com/token",
-    description: <>Launch your own SPL Token, Solana's equivalent of ERC-20.</>,
-  },
-  {
-    title: <>🏦 Integrate an Exchange</>,
-    imageUrl: "integrations/exchange",
-    description: (
-      <>
-        Follow our extensive integration guide to ensure a seamless user
-        experience.
-      </>
-    ),
-  },
-  {
-    title: <>📲 Manage a Wallet</>,
-    imageUrl: "wallet-guide",
-    description: (
-      <>Create a wallet, check your balance, and learn about wallet options.</>
-    ),
-  },
-  {
-    title: <>🤯 Learn How Solana Works</>,
-    imageUrl: "cluster/overview",
-    description: <>Get a high-level understanding of Solana's architecture.</>,
-  }, //
+  // {
+  //   title: <>🏛 Create an SPL Token</>,
+  //   imageUrl: "https://spl.solana.com/token",
+  //   description: <>Launch your own SPL Token, Renec's equivalent of ERC-20.</>,
+  // },
+  // {
+  //   title: <>🏦 Integrate an Exchange</>,
+  //   imageUrl: "integrations/exchange",
+  //   description: (
+  //     <>
+  //       Follow our extensive integration guide to ensure a seamless user
+  //       experience.
+  //     </>
+  //   ),
+  // },
+  // {
+  //   title: <>📲 Manage a Wallet</>,
+  //   imageUrl: "wallet-guide",
+  //   description: (
+  //     <>Create a wallet, check your balance, and learn about wallet options.</>
+  //   ),
+  // },
+  // {
+  //   title: <>🤯 Learn How Renec Works</>,
+  //   imageUrl: "cluster/overview",
+  //   description: <>Get a high-level understanding of Renec's architecture.</>,
+  // }, //
   // {
   //   title: <>Understand Our Economic Design</>,
   //   imageUrl: "implemented-proposals/ed_overview/ed_overview",
   //   description: (
   //     <>
-  //       Solana's Economic Design provides a scalable blueprint for long term
+  //       Renec's Economic Design provides a scalable blueprint for long term
   //       economic development and prosperity.
   //     </>
   //   ),
@@ -84,7 +84,7 @@ function Home() {
   const context = useDocusaurusContext();
   const { siteConfig = {} } = context;
   return (
-    <Layout title="Homepage" description="Solana Documentation">
+    <Layout title="Homepage" description="Renec Documentation">
       {/* <header className={clsx("hero hero--primary", styles.heroBanner)}> */}
       {/* <div className="container">
           <h1 className="hero__title">{siteConfig.title}</h1>

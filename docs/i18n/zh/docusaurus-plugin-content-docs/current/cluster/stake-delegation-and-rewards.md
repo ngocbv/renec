@@ -121,7 +121,7 @@ Lamports会随着时间在一个质押账户中累积，超过已激活质押的
 
 ## 示例通话流
 
-![被动质押调用流](/img/passive-staking-callflow.png)
+<!-- ![被动质押调用流](/img/passive-staking-callflow.png) -->
 
 ## 质押（Staking）奖励
 

@@ -28,7 +28,7 @@ Bpf-sdk可能不在上面指定的确切位置，但是如果您根据[如何开
 
 首先设置环境：
 - 从https://rustup.rs安装最新的Rust稳定版本
-- 从https://docs.solana.com/cli/install-renec-cli-tools安装最新的Solana命令行工具
+- 从https://docs.renec.foundation/cli/install-renec-cli-tools安装最新的Solana命令行工具
 
 然后使用make构建：
 ```bash

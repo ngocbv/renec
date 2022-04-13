@@ -2,21 +2,21 @@
 title: Mobile App Wallets
 ---
 
-Solana is supported by multiple third-party apps which should provide a familiar
+Renec is supported by multiple third-party apps which should provide a familiar
 experience for most people who are new or experienced with using crypto wallets.
 
 ## Exodus
 
 Send, receive & exchange cryptocurrency with ease on the world's leading Desktop, Mobile and Hardware crypto wallets.
 
-Download [Exodus](https://exodus.com/) to easily and securely manage your Solana tokens.
+Download [Exodus](https://exodus.com/) to easily and securely manage your Renec tokens.
 
 Exodus includes live charts, a built-in exchange, and 24/7 human support.
 
 ## Trust Wallet
 
 [Trust Wallet](https://trustwallet.com/) is an app available for iOS and Android
-and can be used to send and receive SOL tokens.
+and can be used to send and receive RENEC tokens.
 
 _Note: Trust Wallet does not support stake accounts or staking operations_
 
@@ -43,14 +43,14 @@ viewed at any later time in the app by following these steps:
 ## Coin98
 
 [Coin98](https://coin98.app/) is an app available for iOS and Android and can
-be used to send and receive SOL tokens.
+be used to send and receive RENEC tokens.
 
 _Note: Coin98 does not support stake accounts or staking operations_
 
 ## Zelcore
 
-[Zelcore](https://zelcore.io) is a multi-currency wallet now supporting SOL and all Solana tokens (SPL). Each Zelcore account has 3 separate addresses for each asset.
-Store, transact, connect to dapps, and (soon) DEX trade in a single app and hold SOL tokens alongside BTC, ETH, and 270+ other cryptos.
+[Zelcore](https://zelcore.io) is a multi-currency wallet now supporting RENEC and all Renec tokens (SPL). Each Zelcore account has 3 separate addresses for each asset.
+Store, transact, connect to dapps, and (soon) DEX trade in a single app and hold RENEC tokens alongside BTC, ETH, and 270+ other cryptos.
 
 Zelcore is available for [Desktop](https://zelcore.io), [iOS](https://apps.apple.com/us/app/zelcore/id1436296839), and [Android](https://play.google.com/store/apps/details?id=com.zelcash.zelcore&hl=en_US&gl=US). One account for all your cryptos, all your devices.
 

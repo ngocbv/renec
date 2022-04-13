@@ -1,5 +1,5 @@
 ---
-title: Solana Test Validator
+title: Renec Test Validator
 ---
 During early stage development, it is often convenient to target a cluster with
 fewer restrictions and more configuration options than the public offerings
@@ -17,7 +17,7 @@ starts a full-featured, single-node cluster on the developer's workstation.
 - Jump to an arbitrary slot (`--warp-slot ...`)
 
 ## Installation
-The `solana-test-validator` binary ships with the Solana CLI Tool Suite.
+The `solana-test-validator` binary ships with the Renec CLI Tool Suite.
 [Install](/cli/install-renec-cli-tools) before continuing.
 
 ## Running
@@ -51,38 +51,38 @@ needed, it can be stopped with ctrl-c.
 
 ## Interacting
 Open a new terminal to interact with a [running](#running) `solana-test-validator`
-instance using other binaries from the Solana CLI Tool Suite or your own client
+instance using other binaries from the Renec CLI Tool Suite or your own client
 software.
 
 #### Configure the CLI Tool Suite to target a local cluster by default
 ```
-solana config set --url http://127.0.0.1:8899
+renec config set --url http://127.0.0.1:8899
 ```
 
 #### Verify the CLI Tool Suite configuration
 ```
-solana genesis-hash
+renec genesis-hash
 ```
 * **NOTE:** The result should match the `Genesis Hash:` field in the
 `solana-test-validator` status output
 
 #### Check the wallet balance
 ```
-solana balance
+renec balance
 ```
 * **NOTE:** `Error: No such file or directory (os error 2)` means that the default
 wallet does not yet exist. Create it with `renec-keygen new`.
-* **NOTE:** If the wallet has a zero SOL balance, airdrop some localnet SOL with
-`solana airdrop 10`
+* **NOTE:** If the wallet has a zero RENEC balance, airdrop some localnet RENEC with
+`renec airdrop 10`
 
 #### Perform a basic transfer transaction
 ```
-solana transfer EPhgPANa5Rh2wa4V2jxt7YbtWa3Uyw4sTeZ13cQjDDB8 1
+renec transfer EPhgPANa5Rh2wa4V2jxt7YbtWa3Uyw4sTeZ13cQjDDB8 1
 ```
 
 #### Monitor `msg!()` output from on-chain programs
 ```
-solana logs
+renec logs
 ```
 * **NOTE:** This command needs to be running when the target transaction is
 executed. Run it in its own terminal
