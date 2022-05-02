@@ -1,4 +1,7 @@
-version: 2
+version: 2.1
+
+orbs:
+  node: circleci/node@4.7.0
 
 jobs:
   run-build:
@@ -31,9 +34,24 @@ jobs:
             - target/debug/build
             - target/debug/deps
           key: v4-cargo-cache-{{ arch }}-{{ checksum "Cargo.lock" }}
+  build-docs:
+    docker:
+      - image: cimg/node:14.17.1
+    steps:
+      - checkout
+      - node/install-packages:
+          pkg-manager: npm
+          app-dir: ~/project/docs
+      - run:
+          command: cd docs && npm run build
+          name: Build docs app
+      - persist_to_workspace:
+          root: ~/project
+          paths: .
 
 workflows:
   version: 2
   main:
     jobs:
       - run-build
+      - build-docs
