@@ -19,12 +19,15 @@ depending on your preferred workflow:
   [LATEST_RENEC_RELEASE_VERSION](https://github.com/remitano/renec/releases/tag/LATEST_RENEC_RELEASE_VERSION) on your
   machine by running:
 
-```bash
-sh -c "$(curl -sSfL https://s3.amazonaws.com/release.renec.foundation/LATEST_RENEC_RELEASE_VERSION/install)"
-```
+`sh -c "$(curl -sSfL https://s3.amazonaws.com/release.renec.foundation/LATEST_RENEC_RELEASE_VERSION/install)"`
 
 - You can replace `LATEST_RENEC_RELEASE_VERSION` with the release tag matching
   the software version of your desired release.
+
+For example version v1.8.14
+```bash
+sh -c "$(curl -sSfL https://s3.amazonaws.com/release.renec.foundation/v1.8.14/install)"
+```
 
 - The following output indicates a successful update:
 
