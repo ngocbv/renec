@@ -91,7 +91,7 @@ else
     renec-validator
     # solana-bench-exchange
     # solana-bench-tps
-    # solana-faucet
+    solana-faucet
     # solana-gossip
     # solana-ledger-tool
     # solana-log-analyzer
