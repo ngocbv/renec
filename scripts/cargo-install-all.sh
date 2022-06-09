@@ -76,9 +76,9 @@ if [[ $CI_OS_NAME = windows ]]; then
     renec-install
     renec-install-init
     renec-keygen
-    # solana-stake-accounts
-    # solana-test-validator
-    # solana-tokens
+    solana-stake-accounts
+    solana-test-validator
+    solana-tokens
   )
 else
   ./fetch-perf-libs.sh
@@ -89,13 +89,13 @@ else
     renec-keygen
     renec-sys-tuner
     renec-validator
-    # solana-bench-exchange
-    # solana-bench-tps
-    # solana-faucet
-    # solana-gossip
-    # solana-ledger-tool
-    # solana-log-analyzer
-    # solana-net-shaper
+    solana-bench-exchange
+    solana-bench-tps
+    solana-faucet
+    solana-gossip
+    solana-ledger-tool
+    solana-log-analyzer
+    solana-net-shaper
   )
 
   # Speed up net.sh deploys by excluding unused binaries
@@ -104,11 +104,11 @@ else
       cargo-build-bpf
       cargo-test-bpf
       renec-install-init
-      # solana-stake-accounts
-      # solana-test-validator
-      # solana-tokens
-      # solana-dos
-      # solana-watchtower
+      solana-stake-accounts
+      solana-test-validator
+      solana-tokens
+      solana-dos
+      solana-watchtower
     )
   fi
 
