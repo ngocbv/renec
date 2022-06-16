@@ -3,7 +3,7 @@ authors = ["RENEC Maintainers <dev@remitano.com>"]
 edition = "2018"
 name = "renec-sys-tuner"
 description = "The RENEC cluster system tuner daemon"
-version = "1.8.14"
+version = "1.8.15"
 repository = "https://github.com/remitano/renec"
 license = "Apache-2.0"
 homepage = "https://remitano.com/"
@@ -14,9 +14,9 @@ publish = true
 clap = "2.33.1"
 log = "0.4.11"
 libc = "0.2.81"
-solana-clap-utils = { path = "../clap-utils", version = "=1.8.14" }
-solana-logger = { path = "../logger", version = "=1.8.14" }
-solana-version = { path = "../version", version = "=1.8.14" }
+solana-clap-utils = { path = "../clap-utils", version = "=1.8.15" }
+solana-logger = { path = "../logger", version = "=1.8.15" }
+solana-version = { path = "../version", version = "=1.8.15" }
 
 [target."cfg(unix)".dependencies]
 unix_socket2 = "0.5.4"

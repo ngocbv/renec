@@ -73,9 +73,9 @@ use {
     solana_storage_bigtable::Error as StorageError,
     solana_streamer::socket::SocketAddrSpace,
     solana_transaction_status::{
-        ConfirmedBlock, ConfirmedTransactionStatusWithSignature, EncodedConfirmedTransaction,
-        Reward, RewardType, TransactionConfirmationStatus, TransactionStatus, UiConfirmedBlock,
-        UiTransactionEncoding,
+        ConfirmedBlockWithOptionalMetadata, ConfirmedTransactionStatusWithSignature,
+        EncodedConfirmedTransaction, Reward, RewardType, TransactionConfirmationStatus,
+        TransactionStatus, UiConfirmedBlock, UiTransactionEncoding,
     },
     solana_vote_program::vote_state::{VoteState, MAX_LOCKOUT_HISTORY},
     spl_token::{
@@ -144,9 +144,18 @@ pub struct JsonRpcConfig {
     pub rpc_threads: usize,
     pub rpc_niceness_adj: i8,
     pub rpc_bigtable_timeout: Option<Duration>,
-    pub minimal_api: bool,
+    pub full_api: bool,
     pub obsolete_v1_7_api: bool,
     pub rpc_scan_and_fix_roots: bool,
+}
+
+impl JsonRpcConfig {
+    pub fn default_for_test() -> Self {
+        Self {
+            full_api: true,
+            ..Self::default()
+        }
+    }
 }
 
 #[derive(Clone)]
@@ -981,7 +990,7 @@ impl JsonRpcRequestProcessor {
                 self.check_status_is_complete(slot)?;
                 let result = self.blockstore.get_rooted_block(slot, true);
                 self.check_blockstore_root(&result, slot)?;
-                let configure_block = |confirmed_block: ConfirmedBlock| {
+                let configure_block = |confirmed_block: ConfirmedBlockWithOptionalMetadata| {
                     let mut confirmed_block =
                         confirmed_block.configure(encoding, transaction_details, show_rewards);
                     if slot == 0 {
@@ -999,7 +1008,10 @@ impl JsonRpcRequestProcessor {
                     }
                 }
                 self.check_slot_cleaned_up(&result, slot)?;
-                return Ok(result.ok().map(configure_block));
+                return Ok(result
+                    .ok()
+                    .map(ConfirmedBlockWithOptionalMetadata::from)
+                    .map(configure_block));
             } else if commitment.is_confirmed() {
                 // Check if block is confirmed
                 let confirmed_bank = self.bank(Some(CommitmentConfig::confirmed()));
@@ -1021,7 +1033,11 @@ impl JsonRpcRequestProcessor {
                                 }
                             }
                         }
-                        confirmed_block.configure(encoding, transaction_details, show_rewards)
+                        ConfirmedBlockWithOptionalMetadata::from(confirmed_block).configure(
+                            encoding,
+                            transaction_details,
+                            show_rewards,
+                        )
                     }));
                 }
             }
@@ -2302,6 +2318,9 @@ pub mod rpc_minimal {
             commitment: Option<CommitmentConfig>,
         ) -> Result<EpochInfo>;
 
+        #[rpc(meta, name = "getGenesisHash")]
+        fn get_genesis_hash(&self, meta: Self::Metadata) -> Result<String>;
+
         #[rpc(meta, name = "getHealth")]
         fn get_health(&self, meta: Self::Metadata) -> Result<String>;
 
@@ -2378,6 +2397,11 @@ pub mod rpc_minimal {
             debug!("get_epoch_info rpc request received");
             let bank = meta.bank(commitment);
             Ok(bank.get_epoch_info())
+        }
+
+        fn get_genesis_hash(&self, meta: Self::Metadata) -> Result<String> {
+            debug!("get_genesis_hash rpc request received");
+            Ok(meta.genesis_hash.to_string())
         }
 
         fn get_health(&self, meta: Self::Metadata) -> Result<String> {
@@ -2574,9 +2598,6 @@ pub mod rpc_full {
             meta: Self::Metadata,
             block: Slot,
         ) -> Result<RpcBlockCommitment<BlockCommitmentArray>>;
-
-        #[rpc(meta, name = "getGenesisHash")]
-        fn get_genesis_hash(&self, meta: Self::Metadata) -> Result<String>;
 
         #[rpc(meta, name = "getRecentBlockhash")]
         fn get_recent_blockhash(
@@ -2983,11 +3004,6 @@ pub mod rpc_full {
         ) -> Result<RpcBlockCommitment<BlockCommitmentArray>> {
             debug!("get_block_commitment rpc request received");
             Ok(meta.get_block_commitment(block))
-        }
-
-        fn get_genesis_hash(&self, meta: Self::Metadata) -> Result<String> {
-            debug!("get_genesis_hash rpc request received");
-            Ok(meta.genesis_hash.to_string())
         }
 
         fn get_recent_blockhash(
@@ -4047,15 +4063,7 @@ pub fn create_test_transactions_and_populate_blockstore(
         solana_sdk::system_transaction::transfer(keypair2, &keypair3.pubkey(), 10, blockhash);
     let ix_error_signature = ix_error_tx.signatures[0];
     let entry_2 = solana_ledger::entry::next_entry(&entry_1.hash, 1, vec![ix_error_tx]);
-    // Failed transaction
-    let fail_tx = solana_sdk::system_transaction::transfer(
-        mint_keypair,
-        &keypair2.pubkey(),
-        2,
-        Hash::default(),
-    );
-    let entry_3 = solana_ledger::entry::next_entry(&entry_2.hash, 1, vec![fail_tx]);
-    let mut entries = vec![entry_1, entry_2, entry_3];
+    let mut entries = vec![entry_1, entry_2];
 
     let shreds = solana_ledger::blockstore::entries_to_test_shreds(
         entries.clone(),
@@ -4079,17 +4087,20 @@ pub fn create_test_transactions_and_populate_blockstore(
 
     // Check that process_entries successfully writes can_commit transactions statuses, and
     // that they are matched properly by get_rooted_block
-    let _result = solana_ledger::blockstore_processor::process_entries(
-        &bank,
-        &mut entries,
-        true,
-        Some(
-            &solana_ledger::blockstore_processor::TransactionStatusSender {
-                sender: transaction_status_sender,
-                enable_cpi_and_log_storage: false,
-            },
+    assert_eq!(
+        solana_ledger::blockstore_processor::process_entries(
+            &bank,
+            &mut entries,
+            true,
+            Some(
+                &solana_ledger::blockstore_processor::TransactionStatusSender {
+                    sender: transaction_status_sender,
+                    enable_cpi_and_log_storage: false,
+                },
+            ),
+            Some(&replay_vote_sender),
         ),
-        Some(&replay_vote_sender),
+        Ok(())
     );
 
     transaction_status_service.join().unwrap();
@@ -6255,7 +6266,7 @@ pub mod tests {
         let confirmed_block: Option<EncodedConfirmedBlock> =
             serde_json::from_value(result["result"].clone()).unwrap();
         let confirmed_block = confirmed_block.unwrap();
-        assert_eq!(confirmed_block.transactions.len(), 3);
+        assert_eq!(confirmed_block.transactions.len(), 2);
         assert_eq!(confirmed_block.rewards, vec![]);
 
         for EncodedTransactionWithStatusMeta { transaction, meta } in
@@ -6300,7 +6311,7 @@ pub mod tests {
         let confirmed_block: Option<EncodedConfirmedBlock> =
             serde_json::from_value(result["result"].clone()).unwrap();
         let confirmed_block = confirmed_block.unwrap();
-        assert_eq!(confirmed_block.transactions.len(), 3);
+        assert_eq!(confirmed_block.transactions.len(), 2);
         assert_eq!(confirmed_block.rewards, vec![]);
 
         for EncodedTransactionWithStatusMeta { transaction, meta } in

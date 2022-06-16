@@ -10,6 +10,7 @@ pub(super) struct BroadcastFakeShredsRun {
     partition: usize,
     shred_version: u16,
     keypair: Arc<Keypair>,
+    next_code_index: u32,
 }
 
 impl BroadcastFakeShredsRun {
@@ -19,6 +20,7 @@ impl BroadcastFakeShredsRun {
             partition,
             shred_version,
             keypair,
+            next_code_index: 0,
         }
     }
 }
@@ -53,10 +55,11 @@ impl BroadcastRun for BroadcastFakeShredsRun {
         )
         .expect("Expected to create a new shredder");
 
-        let (data_shreds, coding_shreds, _) = shredder.entries_to_shreds(
+        let (data_shreds, coding_shreds) = shredder.entries_to_shreds(
             &receive_results.entries,
             last_tick_height == bank.max_tick_height(),
             next_shred_index,
+            self.next_code_index,
         );
 
         // If the last blockhash is default, a new block is being created
@@ -69,11 +72,21 @@ impl BroadcastRun for BroadcastFakeShredsRun {
             .map(|_| Entry::new(&self.last_blockhash, 0, vec![]))
             .collect();
 
-        let (fake_data_shreds, fake_coding_shreds, _) = shredder.entries_to_shreds(
+        let (fake_data_shreds, fake_coding_shreds) = shredder.entries_to_shreds(
             &fake_entries,
             last_tick_height == bank.max_tick_height(),
             next_shred_index,
+            self.next_code_index,
         );
+
+        if let Some(index) = coding_shreds
+            .iter()
+            .chain(&fake_coding_shreds)
+            .map(Shred::index)
+            .max()
+        {
+            self.next_code_index = index + 1;
+        }
 
         // If it's the last tick, reset the last block hash to default
         // this will cause next run to grab last bank's blockhash

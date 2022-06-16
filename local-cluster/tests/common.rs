@@ -155,7 +155,8 @@ pub fn run_kill_partition_switch_threshold<C>(
         .flat_map(|stakes_and_slots| stakes_and_slots.iter().map(|(_, num_slots)| *num_slots))
         .collect();
 
-    let (leader_schedule, validator_keys) = create_custom_leader_schedule(&num_slots_per_validator);
+    let (leader_schedule, validator_keys) =
+        create_custom_leader_schedule_with_random_keys(&num_slots_per_validator);
 
     info!(
         "Validator ids: {:?}",
@@ -195,23 +196,32 @@ pub fn run_kill_partition_switch_threshold<C>(
 }
 
 pub fn create_custom_leader_schedule(
-    validator_num_slots: &[usize],
-) -> (LeaderSchedule, Vec<Arc<Keypair>>) {
+    validator_key_to_slots: impl Iterator<Item = (Pubkey, usize)>,
+) -> LeaderSchedule {
     let mut leader_schedule = vec![];
-    let validator_keys: Vec<_> = iter::repeat_with(|| Arc::new(Keypair::new()))
-        .take(validator_num_slots.len())
-        .collect();
-    for (k, num_slots) in validator_keys.iter().zip(validator_num_slots.iter()) {
-        for _ in 0..*num_slots {
-            leader_schedule.push(k.pubkey())
+    for (k, num_slots) in validator_key_to_slots {
+        for _ in 0..num_slots {
+            leader_schedule.push(k)
         }
     }
 
     info!("leader_schedule: {}", leader_schedule.len());
-    (
-        LeaderSchedule::new_from_schedule(leader_schedule),
-        validator_keys,
-    )
+    LeaderSchedule::new_from_schedule(leader_schedule)
+}
+
+pub fn create_custom_leader_schedule_with_random_keys(
+    validator_num_slots: &[usize],
+) -> (LeaderSchedule, Vec<Arc<Keypair>>) {
+    let validator_keys: Vec<_> = iter::repeat_with(|| Arc::new(Keypair::new()))
+        .take(validator_num_slots.len())
+        .collect();
+    let leader_schedule = create_custom_leader_schedule(
+        validator_keys
+            .iter()
+            .map(|k| k.pubkey())
+            .zip(validator_num_slots.iter().cloned()),
+    );
+    (leader_schedule, validator_keys)
 }
 
 /// This function runs a network, initiates a partition based on a
@@ -247,8 +257,12 @@ pub fn run_cluster_partition<C>(
     let enable_partition = Arc::new(AtomicBool::new(true));
     let mut validator_config = ValidatorConfig {
         enable_partition: Some(enable_partition.clone()),
-        ..ValidatorConfig::default()
+        ..ValidatorConfig::default_for_test()
     };
+
+    // Enabled so that transaction statuses are written to blockstore which enables
+    // tests to detect when a block has been replayed.
+    validator_config.rpc_config.enable_rpc_transaction_history = true;
 
     // Returns:
     // 1) The keys for the validators
@@ -362,10 +376,10 @@ pub fn test_faulty_node(faulty_node_type: BroadcastStageType) {
 
     let error_validator_config = ValidatorConfig {
         broadcast_stage_type: faulty_node_type,
-        ..ValidatorConfig::default()
+        ..ValidatorConfig::default_for_test()
     };
     let mut validator_configs = Vec::with_capacity(num_nodes);
-    validator_configs.resize_with(num_nodes - 1, ValidatorConfig::default);
+    validator_configs.resize_with(num_nodes - 1, ValidatorConfig::default_for_test);
     validator_configs.push(error_validator_config);
 
     let mut validator_keys = Vec::with_capacity(num_nodes);

@@ -3,9 +3,10 @@
 #![allow(clippy::integer_arithmetic)]
 use {
     common::{
-        copy_blocks, create_custom_leader_schedule, last_vote_in_tower, ms_for_n_slots,
-        open_blockstore, restore_tower, run_cluster_partition, run_kill_partition_switch_threshold,
-        test_faulty_node, wait_for_last_vote_in_tower_to_land_in_ledger, RUST_LOG_FILTER,
+        copy_blocks, create_custom_leader_schedule_with_random_keys, last_vote_in_tower,
+        ms_for_n_slots, open_blockstore, restore_tower, run_cluster_partition,
+        run_kill_partition_switch_threshold, test_faulty_node,
+        wait_for_last_vote_in_tower_to_land_in_ledger, RUST_LOG_FILTER,
     },
     log::*,
     serial_test::serial,
@@ -273,7 +274,7 @@ fn test_kill_heaviest_partition() {
     // 4) Check for recovery
     let num_slots_per_validator = 8;
     let partitions: [Vec<usize>; 4] = [vec![11], vec![10], vec![10], vec![10]];
-    let (leader_schedule, validator_keys) = create_custom_leader_schedule(&[
+    let (leader_schedule, validator_keys) = create_custom_leader_schedule_with_random_keys(&[
         num_slots_per_validator * (partitions.len() - 1),
         num_slots_per_validator,
         num_slots_per_validator,
@@ -673,7 +674,10 @@ fn test_listener_startup() {
         node_stakes: vec![100; 1],
         cluster_lamports: 1_000,
         num_listeners: 3,
-        validator_configs: make_identical_validator_configs(&ValidatorConfig::default(), 1),
+        validator_configs: make_identical_validator_configs(
+            &ValidatorConfig::default_for_test(),
+            1,
+        ),
         ..ClusterConfig::default()
     };
     let cluster = LocalCluster::new(&mut config, SocketAddrSpace::Unspecified);
@@ -722,13 +726,19 @@ fn find_latest_replayed_slot_from_ledger(
                 // Wait for the slot to be replayed
                 loop {
                     info!("Waiting for slot {} to be replayed", latest_slot);
-                    if !blockstore
+                    let replayed_transactions = blockstore
                         .map_transactions_to_statuses(
                             latest_slot,
                             non_tick_entry.transactions.clone().into_iter(),
                         )
-                        .is_empty()
-                    {
+                        .unwrap_or_else(|_| {
+                            info!(
+                                "Transaction statuses for slot {} haven't been written yet",
+                                latest_slot
+                            );
+                            Vec::new()
+                        });
+                    if !replayed_transactions.is_empty() {
                         return (
                             latest_slot,
                             AncestorIterator::new(latest_slot, &blockstore).collect(),

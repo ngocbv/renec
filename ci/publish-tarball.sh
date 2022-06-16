@@ -150,7 +150,8 @@ elif [[ -n $BUILDKITE ]]; then
   cat > release.solana.com-install <<EOF
 RENEC_RELEASE=$CHANNEL_OR_TAG
 RENEC_INSTALL_INIT_ARGS=$CHANNEL_OR_TAG
-RENEC_DOWNLOAD_ROOT=http://release.renec.foundation
+RENEC_DOWNLOAD_ROOT=https://release.renec.foundation
+
 EOF
   cat install/renec-install-init.sh >> release.solana.com-install
 

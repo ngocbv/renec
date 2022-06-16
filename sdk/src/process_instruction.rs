@@ -7,7 +7,6 @@ use {
         instruction::{CompiledInstruction, Instruction, InstructionError},
         keyed_account::{create_keyed_accounts_unified, KeyedAccount},
         pubkey::Pubkey,
-        sysvar::Sysvar,
     },
     std::{borrow::Cow, cell::RefCell, collections::HashSet, fmt::Debug, rc::Rc, sync::Arc},
 };
@@ -145,26 +144,6 @@ macro_rules! ic_msg {
     };
 }
 
-pub fn get_sysvar<T: Sysvar>(
-    invoke_context: &dyn InvokeContext,
-    id: &Pubkey,
-) -> Result<T, InstructionError> {
-    invoke_context
-        .get_sysvar_cache()
-        .iter()
-        .find_map(|(key, data)| {
-            if id == key {
-                bincode::deserialize(data).ok()
-            } else {
-                None
-            }
-        })
-        .ok_or_else(|| {
-            ic_msg!(invoke_context, "Unable to get sysvar {}", id);
-            InstructionError::UnsupportedSysvar
-        })
-}
-
 #[derive(Clone, Copy, Debug, AbiExample, PartialEq)]
 pub struct BpfComputeBudget {
     /// Number of compute units that an instruction is allowed.  Compute units
@@ -206,6 +185,8 @@ pub struct BpfComputeBudget {
     /// Number of compute units per additional 32k heap above the default (~.5
     /// us per 32k at 15 units/us rounded up)
     pub heap_cost: u64,
+    /// Memory operation syscall base cost
+    pub mem_op_base_cost: u64,
 }
 
 impl Default for BpfComputeBudget {
@@ -234,6 +215,7 @@ impl BpfComputeBudget {
             secp256k1_recover_cost: 25_000,
             heap_size: None,
             heap_cost: 8,
+            mem_op_base_cost: 10,
         }
     }
 }

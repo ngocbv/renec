@@ -8,6 +8,8 @@ cargo=../cargo
 source ../ci/rust-version.sh stable
 
 : "${rust_stable:=}" # Pacify shellcheck
+# pre-build with output enabled to appease Travis CI's hang check
+"$cargo" build -p renec-cli
 
 usage=$("$cargo" stable -q run -p renec-cli -- -C ~/.foo --help | sed -e 's|'"$HOME"'|~|g' -e 's/[[:space:]]\+$//')
 

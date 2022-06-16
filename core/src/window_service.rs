@@ -163,7 +163,10 @@ impl ReceiveWindowStats {
 fn verify_shred_slot(shred: &Shred, root: u64) -> bool {
     match shred.shred_type() {
         // Only data shreds have parent information
-        ShredType::Data => blockstore::verify_shred_slots(shred.slot(), shred.parent(), root),
+        ShredType::Data => match shred.parent() {
+            Ok(parent) => blockstore::verify_shred_slots(shred.slot(), parent, root),
+            Err(_) => false,
+        },
         // Filter out outdated coding shreds
         ShredType::Code => shred.slot() >= root,
     }
@@ -214,12 +217,9 @@ fn run_check_duplicate(
     let check_duplicate = |shred: Shred| -> Result<()> {
         let shred_slot = shred.slot();
         if !blockstore.has_duplicate_shreds_in_slot(shred_slot) {
-            if let Some(existing_shred_payload) = blockstore.is_shred_duplicate(
-                shred_slot,
-                shred.index(),
-                shred.payload.clone(),
-                shred.shred_type(),
-            ) {
+            if let Some(existing_shred_payload) =
+                blockstore.is_shred_duplicate(shred.id(), shred.payload.clone())
+            {
                 cluster_info.push_duplicate_shred(&shred, &existing_shred_payload)?;
                 blockstore.store_duplicate_slot(
                     shred_slot,
@@ -737,7 +737,12 @@ mod test {
         keypair: &Arc<Keypair>,
     ) -> Vec<Shred> {
         let shredder = Shredder::new(slot, parent, keypair.clone(), 0, 0).unwrap();
-        shredder.entries_to_shreds(entries, true, 0).0
+        let (data_shreds, _) = shredder.entries_to_shreds(
+            entries, true, // is_last_in_slot
+            0,    // next_shred_index
+            0,    // next_code_index
+        );
+        data_shreds
     }
 
     #[test]

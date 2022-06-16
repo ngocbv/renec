@@ -16,16 +16,14 @@ use {
         account_utils::StateMut,
         bpf_loader, bpf_loader_deprecated,
         bpf_loader_upgradeable::{self, UpgradeableLoaderState},
-        clock::Clock,
         entrypoint::{BPF_ALIGN_OF_U128, MAX_PERMITTED_DATA_INCREASE, SUCCESS},
-        epoch_schedule::EpochSchedule,
         feature_set::{
             allow_native_ids, check_seed_length, close_upgradeable_program_accounts, cpi_data_cost,
             demote_program_write_locks, enforce_aligned_host_addrs, keccak256_syscall_enabled,
             libsecp256k1_0_5_upgrade_enabled, mem_overlap_fix, memory_ops_syscalls,
             return_data_syscall_enabled, secp256k1_recover_syscall_enabled,
             set_upgrade_authority_via_cpi_enabled, sol_log_data_syscall_enabled,
-            sysvar_via_syscall, update_data_on_realloc,
+            sysvar_via_syscall, update_data_on_realloc, update_syscall_base_costs,
         },
         hash::{Hasher, HASH_BYTES},
         ic_msg,
@@ -33,14 +31,13 @@ use {
         keccak,
         keyed_account::KeyedAccount,
         native_loader,
-        process_instruction::{self, stable_log, ComputeMeter, InvokeContext, Logger},
+        process_instruction::{stable_log, ComputeMeter, InvokeContext, Logger},
         program::MAX_RETURN_DATA,
         pubkey::{Pubkey, PubkeyError, MAX_SEEDS, MAX_SEED_LEN},
-        rent::Rent,
         secp256k1_recover::{
             Secp256k1RecoverError, SECP256K1_PUBLIC_KEY_LENGTH, SECP256K1_SIGNATURE_LENGTH,
         },
-        sysvar::{self, fees::Fees, Sysvar, SysvarId},
+        sysvar::{self, Sysvar, SysvarId},
     },
     std::{
         alloc::Layout,
@@ -50,6 +47,7 @@ use {
         rc::Rc,
         slice::from_raw_parts_mut,
         str::{from_utf8, Utf8Error},
+        sync::Arc,
     },
     thiserror::Error as ThisError,
 };
@@ -227,6 +225,8 @@ pub fn bind_syscall_context_objects<'a>(
             compute_meter: invoke_context.get_compute_meter(),
             loader_id,
             enforce_aligned_host_addrs,
+            update_syscall_base_costs: invoke_context
+                .is_feature_active(&update_syscall_base_costs::id()),
         }),
         None,
     )?;
@@ -236,6 +236,9 @@ pub fn bind_syscall_context_objects<'a>(
             logger: invoke_context.get_logger(),
             loader_id,
             enforce_aligned_host_addrs,
+            cost: invoke_context.get_bpf_compute_budget().syscall_base_cost,
+            update_syscall_base_costs: invoke_context
+                .is_feature_active(&update_syscall_base_costs::id()),
         }),
         None,
     )?;
@@ -250,7 +253,11 @@ pub fn bind_syscall_context_objects<'a>(
 
     vm.bind_syscall_context_object(
         Box::new(SyscallLogBpfComputeUnits {
-            cost: 0,
+            cost: if invoke_context.is_feature_active(&update_syscall_base_costs::id()) {
+                invoke_context.get_bpf_compute_budget().syscall_base_cost
+            } else {
+                0
+            },
             compute_meter: invoke_context.get_compute_meter(),
             logger: invoke_context.get_logger(),
         }),
@@ -319,37 +326,49 @@ pub fn bind_syscall_context_objects<'a>(
         vm,
         invoke_context.is_feature_active(&memory_ops_syscalls::id()),
         Box::new(SyscallMemcpy {
-            cost: invoke_context.get_bpf_compute_budget().cpi_bytes_per_unit,
+            base_cost: invoke_context.get_bpf_compute_budget().mem_op_base_cost,
+            byte_cost: invoke_context.get_bpf_compute_budget().cpi_bytes_per_unit,
             compute_meter: invoke_context.get_compute_meter(),
             loader_id,
             mem_overlap_fix: invoke_context.is_feature_active(&mem_overlap_fix::id()),
+            update_syscall_base_costs: invoke_context
+                .is_feature_active(&update_syscall_base_costs::id()),
         }),
     );
     bind_feature_gated_syscall_context_object!(
         vm,
         invoke_context.is_feature_active(&memory_ops_syscalls::id()),
         Box::new(SyscallMemmove {
-            cost: invoke_context.get_bpf_compute_budget().cpi_bytes_per_unit,
+            base_cost: invoke_context.get_bpf_compute_budget().mem_op_base_cost,
+            byte_cost: invoke_context.get_bpf_compute_budget().cpi_bytes_per_unit,
             compute_meter: invoke_context.get_compute_meter(),
             loader_id,
+            update_syscall_base_costs: invoke_context
+                .is_feature_active(&update_syscall_base_costs::id()),
         }),
     );
     bind_feature_gated_syscall_context_object!(
         vm,
         invoke_context.is_feature_active(&memory_ops_syscalls::id()),
         Box::new(SyscallMemcmp {
-            cost: invoke_context.get_bpf_compute_budget().cpi_bytes_per_unit,
+            base_cost: invoke_context.get_bpf_compute_budget().mem_op_base_cost,
+            byte_cost: invoke_context.get_bpf_compute_budget().cpi_bytes_per_unit,
             compute_meter: invoke_context.get_compute_meter(),
             loader_id,
+            update_syscall_base_costs: invoke_context
+                .is_feature_active(&update_syscall_base_costs::id()),
         }),
     );
     bind_feature_gated_syscall_context_object!(
         vm,
         invoke_context.is_feature_active(&memory_ops_syscalls::id()),
         Box::new(SyscallMemset {
-            cost: invoke_context.get_bpf_compute_budget().cpi_bytes_per_unit,
+            base_cost: invoke_context.get_bpf_compute_budget().mem_op_base_cost,
+            byte_cost: invoke_context.get_bpf_compute_budget().cpi_bytes_per_unit,
             compute_meter: invoke_context.get_compute_meter(),
             loader_id,
+            update_syscall_base_costs: invoke_context
+                .is_feature_active(&update_syscall_base_costs::id()),
         }),
     );
 
@@ -647,6 +666,7 @@ pub struct SyscallPanic<'a> {
     compute_meter: Rc<RefCell<dyn ComputeMeter>>,
     loader_id: &'a Pubkey,
     enforce_aligned_host_addrs: bool,
+    update_syscall_base_costs: bool,
 }
 impl<'a> SyscallObject<BpfError> for SyscallPanic<'a> {
     fn call(
@@ -659,7 +679,9 @@ impl<'a> SyscallObject<BpfError> for SyscallPanic<'a> {
         memory_mapping: &MemoryMapping,
         result: &mut Result<u64, EbpfError<BpfError>>,
     ) {
-        question_mark!(self.compute_meter.consume(len), result);
+        if !self.update_syscall_base_costs {
+            question_mark!(self.compute_meter.consume(len), result);
+        }
         *result = translate_string_and_do(
             memory_mapping,
             file,
@@ -677,6 +699,8 @@ pub struct SyscallLog<'a> {
     logger: Rc<RefCell<dyn Logger>>,
     loader_id: &'a Pubkey,
     enforce_aligned_host_addrs: bool,
+    cost: u64,
+    update_syscall_base_costs: bool,
 }
 impl<'a> SyscallObject<BpfError> for SyscallLog<'a> {
     fn call(
@@ -689,7 +713,12 @@ impl<'a> SyscallObject<BpfError> for SyscallLog<'a> {
         memory_mapping: &MemoryMapping,
         result: &mut Result<u64, EbpfError<BpfError>>,
     ) {
-        question_mark!(self.compute_meter.consume(len), result);
+        let cost = if self.update_syscall_base_costs {
+            self.cost.max(len)
+        } else {
+            len
+        };
+        question_mark!(self.compute_meter.consume(cost), result);
         question_mark!(
             translate_string_and_do(
                 memory_mapping,
@@ -1142,17 +1171,13 @@ impl<'a> SyscallObject<BpfError> for SyscallSha256<'a> {
     }
 }
 
-fn get_sysvar<T: std::fmt::Debug + Sysvar + SysvarId>(
-    id: &Pubkey,
+fn get_sysvar<T: std::fmt::Debug + Sysvar + SysvarId + Clone>(
+    sysvar: Result<Arc<T>, InstructionError>,
     var_addr: u64,
     loader_id: &Pubkey,
     memory_mapping: &MemoryMapping,
-    invoke_context: Rc<RefCell<&mut dyn InvokeContext>>,
+    invoke_context: &dyn InvokeContext,
 ) -> Result<u64, EbpfError<BpfError>> {
-    let invoke_context = invoke_context
-        .try_borrow()
-        .map_err(|_| SyscallError::InvokeContextBorrowFailed)?;
-
     invoke_context.get_compute_meter().consume(
         invoke_context.get_bpf_compute_budget().sysvar_base_cost + size_of::<T>() as u64,
     )?;
@@ -1163,8 +1188,8 @@ fn get_sysvar<T: std::fmt::Debug + Sysvar + SysvarId>(
         invoke_context.is_feature_active(&enforce_aligned_host_addrs::id()),
     )?;
 
-    *var = process_instruction::get_sysvar::<T>(*invoke_context, id)
-        .map_err(SyscallError::InstructionError)?;
+    let sysvar: Arc<T> = sysvar.map_err(SyscallError::InstructionError)?;
+    *var = T::clone(sysvar.as_ref());
 
     Ok(SUCCESS)
 }
@@ -1185,12 +1210,18 @@ impl<'a> SyscallObject<BpfError> for SyscallGetClockSysvar<'a> {
         memory_mapping: &MemoryMapping,
         result: &mut Result<u64, EbpfError<BpfError>>,
     ) {
-        *result = get_sysvar::<Clock>(
-            &sysvar::clock::id(),
+        let invoke_context = question_mark!(
+            self.invoke_context
+                .try_borrow()
+                .map_err(|_| SyscallError::InvokeContextBorrowFailed),
+            result
+        );
+        *result = get_sysvar(
+            invoke_context.get_sysvar_cache().get_clock(),
             var_addr,
             self.loader_id,
             memory_mapping,
-            self.invoke_context.clone(),
+            *invoke_context,
         );
     }
 }
@@ -1210,12 +1241,18 @@ impl<'a> SyscallObject<BpfError> for SyscallGetEpochScheduleSysvar<'a> {
         memory_mapping: &MemoryMapping,
         result: &mut Result<u64, EbpfError<BpfError>>,
     ) {
-        *result = get_sysvar::<EpochSchedule>(
-            &sysvar::epoch_schedule::id(),
+        let invoke_context = question_mark!(
+            self.invoke_context
+                .try_borrow()
+                .map_err(|_| SyscallError::InvokeContextBorrowFailed),
+            result
+        );
+        *result = get_sysvar(
+            invoke_context.get_sysvar_cache().get_epoch_schedule(),
             var_addr,
             self.loader_id,
             memory_mapping,
-            self.invoke_context.clone(),
+            *invoke_context,
         );
     }
 }
@@ -1235,12 +1272,18 @@ impl<'a> SyscallObject<BpfError> for SyscallGetFeesSysvar<'a> {
         memory_mapping: &MemoryMapping,
         result: &mut Result<u64, EbpfError<BpfError>>,
     ) {
-        *result = get_sysvar::<Fees>(
-            &sysvar::fees::id(),
+        let invoke_context = question_mark!(
+            self.invoke_context
+                .try_borrow()
+                .map_err(|_| SyscallError::InvokeContextBorrowFailed),
+            result
+        );
+        *result = get_sysvar(
+            invoke_context.get_sysvar_cache().get_fees(),
             var_addr,
             self.loader_id,
             memory_mapping,
-            self.invoke_context.clone(),
+            *invoke_context,
         );
     }
 }
@@ -1260,12 +1303,18 @@ impl<'a> SyscallObject<BpfError> for SyscallGetRentSysvar<'a> {
         memory_mapping: &MemoryMapping,
         result: &mut Result<u64, EbpfError<BpfError>>,
     ) {
-        *result = get_sysvar::<Rent>(
-            &sysvar::rent::id(),
+        let invoke_context = question_mark!(
+            self.invoke_context
+                .try_borrow()
+                .map_err(|_| SyscallError::InvokeContextBorrowFailed),
+            result
+        );
+        *result = get_sysvar(
+            invoke_context.get_sysvar_cache().get_rent(),
             var_addr,
             self.loader_id,
             memory_mapping,
-            self.invoke_context.clone(),
+            *invoke_context,
         );
     }
 }
@@ -1336,10 +1385,12 @@ fn check_overlapping(src_addr: u64, dst_addr: u64, n: u64) -> bool {
 
 /// memcpy
 pub struct SyscallMemcpy<'a> {
-    cost: u64,
+    base_cost: u64,
+    byte_cost: u64,
     compute_meter: Rc<RefCell<dyn ComputeMeter>>,
     loader_id: &'a Pubkey,
     mem_overlap_fix: bool,
+    update_syscall_base_costs: bool,
 }
 impl<'a> SyscallObject<BpfError> for SyscallMemcpy<'a> {
     fn call(
@@ -1352,6 +1403,12 @@ impl<'a> SyscallObject<BpfError> for SyscallMemcpy<'a> {
         memory_mapping: &MemoryMapping,
         result: &mut Result<u64, EbpfError<BpfError>>,
     ) {
+        let cost = if self.update_syscall_base_costs {
+            self.base_cost.max(n / self.byte_cost)
+        } else {
+            n / self.byte_cost
+        };
+        question_mark!(self.compute_meter.consume(cost), result);
         if if self.mem_overlap_fix {
             check_overlapping(src_addr, dst_addr, n)
         } else {
@@ -1361,7 +1418,6 @@ impl<'a> SyscallObject<BpfError> for SyscallMemcpy<'a> {
             return;
         }
 
-        question_mark!(self.compute_meter.consume(n / self.cost), result);
         let dst = question_mark!(
             translate_slice_mut::<u8>(memory_mapping, dst_addr, n, self.loader_id, true),
             result
@@ -1378,9 +1434,11 @@ impl<'a> SyscallObject<BpfError> for SyscallMemcpy<'a> {
 }
 /// memmove
 pub struct SyscallMemmove<'a> {
-    cost: u64,
+    base_cost: u64,
+    byte_cost: u64,
     compute_meter: Rc<RefCell<dyn ComputeMeter>>,
     loader_id: &'a Pubkey,
+    update_syscall_base_costs: bool,
 }
 impl<'a> SyscallObject<BpfError> for SyscallMemmove<'a> {
     fn call(
@@ -1393,7 +1451,12 @@ impl<'a> SyscallObject<BpfError> for SyscallMemmove<'a> {
         memory_mapping: &MemoryMapping,
         result: &mut Result<u64, EbpfError<BpfError>>,
     ) {
-        question_mark!(self.compute_meter.consume(n / self.cost), result);
+        let cost = if self.update_syscall_base_costs {
+            self.base_cost.max(n / self.byte_cost)
+        } else {
+            n / self.byte_cost
+        };
+        question_mark!(self.compute_meter.consume(cost), result);
         let dst = question_mark!(
             translate_slice_mut::<u8>(memory_mapping, dst_addr, n, self.loader_id, true),
             result
@@ -1410,9 +1473,11 @@ impl<'a> SyscallObject<BpfError> for SyscallMemmove<'a> {
 }
 /// memcmp
 pub struct SyscallMemcmp<'a> {
-    cost: u64,
+    base_cost: u64,
+    byte_cost: u64,
     compute_meter: Rc<RefCell<dyn ComputeMeter>>,
     loader_id: &'a Pubkey,
+    update_syscall_base_costs: bool,
 }
 impl<'a> SyscallObject<BpfError> for SyscallMemcmp<'a> {
     fn call(
@@ -1425,7 +1490,12 @@ impl<'a> SyscallObject<BpfError> for SyscallMemcmp<'a> {
         memory_mapping: &MemoryMapping,
         result: &mut Result<u64, EbpfError<BpfError>>,
     ) {
-        question_mark!(self.compute_meter.consume(n / self.cost), result);
+        let cost = if self.update_syscall_base_costs {
+            self.base_cost.max(n / self.byte_cost)
+        } else {
+            n / self.byte_cost
+        };
+        question_mark!(self.compute_meter.consume(cost), result);
         let s1 = question_mark!(
             translate_slice::<u8>(memory_mapping, s1_addr, n, self.loader_id, true),
             result
@@ -1455,9 +1525,11 @@ impl<'a> SyscallObject<BpfError> for SyscallMemcmp<'a> {
 }
 /// memset
 pub struct SyscallMemset<'a> {
-    cost: u64,
+    base_cost: u64,
+    byte_cost: u64,
     compute_meter: Rc<RefCell<dyn ComputeMeter>>,
     loader_id: &'a Pubkey,
+    update_syscall_base_costs: bool,
 }
 impl<'a> SyscallObject<BpfError> for SyscallMemset<'a> {
     fn call(
@@ -1470,7 +1542,12 @@ impl<'a> SyscallObject<BpfError> for SyscallMemset<'a> {
         memory_mapping: &MemoryMapping,
         result: &mut Result<u64, EbpfError<BpfError>>,
     ) {
-        question_mark!(self.compute_meter.consume(n / self.cost), result);
+        let cost = if self.update_syscall_base_costs {
+            self.base_cost.max(n / self.byte_cost)
+        } else {
+            n / self.byte_cost
+        };
+        question_mark!(self.compute_meter.consume(cost), result);
         let s = question_mark!(
             translate_slice_mut::<u8>(memory_mapping, s_addr, n, self.loader_id, true),
             result
@@ -2771,9 +2848,13 @@ mod tests {
         },
         solana_sdk::{
             bpf_loader,
+            clock::Clock,
+            epoch_schedule::EpochSchedule,
             fee_calculator::FeeCalculator,
             hash::hashv,
             process_instruction::{MockComputeMeter, MockInvokeContext, MockLogger},
+            rent::Rent,
+            sysvar::fees::Fees,
             sysvar_cache::SysvarCache,
         },
         std::{borrow::Cow, str::FromStr},
@@ -3131,6 +3212,7 @@ mod tests {
             compute_meter,
             loader_id: &bpf_loader::id(),
             enforce_aligned_host_addrs: true,
+            update_syscall_base_costs: true,
         };
         let mut result: Result<u64, EbpfError<BpfError>> = Ok(0);
         syscall_panic.call(
@@ -3157,6 +3239,7 @@ mod tests {
             compute_meter,
             loader_id: &bpf_loader::id(),
             enforce_aligned_host_addrs: true,
+            update_syscall_base_costs: true,
         };
         let mut result: Result<u64, EbpfError<BpfError>> = Ok(0);
         syscall_panic.call(
@@ -3186,6 +3269,8 @@ mod tests {
             logger,
             loader_id: &bpf_loader::id(),
             enforce_aligned_host_addrs: true,
+            cost: 100,
+            update_syscall_base_costs: true,
         };
         let config = Config::default();
         let memory_mapping = MemoryMapping::new::<UserError>(
@@ -3260,6 +3345,8 @@ mod tests {
             logger,
             loader_id: &bpf_loader::id(),
             enforce_aligned_host_addrs: true,
+            cost: string.len() as u64,
+            update_syscall_base_costs: true,
         };
         let mut result: Result<u64, EbpfError<BpfError>> = Ok(0);
         syscall_sol_log.call(
@@ -3647,13 +3734,10 @@ mod tests {
         };
 
         let mut sysvar_cache = SysvarCache::default();
-        sysvar_cache.push_entry(sysvar::clock::id(), bincode::serialize(&src_clock).unwrap());
-        sysvar_cache.push_entry(
-            sysvar::epoch_schedule::id(),
-            bincode::serialize(&src_epochschedule).unwrap(),
-        );
-        sysvar_cache.push_entry(sysvar::fees::id(), bincode::serialize(&src_fees).unwrap());
-        sysvar_cache.push_entry(sysvar::rent::id(), bincode::serialize(&src_rent).unwrap());
+        sysvar_cache.set_clock(src_clock.clone());
+        sysvar_cache.set_epoch_schedule(src_epochschedule);
+        sysvar_cache.set_fees(src_fees.clone());
+        sysvar_cache.set_rent(src_rent);
 
         // Test clock sysvar
         {
