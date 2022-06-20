@@ -16,7 +16,7 @@ log = "0.4.14"
 rand = "0.7.0"
 solana-clap-utils = { path = "../clap-utils", version = "=1.9.29" }
 solana-download-utils = { path = "../download-utils", version = "=1.9.29" }
-solana-genesis-utils = { path = "../genesis-utils", version = "=1.9.29" }
+renec-genesis-utils = { path = "../genesis-utils", version = "=1.9.29" }
 solana-gossip = { path = "../gossip", version = "=1.9.29" }
 solana-ledger = { path = "../ledger", version = "=1.9.29" }
 solana-logger = { path = "../logger", version = "=1.9.29" }
@@ -28,7 +28,7 @@ solana-sdk = { path = "../sdk", version = "=1.9.29" }
 solana-send-transaction-service = { path = "../send-transaction-service", version = "=1.9.29" }
 solana-streamer = { path = "../streamer", version = "=1.9.29" }
 solana-version = { path = "../version", version = "=1.9.29" }
-solana-validator = { path = "../validator", version = "=1.9.29" }
+renec-validator = { path = "../validator", version = "=1.9.29" }
 
 [dev-dependencies]
 serial_test = "0.5.1"

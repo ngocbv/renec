@@ -1389,7 +1389,7 @@ pub fn main() {
                 .long("accountsdb-repl-port")
                 .value_name("PORT")
                 .takes_value(true)
-                .validator(solana_validator::port_validator)
+                .validator(renec_validator::port_validator)
                 .hidden(true)
                 .help("Enable AccountsDb Replication Service on this port"),
         )
