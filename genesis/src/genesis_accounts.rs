@@ -216,6 +216,23 @@ pub const COMMUNITY_STAKER_INFOS: &[StakerInfo] = &[
     },
 ];
 
+pub const REMITANO_STAKER_INFOS: &[StakerInfo] = &[
+    StakerInfo {
+        name: "remitano",
+        staker: "HyEVmBC7gYXaMzDCibu6Ahxp9A78XChoBGfpGJMk3Yq2",
+        lamports: 10_000_000 * LAMPORTS_PER_SOL,
+        withdrawer: Some("8XBnv8o7oqV1Cx5ZCm67pSgWjo4CSSaazJCnB8yg6Q6T"),
+    },
+];
+pub const MINERS_STAKER_INFOS: &[StakerInfo] = &[
+    StakerInfo {
+        name: "miners",
+        staker: "8XBnv8o7oqV1Cx5ZCm67pSgWjo4CSSaazJCnB8yg6Q6T",
+        lamports: 10_000_000 * LAMPORTS_PER_SOL,
+        withdrawer: Some("7GYXsHnr4CL2X6k5f1R6z694vPMyNgFu53vAQ69NsqxT"),
+    },
+];
+
 fn add_stakes(
     genesis_config: &mut GenesisConfig,
     staker_infos: &[StakerInfo],
@@ -231,37 +248,49 @@ pub fn add_genesis_accounts(genesis_config: &mut GenesisConfig, mut issued_lampo
     // add_stakes() and add_validators() award tokens for rent exemption and
     //  to cover an initial transfer-free period of the network
 
-    issued_lamports += add_stakes(
+    // issued_lamports += add_stakes(
+    //     genesis_config,
+    //     CREATOR_STAKER_INFOS, // 62_500_000 RENEC
+    //     &UNLOCKS_HALF_AT_9_MONTHS,
+    // ) + add_stakes(
+    //     genesis_config,
+    //     SERVICE_STAKER_INFOS, // 1_853_800 RENEC
+    //     &UNLOCKS_ALL_AT_9_MONTHS,
+    // ) + add_stakes(
+    //     genesis_config,
+    //     FOUNDATION_STAKER_INFOS, // 62_500_000 RENEC
+    //     &UNLOCKS_ALL_DAY_ZERO,
+    // ) + add_stakes(genesis_config, GRANTS_STAKER_INFOS, &UNLOCKS_ALL_DAY_ZERO) // 20_000_000 RENEC
+    //     + add_stakes(
+    //         genesis_config,
+    //         COMMUNITY_STAKER_INFOS, // 188_634_665 RENEC
+    //         &UNLOCKS_ALL_DAY_ZERO,
+    //     );
+    // Total: 335_488_465 RENEC
+
+    add_stakes(
         genesis_config,
-        CREATOR_STAKER_INFOS,
+        REMITANO_STAKER_INFOS,
         &UNLOCKS_HALF_AT_9_MONTHS,
-    ) + add_stakes(
+    );
+    add_stakes(
         genesis_config,
-        SERVICE_STAKER_INFOS,
-        &UNLOCKS_ALL_AT_9_MONTHS,
-    ) + add_stakes(
-        genesis_config,
-        FOUNDATION_STAKER_INFOS,
-        &UNLOCKS_ALL_DAY_ZERO,
-    ) + add_stakes(genesis_config, GRANTS_STAKER_INFOS, &UNLOCKS_ALL_DAY_ZERO)
-        + add_stakes(
-            genesis_config,
-            COMMUNITY_STAKER_INFOS,
-            &UNLOCKS_ALL_DAY_ZERO,
-        );
+        MINERS_STAKER_INFOS,
+        &UNLOCKS_HALF_AT_9_MONTHS,
+    );
 
     // "one thanks" (community pool) gets 500_000_000SOL (total) - above distributions
-    create_and_add_stakes(
-        genesis_config,
-        &StakerInfo {
-            name: "one thanks",
-            staker: "7vEAL3nS9CWmy1q6njUUyHE7Cf5RmyQpND6CsoHjzPiR",
-            lamports: (500_000_000 * LAMPORTS_PER_SOL).saturating_sub(issued_lamports),
-            withdrawer: Some("3FFaheyqtyAXZSYxDzsr5CVKvJuvZD1WE1VEsBtDbRqB"),
-        },
-        &UNLOCKS_ALL_DAY_ZERO,
-        None,
-    );
+    // create_and_add_stakes(
+    //     genesis_config,
+    //     &StakerInfo {
+    //         name: "one thanks",
+    //         staker: "7vEAL3nS9CWmy1q6njUUyHE7Cf5RmyQpND6CsoHjzPiR",
+    //         lamports: (500_000_000 * LAMPORTS_PER_SOL).saturating_sub(issued_lamports),
+    //         withdrawer: Some("3FFaheyqtyAXZSYxDzsr5CVKvJuvZD1WE1VEsBtDbRqB"),
+    //     },
+    //     &UNLOCKS_ALL_DAY_ZERO,
+    //     None,
+    // );
 }
 
 #[cfg(test)]
