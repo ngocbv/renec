@@ -10,8 +10,8 @@ use {
 const UNLOCKS_20_AT_BEGINNING: UnlockInfo = UnlockInfo {
     cliff_fraction: 0.2,
     cliff_years: 0.0,
-    unlocks: 60,
-    unlock_years: 5.0,
+    unlocks: 5,
+    unlock_years: 0.0001,
     custodian: "ELEGzPKyDtwBTJXkxSFAC3qQcmaYgvWRBAz6tsvxznCT",
 };
 // Yearly for 10 years
@@ -70,16 +70,16 @@ pub fn add_genesis_accounts(genesis_config: &mut GenesisConfig, mut issued_lampo
         REMITANO_STAKER_INFOS,
         &UNLOCKS_20_AT_BEGINNING,
     );
-    add_stakes(
-        genesis_config,
-        MINERS_STAKER_INFOS,
-        &UNLOCKS_20_AT_BEGINNING,
-    );
-    add_stakes(
-        genesis_config,
-        DAPPS_STAKER_INFOS,
-        &UNLOCKS_IN_10_YEARS,
-    );
+    // add_stakes(
+    //     genesis_config,
+    //     MINERS_STAKER_INFOS,
+    //     &UNLOCKS_20_AT_BEGINNING,
+    // );
+    // add_stakes(
+    //     genesis_config,
+    //     DAPPS_STAKER_INFOS,
+    //     &UNLOCKS_IN_10_YEARS,
+    // );
 }
 
 #[cfg(test)]
