@@ -17,22 +17,7 @@
   "graphTooltip": 0,
   "id": 2296,
   "iteration": 1616028833304,
-  "links": [
-    {
-      "icon": "dashboard",
-      "tags": [],
-      "title": "Beta",
-      "type": "link",
-      "url": "https://metrics.solana.com:3000/d/monitor-beta/cluster-telemetry-beta"
-    },
-    {
-      "icon": "dashboard",
-      "tags": [],
-      "title": "Edge",
-      "type": "link",
-      "url": "https://metrics.solana.com:3000/d/monitor-edge/cluster-telemetry-edge"
-    }
-  ],
+  "links": [],
   "panels": [
     {
       "collapsed": false,
@@ -4368,7 +4353,7 @@
       },
       "yaxes": [
         {
-          "format": "µs",
+          "format": "\u00b5s",
           "label": null,
           "logBase": 1,
           "max": null,
@@ -4663,7 +4648,7 @@
       },
       "yaxes": [
         {
-          "format": "µs",
+          "format": "\u00b5s",
           "label": null,
           "logBase": 1,
           "max": null,
@@ -4880,7 +4865,7 @@
       },
       "yaxes": [
         {
-          "format": "µs",
+          "format": "\u00b5s",
           "label": null,
           "logBase": 1,
           "max": null,
@@ -5299,7 +5284,7 @@
       },
       "yaxes": [
         {
-          "format": "µs",
+          "format": "\u00b5s",
           "label": null,
           "logBase": 1,
           "max": null,
@@ -5484,7 +5469,7 @@
       },
       "yaxes": [
         {
-          "format": "µs",
+          "format": "\u00b5s",
           "label": null,
           "logBase": 1,
           "max": null,
@@ -6507,7 +6492,7 @@
       },
       "yaxes": [
         {
-          "format": "µs",
+          "format": "\u00b5s",
           "label": null,
           "logBase": 1,
           "max": null,
@@ -6965,7 +6950,7 @@
       },
       "yaxes": [
         {
-          "format": "µs",
+          "format": "\u00b5s",
           "label": null,
           "logBase": 1,
           "max": null,
@@ -6973,7 +6958,7 @@
           "show": true
         },
         {
-          "format": "µs",
+          "format": "\u00b5s",
           "label": null,
           "logBase": 1,
           "max": null,
@@ -8659,7 +8644,7 @@
         },
         {
           "$$hashKey": "object:381",
-          "format": "µs",
+          "format": "\u00b5s",
           "label": null,
           "logBase": 1,
           "max": null,
@@ -9685,7 +9670,7 @@
       },
       "yaxes": [
         {
-          "format": "µs",
+          "format": "\u00b5s",
           "label": null,
           "logBase": 1,
           "max": null,
@@ -9977,7 +9962,7 @@
       "yaxes": [
         {
           "decimals": 0,
-          "format": "µs",
+          "format": "\u00b5s",
           "label": null,
           "logBase": 1,
           "max": null,
@@ -12963,7 +12948,7 @@
       "yaxes": [
         {
           "decimals": 0,
-          "format": "µs",
+          "format": "\u00b5s",
           "label": "",
           "logBase": 10,
           "max": null,
@@ -13747,7 +13732,7 @@
       },
       "yaxes": [
         {
-          "format": "µs",
+          "format": "\u00b5s",
           "label": null,
           "logBase": 1,
           "max": null,
@@ -13995,59 +13980,39 @@
           "text": "$datasource",
           "value": "$datasource"
         },
-        "description": null,
-        "error": null,
         "hide": 1,
-        "includeAll": false,
         "label": "Data Source",
-        "multi": false,
         "name": "datasource",
         "options": [],
         "query": "influxdb",
         "refresh": 1,
         "regex": "",
-        "skipUrlSync": false,
         "type": "datasource"
       },
       {
-        "allValue": ".*",
+        "allValue": null,
         "current": {
-          "selected": true,
-          "text": "Mainnet Beta",
+          "text": "mainnet-beta",
           "value": "mainnet-beta"
         },
-        "datasource": "$datasource",
-        "definition": "",
-        "description": null,
-        "error": null,
         "hide": 1,
         "includeAll": false,
         "label": "Testnet",
         "multi": false,
         "name": "testnet",
-        "options": [],
-        "query": "show databases",
-        "refresh": 1,
-        "regex": "(devnet|tds|mainnet-beta|testnet.*)",
-        "skipUrlSync": false,
-        "sort": 1,
-        "tagValuesQuery": "",
-        "tags": [],
-        "tagsQuery": "",
-        "type": "query",
-        "useTags": false
+        "options": [
+          {
+            "selected": true,
+            "text": "mainnet-beta",
+            "value": "mainnet-beta"
+          }
+        ],
+        "query": "testnet",
+        "type": "custom"
       },
       {
         "allValue": ".*",
-        "current": {
-          "selected": false,
-          "text": "All",
-          "value": "$__all"
-        },
         "datasource": "$datasource",
-        "definition": "",
-        "description": null,
-        "error": null,
         "hide": 0,
         "includeAll": true,
         "label": "HostID",
@@ -14057,7 +14022,6 @@
         "query": "SELECT DISTINCT(\"id\") FROM \"$testnet\".\"autogen\".\"validator-new\" ",
         "refresh": 2,
         "regex": "",
-        "skipUrlSync": false,
         "sort": 1,
         "tagValuesQuery": "",
         "tags": [],
@@ -14092,7 +14056,7 @@
     ]
   },
   "timezone": "",
-  "title": "Cluster Telemetry",
-  "uid": "monitor",
+  "title": "Local Cluster Monitor",
+  "uid": "local",
   "version": 2
 }

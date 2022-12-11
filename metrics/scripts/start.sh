@@ -105,6 +105,6 @@ docker run \
   --volume "$PWD"/lib/grafana-provisioning/:/etc/grafana/provisioning:ro \
   $GRAFANA_IMAGE
 
-sleep 5
+sleep 8
 
 ./status.sh
