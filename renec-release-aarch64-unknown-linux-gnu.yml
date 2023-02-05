@@ -1,0 +1,3 @@
+channel: v1.10.41
+commit: 33c0594a8f8714bcf8f1603668399a033abceb29
+target: aarch64-unknown-linux-gnu
