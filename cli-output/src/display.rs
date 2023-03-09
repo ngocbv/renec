@@ -3,7 +3,7 @@ use {
     chrono::{DateTime, Local, NaiveDateTime, SecondsFormat, TimeZone, Utc},
     console::style,
     indicatif::{ProgressBar, ProgressStyle},
-    solana_cli_config::SettingType,
+    renec_cli_config::SettingType,
     solana_sdk::{
         clock::UnixTimestamp,
         hash::Hash,
@@ -66,7 +66,7 @@ pub fn build_balance_message_with_config(
             let ess = if lamports == 1 { "" } else { "s" };
             format!(" lamport{}", ess)
         } else {
-            " SOL".to_string()
+            " RENEC".to_string()
         }
     } else {
         "".to_string()

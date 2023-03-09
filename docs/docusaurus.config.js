@@ -1,14 +1,14 @@
 const math = require("remark-math");
 const katex = require("rehype-katex");
 module.exports = {
-  title: "Solana Docs",
+  title: "Renec Docs",
   tagline:
-    "Solana is an open source project implementing a new, high-performance, permissionless blockchain.",
-  url: "https://docs.solana.com",
+    "Renec is an open source project implementing a new, high-performance, permissionless blockchain.",
+  url: "https://docs.renec.foundation",
   baseUrl: "/",
   favicon: "img/favicon.ico",
-  organizationName: "solana-labs", // Usually your GitHub org/user name.
-  projectName: "solana", // Usually your repo name.
+  organizationName: "remitano", // Usually your GitHub org/user name.
+  projectName: "renec", // Usually your repo name.
   onBrokenLinks: "throw",
   stylesheets: [
     {
@@ -46,20 +46,20 @@ module.exports = {
   },
   themeConfig: {
     navbar: {
-      logo: {
-        alt: "Solana Logo",
-        src: "img/logo-horizontal.svg",
-        srcDark: "img/logo-horizontal-dark.svg",
+      "logo": {
+        "alt": "Renec Logo",
+        "src": "img/logo-horizontal.png",
+        "srcDark": "img/logo-horizontal.png"
       },
       items: [
+        // {
+        //   to: "developing/programming-model/overview",
+        //   label: "Develop",
+        //   position: "left",
+        // },
         {
-          href: "https://spl.solana.com",
-          label: "Program Library »",
-          position: "left",
-        },
-        {
-          to: "developing/programming-model/overview",
-          label: "Develop",
+          to: "staking",
+          label: "Staking",
           position: "left",
         },
         {
@@ -68,29 +68,39 @@ module.exports = {
           position: "left",
         },
         {
-          to: "integrations/exchange",
-          label: "Integrate",
+          to: "renec-wallet",
+          label: "Renec wallet",
           position: "left",
         },
         {
-          to: "cluster/overview",
-          label: "Learn",
+          to: "rpl-token",
+          label: "Renec Program Library",
           position: "left",
         },
-        {
-          type: "localeDropdown",
-          position: "right",
-        },
-        {
-          href: "https://discordapp.com/invite/pquxPsq",
-          label: "Chat",
-          position: "right",
-        },
-        {
-          href: "https://github.com/solana-labs/solana",
-          label: "GitHub",
-          position: "right",
-        },
+        // {
+        //   to: "integrations/exchange",
+        //   label: "Integrate",
+        //   position: "left",
+        // },
+        // {
+        //   to: "cluster/overview",
+        //   label: "Learn",
+        //   position: "left",
+        // },
+        // {
+        //   type: 'localeDropdown',
+        //   position: 'right',
+        // },
+        // {
+        //   href: "https://discordapp.com/invite/pquxPsq",
+        //   label: "Chat",
+        //   position: "right",
+        // },
+        // {
+        //   href: "https://github.com/solana-labs/solana",
+        //   label: "GitHub",
+        //   position: "right",
+        // },
       ],
     },
     algolia: {
@@ -102,29 +112,35 @@ module.exports = {
     footer: {
       style: "dark",
       links: [
-        {
-          title: "Docs",
-          items: [
-            {
-              label: "Introduction",
-              to: "introduction",
-            },
-          ],
-        },
+        // {
+        //   title: "Docs",
+        //   items: [
+        //     {
+        //       label: "Introduction",
+        //       to: "introduction",
+        //     },
+        //   ],
+        // },
         {
           title: "Community",
           items: [
             {
-              label: "Discord",
-              href: "https://discordapp.com/invite/pquxPsq",
+              label: "Homepage",
+              href: "https://renec.foundation/",
             },
             {
               label: "Twitter",
-              href: "https://twitter.com/solana",
+              href: "https://twitter.com/RenecBlockchain",
             },
             {
-              label: "Forums",
-              href: "https://forums.solana.com",
+              label: "Telegram",
+              href: "https://t.me/renecblockchain",
+            },            {
+              label: "Reddit",
+              href: "https://www.reddit.com/r/renecblockchain",
+            },            {
+              label: "Discord",
+              href: "https://discord.gg/3DcncaVwxR",
             },
           ],
         },
@@ -133,12 +149,12 @@ module.exports = {
           items: [
             {
               label: "GitHub",
-              href: "https://github.com/solana-labs/solana",
+              href: "https://github.com/remitano/renec",
             },
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} Solana Foundation`,
+      copyright: `Copyright © ${new Date().getFullYear()} Renec Foundation`,
     },
   },
   presets: [

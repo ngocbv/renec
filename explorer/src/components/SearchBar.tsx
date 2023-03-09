@@ -1,7 +1,13 @@
 import React from "react";
 import bs58 from "bs58";
 import { useHistory, useLocation } from "react-router-dom";
-import Select, { InputActionMeta, ActionMeta, ValueType } from "react-select";
+import Select, {
+  InputActionMeta,
+  ActionMeta,
+  ValueType,
+  components,
+  ValueContainerProps,
+} from "react-select";
 import StateManager from "react-select";
 import {
   LOADER_IDS,
@@ -12,7 +18,10 @@ import {
 } from "utils/tx";
 import { Cluster, useCluster } from "providers/cluster";
 import { useTokenRegistry } from "providers/mints/token-registry";
-import { TokenInfoMap } from "@solana/spl-token-registry";
+import { TokenInfoMap } from "@ngocbv/rpl-token-registry";
+import { ReactComponent as SearchIcon } from "img/icons/search.svg";
+import { useTranslation } from "react-i18next";
+import i18n from "../i18n";
 
 export function SearchBar() {
   const [search, setSearch] = React.useState("");
@@ -21,6 +30,7 @@ export function SearchBar() {
   const location = useLocation();
   const { tokenRegistry } = useTokenRegistry();
   const { cluster, clusterInfo } = useCluster();
+  const { t } = useTranslation();
 
   const onChange = (
     { pathname }: ValueType<any, false>,
@@ -49,8 +59,8 @@ export function SearchBar() {
               tokenRegistry,
               clusterInfo?.epochInfo.epoch
             )}
-            noOptionsMessage={() => "No Results"}
-            placeholder="Search for blocks, accounts, transactions, programs, and tokens"
+            noOptionsMessage={() => t("no_results")}
+            placeholder={t("main_searchbar_title")}
             value={resetValue}
             inputValue={search}
             blurInputOnSelect
@@ -62,7 +72,11 @@ export function SearchBar() {
               input: (style) => ({ ...style, width: "100%" }),
             }}
             onInputChange={onInputChange}
-            components={{ DropdownIndicator }}
+            components={{
+              DropdownIndicator,
+              IndicatorSeparator,
+              ValueContainer,
+            }}
             classNamePrefix="search-bar"
           />
         </div>
@@ -84,7 +98,7 @@ function buildProgramOptions(search: string, cluster: Cluster) {
 
   if (matchedPrograms.length > 0) {
     return {
-      label: "Programs",
+      label: i18n.t("programs"),
       options: matchedPrograms.map(([address, { name }]) => ({
         label: name,
         value: [name, address],
@@ -113,7 +127,7 @@ function buildLoaderOptions(search: string) {
 
   if (matchedLoaders.length > 0) {
     return {
-      label: "Program Loaders",
+      label: i18n.t("program_loaders"),
       options: matchedLoaders.map(([id, name]) => ({
         label: name,
         value: [name, id],
@@ -135,7 +149,7 @@ function buildSysvarOptions(search: string) {
 
   if (matchedSysvars.length > 0) {
     return {
-      label: "Sysvars",
+      label: i18n.t("sysvars"),
       options: matchedSysvars.map(([id, name]) => ({
         label: name,
         value: [name, id],
@@ -157,7 +171,7 @@ function buildSpecialOptions(search: string) {
 
   if (matchedSpecialIds.length > 0) {
     return {
-      label: "Accounts",
+      label: i18n.t("account"),
       options: matchedSpecialIds.map(([id, name]) => ({
         label: name,
         value: [name, id],
@@ -185,7 +199,7 @@ function buildTokenOptions(
 
   if (matchedTokens.length > 0) {
     return {
-      label: "Tokens",
+      label: i18n.t("tokens"),
       options: matchedTokens.map(([id, details]) => ({
         label: details.name,
         value: [details.name, details.symbol, id],
@@ -233,7 +247,7 @@ function buildOptions(
 
   if (!isNaN(Number(search))) {
     options.push({
-      label: "Block",
+      label: i18n.t("block"),
       options: [
         {
           label: `Slot #${search}`,
@@ -245,7 +259,7 @@ function buildOptions(
 
     if (currentEpoch !== undefined && Number(search) <= currentEpoch + 1) {
       options.push({
-        label: "Epoch",
+        label: i18n.t("epoch"),
         options: [
           {
             label: `Epoch #${search}`,
@@ -264,7 +278,7 @@ function buildOptions(
     const decoded = bs58.decode(search);
     if (decoded.length === 32) {
       options.push({
-        label: "Account",
+        label: i18n.t("account"),
         options: [
           {
             label: search,
@@ -275,7 +289,7 @@ function buildOptions(
       });
     } else if (decoded.length === 64) {
       options.push({
-        label: "Transaction",
+        label: i18n.t("transaction"),
         options: [
           {
             label: search,
@@ -289,10 +303,22 @@ function buildOptions(
   return options;
 }
 
-function DropdownIndicator() {
+const DropdownIndicator = () => null;
+
+const IndicatorSeparator = () => null;
+
+const ValueContainer = ({
+  children,
+  ...props
+}: ValueContainerProps<any, any>) => {
   return (
-    <div className="search-indicator">
-      <span className="fe fe-search"></span>
-    </div>
+    components.ValueContainer && (
+      <components.ValueContainer {...props}>
+        <div className="d-flex flex-grow-1 align-items-center">
+          <SearchIcon />
+          {children}
+        </div>
+      </components.ValueContainer>
+    )
   );
-}
+};

@@ -10,7 +10,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto');
 
 :root {
-  --ifm-color-primary: #25c2a0;
+  --ifm-color-primary: #21D969;
   --ifm-color-primary-dark: #409088;
   --ifm-color-primary-darker: #387462;
   --ifm-color-primary-darkest: #1b4e3f;
@@ -20,7 +20,8 @@
   --ifm-code-font-size: 95%;
   --ifm-spacing-horizontal: 1em;
   --ifm-font-family-base: "Roboto", system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
-  --ifm-footer-background-color: #232323;
+  --ifm-footer-background-color: #060814;
+  --ifm-navbar-background-color: #12193D;
 }
 
 
@@ -51,6 +52,9 @@ main {
   box-shadow: 0 8px 28px 4px rgba(86,91,115,0.15);
 }
 
+.menu__link--active {
+  font-weight: bold;
+}
 
 .card a {
   text-decoration: none;
@@ -60,14 +64,22 @@ main {
   transform: translate(0px, -5px);
 }
 
-.footer--dark {
-  background-color: #232323 !important;
-}
-
 footer .text--center {
   padding: 2rem 0 0 0;
 }
 
-.card__header h3 {
-  color: #1DD79B;
+.navbar__item.navbar__link {
+  color: white;
+}
+
+.navbar__item.navbar__link:hover, .navbar__link.navbar__link--active {
+  color: var(--ifm-color-primary);
+}
+
+.navbar__brand img {
+  height: 24px;
+}
+
+.footer--dark {
+  background-color: #060814 !important;
 }

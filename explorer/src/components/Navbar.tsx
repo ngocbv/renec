@@ -1,18 +1,22 @@
 import React from "react";
-import Logo from "img/logos-solana/dark-explorer-logo.svg";
+import Logo from "img/logos/logo.png";
 import { clusterPath } from "utils/url";
 import { Link, NavLink } from "react-router-dom";
 import { ClusterStatusButton } from "components/ClusterStatusButton";
+import ToggleLanguage from "./common/ToggleLanguage";
+import { Dropdown } from "react-bootstrap";
+import { useTranslation } from "react-i18next";
 
 export function Navbar() {
   // TODO: use `collapsing` to animate collapsible navbar
   const [collapse, setCollapse] = React.useState(false);
+  const { t } = useTranslation();
 
   return (
     <nav className="navbar navbar-expand-md navbar-light">
       <div className="container">
-        <Link to={clusterPath("/")}>
-          <img src={Logo} width="250" alt="Solana Explorer" />
+        <Link to={clusterPath("/")} className="mr-2">
+          <img height={28} src={Logo} alt="RENEC Explorer" />
         </Link>
 
         <button
@@ -20,33 +24,35 @@ export function Navbar() {
           type="button"
           onClick={() => setCollapse((value) => !value)}
         >
-          <span className="navbar-toggler-icon"></span>
+          <i className="fe fe-menu" />
         </button>
 
-        <div
-          className={`collapse navbar-collapse ms-auto me-4 ${
-            collapse ? "show" : ""
-          }`}
-        >
+        <div className={`collapse navbar-collapse ${collapse ? "show" : ""}`}>
           <ul className="navbar-nav me-auto">
             <li className="nav-item">
               <NavLink className="nav-link" to={clusterPath("/")} exact>
-                Cluster Stats
+                {t("cluster_stats")}
               </NavLink>
             </li>
             <li className="nav-item">
               <NavLink className="nav-link" to={clusterPath("/supply")}>
-                Supply
+                {t("supply")}
               </NavLink>
             </li>
             <li className="nav-item">
               <NavLink className="nav-link" to={clusterPath("/tx/inspector")}>
-                Inspector
+                {t("inspector")}
               </NavLink>
             </li>
           </ul>
+          <Dropdown.Divider />
+          <div className="d-md-none d-flex justify-content-start px-3">
+            <ToggleLanguage />
+          </div>
         </div>
-
+        <div className="d-none d-md-flex">
+          <ToggleLanguage />
+        </div>
         <div className="d-none d-md-block">
           <ClusterStatusButton />
         </div>

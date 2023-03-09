@@ -17,7 +17,7 @@ use {
 
 #[tokio::main]
 async fn main() {
-    let default_keypair = solana_cli_config::Config::default().keypair_path;
+    let default_keypair = renec_cli_config::Config::default().keypair_path;
 
     solana_logger::setup_with_default("solana=info");
     solana_metrics::set_panic_hook("faucet", /*version:*/ None);
@@ -47,14 +47,14 @@ async fn main() {
                 .alias("cap")
                 .value_name("NUM")
                 .takes_value(true)
-                .help("Request limit for time slice, in SOL"),
+                .help("Request limit for time slice, in RENEC"),
         )
         .arg(
             Arg::with_name("per_request_cap")
                 .long("per-request-cap")
                 .value_name("NUM")
                 .takes_value(true)
-                .help("Request limit for a single request, in SOL"),
+                .help("Request limit for a single request, in RENEC"),
         )
         .arg(
             Arg::with_name("allowed_ip")

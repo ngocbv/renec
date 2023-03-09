@@ -63,9 +63,9 @@ case $deployMethod in
 local|tar|skip)
   PATH="$HOME"/.cargo/bin:"$PATH"
   export USE_INSTALL=1
-  solana_cli=solana
+  renec_cli=solana
   solana_gossip=solana-gossip
-  solana_install=solana-install
+  renec_install=renec-install
   ;;
 *)
   echo "Unknown deployment method: $deployMethod"
@@ -85,7 +85,7 @@ fi
 echo "--- $sanityTargetIp: validators"
 (
   set -x
-  $solana_cli --url http://"$sanityTargetIp":8899 validators
+  $renec_cli --url http://"$sanityTargetIp":8899 validators
 )
 
 echo "--- $sanityTargetIp: node count ($numSanityNodes expected)"
@@ -122,17 +122,17 @@ else
 fi
 
 if $installCheck && [[ -r update_manifest_keypair.json ]]; then
-  echo "--- $sanityTargetIp: solana-install test"
+  echo "--- $sanityTargetIp: renec-install test"
 
   (
     set -x
     rm -rf install-data-dir
-    $solana_install init \
+    $renec_install init \
       --no-modify-path \
       --data-dir install-data-dir \
       --url http://"$sanityTargetIp":8899 \
 
-    $solana_install info
+    $renec_install info
   )
 fi
 

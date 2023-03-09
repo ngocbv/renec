@@ -12,29 +12,25 @@ function Home() {
   const context = useDocusaurusContext();
   const { siteConfig = {} } = context;
   return (
-    <Layout title="Homepage" description="Solana Documentation">
+    <Layout title="Homepage" description="Renec Documentation">
       <main>
         <section className={styles.features}>
           <div className="container">
             <div className="row cards__container">
               <div className={clsx("col col--4", styles.feature)}>
-                <Link
-                  className="navbar__link"
-                  to="developing/programming-model/overview"
-                >
+                <Link className="navbar__link" to="staking">
                   <div className="card">
                     <div className="card__header">
                       <h3>
-                        <Translate description="start-building">
-                          ⛏ Start Building
+                        <Translate description="run-validator">
+                          Staking
                         </Translate>
                       </h3>
                     </div>
                     <div className="card__body">
                       <p>
-                        <Translate description="get-started-building">
-                          Get started building your decentralized app or
-                          marketplace.
+                        <Translate description="validate-transactions">
+                          Delegate RENEC to validators and get rewards
                         </Translate>
                       </p>
                     </div>
@@ -47,7 +43,7 @@ function Home() {
                     <div className="card__header">
                       <h3>
                         <Translate description="run-validator">
-                          🎛 Run a Validator Node
+                          Run a Validator Node
                         </Translate>
                       </h3>
                     </div>
@@ -63,65 +59,19 @@ function Home() {
                 </Link>
               </div>
               <div className={clsx("col col--4", styles.feature)}>
-                <Link
-                  className="navbar__link"
-                  to="https://spl.solana.com/token"
-                >
-                  <div className="card">
-                    <div className="card__header">
-                      <h3>
-                        <Translate description="create-spl">
-                          🏛 Create an SPL Token
-                        </Translate>
-                      </h3>
-                    </div>
-                    <div className="card__body">
-                      <p>
-                        <Translate description="erc-20">
-                          Launch your own SPL Token, Solana's equivalent of
-                          ERC-20.
-                        </Translate>
-                      </p>
-                    </div>
-                  </div>
-                </Link>
-              </div>
-              <div className={clsx("col col--4", styles.feature)}>
-                <Link className="navbar__link" to="integrations/exchange">
-                  <div className="card">
-                    <div className="card__header">
-                      <h3>
-                        <Translate description="integrate-exchange">
-                          🏦 Integrate an Exchange
-                        </Translate>
-                      </h3>
-                    </div>
-                    <div className="card__body">
-                      <p>
-                        <Translate description="integration-guide">
-                          Follow our extensive integration guide to ensure a
-                          seamless user experience.
-                        </Translate>
-                      </p>
-                    </div>
-                  </div>
-                </Link>
-              </div>
-              <div className={clsx("col col--4", styles.feature)}>
-                <Link className="navbar__link" to="wallet-guide">
+                <Link className="navbar__link" to="renec-wallet">
                   <div className="card">
                     <div className="card__header">
                       <h3>
                         <Translate description="manage-wallet">
-                          📲 Manage a Wallet
+                          Renec Wallet
                         </Translate>
                       </h3>
                     </div>
                     <div className="card__body">
                       <p>
                         <Translate description="wallet-options">
-                          Create a wallet, check your balance, and learn about
-                          wallet options.
+                          Create wallet and interact with Remitano network.
                         </Translate>
                       </p>
                     </div>
@@ -129,20 +79,20 @@ function Home() {
                 </Link>
               </div>
               <div className={clsx("col col--4", styles.feature)}>
-                <Link className="navbar__link" to="cluster/overview">
+                <Link className="navbar__link" to="rpl-token">
                   <div className="card">
                     <div className="card__header">
                       <h3>
-                        <Translate description="learn-how">
-                          🤯 Learn How Solana Works
+                        <Translate description="create-spl">
+                          Create an RPL Token
                         </Translate>
                       </h3>
                     </div>
                     <div className="card__body">
                       <p>
-                        <Translate description="high-level">
-                          Get a high-level understanding of Solana's
-                          architecture.
+                        <Translate description="erc-20">
+                          Launch your own RPL Token, Renec's equivalent of
+                          ERC-20.
                         </Translate>
                       </p>
                     </div>

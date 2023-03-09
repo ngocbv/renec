@@ -63,13 +63,13 @@ fi
 
 solana_bench_tps=$(solana_program bench-tps)
 solana_faucet=$(solana_program faucet)
-solana_validator=$(solana_program validator)
-solana_validator_cuda="$solana_validator --cuda"
-solana_genesis=$(solana_program genesis)
+renec_validator=$(solana_program validator)
+renec_validator_cuda="$renec_validator --cuda"
+renec_genesis=$(solana_program genesis)
 solana_gossip=$(solana_program gossip)
-solana_keygen=$(solana_program keygen)
+renec_keygen=$(solana_program keygen)
 solana_ledger_tool=$(solana_program ledger-tool)
-solana_cli=$(solana_program)
+renec_cli=$(solana_program)
 
 export RUST_BACKTRACE=1
 

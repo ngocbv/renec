@@ -11,7 +11,7 @@ use {
         input_validators::{is_amount, is_valid_pubkey, is_valid_signer},
         keypair::{pubkey_from_path, signer_from_path},
     },
-    solana_cli_config::CONFIG_FILE,
+    renec_cli_config::CONFIG_FILE,
     solana_remote_wallet::remote_wallet::maybe_wallet_manager,
     solana_sdk::native_token::sol_to_lamports,
     std::{error::Error, ffi::OsString, process::exit},
@@ -44,7 +44,7 @@ where
         )
         .subcommand(
             SubCommand::with_name("distribute-tokens")
-                .about("Distribute SOL")
+                .about("Distribute RENEC")
                 .arg(
                     Arg::with_name("db_path")
                         .long("db-path")
@@ -71,7 +71,7 @@ where
                         .takes_value(true)
                         .value_name("AMOUNT")
                         .validator(is_amount)
-                        .help("The amount to send to each recipient, in SOL"),
+                        .help("The amount to send to each recipient, in RENEC"),
                 )
                 .arg(
                     Arg::with_name("dry_run")
@@ -156,7 +156,7 @@ where
                         .long("unlocked-sol")
                         .takes_value(true)
                         .value_name("SOL_AMOUNT")
-                        .help("Amount of SOL to put in system account to pay for fees"),
+                        .help("Amount of RENEC to put in system account to pay for fees"),
                 )
                 .arg(
                     Arg::with_name("lockup_authority")
@@ -236,7 +236,7 @@ where
                         .long("unlocked-sol")
                         .takes_value(true)
                         .value_name("SOL_AMOUNT")
-                        .help("Amount of SOL to put in system account to pay for fees"),
+                        .help("Amount of RENEC to put in system account to pay for fees"),
                 )
                 .arg(
                     Arg::with_name("stake_authority")

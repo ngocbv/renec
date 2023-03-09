@@ -175,7 +175,7 @@ startNodes() {
 
       (
         set -x
-        $solana_cli --keypair config/bootstrap-validator/identity.json \
+        $renec_cli --keypair config/bootstrap-validator/identity.json \
           --url http://127.0.0.1:8899 genesis-hash
       ) | tee genesis-hash.log
       maybeExpectedGenesisHash="--expected-genesis-hash $(tail -n1 genesis-hash.log)"
@@ -202,8 +202,8 @@ killNodes() {
   # Try to use the RPC exit API to cleanly exit the first two nodes
   # (dynamic nodes, -x, are just killed)
   echo "--- RPC exit"
-  $solana_validator --ledger "$SOLANA_CONFIG_DIR"/bootstrap-validator exit --force || true
-  $solana_validator --ledger "$SOLANA_CONFIG_DIR"/validator exit --force || true
+  $renec_validator --ledger "$SOLANA_CONFIG_DIR"/bootstrap-validator exit --force || true
+  $renec_validator --ledger "$SOLANA_CONFIG_DIR"/validator exit --force || true
 
   # Give the nodes a splash of time to cleanly exit before killing them
   sleep 2
@@ -316,7 +316,7 @@ while [[ $iteration -le $iterations ]]; do
   (
     set -x
     client_keypair=/tmp/client-id.json-$$
-    $solana_keygen new --no-passphrase -fso $client_keypair || exit $?
+    $renec_keygen new --no-passphrase -fso $client_keypair || exit $?
     $solana_gossip spy -n 127.0.0.1:8001 --num-nodes-exactly $numNodes || exit $?
     rm -rf $client_keypair
   ) || flag_error

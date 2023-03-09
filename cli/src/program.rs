@@ -12,7 +12,7 @@ use {
     solana_account_decoder::{UiAccountEncoding, UiDataSliceConfig},
     solana_bpf_loader_program::{syscalls::register_syscalls, BpfError, ThisInstructionMeter},
     solana_clap_utils::{self, input_parsers::*, input_validators::*, keypair::*},
-    solana_cli_output::{
+    renec_cli_output::{
         CliProgram, CliProgramAccountType, CliProgramAuthority, CliProgramBuffer, CliProgramId,
         CliUpgradeableBuffer, CliUpgradeableBuffers, CliUpgradeableProgram,
         CliUpgradeableProgramClosed, CliUpgradeablePrograms,
@@ -176,7 +176,7 @@ impl ProgramSubCommands for App<'_, '_> {
                             Arg::with_name("allow_excessive_balance")
                                 .long("allow-excessive-deploy-account-balance")
                                 .takes_value(false)
-                                .help("Use the designated program id even if the account already holds a large balance of SOL")
+                                .help("Use the designated program id even if the account already holds a large balance of RENEC")
                         ),
                 )
                 .subcommand(
@@ -320,7 +320,7 @@ impl ProgramSubCommands for App<'_, '_> {
                             Arg::with_name("lamports")
                                 .long("lamports")
                                 .takes_value(false)
-                                .help("Display balance in lamports instead of SOL"),
+                                .help("Display balance in lamports instead of RENEC"),
                         ),
                 )
                 .subcommand(
@@ -345,7 +345,7 @@ impl ProgramSubCommands for App<'_, '_> {
                 )
                 .subcommand(
                     SubCommand::with_name("close")
-                        .about("Close a program or buffer account and withdraw all lamports")
+                        .about("Close a program or buffer account and withdraw all lamports. This command will destroy the program completely and CAN'T BE RECOVERED")
                         .arg(
                             Arg::with_name("account")
                                 .index(1)
@@ -380,7 +380,7 @@ impl ProgramSubCommands for App<'_, '_> {
                             Arg::with_name("lamports")
                                 .long("lamports")
                                 .takes_value(false)
-                                .help("Display balance in lamports instead of SOL"),
+                                .help("Display balance in lamports instead of RENEC"),
                         ),
                 )
         )
@@ -415,7 +415,7 @@ impl ProgramSubCommands for App<'_, '_> {
                     Arg::with_name("allow_excessive_balance")
                         .long("allow-excessive-deploy-account-balance")
                         .takes_value(false)
-                        .help("Use the designated program id, even if the account already holds a large balance of SOL")
+                        .help("Use the designated program id, even if the account already holds a large balance of RENEC")
                 )
                 .arg(
                     Arg::with_name("skip_fee_check")
@@ -2288,15 +2288,15 @@ fn report_ephemeral_mnemonic(words: usize, mnemonic: bip39::Mnemonic) {
         divider
     );
     eprintln!(
-        "`solana-keygen recover` and the following {}-word seed phrase:",
+        "`renec-keygen recover` and the following {}-word seed phrase:",
         words
     );
     eprintln!("{}\n{}\n{}", divider, phrase, divider);
     eprintln!("To resume a deploy, pass the recovered keypair as the");
-    eprintln!("[BUFFER_SIGNER] to `solana program deploy` or `solana program write-buffer'.");
+    eprintln!("[BUFFER_SIGNER] to `renec program deploy` or `renec program write-buffer'.");
     eprintln!("Or to recover the account's lamports, pass it as the");
     eprintln!(
-        "[BUFFER_ACCOUNT_ADDRESS] argument to `solana program close`.\n{}",
+        "[BUFFER_ACCOUNT_ADDRESS] argument to `renec program close`.\n{}",
         divider
     );
 }
@@ -2310,7 +2310,7 @@ mod tests {
             cli::{parse_command, process_command},
         },
         serde_json::Value,
-        solana_cli_output::OutputFormat,
+        renec_cli_output::OutputFormat,
         solana_sdk::signature::write_keypair_file,
     };
 

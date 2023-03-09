@@ -14,18 +14,28 @@ import { SupplyPage } from "pages/SupplyPage";
 import { TransactionDetailsPage } from "pages/TransactionDetailsPage";
 import { BlockDetailsPage } from "pages/BlockDetailsPage";
 import { EpochDetailsPage } from "pages/EpochDetailsPage";
+import Footer from "./components/Footer";
+import "./i18n";
+import { useTranslation } from "react-i18next";
 
 const ADDRESS_ALIASES = ["account", "accounts", "addresses"];
 const TX_ALIASES = ["txs", "txn", "txns", "transaction", "transactions"];
 
 function App() {
+  const { t } = useTranslation();
+
   return (
     <>
       <ClusterModal />
-      <div className="main-content pb-4">
+      <div className="main-content d-flex flex-column">
         <Navbar />
         <MessageBanner />
         <ClusterStatusBanner />
+        <div className="container mt-4 pt-md-4">
+          <h1 className="main-content__title">
+            {t("explore_renec_blockchain")}
+          </h1>
+        </div>
         <SearchBar />
         <Switch>
           <Route exact path={["/supply", "/accounts", "accounts/top"]}>
@@ -98,6 +108,7 @@ function App() {
             )}
           />
         </Switch>
+        <Footer />
       </div>
     </>
   );

@@ -1,12 +1,12 @@
 #![allow(clippy::integer_arithmetic)]
 use {
-    solana_cli::{
+    renec_cli::{
         check_balance,
         cli::{process_command, request_and_confirm_airdrop, CliCommand, CliConfig},
         spend_utils::SpendAmount,
         test_utils::check_ready,
     },
-    solana_cli_output::{parse_sign_only_reply_string, OutputFormat},
+    renec_cli_output::{parse_sign_only_reply_string, OutputFormat},
     solana_client::{
         blockhash_query::{self, BlockhashQuery},
         nonce_utils,

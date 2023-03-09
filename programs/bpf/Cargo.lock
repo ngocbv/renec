@@ -4175,7 +4175,7 @@ dependencies = [
  "solana-bpf-rust-invoke",
  "solana-bpf-rust-realloc",
  "solana-bpf-rust-realloc-invoke",
- "solana-cli-output",
+ "renec-cli-output",
  "solana-ledger",
  "solana-logger 1.10.41",
  "solana-measure",
@@ -4489,7 +4489,7 @@ dependencies = [
  "solana-program 1.10.41",
  "solana-program-test",
  "solana-sdk 1.10.41",
- "solana-validator",
+ "renec-validator",
 ]
 
 [[package]]
@@ -4568,7 +4568,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "solana-cli-config"
+name = "renec-cli-config"
 version = "1.10.41"
 dependencies = [
  "dirs-next",
@@ -4582,7 +4582,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "solana-cli-output"
+name = "renec-cli-output"
 version = "1.10.41"
 dependencies = [
  "Inflector",
@@ -4597,7 +4597,7 @@ dependencies = [
  "serde_json",
  "solana-account-decoder",
  "solana-clap-utils",
- "solana-cli-config",
+ "renec-cli-config",
  "solana-client",
  "solana-sdk 1.10.41",
  "solana-transaction-status",
@@ -4780,7 +4780,7 @@ dependencies = [
  "serde",
  "serde_derive",
  "solana-clap-utils",
- "solana-cli-config",
+ "renec-cli-config",
  "solana-logger 1.10.41",
  "solana-metrics",
  "solana-sdk 1.10.41",
@@ -4855,7 +4855,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "solana-genesis-utils"
+name = "renec-genesis-utils"
 version = "1.10.41"
 dependencies = [
  "solana-download-utils",
@@ -5097,7 +5097,7 @@ dependencies = [
  "solana-metrics",
  "solana-runtime",
  "solana-sdk 1.10.41",
- "solana-sys-tuner",
+ "renec-sys-tuner",
  "thiserror",
 ]
 
@@ -5607,7 +5607,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "solana-sys-tuner"
+name = "renec-sys-tuner"
 version = "1.10.41"
 dependencies = [
  "clap",
@@ -5629,7 +5629,7 @@ dependencies = [
  "log",
  "serde_derive",
  "serde_json",
- "solana-cli-output",
+ "renec-cli-output",
  "solana-client",
  "solana-core",
  "solana-gossip",
@@ -5671,7 +5671,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "solana-validator"
+name = "renec-validator"
 version = "1.10.41"
 dependencies = [
  "chrono",
@@ -5694,13 +5694,13 @@ dependencies = [
  "serde_json",
  "signal-hook",
  "solana-clap-utils",
- "solana-cli-config",
+ "renec-cli-config",
  "solana-client",
  "solana-core",
  "solana-download-utils",
  "solana-entry",
  "solana-faucet",
- "solana-genesis-utils",
+ "renec-genesis-utils",
  "solana-gossip",
  "solana-ledger",
  "solana-logger 1.10.41",

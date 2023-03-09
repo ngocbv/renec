@@ -23,12 +23,7 @@ export enum Cluster {
   Custom,
 }
 
-export const CLUSTERS = [
-  Cluster.MainnetBeta,
-  Cluster.Testnet,
-  Cluster.Devnet,
-  Cluster.Custom,
-];
+export const CLUSTERS = [Cluster.MainnetBeta, Cluster.Testnet, Cluster.Custom];
 
 export function clusterSlug(cluster: Cluster): string {
   switch (cluster) {
@@ -56,8 +51,9 @@ export function clusterName(cluster: Cluster): string {
   }
 }
 
-export const MAINNET_BETA_URL = clusterApiUrl("mainnet-beta");
-export const TESTNET_URL = clusterApiUrl("testnet");
+export const MAINNET_BETA_URL =
+  "https://api-mainnet-beta.renec.foundation:8899";
+export const TESTNET_URL = "https://api-testnet.renec.foundation:8899";
 export const DEVNET_URL = clusterApiUrl("devnet");
 
 export function clusterUrl(cluster: Cluster, customUrl: string): string {
@@ -65,15 +61,15 @@ export function clusterUrl(cluster: Cluster, customUrl: string): string {
     case Cluster.Devnet:
       return DEVNET_URL.replace("api", "explorer-api");
     case Cluster.MainnetBeta:
-      return MAINNET_BETA_URL.replace("api", "explorer-api");
+      return MAINNET_BETA_URL;
     case Cluster.Testnet:
-      return TESTNET_URL.replace("api", "explorer-api");
+      return TESTNET_URL;
     case Cluster.Custom:
       return customUrl;
   }
 }
 
-export const DEFAULT_CLUSTER = Cluster.MainnetBeta;
+export const DEFAULT_CLUSTER = Cluster.Testnet;
 const DEFAULT_CUSTOM_URL = "http://localhost:8899";
 
 type Action = State;

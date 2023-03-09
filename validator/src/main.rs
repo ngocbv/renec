@@ -72,7 +72,7 @@ use {
         self, MAX_BATCH_SEND_RATE_MS, MAX_TRANSACTION_BATCH_SIZE,
     },
     solana_streamer::socket::SocketAddrSpace,
-    solana_validator::{
+    renec_validator::{
         admin_rpc_service, bootstrap, dashboard::Dashboard, ledger_lockfile, lock_ledger,
         new_spinner_progress_bar, println_name_value, redirect_stderr_to_file,
     },
@@ -601,7 +601,7 @@ pub fn main() {
                 .long("rpc-port")
                 .value_name("PORT")
                 .takes_value(true)
-                .validator(solana_validator::port_validator)
+                .validator(renec_validator::port_validator)
                 .help("Enable JSON RPC on this port, and the next port for the RPC websocket"),
         )
         .arg(
@@ -820,7 +820,7 @@ pub fn main() {
                 .value_name("MIN_PORT-MAX_PORT")
                 .takes_value(true)
                 .default_value(default_dynamic_port_range)
-                .validator(solana_validator::port_range_validator)
+                .validator(renec_validator::port_range_validator)
                 .help("Range to use for dynamically assigned ports"),
         )
         .arg(
@@ -1441,7 +1441,7 @@ pub fn main() {
                 .long("accountsdb-repl-port")
                 .value_name("PORT")
                 .takes_value(true)
-                .validator(solana_validator::port_validator)
+                .validator(renec_validator::port_validator)
                 .hidden(true)
                 .help("Enable AccountsDb Replication Service on this port"),
         )
@@ -2118,7 +2118,7 @@ pub fn main() {
         let logfile = matches
             .value_of("logfile")
             .map(|s| s.into())
-            .unwrap_or_else(|| format!("solana-validator-{}.log", identity_keypair.pubkey()));
+            .unwrap_or_else(|| format!("renec-validator-{}.log", identity_keypair.pubkey()));
 
         if logfile == "-" {
             None
@@ -2795,7 +2795,7 @@ pub fn main() {
         if SystemMonitorService::check_os_network_limits() {
             info!("OS network limits test passed.");
         } else {
-            eprintln!("OS network limit test failed. solana-sys-tuner may be used to configure OS network limits. Bypass check with --no-os-network-limits-test.");
+            eprintln!("OS network limit test failed. renec-sys-tuner may be used to configure OS network limits. Bypass check with --no-os-network-limits-test.");
             exit(1);
         }
     }

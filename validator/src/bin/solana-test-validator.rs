@@ -29,7 +29,7 @@ use {
     },
     solana_streamer::socket::SocketAddrSpace,
     solana_test_validator::*,
-    solana_validator::{
+    renec_validator::{
         admin_rpc_service, dashboard::Dashboard, ledger_lockfile, lock_ledger, println_name_value,
         redirect_stderr_to_file,
     },
@@ -75,7 +75,7 @@ fn main() {
                 .value_name("PATH")
                 .takes_value(true)
                 .help("Configuration file to use");
-            if let Some(ref config_file) = *solana_cli_config::CONFIG_FILE {
+            if let Some(ref config_file) = *renec_cli_config::CONFIG_FILE {
                 arg.default_value(config_file)
             } else {
                 arg
@@ -146,7 +146,7 @@ fn main() {
                 .value_name("PORT")
                 .takes_value(true)
                 .default_value(&default_faucet_port)
-                .validator(solana_validator::port_validator)
+                .validator(renec_validator::port_validator)
                 .help("Enable the faucet on this port"),
         )
         .arg(
@@ -155,7 +155,7 @@ fn main() {
                 .value_name("PORT")
                 .takes_value(true)
                 .default_value(&default_rpc_port)
-                .validator(solana_validator::port_validator)
+                .validator(renec_validator::port_validator)
                 .help("Enable JSON RPC on this port, and the next port for the RPC websocket"),
         )
         .arg(
@@ -275,7 +275,7 @@ fn main() {
                 .long("dynamic-port-range")
                 .value_name("MIN_PORT-MAX_PORT")
                 .takes_value(true)
-                .validator(solana_validator::port_range_validator)
+                .validator(renec_validator::port_range_validator)
                 .help(
                     "Range to use for dynamically assigned ports \
                     [default: 1024-65535]",
@@ -347,10 +347,10 @@ fn main() {
             Arg::with_name("faucet_sol")
                 .long("faucet-sol")
                 .takes_value(true)
-                .value_name("SOL")
+                .value_name("RENEC")
                 .default_value(default_faucet_sol.as_str())
                 .help(
-                    "Give the faucet address this much SOL in genesis. \
+                    "Give the faucet address this much RENEC in genesis. \
                      If the ledger already exists then this parameter is silently ignored",
                 ),
         )
@@ -444,9 +444,9 @@ fn main() {
     // TODO: Ideally test-validator should *only* allow private addresses.
     let socket_addr_space = SocketAddrSpace::new(/*allow_private_addr=*/ true);
     let cli_config = if let Some(config_file) = matches.value_of("config_file") {
-        solana_cli_config::Config::load(config_file).unwrap_or_default()
+        renec_cli_config::Config::load(config_file).unwrap_or_default()
     } else {
-        solana_cli_config::Config::default()
+        renec_cli_config::Config::default()
     };
 
     let cluster_rpc_client = value_t!(matches, "json_rpc_url", String)
@@ -625,7 +625,7 @@ fn main() {
     } else if random_mint {
         println_name_value(
             "\nNotice!",
-            "No wallet available. `solana airdrop` localnet SOL after creating one\n",
+            "No wallet available. `solana airdrop` localnet RENEC after creating one\n",
         );
     }
 
