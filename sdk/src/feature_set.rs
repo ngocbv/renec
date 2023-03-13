@@ -114,7 +114,8 @@ pub mod neon_evm_compute_budget {
 }
 
 pub mod rent_for_sysvars {
-    solana_sdk::declare_id!("BKCPBQQBZqggVnFso5nQ8rQ4RwwogYwjuUt9biBjxwNF");
+    solana_sdk::declare_id!("97EUHhHxXZvTJxeB91C4WLDwEGhBCkpD1Jn6M7UgHo5E");
+    // solana_sdk::declare_id!("BKCPBQQBZqggVnFso5nQ8rQ4RwwogYwjuUt9biBjxwNF");
 }
 
 pub mod libsecp256k1_0_5_upgrade_enabled {
