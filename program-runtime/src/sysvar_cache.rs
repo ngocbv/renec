@@ -1,6 +1,7 @@
 #[allow(deprecated)]
 use solana_sdk::sysvar::{fees::Fees, recent_blockhashes::RecentBlockhashes};
 use {
+    log::*,
     crate::invoke_context::InvokeContext,
     solana_sdk::{
         account::{AccountSharedData, ReadableAccount},
@@ -110,6 +111,73 @@ impl SysvarCache {
 
     pub fn set_stake_history(&mut self, stake_history: StakeHistory) {
         self.stake_history = Some(Arc::new(stake_history));
+    }
+
+    pub fn fill_or_create_missing_entries<F: FnMut(&Pubkey) -> Option<AccountSharedData>, F2: FnMut(&Pubkey)>(
+        &mut self,
+        mut load_sysvar_account: F,
+        mut update_sysvar_account: F2
+    ) {
+        if self.get_clock().is_err() {
+            if let Some(clock) = load_sysvar_account(&Clock::id())
+                .and_then(|account| bincode::deserialize(account.data()).ok())
+            {
+                self.set_clock(clock);
+            }
+        }
+        if self.get_epoch_schedule().is_err() {
+            if let Some(epoch_schedule) = load_sysvar_account(&EpochSchedule::id())
+                .and_then(|account| bincode::deserialize(account.data()).ok())
+            {
+                self.set_epoch_schedule(epoch_schedule);
+            } else {
+                update_sysvar_account(&EpochSchedule::id());
+            }
+        }
+        #[allow(deprecated)]
+        if self.get_fees().is_err() {
+            if let Some(fees) = load_sysvar_account(&Fees::id())
+                .and_then(|account| bincode::deserialize(account.data()).ok())
+            {
+                self.set_fees(fees);
+            } else {
+                update_sysvar_account(&Fees::id());
+            }
+        }
+        if self.get_rent().is_err() {
+            if let Some(rent) = load_sysvar_account(&Rent::id())
+                .and_then(|account| bincode::deserialize(account.data()).ok())
+            {
+                self.set_rent(rent);
+            } else {
+                info!("sysvar rent account not found, re-initializing...");
+                update_sysvar_account(&Rent::id());
+            }
+        }
+        if self.get_slot_hashes().is_err() {
+            if let Some(slot_hashes) = load_sysvar_account(&SlotHashes::id())
+                .and_then(|account| bincode::deserialize(account.data()).ok())
+            {
+                self.set_slot_hashes(slot_hashes);
+            } else {
+                update_sysvar_account(&SlotHashes::id());
+            }
+        }
+        #[allow(deprecated)]
+        if self.get_recent_blockhashes().is_err() {
+            if let Some(recent_blockhashes) = load_sysvar_account(&RecentBlockhashes::id())
+                .and_then(|account| bincode::deserialize(account.data()).ok())
+            {
+                self.set_recent_blockhashes(recent_blockhashes);
+            }
+        }
+        if self.get_stake_history().is_err() {
+            if let Some(stake_history) = load_sysvar_account(&StakeHistory::id())
+                .and_then(|account| bincode::deserialize(account.data()).ok())
+            {
+                self.set_stake_history(stake_history);
+            }
+        }
     }
 
     pub fn fill_missing_entries<F: FnMut(&Pubkey) -> Option<AccountSharedData>>(

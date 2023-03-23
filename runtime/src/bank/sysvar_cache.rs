@@ -1,9 +1,37 @@
-use {super::Bank, solana_program_runtime::sysvar_cache::SysvarCache};
+use {
+    std::cmp::Ordering,
+    super::Bank, solana_program_runtime::sysvar_cache::SysvarCache,
+    solana_sdk::{
+        sysvar::{rent::Rent, epoch_schedule::EpochSchedule, fees::Fees, slot_hashes::SlotHashes, SysvarId}
+    },
+};
 
 impl Bank {
     pub(crate) fn fill_missing_sysvar_cache_entries(&self) {
         let mut sysvar_cache = self.sysvar_cache.write().unwrap();
-        sysvar_cache.fill_missing_entries(|pubkey| self.get_account_with_fixed_root(pubkey));
+        
+        // ~ 19:00:00 UTC+7 23/03/2023
+        if self.slot() == 12725000 {
+            sysvar_cache.fill_or_create_missing_entries(
+                |pubkey| self.get_account(pubkey),
+                |pubkey| {
+                    if pubkey.cmp(&EpochSchedule::id()) == Ordering::Equal {
+                        self.update_epoch_schedule();
+                    }
+                    if pubkey.cmp(&Fees::id()) == Ordering::Equal {
+                        self.update_fees();
+                    }
+                    if pubkey.cmp(&Rent::id()) == Ordering::Equal {
+                        self.update_rent();
+                    }
+                    if pubkey.cmp(&SlotHashes::id()) == Ordering::Equal {
+                        self.update_slot_hashes();
+                    }
+                }
+            );
+        } else {
+            sysvar_cache.fill_missing_entries(|pubkey| self.get_account_with_fixed_root(pubkey));
+        }
     }
 
     pub(crate) fn reset_sysvar_cache(&self) {
