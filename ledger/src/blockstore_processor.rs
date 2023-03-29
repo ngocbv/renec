@@ -613,6 +613,7 @@ pub(crate) fn process_blockstore_for_bank_0(
     accounts_update_notifier: Option<AccountsUpdateNotifier>,
 ) -> BankForks {
     // Setup bank for slot 0
+    warn!("ngocbv BEGIN Bank::new_with_paths");
     let bank0 = Bank::new_with_paths(
         genesis_config,
         account_paths,
@@ -625,6 +626,7 @@ pub(crate) fn process_blockstore_for_bank_0(
         opts.accounts_db_config.clone(),
         accounts_update_notifier,
     );
+    warn!("ngocbv END Bank::new_with_paths");
     let bank_forks = BankForks::new(bank0);
 
     info!("processing ledger for slot 0...");

@@ -116,6 +116,7 @@ pub fn load_bank_forks(
     };
 
     let (bank_forks, starting_snapshot_hashes) = if snapshot_present {
+        warn!("ngocbv BEGIN bank_forks_from_snapshot");
         bank_forks_from_snapshot(
             genesis_config,
             account_paths,
@@ -136,6 +137,7 @@ pub fn load_bank_forks(
         }
 
         info!("Processing ledger from genesis");
+        warn!("ngocbv Processing ledger from genesis");
         (
             blockstore_processor::process_blockstore_for_bank_0(
                 genesis_config,
@@ -161,6 +163,7 @@ pub fn load_bank_forks(
     assert_eq!(bank_forks.banks().len(), 1);
     let (pruned_banks_sender, pruned_banks_receiver) = unbounded();
     let root_bank = bank_forks.root_bank();
+    root_bank.update_rent();
     let callback = root_bank
         .rc
         .accounts
@@ -232,6 +235,10 @@ fn bank_forks_from_snapshot(
         )
         .expect("Load from snapshot failed");
 
+    warn!("ngocbv BEGIN deserialized_bank.update_rent");
+    // deserialized_bank.update_rent();
+    warn!("ngocbv END deserialized_bank.update_rent");
+
     if let Some(shrink_paths) = shrink_paths {
         deserialized_bank.set_shrink_paths(shrink_paths);
     }
@@ -242,6 +249,7 @@ fn bank_forks_from_snapshot(
             *full_snapshot_archive_info.hash(),
         ),
     };
+    warn!("ngocbv BEGIN starting_incremental_snapshot_hash");
     let starting_incremental_snapshot_hash =
         incremental_snapshot_archive_info.map(|incremental_snapshot_archive_info| {
             IncrementalSnapshotHash {
@@ -252,6 +260,7 @@ fn bank_forks_from_snapshot(
                 ),
             }
         });
+    warn!("ngocbv BEGIN starting_snapshot_hashes");
     let starting_snapshot_hashes = StartingSnapshotHashes {
         full: full_snapshot_hash,
         incremental: starting_incremental_snapshot_hash,

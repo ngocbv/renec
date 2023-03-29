@@ -1312,7 +1312,9 @@ fn load_blockstore(
 ) {
     info!("loading ledger from {:?}...", ledger_path);
     *start_progress.write().unwrap() = ValidatorStartProgress::LoadingLedger;
+    // Start validator from here
     let genesis_config = open_genesis_config(ledger_path, config.max_genesis_archive_unpacked_size);
+    warn!("ngocbv load_blockstore genesis_config");
 
     // This needs to be limited otherwise the state in the VoteAccount data
     // grows too large
@@ -1387,6 +1389,7 @@ fn load_blockstore(
             TransactionHistoryServices::default()
         };
 
+    warn!("ngocbv BEGIN bank_forks_utils::load_bank_forks");
     let (
         mut bank_forks,
         mut leader_schedule_cache,
@@ -1404,6 +1407,7 @@ fn load_blockstore(
             .as_ref(),
         accounts_update_notifier,
     );
+    warn!("ngocbv END bank_forks_utils::load_bank_forks");
 
     leader_schedule_cache.set_fixed_leader_schedule(config.fixed_leader_schedule.clone());
     bank_forks.set_snapshot_config(config.snapshot_config.clone());

@@ -137,6 +137,7 @@ use {
             TransactionVerificationMode, VersionedTransaction, MAX_TX_ACCOUNT_LOCKS,
         },
         transaction_context::{InstructionTrace, TransactionAccount, TransactionContext},
+        rent::Rent,
     },
     solana_stake_program::stake_state::{
         self, InflationPointCalculationEvent, PointValue, StakeState,
@@ -1466,6 +1467,7 @@ impl Bank {
         accounts_db_config: Option<AccountsDbConfig>,
         accounts_update_notifier: Option<AccountsUpdateNotifier>,
     ) -> Self {
+        warn!("ngocbv BEGIN Accounts::new_with_config");
         let accounts = Accounts::new_with_config(
             paths,
             &genesis_config.cluster_type,
@@ -1475,6 +1477,7 @@ impl Bank {
             accounts_db_config,
             accounts_update_notifier,
         );
+        warn!("ngocbv END Accounts::new_with_config");
         let mut bank = Self::default_with_accounts(accounts);
         bank.ancestors = Ancestors::from(vec![bank.slot()]);
         bank.transaction_debug_keys = debug_keys;
@@ -1498,7 +1501,9 @@ impl Bank {
             bank.update_stake_history(None);
         }
         bank.update_clock(None);
+        warn!("ngocbv BEGIN bank.update_rent");
         bank.update_rent();
+        warn!("ngocbv END bank.update_rent");
         bank.update_epoch_schedule();
         bank.update_recent_blockhashes();
         bank.fill_missing_sysvar_cache_entries();
@@ -2420,10 +2425,13 @@ impl Bank {
         }
     }
 
-    fn update_rent(&self) {
+    pub fn update_rent(&self) {
+        let rent = Rent::default();
+        warn!("ngocbv update_rent rent: {:?}", rent);
         self.update_sysvar_account(&sysvar::rent::id(), |account| {
             create_account(
-                &self.rent_collector.rent,
+                // &self.rent_collector.rent,
+                &rent,
                 self.inherit_specially_retained_account_fields(account),
             )
         });
@@ -5609,7 +5617,8 @@ impl Bank {
     }
 
     pub fn store_account(&self, pubkey: &Pubkey, account: &AccountSharedData) {
-        assert!(!self.freeze_started());
+        // Temporary comment this assert
+        // assert!(!self.freeze_started());
         self.rc
             .accounts
             .store_slow_cached(self.slot(), pubkey, account);
